@@ -1,0 +1,37 @@
+<style>
+	.injected {
+		display: inline-block;
+	}
+	.inject-into {
+		float: right;
+	}
+</style>
+
+<!-- BULIB-HOURS component -->
+<bulib-libsel><strong>MUGAR MEMORIAL |v|</strong></bulib-libsel>
+
+<!-- CHAT WIDGET -->
+<bulib-chat>CHAT</bulib-chat>
+
+<!-- MY ACCOUNT WIDGET -->
+<div id="bulib-acct">ACCT</div>
+
+<!-- simple html structure ordering modules -->
+<div id="topbar-widgets" class="inject-into">
+	<div id="bulib-libsel" class="injected"></div>//
+	<div id="bulib-chat" class="injected"></div>//
+	<bulib-acct></bulib-acct>
+</div>
+
+<script type="text/javascript">
+	// position structuring html into the brand bar
+	$("#topbar-widgets").insertAfter(".brand-site-description");
+
+	// populate brand bar with widgets
+	$("bulib-libsel").appendTo("#bulib-libsel");
+	$("bulib-chat").appendTo("#bulib-chat");
+	$("<strong>My Library Account</strong>").appendTo("bulib-acct");
+
+	// insert hours directly into navbar
+	$('<span style="color: #fff; float: right;">Library Hours: 7am - 2am</span>').insertAfter("ul#primaryNav-menu");
+</script>
