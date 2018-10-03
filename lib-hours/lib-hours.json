@@ -1,0 +1,371 @@
+[
+  {
+    "lid": 1475,
+    "name": "Mugar Library",
+    "category": "library",
+    "day": "Monday",
+    "desc": "",
+    "url": "http://www.bu.edu/library/mugar-memorial/about/hours/",
+    "contact": "",
+    "lat": "",
+    "long": "",
+    "color": "#000000",
+    "times": {
+      "currently_open": true,
+      "status": "open",
+      "hours": [
+        {
+          "from": "7am",
+          "to": "2am"
+        }
+      ]
+    },
+    "rendered": "7am - 2am",
+    "fn": ""
+  },
+  {
+    "lid": 1805,
+    "name": "— Circulation Desk",
+    "category": "department",
+    "day": "Monday",
+    "desc": "",
+    "url": "http://www.bu.edu/library/mugar-memorial/services/circulation/",
+    "contact": "",
+    "lat": "",
+    "long": "",
+    "color": "#000000",
+    "times": {
+      "currently_open": false,
+      "status": "text",
+      "text": "8am – Midnight"
+    },
+    "rendered": "8am – Midnight",
+    "parent_lid": 1475
+  },
+  {
+    "lid": 1478,
+    "name": "— Research Center (Reference Desk)",
+    "category": "department",
+    "day": "Monday",
+    "desc": "",
+    "url": "http://www.bu.edu/library/mugar-memorial/research/",
+    "contact": "",
+    "lat": "",
+    "long": "",
+    "color": "#97B2BD",
+    "times": {
+      "currently_open": true,
+      "status": "open",
+      "hours": [
+        {
+          "from": "9am",
+          "to": "8pm"
+        }
+      ]
+    },
+    "rendered": "9am - 8pm",
+    "parent_lid": 1475
+  },
+  {
+    "lid": 1806,
+    "name": "Hours for the IT Help Center @ Mugar",
+    "category": "department",
+    "day": "Monday",
+    "desc": "",
+    "url": "http://www.bu.edu/tech/about/help-center/hours/",
+    "contact": "<p>See http://www.bu.edu/tech/about/help-center/hours/ for full description of services.</p>",
+    "lat": "",
+    "long": "",
+    "color": "#000000",
+    "times": {
+      "currently_open": true,
+      "status": "open",
+      "hours": [
+        {
+          "from": "8am",
+          "to": "11pm"
+        }
+      ]
+    },
+    "rendered": "8am - 11pm",
+    "parent_lid": 1475
+  },
+  {
+    "lid": 1808,
+    "name": "— Public Scanners & Copiers",
+    "category": "department",
+    "day": "Monday",
+    "desc": "",
+    "url": "http://www.bu.edu/library/mugar-memorial/services/circulation/photocopy-services/",
+    "contact": "",
+    "lat": "",
+    "long": "",
+    "color": "#000000",
+    "times": {
+      "currently_open": false,
+      "status": "text",
+      "text": "8:00am — 1:45am"
+    },
+    "rendered": "8:00am — 1:45am",
+    "parent_lid": 1475
+  },
+  {
+    "lid": 1807,
+    "name": "— Scan/Copy Center Staffed",
+    "category": "department",
+    "day": "Monday",
+    "desc": "",
+    "url": "",
+    "contact": "",
+    "lat": "",
+    "long": "",
+    "color": "#000000",
+    "times": {
+      "currently_open": true,
+      "status": "open",
+      "hours": [
+        {
+          "from": "8am",
+          "to": "8pm"
+        }
+      ]
+    },
+    "rendered": "8am - 8pm",
+    "parent_lid": 1475
+  },
+  {
+    "lid": 1811,
+    "name": "— Krasker Film/Video Services & Microforms",
+    "category": "department",
+    "day": "Monday",
+    "desc": "",
+    "url": "http://www.bu.edu/library/mugar-memorial/research/krasker-filmvideo/",
+    "contact": "",
+    "lat": "",
+    "long": "",
+    "color": "#000000",
+    "times": {
+      "currently_open": true,
+      "status": "open",
+      "hours": [
+        {
+          "from": "8am",
+          "to": "11:45pm"
+        }
+      ]
+    },
+    "rendered": "8am - 11:45pm",
+    "parent_lid": 1475
+  },
+  {
+    "lid": 1809,
+    "name": "African Studies Library",
+    "category": "library",
+    "day": "Monday",
+    "desc": "<p>The African Studies Library (ASL) was founded in 1953 and is located on the 6th floor of the Mugar Memorial Library, accessible by the North elevator.&nbsp;Our primary function is to support Boston University&rsquo;s African Studies Center and all undergraduate, graduate, and faculty research on Africa. Students and faculty from area institutions and the general public are welcome&nbsp;to consult&nbsp;our extensive collections. In addition to our circulating Africana collections, the ASL also houses several special collections. Our staff provides a&nbsp;variety of services including reference assistance, library orientation and instruction, and individual consultations.</p>",
+    "url": "http://www.bu.edu/library/african-studies/about/hours/",
+    "contact": "",
+    "lat": "",
+    "long": "",
+    "color": "#000000",
+    "times": {
+      "currently_open": true,
+      "status": "open",
+      "hours": [
+        {
+          "from": "9am",
+          "to": "5pm"
+        }
+      ]
+    },
+    "rendered": "9am - 5pm",
+    "fn": ""
+  },
+  {
+    "lid": 1784,
+    "name": "Astronomy Library",
+    "category": "library",
+    "day": "Monday",
+    "desc": "",
+    "url": "http://www.bu.edu/library/astronomy/about/hours/",
+    "contact": "",
+    "lat": "",
+    "long": "",
+    "color": "#000000",
+    "times": {
+      "currently_open": true,
+      "status": "open",
+      "hours": [
+        {
+          "from": "9am",
+          "to": "5pm"
+        }
+      ]
+    },
+    "rendered": "9am - 5pm",
+    "fn": ""
+  },
+  {
+    "lid": 1810,
+    "name": "Music Library",
+    "category": "library",
+    "day": "Monday",
+    "desc": "",
+    "url": "http://www.bu.edu/library/music/about/hours/",
+    "contact": "",
+    "lat": "",
+    "long": "",
+    "color": "#DE4747",
+    "times": {
+      "currently_open": true,
+      "status": "open",
+      "hours": [
+        {
+          "from": "8:30am",
+          "to": "9pm"
+        }
+      ]
+    },
+    "rendered": "8:30am - 9pm",
+    "fn": ""
+  },
+  {
+    "lid": 1476,
+    "name": "Pardee Management Library",
+    "category": "library",
+    "day": "Monday",
+    "desc": "",
+    "url": "http://www.bu.edu/library/management/about/hours/",
+    "contact": "",
+    "lat": "",
+    "long": "",
+    "color": "#000000",
+    "times": {
+      "currently_open": true,
+      "status": "open",
+      "hours": [
+        {
+          "from": "8am",
+          "to": "11pm"
+        }
+      ]
+    },
+    "rendered": "8am - 11pm",
+    "fn": ""
+  },
+  {
+    "lid": 8928,
+    "name": "— Reference Desk",
+    "category": "department",
+    "day": "Monday",
+    "desc": "",
+    "url": "",
+    "contact": "",
+    "lat": "",
+    "long": "",
+    "color": "#000000",
+    "times": {
+      "currently_open": true,
+      "status": "open",
+      "hours": [
+        {
+          "from": "9am",
+          "to": "9pm"
+        }
+      ]
+    },
+    "rendered": "9am - 9pm",
+    "parent_lid": 1476
+  },
+  {
+    "lid": 1783,
+    "name": "Pickering Educational Resources Library",
+    "category": "library",
+    "day": "Monday",
+    "desc": "",
+    "url": "http://www.bu.edu/library/pickering-educational/about/hours",
+    "contact": "",
+    "lat": "",
+    "long": "",
+    "color": "#000000",
+    "times": {
+      "currently_open": true,
+      "status": "open",
+      "hours": [
+        {
+          "from": "8am",
+          "to": "10pm"
+        }
+      ]
+    },
+    "rendered": "8am - 10pm",
+    "fn": ""
+  },
+  {
+    "lid": 1477,
+    "name": "Science & Engineering Library",
+    "category": "library",
+    "day": "Monday",
+    "desc": "",
+    "url": "http://www.bu.edu/library/sel/about/hours",
+    "contact": "",
+    "lat": "",
+    "long": "",
+    "color": "#000000",
+    "times": {
+      "currently_open": false,
+      "status": "text",
+      "text": "8:00am - Midnight"
+    },
+    "rendered": "8:00am - Midnight",
+    "fn": ""
+  },
+  {
+    "lid": 1482,
+    "name": "— Reference Desk",
+    "category": "department",
+    "day": "Monday",
+    "desc": "",
+    "url": "",
+    "contact": "",
+    "lat": "",
+    "long": "",
+    "color": "#000",
+    "times": {
+      "currently_open": true,
+      "status": "open",
+      "hours": [
+        {
+          "from": "9:30am",
+          "to": "8pm"
+        }
+      ]
+    },
+    "rendered": "9:30am - 8pm",
+    "parent_lid": 1477
+  },
+  {
+    "lid": 1785,
+    "name": "Stone Science Library",
+    "category": "library",
+    "day": "Monday",
+    "desc": "",
+    "url": "http://www.bu.edu/library/stone-science/about/hours/",
+    "contact": "",
+    "lat": "",
+    "long": "",
+    "color": "#000000",
+    "times": {
+      "currently_open": true,
+      "status": "open",
+      "hours": [
+        {
+          "from": "9am",
+          "to": "9pm"
+        }
+      ]
+    },
+    "rendered": "9am - 9pm",
+    "fn": ""
+  }
+]
