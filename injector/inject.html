@@ -7,25 +7,21 @@
 	}
 </style>
 
+<!-- Lib Chat Widget -->
+<script type="text/javascript" src="https://v2.libanswers.com/load_chat.php?hash=0b9beff60316d9b71b1de06909bdf5c1"></script>
+
 <!-- BULIB-HOURS component -->
 <bulib-libsel><strong>MUGAR MEMORIAL |v|</strong></bulib-libsel>
-
-<!-- CHAT WIDGET -->
-<bulib-chat>CHAT</bulib-chat>
-
-<!-- MY ACCOUNT WIDGET -->
-<div id="bulib-acct">ACCT</div>
 
 <!-- simple html structure ordering modules -->
 <div id="topbar-widgets" class="inject-into">
 	<div id="bulib-libsel" class="injected"></div>//
-	<div id="bulib-chat" class="injected"></div>//
 	<bulib-acct></bulib-acct>
 </div>
 
 <script type="text/javascript">
 	// position structuring html into the brand bar
-	$("#topbar-widgets").insertAfter(".brand-site-description");
+	$("#topbar-widgets").appendTo(".brand");
 
 	// populate brand bar with widgets
 	$("bulib-libsel").appendTo("#bulib-libsel");
@@ -33,5 +29,5 @@
 	$("<strong>My Library Account</strong>").appendTo("bulib-acct");
 
 	// insert hours directly into navbar
-	$('<span style="color: #fff; float: right;">Library Hours: 7am - 2am</span>').insertAfter("ul#primaryNav-menu");
+	$('<span style="color: #fff; float: right; vertical-align: baseline;">Library Hours: 7am - 2am</span>').insertAfter("ul#primaryNav-menu");
 </script>
