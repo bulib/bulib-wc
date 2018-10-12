@@ -19,7 +19,7 @@ class BULoco extends LitElement {
 
     this.contacts = this._prepareContacts(myLocoso["contacts"][0] || {});
     this.address = myLocoso["location"]["address"] || [];
-    this.social = myLocoso["social"] || {};
+    this.social = this._prepareSocial(myLocoso["social"]);
 
     return html`
       <style> .no-bullet { list-style:none; } </style>
@@ -44,6 +44,10 @@ class BULoco extends LitElement {
           <ul class="no-bullet" aria-label="contact-links">
             ${this.contacts.map((c) => html`<li><a href="${c.url}">${c.text}</a></li>`)}
           </ul>
+          <h3>Follow Us</h3>
+          <ul class="no-bullet">
+            ${this.social.map((s) => html`<li><a href="${s.url}">${s.text}</a></li>`)}
+          </ul>
         </div>
       </div>
     `;
@@ -64,6 +68,23 @@ class BULoco extends LitElement {
       contacts.push( {"text":"email", "url":"mailto:"+rawContacts["email"] } );
     }
     return contacts;
+  }
+
+  _prepareSocial(rawSocial){
+    let social = [];
+    if(rawSocial["twitter"]){
+      social.push( {"text":"twitter", "url":"http://twitter.com/"+rawSocial["twitter"]} );
+    }
+    if(rawSocial["facebook"]){
+      social.push( {"text":"facebook", "url":"http://facebook.com/"+rawSocial["facebook"]} );
+    }
+    if(rawSocial["instagram"]){
+      social.push( {"text":"instagram", "url":"https://instagram.com/"+rawSocial["instagram"]} );
+    }
+    if(rawSocial["tumblr"]){
+      social.push( {"text":"tumblr", "url":"http://tumblr."+rawSocial["tumblr"]+".com/"} );
+    }
+    return social;
   }
 
 }
