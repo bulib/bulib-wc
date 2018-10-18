@@ -21,24 +21,34 @@ class BULocoso extends LitElement {
     this.address = myLocoso["location"]["address"] || [];
     this.social = this._prepareSocial(myLocoso["social"] || {});
 
+    let socialDisplay;
+    if(this.social.isEmpty()){ socialDisplay = html``; }
+    else{
+      socialDisplay= html`
+        <h3>Follow Us</h3>
+        <ul class="no-bullet">
+          ${this.social.map((s) => html`<li><a href="${s.url}">${s.text}</a></li>`)}
+        </ul>
+      `;
+    }
+
     return html`
       <style> .no-bullet { list-style:none; } </style>
       <div class="container">
         <div class="left">
           <h3>Come and Visit!</h3>
+          <a href="${'https://google.com/maps/place/q=' + encodeURI(this.address.join(" "));}">
           <ol class="no-bullet" aria-label="address">
             ${this.address.map((l) => html`<li>${l}</li>`)}
           </ol>
+          </a>
         </div>
         <div class="right">
           <h3>Contact Us</h3>
           <ul class="no-bullet" aria-label="contact-links">
             ${this.contacts.map((c) => html`<li><a href="${c.url}">${c.text}</a></li>`)}
           </ul>
-          <h3>Follow Us</h3>
-          <ul class="no-bullet">
-            ${this.social.map((s) => html`<li><a href="${s.url}">${s.text}</a></li>`)}
-          </ul>
+          ${socialDisplay}
         </div>
       </div>
     `;
@@ -46,17 +56,17 @@ class BULocoso extends LitElement {
 
   _prepareContacts(rawContacts){
     let contacts = [];
+    if(rawContacts["email"]){
+      contacts.push( {"text":"email", "url":"mailto:"+rawContacts["email"] } );
+    }
     if(rawContacts["phone"]){
       contacts.push( {"text":"call", "url":"tel:"+rawContacts["phone"]} );
-    }
-    if(rawContacts["fax"]){
-      contacts.push( {"text":"fax", "url":"fax:"+rawContacts["fax"] } );
     }
     if(rawContacts["text"]){
       contacts.push( {"text":"text", "url":"sms:"+rawContacts["text"] } );
     }
-    if(rawContacts["email"]){
-      contacts.push( {"text":"email", "url":"mailto:"+rawContacts["email"] } );
+    if(rawContacts["fax"]){
+      contacts.push( {"text":"fax", "url":"fax:"+rawContacts["fax"] } );
     }
     return contacts;
   }
