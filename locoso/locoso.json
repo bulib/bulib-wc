@@ -3,6 +3,7 @@
 		"location": {
 			"bu-maps-marker": 296,
 			"address": [
+        "Mugar Memorial Library",
 				"771 Commonwealth Avenue",
 				"Boston, MA 02215"
 			]
@@ -34,7 +35,8 @@
 		"location": {
 			"bu-maps-marker": 240,
 			"address": [
-				"771 Commonwealth Avenue, 6th Floor",
+				"African Studies Library",
+				"771 Commonwealth Ave, 6th Floor",
 				"Boston, MA, 02215"
 			]
 		},
@@ -43,7 +45,11 @@
 				"name": "African Studies",
 				"phone": "617-353-3726"
 			}
-		]
+		],
+		"social":{
+			"facebook":"BuAfricanStudiesLibrary",
+			"flickr":"123460528@N03"
+		}
 	},
 	"medlib": {
 		"location": {
@@ -98,7 +104,8 @@
 	"lawlibrary": {
 		"location": {
 			"address": [
-				"765 Commonwealth Avenue, 2nd Floor",
+				"Fineman & Pappas Law Libraries",
+				"765 Commonwealth Ave, 2nd Floor",
 				"Boston, MA 02215"
 			]
 		},
@@ -114,7 +121,7 @@
 		"location": {
 			"address": [
 				"Howard Gotlieb Archival Research Center",
-				"771 Commonwealth Avenue, 5th Floor",
+				"771 Commonwealth Ave, 5th Floor",
 				"Boston, MA 02215"
 			]
 		},
@@ -134,7 +141,8 @@
 		"location": {
 			"bu-maps-marker": 255,
 			"address": [
-				"771 Commonwealth Avenue, Floor 2",
+				"Music Library",
+				"771 Commonwealth Ave, Floor 2",
 				"Boston, MA 02215"
 			]
 		},
@@ -154,6 +162,7 @@
 		"location": {
 			"bu-maps-marker": 252,
 			"address": [
+				"Pardee Management Library",
 				"595 Commonwealth Avenue",
 				"Boston, MA 02215"
 			]
@@ -190,6 +199,7 @@
 		"location": {
 			"bu-maps-marker": 256,
 			"address": [
+				"Pickering Educational Resources Library",
 				"2 Silber Way",
 				"Boston, MA 02215"
 			]
@@ -209,6 +219,7 @@
 		"location": {
 			"bu-maps-marker": 257,
 			"address": [
+				"Science & Engineering Library",
 				"38 Cummington Mall",
 				"Boston, MA 02215"
 			]
@@ -249,7 +260,8 @@
 		"location": {
 			"bu-maps-marker": 258,
 			"address": [
-				"675 Commonwealth Avenue, Floor 2",
+				"Stone Science Library",
+				"675 Commonwealth Ave, Floor 2",
 				"Boston, MA 02445"
 			]
 		},
@@ -263,7 +275,8 @@
 	"sthlibrary": {
 		"location": {
 			"address": [
-				"745 Commonwealth Avenue, Floor 2",
+				"School of Theology Library",
+				"745 Commonwealth Ave, Floor 2",
 				"Boston, MA 02215"
 			]
 		},
