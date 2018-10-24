@@ -298,5 +298,23 @@
 			"facebook": "busthlibrary",
 			"instagram": "butheologylibrary"
 		}
+	},
+	"help": {
+		"location": {
+			"bu-maps-marker": 296,
+			"address": [
+        		"Mugar Memorial Library",
+				"771 Commonwealth Avenue",
+				"Boston, MA 02215"
+			]
+		},
+		"contacts": [
+			{
+				"name": "Help",
+				"phone": "617-353-2700",
+				"email": "ask@bu.edu",
+				"text": "617-431-2427"
+			}
+		]
 	}
 }

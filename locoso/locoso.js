@@ -64,10 +64,12 @@ class BULocoso extends LitElement {
             </li>
           </ol>
         </div>
-          <h3>Contact Us</h3>
-          <ul class="no-bullet" aria-label="contact-links">
-            ${this.contacts.map((c) => html`<li><a href="${c.url}">${c.text}</a></li>`)}
         <div>
+          <h3 class="inline">Contact Us</h3>
+          <ul class="no-bullet plm" aria-label="contact-links">
+            ${this.contacts.map((c) =>
+                html`<li class="inline ptn"><a class="button" href="${c.url}">${c.text}</a></li>`
+             )}
           </ul>
           ${socialDisplay}
         </div>
@@ -77,11 +79,11 @@ class BULocoso extends LitElement {
 
   _prepareContacts(rawContacts){
     let contacts = [];
-    if(rawContacts["email"]){
-      contacts.push( {"text":"email", "url":"mailto:"+rawContacts["email"] } );
-    }
     if(rawContacts["phone"]){
       contacts.push( {"text":"call", "url":"tel:"+rawContacts["phone"]} );
+    }
+    if(rawContacts["email"]){
+      contacts.push( {"text":"email", "url":"mailto:"+rawContacts["email"] } );
     }
     if(rawContacts["text"]){
       contacts.push( {"text":"text", "url":"sms:"+rawContacts["text"] } );
@@ -102,6 +104,9 @@ class BULocoso extends LitElement {
     }
     if(rawSocial["instagram"]){
       social.push( {"text":"instagram", "url":"https://instagram.com/"+rawSocial["instagram"]} );
+    }
+    if(rawSocial["flickr"]){
+      social.push( {"text":"flickr", "url":"https://www.flickr.com/photos/"+rawSocial["flickr"]} );
     }
     if(rawSocial["tumblr"]){
       social.push( {"text":"tumblr", "url":"http://tumblr."+rawSocial["tumblr"]+".com/"} );
