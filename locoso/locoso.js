@@ -1,4 +1,6 @@
-import {LitElement, html} from '@polymer/lit-element';
+i//import {LitElement, html} from '@polymer/lit-element';
+import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+
 
 class BULocoso extends LitElement {
 
