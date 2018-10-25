@@ -31,9 +31,13 @@ class BULocoso extends LitElement {
       socialDisplay= html`
         <h3>Follow Us</h3>
         <ul aria-description="list of social media accounts" class="no-bullet plm">
-          ${this.social.map((s) =>
-            html`<li class="inline"><a target="_blank" href="${s.url}">${s.text}</a></li>`
-          )}
+        ${this.social.map((s) => html`
+          <li class="inline">
+            <a target="_blank" href="${s.url}" title="${s.text}">
+              <img alt="${s.text} icon" style="width:30px;height:30px;" src="https://raw.githubusercontent.com/bulib/bulib-wc/master/assets/icons/icons8-${s.text}-48.png">
+            </a>
+          </li>`
+        )}
         </ul>
       `;
     }
@@ -70,7 +74,7 @@ class BULocoso extends LitElement {
           <h3 class="inline">Contact Us</h3>
           <ul class="no-bullet plm" aria-label="contact-links">
             ${this.contacts.map((c) =>
-                html`<li class="ptn"><a class="button" href="${c.url}">${c.text} ${c.val}</a></li>`
+                html`<li class="ptn">${c.text} <a class="button" href="${c.url}">${c.val}</a></li>`
              )}
           </ul>
           ${socialDisplay}
