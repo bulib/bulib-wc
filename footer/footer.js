@@ -30,7 +30,11 @@ class BUFooter extends LitElement {
         }
 
         .ftr-left { grid-column: 1; }
-        .ftr-middle { grid-column: 2; }
+        .ftr-middle {
+          grid-column: 2;
+          border-left: solid lightgrey 1px;
+          border-right: solid lightgrey 1px;
+        }
         .ftr-right { grid-column: 3; }
 
         /* style footer links */
