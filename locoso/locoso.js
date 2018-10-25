@@ -70,7 +70,7 @@ class BULocoso extends LitElement {
           <h3 class="inline">Contact Us</h3>
           <ul class="no-bullet plm" aria-label="contact-links">
             ${this.contacts.map((c) =>
-                html`<li class="inline ptn"><a class="button" href="${c.url}">${c.text}</a></li>`
+                html`<li class="ptn"><a class="button" href="${c.url}">${c.text} ${c.val}</a></li>`
              )}
           </ul>
           ${socialDisplay}
@@ -82,16 +82,16 @@ class BULocoso extends LitElement {
   _prepareContacts(rawContacts){
     let contacts = [];
     if(rawContacts["phone"]){
-      contacts.push( {"text":"call", "url":"tel:"+rawContacts["phone"]} );
+      contacts.push( {"text":"call", "url":"tel:"+rawContacts["phone"], "val":rawContacts["phone"]} );
     }
     if(rawContacts["email"]){
-      contacts.push( {"text":"email", "url":"mailto:"+rawContacts["email"] } );
+      contacts.push( {"text":"email", "url":"mailto:"+rawContacts["email"], "val":rawContacts["email"] } );
     }
     if(rawContacts["text"]){
-      contacts.push( {"text":"text", "url":"sms:"+rawContacts["text"] } );
+      contacts.push( {"text":"text", "url":"sms:"+rawContacts["text"], "val":rawContacts["text"] } );
     }
     if(rawContacts["fax"]){
-      contacts.push( {"text":"fax", "url":"fax:"+rawContacts["fax"] } );
+      contacts.push( {"text":"fax", "url":"fax:"+rawContacts["fax"], "val":rawContacts["fax"] } );
     }
     return contacts;
   }
