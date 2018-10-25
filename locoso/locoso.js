@@ -34,7 +34,7 @@ class BULocoso extends LitElement {
         ${this.social.map((s) => html`
           <li class="inline">
             <a target="_blank" href="${s.url}" title="${s.text}">
-              <img alt="${s.text} icon" style="width:30px;height:30px;" src="https://raw.githubusercontent.com/bulib/bulib-wc/master/assets/icons/icons8-${s.text}-48.png">
+              <img alt="${s.text} icon" class="sm-icon" src="https://raw.githubusercontent.com/bulib/bulib-wc/master/assets/icons/icons8-${s.text}-48.png">
             </a>
           </li>`
         )}
@@ -45,7 +45,7 @@ class BULocoso extends LitElement {
     return html`
       <style>
         h3 { margin-top: 0px; margin-bottom: 0px; }
-        ul, ol { margin-top: 5px; margin-bottom: 5px; }
+        ul, ol { margin-top: 5px; margin-bottom: 5px; padding-left: 0; }
         .no-bullet { list-style:none; }
         .inline { display: inline-block; padding-right: 5px;}
         .multi-column {
@@ -55,6 +55,8 @@ class BULocoso extends LitElement {
         }
         .left { float: left; }
         .prm { margin-right: 10px; padding-right: 10px; }
+        .sm-icon { width: 30px; height: 30px; }
+        .sm-icon:hover { width: 32px; height: 32px; }
       </style>
       <div>
         <div class="left prm">

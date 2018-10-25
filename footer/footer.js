@@ -53,7 +53,7 @@ class BUFooter extends LitElement {
           <div class="left pam">
             <div class="pam txtc">
               <a href="http://www.bu.edu/" title="Boston University Home"><img alt="boston university logo" src="http://www.bu.edu/academics/files/bu-logo.gif"></a>
-              <br />
+              <br /><br />
               <small><a href="http://www.bu.edu/copyright" title="Copyright">© Copyright ${new Date().getFullYear()}</a></small>
             </div>
           </div>
