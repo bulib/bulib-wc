@@ -1,4 +1,3 @@
-//import {LitElement, html} from '@polymer/lit-element';
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
 class BUFooter extends LitElement {
@@ -50,13 +49,15 @@ class BUFooter extends LitElement {
       </style>
       <footer>
         <div class="ftr-left">
+          <br />
           <div class="left pam">
-            <div class="txtc">
+            <div class="pam txtc">
               <a href="http://www.bu.edu/" title="Boston University Home"><img alt="boston university logo" src="http://www.bu.edu/academics/files/bu-logo.gif"></a>
               <br />
               <small><a href="http://www.bu.edu/copyright" title="Copyright">© Copyright ${new Date().getFullYear()}</a></small>
             </div>
           </div>
+          <br />
           <ul class="no-bullet pas">
             <li><a href="http://www.bu.edu/library/" title="Library Home">Library Home</a></li>
             <li><a href="https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=BU&sortby=rank&lang=en_US" title="Library Search">Search Content</a></li>
