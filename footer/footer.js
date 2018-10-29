@@ -16,26 +16,49 @@ class BUFooter extends LitElement {
   render() {
     return html`
       <style>
-        /* list styles */
-        .no-bullet > li { list-style:none; }
-        .inline-list > li { display: inline; padding-right: 5px;}
-
         /* footer grid and colors */
         footer {
           display: grid;
-          grid-template-columns: 1.5fr 2fr 3fr;
+          grid-template-columns: repeat(8, 1fr);
+          grid-auto-rows: minmax(50px, auto);
+          grid-template-areas:
+            "ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid"
+            "ftr-right ftr-right ftr-right ftr-right ftr-right ftr-right ftr-right ftr-right"
+            "ftr-left ftr-left ftr-left ftr-left ftr-left ftr-left ftr-left ftr-left";
           grid-gap: 10px;
           background-color: black;
           color: white;
         }
 
-        .ftr-left { grid-column: 1; }
-        .ftr-middle {
-          grid-column: 2;
-          border-left: solid lightgrey 1px;
-          border-right: solid lightgrey 1px;
+        /* medium-sized screen */
+        @media only screen and (min-width: 550px){
+          footer {
+            grid-template-areas:
+              "ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid"
+              "ftr-left ftr-left ftr-left ftr-right ftr-right ftr-right ftr-right ftr-right";
+          }
         }
-        .ftr-right { grid-column: 3; }
+
+        /* large-sized screen */
+        @media only screen and (min-width: 700px){
+          footer {
+            grid-template-areas: "ftr-left ftr-left ftr-mid ftr-mid ftr-mid ftr-right ftr-right ftr-right";
+          }
+          footer > ftr-middle {
+            border-left: solid lightgrey 1px;
+            border-right: solid lightgrey 1px;
+          }
+        }
+
+        /* map classes to grid areas */
+        .ftr-left { grid-area: ftr-left; }
+        .ftr-middle { grid-area: ftr-mid; }
+        .ftr-right {  grid-area: ftr-right; }
+
+
+        /* list styles */
+        .no-bullet > li { list-style:none; }
+        .inline-list > li { display: inline; padding-right: 5px;}
 
         /* style footer links */
         a, a:active, a:visited {
