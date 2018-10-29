@@ -1,0 +1,32 @@
+<!-- Polyfills only needed for Firefox and Edge. -->
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+
+<!-- pull in bulib-wc components -->
+<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/locoso/locoso.min.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/footer/footer.min.js" type="module"></script>
+
+<style>
+  h3 { margin-top: 0px; margin-bottom: 0px; }
+  ul, ol { margin-top: 5px; margin-bottom: 5px; }
+  .pam { padding: 10px; }
+  .white-link, .white-link:active, .white-link:visited {
+    color: white; font-weight: normal;
+  }
+  .white-link:hover { font-weight: bold; }
+  .multi-column {
+    column-gap: 40px;
+    column-count: 2;
+  }
+</style>
+
+<bulib-ftr>
+  <div slot="sitemap" class="pam">
+    <h3>Search Boston University Library Resources</h3>
+    <ul class="multi-column">
+      <li><a class="white-link" href="http://library.bu.edu/az.php">Databases</a></li>
+      <li><a class="white-link" href="https://www.bu.edu/library/help/bu-libraries-search/">Search Help</a></li>
+      <li><a class="white-link" href="https://www.bu.edu/library/help/bu-libraries-search/new-bu-libraries-search-features/">What's New</a></li>
+      <li><a class="white-link" href="https://buprimo.hosted.exlibrisgroup.com/primo-explore/browse?vid=BU">Browse</a></li>
+    </ul>
+  </div>
+</bulib-ftr>
