@@ -69,7 +69,7 @@ class BUFooter extends LitElement {
         h3 { margin-top: 0px; margin-bottom: 0px; }
         ul, ol { margin-top: 5px; margin-bottom: 5px; }
       </style>
-      <footer>
+      <footer class="pam">
         <div class="ftr-left">
           <br />
           <div class="left pam">
