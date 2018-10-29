@@ -44,7 +44,7 @@ class BUFooter extends LitElement {
           footer {
             grid-template-areas: "ftr-left ftr-left ftr-mid ftr-mid ftr-mid ftr-right ftr-right ftr-right";
           }
-          footer > ftr-middle {
+          footer > .ftr-middle {
             border-left: solid lightgrey 1px;
             border-right: solid lightgrey 1px;
           }
