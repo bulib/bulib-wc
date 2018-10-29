@@ -44,17 +44,12 @@ class BUFooter extends LitElement {
           footer {
             grid-template-areas: "ftr-left ftr-left ftr-mid ftr-mid ftr-mid ftr-right ftr-right ftr-right";
           }
-          footer > .ftr-middle {
-            border-left: solid lightgrey 1px;
-            border-right: solid lightgrey 1px;
-          }
         }
 
         /* map classes to grid areas */
-        .ftr-left { grid-area: ftr-left; }
-        .ftr-middle { grid-area: ftr-mid; }
-        .ftr-right {  grid-area: ftr-right; }
-
+        .ftr-left { grid-area: ftr-left; border: solid lightgrey 1px; }
+        .ftr-middle { grid-area: ftr-mid; border: solid lightgrey 1px; }
+        .ftr-right {  grid-area: ftr-right; border: solid lightgrey 1px; }
 
         /* list styles */
         .no-bullet > li { list-style:none; }
