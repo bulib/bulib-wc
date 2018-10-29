@@ -31,7 +31,7 @@ class BUFooter extends LitElement {
         }
 
         /* medium-sized screen */
-        @media only screen and (min-width: 550px){
+        @media only screen and (min-width: 600px){
           footer {
             grid-template-areas:
               "ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid"
@@ -40,7 +40,7 @@ class BUFooter extends LitElement {
         }
 
         /* large-sized screen */
-        @media only screen and (min-width: 700px){
+        @media only screen and (min-width: 850px){
           footer {
             grid-template-areas: "ftr-left ftr-left ftr-mid ftr-mid ftr-mid ftr-right ftr-right ftr-right";
           }
