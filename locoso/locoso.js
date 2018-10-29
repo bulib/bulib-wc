@@ -44,21 +44,28 @@ class BULocoso extends LitElement {
 
     return html`
       <style>
-        h3 { margin-top: 0px; margin-bottom: 0px; }
+        /* layout and responsiveness */
+        #locoso {
+          .left { flex: 1; padding-left: 30px; }
+          .right { flex: 2; padding-right: 30px; }
+        }
+        @media only screen and (min-width: 350px){
+          #locoso { display: flex; }
+          .left { flex: 1; }
+        }
+
+        /* list styles, */
         ul, ol { margin-top: 5px; margin-bottom: 5px; padding-left: 0; }
         .no-bullet { list-style:none; }
         .inline { display: inline-block; padding-right: 5px;}
-        .multi-column {
-          column-gap: 40px;
-          column-count: 2;
-          column-rule: 1px solid lightgrey;
-        }
-        .left { float: left; }
+
+        /* padding and margins */
+        h3 { margin-top: 0px; margin-bottom: 0px; }
         .prm { margin-right: 10px; padding-right: 10px; }
         .sm-icon { width: 30px; height: 30px; margin: 2px; }
         .sm-icon:hover { width: 32px; height: 32px; margin: 0px; }
       </style>
-      <div>
+      <div id="locoso">
         <div class="left prm">
           <h3 class="inline">Come and Visit!</h3>&nbsp;
           <ol class="no-bullet" aria-label="address">
