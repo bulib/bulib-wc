@@ -1,0 +1,17 @@
+/* -- padding and alignment -- */
+.pam { padding: 10px; }
+.left { float: left; }
+.txtc { text-align: center; }
+
+/* -- general styling -- */
+
+/* list styles */
+.no-bullet > li { list-style:none; }
+.inline-list > li { display: inline; padding-right: 5px;}
+
+/* '.white-link' used in footer */
+a.white-link, a.white-link:active, a.white-link:visited {
+  color: white;
+  font-weight: normal;
+}
+a.white-link:hover { font-weight: bold;}

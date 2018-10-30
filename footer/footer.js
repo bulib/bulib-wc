@@ -15,57 +15,9 @@ class BUFooter extends LitElement {
 
   render() {
     return html`
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/master/assets/css/common.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/master/assets/css/footer.css">
       <style>
-        /* footer grid and colors */
-        footer {
-          display: grid;
-          grid-template-columns: repeat(8, 1fr);
-          grid-auto-rows: minmax(50px, auto);
-          grid-template-areas:
-            "ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid"
-            "ftr-right ftr-right ftr-right ftr-right ftr-right ftr-right ftr-right ftr-right"
-            "ftr-left ftr-left ftr-left ftr-left ftr-left ftr-left ftr-left ftr-left";
-          grid-gap: 10px;
-          background-color: black;
-          color: white;
-        }
-
-        /* medium-sized screen */
-        @media only screen and (min-width: 600px){
-          footer {
-            grid-template-areas:
-              "ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid ftr-mid"
-              "ftr-left ftr-left ftr-left ftr-right ftr-right ftr-right ftr-right ftr-right";
-          }
-        }
-
-        /* large-sized screen */
-        @media only screen and (min-width: 850px){
-          footer {
-            grid-template-areas: "ftr-left ftr-left ftr-mid ftr-mid ftr-mid ftr-right ftr-right ftr-right";
-          }
-        }
-
-        /* map classes to grid areas */
-        .ftr-left { grid-area: ftr-left; border: solid lightgrey 1px; }
-        .ftr-middle { grid-area: ftr-mid; border: solid lightgrey 1px; }
-        .ftr-right {  grid-area: ftr-right; border: solid lightgrey 1px; }
-
-        /* list styles */
-        .no-bullet > li { list-style:none; }
-        .inline-list > li { display: inline; padding-right: 5px;}
-
-        /* style footer links */
-        a, a:active, a:visited {
-          color: white;
-          font-weight: normal;
-        }
-        a:hover { font-weight: bold;}
-
-        /* padding and alignment */
-        .pam { padding: 10px; }
-        .left { float: left; }
-        .txtc { text-align: center; }
         h3 { margin-top: 0px; margin-bottom: 0px; }
         ul, ol { margin-top: 5px; margin-bottom: 5px; }
       </style>
@@ -81,15 +33,15 @@ class BUFooter extends LitElement {
           </div>
           <br />
           <ul class="no-bullet pas">
-            <li><a href="http://www.bu.edu/library/" title="Library Home">Library Home</a></li>
-            <li><a href="https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=BU&sortby=rank&lang=en_US" title="Library Search">Search Content</a></li>
-            <li><a href="http://askalibrarian.bu.edu/" title="Help">Help</a></li>
+            <li><a class="white-link" href="http://www.bu.edu/library/" title="Library Home">Library Home</a></li>
+            <li><a class="white-link" href="https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=BU&sortby=rank&lang=en_US" title="Library Search">Search Content</a></li>
+            <li><a class="white-link" href="http://askalibrarian.bu.edu/" title="Help">Help</a></li>
           </ul>
         </div>
         <div class="ftr-middle"><slot id="sitemap" name="sitemap"></slot></div>
         <div class="ftr-right">
           <div class="pam">
-            <bu-locoso library="${this.library}"></bu-locoso>
+            <bu-locoso library="${this.library}" link_class="white-link"></bu-locoso>
           </div>
         </div>
       </footer>`;
