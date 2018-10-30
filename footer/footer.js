@@ -28,7 +28,7 @@ class BUFooter extends LitElement {
             <div class="pam txtc">
               <a href="http://www.bu.edu/" title="Boston University Home"><img alt="boston university logo" src="http://www.bu.edu/academics/files/bu-logo.gif"></a>
               <br /><br />
-              <small><a href="http://www.bu.edu/copyright" title="Copyright">© Copyright ${new Date().getFullYear()}</a></small>
+              <small><a class="white-link" href="http://www.bu.edu/copyright" title="Copyright">© Copyright ${new Date().getFullYear()}</a></small>
             </div>
           </div>
           <br />
@@ -40,9 +40,7 @@ class BUFooter extends LitElement {
         </div>
         <div class="ftr-middle"><slot id="sitemap" name="sitemap"></slot></div>
         <div class="ftr-right">
-          <div class="pam">
             <bu-locoso library="${this.library}" link_class="white-link"></bu-locoso>
-          </div>
         </div>
       </footer>`;
   }

@@ -31,13 +31,9 @@ class BULocoso extends LitElement {
     else{
       socialDisplay= html`
         <h3>Follow Us</h3>
-        <ul aria-description="list of social media accounts" class="no-bullet plm">
+        <ul aria-description="list of social media accounts" class="no-bullet inline-list plm">
         ${this.social.map((s) => html`
-          <li class="inline">
-            <a class="${this.link_class}" target="_blank" href="${s.url}" title="${s.text}">
-              <img alt="${s.text} icon" class="${this.link_class}" class="sm-icon" src="https://raw.githubusercontent.com/bulib/bulib-wc/master/assets/icons/icons8-${s.text}-48.png">
-            </a>
-          </li>`
+          <li><a class="${this.link_class}" target="_blank" href="${s.url}" title="${s.text}"><img alt="${s.text} icon" class="sm-icon ${this.link_class}" src="https://raw.githubusercontent.com/bulib/bulib-wc/master/assets/icons/icons8-${s.text}-48.png"></a></li>`
         )}
         </ul>
       `;
