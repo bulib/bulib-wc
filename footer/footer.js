@@ -15,9 +15,10 @@ class BUFooter extends LitElement {
 
   render() {
     return html`
-      <link rel="stylesheet" href="https://raw.githubusercontent.com/bulib/bulib-wc/master/assets/css/common.css">
-      <link rel="stylesheet" href="https://raw.githubusercontent.com/bulib/bulib-wc/master/assets/css/footer.css">
+      <link rel="import" type="text/css" href="https://raw.githubusercontent.com/bulib/bulib-wc/master/assets/css/common.css">
+      <link rel="import" type="text/css" href="https://raw.githubusercontent.com/bulib/bulib-wc/master/assets/css/footer.css">
       <style>
+        @import "../assets/
         h3 { margin-top: 0px; margin-bottom: 0px; }
         ul, ol { margin-top: 5px; margin-bottom: 5px; }
       </style>
