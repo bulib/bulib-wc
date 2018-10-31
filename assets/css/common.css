@@ -6,6 +6,7 @@
 .multi-column {
   column-gap: 40px;
   column-count: 2;
+  padding-inline-start: 0px;
 }
 
 /* -- general styling -- */

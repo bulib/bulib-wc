@@ -28,11 +28,6 @@ footer {
   }
 }
 
-/* list styling: (no left indent) */
-footer > ul.ftr-list, footer > ol.ftr-list {
-  padding-left: 0px;
-}
-
 /* map classes to grid areas */
 .ftr-left   { grid-area: ftr-lt; }
 .ftr-middle { grid-area: ftr-md; }
