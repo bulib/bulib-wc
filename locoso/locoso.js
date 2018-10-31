@@ -60,7 +60,7 @@ class BULocoso extends LitElement {
       </style>
       <div id="locoso">
         <div class="left prm">
-          <h3 class="inline">Come and Visit!</h3>&nbsp;
+          <h3 class="inline">Visit Us</h3>&nbsp;
           <ol class="no-bullet" aria-label="address">
             ${this.address.map((l) => html`<li>${l}</li>`)}
             <li>
