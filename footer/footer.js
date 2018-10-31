@@ -18,8 +18,6 @@ class BUFooter extends LitElement {
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/assets/css/common.min.css">
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/assets/css/footer.min.css">
       <style>
-        #bu-content { padding-top: 10px; }
-        .bu-logo { margin-top: 7px; }
         :host h3, h3 { margin-top: 0px; margin-bottom: 0px; }
         ul, ol { margin-top: 5px; margin-bottom: 5px; }
       </style>
