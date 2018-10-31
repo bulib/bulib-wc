@@ -32,3 +32,4 @@ footer {
 .ftr-left   { grid-area: ftr-lt; border: solid lightgrey 1px; }
 .ftr-middle { grid-area: ftr-md; border: solid lightgrey 1px; }
 .ftr-right  { grid-area: ftr-rt; border: solid lightgrey 1px; }
+.ftr-left > div, .ftr-middle > div, .ftr-right > div { margin: 6%; }

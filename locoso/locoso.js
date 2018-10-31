@@ -42,10 +42,8 @@ class BULocoso extends LitElement {
     return html`
       <style>
         /* layout and responsiveness */
-        #locoso {
-          .left { flex: 1; padding-left: 30px; }
-          .right { flex: 2; padding-right: 30px; }
-        }
+        #locoso.left { flex: 1; padding-left: 30px; }
+        #locoso.right { flex: 2; padding-right: 30px; }
         @media only screen and (min-width: 350px){
           #locoso { display: flex; }
           .left { flex: 1; }
@@ -76,9 +74,9 @@ class BULocoso extends LitElement {
         </div>
         <div>
           <h3 class="inline">Contact Us</h3>
-          <ul class="no-bullet plm" aria-label="contact-links">
+          <ul class="no-bullet" aria-label="contact-links">
             ${this.contacts.map((c) =>
-                html`<li class="ptn">${c.text} <a class="${this.link_class}" href="${c.url}">${c.val}</a></li>`
+                html`<li>${c.text} <a class="${this.link_class}" href="${c.url}">${c.val}</a></li>`
              )}
           </ul>
           ${socialDisplay}
