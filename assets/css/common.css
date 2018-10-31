@@ -2,6 +2,11 @@
 .pam { padding: 10px; }
 .left { float: left; }
 .txtc { text-align: center; }
+.inline { display: inline-block; }
+.multi-column {
+  column-gap: 40px;
+  column-count: 2;
+}
 
 /* -- general styling -- */
 
@@ -17,4 +22,4 @@ a.white-link, a.white-link:active, a.white-link:visited {
 a.white-link:hover { font-weight: bold;}
 
 /* etc */
-.bu-logo { padding-right: 30px; }
+.bu-logo { padding-right: 25px; }
