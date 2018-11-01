@@ -303,7 +303,7 @@
 		"location": {
 			"bu-maps-marker": 296,
 			"address": [
-        		"Mugar Memorial Library",
+    		"Mugar Memorial Library",
 				"771 Commonwealth Avenue",
 				"Boston, MA 02215"
 			]
@@ -315,6 +315,9 @@
 				"email": "ask@bu.edu",
 				"text": "617-431-2427"
 			}
-		]
+		],
+		"social":{
+			"twitter": "BULibNews"
+		}
 	}
 }
