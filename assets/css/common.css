@@ -1,10 +1,11 @@
 /* -- padding and alignment -- */
 .pam { padding: 10px; }
+.ptl { padding-top: 15px; }
 .left { float: left; }
 .txtc { text-align: center; }
 .inline { display: inline-block; }
 .multi-column {
-  column-gap: 40px;
+  column-gap: 5%;
   column-count: 2;
   padding-inline-start: 0px;
 }
@@ -18,6 +19,7 @@
 /* '.white-link' used in footer */
 a.white-link, a.white-link:active, a.white-link:visited {
   color: white;
+  text-decoration: underline;
   font-weight: normal;
 }
 a.white-link:hover { font-weight: bold;}
