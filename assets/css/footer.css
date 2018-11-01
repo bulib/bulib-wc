@@ -33,3 +33,8 @@ footer {
 .ftr-middle { grid-area: ftr-md; }
 .ftr-right  { grid-area: ftr-rt; }
 .ftr-left > div, .ftr-middle > div, .ftr-right > div { margin: 6%; }
+
+/* etc */
+.bu-logo { padding-right: 25px; }
+#bulib-ftr > * h3 { margin-top: 0px; margin-bottom: 0px; text-align: center; }
+#bulib-ftr > * ul, ol { margin-top: 5px; margin-bottom: 5px; }

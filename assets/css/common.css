@@ -22,7 +22,4 @@ a.white-link, a.white-link:active, a.white-link:visited {
   text-decoration: underline;
   font-weight: normal;
 }
-a.white-link:hover { font-weight: bold;}
-
-/* etc */
-.bu-logo { padding-right: 25px; }
+a.white-link:hover { font-weight: bold; text-decoration: underline; }
