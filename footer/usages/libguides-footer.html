@@ -10,23 +10,24 @@
 <script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/footer/footer.min.js" type="module"></script>
 
 <style type="text/css">
-  #sitemap { border-left: lightgrey 1px; }
   h3 { margin-top: 0px; margin-bottom: 0px; text-align: center; }
   ul, ol { margin-top: 5px; margin-bottom: 5px; }
+
+  /* style the 'Powered by Springshare' band 'Login to LibApps' link */
   .s-lib-footer { background-color: black !important; }
+  #s-lib-footer-login-link > a, #s-lib-footer-login-link > a:visited { color: white; text-decoration: underline; }
+  #s-lib-footer-login-link > a:hover { font-weight: bold; }
 </style>
 
-<div class="container">
-  <bulib-ftr library="mugar-memorial">
-    <div slot="sitemap" id="sitemap">
-      <h3>Ask a Librarian</h3>
-      <ul class="multi-column no-bullet">
-        <li><a class="white-link" href="http://askalibrarian.bu.edu/ask">How to use the site</a></li>
-        <li><a class="white-link" href="http://library.bu.edu/guides">Research Guides by Subject</a></li>
-        <li><a class="white-link" href="http://www.bu.edu/library/research/guides/course-guides/">Course Guides</a></li>
-        <li><a class="white-link" href="http://www.bu.edu/library/help/how-to/">How-To Guides</a></li>
-        <li><a class="white-link" href="http://askalibrarian.bu.edu/businessFAQs/">Pardee Management Library FAQs</a></li>
-      </ul>
-    </div>
-  </bulib-ftr>
-</div>
+<bulib-ftr library="help">
+  <div slot="sitemap" id="sitemap">
+    <h3>Ask a Librarian</h3>
+    <ul class="multi-column no-bullet">
+      <li><a class="white-link" href="https://library.bu.edu/guides">Research Guides by Subject</a></li>
+      <li><a class="white-link" href="https://www.bu.edu/library/research/guides/course-guides/">Course Guides</a></li>
+      <li><a class="white-link" href="https://www.bu.edu/library/help/how-to/">How-To Guides</a></li>
+      <li><a class="white-link" href="https://askalibrarian.bu.edu/businessFAQs/">Pardee Management Library FAQs</a></li>
+      <li><a class="white-link" href="https://www.bu.edu/library/services/reference/appointments/">Make a Research Appointment</a></li>
+    </ul>
+  </div>
+</bulib-ftr>

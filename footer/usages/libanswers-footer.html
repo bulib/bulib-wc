@@ -1,0 +1,30 @@
+
+<!-- styling -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/assets/css/common.min.css">
+
+<!-- Polyfills only needed for Firefox and Edge. -->
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@next/webcomponents-loader.js"></script>
+
+<!-- pull in bulib-wc components -->
+<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/locoso/locoso.min.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/footer/footer.min.js" type="module"></script>
+
+<style type="text/css">
+  h3 { margin-top: 0px; margin-bottom: 0px; text-align: center; }
+  ul, ol { margin-top: 5px; margin-bottom: 5px; }
+</style>
+
+<div class="container">
+  <bulib-ftr library="help">
+    <div slot="sitemap" id="sitemap">
+      <h3>Ask a Librarian</h3>
+      <ul class="multi-column no-bullet">
+        <li><a class="white-link" href="https://library.bu.edu/guides">Research Guides by Subject</a></li>
+        <li><a class="white-link" href="https://www.bu.edu/library/research/guides/course-guides/">Course Guides</a></li>
+        <li><a class="white-link" href="https://www.bu.edu/library/help/how-to/">How-To Guides</a></li>
+        <li><a class="white-link" href="https://askalibrarian.bu.edu/businessFAQs/">Pardee Management Library FAQs</a></li>
+        <li><a class="white-link" href="https://www.bu.edu/library/services/reference/appointments/">Make a Research Appointment</a></li>
+      </ul>
+    </div>
+  </bulib-ftr>
+</div>
