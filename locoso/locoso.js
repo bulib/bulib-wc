@@ -55,8 +55,8 @@ class BULocoso extends LitElement {
         /* padding and margins */
         h3 { margin-top: 0px; margin-bottom: 0px; }
         .prm { margin-right: 10px; padding-right: 10px; }
-        .sm-icon { width: 30px; height: 30px; padding: 2px; }
-        .sm-icon:hover { width: 32px; height: 32px; padding: 0px; }
+        .sm-icon { width: 30px; height: 30px; border: solid transparent 1px; }
+        .sm-icon:hover { width: 30px; height: 30px; border: solid white 1px; }
       </style>
       <div id="locoso">
         <div class="left prm">
