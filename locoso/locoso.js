@@ -1,5 +1,4 @@
-//import {LitElement, html} from '@polymer/lit-element';
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import {LitElement, html} from 'https://cdn.jsdelivr.net/npm/@polymer/lit-element@0.6.2/lit-element.min.js';
 
 
 class BULocoso extends LitElement {
@@ -32,8 +31,9 @@ class BULocoso extends LitElement {
       socialDisplay= html`
         <h3>Follow Us</h3>
         <ul aria-description="list of social media accounts" class="no-bullet inline-list plm">
-        ${this.social.map((s) => html`
-          <li><a class="${this.link_class}" target="_blank" href="${s.url}" title="${s.text}"><img alt="${s.text} icon" class="sm-icon ${this.link_class}" src="https://raw.githubusercontent.com/bulib/bulib-wc/master/assets/icons/icons8-${s.text}-48.png"></a></li>`
+        ${this.social.map((s) =>
+          html`<li><a class="${this.link_class}" target="_blank" href="${s.url}" title="${s.text}"><img alt="${s.text} icon" class="sm-icon ${this.link_class}"
+                      src="https://raw.githubusercontent.com/bulib/bulib-wc/master/assets/icons/icons8-${s.text}-48.png"></a></li>`
         )}
         </ul>
       `;

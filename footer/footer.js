@@ -1,4 +1,4 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import {LitElement, html} from 'https://cdn.jsdelivr.net/npm/@polymer/lit-element@0.6.2/lit-element.min.js';
 
 class BUFooter extends LitElement {
 
