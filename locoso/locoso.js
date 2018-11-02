@@ -55,8 +55,8 @@ class BULocoso extends LitElement {
         /* padding and margins */
         h3 { margin-top: 0px; margin-bottom: 0px; }
         .prm { margin-right: 10px; padding-right: 10px; }
-        .sm-icon { width: 30px; height: 30px; margin: 2px; }
-        .sm-icon:hover { width: 32px; height: 32px; margin: 0px; }
+        .sm-icon { width: 30px; height: 30px; padding: 2px; }
+        .sm-icon:hover { width: 32px; height: 32px; padding: 0px; }
       </style>
       <div id="locoso">
         <div class="left prm">
@@ -67,7 +67,7 @@ class BULocoso extends LitElement {
               <small>
                 <a class="${this.link_class}" aria-label="Open library site" href="http://bu.edu/library/${this.library}" title="${this.address[0]}">website</a>
                 <a class="${this.link_class}" aria-label="Directions to the Library" title="get directions" target="_blank"
-                    href="${'https://google.com/maps/search/' + encodeURI("Boston University " + this.address[0])}">directions ></a>
+                    href="${'https://google.com/maps/search/' + encodeURI("Boston University " + this.address[0])}">directions &raquo;</a>
               </small>
             </li>
           </ol>
