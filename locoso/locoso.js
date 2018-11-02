@@ -1,6 +1,10 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
-
+/**
+ * `<bulib-locoso>` displays the *LO*cation, *CO*ntact, and *SO*cial media information for
+ *    a given library within the Boston Universities System.
+ *
+ */
 class BULocoso extends LitElement {
 
   constructor(){
@@ -85,7 +89,8 @@ class BULocoso extends LitElement {
     `;
   }
 
-  _prepareContacts(rawContacts){
+  /** use the raw 'contacts' data to populate a basic list that can more easily displayed as a list of links */
+  static _prepareContacts(rawContacts){
     let contacts = [];
     if(rawContacts["phone"]){
       contacts.push( {"text":"call", "url":"tel:"+rawContacts["phone"], "val":rawContacts["phone"]} );
@@ -102,7 +107,8 @@ class BULocoso extends LitElement {
     return contacts;
   }
 
-  _prepareSocial(rawSocial){
+  /** use raw 'social' data to generate a list of basic profile links for easy display */
+  static _prepareSocial(rawSocial){
     let social = [];
     if(rawSocial["twitter"]){
       social.push( {"text":"twitter", "url":"http://twitter.com/"+rawSocial["twitter"]} );
