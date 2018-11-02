@@ -33,7 +33,7 @@ class BUFooter extends LitElement {
             <div>
               <ul class="no-bullet ptl">
                 <li><a class="white-link" href="https://www.bu.edu/library/" title="Libraries Home">Libraries Home</a></li>
-                <li><a class="white-link" href="https://bu.edu/library/search" title="Search available/licensed content">Libraries Search</a></li>
+                <li><a class="white-link" href="http://bu.edu/library/search" title="Search available/licensed content">Libraries Search</a></li>
                 <li><a class="white-link" href="https://askalibrarian.bu.edu/" title="Help">Help</a></li>
               </ul>
             </div>
