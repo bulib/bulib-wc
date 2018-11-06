@@ -24,7 +24,7 @@ footer {
 }
 
 /* large-sized screen */
-@media only screen and (min-width: 850px){
+@media only screen and (min-width: 1240px /* 850px */){
   footer {
     grid-template-areas: "ftr-lt ftr-lt ftr-md ftr-md ftr-md ftr-rt ftr-rt ftr-rt";
   }
