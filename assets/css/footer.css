@@ -19,6 +19,8 @@ footer {
       "ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md"
       "ftr-lt ftr-lt ftr-lt ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt";
   }
+  .ftr-middle { border-bottom: solid transparent 1px; }
+  .ftr-right  { border-bottom: solid transparent 1px !important; }
 }
 
 /* large-sized screen */
@@ -26,12 +28,14 @@ footer {
   footer {
     grid-template-areas: "ftr-lt ftr-lt ftr-md ftr-md ftr-md ftr-rt ftr-rt ftr-rt";
   }
+  .ftr-middle { border-bottom: solid transparent 1px !important; }
+  .ftr-right  { border-bottom: solid transparent 1px !important; }
 }
 
 /* map classes to grid areas */
-.ftr-left   { grid-area: ftr-lt; }
-.ftr-middle { grid-area: ftr-md; }
-.ftr-right  { grid-area: ftr-rt; }
+.ftr-left   { grid-area: ftr-lt; border-bottom: solid transparent 1px; padding-bottom: 20px; }
+.ftr-middle { grid-area: ftr-md; border-bottom: solid lightgrey 1px; }
+.ftr-right  { grid-area: ftr-rt; border-bottom: solid lightgrey 1px; }
 .ftr-left > div, .ftr-middle > div, .ftr-right > div { margin: 6%; }
 
 /* etc */
