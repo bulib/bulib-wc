@@ -39,7 +39,7 @@ class BULocoso extends LitElement {
   render() {
     let myLocoso = this.locoso[this.library] || this.locoso["mugar-memorial"];
 
-    this.contacts = this._prepareContacts(myLocoso["contacts"][0]) || {});
+    this.contacts = this._prepareContacts(myLocoso["contacts"][0] || {});
     this.address = myLocoso["location"]["address"] || [];
     this.social = this._prepareSocial(myLocoso["social"] || {});
 
@@ -108,7 +108,7 @@ class BULocoso extends LitElement {
   }
 
   /** use the raw 'contacts' data to populate a basic list that can more easily displayed as a list of links */
-  static _prepareContacts(rawContacts){
+  _prepareContacts(rawContacts){
     let contacts = [];
     if(rawContacts["phone"]){
       contacts.push( {"text":"call", "url":"tel:"+rawContacts["phone"], "val":rawContacts["phone"]} );
