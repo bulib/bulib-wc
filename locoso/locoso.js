@@ -39,9 +39,10 @@ class BULocoso extends LitElement {
   render() {
     let myLocoso = this.locoso[this.library] || this.locoso["mugar-memorial"];
 
-    this.contacts = this._prepareContacts(myLocoso["contacts"][0] || {});
+    this.contacts = this._prepareContacts(myLocoso["contacts"][0]) || {});
     this.address = myLocoso["location"]["address"] || [];
     this.social = this._prepareSocial(myLocoso["social"] || {});
+
     let relLink = (!this.library || this.library === "help")? "" : + this.library;
     this.website = "https://www.bu.edu/library/" + relLink;
 
@@ -125,7 +126,7 @@ class BULocoso extends LitElement {
   }
 
   /** use raw 'social' data to generate a list of basic profile links for easy display */
-  static _prepareSocial(rawSocial){
+  _prepareSocial(rawSocial){
     let social = [];
     if(rawSocial["twitter"]){
       social.push( {"text":"twitter", "url":"http://twitter.com/"+rawSocial["twitter"]} );
