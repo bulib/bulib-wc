@@ -22,7 +22,7 @@ class BULocoso extends LitElement {
       "sel":{"location":{"bu-maps-marker":257,"address":["Science & Engineering Library","38 Cummington Mall","Boston, MA 02215"]},"contacts":[{"name":"General Inquiries","phone":"617-353-3733","fax":"617-353-3470"},{"name":"Library Hours","phone":"617-358-4125"},{"name":"Reference","phone":"617-353-9454","email":"ask@bu.edu"},{"name":"Circulation","phone":"617-353-3733","email":"selcirc@bu.edu"},{"name":"Reserves","phone":"617-353-3733","email":"selresrv@bu.edu"}],"social":{"twitter":"BUSciEngLib","tumblr":"buscienglib","instagram":"buscienglib"}},
       "stone-science":{"location":{"bu-maps-marker":258,"address":["Stone Science Library","675 Commonwealth Ave, Floor 2","Boston, MA 02445"]},"contacts":[{"name":"General Inquiries","phone":"617-353-5679"}]},
       "sthlibrary":{"location":{"address":["School of Theology Library","745 Commonwealth Ave, Floor 2","Boston, MA 02215"]},"contacts":[{"name":"General Inquiries","phone":"617-353-3034","fax":"617-358-0698","email":"sthlib@bu.edu"},{"name":"Reference","phone":"617-353-3034","email":"sthref@bu.edu"}],"social":{"twitter":"BUSTHLibrary","facebook":"busthlibrary","instagram":"butheologylibrary"}},
-      "help":{"location":{"bu-maps-marker":296,"address":["Mugar Memorial Library","771 Commonwealth Avenue","Boston, MA 02215"]},"contacts":[{"name":"BU Libraries","phone":"617-353-2700","email":"ask@bu.edu","text":"617-431-2427"}],"social":{"twitter":"BULibNews"}}
+      "help":{"location":{"bu-maps-marker":296,"address":["BU Libraries","771 Commonwealth Avenue","Boston, MA 02215"]},"contacts":[{"name":"help","phone":"617-353-2700","email":"ask@bu.edu","text":"617-431-2427"}],"social":{"twitter":"BULibNews"}}
     };
   }
 
@@ -42,7 +42,8 @@ class BULocoso extends LitElement {
     this.contacts = this._prepareContacts(myLocoso["contacts"][0] || {});
     this.address = myLocoso["location"]["address"] || [];
     this.social = this._prepareSocial(myLocoso["social"] || {});
-    this.website = "https://www.bu.edu/library/" + (!this.library || this.library === "help")? "" : + this.library;
+    let relLink = (!this.library || this.library === "help")? "" : + this.library;
+    this.website = "https://www.bu.edu/library/" + relLink;
 
     let socialDisplay;
     if(this.social.length < 1){ socialDisplay = html``; }
