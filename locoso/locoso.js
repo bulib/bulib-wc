@@ -86,8 +86,7 @@ class BULocoso extends LitElement {
             ${this.address.map((l) => html`<li>${l}</li>`)}
             <li>
               <small>
-                <a class="${this.link_class}" aria-label="Open library site" title="${this.address[0]}"
-                   href="http://bu.edu/library/${this.library}" >website</a>
+                <a class="${this.link_class}" aria-label="Open library site" href="${this.website}" title="${this.address[0]}"">website</a>
                 <a class="${this.link_class}" aria-label="Directions to the Library" title="get directions" target="_blank"
                     href="${'https://google.com/maps/search/' + encodeURI("Boston University " + this.address[0])}">directions &raquo;</a>
               </small>
