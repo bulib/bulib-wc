@@ -2,7 +2,9 @@ import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/li
 
 class BULHeader extends LitElement {
 
-  constructor(){ super(); }
+  constructor(){ 
+    super(); 
+  }
 
   static get properties() {
     return {
@@ -15,7 +17,8 @@ class BULHeader extends LitElement {
   render() {
     return html`
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/assets/css/common.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/assets/css/header.min.css">
+      <link rel="stylesheet" type="text/css" href="../search/search.js">
+      <!--link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/assets/css/header.min.css"-->
       <style type="text/css">
         nav, a { color: white; }
         nav > * > h1 { margin-top: 0px; }
@@ -25,7 +28,9 @@ class BULHeader extends LitElement {
       <nav>
         <div class="primary-navbar">
           <div class="brand">
-            <img id="bu-logo"><strong>Libraries</strong>
+            <a title="BU Libraries Homepage" href="https://bu.edu/library/">
+              <img id="bu-logo" src="https://search.bu.edu/static/img/site-title-alt.png"><strong>Libraries</strong>
+            </a>
           </div>
           <div class="site-links">
             <ul class="nav navbar-nav">
@@ -40,7 +45,7 @@ class BULHeader extends LitElement {
           </div>
         </div>
         <div class="secondary-nav">
-          <h1>${this.subsite_name}</h1>
+          <h1>SUBSITE_NAME</h1>
           <div class="breadcrumbs">
             <slot id="sitemap" name="sitemap"></slot>
           </div>
