@@ -2,8 +2,8 @@ import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/li
 
 class BULHeader extends LitElement {
 
-  constructor(){ 
-    super(); 
+  constructor(){
+    super();
   }
 
   static get properties() {
@@ -18,6 +18,7 @@ class BULHeader extends LitElement {
     return html`
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/assets/css/common.min.css">
       <link rel="stylesheet" type="text/css" href="../search/search.js">
+      <link rel="stylesheet" type="text/css" href="../assets/icons/bulib-logo.png">
       <!--link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/assets/css/header.min.css"-->
       <style type="text/css">
         nav, a { color: white; }
