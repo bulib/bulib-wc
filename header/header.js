@@ -6,15 +6,20 @@ class BULHeader extends LitElement {
     super();
   }
 
+  /** store information on the current page */
   static get properties() {
     return {
-      library: {type: String, notify:true}
-    }
+      library: {type: String, notify:true},
+      curr_primary: {type: String}, // research, services, about, help
+      curr_search:  {type: String}, // primo, guides, wp, faq, ...
+      curr_subsite: {type: String}, // guides, help, [library-names]
+      logged_in:    {type: Boolean} 
+    };
   }
 
-  createRenderRoot(){ return this; }
-
+  /** render the html (with 'bulib-search' wc) to the page  */
   render() {
+    this._updateCurrSiteInfo();
     return html`
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/assets/css/common.min.css">
       <link rel="stylesheet" type="text/css" href="../search/search.js">
@@ -23,8 +28,8 @@ class BULHeader extends LitElement {
       <style type="text/css">
         nav, a { color: white; }
         nav > * > h1 { margin-top: 0px; }
-        .primary-navbar { background-color: #212121; }
-        .secondary-navbar { background-color: lightgrey; }
+        .primary-navbar { background-color: #212121; display: flex; }
+        .secondary-navbar { background-color: lightgrey; display: flex; }
       </style>
       <nav>
         <div class="primary-navbar">
@@ -34,7 +39,7 @@ class BULHeader extends LitElement {
             </a>
           </div>
           <div class="site-links">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav inline-list">
               <li><a href="http://www.bu.edu/library/research/">Research</a></li>
               <li><a href="http://www.bu.edu/library/services/">Services</a></li>
               <li><a href="http://www.bu.edu/library/about/">About</a></li>
@@ -56,6 +61,20 @@ class BULHeader extends LitElement {
         </div>
       </nav>`;
   }
+    
+  /** once html is on the page, add classes based on 'curr_*' values */
+  updated(){
+    // set primary nav and secondary nav list items/breadcrumbs 'active' styling
+  }
+  
+  /** update current properties to inform what to display */
+  _setCurrSiteInfo(){
+     let currentUrl = window.location.href;
+     
+     // LibGuides
+     if(currentUrl.includes("/library/research/guides")){ }
+  }
+  
 }
 
 customElements.define('bulib-hdr', BULHeader);
