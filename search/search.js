@@ -12,7 +12,7 @@ class BULSearch extends LitElement {
     
     // options available to be selected
     this.search_options = [
-      {"code":"primo",     "name":"Academic Resources",       "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&vid=BU&search_scope=default_scope&highlight=true&dum=tru&query=any,contains,"},
+      {"code":"primo",     "name":"Academic Resources",       "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&vid=BU&search_scope=default_scope&highlight=true&lang=eng&query=any,contains,"},
       {"code":"worldcat",  "name":"OCLC WorldCat",            "domain":"https://bu.on.worldcat.org/search?queryString="},
       {"code":"busite",    "name":"Boston University Site",   "domain":"https://search.bu.edu/?q="},
       {"code":"directory", "name":"Staff Directory",          "domain":"https://www.bu.edu/phpbin/directory/?q="},
@@ -37,7 +37,7 @@ class BULSearch extends LitElement {
     this._prepareOptions();
     return html`
     <div id="bulib-search">
-      <form enctype="application/x-www-form-urlencoded; charset=utf-8" name="searchForm" action="javascript:doSearch()">
+      <form enctype="application/x-www-form-urlencoded; charset=utf-8" name="searchForm" action="javascript:;" onsubmit="this._doSearch()">
         <input id="search_query_input" type="text" placeholder="input text"></input>
         <select>${this.options.map((o) => html`<option value="${o.code}">${o.name}</option>`)}</select>
         <button type="submit" title="Search ${this.selected["name"] || ""}">Search</button>
@@ -47,13 +47,16 @@ class BULSearch extends LitElement {
   }
   
   /** perform a search for the input query on the selected database */
-  doSearch(){
+  _doSearch(){
+    console.log("doSearch() called.");
     let userInputElem = document.getElementById("search_query_input");
     
     let site = this.selected["code"];
-    let query = userInputElem? userInputElem.value : "[none]";
+    let query = userInputElem? userInputElem.value : "";
     let domain = this.selected["domain"];
-    console.log("searching " + site + " for query: " + query)
+    
+    console.log("searching " + site + " for query: '" + query + "' on domain: " + domain);
+    //window.location = this.selected["domain"] + encodeURIComponent(query); }
   }
   
   /** set display options on user input (if present) */
@@ -69,7 +72,7 @@ class BULSearch extends LitElement {
     
     // default to 'primo' and listing all options if user didn't decide to specify
     if(!this.selected || this.selected.length < 1){ this.selected = this.search_options[0]; }
-    if(!this.options || this.options.length < 1){ this.options = this.search_options; }
+    if(!this.options  || this.options.length  < 1){ this.options = this.search_options; }
   }
   
 }
