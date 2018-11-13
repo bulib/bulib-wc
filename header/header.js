@@ -4,12 +4,17 @@ class BULHeader extends LitElement {
 
   constructor(){
     super();
+    this.curr_url = "https://www.bu.edu/library/";
   }
+
+  // don't need 'slot' functionality, so lets use Light DOM
+  createRenderRoot(){ return this; }
 
   /** store information on the current page */
   static get properties() {
     return {
-      library: {type: String, notify:true},
+      curr_url: {type: String, notify:true},
+      curr_library: {type: String, notify:true},
       curr_primary: {type: String}, // research, services, about, help
       curr_search:  {type: String}, // primo, guides, wp, faq, ...
       curr_subsite: {type: String}, // guides, help, [library-names]
@@ -19,12 +24,12 @@ class BULHeader extends LitElement {
 
   /** render the html (with 'bulib-search' wc) to the page  */
   render() {
-    this._updateCurrSiteInfo();
+    this._setCurrSiteInfo();
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/assets/css/common.min.css">
+      <link rel="stylesheet" type="text/css" href="../assets/css/common.css">
       <link rel="stylesheet" type="text/css" href="../search/search.js">
       <link rel="stylesheet" type="text/css" href="../assets/icons/bulib-logo.png">
-      <!--link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/assets/css/header.min.css"-->
+      <!--link rel="stylesheet" type="text/css" href="../assets/css/header.css"-->
       <style type="text/css">
         nav, a { color: white; }
         nav > * > h1 { margin-top: 0px; }
@@ -65,11 +70,13 @@ class BULHeader extends LitElement {
   /** once html is on the page, add classes based on 'curr_*' values */
   updated(){
     // set primary nav and secondary nav list items/breadcrumbs 'active' styling
+    console.log("updated): curr_url = '"+ this.curr_url +"'");
   }
   
   /** update current properties to inform what to display */
   _setCurrSiteInfo(){
-     let currentUrl = window.location.href;
+     let currentUrl = (this.curr_url)? this.curr_url : window.location.href;
+     console.log("currentUrl: " + currentUrl);
      
      // LibGuides
      if(currentUrl.includes("/library/research/guides")){ }

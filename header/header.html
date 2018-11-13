@@ -2,11 +2,37 @@
 <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.1.3/webcomponents-bundle.min.js"></script>
 
 <!-- styling -->
-<link rel="stylesheet" type="text/css" href="../assets/css/common.min.css">
-<link rel="stylesheet" type="text/css" href="../assets/css/header.min.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/common.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/header.css">
 
 <!-- pull in bulib-wc components -->
 <script src="./header.js" type="module"></script>
 <script src="../search/search.js" type="module"></script>
-
+  
 <bulib-hdr></bulib-hdr>
+
+<br /><hr /><br />
+
+<form action="javascript:;" onchange="updateCurrentURL();">
+  <select id="manual-url-selector">
+    <option value="www.bu.edu/library">Library Homepage</option>
+    <option value="www.bu.edu/library/mugar-memorial">Mugar Library</option>
+    <option value="www.bu.edu/library/research/guides/course-guides/">Guides</option>
+    <option value="askalibrarian.bu.edu/">Help</option>
+    <option value="buprimo.hosted.exlibrisgroup.com/primo-explore/search?">Primo Search</option>
+  </select>
+</form>
+
+<script>
+  let updateCurrentURL = function(){
+    let userInputElem = document.getElementById("manual-url-selector");
+    let newUrl = userInputElem? userInputElem.value : "";
+    console.log("selected url: '" + newUrl + "'.");
+    
+    let key = "curr_url";
+    let search = document.getElementsByTagName("bulib-search")[0];
+    console.log("updating 'bulib-search'." + key + " from " + search.getAttribute(key) + " to " + newUrl)
+    search.setAttribute(key, newUrl);
+    
+  };
+</script>
