@@ -14,7 +14,7 @@ class BULSearch extends LitElement {
     this.search_options = [
       {"code":"primo",     "name":"Academic Resources",       "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&vid=BU&search_scope=default_scope&highlight=true&lang=eng&query=any,contains,"},
       {"code":"worldcat",  "name":"OCLC WorldCat",            "domain":"https://bu.on.worldcat.org/search?queryString="},
-      {"code":"busite",    "name":"Boston University Site",   "domain":"https://search.bu.edu/?q="},
+      {"code":"wp",        "name":"Boston University Site",   "domain":"https://search.bu.edu/?q="},
       {"code":"directory", "name":"Staff Directory",          "domain":"https://www.bu.edu/phpbin/directory/?q="},
       {"code":"hgar",      "name":"Archival Research Center", "domain":"https://hgar-srv3.bu.edu/search/?search=SEARCH&query="},
       {"code":"openbu",    "name":"Open BU",                  "domain":"https://open.bu.edu/discover?query="},

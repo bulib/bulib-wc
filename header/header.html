@@ -27,12 +27,10 @@
   let updateCurrentURL = function(){
     let userInputElem = document.getElementById("manual-url-selector");
     let newUrl = userInputElem? userInputElem.value : "";
-    console.log("selected url: '" + newUrl + "'.");
     
     let key = "curr_url";
     let search = document.getElementsByTagName("bulib-search")[0];
     console.log("updating 'bulib-search'." + key + " from " + search.getAttribute(key) + " to " + newUrl)
     search.setAttribute(key, newUrl);
-    
   };
 </script>
