@@ -80,12 +80,23 @@ class BULSearch extends LitElement {
     return html`
     <div id="bulib-search">
       <input id="search_query_input" type="text" placeholder="${this.str_placeholder}"></input>
-      <select @change="${(e) => this.selected = handleSearchButton(e, this.options[0]["code"])}">
+      <select id="search_source_select" @change="${(e) => this.selected = handleSearchButton(e, this.options[0]["code"])}">
         ${this.options.map((o) => html`<option value="${o.code}">${o.name}</option>`)}
       </select>
       <button type="submit" @click="${(e) => this._doSearch()}" title="Search ${this.selected["name"]}">Search</button>
     </div>
     `;
+  }
+  
+  /** once html is on the page, update the visual to reflect the web component's data  */
+  updated(){
+    if(this.selected){
+      let lsSearchSourceOptions = document.getElementById("search_source_select").options;
+      for(let i=0; i<lsSearchSourceOptions.length; i++){
+        let option = lsSearchSourceOptions[i];
+        if(option.value === this.selected["code"]){ option.selected = "selected"; }
+      }
+    }
   }
 
   /** perform a search for the input query on the selected database */
