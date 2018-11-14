@@ -1,5 +1,7 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
+const search_on_submit = true;
+
 // options available to be selected
 const search_options = [
   {"code":"primo",     "name":"Academic Resources",       "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&vid=BU&search_scope=default_scope&highlight=true&lang=eng&query=any,contains,"},
@@ -110,7 +112,7 @@ class BULSearch extends LitElement {
     let domain = option["domain"];
 
     console.log("searching '" + site + "' for query: '" + query + "' on domain: " + domain);
-    //window.location = this.selected["domain"] + encodeURIComponent(query); }
+    if(search_on_submit){ window.location = this.selected["domain"] + encodeURIComponent(query); }
   }
 
 }
