@@ -1,13 +1,27 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
 const debug = false;
+const lsLibraryCodes = ["mugar-memorial","african-studies","medlib","astronomy","lawlibrary","hgar","music","management","pickering-educational","sthlibrary","sel","stone-science"];
+const lsLibraryOptions = {
+  "mugar-memorial":"Mugar Memorial",
+  "african-studies":"African Studies",
+  "medlib":"Alumni Medical",
+  "astronomy":"Astronomy",
+  "lawlibrary":"Fineman and Pappas Law",
+  "hgar":"Archival Research Center",
+  "music":"Music Library",
+  "management":"Frederick S. Pardee Managment Library",
+  "pickering-educational":"Pickering Educational Resources",
+  "sthlibrary":"School of Theology",
+  "sel":"Science and Engineering",
+  "stone-science":"Stone Science",
+};
 
 class BULHeader extends LitElement {
 
   constructor(){
     super();
     this.curr_url = window.location.href;
-    this.curr_library = "mugar-memorial";
     this.curr_search = "wp";
   }
 
@@ -17,11 +31,11 @@ class BULHeader extends LitElement {
   /** store information on the current page */
   static get properties() {
     return {
-      curr_url:     {type: String, notify:true},
+      curr_url: {type: String, notify:true},
       curr_primary: {type: String}, // research, services, about, help
       curr_secondary: {type: String}, // guides, help, [library-names]
-      curr_search:  {type: String}, // primo, guides, wp, faq, ...
-      logged_in:    {type: Boolean} 
+      curr_search: {type: String}, // primo, guides, wp, faq, ...
+      logged_in: {type: Boolean} 
     };
   }
 
@@ -100,16 +114,16 @@ class BULHeader extends LitElement {
     }else if(currentUrl.includes(".bu.edu/library")){
       
       // Guides
-      if(currentUrl.includes("/research/")){ 
+      if(currentUrl.includes("/research")){ 
        this.curr_primary = "research";
        this.curr_secondary = "Guides";
        this.curr_search  = "guides";
       }
       
       // Services
-      else if(currentUrl.includes("services")){
+      else if(currentUrl.includes("/services")){
         this.curr_primary = "services";
-        this.curr_secondary = this.curr_library;
+        this.curr_secondary = "Services";
         this.curr_search  = "wp";
       }
       
@@ -120,6 +134,13 @@ class BULHeader extends LitElement {
         
         // set the 'curr_secondary' to the 'library_name' (.bu.edu/library/{library_name}/.../*)
         this.curr_secondary = this.curr_library || "_secondary-site_";
+        let libraryNames = lsLibraryCodes;
+        for(let i=0; i<libraryNames.length; i++){
+          let libCode = libraryNames[i];
+          if(currentUrl.includes(libCode)){
+            this.curr_secondary = lsLibraryOptions[libCode];
+          }
+        }
       }
     }
     
