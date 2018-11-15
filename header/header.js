@@ -1,11 +1,14 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
+const debug = false;
+
 class BULHeader extends LitElement {
 
   constructor(){
     super();
-    this.curr_url = "https://www.bu.edu/library/";
+    this.curr_url = window.location.href;
     this.curr_library = "mugar-memorial";
+    this.curr_search = "wp";
   }
 
   // don't need 'slot' functionality, so lets use Light DOM
@@ -15,10 +18,9 @@ class BULHeader extends LitElement {
   static get properties() {
     return {
       curr_url:     {type: String, notify:true},
-      curr_library: {type: String, notify:true},
       curr_primary: {type: String}, // research, services, about, help
+      curr_secondary: {type: String}, // guides, help, [library-names]
       curr_search:  {type: String}, // primo, guides, wp, faq, ...
-      curr_subsite: {type: String}, // guides, help, [library-names]
       logged_in:    {type: Boolean} 
     };
   }
@@ -58,12 +60,14 @@ class BULHeader extends LitElement {
           </div>
         </div>
         <div class="secondary-nav">
-          <h1>Subsite: ${this.curr_subsite}</h1>
+          <slot id="sitemap" name="sitemap">
+            <h1>Subsite: ${this.curr_secondary}</h1>
+          </slot>
           <div class="breadcrumbs">
             <slot id="sitemap" name="sitemap"></slot>
           </div>
           <div class="searchbar">
-            <bulib-search></bulib-search>
+            <bulib-search str_default="${this.curr_search}"></bulib-search>
           </div>
         </div>
       </nav>`;
@@ -71,7 +75,6 @@ class BULHeader extends LitElement {
     
   /** once html is on the page, add classes based on 'curr_*' values */
   updated(){
-    
     // set primary nav 'active' styling
     let i, li; 
     let lsListItems = document.getElementById("site-links").getElementsByTagName("li");
@@ -80,50 +83,52 @@ class BULHeader extends LitElement {
       if((li.id).includes(this.curr_primary)){ li.classList.add("active"); } 
       else{ li.classList.remove("active"); }
     }
-    
-    console.log("updated: curr_url = '"+ this.curr_url +"'");
   }
   
   /** update current properties to inform what to display */
   _setCurrSiteInfo(){
-     let currentUrl = (this.curr_url)? this.curr_url : window.location.href;
-     console.log("currentUrl: " + currentUrl);
-     
-     if(currentUrl.includes("askalibararian")){
-       this.curr_primary = "help";
-       this.curr_subsite = "Ask a Librarian";
-       this.curr_search  = "help";
-     }
-     else if(currentUrl.includes("buprimo") || currentUrl.includes("exlibrisgroup")){
-       this.curr_primary = "search";
-       this.curr_subsite = "Search";
-       this.curr_search  = "primo";
-     }
-     else if(currentUrl.includes(".bu.edu/library")){
-       
-       // Guides
-       if(currentUrl.includes("/research/guides/")){ 
-        this.curr_primary = "research";
-        this.curr_subsite = "Guides";
-        this.curr_search  = "guides";
-       }
-       
-       // Services
-       else if(currentUrl.includes("services")){
-         this.curr_primary = "services";
-         this.curr_subsite = this.curr_library;
-         this.curr_search  = "wp";
-       }
-       
-       // About
-       else{
-         this.curr_primary = "about";
-         this.curr_search = "wp";
-         
-         // set the 'curr_subsite' to the 'library_name' (.bu.edu/library/{library_name}/.../*)
-         this.curr_subsite = this.curr_library;;
-       }
-     }
+    let currentUrl = (this.curr_url)? this.curr_url : window.location.href;
+    
+    if(currentUrl.includes("askalibrarian")){
+      this.curr_primary = "help";
+      this.curr_secondary = "Ask a Librarian";
+      this.curr_search  = "help";
+    }else if(currentUrl.includes("buprimo") || currentUrl.includes("exlibrisgroup")){
+      this.curr_primary = "search";
+      this.curr_secondary = "Search";
+      this.curr_search  = "primo";
+    }else if(currentUrl.includes(".bu.edu/library")){
+      
+      // Guides
+      if(currentUrl.includes("/research/")){ 
+       this.curr_primary = "research";
+       this.curr_secondary = "Guides";
+       this.curr_search  = "guides";
+      }
+      
+      // Services
+      else if(currentUrl.includes("services")){
+        this.curr_primary = "services";
+        this.curr_secondary = this.curr_library;
+        this.curr_search  = "wp";
+      }
+      
+      // About
+      else{
+        this.curr_primary = "about";
+        this.curr_search = "wp";
+        
+        // set the 'curr_secondary' to the 'library_name' (.bu.edu/library/{library_name}/.../*)
+        this.curr_secondary = this.curr_library || "_secondary-site_";
+      }
+    }
+    
+    // add debug info
+    if(debug){
+      console.log("curr_primary: " + this.curr_primary);
+      console.log("curr_secondary: " + this.curr_secondary);
+      console.log("curr_search: " + this.curr_search);
+    }
   }
   
 }

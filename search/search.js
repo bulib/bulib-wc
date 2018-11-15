@@ -1,6 +1,7 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
 const search_on_submit = true;
+const debug = true;
 
 // options available to be selected
 const search_options = [
@@ -42,10 +43,23 @@ class BULSearch extends LitElement {
   /** allow consumer to set the options available in the dropdown, and which one is selected */
   static get properties() {
     return {
-      str_default: {type: String},
+      str_default: {type: String, notify: true},
       str_options: {type: String},
       str_placeholder: {type: String}
     };
+  }
+
+  render() {
+    this._prepareOptions();
+    return html`
+    <div id="bulib-search">
+      <input id="search_query_input" type="text" placeholder="${this.str_placeholder}"></input>
+      <select id="search_source_select" @change="${(e) => this.selected = handleSearchButton(e, this.options[0]["code"])}">
+        ${this.options.map((o) => html`<option value="${o.code}">${o.name}</option>`)}
+      </select>
+      <button type="submit" @click="${(e) => this._doSearch()}" title="Search ${this.selected["name"]}">Search</button>
+    </div>
+    `;
   }
 
   /** set display options on user input (if present) */
@@ -61,7 +75,6 @@ class BULSearch extends LitElement {
         searchOption = search_options[i];
         optionCode = searchOption["code"];
         if(this.str_options.includes(optionCode)){ this.options.push(searchOption);}
-        if(this.str_default && optionCode.includes(this.str_default)){ this.selected = searchOption; }
       }
     }
 
@@ -75,23 +88,22 @@ class BULSearch extends LitElement {
 
     // set the placeholder text
     if(!this.str_placeholder){ this.str_placeholder = "input text"; }
-  }
-
-  render() {
-    this._prepareOptions();
-    return html`
-    <div id="bulib-search">
-      <input id="search_query_input" type="text" placeholder="${this.str_placeholder}"></input>
-      <select id="search_source_select" @change="${(e) => this.selected = handleSearchButton(e, this.options[0]["code"])}">
-        ${this.options.map((o) => html`<option value="${o.code}">${o.name}</option>`)}
-      </select>
-      <button type="submit" @click="${(e) => this._doSearch()}" title="Search ${this.selected["name"]}">Search</button>
-    </div>
-    `;
+    
+    // report on values
+    if(debug){
+      console.log("'str_default': " + this.str_default);
+      console.log("'str_options': " + this.str_options);
+      console.log("'str_placeholder': " + this.str_placeholder);
+    }
   }
   
   /** once html is on the page, update the visual to reflect the web component's data  */
   updated(){
+    if(this.str_default && this.options.includes(this.str_default)){
+      console.log("setting selected");
+      this.selected = _getOptionFromCode(this.str_default);
+    }
+
     if(this.selected){
       let lsSearchSourceOptions = document.getElementById("search_source_select").options;
       for(let i=0; i<lsSearchSourceOptions.length; i++){
@@ -99,6 +111,7 @@ class BULSearch extends LitElement {
         if(option.value === this.selected["code"]){ option.selected = "selected"; }
       }
     }
+    if(debug){ console.log("search.updated() called"); }
   }
 
   /** perform a search for the input query on the selected database */

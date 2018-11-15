@@ -1,4 +1,4 @@
-import {LitElement, html} from '@polymer/lit-element';
+import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
 class LibSel extends LitElement{
 
@@ -38,7 +38,7 @@ class LibSel extends LitElement{
 
   _LibSelectionChanged(event){
     let libName = event.currentTarget.value;
-    let element = document.getElementsByTagName("bu-locoso")[0];
+    let element = document.getElementsByTagName("bulib-locoso")[0];
     console.log("before: " + element.getAttribute("library"));
     element.setAttribute("library", libName);
     console.log("after: " + element.getAttribute("library"));
@@ -46,4 +46,4 @@ class LibSel extends LitElement{
 
 }
 
-customElements.define('bu-libsel', LibSel);
+customElements.define('bulib-libsel', LibSel);
