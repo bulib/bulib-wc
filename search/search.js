@@ -1,11 +1,11 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
-const search_on_submit = true;
+const search_on_submit = false;
 const debug = true;
 
 // options available to be selected
 const search_options = [
-  {"code":"primo",     "name":"Academic Resources",       "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&vid=BU&search_scope=default_scope&highlight=true&lang=eng&query=any,contains,"},
+  {"code":"primo",     "name":"Academic Resources",       "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&vid=BU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
   {"code":"worldcat",  "name":"OCLC WorldCat",            "domain":"https://bu.on.worldcat.org/search?queryString="},
   {"code":"wp",        "name":"Boston University Site",   "domain":"https://search.bu.edu/?q="},
   {"code":"directory", "name":"Staff Directory",          "domain":"https://www.bu.edu/phpbin/directory/?q="},
@@ -100,7 +100,6 @@ class BULSearch extends LitElement {
   /** once html is on the page, update the visual to reflect the web component's data  */
   updated(){
     if(this.str_default && this.options.includes(this.str_default)){
-      console.log("setting selected");
       this.selected = _getOptionFromCode(this.str_default);
     }
 
@@ -111,7 +110,6 @@ class BULSearch extends LitElement {
         if(option.value === this.selected["code"]){ option.selected = "selected"; }
       }
     }
-    if(debug){ console.log("search.updated() called"); }
   }
 
   /** perform a search for the input query on the selected database */
@@ -119,12 +117,12 @@ class BULSearch extends LitElement {
     let userInputElem = document.getElementById("search_query_input");
 
     // obtain 
-    let option = _getOptionFromCode(this.selected["code"], this.options[0]["code"]);
+    let option = (Object.keys(this.selected) > 0) ? this.selected : this.options[0];
     let site = option["code"];
     let query = userInputElem ? userInputElem.value : "";
     let domain = option["domain"];
 
-    console.log("searching '" + site + "' for query: '" + query + "' on domain: " + domain);
+    if(debug){ console.log("searching '" + site + "' for query: '" + query + "' on domain: " + domain); }
     if(search_on_submit){ window.location = this.selected["domain"] + encodeURIComponent(query); }
   }
 
