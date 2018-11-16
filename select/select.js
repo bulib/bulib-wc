@@ -1,6 +1,6 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
-const debug = true;
+const debug = false;
 const libraries =  [
   {"value":"mugar-memorial","name":"SELECT LIBRARY"},
   {"value":"mugar-memorial","name":"Mugar Memorial"},
@@ -30,7 +30,7 @@ const opt_map = {
   "wp_urls":wp_urls
 };
 
-class BULSel extends LitElement{
+class BULSelect extends LitElement{
 
   constructor(){
     super();
@@ -71,4 +71,4 @@ class BULSel extends LitElement{
 
 }
 
-customElements.define('bulib-select', BULSel);
+customElements.define('bulib-select', BULSelect);
