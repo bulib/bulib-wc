@@ -7,13 +7,18 @@
   
   <!-- pull in bulib-wc components -->
   <script src="./header.js" type="module"></script>
-  <script src="./urlsel.js" type="module"></script>
+  <script src="../select/select.js" type="module"></script>
   <script src="../search/search.js" type="module"></script>
+  
+  <title>bulib-hdr | BULib Web Components</title>
   
 </head><!-- Polyfills only needed for Firefox and Edge. -->
   
 <body>
   <bulib-hdr></bulib-hdr>
   <br /><hr /><br />
-  <bulib-urlsel></bulib-urlsel>
+  <bulib-select 
+    sel_title="Simulated URL" curr_sel="www.bu.edu/library" opt_code="wp_urls" 
+    tag_name="bulib-hdr" attr_name="curr_url">
+  </bulib-select>
 </body>

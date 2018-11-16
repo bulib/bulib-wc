@@ -11,12 +11,16 @@
     
     <!-- pull in bulib-wc components -->
     <script src="./locoso.js" type="module"></script>
-    <script src="../libsel/libsel.js" type="module"></script>
+    <script src="../select/select.js" type="module"></script>
 
   </head>
   <body>
     <h1>test</h1>
     <bulib-locoso library="astronomy"></bulib-locoso>
-    <bulib-libsel></bulib-libsel>
+    <br /><hr /><br />
+    <bulib-select 
+      sel_title="Select Library" curr_sel="astronomy" opt_code="libraries"
+      tag_name="bulib-locoso" attr_name="library">
+    </bulib-select>
   </body>
 </html>
