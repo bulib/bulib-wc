@@ -35,7 +35,7 @@ class BULHeader extends LitElement {
       curr_primary: {type: String}, // research, services, about, help
       curr_secondary: {type: String}, // guides, help, [library-names]
       curr_search: {type: String}, // primo, guides, wp, faq, ...
-      logged_in: {type: Boolean} 
+      logged_in: {type: Boolean}
     };
   }
 
@@ -86,23 +86,23 @@ class BULHeader extends LitElement {
         </div>
       </nav>`;
   }
-    
+
   /** once html is on the page, add classes based on 'curr_*' values */
   updated(){
     // set primary nav 'active' styling
-    let i, li; 
+    let i, li;
     let lsListItems = document.getElementById("site-links").getElementsByTagName("li");
     for(i = 0; i<lsListItems.length; i++) {
       li = lsListItems[i];
-      if((li.id).includes(this.curr_primary)){ li.classList.add("active"); } 
+      if((li.id).includes(this.curr_primary)){ li.classList.add("active"); }
       else{ li.classList.remove("active"); }
     }
   }
-  
+
   /** update current properties to inform what to display */
   _setCurrSiteInfo(){
     let currentUrl = (this.curr_url)? this.curr_url : window.location.href;
-    
+
     if(currentUrl.includes("askalibrarian")){
       this.curr_primary = "help";
       this.curr_secondary = "Ask a Librarian";
@@ -112,26 +112,26 @@ class BULHeader extends LitElement {
       this.curr_secondary = "Search";
       this.curr_search  = "primo";
     }else if(currentUrl.includes(".bu.edu/library")){
-      
+
       // Guides
-      if(currentUrl.includes("/research")){ 
+      if(currentUrl.includes("/research")){
        this.curr_primary = "research";
        this.curr_secondary = "Guides";
        this.curr_search  = "guides";
       }
-      
+
       // Services
       else if(currentUrl.includes("/services")){
         this.curr_primary = "services";
         this.curr_secondary = "Services";
         this.curr_search  = "wp";
       }
-      
+
       // About
       else{
         this.curr_primary = "about";
         this.curr_search = "wp";
-        
+
         // set the 'curr_secondary' to the 'library_name' (.bu.edu/library/{library_name}/.../*)
         this.curr_secondary = this.curr_library || "_secondary-site_";
         let libraryNames = lsLibraryCodes;
@@ -143,7 +143,7 @@ class BULHeader extends LitElement {
         }
       }
     }
-    
+
     // add debug info
     if(debug){
       console.log("curr_primary: " + this.curr_primary);
@@ -151,7 +151,7 @@ class BULHeader extends LitElement {
       console.log("curr_search: " + this.curr_search);
     }
   }
-  
+
 }
 
-customElements.define('bulib-hdr', BULHeader);
+customElements.define('bulib-header', BULHeader);
