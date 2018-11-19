@@ -1,0 +1,8 @@
+{
+  "npm": true,
+  "moduleResolution": "node",
+  "entrypoint": "index.html",
+  "builds": [
+    { "preset": "es5-bundled" }
+  ]
+}
