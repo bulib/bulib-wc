@@ -1,6 +1,6 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
-class BUFooter extends LitElement {
+class BULFooter extends LitElement {
 
   constructor(){
     super();
@@ -50,4 +50,4 @@ class BUFooter extends LitElement {
 
 }
 
-customElements.define('bulib-ftr', BUFooter);
+customElements.define('bulib-footer', BULFooter);
