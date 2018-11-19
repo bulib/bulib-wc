@@ -18,12 +18,12 @@ const libraries =  [
 ];
 const wp_urls = [
   {"name":"SELECT URL",     "value":"www.bu.edu/library"},
-  {"name":"Mugar Library",  "value":"www.bu.edu/library/mugar-memorial"},
-  {"name":"African Studies","value":"https://www.bu.edu/library/african-studies/", },
+  {"name":"Primo Search",   "value":"buprimo.hosted.exlibrisgroup.com/primo-explore/search"},
   {"name":"Guides",         "value":"www.bu.edu/library/research/guides/course-guides/"},
   {"name":"Services",       "value":"http://www.bu.edu/library/services/"},
-  {"name":"Help",           "value":"askalibrarian.bu.edu/"},
-  {"name":"Primo Search",   "value":"buprimo.hosted.exlibrisgroup.com/primo-explore/search"}
+  {"name":"Mugar Library",  "value":"www.bu.edu/library/mugar-memorial"},
+  {"name":"African Studies","value":"https://www.bu.edu/library/african-studies/", },
+  {"name":"Help",           "value":"askalibrarian.bu.edu/"}
 ];
 const opt_map = {
   "libraries":libraries,

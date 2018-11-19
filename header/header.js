@@ -35,7 +35,8 @@ class BULHeader extends LitElement {
       curr_primary: {type: String}, // research, services, about, help
       curr_secondary: {type: String}, // guides, help, [library-names]
       curr_search: {type: String}, // primo, guides, wp, faq, ...
-      logged_in: {type: Boolean} 
+      str_options: {type: String}, // cascade str_options down to search
+      logged_in: {type: Boolean}
     };
   }
 
@@ -81,7 +82,7 @@ class BULHeader extends LitElement {
             <slot id="sitemap" name="sitemap"></slot>
           </div>
           <div class="searchbar">
-            <bulib-search str_default="${this.curr_search}"></bulib-search>
+            <bulib-search str_default="${this.curr_search}" str_options="${this.str_options}"></bulib-search>
           </div>
         </div>
       </nav>`;
@@ -102,7 +103,7 @@ class BULHeader extends LitElement {
   /** update current properties to inform what to display */
   _setCurrSiteInfo(){
     let currentUrl = (this.curr_url)? this.curr_url : window.location.href;
-    
+
     if(currentUrl.includes("askalibrarian")){
       this.curr_primary = "help";
       this.curr_secondary = "Ask a Librarian";
