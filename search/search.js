@@ -15,12 +15,15 @@ const search_options = [
 ];
 
 /** move from 'code' string to option object (with backup) */
-const _getOptionFromCode = function(code, backupCode){
-  if(!code){ code = backupCode; }
-  for(let i=0; i<search_options.length; i++){
-    let searchOption = search_options[i];
-    if(code.includes(searchOption["code"])){ return searchOption; }
+const _getOptionFromCode = function(code, lsOptions){
+  if(!lsOptions || !lsOptions.length){ lsOptions = search_options; }
+  if(!code && lsOptions && lsOptions.length >=1){ return lsOptions[0]; }
+  
+  for(let i=0; i<lsOptions.length; i++){
+    let searchOption = lsOptions[i];
+    if(searchOption["code"] == code){ return searchOption; }
   }
+  return (lsOptions && lsOptions.length == 0)? "" : lsOptions[0];
 };
 
 /** helper calling _getOptionFromCode  */
@@ -54,7 +57,7 @@ class BULSearch extends LitElement {
     return html`
     <div id="bulib-search">
       <input id="search_query_input" type="text" placeholder="${this.str_placeholder}"></input>
-      <select id="search_source_select" @change="${(e) => this.selected = handleSearchButton(e, this.options[0]["code"])}">
+      <select id="search_source_select" @change="${(e) => this.selected = handleSearchButton(e, this.options[0])}">
         ${this.options.map((o) => html`<option value="${o.code}">${o.name}</option>`)}
       </select>
       <button type="submit" @click="${(e) => this._doSearch()}" title="Search ${this.selected["name"]}">Search</button>
@@ -82,25 +85,19 @@ class BULSearch extends LitElement {
     if(!this.options  || this.options.length  < 1){ 
       this.options = search_options; 
     }
-    if(!this.selected || this.selected === {} || this.selected == undefined){ 
-      this.selected = this.options[0]; 
+    if(Object.keys(this.selected).length == 0){ 
+      this.selected = _getOptionFromCode(this.str_default, this.options); 
+      if(debug){ console.log("set selected to " + this.selected["code"]); }
     }
 
     // set the placeholder text
     if(!this.str_placeholder){ this.str_placeholder = "input text"; }
-    
-    // report on values
-    if(debug){
-      console.log("'str_default': " + this.str_default);
-      console.log("'str_options': " + this.str_options);
-      console.log("'str_placeholder': " + this.str_placeholder);
-    }
   }
   
   /** once html is on the page, update the visual to reflect the web component's data  */
   updated(){
     if(this.str_default && this.options.includes(this.str_default)){
-      this.selected = _getOptionFromCode(this.str_default);
+      this.selected = _getOptionFromCode(this.str_default, this.options);
     }
 
     if(this.selected){
@@ -117,7 +114,7 @@ class BULSearch extends LitElement {
     let userInputElem = document.getElementById("search_query_input");
 
     // obtain 
-    let option = (Object.keys(this.selected) > 0) ? this.selected : this.options[0];
+    let option = (Object.keys(this.selected).length > 0) ? this.selected : this.options[0];
     let site = option["code"];
     let query = userInputElem ? userInputElem.value : "";
     let domain = option["domain"];
