@@ -64,9 +64,10 @@ class BULSelect extends LitElement{
   _SelectionChanged(event){
     let current = event.currentTarget.value;
     let element = document.getElementsByTagName(this.tag_name)[0];
-    if(debug){ console.log("bulib-select) before: " + element.getAttribute(this.attr_name)); }
+    let before = element.getAttribute(this.attr_name);
     element.setAttribute(this.attr_name, current);
-    if(debug){ console.log("bulib-select) after: " + element.getAttribute(this.attr_name)); }
+    let after = element.getAttribute(this.attr_name);
+    if(debug){ console.log(`bulib-select) changed '<${this.tag_name}>.${this.attr_name}' from '${before}' to '${after}'`); }
   }
 
 }

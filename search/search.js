@@ -88,7 +88,7 @@ class BULSearch extends LitElement {
     }
     if(Object.keys(this.selected).length == 0){ 
       this.selected = _getOptionFromCode(this.str_default, this.options); 
-      if(debug){ console.log("set selected to " + this.selected["code"]); }
+      if(debug){ console.log("bulib-search) programmatically set 'selected' to " + this.selected["code"]); }
     }
 
     // set the placeholder text
@@ -120,7 +120,7 @@ class BULSearch extends LitElement {
     let query = userInputElem ? userInputElem.value : "";
     let domain = option["domain"];
 
-    if(debug){ console.log("searching '" + site + "' for query: '" + query + "' on domain: " + domain); }
+    if(debug){ console.log(`bulib-search) searching '${site}' for query: '${query}' on domain: '${domain}'...`); }
     if(search_on_submit){ window.location = this.selected["domain"] + encodeURIComponent(query); }
   }
 
