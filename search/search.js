@@ -11,7 +11,8 @@ const search_options = [
   {"code":"directory", "name":"Staff Directory",          "domain":"https://www.bu.edu/phpbin/directory/?q="},
   {"code":"hgar",      "name":"Archival Research Center", "domain":"https://hgar-srv3.bu.edu/search/?search=SEARCH&query="},
   {"code":"openbu",    "name":"Open BU",                  "domain":"https://open.bu.edu/discover?query="},
-  {"code":"guides",    "name":"Library Guides",           "domain":"http://library.bu.edu/srch.php?q="}
+  {"code":"guides",    "name":"Library Guides",           "domain":"http://library.bu.edu/srch.php?q="},
+  {"code":"help",      "name":"Ask a Librarian",          "domain":"http://askalibrarian.bu.edu/search/?t=0&q="}
 ];
 
 /** move from 'code' string to option object (with backup) */
