@@ -28,9 +28,8 @@ class BULHeader extends LitElement {
     this._setCurrSiteInfo();
     let secondaryNavMain = (this.curr_library)? html`<bulib-libsel library="${this.curr_library}"></bulib-libsel>` : html`<h1>Subsite: ${this.curr_secondary}</h1>`;
     return html`
-      <link rel="stylesheet" type="text/css" href="../assets/css/common.css">
-      <link rel="stylesheet" type="text/css" href="../search/search.js">
-      <link rel="stylesheet" type="text/css" href="../assets/icons/bulib-logo.png">
+      <link rel="stylesheet" type="text/css" href="/assets/css/common.css">
+      <link rel="stylesheet" type="text/css" href="/assets/icons/bulib-logo.png">
       <!--link rel="stylesheet" type="text/css" href="../assets/css/header.css"-->
       <style type="text/css">
         .primary-navbar, a { color: white; }
