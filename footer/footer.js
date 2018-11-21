@@ -43,7 +43,7 @@ class BUFooter extends LitElement {
           <div><slot id="sitemap" name="sitemap"></slot></div>
         </div>
         <div class="ftr-right">
-          <div><bu-locoso library="${this.library}" link_class="white-link"></bu-locoso></div>
+          <div><bulib-locoso library="${this.library}" link_class="white-link"></bulib-locoso></div>
         </div>
       </footer>`;
   }

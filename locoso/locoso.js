@@ -33,7 +33,7 @@ class BULocoso extends LitElement {
       locoso: {type: Object},
       link_class: {type: String},
       library: {type: String, notify:true}
-    }
+    };
   }
 
   render() {
@@ -147,4 +147,4 @@ class BULocoso extends LitElement {
 
 }
 
-customElements.define('bu-locoso', BULocoso);
+customElements.define('bulib-locoso', BULocoso);
