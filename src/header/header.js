@@ -1,28 +1,11 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
 const debug = false;
-const lsLibraryCodes = ["mugar-memorial","african-studies","medlib","astronomy","lawlibrary","hgar","music","management","pickering-educational","sthlibrary","sel","stone-science"];
-const lsLibraryOptions = {
-  "mugar-memorial":"Mugar Memorial",
-  "african-studies":"African Studies",
-  "medlib":"Alumni Medical",
-  "astronomy":"Astronomy",
-  "lawlibrary":"Fineman and Pappas Law",
-  "hgar":"Archival Research Center",
-  "music":"Music Library",
-  "management":"Frederick S. Pardee Managment Library",
-  "pickering-educational":"Pickering Educational Resources",
-  "sthlibrary":"School of Theology",
-  "sel":"Science and Engineering",
-  "stone-science":"Stone Science",
-};
 
 class BULHeader extends LitElement {
 
   constructor(){
     super();
-    this.curr_url = window.location.href;
-    this.curr_search = "wp";
   }
 
   // don't need 'slot' functionality, so lets use Light DOM
@@ -35,6 +18,7 @@ class BULHeader extends LitElement {
       curr_primary: {type: String}, // research, services, about, help
       curr_secondary: {type: String}, // guides, help, [library-names]
       curr_search: {type: String}, // primo, guides, wp, faq, ...
+      str_options: {type: String}, // cascade str_options down to search
       logged_in: {type: Boolean}
     };
   }
@@ -42,6 +26,7 @@ class BULHeader extends LitElement {
   /** render the html (with 'bulib-search' wc) to the page  */
   render() {
     this._setCurrSiteInfo();
+    let secondaryNavMain = (this.curr_library)? html`<bulib-libsel library="${this.curr_library}"></bulib-libsel>` : html`<h1>Subsite: ${this.curr_secondary}</h1>`;
     return html`
       <link rel="stylesheet" type="text/css" href="../assets/css/common.css">
       <link rel="stylesheet" type="text/css" href="../search/search.js">
@@ -63,25 +48,32 @@ class BULHeader extends LitElement {
           </div>
           <div class="main-menu-items">
             <ul id="site-links" class="nav navbar-nav inline-list">
-              <li id="subsite-research"><a href="http://www.bu.edu/library/research/">Research</a></li>
-              <li id="subsite-services"><a href="http://www.bu.edu/library/services/">Services</a></li>
-              <li id="subsite-about"><a href="http://www.bu.edu/library/about/">About</a></li>
-              <li id="subsite-help"><a href="http://askalibrarian.bu.edu/">Help</a></li>
+              <li id="subsite-research">
+                <a href="http://www.bu.edu/library/research/">Research</a>
+              </li>
+              <li id="subsite-services">
+                <a href="http://www.bu.edu/library/services/">Services</a>
+              </li>
+              <li id="subsite-about">
+                <a href="http://www.bu.edu/library/about/">About</a>
+              </li>
+              <li id="subsite-help">
+                <a href="http://askalibrarian.bu.edu/">Help</a>
+              </li>
             </ul>
           </div>
           <div class="account-section">
-            <strong>My Account | v |</strong>
+            <strong>My Account</strong>
+            <select>
+              <option>Option 1</option>
+              <option>Option 2</option>
+            </select>
           </div>
         </div>
         <div class="secondary-nav">
-          <slot id="sitemap" name="sitemap">
-            <h1>Subsite: ${this.curr_secondary}</h1>
-          </slot>
-          <div class="breadcrumbs">
-            <slot id="sitemap" name="sitemap"></slot>
-          </div>
-          <div class="searchbar">
-            <bulib-search str_default="${this.curr_search}"></bulib-search>
+          <div id="secondary-nav-main" class="inline pal">${secondaryNavMain}</div>
+          <div id="secondary-nav-search" class="inline">
+            <bulib-search str_default="${this.curr_search}" str_options="${this.str_options}"></bulib-search>
           </div>
         </div>
       </nav>`;
@@ -103,6 +95,7 @@ class BULHeader extends LitElement {
   _setCurrSiteInfo(){
     let currentUrl = (this.curr_url)? this.curr_url : window.location.href;
 
+    this.curr_library = "";
     if(currentUrl.includes("askalibrarian")){
       this.curr_primary = "help";
       this.curr_secondary = "Ask a Librarian";
@@ -131,16 +124,7 @@ class BULHeader extends LitElement {
       else{
         this.curr_primary = "about";
         this.curr_search = "wp";
-
-        // set the 'curr_secondary' to the 'library_name' (.bu.edu/library/{library_name}/.../*)
-        this.curr_secondary = this.curr_library || "_secondary-site_";
-        let libraryNames = lsLibraryCodes;
-        for(let i=0; i<libraryNames.length; i++){
-          let libCode = libraryNames[i];
-          if(currentUrl.includes(libCode)){
-            this.curr_secondary = lsLibraryOptions[libCode];
-          }
-        }
+        this.curr_library = "mugar-memorial";
       }
     }
 

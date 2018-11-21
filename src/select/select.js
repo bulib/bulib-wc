@@ -18,12 +18,12 @@ const libraries =  [
 ];
 const wp_urls = [
   {"name":"SELECT URL",     "value":"www.bu.edu/library"},
-  {"name":"Mugar Library",  "value":"www.bu.edu/library/mugar-memorial"},
-  {"name":"African Studies","value":"https://www.bu.edu/library/african-studies/", },
+  {"name":"Primo Search",   "value":"buprimo.hosted.exlibrisgroup.com/primo-explore/search"},
   {"name":"Guides",         "value":"www.bu.edu/library/research/guides/course-guides/"},
   {"name":"Services",       "value":"http://www.bu.edu/library/services/"},
-  {"name":"Help",           "value":"askalibrarian.bu.edu/"},
-  {"name":"Primo Search",   "value":"buprimo.hosted.exlibrisgroup.com/primo-explore/search"}
+  {"name":"Mugar Library",  "value":"www.bu.edu/library/mugar-memorial"},
+  {"name":"African Studies","value":"https://www.bu.edu/library/african-studies/", },
+  {"name":"Help",           "value":"askalibrarian.bu.edu/"}
 ];
 const opt_map = {
   "libraries":libraries,
@@ -64,9 +64,10 @@ class BULSelect extends LitElement{
   _SelectionChanged(event){
     let current = event.currentTarget.value;
     let element = document.getElementsByTagName(this.tag_name)[0];
-    if(debug){ console.log("bulib-select) before: " + element.getAttribute(this.attr_name)); }
+    let before = element.getAttribute(this.attr_name);
     element.setAttribute(this.attr_name, current);
-    if(debug){ console.log("bulib-select) after: " + element.getAttribute(this.attr_name)); }
+    let after = element.getAttribute(this.attr_name);
+    if(debug){ console.log(`bulib-select) changed '<${this.tag_name}>.${this.attr_name}' from '${before}' to '${after}'`); }
   }
 
 }
