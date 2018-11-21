@@ -5,14 +5,14 @@ const debug = true;
 
 // options available to be selected
 const search_options = [
-  {"code":"primo",     "name":"Academic Resources",       "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&vid=BU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
+  {"code":"primo",     "name":"Academic Resources",       "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&vid=BU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,", "placeholder": "BU Libraries Search"},
   {"code":"worldcat",  "name":"OCLC WorldCat",            "domain":"https://bu.on.worldcat.org/search?queryString="},
-  {"code":"wp",        "name":"Boston University Site",   "domain":"https://search.bu.edu/?q="},
-  {"code":"directory", "name":"Staff Directory",          "domain":"https://www.bu.edu/phpbin/directory/?q="},
-  {"code":"hgar",      "name":"Archival Research Center", "domain":"https://hgar-srv3.bu.edu/search/?search=SEARCH&query="},
-  {"code":"openbu",    "name":"Open BU",                  "domain":"https://open.bu.edu/discover?query="},
-  {"code":"guides",    "name":"Library Guides",           "domain":"http://library.bu.edu/srch.php?q="},
-  {"code":"help",      "name":"Ask a Librarian",          "domain":"http://askalibrarian.bu.edu/search/?t=0&q="}
+  {"code":"wp",        "name":"Boston University Site",   "domain":"https://search.bu.edu/?q=", "placeholder": "Search Library info/services"},
+  {"code":"directory", "name":"Staff Directory",          "domain":"https://www.bu.edu/phpbin/directory/?q=", "placeholder": "Search for people at BU"},
+  {"code":"hgar",      "name":"Archival Research Center", "domain":"https://hgar-srv3.bu.edu/search/?search=SEARCH&query=", "placeholder": "Search the BU Archive"},
+  {"code":"openbu",    "name":"Open BU",                  "domain":"https://open.bu.edu/discover?query=", "placeholder": "Search BU Digital Collections"},
+  {"code":"guides",    "name":"Library Guides",           "domain":"http://library.bu.edu/srch.php?q=", "placeholder": "Search Research Guides"},
+  {"code":"help",      "name":"Ask a Librarian",          "domain":"http://askalibrarian.bu.edu/search/?t=0&q=", "placeholder": "Type your question here"}
 ];
 
 /** move from 'code' string to option object (with backup) */
@@ -56,6 +56,7 @@ class BULSearch extends LitElement {
   render() {
     this._prepareOptions();
     return html`
+    <style type="text/css"> #search_query_input { min-width: 200px; } </style>
     <div id="bulib-search">
       <input id="search_query_input" type="text" placeholder="${this.str_placeholder}"></input>
       <select id="search_source_select" @change="${(e) => this.selected = handleSearchButton(e, this.options[0])}">
@@ -88,6 +89,7 @@ class BULSearch extends LitElement {
     }
     if(Object.keys(this.selected).length == 0){ 
       this.selected = _getOptionFromCode(this.str_default, this.options); 
+      this.str_placeholder = this.selected["placeholder"] || "input text";
       if(debug){ console.log("bulib-search) programmatically set 'selected' to " + this.selected["code"]); }
     }
 
@@ -99,6 +101,7 @@ class BULSearch extends LitElement {
   updated(){
     if(this.str_default && this.options.includes(this.str_default)){
       this.selected = _getOptionFromCode(this.str_default, this.options);
+      this.str_placeholder = this.selected["placeholder"] || "input text";
     }
 
     if(this.selected){

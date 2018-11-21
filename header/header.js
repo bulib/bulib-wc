@@ -6,7 +6,6 @@ class BULHeader extends LitElement {
 
   constructor(){
     super();
-    this.curr_search = "wp";
   }
 
   // don't need 'slot' functionality, so lets use Light DOM
