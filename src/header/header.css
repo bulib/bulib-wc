@@ -1,0 +1,5 @@
+.primary-navbar, a { color: white; }
+.primary-navbar > * > h1 { margin-top: 0px; }
+.main-menu-items > ul > li.active > a { color: #FFC20E; }
+.primary-navbar { background-color: #212121; display: flex; }
+.secondary-navbar { background-color: lightgrey; display: flex; }

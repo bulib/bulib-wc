@@ -4,9 +4,7 @@ const debug = false;
 
 class BULHeader extends LitElement {
 
-  constructor(){
-    super();
-  }
+  constructor(){ super(); }
 
   // don't need 'slot' functionality, so lets use Light DOM
   createRenderRoot(){ return this; }
@@ -30,14 +28,7 @@ class BULHeader extends LitElement {
     return html`
       <link rel="stylesheet" type="text/css" href="/assets/css/common.css">
       <link rel="stylesheet" type="text/css" href="/assets/icons/bulib-logo.png">
-      <!--link rel="stylesheet" type="text/css" href="../assets/css/header.css"-->
-      <style type="text/css">
-        .primary-navbar, a { color: white; }
-        .primary-navbar > * > h1 { margin-top: 0px; }
-        .main-menu-items > ul > li.active > a { color: #FFC20E; }
-        .primary-navbar { background-color: #212121; display: flex; }
-        .secondary-navbar { background-color: lightgrey; display: flex; }
-      </style>
+      <link rel="stylesheet" type="text/css" href="./header.css">
       <nav>
         <div class="primary-navbar">
           <div class="brand">

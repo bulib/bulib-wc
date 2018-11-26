@@ -34,7 +34,6 @@ class BULSelect extends LitElement{
 
   constructor(){
     super();
-    console.log("opt_code: " + this.opt_code);
   }
 
   static get properties(){

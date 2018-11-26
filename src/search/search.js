@@ -90,7 +90,6 @@ class BULSearch extends LitElement {
     if(Object.keys(this.selected).length == 0){ 
       this.selected = _getOptionFromCode(this.str_default, this.options); 
       this.str_placeholder = this.selected["placeholder"] || "input text";
-      if(debug){ console.log("bulib-search) programmatically set 'selected' to " + this.selected["code"]); }
     }
 
     // set the placeholder text
