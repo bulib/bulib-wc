@@ -20,6 +20,7 @@ const lsLibraryOptions = [
   {"value":"stone-science","name":"Stone Science"}
 ];
 
+/** change the current page when user selects a library from the dropdown */
 class BULibSel extends LitElement {
 
   constructor(){
@@ -30,7 +31,9 @@ class BULibSel extends LitElement {
 
   static get properties() {
     return {
+      /** library code referring to the library whose hours we want to display */
       library: {type: String, notify:true},
+      /** current url (potentially) used for automatically setting the library */
       curr_url: {type: String, notify:true}
     };
   }
@@ -43,19 +46,19 @@ class BULibSel extends LitElement {
         ${lsLibraryOptions.map((o) => html`<option value="${o.value}">${o.name}</option>`)}
       </select>`;
   }
-    
+
   /** once html is on the page, add classes based on current values */
   updated(){
-    
+
     let libsel_elem = document.getElementById("libsel-select");
     //TODO ensule the current selection is displayed in the dropdown
     //libsel_elem.selected = this.library;
   }
-  
+
   /** update current properties to inform what to display */
   _setCurrSiteInfo(){
     let currentUrl = (this.curr_url)? this.curr_url : window.location.href;
-    
+
     for(let i=0; i<lsLibraryCodes.length; i++){
       let libCode = lsLibraryCodes[i];
       if(currentUrl.includes(libCode)){
@@ -64,7 +67,7 @@ class BULibSel extends LitElement {
       }
     }
   }
-  
+
   /** open the website for the landing page of the selected library (iff change_url_on_select) */
   _SelectionChanged(event){
     let value = event.currentTarget.value;
@@ -74,7 +77,7 @@ class BULibSel extends LitElement {
     if(debug){ console.log(`bulib-libsel) '<libsel>.curr_url' changing from ${before} to ${url_new}...`); }
     if(change_url_on_select){ window.location.href = url_new; }
   }
-  
+
 }
 
 customElements.define('bulib-libsel', BULibSel);

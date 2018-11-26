@@ -2,11 +2,10 @@ import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/li
 
 const debug = false;
 
+/** Reactive/responsive header with custom subsite display, bulib-search integration */
 class BULHeader extends LitElement {
 
-  constructor(){
-    super();
-  }
+  constructor(){ super(); }
 
   // don't need 'slot' functionality, so lets use Light DOM
   createRenderRoot(){ return this; }
@@ -14,11 +13,17 @@ class BULHeader extends LitElement {
   /** store information on the current page */
   static get properties() {
     return {
+      /** current url used in testing to determine site */
       curr_url: {type: String, notify:true},
-      curr_primary: {type: String}, // research, services, about, help
-      curr_secondary: {type: String}, // guides, help, [library-names]
-      curr_search: {type: String}, // primo, guides, wp, faq, ...
-      str_options: {type: String}, // cascade str_options down to search
+      /** current primary site [e.g. 'research', 'services', 'about', 'help'] */
+      curr_primary: {type: String},
+      /** current secondary site (within each primary) [e.g. 'guides', 'help', '{library-names}'] */
+      curr_secondary: {type: String}, 
+      /** currently active search style [e.g. 'primo', 'guides', 'wp', 'faq', ... ] */
+      curr_search: {type: String}, 
+      /** options included in search dropdown (passed to <-search>) */
+      str_options: {type: String}, 
+      /** whether or not the current user is logged in */
       logged_in: {type: Boolean}
     };
   }
@@ -28,17 +33,9 @@ class BULHeader extends LitElement {
     this._setCurrSiteInfo();
     let secondaryNavMain = (this.curr_library)? html`<bulib-libsel library="${this.curr_library}"></bulib-libsel>` : html`<h1>Subsite: ${this.curr_secondary}</h1>`;
     return html`
-      <link rel="stylesheet" type="text/css" href="../assets/css/common.css">
-      <link rel="stylesheet" type="text/css" href="../search/search.js">
-      <link rel="stylesheet" type="text/css" href="../assets/icons/bulib-logo.png">
-      <!--link rel="stylesheet" type="text/css" href="../assets/css/header.css"-->
-      <style type="text/css">
-        .primary-navbar, a { color: white; }
-        .primary-navbar > * > h1 { margin-top: 0px; }
-        .main-menu-items > ul > li.active > a { color: #FFC20E; }
-        .primary-navbar { background-color: #212121; display: flex; }
-        .secondary-navbar { background-color: lightgrey; display: flex; }
-      </style>
+      <link rel="stylesheet" type="text/css" href="/assets/css/common.css">
+      <link rel="stylesheet" type="text/css" href="/assets/icons/bulib-logo.png">
+      <link rel="stylesheet" type="text/css" href="./header.css">
       <nav>
         <div class="primary-navbar">
           <div class="brand">
@@ -78,19 +75,19 @@ class BULHeader extends LitElement {
         </div>
       </nav>`;
   }
-    
+
   /** once html is on the page, add classes based on 'curr_*' values */
   updated(){
     // set primary nav 'active' styling
-    let i, li; 
+    let i, li;
     let lsListItems = document.getElementById("site-links").getElementsByTagName("li");
     for(i = 0; i<lsListItems.length; i++) {
       li = lsListItems[i];
-      if((li.id).includes(this.curr_primary)){ li.classList.add("active"); } 
+      if((li.id).includes(this.curr_primary)){ li.classList.add("active"); }
       else{ li.classList.remove("active"); }
     }
   }
-  
+
   /** update current properties to inform what to display */
   _setCurrSiteInfo(){
     let currentUrl = (this.curr_url)? this.curr_url : window.location.href;
@@ -107,7 +104,7 @@ class BULHeader extends LitElement {
     }else if(currentUrl.includes(".bu.edu/library")){
 
       // Guides
-      if(currentUrl.includes("/research")){ 
+      if(currentUrl.includes("/research")){
        this.curr_primary = "research";
        this.curr_secondary = "Guides";
        this.curr_search  = "guides";
@@ -135,7 +132,7 @@ class BULHeader extends LitElement {
       console.log("curr_search: " + this.curr_search);
     }
   }
-  
+
 }
 
-customElements.define('bulib-hdr', BULHeader);
+customElements.define('bulib-header', BULHeader);

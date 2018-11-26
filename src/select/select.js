@@ -34,15 +34,19 @@ class BULSelect extends LitElement{
 
   constructor(){
     super();
-    console.log("opt_code: " + this.opt_code);
   }
 
   static get properties(){
     return {
+      /** currently selected item code (referring to values in option map) */
       curr_sel: {type: String, notify:true},
+      /** the key for which option map to use for populating the dropdown */
       opt_code: {type: String},
+      /** title displayed next to the dropdown */
       sel_title: {type: String},
+      /** the name of the tag which we desire to update (e.g. <bulib-locoso> = 'bulib-locoso') */
       tag_name: {type: String},
+      /** the attribute of that tag which needs to be changed */
       attr_name: {type: String}
     };
   }
@@ -57,10 +61,12 @@ class BULSelect extends LitElement{
     `;
   }
   
+  /** populate internal options list with the values from the specified 'opt_code' */
   _loadOptions(){
     this.options = opt_map[this.opt_code];
   }
 
+  /** react to changes in which <option> is currently 'selected' */ 
   _SelectionChanged(event){
     let current = event.currentTarget.value;
     let element = document.getElementsByTagName(this.tag_name)[0];

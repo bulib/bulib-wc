@@ -1,6 +1,7 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
-class BUFooter extends LitElement {
+/** Reactive/responsive footer providing slotted middle section and customizable LoCoSo data */
+class BULFooter extends LitElement {
 
   constructor(){
     super();
@@ -9,14 +10,15 @@ class BUFooter extends LitElement {
 
   static get properties() {
     return {
+      /** provide window into setting displayed 'locoso' contact data */
       library: {type: String, notify:true}
-    }
+    };
   }
 
   render() {
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/assets/css/common.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc/assets/css/footer.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v1.4/assets/css/common.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v1.4/src/footer/footer.min.css">
       <style>
         :host h3, h3 { margin-top: 0px; margin-bottom: 0px; }
         ul, ol { margin-top: 5px; margin-bottom: 5px; }
@@ -28,7 +30,7 @@ class BUFooter extends LitElement {
               <br />
               <a href="https://www.bu.edu/" title="Boston University Home"><img alt="boston university logo" src="http://www.bu.edu/academics/files/bu-logo.gif"></a>
               <br /><br />
-              <small><a class="white-link" href="https://www.bu.edu/copyright" title="Copyright">© Copyright ${new Date().getFullYear()}</a></small>
+              <small><a class="white-link" href="https://www.bu.edu/copyright" title="Copyright">&copy; Copyright ${new Date().getFullYear()}</a></small>
             </div>
             <div>
               <ul class="no-bullet ptl">
@@ -50,4 +52,4 @@ class BUFooter extends LitElement {
 
 }
 
-customElements.define('bulib-ftr', BUFooter);
+customElements.define('bulib-footer', BULFooter);

@@ -3,7 +3,7 @@ import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/li
 const search_on_submit = false;
 const debug = true;
 
-// options available to be selected
+/** data on the overall search sources we have available to search on */
 const search_options = [
   {"code":"primo",     "name":"Academic Resources",       "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&vid=BU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,", "placeholder": "BU Libraries Search"},
   {"code":"worldcat",  "name":"OCLC WorldCat",            "domain":"https://bu.on.worldcat.org/search?queryString="},
@@ -33,6 +33,7 @@ const handleSearchButton = function(event, defaultCode){
   return _getOptionFromCode(code);
 };
 
+/**  */
 class BULSearch extends LitElement {
 
   constructor(){ 
@@ -47,8 +48,11 @@ class BULSearch extends LitElement {
   /** allow consumer to set the options available in the dropdown, and which one is selected */
   static get properties() {
     return {
+      /** selected search source (defaulted to first option) */
       str_default: {type: String, notify: true},
+      /** search sources included in the dropdown (defaulted to all) */
       str_options: {type: String},
+      /** string displayed within the input box before user adds any */
       str_placeholder: {type: String}
     };
   }
@@ -90,7 +94,6 @@ class BULSearch extends LitElement {
     if(Object.keys(this.selected).length == 0){ 
       this.selected = _getOptionFromCode(this.str_default, this.options); 
       this.str_placeholder = this.selected["placeholder"] || "input text";
-      if(debug){ console.log("bulib-search) programmatically set 'selected' to " + this.selected["code"]); }
     }
 
     // set the placeholder text
