@@ -1,5 +1,6 @@
-.primary-navbar, a { color: white; }
 .primary-navbar > * > h1 { margin-top: 0px; }
-.main-menu-items > ul > li.active > a { color: #FFC20E; }
+.brand > a { color: white; }
+#site-links > li > a { color: white; }
+.main-menu-items > ul > li.active > a { color: #FFC20E !important; }
 .primary-navbar { background-color: #212121; display: flex; }
 .secondary-navbar { background-color: lightgrey; display: flex; }

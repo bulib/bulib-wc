@@ -7,6 +7,7 @@
   <!-- styling -->
   <link rel="stylesheet" type="text/css" href="/assets/css/common.css">
   <link rel="stylesheet" type="text/css" href="./header.css">
+  <script src="https://api2.libanswers.com/1.0/widgets/8860"></script>
 
   <!-- pull in bulib-wc components -->
   <script src="./header.js" type="module"></script>
@@ -16,10 +17,15 @@
 </head>
 
 <body>
-  <bulib-header curr_url="http://askalibrarian.bu.edu"></bulib-header>
-  <br /><hr /><br />
-  <bulib-select
-    sel_title="Simulated URL" curr_sel="http://askalibrarian.bu.edu" opt_code="wp_urls"
-    tag_name="bulib-header" attr_name="curr_url">
-  </bulib-select>
+  <bulib-header curr_url="http://askalibrarian.bu.edu" curr_search="help" str_options="help">
+    <div slot="secondary-nav-main" class="inline">
+      <div class="inline"><strong class="ptl">Ask a Librarian: Help & FAQs</strong></div>
+      <ul class="inline-list">
+        <li><a href="https://askalibrarian.bu.edu/"><small>General Help & FAQs</small></a></li>
+        <li><a href="https://askalibrarian.bu.edu/businessFAQs/">Pardee Library Business FAQs</a></li>
+        <li><a href="http://medlib.bu.edu/facts/FAQ.php">Alumni Medical Library FAQs</a></li>
+      </ul>
+      <!--div id="s-la-widget-8860" class="inline"></div-->
+    </div>
+  </bulib-header>
 </body>

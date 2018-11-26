@@ -1,5 +1,6 @@
 /* -- padding and alignment -- */
 .pam { padding: 10px; }
+.pvm { padding: 10px 0px; }
 .ptl { padding-top: 15px; }
 .left { float: left; }
 .txtc { text-align: center; }
