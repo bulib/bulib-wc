@@ -2,6 +2,7 @@ import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/li
 
 const debug = false;
 
+/** Reactive/responsive header with custom subsite display, bulib-search integration */
 class BULHeader extends LitElement {
 
   constructor(){ super(); }
@@ -12,11 +13,17 @@ class BULHeader extends LitElement {
   /** store information on the current page */
   static get properties() {
     return {
+      /** current url used in testing to determine site */
       curr_url: {type: String, notify:true},
-      curr_primary: {type: String}, // research, services, about, help
-      curr_secondary: {type: String}, // guides, help, [library-names]
-      curr_search: {type: String}, // primo, guides, wp, faq, ...
-      str_options: {type: String}, // cascade str_options down to search
+      /** current primary site [e.g. 'research', 'services', 'about', 'help' */
+      curr_primary: {type: String},
+      /** current secondary site (within each primary) [e.g. 'guides', 'help', '{library-names}' */
+      curr_secondary: {type: String}, 
+      /** currently active search style [e.g. 'primo', 'guides', 'wp', 'faq', ... ]*/
+      curr_search: {type: String}, 
+      /** options included in search dropdown (passed to <-search>) */
+      str_options: {type: String}, 
+      /** whether or not the current user is logged in */
       logged_in: {type: Boolean}
     };
   }

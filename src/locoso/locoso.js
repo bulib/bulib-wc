@@ -1,9 +1,8 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
 /**
- * `<bulib-locoso>` displays the *LO*cation, *CO*ntact, and *SO*cial media information for
+ * display the *LO*cation, *CO*ntact, and *SO*cial media information for
  *    a given library within the Boston Universities System.
- *
  */
 class BULocoso extends LitElement {
 
@@ -26,6 +25,7 @@ class BULocoso extends LitElement {
     };
   }
 
+  // don't need 'slot' functionality, so lets use Light DOM
   createRenderRoot(){ return this; }
 
   static get properties() {

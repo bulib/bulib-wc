@@ -1,5 +1,6 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
+/** Reactive/responsive footer providing slotted middle section and customizable LoCoSo data */
 class BULFooter extends LitElement {
 
   constructor(){
@@ -9,6 +10,7 @@ class BULFooter extends LitElement {
 
   static get properties() {
     return {
+      /** provide window into setting displayed 'locoso' contact data */
       library: {type: String, notify:true}
     };
   }
