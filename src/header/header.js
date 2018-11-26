@@ -15,11 +15,11 @@ class BULHeader extends LitElement {
     return {
       /** current url used in testing to determine site */
       curr_url: {type: String, notify:true},
-      /** current primary site [e.g. 'research', 'services', 'about', 'help' */
+      /** current primary site [e.g. 'research', 'services', 'about', 'help'] */
       curr_primary: {type: String},
-      /** current secondary site (within each primary) [e.g. 'guides', 'help', '{library-names}' */
+      /** current secondary site (within each primary) [e.g. 'guides', 'help', '{library-names}'] */
       curr_secondary: {type: String}, 
-      /** currently active search style [e.g. 'primo', 'guides', 'wp', 'faq', ... ]*/
+      /** currently active search style [e.g. 'primo', 'guides', 'wp', 'faq', ... ] */
       curr_search: {type: String}, 
       /** options included in search dropdown (passed to <-search>) */
       str_options: {type: String}, 

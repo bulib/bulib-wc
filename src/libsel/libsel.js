@@ -31,7 +31,9 @@ class BULibSel extends LitElement {
 
   static get properties() {
     return {
+      /** library code referring to the library whose hours we want to display */
       library: {type: String, notify:true},
+      /** current url (potentially) used for automatically setting the library */
       curr_url: {type: String, notify:true}
     };
   }
