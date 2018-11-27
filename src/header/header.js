@@ -28,8 +28,9 @@ class BULHeader extends LitElement {
   /** render the html (with 'bulib-search' wc) to the page  */
   render() {
     return html`
-      <link rel="stylesheet" type="text/css" href="/assets/css/common.css">
-      <link rel="stylesheet" type="text/css" href="/assets/icons/bulib-logo.png">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.2/src/header/header.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.2/assets/css/common.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.2/assets/icons/bulib-logo.png">
       <link rel="stylesheet" type="text/css" href="./header.css">
       <style> a { text-decoration: none; }</style>
       <nav>
@@ -48,7 +49,7 @@ class BULHeader extends LitElement {
             </ul>
           </div>
         </div>
-        <div class="secondary-navbar pvm">
+        <div class="secondary-navba pvm">
           <div class="inline pal">
             <slot name="secondary-nav-main"></slot>
           </div>
