@@ -48,9 +48,9 @@ class BULHeader extends LitElement {
             </ul>
           </div>
         </div>
-        <div class="secondary-nav pvm">
+        <div class="secondary-navbar pvm">
           <div class="inline pal">
-            <slot name="secondary-nav-main" id="secondary-nav-main"></slot>
+            <slot name="secondary-nav-main"></slot>
           </div>
           <div id="secondary-nav-search" class="inline">
             <bulib-search str_default="${this.curr_search}" str_options="${this.str_options}"></bulib-search>
