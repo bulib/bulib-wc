@@ -3,10 +3,11 @@
 #site-links > li > a { color: white; }
 .main-menu-items > ul > li.active > a { color: #FFC20E !important; }
 .primary-navbar { 
-    background-color: #212121 !important; 
     display: flex; 
+    flex: 3 10px auto;
+    background-color: #212121 !important; 
 }
 .secondary-navbar { 
-    background-color: lightgrey !important; 
+    background-color: #f6f8fa !important; 
     display: flex; 
 }

@@ -1,3 +1,5 @@
+<title>libanswers - bulib-header | BULib Web Components</title>
+
 <!-- Polyfills only needed for Firefox and Edge. -->
 <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.1.3/webcomponents-bundle.min.js"></script>
 
@@ -15,8 +17,8 @@
     <div slot="secondary-nav-main" id="secondary-nav-main" class="inline container">
       <div class="inline"><strong class="ptl">Ask a Librarian: Help & FAQs</strong></div>
       <div id="askalib-btns" class="container collapse navbar-collapse inline">
-        <ul class="nav navbar-nav s-la-navbrowse inline-list">
-          <li><strong>Browse FAQs:</strong></li>
+        <label for="secondary-nav-links"><strong>Browse FAQs:</strong></label>
+        <ul id="secondary-nav-links" class="nav navbar-nav s-la-navbrowse inline-list">
           <li class="dropdown" id="s-la-browse-groups">
             <a id="s-la-browse-group-drop" data-toggle="dropdown" data-target="#s-la-browse-groups" class="dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false">More Library FAQs <b class="caret"></b></a>
             <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="s-la-browse-group-drop" aria-hidden="true">
