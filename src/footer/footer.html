@@ -12,12 +12,17 @@
     <!-- pull in bulib-wc components -->
     <script src="./footer.js" type="module"></script>
     <script src="../locoso/locoso.js" type="module"></script>
+    <script src="../select/select.js" type="module"></script>
 
   </head>
   <body>
-    <h1>test</h1>
     <bulib-footer>
       <strong slot="sitemap">this is the custom footer text</strong>
     </bulib-footer>
+    <br /><hr /><br />
+    <bulib-select
+      sel_title="Select Library" curr_sel="astronomy" opt_code="libraries"
+      tag_name="bulib-footer" attr_name="library">
+      ></bulib-select>
   </body>
 </html>
