@@ -1,6 +1,6 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
-const debug = true;
+const debug = false;
 
 /** static LOcation, COntact, SOcial data used by the element */
 const locoso = {
