@@ -42,9 +42,6 @@ class BULSearch extends LitElement {
     this.selected = {};
   }
 
-  // don't need 'slot' functionality, so lets use Light DOM
-  createRenderRoot(){ return this; }
-
   /** allow consumer to set the options available in the dropdown, and which one is selected */
   static get properties() {
     return {

@@ -1,13 +1,23 @@
 .primary-navbar > * > h1 { margin-top: 0px; margin-bottom: 0px; }
 .brand > a { color: white; }
 #site-links > li > a { color: white; }
-.main-menu-items > ul > li.active > a { color: #FFC20E !important; }
+.main-menu-items > ul > li.active > a { color: #FFC20E; }
 .primary-navbar { 
-    display: flex; 
-    flex: 3 10px auto;
-    background-color: #212121 !important; 
+  display: flex; 
+  align-items: baseline;
+  background-color: #212121 !important; 
+}
+.primary-navbar > div {
+  
 }
 .secondary-navbar { 
-    background-color: #f6f8fa !important; 
-    display: flex; 
+  background-color: #f6f8fa !important; 
+  display: flex; 
+}
+.container {
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.item-end {
+  align-self: flex-end;
 }

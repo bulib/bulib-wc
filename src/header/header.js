@@ -30,14 +30,13 @@ class BULHeader extends LitElement {
     return html`
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.2/src/header/header.min.css">
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.2/assets/css/common.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.2/assets/icons/bulib-logo.png">
       <link rel="stylesheet" type="text/css" href="./header.css">
       <style> a { text-decoration: none; }</style>
       <nav>
         <div class="primary-navbar container">
           <div class="brand">
             <a title="BU Libraries Homepage" href="http://bu.edu/library/">
-              <img id="bu-logo" src="https://search.bu.edu/static/img/site-title-alt.png"><strong>Libraries</strong>
+              <img id="bu-logo" src="/assets/icons/bulib-logo.png">
             </a>
           </div>
           <div class="main-menu-items">
