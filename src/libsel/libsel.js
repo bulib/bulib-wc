@@ -3,7 +3,7 @@ import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/li
 const debug = true;
 const change_url_on_select = false;
 
-const lsLibraryCodes = ["mugar-memorial","african-studies","medlib","astronomy","lawlibrary","hgar","music","management","pickering-educational","sthlibrary","sel","stone-science"];
+const lsLibraryCodes = ["mugar-memorial","african-studies","medlib","astronomy","lawlibrary","hgar","music","pardee","pickering","theology","sel","stone"];
 const lsLibraryOptions = [
   {"value":"mugar-memorial","name":"SELECT LIBRARY"},
   {"value":"mugar-memorial","name":"Mugar Memorial"},
@@ -13,11 +13,11 @@ const lsLibraryOptions = [
   {"value":"lawlibrary","name":"Fineman and Pappas Law"},
   {"value":"hgar", "name":"Archival Research Center"},
   {"value":"music","name":"Music Library"},
-  {"value":"management","name":"Frederick S. Pardee Managment Library"},
-  {"value":"pickering-educational","name":"Pickering Educational Resources"},
-  {"value":"sthlibrary","name":"School of Theology"},
+  {"value":"pardee","name":"Frederick S. Pardee Managment Library"},
+  {"value":"pickering","name":"Pickering Educational Resources"},
+  {"value":"theology","name":"School of Theology"},
   {"value":"sel","name":"Science and Engineering"},
-  {"value":"stone-science","name":"Stone Science"}
+  {"value":"stone","name":"Stone Science"}
 ];
 
 /** change the current page when user selects a library from the dropdown */
