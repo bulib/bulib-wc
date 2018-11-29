@@ -10,11 +10,11 @@ const libraries =  [
   {"value":"lawlibrary","name":"Fineman and Pappas Law"},
   {"value":"hgar", "name":"Archival Research Center"},
   {"value":"music","name":"Music Library"},
-  {"value":"management","name":"Frederick S. Pardee Managment Library"},
-  {"value":"pickering-educational","name":"Pickering Educational Resources"},
-  {"value":"sthlibrary","name":"School of Theology"},
+  {"value":"pardee","name":"Frederick S. Pardee Managment Library"},
+  {"value":"pickering","name":"Pickering Educational Resources"},
+  {"value":"theology","name":"School of Theology"},
   {"value":"sel","name":"Science and Engineering"},
-  {"value":"stone-science","name":"Stone Science"}
+  {"value":"stone","name":"Stone Science"}
 ];
 const wp_urls = [
   {"name":"SELECT URL",     "value":"www.bu.edu/library"},
