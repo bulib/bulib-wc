@@ -1,7 +1,7 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 import { getLibraryCodeFromUrl } from '../_helpers/lib_info_helper.js';
 
-const debug = true;
+const debug = false;
 const local = false;
 
 /** Reactive/responsive footer providing slotted middle section and customizable LoCoSo data */
@@ -22,9 +22,8 @@ class BULFooter extends LitElement {
   /** upon the element's first connection to the DOM, get the url and use it to determine $this.library */
   connectedCallback(){
     let current_url = local? "http://www.bu.edu/library/music/research/guides/" : window.location.href;
-    if(debug){ console.log("bulib-footer) calling getLibraryCodeFromUrl() with url: " + current_url); }
     let lib_code = getLibraryCodeFromUrl(current_url);
-    if(debug){ console.log("bulib-footer) library code: " + lib_code); }
+    if(debug){ console.log("bulib-footer) selected library code: " + lib_code); }
     this.library = lib_code;
   }
 

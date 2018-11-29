@@ -1,85 +1,7 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
 
 const debug = false;
-
-/** static LOcation, COntact, SOcial data used by the element */
-const locoso = {
-  "mugar-memorial":{
-    "name":"Mugar Memorial Library",
-    "website":"https://www.bu.edu/library/mugar-memorial/",
-    "address":["771 Commonwealth Avenue","Boston, MA 02215"],
-    "contacts":{"phone":"617-353-2700","email":"ask@bu.edu"},
-    "social":{"facebook":"mugarlib","twitter":"mugarlib","instagram":"mugarlib"}
-  },"african-studies":{
-    "name":"African Studies Library",
-    "website":"https://www.bu.edu/library/african-studies/",
-    "address":["771 Commonwealth Ave, 6th Floor","Boston, MA, 02215"],
-    "contacts":{"phone":"617-353-3726"},
-    "social":{"facebook":"BuAfricanStudiesLibrary","flickr":"123460528@N03"}
-  },"medlib":{
-    "name":"Alumni Medical Library",
-    "website":"https://medlib.bu.edu/",
-    "address":["72 E Concord, L-12","Boston, MA 02118"],
-    "contacts":{"phone":"617-358-2350","fax":"617-358-2347","email":"refquest@bu.edu"},
-  },"astronomy":{
-    "name":"Astronomy Library",
-    "website":"https://www.bu.edu/library/astronomy/",
-    "address":["725 Commonwealth Avenue","Boston, MA 02445"],
-    "contacts":{"phone":"617-353-2625"}
-  },"lawlibrary":{
-    "name":"Fineman & Pappas Law Libraries",
-    "website":"https://www.bu.edu/lawlibrary/",
-    "address":["765 Commonwealth Ave, 2nd Floor","Boston, MA 02215"],
-    "contacts":{"phone":"617-353-8411","text":"1-617-997-4475"}
-  },"hgar":{
-    "name":"Howard Gotlieb Archival Research Center",
-    "website":"http://archives.bu.edu/",
-    "address":["771 Commonwealth Ave, 5th Floor","Boston, MA 02215"],
-    "contacts":{"phone":"617-353-3696","fax":"617-353-2838","email":"archives@bu.edu"},
-    "social":{"facebook":"hgarc","twitter":"BUHGARC"}
-  },"music":{
-    "name":"Music Library",
-    "website":"https://www.bu.edu/library/music/",
-    "address":["771 Commonwealth Ave, Floor 2","Boston, MA 02215"],
-    "contacts":{"phone":"617-353-3705","email":"musiclib@bu.edu"},
-    "social":{"twitter":"BUMusicLib","facebook":"bumusiclib"}
-  },"pardee":{
-    "name":"Pardee Management Library",
-    "website":"https://www.bu.edu/library/management/",
-    "address":["595 Commonwealth Avenue","Boston, MA 02215"],
-    "contacts":{"phone":"617-353-4301","fax":"617-353-4307","email":"pardstf@bu.edu"},
-    "social":{"twitter":"BUpardeelibrary","facebook":"pardeelibrary"}
-  },"pickering":{
-    "name":"Pickering Educational Resources Library",
-    "website":"https://www.bu.edu/library/pickering-educational/",
-    "address":["2 Silber Way","Boston, MA 02215"],
-    "contacts":{"phone":"617-353-3734"},
-    "social":{"twitter":"BUPickeringLib","facebook":"BUPickeringLibrary"}
-  },"sel":{
-    "name":"Science & Engineering Library",
-    "website":"https://www.bu.edu/library/sel/",
-    "address":["38 Cummington Mall","Boston, MA 02215"],
-    "contacts":{"phone":"617-353-3733","fax":"617-353-3470"},
-    "social":{"twitter":"BUSciEngLib","tumblr":"buscienglib","instagram":"buscienglib"}
-  },"stone":{
-    "name":"Stone Science Library",
-    "website":"https://www.bu.edu/library/stone-science/",
-    "address":["675 Commonwealth Ave, Floor 2","Boston, MA 02445"],
-    "contacts":{"phone":"617-353-5679"}
-  },"theology":{
-    "name":"School of Theology Library",
-    "website":"https://www.bu.edu/sthlibrary/",
-    "address":["745 Commonwealth Ave, Floor 2","Boston, MA 02215"],
-    "contacts":{"phone":"617-353-3034","fax":"617-358-0698","email":"sthlib@bu.edu"},
-    "social":{"twitter":"BUSTHLibrary","facebook":"busthlibrary","instagram":"butheologylibrary"}
-  },"help":{
-    "name":"BU Libraries",
-    "website":"https://askalibrarian.bu.edu/",
-    "address":["771 Commonwealth Avenue","Boston, MA 02215"],
-    "contacts":{"phone":"617-353-2700","email":"ask@bu.edu","text":"617-431-2427"},
-    "social":{"twitter":"BULibNews"}
-  }
-};
 
 /**
  * display the *LO*cation, *CO*ntact, and *SO*cial media information for
@@ -102,7 +24,7 @@ class BULocoso extends LitElement {
   }
 
   render() {
-    let myLocoso = locoso[this.library] || locoso["mugar-memorial"];
+    let myLocoso = getLibraryInfoFromCode(this.library) || {};
     if(debug){ console.log("bulib-locoso) myLocoso: "); console.log(myLocoso); }
 
     let lib_name = myLocoso["name"] || "BU Libraries";
