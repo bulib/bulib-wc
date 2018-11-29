@@ -90,7 +90,7 @@ class BULocoso extends LitElement {
 
   render() {
     let myLocoso = locoso[this.library] || locoso["mugar-memorial"];
-    if(debug){ console.log(myLocoso); }
+    if(debug){ console.log("bulib-locoso) myLocoso: ") + console.log(myLocoso); }
 
     this.contacts = this._prepareContacts(myLocoso["contacts"][0] || {});
     this.address = myLocoso["location"]["address"] || [];
