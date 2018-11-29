@@ -1,6 +1,7 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
-const debug = false;
+const debug = true;
+const local = true;
 
 /** Reactive/responsive header with custom subsite display, bulib-search integration */
 class BULHeader extends LitElement {
@@ -62,9 +63,9 @@ class BULHeader extends LitElement {
       </nav>`;
   }
 
-  /** update current properties to inform what to display */
-  init(){
-    let currentUrl = (this.curr_url)? this.curr_url : window.location.href;
+  /** upon connection to the DOM, update current properties to inform what to display */
+  connectedCallback(){
+    let currentUrl = (local)? this.curr_url : window.location.href;
 
     this.curr_library = "";
     if(currentUrl.includes("askalibrarian")){

@@ -1,72 +1,7 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
 
 const debug = false;
-
-/** static LOcation, COntact, SOcial data used by the element */
-const locoso = {
-  "mugar-memorial":{
-    "website":"https://www.bu.edu/library/mugar-memorial/",
-    "location":{ "address":["Mugar Memorial Library","771 Commonwealth Avenue","Boston, MA 02215"]},
-    "contacts":[{"name":"Reference","phone":"617-353-2700","email":"ask@bu.edu"},{"name":"Circulation","phone":"617-353-3732","email":"mugcirc@bu.edu"},{"name":"Reservation","phone":"617-353-3739","email":"mugarres@bu.edu"}],
-    "social":{"facebook":"mugarlib","twitter":"mugarlib","instagram":"mugarlib"}
-  },"african-studies":{
-    "website":"https://www.bu.edu/library/african-studies/",
-    "location":{"address":["African Studies Library","771 Commonwealth Ave, 6th Floor","Boston, MA, 02215"]},
-    "contacts":[{"name":"African Studies","phone":"617-353-3726"}],
-    "social":{"facebook":"BuAfricanStudiesLibrary","flickr":"123460528@N03"}
-  },"medlib":{
-    "website":"https://medlib.bu.edu/",
-    "location":{"address":["BU Alumni Medical Library","72 E Concord, L-12","Boston, MA 02118"]},
-    "contacts":[{"name":"Main Number","phone":"617-358-2350","fax":"617-358-2347","email":"refquest@bu.edu"},{"name":"Circulation","phone":"617-358-4902"},{"name":"Interlibrary Loan","phone":"617-358-2352"},{"name":"Reference","phone":"617-358-4810"},{"name":"Computer Lab","phone":"617-358-2344","email":"mugarres@bu.edu"}]
-  },"astronomy":{
-    "website":"https://www.bu.edu/library/astronomy/",
-    "location":{"address":["Astronomy Library","725 Commonwealth Avenue","Boston, MA 02445"]},
-    "contacts":[{"name":"Astronomy Library","phone":"617-353-2625"}]
-  },"lawlibrary":{
-    "website":"https://www.bu.edu/lawlibrary/",
-    "location":{"address":["Fineman & Pappas Law Libraries","765 Commonwealth Ave, 2nd Floor","Boston, MA 02215"]},
-    "contacts":[{"name":"Reference Desk","phone":"617-353-8411","text":"1-617-997-4475"}]
-  },"hgar":{
-    "website":"http://archives.bu.edu/",
-    "location":{"address":["Howard Gotlieb Archival Research Center","771 Commonwealth Ave, 5th Floor","Boston, MA 02215"]},
-    "contacts":[{"phone":"617-353-3696","fax":"617-353-2838","email":"archives@bu.edu"}],
-    "social":{"facebook":"hgarc","twitter":"BUHGARC"}
-  },"music":{
-    "website":"https://www.bu.edu/library/music/",
-    "location":{"address":["Music Library","771 Commonwealth Ave, Floor 2","Boston, MA 02215"]},
-    "contacts":[{"name":"General Inquiries","phone":"617-353-3705","email":"musiclib@bu.edu"}],
-    "social":{"twitter":"BUMusicLib","facebook":"bumusiclib"}
-  },"pardee":{
-    "website":"https://www.bu.edu/library/management/",
-    "location":{"address":["Pardee Management Library","595 Commonwealth Avenue","Boston, MA 02215"]},
-    "contacts":[{"name":"General Inquiries","phone":"617-353-4301","fax":"617-353-4307","email":"pardstf@bu.edu"},{"name":"Reference","phone":"617-353-4304","email":"pardstf@bu.edu"},{"name":"Circulation","phone":"617-353-4301","email":"pardedoc@bu.edu"},{"name":"Reserves","phone":"617-353-4301","email":"pardres@bu.edu"}],
-    "social":{"twitter":"BUpardeelibrary","facebook":"pardeelibrary"}
-  },"pickering":{
-    "website":"https://www.bu.edu/library/pickering-educational/",
-    "location":{"address":["Pickering Educational Resources Library","2 Silber Way","Boston, MA 02215"]},
-    "contacts":[{"name":"General Inquiries","phone":"617-353-3734"}],
-    "social":{"twitter":"BUPickeringLib","facebook":"BUPickeringLibrary"}
-  },"sel":{
-    "website":"https://www.bu.edu/library/sel/",
-    "location":{"address":["Science & Engineering Library","38 Cummington Mall","Boston, MA 02215"]},
-    "contacts":[{"name":"General Inquiries","phone":"617-353-3733","fax":"617-353-3470"},{"name":"Library Hours","phone":"617-358-4125"},{"name":"Reference","phone":"617-353-9454","email":"ask@bu.edu"},{"name":"Circulation","phone":"617-353-3733","email":"selcirc@bu.edu"},{"name":"Reserves","phone":"617-353-3733","email":"selresrv@bu.edu"}],
-    "social":{"twitter":"BUSciEngLib","tumblr":"buscienglib","instagram":"buscienglib"}
-  },"stone":{
-    "website":"https://www.bu.edu/library/stone-science/",
-    "location":{"address":["Stone Science Library","675 Commonwealth Ave, Floor 2","Boston, MA 02445"]},
-    "contacts":[{"name":"General Inquiries","phone":"617-353-5679"}]
-  },"theology":{
-    "website":"https://www.bu.edu/sthlibrary/",
-    "location":{"address":["School of Theology Library","745 Commonwealth Ave, Floor 2","Boston, MA 02215"]},
-    "contacts":[{"name":"General Inquiries","phone":"617-353-3034","fax":"617-358-0698","email":"sthlib@bu.edu"},{"name":"Reference","phone":"617-353-3034","email":"sthref@bu.edu"}],
-    "social":{"twitter":"BUSTHLibrary","facebook":"busthlibrary","instagram":"butheologylibrary"}
-  },"help":{
-    "website":"https://askalibrarian.bu.edu/",
-    "location":{"address":["BU Libraries","771 Commonwealth Avenue","Boston, MA 02215"]},
-    "contacts":[{"name":"help","phone":"617-353-2700","email":"ask@bu.edu","text":"617-431-2427"}],
-    "social":{"twitter":"BULibNews"}
-  }
-};
 
 /**
  * display the *LO*cation, *CO*ntact, and *SO*cial media information for
@@ -89,21 +24,26 @@ class BULocoso extends LitElement {
   }
 
   render() {
-    let myLocoso = locoso[this.library] || locoso["mugar-memorial"];
-    if(debug){ console.log("bulib-locoso) myLocoso: ") + console.log(myLocoso); }
+    let myLocoso = getLibraryInfoFromCode(this.library) || {};
+    if(debug){ console.log("bulib-locoso) myLocoso: "); console.log(myLocoso); }
 
-    this.contacts = this._prepareContacts(myLocoso["contacts"][0] || {});
-    this.address = myLocoso["location"]["address"] || [];
-    this.social = this._prepareSocial(myLocoso["social"] || {});
-    this.website = myLocoso["website"] || "https://www.bu.edu/library/about";
+    let lib_name = myLocoso["name"] || "BU Libraries";
+    let address = myLocoso["address"] || ["771 Commonwealth Avenue","Boston, MA 02215"];
+    let website = myLocoso["website"] || "https://www.bu.edu/library/about";
+
+    let raw_contacts = myLocoso["contacts"] || {"phone":"617-353-2700","email":"ask@bu.edu","text":"617-431-2427"};
+    let contacts = this._prepareContacts(raw_contacts);
+    
+    let raw_social = myLocoso["social"] || {};
+    let social = this._prepareSocial(raw_social);
     
     let socialDisplay;
-    if(this.social.length < 1){ socialDisplay = html``; }
+    if(social.length < 1){ socialDisplay = html``; }
     else{
       socialDisplay= html`
         <h3>Follow Us</h3>
         <ul aria-description="list of social media accounts" class="no-bullet inline-list plm">
-        ${this.social.map((s) =>
+        ${social.map((s) =>
           html`<li><a class="${this.link_class}" target="_blank" href="${s.url}" title="${s.text}"><img alt="${s.text} icon" class="sm-icon ${this.link_class}"
                       src="https://raw.githubusercontent.com/bulib/bulib-wc/master/assets/icons/icons8-${s.text}-48.png"></a></li>`
         )}
@@ -133,12 +73,13 @@ class BULocoso extends LitElement {
         <div class="left prm">
           <h3 class="inline">Visit Us</h3>&nbsp;
           <ol class="no-bullet" aria-label="address">
-            ${this.address.map((l) => html`<li>${l}</li>`)}
+            <li>${lib_name}</li>
+            ${address.map((l) => html`<li>${l}</li>`)}
             <li>
               <small>
-                <a class="${this.link_class}" aria-label="Open library site" href="${this.website}" title="${this.address[0]}"">website</a>
+                <a class="${this.link_class}" aria-label="Open library site" href="${website}" title="${lib_name} website">website</a>
                 <a class="${this.link_class}" aria-label="Directions to the Library" title="get directions" target="_blank"
-                    href="${'https://google.com/maps/search/' + encodeURI("Boston University " + this.address[0])}">directions &raquo;</a>
+                    href="${'https://google.com/maps/search/' + encodeURI("Boston University " + lib_name)}">directions &raquo;</a>
               </small>
             </li>
           </ol>
@@ -146,7 +87,7 @@ class BULocoso extends LitElement {
         <div>
           <h3 class="inline">Contact Us</h3>
           <ul class="no-bullet" aria-label="contact-links">
-            ${this.contacts.map((c) =>
+            ${contacts.map((c) =>
                 html`<li>${c.text} <a class="${this.link_class}" href="${c.url}">${c.val}</a></li>`
              )}
           </ul>
@@ -158,6 +99,8 @@ class BULocoso extends LitElement {
 
   /** use the raw 'contacts' data to populate a basic list that can more easily displayed as a list of links */
   _prepareContacts(rawContacts){
+    if(Object.keys(rawContacts).length < 1){ return {}; }
+    
     let contacts = [];
     if(rawContacts["phone"]){
       contacts.push( {"text":"call", "url":"tel:"+rawContacts["phone"], "val":rawContacts["phone"]} );
@@ -176,6 +119,8 @@ class BULocoso extends LitElement {
 
   /** use raw 'social' data to generate a list of basic profile links for easy display */
   _prepareSocial(rawSocial){
+    if(Object.keys(rawSocial).length < 1){ return []; }
+    
     let social = [];
     if(rawSocial["twitter"]){
       social.push( {"text":"twitter", "url":"http://twitter.com/"+rawSocial["twitter"]} );
