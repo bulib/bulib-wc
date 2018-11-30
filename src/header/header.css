@@ -2,22 +2,12 @@
 .brand > a { color: white; }
 #site-links > li > a { color: white; }
 .main-menu-items > ul > li.active > a { color: #FFC20E; }
-.primary-navbar { 
+.primary-navbar, .secondary-navbar { 
   display: flex; 
-  align-items: baseline;
-  background-color: #212121 !important; 
+  align-items: center;
 }
-.primary-navbar > div {
-  
-}
-.secondary-navbar { 
-  background-color: #f6f8fa !important; 
-  display: flex; 
-}
-.container {
-  justify-content: flex-start;
-  align-items: stretch;
-}
-.item-end {
-  align-self: flex-end;
+.primary-navbar { background-color: #212121 !important; }
+.secondary-navbar { background-color: #f6f8fa !important; }
+.flex-end {
+  margin-left: auto;
 }

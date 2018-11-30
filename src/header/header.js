@@ -34,7 +34,7 @@ class BULHeader extends LitElement {
       <link rel="stylesheet" type="text/css" href="./header.css">
       <style> a { text-decoration: none; }</style>
       <nav>
-        <div class="primary-navbar container">
+        <div class="primary-navbar">
           <div class="brand">
             <a title="BU Libraries Homepage" href="http://bu.edu/library/">
               <img id="bu-logo" src="/assets/icons/bulib-logo.png">
@@ -48,15 +48,15 @@ class BULHeader extends LitElement {
               <li id="subsite-help" class="active"><a href="http://askalibrarian.bu.edu/">Help</a></li>
             </ul>
           </div>
-          <div id="primary-navbar-right" class="item-end">
+          <div id="primary-navbar-right" class="flex-end">
             <bulib-libsel library="mugar-memorial"></bulib-libsel>
           </div>
         </div>
         <div class="secondary-navbar pvm">
-          <div class="inline pal">
+          <div class="pal">
             <slot name="secondary-nav-main"></slot>
           </div>
-          <div id="secondary-nav-search" class="inline">
+          <div id="secondary-nav-search" class="flex-end">
             <bulib-search str_default="${this.curr_search}" str_options="${this.str_options}"></bulib-search>
           </div>
         </div>
