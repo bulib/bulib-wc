@@ -11,9 +11,15 @@
     
     <!-- pull in bulib-wc components -->
     <script src="./search.js" type="module"></script>
+    <script src="../select/select.js" type="module"></script>
 
   </head>
   <body>
     <bulib-search str_options="primo wp guides" str_default="guides" str_placeholder="input text"></bulib-search>
+    <br /><hr /><br />
+    <bulib-select
+      sel_title="Select Search Source" curr_sel="primo" opt_code="search_options"
+      tag_name="bulib-search" attr_name="str_selected">
+    </bulib-select>
   </body>
 </html>

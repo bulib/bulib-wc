@@ -4,7 +4,7 @@ const search_on_submit = false;
 const debug = true;
 
 /** data on the overall search sources we have available to search on */
-const search_options = [
+export const search_options = [
   {"code":"primo",     "name":"Academic Resources",       "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&vid=BU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,", "placeholder": "BU Libraries Search"},
   {"code":"worldcat",  "name":"OCLC WorldCat",            "domain":"https://bu.on.worldcat.org/search?queryString="},
   {"code":"wp",        "name":"Boston University Site",   "domain":"https://search.bu.edu/?q=", "placeholder": "Search Library info/services"},
@@ -46,13 +46,16 @@ class BULSearch extends LitElement {
   static get properties() {
     return {
       /** selected search source (defaulted to first option) */
-      str_default: {type: String, notify: true},
+      str_selected: {type: String, notify: true},
       /** search sources included in the dropdown (defaulted to all) */
       str_options: {type: String},
       /** string displayed within the input box before user adds any */
       str_placeholder: {type: String}
     };
   }
+  
+  // don't need 'slot' functionality, so lets use Light DOM
+  createRenderRoot(){ return this; }
 
   render() {
     this._prepareOptions();
@@ -89,7 +92,7 @@ class BULSearch extends LitElement {
       this.options = search_options; 
     }
     if(Object.keys(this.selected).length == 0){ 
-      this.selected = _getOptionFromCode(this.str_default, this.options); 
+      this.selected = _getOptionFromCode(this.str_selected, this.options); 
       this.str_placeholder = this.selected["placeholder"] || "input text";
     }
 
@@ -98,9 +101,9 @@ class BULSearch extends LitElement {
   }
   
   /** once html is on the page, update the visual to reflect the web component's data  */
-  updated(){
-    if(this.str_default && this.options.includes(this.str_default)){
-      this.selected = _getOptionFromCode(this.str_default, this.options);
+  connectedCallback(){
+    if(this.str_selected && this.options.includes(this.str_selected)){
+      this.selected = _getOptionFromCode(this.str_selected, this.options);
       this.str_placeholder = this.selected["placeholder"] || "input text";
     }
 

@@ -1,4 +1,5 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import {search_options} from '../search/search.js';
 
 const debug = false;
 const libraries =  [
@@ -27,7 +28,8 @@ const wp_urls = [
 ];
 const opt_map = {
   "libraries":libraries,
-  "wp_urls":wp_urls
+  "wp_urls":wp_urls,
+  "search_options":search_options
 };
 
 class BULSelect extends LitElement{
@@ -52,7 +54,6 @@ class BULSelect extends LitElement{
   }
 
   render(){
-    this._loadOptions();
     return html`
       <strong>${this.sel_title}</strong>:
       <select @input=${(e) => this._SelectionChanged(e)}}>
@@ -62,7 +63,7 @@ class BULSelect extends LitElement{
   }
   
   /** populate internal options list with the values from the specified 'opt_code' */
-  _loadOptions(){
+  connectedCallback(){
     this.options = opt_map[this.opt_code];
   }
 
