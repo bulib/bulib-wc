@@ -30,15 +30,14 @@ class BULHeader extends LitElement {
   render() {
     return html`
       <!-- main bulib-header -->
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.5/src/header/header.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.5/assets/css/common.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.5/assets/css/common.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.6/assets/css/common.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.6/src/header/header.min.css">
       <style> a { text-decoration: none; }</style>
       <nav>
         <div class="primary-navbar">
           <div class="brand primary-nav-left" >
             <a title="BU Libraries Homepage" href="http://bu.edu/library/">
-              <img id="bu-logo" src="https://raw.githubusercontent.com/bulib/bulib-wc/header/assets/icons/bulib-logo.png">
+              <img id="bu-logo" class="pam" src="https://raw.githubusercontent.com/bulib/bulib-wc/header/assets/icons/bulib-logo.png">
             </a>
           </div>
           <div class="main-menu-items primary-nav-main">
@@ -51,19 +50,20 @@ class BULHeader extends LitElement {
           </div>
           <div class="flex-end primary-nav-right phm">
             <slot name="primary-nav-right">
+              Library
               <bulib-libsel library="mugar-memorial"></bulib-libsel>
             </slot>
           </div>
         </div>
-        <div class="secondary-navbar pvm">
-          <div class="pal" class="secondary-nav-left">
+        <div class="secondary-navbar">
+          <div class="secondary-nav-left pam">
             <slot name="secondary-nav-left"></slot>
           </div>
-          <div class="pal secondary-nav-main">
+          <div class="secondary-nav-main pam">
             <slot name="secondary-nav-main"></slot>
           </div>
-          <div class="secondary-nav-right">
-            <bulib-search str_default="${this.curr_search}" str_options="${this.str_options}"></bulib-search>
+          <div class="secondary-nav-right pam">
+            <bulib-search str_selected="${this.curr_search}" str_options="${this.str_options}"></bulib-search>
           </div>
         </div>
       </nav>`;
