@@ -29,18 +29,23 @@ class BULHeader extends LitElement {
   /** render the html (with 'bulib-search' wc) to the page  */
   render() {
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.2/src/header/header.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.2/assets/css/common.css">
+      <!-- foundation topbar styling/js -->
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/3.2.5/javascripts/jquery.foundation.topbar.js">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/3.2.5/javascripts/modernizr.foundation.min.js"></script>
+
+      <!-- main bulib-header -->
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.3/src/header/header.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.3/assets/css/common.css">
       <link rel="stylesheet" type="text/css" href="./header.css">
       <style> a { text-decoration: none; }</style>
       <nav>
         <div class="primary-navbar">
-          <div class="brand">
+          <div class="brand primary-nav-left" >
             <a title="BU Libraries Homepage" href="http://bu.edu/library/">
-              <img id="bu-logo" src="/assets/icons/bulib-logo.png">
+              <img id="bu-logo" src="https://raw.githubusercontent.com/bulib/bulib-wc/header/assets/icons/bulib-logo.png">
             </a>
           </div>
-          <div class="main-menu-items">
+          <div class="main-menu-items primary-nav-main">
             <ul id="site-links" class="nav navbar-nav inline-list">
               <li id="subsite-research"><a href="http://www.bu.edu/library/research/">Research</a></li>
               <li id="subsite-services"><a href="http://www.bu.edu/library/services/">Services</a></li>
@@ -48,15 +53,18 @@ class BULHeader extends LitElement {
               <li id="subsite-help" class="active"><a href="http://askalibrarian.bu.edu/">Help</a></li>
             </ul>
           </div>
-          <div id="primary-navbar-right" class="flex-end">
+          <div class="flex-end primary-nav-right">
             <bulib-libsel library="mugar-memorial"></bulib-libsel>
           </div>
         </div>
         <div class="secondary-navbar pvm">
-          <div class="pal">
+          <div class="pal" class="secondary-nav-left">
+            <slot name="secondary-nav-left"></slot>
+          </div>
+          <div class="pal secondary-nav-main">
             <slot name="secondary-nav-main"></slot>
           </div>
-          <div id="secondary-nav-search" class="flex-end">
+          <div class="secondary-nav-right">
             <bulib-search str_default="${this.curr_search}" str_options="${this.str_options}"></bulib-search>
           </div>
         </div>
