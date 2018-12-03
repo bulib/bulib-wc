@@ -29,14 +29,10 @@ class BULHeader extends LitElement {
   /** render the html (with 'bulib-search' wc) to the page  */
   render() {
     return html`
-      <!-- foundation topbar styling/js -->
-      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/3.2.5/javascripts/jquery.foundation.topbar.js">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/3.2.5/javascripts/modernizr.foundation.min.js"></script>
-
       <!-- main bulib-header -->
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.3/src/header/header.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.3/assets/css/common.css">
-      <link rel="stylesheet" type="text/css" href="./header.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.5/src/header/header.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.5/assets/css/common.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.5/assets/css/common.css">
       <style> a { text-decoration: none; }</style>
       <nav>
         <div class="primary-navbar">
@@ -53,8 +49,10 @@ class BULHeader extends LitElement {
               <li id="subsite-help" class="active"><a href="http://askalibrarian.bu.edu/">Help</a></li>
             </ul>
           </div>
-          <div class="flex-end primary-nav-right">
-            <bulib-libsel library="mugar-memorial"></bulib-libsel>
+          <div class="flex-end primary-nav-right phm">
+            <slot name="primary-nav-right">
+              <bulib-libsel library="mugar-memorial"></bulib-libsel>
+            </slot>
           </div>
         </div>
         <div class="secondary-navbar pvm">
@@ -110,9 +108,7 @@ class BULHeader extends LitElement {
 
     // add debug info
     if(debug){
-      console.log("curr_primary: " + this.curr_primary);
-      console.log("curr_secondary: " + this.curr_secondary);
-      console.log("curr_search: " + this.curr_search);
+      console.log(`bulib-header) curr_primary: '${this.curr_primary}', curr_secondary: '${this.curr_secondary}'', curr_search: '${this.curr_search}'`);
     }
   }
 

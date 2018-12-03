@@ -4,20 +4,23 @@
 <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.1.3/webcomponents-bundle.min.js"></script>
 
 <!-- styling -->
-<link rel="stylesheet" type="text/css" href="../../../assets/css/common.min.css">
-<link rel="stylesheet" type="text/css" href="../../header/header.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.5/assets/css/common.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.5/src/header/header.css">
 
 <!-- pull in bulib-wc components -->
-<script src="../header.min.js" type="module"></script>
-<script src="../libsel/libsel.min.js" type="module"></script>
-<script src="../select/select.min.js" type="module"></script>
-<script src="../../search/search.min.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.5/src/header/header.min.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.5/src/libsel/libsel.min.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.5/src/select/select.min.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.5/src/search/search.min.js" type="module"></script>
 
-<bulib-header curr_url="http://askalibrarian.bu.edu" curr_search="help" str_options="help wp primo guides">
-    <div slot="secondary-nav-main" id="secondary-nav-main" class="inline container">
+<div class="container">
+  <bulib-header curr_url="http://askalibrarian.bu.edu" curr_search="help" str_options="help wp primo guides">
+    <div slot="secondary-nav-left">
+      <label for="secondary-nav-links"><strong>Browse FAQs:</strong></label>
+    </div>
+    <div slot="secondary-nav-main" id="secondary-nav-main" class="container">
       <div class="inline"><strong class="ptl">Ask a Librarian: Help & FAQs</strong></div>
       <div id="askalib-btns" class="container collapse navbar-collapse inline">
-        <label for="secondary-nav-links"><strong>Browse FAQs:</strong></label>
         <ul id="secondary-nav-links" class="nav navbar-nav s-la-navbrowse inline-list">
           <li class="dropdown" id="s-la-browse-groups">
             <a id="s-la-browse-group-drop" data-toggle="dropdown" data-target="#s-la-browse-groups" class="dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false">More Library FAQs <b class="caret"></b></a>
@@ -49,8 +52,8 @@
               <li role="presentation"><a href="/search/?t=0&amp;g=716&amp;topics=BULS%20My%20Favorites&amp;adv=1" role="menuitem" tabindex="-1"><span class="badge">4</span><span class="topic_item">BULS My Favorites</span></a></li>
               <li role="presentation"><a href="/search/?t=0&amp;g=716&amp;topics=General&amp;adv=1" role="menuitem" tabindex="-1"><span class="badge">4</span><span class="topic_item">General</span></a></li>
               <li role="presentation"><a href="/search/?t=0&amp;g=716&amp;topics=Newspapers%2C%20Foreign&amp;adv=1" role="menuitem" tabindex="-1"><span class="badge">4</span><span class="topic_item">Newspapers, Foreign</span></a></li>
-              <li role="presentation"><a href="/search/?t=0&amp;g=716&amp;topics=OpenBU&amp;adv=1" role="menuitem" tabindex="-1"><span class="badge">4</span><span class="topic_item">OpenBU</span></a></li-->
-              <!--li role="presentation"><a href="/search/?t=0&amp;g=716&amp;topics=Articles&amp;adv=1" role="menuitem" tabindex="-1"><span class="badge">2</span><span class="topic_item">Articles</span></a></li>
+              <li role="presentation"><a href="/search/?t=0&amp;g=716&amp;topics=OpenBU&amp;adv=1" role="menuitem" tabindex="-1"><span class="badge">4</span><span class="topic_item">OpenBU</span></a></li>
+              <li role="presentation"><a href="/search/?t=0&amp;g=716&amp;topics=Articles&amp;adv=1" role="menuitem" tabindex="-1"><span class="badge">2</span><span class="topic_item">Articles</span></a></li>
               <li role="presentation"><a href="/search/?t=0&amp;g=716&amp;topics=Mugar%20Library&amp;adv=1" role="menuitem" tabindex="-1"><span class="badge">2</span><span class="topic_item">Mugar Library</span></a></li>
               <li role="presentation"><a href="/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1" role="menuitem" tabindex="-1"><span class="badge">2</span><span class="topic_item">Newspapers</span></a></li>
               <li role="presentation"><a href="/search/?t=0&amp;g=716&amp;topics=The%20Research%20Process&amp;adv=1" role="menuitem" tabindex="-1"><span class="badge">2</span><span class="topic_item">The Research Process</span></a></li>
@@ -61,3 +64,4 @@
       </div>
     </div>
   </bulib-header>
+</div>
