@@ -5,14 +5,14 @@ const debug = true;
 
 /** data on the overall search sources we have available to search on */
 export const search_options = [
-  {"code":"primo",     "name":"Academic Resources",       "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&vid=BU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,", "placeholder": "BU Libraries Search"},
-  {"code":"worldcat",  "name":"OCLC WorldCat",            "domain":"https://bu.on.worldcat.org/search?queryString="},
-  {"code":"wp",        "name":"Boston University Site",   "domain":"https://search.bu.edu/?q=", "placeholder": "Search Library info/services"},
-  {"code":"directory", "name":"Staff Directory",          "domain":"https://www.bu.edu/phpbin/directory/?q=", "placeholder": "Search for people at BU"},
-  {"code":"hgar",      "name":"Archival Research Center", "domain":"https://hgar-srv3.bu.edu/search/?search=SEARCH&query=", "placeholder": "Search the BU Archive"},
-  {"code":"openbu",    "name":"Open BU",                  "domain":"https://open.bu.edu/discover?query=", "placeholder": "Search BU Digital Collections"},
-  {"code":"guides",    "name":"Library Guides",           "domain":"http://library.bu.edu/srch.php?q=", "placeholder": "Search Research Guides"},
-  {"code":"help",      "name":"Ask a Librarian",          "domain":"http://askalibrarian.bu.edu/search/?t=0&q=", "placeholder": "Type your question here"}
+  {"value":"primo",     "name":"Academic Resources",       "placeholder": "BU Libraries Search",          "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&vid=BU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
+  {"value":"worldcat",  "name":"OCLC WorldCat",            "placeholder": "BU Libraries Search",          "domain":"https://bu.on.worldcat.org/search?queryString="},
+  {"value":"wp",        "name":"Boston University Site",   "placeholder": "Search Library info/services", "domain":"https://search.bu.edu/?q="},
+  {"value":"directory", "name":"Staff Directory",          "placeholder": "Search for people at BU",      "domain":"https://www.bu.edu/phpbin/directory/?q="},
+  {"value":"hgar",      "name":"Archival Research Center", "placeholder": "Search the BU Archive",        "domain":"http://archives.bu.edu/search/?search=SEARCH&query="},
+  {"value":"openbu",    "name":"Open BU",                  "placeholder": "Search BU Digital Collections","domain":"https://open.bu.edu/discover?query="},
+  {"value":"guides",    "name":"Library Guides",           "placeholder": "Search Research Guides",       "domain":"http://library.bu.edu/srch.php?q="},
+  {"value":"help",      "name":"Ask a Librarian",          "placeholder": "Type your question here",      "domain":"http://askalibrarian.bu.edu/search/?t=0&q="}
 ];
 
 /** move from 'code' string to option object (with backup) */
@@ -22,15 +22,14 @@ const _getOptionFromCode = function(code, lsOptions){
   
   for(let i=0; i<lsOptions.length; i++){
     let searchOption = lsOptions[i];
-    if(searchOption["code"] == code){ return searchOption; }
+    if(searchOption["value"] === code){ return searchOption; }
   }
   return (lsOptions && lsOptions.length == 0)? "" : lsOptions[0];
 };
 
 /** helper calling _getOptionFromCode  */
-const handleSearchButton = function(event, defaultCode){
-  let code = event.target.selectedOptions[0].value || defaultCode;
-  return _getOptionFromCode(code);
+const handleSearchSelect = function(event, defaultCode="primo"){
+  return event.target.selectedOptions[0].value || defaultCode;
 };
 
 /**  */
@@ -46,25 +45,25 @@ class BULSearch extends LitElement {
   static get properties() {
     return {
       /** selected search source (defaulted to first option) */
-      str_selected: {type: String, notify: true},
+      str_selected: {type: String, notify:true},
       /** search sources included in the dropdown (defaulted to all) */
-      str_options: {type: String},
-      /** string displayed within the input box before user adds any */
-      str_placeholder: {type: String}
+      str_options: {type: String}
     };
   }
-  
+
   // don't need 'slot' functionality, so lets use Light DOM
   createRenderRoot(){ return this; }
 
   render() {
-    this._prepareOptions();
+    this._initSelectedOptions();
+    let placeholder = _getOptionFromCode(this.str_selected)["placeholder"];
+    
     return html`
     <style type="text/css"> #search_query_input { min-width: 200px; } </style>
     <div id="bulib-search">
-      <input id="search_query_input" type="text" placeholder="${this.str_placeholder}"></input>
-      <select id="search_source_select" @change="${(e) => this.selected = handleSearchButton(e, this.options[0])}">
-        ${this.options.map((o) => html`<option value="${o.code}">${o.name}</option>`)}
+      <input id="search_query_input" type="text" placeholder="${placeholder}"></input>
+      <select id="search_source_select" @change="${(e) => this.str_selected = handleSearchSelect(e)}">
+        ${this.options.map((o) => html`<option value="${o.value}">${o.name}</option>`)}
       </select>
       <button type="submit" @click="${(e) => this._doSearch()}" title="Search ${this.selected["name"]}">Search</button>
     </div>
@@ -72,7 +71,7 @@ class BULSearch extends LitElement {
   }
 
   /** set display options on user input (if present) */
-  _prepareOptions(){
+  _initSelectedOptions(){
 
     // try to set 'options' and 'selected' based on user input (with fallbacks) 
     this.options = []; this.selected = {};
@@ -82,7 +81,7 @@ class BULSearch extends LitElement {
       let i, searchOption, optionCode;
       for(i=0; i<search_options.length; i++){
         searchOption = search_options[i];
-        optionCode = searchOption["code"];
+        optionCode = searchOption["value"];
         if(this.str_options.includes(optionCode)){ this.options.push(searchOption);}
       }
     }
@@ -111,7 +110,7 @@ class BULSearch extends LitElement {
       let lsSearchSourceOptions = document.getElementById("search_source_select").options;
       for(let i=0; i<lsSearchSourceOptions.length; i++){
         let option = lsSearchSourceOptions[i];
-        if(option.value === this.selected["code"]){ option.selected = "selected"; }
+        if(option.value === this.selected["value"]){ option.selected = "selected"; }
       }
     }
   }
@@ -122,7 +121,7 @@ class BULSearch extends LitElement {
 
     // obtain 
     let option = (Object.keys(this.selected).length > 0) ? this.selected : this.options[0];
-    let site = option["code"];
+    let site = option["value"];
     let query = userInputElem ? userInputElem.value : "";
     let domain = option["domain"];
 
