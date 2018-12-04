@@ -1,5 +1,5 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
-import { getLibraryCodeFromUrl } from '../_helpers/lib_info_helper.js';
+import {getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
 const debug = true;
 const local = true;
@@ -56,7 +56,9 @@ class BULHeader extends LitElement {
         </div>
         <div class="secondary-navbar">
           <div class="secondary-nav-left pam">
-            <slot name="secondary-nav-left"></slot>
+            <slot name="secondary-nav-left">
+              <strong>${this.curr_secondary}</strong>
+            </slot>
           </div>
           <div class="secondary-nav-main pam">
             <slot name="secondary-nav-main"></slot>
@@ -69,13 +71,32 @@ class BULHeader extends LitElement {
   }
 
   /** for production purposes, react to url updating when the component is first loaded */
-  connectedCallback(){ if(!local) { this._urlUpdated(); } }  
+  connectedCallback(){ 
+    super.connectedCallback(); 
+    if(!local) { this._urlUpdated(); } 
+  }  
 
   /** for development purposes, react to manual changes to `this.curr_url` via _urlUpdated */
   attributeChangedCallback(name, oldValue, newValue){
     super.attributeChangedCallback(name, oldValue, newValue);
     if(debug){ console.log(`bulib-header) attributeChangedCallback() called, changing '${name}' from '${oldValue}' to '${newValue}'...`); }
-    if(name === "curr_url"){ this._urlUpdated(); }
+    switch(name){
+      case "curr_url":      this._urlUpdated(); break;
+      case "curr_primary":  this._primaryUpdated(); break;
+      default: break;
+    }
+  }
+  
+  /** set primary nav 'active' styling */
+  _primaryUpdated(){
+    let i, li; 
+    let lsListItems = this.shadowRoot.querySelector("#site-links").getElementsByTagName("li");
+    console.log(lsListItems);
+    for(i = 0; i<lsListItems.length; i++) {
+      li = lsListItems[i];
+      if((li.id).includes(this.curr_primary)){ li.classList.add("active"); } 
+      else{ li.classList.remove("active"); }
+    }
   }
 
   /** set the primary, secondary, and search information according to the currentUrl  */
@@ -113,6 +134,7 @@ class BULHeader extends LitElement {
         this.curr_secondary = getLibraryCodeFromUrl(currentUrl) || "mugar-memorial";
       }
     }
+    this._primaryUpdated();
 
     // add debug info
     if(debug){

@@ -2,7 +2,7 @@
 .main-menu-items > ul > li > a { color: white; }
 .main-menu-items > ul > li.active > a { color: #FFC20E; }
 .primary-navbar { background-color: #212121 !important; }
-.secondary-navbar { background-color: #f8f8f8 !important; }
+.secondary-navbar { background-color: #f5f5f5 !important; }
 
 /* header grid and responsivensess */
 .primary-navbar, .secondary-navbar {
@@ -21,7 +21,7 @@
 .primary-nav-right,.secondary-nav-right { grid-area: hdr-rt; }
 
 /* medium-sized screen */
-@media only screen and (min-width: 1000px){
+@media only screen and (min-width: 600px){
   .primary-navbar, .secondary-navbar {
     grid-template-areas:"hdr-lt hdr-md hdr-md hdr-md hdr-rt hdr-rt";
   }
