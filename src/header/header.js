@@ -30,8 +30,8 @@ class BULHeader extends LitElement {
   /** render the html (with 'bulib-search' wc) to the page  */
   render() {
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.8/assets/css/common.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.8/src/header/header.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9/assets/css/common.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9/src/header/header.min.css">
       <style> a { text-decoration: none; }</style>
       <nav>
         <div class="primary-navbar">
@@ -91,7 +91,6 @@ class BULHeader extends LitElement {
   _primaryUpdated(){
     let i, li; 
     let lsListItems = this.shadowRoot.querySelector("#site-links").getElementsByTagName("li");
-    console.log(lsListItems);
     for(i = 0; i<lsListItems.length; i++) {
       li = lsListItems[i];
       if((li.id).includes(this.curr_primary)){ li.classList.add("active"); } 
@@ -102,7 +101,8 @@ class BULHeader extends LitElement {
   /** set the primary, secondary, and search information according to the currentUrl  */
   _urlUpdated(){
     let currentUrl = (local)? this.curr_url : window.location.href;
-
+    
+    let old_primary = this.curr_primary;
     if(currentUrl.includes("askalibrarian")){
       this.curr_primary = "help";
       this.curr_secondary = "Ask a Librarian";
@@ -134,7 +134,9 @@ class BULHeader extends LitElement {
         this.curr_secondary = getLibraryCodeFromUrl(currentUrl) || "mugar-memorial";
       }
     }
-    this._primaryUpdated();
+    
+    // TODO remove and deal with changes in a nicer, more standardized way
+    if(old_primary && old_primary !== this.curr_primary) { this._primaryUpdated(); }
 
     // add debug info
     if(debug){
