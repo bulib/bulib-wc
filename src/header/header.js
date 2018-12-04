@@ -1,8 +1,8 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 import {getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
-const debug = true;
-const local = true;
+const debug = false;
+const local = false;
 
 /** Reactive/responsive header with custom subsite display, bulib-search integration */
 class BULHeader extends LitElement {
@@ -72,9 +72,8 @@ class BULHeader extends LitElement {
 
   /** for production purposes, react to url updating when the component is first loaded */
   connectedCallback(){ 
-    super.connectedCallback(); 
     if(!local) { this._urlUpdated(); } 
-  }  
+  }
 
   /** for development purposes, react to manual changes to `this.curr_url` via _urlUpdated */
   attributeChangedCallback(name, oldValue, newValue){
