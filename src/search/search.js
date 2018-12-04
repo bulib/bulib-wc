@@ -32,7 +32,7 @@ const handleSearchSelect = function(event, defaultCode="primo"){
   return event.target.selectedOptions[0].value || defaultCode;
 };
 
-/**  */
+/** context-sensitive search form allowing you to search across multiple 'search_options' */
 class BULSearch extends LitElement {
 
   constructor(){ 
@@ -51,7 +51,7 @@ class BULSearch extends LitElement {
     };
   }
 
-  // don't need 'slot' functionality, so lets use Light DOM
+  /** don't need 'slot' functionality, so lets use Light DOM */
   createRenderRoot(){ return this; }
 
   render() {
@@ -100,14 +100,14 @@ class BULSearch extends LitElement {
   }
   
   /** once html is on the page, update the visual to reflect the web component's data  */
-  connectedCallback(){
+  updated(){
     if(this.str_selected && this.options.includes(this.str_selected)){
       this.selected = _getOptionFromCode(this.str_selected, this.options);
       this.str_placeholder = this.selected["placeholder"] || "input text";
     }
 
     if(this.selected){
-      let lsSearchSourceOptions = document.getElementById("search_source_select").options;
+      let lsSearchSourceOptions = this.querySelector("#search_source_select").options;
       for(let i=0; i<lsSearchSourceOptions.length; i++){
         let option = lsSearchSourceOptions[i];
         if(option.value === this.selected["value"]){ option.selected = "selected"; }
@@ -117,14 +117,14 @@ class BULSearch extends LitElement {
 
   /** perform a search for the input query on the selected database */
   _doSearch(){
+    // obtain values required for the search from the input and currently selected option.
     let userInputElem = this.querySelector("#search_query_input");
-
-    // obtain 
     let option = (Object.keys(this.selected).length > 0) ? this.selected : this.options[0];
     let site = option["value"];
     let query = userInputElem ? userInputElem.value : "";
     let domain = option["domain"];
 
+    //conditionally log and/or perform search
     if(debug){ console.log(`bulib-search) searching '${site}' for query: '${query}' on domain: '${domain}'...`); }
     if(search_on_submit){ window.location = this.selected["domain"] + encodeURIComponent(query); }
   }
