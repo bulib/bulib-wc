@@ -1,4 +1,5 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import { getLibraryCodeFromUrl } from '../_helpers/lib_info_helper.js';
 
 const debug = true;
 const local = true;
@@ -29,7 +30,6 @@ class BULHeader extends LitElement {
   /** render the html (with 'bulib-search' wc) to the page  */
   render() {
     return html`
-      <!-- main bulib-header -->
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.6/assets/css/common.min.css">
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.6/src/header/header.min.css">
       <style> a { text-decoration: none; }</style>
@@ -50,8 +50,7 @@ class BULHeader extends LitElement {
           </div>
           <div class="flex-end primary-nav-right phm">
             <slot name="primary-nav-right">
-              Library
-              <bulib-libsel library="mugar-memorial"></bulib-libsel>
+              Library<bulib-libsel></bulib-libsel>
             </slot>
           </div>
         </div>
@@ -69,11 +68,20 @@ class BULHeader extends LitElement {
       </nav>`;
   }
 
-  /** upon connection to the DOM, update current properties to inform what to display */
-  connectedCallback(){
+  /** for production purposes, react to url updating when the component is first loaded */
+  connectedCallback(){ if(!local) { this._urlUpdated(); } }  
+
+  /** for development purposes, react to manual changes to `this.curr_url` via _urlUpdated */
+  attributeChangedCallback(name, oldValue, newValue){
+    super.attributeChangedCallback(name, oldValue, newValue);
+    if(debug){ console.log(`bulib-header) attributeChangedCallback() called, changing '${name}' from '${oldValue}' to '${newValue}'...`); }
+    if(name === "curr_url"){ this._urlUpdated(); }
+  }
+
+  /** set the primary, secondary, and search information according to the currentUrl  */
+  _urlUpdated(){
     let currentUrl = (local)? this.curr_url : window.location.href;
 
-    this.curr_library = "";
     if(currentUrl.includes("askalibrarian")){
       this.curr_primary = "help";
       this.curr_secondary = "Ask a Librarian";
@@ -102,7 +110,7 @@ class BULHeader extends LitElement {
       else{
         this.curr_primary = "about";
         this.curr_search = "wp";
-        this.curr_library = "mugar-memorial";
+        this.curr_secondary = getLibraryCodeFromUrl(currentUrl) || "mugar-memorial";
       }
     }
 
