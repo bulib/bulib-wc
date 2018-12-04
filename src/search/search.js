@@ -117,7 +117,7 @@ class BULSearch extends LitElement {
 
   /** perform a search for the input query on the selected database */
   _doSearch(){
-    let userInputElem = document.getElementById("search_query_input");
+    let userInputElem = this.querySelector("#search_query_input");
 
     // obtain 
     let option = (Object.keys(this.selected).length > 0) ? this.selected : this.options[0];
