@@ -14,11 +14,22 @@
 <style>
   /* hide BU Logo and 'Libraries & Archives' heading */
   #footer-logo-container, #footer-content > h2 { display: none; }
+
+  /* prevent overflow of footer width to 900px at small widths */
+  #footer > div.container { width: auto; }
 </style>
 
 <bulib-footer library="mugar-memorial">
   <div slot="sitemap" id="sitemap">
-    <em>*Insert Wordpress-specific content here*</em>
+    <h3>Boston University Libraries</h3>
+    <ul class="multi-column no-bullet">
+      <li><a class="white-link" href="/library/services/ill/">InterLibrary Borrowing</a></li>
+      <li><a class="white-link" href="/library/services/reserves/">Course Reserves</a></li>
+      <li><a class="white-link" href="/library/services/alumni/">For Alumni</a></li>
+      <li><a class="white-link" href="/library/about/who-we-are/staff-directory/">Staff Directory</a></li>
+      <li><a class="white-link" href="/library/about/maps-floorplans/">Maps &amp; Floorplans</a></li>
+      <li><a class="white-link" href="/library/services/for-faculty/">For Faculty</a></li>
+    </ul>
     <br /><br />
     <bulib-select
       sel_title="Select Library" curr_sel="astronomy" opt_code="libraries"
