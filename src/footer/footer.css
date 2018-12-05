@@ -1,3 +1,8 @@
+.footer-wrapper{
+  background-color: #212121;
+  color: white;
+}
+
 /* footer grid and colors */
 footer {
   display: grid;
@@ -8,8 +13,6 @@ footer {
     "ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt"
     "ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt";
   grid-gap: 10px;
-  background-color: #212121;
-  color: white;
 }
 
 /* medium-sized screen */
@@ -34,7 +37,7 @@ footer {
 
 /* on super large screens, set the width to 80% to avoid getting too much spacing */
 @media only screen and (min-width: 1500px){
-  div#footer-content { 
+  footer { 
     margin: 0 auto;
     width: 80%;
   }
@@ -47,6 +50,6 @@ footer {
 .ftr-left > div, .ftr-middle > div, .ftr-right > div { margin: 6%; }
 
 /* etc */
+.bu-logo { padding-right: 25px; }
 bulib-footer > * > h3 { margin-top: 0px; margin-bottom: 0px; color: white; text-align: center; }
 bulib-footer > * > ul, bulib-footr > * > ol { margin-top: 5px; margin-bottom: 5px; }
-.bu-logo { padding-right: 25px; }
