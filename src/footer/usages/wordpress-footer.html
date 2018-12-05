@@ -5,24 +5,34 @@
 
 <!-- styling -->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v1.7/assets/css/common.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v1.7/src/footer/footer.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.1/src/footer/footer.min.css">
 
 <!-- pull in bulib-wc components -->
-<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v1.7/src/locoso/locoso.min.js" type="module"></script>
-<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v1.7/src/footer/footer.min.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.1/src/locoso/locoso.min.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.1/src/footer/footer.min.js" type="module"></script>
 
 <style>
   /* hide BU Logo and 'Libraries & Archives' heading */
   #footer-logo-container, #footer-content > h2 { display: none; }
+
+  /* prevent overflow of footer width to 900px on small screens */
+  #footer > div.container { width: auto; }
+  #footer-content { float: inherit; }
+  
+  /* remove strange list bullet styling (green dot with white background) */
+  #sitemap > ul li { background-image: none; }
 </style>
 
 <bulib-footer library="mugar-memorial">
   <div slot="sitemap" id="sitemap">
-    <em>*Insert Wordpress-specific content here*</em>
-    <br /><br />
-    <bulib-select
-      sel_title="Select Library" curr_sel="astronomy" opt_code="libraries"
-      tag_name="bulib-footer" attr_name="library">
-    </bulib-select>
+    <h3>Boston University Libraries</h3>
+    <ul class="multi-column no-bullet">
+      <li><a class="white-link" href="/library/services/ill/">InterLibrary Borrowing</a></li>
+      <li><a class="white-link" href="/library/services/reserves/">Course Reserves</a></li>
+      <li><a class="white-link" href="/library/services/alumni/">For Alumni</a></li>
+      <li><a class="white-link" href="/library/about/who-we-are/staff-directory/">Staff Directory</a></li>
+      <li><a class="white-link" href="/library/about/maps-floorplans/">Maps &amp; Floorplans</a></li>
+      <li><a class="white-link" href="/library/services/for-faculty/">For Faculty</a></li>
+    </ul>
   </div>
 </bulib-footer>
