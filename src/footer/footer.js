@@ -30,11 +30,12 @@ class BULFooter extends LitElement {
   render() {
     return html`
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v1.5/assets/css/common.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v1.5/src/footer/footer.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.1/src/footer/footer.css">
       <style>
         :host(h3), h3 { margin-top: 0px; margin-bottom: 0px; }
         ul, ol { margin-top: 5px; margin-bottom: 5px; }
       </style>
+      <div class="footer-wrapper">
       <footer class="pam">
         <div class="ftr-left">
           <div id="bu-content">
@@ -59,7 +60,8 @@ class BULFooter extends LitElement {
         <div class="ftr-right">
           <div><bulib-locoso library="${this.library}" link_class="white-link"></bulib-locoso></div>
         </div>
-      </footer>`;
+      </footer>
+      </div>`;
   }
 
 }

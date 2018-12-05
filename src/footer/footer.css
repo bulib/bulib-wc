@@ -1,3 +1,8 @@
+.footer-wrapper{
+  background-color: #212121;
+  color: white;
+}
+
 /* footer grid and colors */
 footer {
   display: grid;
@@ -8,8 +13,6 @@ footer {
     "ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt"
     "ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt";
   grid-gap: 10px;
-  background-color: #212121;
-  color: white;
 }
 
 /* medium-sized screen */
@@ -30,6 +33,14 @@ footer {
   }
   .ftr-middle { border-bottom: solid transparent 1px !important; }
   .ftr-right  { border-bottom: solid transparent 1px !important; }
+}
+
+/* on super large screens, set the width to 80% to avoid getting too much spacing */
+@media only screen and (min-width: 1500px){
+  footer { 
+    margin: 0 auto;
+    width: 80%;
+  }
 }
 
 /* map classes to grid areas */
