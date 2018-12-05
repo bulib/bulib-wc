@@ -5,7 +5,7 @@ const change_url_on_select = false;
 
 const lsLibraryCodes = ["mugar-memorial","african-studies","medlib","astronomy","lawlibrary","hgar","music","pardee","pickering","theology","sel","stone"];
 const lsLibraryOptions = [
-  {"value":"mugar-memorial","name":"SELECT LIBRARY"},
+  {"value":"mugar-memorial","name":"Library Locations"},
   {"value":"mugar-memorial","name":"Mugar Memorial"},
   {"value":"african-studies","name":"African Studies"},
   {"value":"medlib", "name":"Alumni Medical"},
