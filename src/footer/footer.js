@@ -49,19 +49,21 @@ class BULFooter extends LitElement {
   render() {
     return html`
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v1.5/assets/css/common.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.1/src/footer/footer.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.1.3/src/footer/footer.css">
       <style>
         /* set top and bottom margins, font size, and color for all h3s */
-        h3, :slotted(h3) { 
-          margin-top: 0px; 
+        h3, ::slotted(h3) { 
+          margin-top: 0px;
           margin-bottom: 0px; 
           font-size: 150%; 
-          text-align: center;
+          text-align: center !important;
           color: white !important; 
         }
         
         /* prevent host from setting the left-right margins, add top-bottom margins*/
-        ul, ol, :slotted(ul), :slotted(ol) { margin: 5px 0px !important; }
+        ul, ol, ::slotted(ul), ::slotted(ol) { 
+          margin: 5px 0px; 
+        }
       </style>
       <div class="footer-wrapper">
       <footer class="pam">
