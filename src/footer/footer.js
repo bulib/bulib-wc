@@ -119,13 +119,14 @@ class BULFooter extends LitElement {
             </div>
           </div>
           <div class="ftr-middle">
-            <div><slot id="sitemap" name="sitemap">${sitemap_content}</slot></div>
+            <div id="sitemap"><slot name="sitemap">${sitemap_content}</slot></div>
           </div>
           <div class="ftr-right">
             <div><bulib-locoso library="${this.library}" link_class="white-link"></bulib-locoso></div>
           </div>
         </footer>
-      </div>`;
+      </div>
+    `;
   }
 
 }

@@ -19,8 +19,13 @@
   #footer > div.container { width: auto; }
   #footer-content { float: inherit; }
   
-  /* remove strange list bullet styling (green dot with white background) */
-  #sitemap > ul li, ol li { background: none; }
+  /* firefox-specific adjustments for text color, link background, margins */
+  h3.style-scope.bulib-footer { color: white; }
+  li.style-scope.bulib-footer { 
+    background-image: none; 
+    color: white;
+    margin: unset;
+}
 </style>
 
 <bulib-footer library="mugar-memorial" host_site="wordpress"></bulib-footer>

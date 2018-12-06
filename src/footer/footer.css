@@ -55,4 +55,4 @@ footer {
 
 /* etc */
 .bu-logo { padding-right: 25px; }
-#sitemap > h3 { font-size: 130%; }
+#sitemap > h3, #sitemap > * > h3 { font-size: 130%; }
