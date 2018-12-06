@@ -16,13 +16,16 @@
     <script src="../select/select.js" type="module"></script>
   </head>
   <body>
-    <bulib-footer>
-      <h3 slot="sitemap">this is the custom footer text</h3>
-    </bulib-footer>
+    <bulib-footer host_site="askalibrarian"></bulib-footer>
     <br /><hr /><br />
     <bulib-select
       sel_title="Select Library" curr_sel="astronomy" opt_code="libraries"
       tag_name="bulib-footer" attr_name="library">
-      </bulib-select>
+    </bulib-select>
+    <br /><br />
+    <bulib-select
+      sel_title="Select Site" curr_sel="help" opt_code="sites"
+      tag_name="bulib-footer" attr_name="host_site">
+    </bulib-select>
   </body>
 </html>

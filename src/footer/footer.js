@@ -3,6 +3,39 @@ import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/li
 const debug = true;
 const local = false;
 
+/** stored values for the sitemap */
+const sitemap_values = {
+  "wordpress":{
+    "header":"Boston University Libraries",
+    "links":[
+      {"title":"InterLibrary Borrowing","href":"/library/services/ill/"},
+      {"title":"Course Reserves",       "href":"/library/services/reserves/"},
+      {"title":"For Alumni",            "href":"/library/services/alumni/"},
+      {"title":"Staff Directory",       "href":"/library/about/who-we-are/staff-directory/"},
+      {"title":"Maps & Floorplans",     "href":"/library/about/maps-floorplans/"},
+      {"title":"For Faculty",           "href":"/library/services/for-faculty/"}
+    ]
+  },"askalibrarian":{
+    "header":"Ask A Librarian",
+    "links":[
+      {"title":"Research Guides by Subject",    "href":"/guides"},
+      {"title":"Course Guides",                 "href":"https://www.bu.edu/library/research/guides/course-guides/"},
+      {"title":"How-To Guides",                 "href":"https://www.bu.edu/library/help/how-to/"},
+      {"title":"Pardee Management Library FAQs","href":"/businessFAQs/"},
+      {"title":"Make a Research Appointment",   "href":"https://www.bu.edu/library/services/reference/appointments/"}
+    ]
+  },"guides":{
+    "header":"Library Guides",
+    "links":[
+      {"title":"Research Guides by Subject",  "href":"/guides"},
+      {"title":"Course Guides",               "href":"https://www.bu.edu/library/research/guides/course-guides/"},
+      {"title":"How-To Guides",               "href":"https://www.bu.edu/library/help/how-to/"},
+      {"title":"Make a Research Appointment", "href":"https://www.bu.edu/library/services/reference/appointments/"},
+      {"title":"Library Locations",           "href":"http://www.bu.edu/library/about/"}
+    ]
+  }
+};
+
 /** Reactive/responsive footer providing slotted middle section and customizable LoCoSo data */
 class BULFooter extends LitElement {
 
@@ -14,7 +47,9 @@ class BULFooter extends LitElement {
   static get properties() {
     return {
       /** provide window into setting displayed 'locoso' contact data */
-      library: {type: String, notify:true}
+      library: {type: String, notify:true},
+      /** key for the subsite (used to populate the sitemap) */
+      host_site: {type: String}
     };
   }
   
@@ -47,49 +82,49 @@ class BULFooter extends LitElement {
   }
 
   render() {
+    // fill in the sitemap middle section of the footer
+    let sitemap_data = sitemap_values[this.host_site] || sitemap_values["askalibrarian"];
+    let links = sitemap_data["links"]; 
+    let sitemap_content = html`
+      <h3 class="txtc">${sitemap_data["header"]}</h3>
+      <ul class="multi-column no-bullet">
+        ${links.map((l) => html`<li><a class="white-link pvm" href="${l.href}">${l.title}</a></li>`)}
+      </ul>
+    `;
+    
+    // render the 
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v1.5/assets/css/common.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.1.3/src/footer/footer.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.1.4/assets/css/common.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.1.4/src/footer/footer.css">
       <style>
-        /* set top and bottom margins, font size, and color for all h3s */
-        h3, ::slotted(h3) { 
-          font-size: 135%; 
-          text-align: center !important;
-          color: white !important; 
-        }
-        
-        /* prevent host from setting the left-right margins, add top-bottom margins*/
-        ul, ol, ::slotted(ul), ::slotted(ol) { 
-          margin: 5px 0px; 
-        }
+        /* firefox fix to stop the 'Follow Us' from becoming centered */
+        ::slotted(h3) { text-align: left; }
       </style>
       <div class="footer-wrapper">
-      <footer class="pam">
-        <div class="ftr-left">
-          <div id="bu-content">
-            <div class="left txtc bu-logo">
-              <br />
-              <a href="https://www.bu.edu/" title="Boston University Home"><img alt="boston university logo" src="http://www.bu.edu/academics/files/bu-logo.gif"></a>
-              <br /><br />
-              <small><a class="white-link" href="https://www.bu.edu/copyright" title="Copyright">&copy; Copyright ${new Date().getFullYear()}</a></small>
-              <br /><br />
-            </div>
-            <div>
-              <ul class="no-bullet ptl">
-                <li><a class="white-link" href="https://www.bu.edu/library/" title="Libraries Home">Libraries Home</a></li>
-                <li><a class="white-link" href="http://bu.edu/library/search" title="Search available/licensed content">Libraries Search</a></li>
-                <li><a class="white-link" href="https://askalibrarian.bu.edu/" title="Help">Help</a></li>
-              </ul>
+        <footer class="pam">
+          <div class="ftr-left">
+            <div id="bu-content">
+              <div class="left txtc bu-logo">
+                <br />
+                <a href="https://www.bu.edu/" title="Boston University Home"><img alt="boston university logo" src="http://www.bu.edu/academics/files/bu-logo.gif"></a>
+                <br /><br />
+                <small><a class="white-link" href="https://www.bu.edu/copyright" title="Copyright">&copy; Copyright ${new Date().getFullYear()}</a></small>
+                <br /><br />
+              </div>
+                <ul class="no-bullet ptl">
+                  <li><a class="white-link" href="https://www.bu.edu/library/" title="Libraries Home">Libraries Home</a></li>
+                  <li><a class="white-link" href="http://bu.edu/library/search" title="Search available/licensed content">Libraries Search</a></li>
+                  <li><a class="white-link" href="https://askalibrarian.bu.edu/" title="Help">Help</a></li>
+                </ul>
             </div>
           </div>
-        </div>
-        <div class="ftr-middle">
-          <div><slot id="sitemap" name="sitemap"></slot></div>
-        </div>
-        <div class="ftr-right">
-          <div><bulib-locoso library="${this.library}" link_class="white-link"></bulib-locoso></div>
-        </div>
-      </footer>
+          <div class="ftr-middle">
+            <div><slot id="sitemap" name="sitemap">${sitemap_content}</slot></div>
+          </div>
+          <div class="ftr-right">
+            <div><bulib-locoso library="${this.library}" link_class="white-link"></bulib-locoso></div>
+          </div>
+        </footer>
       </div>`;
   }
 
