@@ -121,7 +121,7 @@ class BULocoso extends LitElement {
         }
 
         /* list styles, */
-        ul, ol { margin-top: 5px; margin-bottom: 5px; padding-left: 0; }
+        ul, ol { margin: 5px 0px; padding-left: 0; }
 
         /* padding and margins */
         h3 { margin-top: 0px; margin-bottom: 0px; }

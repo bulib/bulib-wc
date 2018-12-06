@@ -51,8 +51,14 @@ class BULFooter extends LitElement {
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v1.5/assets/css/common.min.css">
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.1/src/footer/footer.css">
       <style>
-        :host(h3), h3 { margin-top: 0px; margin-bottom: 0px; }
-        ul, ol { margin-top: 5px; margin-bottom: 5px; }
+        /* set top and bottom margins, font size, and color for all h3s */
+        :slotted(h3), :hosted(h3), h3 { margin-top: 0px; margin-bottom: 0px; font-size: 150%; color: white; }
+        
+        /* prevent host from setting the left-right margins, add top-bottom margins*/
+        ul, ol, :slotted(ul), :hosted(ol) { margin: 5px 0px !important; }
+        
+        /* resolve wordpress-oriented oddities */
+        :slotted(li), :hosted(li), li { background: none; }
       </style>
       <div class="footer-wrapper">
       <footer class="pam">
