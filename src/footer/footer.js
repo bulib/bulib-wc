@@ -53,9 +53,7 @@ class BULFooter extends LitElement {
       <style>
         /* set top and bottom margins, font size, and color for all h3s */
         h3, ::slotted(h3) { 
-          margin-top: 0px;
-          margin-bottom: 0px; 
-          font-size: 150%; 
+          font-size: 135%; 
           text-align: center !important;
           color: white !important; 
         }
@@ -74,6 +72,7 @@ class BULFooter extends LitElement {
               <a href="https://www.bu.edu/" title="Boston University Home"><img alt="boston university logo" src="http://www.bu.edu/academics/files/bu-logo.gif"></a>
               <br /><br />
               <small><a class="white-link" href="https://www.bu.edu/copyright" title="Copyright">&copy; Copyright ${new Date().getFullYear()}</a></small>
+              <br /><br />
             </div>
             <div>
               <ul class="no-bullet ptl">

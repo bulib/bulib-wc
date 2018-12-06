@@ -101,7 +101,7 @@ class BULocoso extends LitElement {
     if(this.social.length < 1){ socialDisplay = html``; }
     else{
       socialDisplay= html`
-        <h3>Follow Us</h3>
+        <h3 class="left">Follow Us</h3><br />
         <ul aria-description="list of social media accounts" class="no-bullet inline-list plm">
         ${this.social.map((s) =>
           html`<li><a class="${this.link_class}" target="_blank" href="${s.url}" title="${s.text}"><img alt="${s.text} icon" class="sm-icon ${this.link_class}"
@@ -121,10 +121,10 @@ class BULocoso extends LitElement {
         }
 
         /* list styles, */
-        ul, ol { margin: 5px 0px; padding-left: 0; }
+        ul, ol { margin: 5px 0px; padding-left: 0; padding-bottom: 10px; }
 
         /* padding and margins */
-        h3 { margin-top: 0px; margin-bottom: 0px; }
+        h3 { margin-top: 0px; margin-bottom: 0px; text-align: left !important; }
         .prm { margin-right: 10px; padding-right: 10px; }
         .sm-icon { width: 30px; height: 30px; border: solid transparent 1px; }
         .sm-icon:hover { width: 30px; height: 30px; border: solid white 1px; }
