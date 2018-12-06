@@ -2,11 +2,14 @@
 
 .main-menu-items > ul { padding-left: 10px !important; }
 .main-menu-items > ul > li { padding: 0px 10px; }
-.main-menu-items > ul > li > a { color: white; }
+.main-menu-items > ul > li > a { color: white !important; }
 .main-menu-items > ul > li.active > a { color: #FFC20E; }
 
 .primary-navbar { background-color: #212121 !important; }
 .secondary-navbar { background-color: #f5f5f5 !important; }
+
+.primary-nav-main > ul { padding-left: 0px; }
+.right { float:right; }
 
 /* header grid and responsivensess */
 .primary-navbar, .secondary-navbar {

@@ -2,7 +2,7 @@ import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/li
 import {getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
 const debug = false;
-const local = false;
+const local = true;
 
 /** Reactive/responsive header with custom subsite display, bulib-search integration */
 class BULHeader extends LitElement {
@@ -14,6 +14,8 @@ class BULHeader extends LitElement {
     return {
       /** current url used in testing to determine site */
       curr_url: {type: String, notify:true},
+      /** opt to include bulib-search in the secondary-nav-right */
+      include_search: {type:Boolean, default:false},
       /** current primary site [e.g. 'research', 'services', 'about', 'help'] */
       curr_primary: {type: String},
       /** current secondary site (within each primary) [e.g. 'guides', 'help', '{library-names}'] */
@@ -29,13 +31,19 @@ class BULHeader extends LitElement {
 
   /** render the html (with 'bulib-search' wc) to the page  */
   render() {
+    let secondaryNavRightContent = this.include_search ? html`<bulib-search str_selected="${this.curr_search}" str_options="${this.str_options}"></bulib-search>` : ``;
     return html`
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9/assets/css/common.min.css">
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9/src/header/header.min.css">
-      <style> a { text-decoration: none; }</style>
+      <style> 
+        a { text-decoration: none; }
+        .primary-navbar, .secondary-navbar > div { vertical-align: bottom; }
+        .right { float:right; }
+        .mvm { margin: 15px 0px; }
+      </style>
       <nav>
         <div class="primary-navbar">
-          <div class="brand primary-nav-left" >
+          <div class="primary-nav-left">
             <a title="BU Libraries Homepage" href="http://bu.edu/library/">
               <img id="bu-logo" class="pam" src="https://raw.githubusercontent.com/bulib/bulib-wc/header/assets/icons/bulib-logo.png">
             </a>
@@ -48,9 +56,9 @@ class BULHeader extends LitElement {
               <li id="subsite-help" class="active"><a href="http://askalibrarian.bu.edu/">Help</a></li>
             </ul>
           </div>
-          <div class="flex-end primary-nav-right phm">
+          <div class="primary-nav-right phm right mvm">
             <slot name="primary-nav-right">
-              Library<bulib-libsel></bulib-libsel>
+              <bulib-libsel class="right"></bulib-libsel>
             </slot>
           </div>
         </div>
@@ -63,9 +71,7 @@ class BULHeader extends LitElement {
           <div class="secondary-nav-main pam">
             <slot name="secondary-nav-main"></slot>
           </div>
-          <div class="secondary-nav-right pam">
-            <bulib-search str_selected="${this.curr_search}" str_options="${this.str_options}"></bulib-search>
-          </div>
+          <div class="secondary-nav-right pam">${secondaryNavRightContent}</div>
         </div>
       </nav>`;
   }
