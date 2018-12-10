@@ -1,8 +1,11 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+const ENTER_KEY_VALUE = 13;
 
-const search_on_submit = false;
-const default_to_just_primo = true;
 const debug = true;
+const default_to_just_primo = true;
+const search_on_submit = false;
+
+
 
 /** data on the overall search sources we have available to search on */
 export const search_options = [
@@ -70,7 +73,7 @@ class BULSearch extends LitElement {
     return html`
     <style type="text/css"> #search_query_input { min-width: 200px; } </style>
     <div id="bulib-search">
-      <input id="search_query_input" type="text" placeholder="${placeholder}"></input>
+      <input id="search_query_input" type="text" placeholder="${placeholder}" @keypress="${(e) => this._handleSearchEnter(e)}"></input>
       ${optionsDisplay}
       <button type="submit" @click="${(e) => this._doSearch()}" title="Search ${this.selected["name"]}">Search</button>
     </div>
@@ -139,6 +142,11 @@ class BULSearch extends LitElement {
     //conditionally log and/or perform search
     if(debug){ console.log(`bulib-search) searching '${site}' for query: '${query}' on domain: '${domain}'...`); }
     if(search_on_submit){ window.location = domain + encodeURIComponent(query); }
+  }
+  
+  /** call this._doSearch() if key that user pressed is ENTER */ 
+  _handleSearchEnter(event){
+    if(event.keyCode && event.keyCode === ENTER_KEY_VALUE){ this._doSearch(); }
   }
 
 }
