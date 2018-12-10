@@ -1,6 +1,7 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
 const search_on_submit = false;
+const default_to_just_primo = true;
 const debug = true;
 
 /** data on the overall search sources we have available to search on */
@@ -82,7 +83,7 @@ class BULSearch extends LitElement {
     // try to set 'options' and 'selected' based on user input (with fallbacks) 
     this.options = []; this.selected = {};
     if(!this.str_options || this.str_options === ""){ 
-      this.options = search_options;
+      this.options = default_to_just_primo? [_getOptionFromCode("primo")] : search_options;
     }else{
       let i, searchOption, optionCode;
       for(i=0; i<search_options.length; i++){
@@ -92,9 +93,9 @@ class BULSearch extends LitElement {
       }
     }
     
-    // default to 'primo' and listing all options if user didn't decide to specify
+    // default to list of all options if user didn't decide to specify
     if(!this.options  || this.options.length  < 1){ 
-      this.options = search_options; 
+      this.options = default_to_just_primo ? [_getOptionFromCode("primo")] : search_options; 
     } 
     
     // set 'str_selected', defaulting to the first 'option'
@@ -106,7 +107,7 @@ class BULSearch extends LitElement {
   /** once html is on the page, update the visual to reflect the web component's data  */
   updated(){
     if(this.str_options && !this.str_selected){
-      this.str_selected = this.str_options.split(" ")[0];
+      this.str_selected = this.str_options.split(" ")[0] || "";
     }
     
     if(this.str_selected && this.options.includes(this.str_selected)){
