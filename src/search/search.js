@@ -1,6 +1,6 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
-const search_on_submit = false;
+const search_on_submit = true;
 const debug = true;
 
 /** data on the overall search sources we have available to search on */
