@@ -1,11 +1,10 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 const ENTER_KEY_VALUE = 13;
 
+/* configurable defaults for logging, dropdown, submission action */
 const debug = true;
 const default_to_just_primo = true;
 const search_on_submit = false;
-
-
 
 /** data on the overall search sources we have available to search on */
 export const search_options = [
