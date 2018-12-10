@@ -61,7 +61,6 @@ class BULSearch extends LitElement {
 
   render() {
     this._initSelectedOptions();
-    let placeholder = _getOptionFromCode(this.str_selected)["placeholder"];
     
     /* determine whether or not to show dropdown of options */
     let optionsDisplay = (this.options.length <= 1)? html`` : html`
@@ -73,7 +72,7 @@ class BULSearch extends LitElement {
     return html`
     <style type="text/css"> #search_query_input { min-width: 200px; } </style>
     <div id="bulib-search">
-      <input id="search_query_input" type="text" placeholder="${placeholder}" @keypress="${(e) => this._handleSearchEnter(e)}"></input>
+      <input id="search_query_input" type="text" placeholder="${this.selected["placeholder"]}" @keypress="${(e) => this._handleSearchEnter(e)}"></input>
       ${optionsDisplay}
       <button type="submit" @click="${(e) => this._doSearch()}" title="Search ${this.selected["name"]}">Search</button>
     </div>
