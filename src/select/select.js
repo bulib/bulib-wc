@@ -1,7 +1,7 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 import {search_options} from '../search/search.js';
 
-const debug = true;
+const debug = false;
 const libraries =  [
   {"value":"mugar-memorial","name":"SELECT LIBRARY"},
   {"value":"mugar-memorial","name":"Mugar Memorial"},

@@ -3,7 +3,7 @@ const ENTER_KEY_VALUE = 13;
 
 /* configurable defaults for logging, dropdown, submission action */
 const debug = true;
-const default_to_just_primo = true;
+const default_to_just_primo = false;
 const search_on_submit = false;
 
 /** data on the overall search sources we have available to search on */
@@ -90,11 +90,13 @@ class BULSearch extends LitElement {
       for(i=0; i<search_options.length; i++){
         searchOption = search_options[i];
         optionCode = searchOption["value"];
-        if(this.str_options.includes(optionCode)){ this.options.push(searchOption); }
+        if(optionCode && this.str_options.includes(optionCode)){ 
+          this.options.push(searchOption); 
+        }
       }
     }
     
-    // default to list of all options if user didn't decide to specify
+    // enact default yor possible options list
     if(!this.options  || this.options.length  < 1){ 
       this.options = default_to_just_primo ? [_getOptionFromCode("primo")] : search_options; 
     } 
@@ -107,16 +109,13 @@ class BULSearch extends LitElement {
   
   /** once html is on the page, update the visual to reflect the web component's data  */
   updated(){
+    // auto-set this.str_selected to the first option if it's empty
     if(this.str_options && !this.str_selected){
       this.str_selected = this.str_options.split(" ")[0] || "";
     }
     
-    if(this.str_selected && this.options.includes(this.str_selected)){
-      this.selected = _getOptionFromCode(this.str_selected, this.options);
-      this.str_placeholder = this.selected["placeholder"] || "input text";
-    }
-
-    if(this.selected){
+    // if selected is accurately set, update the <select> element to reflect the new value
+    if(this.selected){ 
       let searchSourceSelect = this.querySelector("#search_source_select");
       let lsSearchSourceOptions = searchSourceSelect ? searchSourceSelect.options : [];
       for(let i=0; i<lsSearchSourceOptions.length; i++){
