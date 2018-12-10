@@ -65,7 +65,7 @@ class BULSearch extends LitElement {
     
     /* determine whether or not to show dropdown of options */
     let optionsDisplay = (this.options.length <= 1)? html`` : html`
-      <select id="search_source_select" @change="${(e) => this.str_selected = handleSearchSelect(e)}">
+      <select id="search_source_select" @change="${(e) => this.str_selected = handleSearchSelect(e)}" @keypress="${(k) => this._handleSearchEnter(k)}">
         ${this.options.map((o) => html`<option value="${o.value}">${o.name}</option>`)}
       </select>
     `;
