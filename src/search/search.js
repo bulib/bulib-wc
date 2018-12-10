@@ -59,13 +59,18 @@ class BULSearch extends LitElement {
     this._initSelectedOptions();
     let placeholder = _getOptionFromCode(this.str_selected)["placeholder"];
     
+    /* determine whether or not to show dropdown of options */
+    let optionsDisplay = (this.options.length <= 1)? html`` : html`
+      <select id="search_source_select" @change="${(e) => this.str_selected = handleSearchSelect(e)}">
+        ${this.options.map((o) => html`<option value="${o.value}">${o.name}</option>`)}
+      </select>
+    `;
+    
     return html`
     <style type="text/css"> #search_query_input { min-width: 200px; } </style>
     <div id="bulib-search">
       <input id="search_query_input" type="text" placeholder="${placeholder}"></input>
-      <select id="search_source_select" @change="${(e) => this.str_selected = handleSearchSelect(e)}">
-        ${this.options.map((o) => html`<option value="${o.value}">${o.name}</option>`)}
-      </select>
+      ${optionsDisplay}
       <button type="submit" @click="${(e) => this._doSearch()}" title="Search ${this.selected["name"]}">Search</button>
     </div>
     `;
@@ -73,7 +78,7 @@ class BULSearch extends LitElement {
 
   /** set display options on user input (if present) */
   _initSelectedOptions(){
-
+    
     // try to set 'options' and 'selected' based on user input (with fallbacks) 
     this.options = []; this.selected = {};
     if(!this.str_options || this.str_options === ""){ 
@@ -86,18 +91,16 @@ class BULSearch extends LitElement {
         if(this.str_options.includes(optionCode)){ this.options.push(searchOption);}
       }
     }
-
+    
     // default to 'primo' and listing all options if user didn't decide to specify
     if(!this.options  || this.options.length  < 1){ 
       this.options = search_options; 
-    }
+    } 
+    
+    // set 'str_selected', defaulting to the first 'option'
     if(Object.keys(this.selected).length == 0){ 
       this.selected = _getOptionFromCode(this.str_selected, this.options); 
-      this.str_placeholder = this.selected["placeholder"] || "input text";
     }
-
-    // set the placeholder text
-    if(!this.str_placeholder){ this.str_placeholder = "input text"; }
   }
   
   /** once html is on the page, update the visual to reflect the web component's data  */
@@ -108,7 +111,8 @@ class BULSearch extends LitElement {
     }
 
     if(this.selected){
-      let lsSearchSourceOptions = this.querySelector("#search_source_select").options;
+      let searchSourceSelect = this.querySelector("#search_source_select");
+      let lsSearchSourceOptions = searchSourceSelect ? searchSourceSelect.options : [];
       for(let i=0; i<lsSearchSourceOptions.length; i++){
         let option = lsSearchSourceOptions[i];
         if(option.value === this.selected["value"]){ option.selected = "selected"; }
@@ -120,14 +124,16 @@ class BULSearch extends LitElement {
   _doSearch(){
     // obtain values required for the search from the input and currently selected option.
     let userInputElem = this.querySelector("#search_query_input");
+    let query = userInputElem ? userInputElem.value : "";
+
+    // track and store the selected option and its information
     let option = (Object.keys(this.selected).length > 0) ? this.selected : this.options[0];
     let site = option["value"];
-    let query = userInputElem ? userInputElem.value : "";
-    let domain = option["domain"];
+    let domain = option["domain"] || "";
 
     //conditionally log and/or perform search
     if(debug){ console.log(`bulib-search) searching '${site}' for query: '${query}' on domain: '${domain}'...`); }
-    if(search_on_submit){ window.location = this.selected["domain"] + encodeURIComponent(query); }
+    if(search_on_submit){ window.location = domain + encodeURIComponent(query); }
   }
 
 }
