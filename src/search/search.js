@@ -5,9 +5,10 @@ const debug = true;
 
 /** data on the overall search sources we have available to search on */
 export const search_options = [
-  {"value":"primo",     "name":"Academic Resources",       "placeholder": "BU Libraries Search",          "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&vid=BU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
+  {"value":"primo",     "name":"BU Libraries Search",      "placeholder": "Search library resources",     "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&vid=BU&query=any,contains,"},
+  {"value":"industries","name":"Industry Survey Locator",  "placeholder": "Search for industry surveys",  "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&vid=ISL&query=any,contains,"},
   {"value":"worldcat",  "name":"OCLC WorldCat",            "placeholder": "BU Libraries Search",          "domain":"https://bu.on.worldcat.org/search?queryString="},
-  {"value":"wp",        "name":"Boston University Site",   "placeholder": "Search Library info/services", "domain":"https://search.bu.edu/?q="},
+  {"value":"wp",        "name":"Boston University Site",   "placeholder": "Search library info/services", "domain":"https://search.bu.edu/?q="},
   {"value":"directory", "name":"Staff Directory",          "placeholder": "Search for people at BU",      "domain":"https://www.bu.edu/phpbin/directory/?q="},
   {"value":"hgar",      "name":"Archival Research Center", "placeholder": "Search the BU Archive",        "domain":"http://archives.bu.edu/search/?search=SEARCH&query="},
   {"value":"openbu",    "name":"Open BU",                  "placeholder": "Search BU Digital Collections","domain":"https://open.bu.edu/discover?query="},
