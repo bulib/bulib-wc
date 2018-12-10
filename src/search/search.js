@@ -1,6 +1,6 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
-const search_on_submit = true;
+const search_on_submit = false;
 const debug = true;
 
 /** data on the overall search sources we have available to search on */
@@ -88,7 +88,7 @@ class BULSearch extends LitElement {
       for(i=0; i<search_options.length; i++){
         searchOption = search_options[i];
         optionCode = searchOption["value"];
-        if(this.str_options.includes(optionCode)){ this.options.push(searchOption);}
+        if(this.str_options.includes(optionCode)){ this.options.push(searchOption); }
       }
     }
     
@@ -105,6 +105,10 @@ class BULSearch extends LitElement {
   
   /** once html is on the page, update the visual to reflect the web component's data  */
   updated(){
+    if(this.str_options && !this.str_selected){
+      this.str_selected = this.str_options.split(" ")[0];
+    }
+    
     if(this.str_selected && this.options.includes(this.str_selected)){
       this.selected = _getOptionFromCode(this.str_selected, this.options);
       this.str_placeholder = this.selected["placeholder"] || "input text";
