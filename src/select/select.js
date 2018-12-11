@@ -26,10 +26,17 @@ const wp_urls = [
   {"name":"African Studies","value":"https://www.bu.edu/library/african-studies/", },
   {"name":"Help",           "value":"askalibrarian.bu.edu/"}
 ];
+const sites = [
+  {"name":"SELECT A SITE",  "value":"askalibrarian"},
+  {"name":"Ask a Librarian","value":"askalibrarian"},
+  {"name":"LibGuides",      "value":"guides"},
+  {"name":"Wordpress",      "value":"wordpress"}
+];
 const opt_map = {
   "libraries":libraries,
   "wp_urls":wp_urls,
-  "search_options":search_options
+  "search_options":search_options,
+  "sites":sites
 };
 
 class BULSelect extends LitElement{

@@ -14,8 +14,6 @@ class BULHeader extends LitElement {
     return {
       /** current url used in testing to determine site */
       curr_url: {type: String, notify:true},
-      /** opt to include bulib-search in the secondary-nav-right */
-      include_search: {type:Boolean, default:false},
       /** current primary site [e.g. 'research', 'services', 'about', 'help'] */
       curr_primary: {type: String},
       /** current secondary site (within each primary) [e.g. 'guides', 'help', '{library-names}'] */
@@ -33,8 +31,8 @@ class BULHeader extends LitElement {
   render() {
     let secondaryNavRightContent = this.include_search ? html`<bulib-search str_selected="${this.curr_search}" str_options="${this.str_options}"></bulib-search>` : ``;
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9/assets/css/common.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9/src/header/header.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.3/assets/css/common.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.3/src/header/header.min.css">
       <style> 
         a { text-decoration: none; }
         .primary-navbar, .secondary-navbar > div { vertical-align: bottom; }
@@ -50,9 +48,9 @@ class BULHeader extends LitElement {
           </div>
           <div class="main-menu-items primary-nav-main">
             <ul id="site-links" class="nav navbar-nav inline-list">
-              <li id="subsite-research"><a href="http://www.bu.edu/library/research/">Research</a></li>
-              <li id="subsite-services"><a href="http://www.bu.edu/library/services/">Services</a></li>
-              <li id="subsite-about"><a href="http://www.bu.edu/library/about/">About</a></li>
+              <li id="subsite-research"><a href="https://www.bu.edu/library/research/">Research</a></li>
+              <li id="subsite-services"><a href="https://www.bu.edu/library/services/">Services</a></li>
+              <li id="subsite-about"><a href="https://www.bu.edu/library/about/">About</a></li>
               <li id="subsite-help" class="active"><a href="http://askalibrarian.bu.edu/">Help</a></li>
             </ul>
           </div>
@@ -71,7 +69,9 @@ class BULHeader extends LitElement {
           <div class="secondary-nav-main pam">
             <slot name="secondary-nav-main"></slot>
           </div>
-          <div class="secondary-nav-right pam">${secondaryNavRightContent}</div>
+          <div class="secondary-nav-right pam">
+            <bulib-search str_selected="${this.curr_search}" str_options="${this.str_options}"></bulib-search>
+          </div>
         </div>
       </nav>`;
   }
