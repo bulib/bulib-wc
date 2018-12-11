@@ -38,6 +38,7 @@ class BULHeader extends LitElement {
         .primary-navbar, .secondary-navbar > div { vertical-align: bottom; }
         .right { float:right; }
         .mvm { margin: 15px 0px; }
+        .txtr { text-align: right; }
       </style>
       <nav>
         <div class="primary-navbar">
@@ -70,7 +71,7 @@ class BULHeader extends LitElement {
             <slot name="secondary-nav-main"></slot>
           </div>
           <div class="secondary-nav-right pam">
-            <bulib-search str_selected="${this.curr_search}" str_options="${this.str_options}"></bulib-search>
+            <bulib-search str_selected="${this.curr_search}" str_options="${this.str_options}" class="txtr"></bulib-search>
           </div>
         </div>
       </nav>`;
