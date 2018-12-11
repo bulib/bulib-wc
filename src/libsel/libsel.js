@@ -1,9 +1,11 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import {getLibraryInfoFromCode} from '/src/_helpers/lib_info_helper.js';
 
 const debug = false;
 const change_url_on_select = true;
 
 const lsLibraryCodes = ["mugar-memorial","african-studies","medlib","astronomy","lawlibrary","hgar","music","pardee","pickering","theology","sel","stone"];
+
 const lsLibraryOptions = [
   {"value":"mugar-memorial","name":"Library Locations"},
   {"value":"mugar-memorial","name":"Mugar Memorial"},
@@ -73,7 +75,7 @@ class BULibSel extends LitElement {
     let value = event.currentTarget.value;
     this.library = value;
     let before = window.location.href;
-    let url_new = `http://bu.edu/library/${value}/`;
+    let url_new = getLibraryInfoFromCode(value)["website"] || `http://bu.edu/library/${value}/`;
     if(debug){ console.log(`bulib-libsel) '<libsel>.curr_url' changing from ${before} to ${url_new}...`); }
     if(change_url_on_select){ window.location.href = url_new; }
   }
