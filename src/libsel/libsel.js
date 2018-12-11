@@ -1,7 +1,7 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
 
 const debug = false;
-const change_url_on_select = false;
+const change_url_on_select = true;
 
 const lsLibraryCodes = ["mugar-memorial","african-studies","medlib","astronomy","lawlibrary","hgar","music","pardee","pickering","theology","sel","stone"];
 const lsLibraryOptions = [
