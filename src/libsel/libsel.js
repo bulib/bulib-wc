@@ -13,7 +13,7 @@ const lsLibraryOptions = [
   {"value":"lawlibrary","name":"Fineman and Pappas Law"},
   {"value":"hgar", "name":"Archival Research Center"},
   {"value":"music","name":"Music Library"},
-  {"value":"pardee","name":"Frederick S. Pardee Managment Library"},
+  {"value":"pardee","name":"Pardee Managment Library"},
   {"value":"pickering","name":"Pickering Educational Resources"},
   {"value":"theology","name":"School of Theology"},
   {"value":"sel","name":"Science and Engineering"},
