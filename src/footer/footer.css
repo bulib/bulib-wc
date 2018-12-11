@@ -33,6 +33,10 @@ footer {
   }
   .ftr-middle { border-bottom: solid transparent 1px !important; }
   .ftr-right  { border-bottom: solid transparent 1px !important; }
+  #sitemap {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
 /* on super large screens, set the width to 80% to avoid getting too much spacing */
@@ -51,5 +55,4 @@ footer {
 
 /* etc */
 .bu-logo { padding-right: 25px; }
-bulib-footer > * > h3 { margin-top: 0px; margin-bottom: 0px; color: white; text-align: center; }
-bulib-footer > * > ul, bulib-footer > * > ol { margin-top: 5px; margin-bottom: 5px; }
+#sitemap > h3, #sitemap > * > h3 { font-size: 130%; }
