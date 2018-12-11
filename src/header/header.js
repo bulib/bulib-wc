@@ -29,7 +29,6 @@ class BULHeader extends LitElement {
 
   /** render the html (with 'bulib-search' wc) to the page  */
   render() {
-    let secondaryNavRightContent = this.include_search ? html`<bulib-search str_selected="${this.curr_search}" str_options="${this.str_options}"></bulib-search>` : ``;
     return html`
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.4/assets/css/common.min.css">
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.4/src/header/header.min.css">
