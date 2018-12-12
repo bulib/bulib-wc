@@ -77,11 +77,24 @@ class BULSelect extends LitElement{
   /** react to changes in which <option> is currently 'selected' */ 
   _SelectionChanged(event){
     let current = event.currentTarget.value;
-    let element = document.getElementsByTagName(this.tag_name)[0];
-    let before = element.getAttribute(this.attr_name);
-    element.setAttribute(this.attr_name, current);
-    let after = element.getAttribute(this.attr_name);
-    if(debug){ console.log(`bulib-select) changed '<${this.tag_name}>.${this.attr_name}' from '${before}' to '${after}'`); }
+    let elements = document.getElementsByTagName(this.tag_name);
+    let i, before, after, element;
+    for(i=0; i<elements.length; i++){
+      element = elements[i];
+      before = element.getAttribute(this.attr_name);
+      element.setAttribute(this.attr_name, current);
+      after = element.getAttribute(this.attr_name);
+      
+      if(debug && before != after){ 
+        let id_string = "?";
+        if(element){
+          if(element.id){ id_string = "#"+element.id; }
+          if(element.hasAttribute("name")){ id_string = "'" + element.getAttribute("name") + "'"; }
+        } 
+        
+        if(debug){ console.log(`bulib-select) changed '<${this.tag_name}>[${id_string}].${this.attr_name}' from '${before}' to '${after}'.`); }
+      }
+    }
   }
 
 }

@@ -62,7 +62,7 @@ class BULSearch extends LitElement {
 
   render() {
     this._initSelectedOptions();
-    
+
     /* determine whether or not to show dropdown of options */
     let optionsDisplay = (this.options.length <= 1)? html`` : html`
       <select id="search_source_select" @change="${(e) => this.str_selected = handleSearchSelect(e)}" @keypress="${(k) => this._handleSearchEnter(k)}">
@@ -71,7 +71,6 @@ class BULSearch extends LitElement {
     `;
     
     return html`
-      <style type="text/css"> #search_query_input { min-width: 200px; } </style>
       <div id="bulib-search">
         <input id="search_query_input" type="text" placeholder="${this.selected["placeholder"]}" @keypress="${(e) => this._handleSearchEnter(e)}"></input>
         ${optionsDisplay}
@@ -125,6 +124,10 @@ class BULSearch extends LitElement {
         if(option.value === this.selected["value"]){ option.selected = "selected"; }
       }
     }
+    
+    // set the input box width based on the placeholder
+    let inputElem = this.querySelector("#search_query_input");
+    inputElem.setAttribute('size',inputElem.getAttribute('placeholder').length);
   }
 
   /** perform a search for the input query on the selected database */
