@@ -92,7 +92,7 @@ class BULSelect extends LitElement{
           if(element.hasAttribute("name")){ id_string = "'" + element.getAttribute("name") + "'"; }
         } 
         
-        console.log(`bulib-select) changed '<${this.tag_name}>[${id_string}].${this.attr_name}' from '${before}' to '${after}'.`); 
+        if(debug){ console.log(`bulib-select) changed '<${this.tag_name}>[${id_string}].${this.attr_name}' from '${before}' to '${after}'.`); }
       }
     }
   }
