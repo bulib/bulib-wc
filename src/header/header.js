@@ -29,15 +29,15 @@ class BULHeader extends LitElement {
 
   /** render the html (with 'bulib-search' wc) to the page  */
   render() {
-    let secondaryNavRightContent = this.include_search ? html`<bulib-search str_selected="${this.curr_search}" str_options="${this.str_options}"></bulib-search>` : ``;
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.3/assets/css/common.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.3/src/header/header.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.5/assets/css/common.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.5/src/header/header.min.css">
       <style> 
         a { text-decoration: none; }
         .primary-navbar, .secondary-navbar > div { vertical-align: bottom; }
         .right { float:right; }
         .mvm { margin: 15px 0px; }
+        .txtr { text-align: right; }
       </style>
       <nav>
         <div class="primary-navbar">
@@ -70,7 +70,7 @@ class BULHeader extends LitElement {
             <slot name="secondary-nav-main"></slot>
           </div>
           <div class="secondary-nav-right pam">
-            <bulib-search str_selected="${this.curr_search}" str_options="${this.str_options}"></bulib-search>
+            <bulib-search str_selected="${this.curr_search}" str_options="${this.str_options}" class="txtr"></bulib-search>
           </div>
         </div>
       </nav>`;
