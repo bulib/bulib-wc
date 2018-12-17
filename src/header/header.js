@@ -17,11 +17,11 @@ class BULHeader extends LitElement {
       /** current primary site [e.g. 'research', 'services', 'about', 'help'] */
       curr_primary: {type: String},
       /** current secondary site (within each primary) [e.g. 'guides', 'help', '{library-names}'] */
-      curr_secondary: {type: String}, 
+      curr_secondary: {type: String},
       /** currently active search style [e.g. 'primo', 'guides', 'wp', 'faq', ... ] */
-      curr_search: {type: String}, 
+      curr_search: {type: String},
       /** options included in search dropdown (passed to <-search>) */
-      str_options: {type: String}, 
+      str_options: {type: String},
       /** whether or not the current user is logged in */
       logged_in: {type: Boolean}
     };
@@ -32,7 +32,7 @@ class BULHeader extends LitElement {
     return html`
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.5/assets/css/common.min.css">
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.5/src/header/header.min.css">
-      <style> 
+      <style>
         a { text-decoration: none; }
         .primary-navbar, .secondary-navbar > div { vertical-align: bottom; }
         .right { float:right; }
@@ -77,8 +77,8 @@ class BULHeader extends LitElement {
   }
 
   /** for production purposes, react to url updating when the component is first loaded */
-  connectedCallback(){ 
-    if(!local) { this._urlUpdated(); } 
+  connectedCallback(){
+    if(!local) { this._urlUpdated(); }
   }
 
   /** for development purposes, react to manual changes to `this.curr_url` via _urlUpdated */
@@ -91,14 +91,14 @@ class BULHeader extends LitElement {
       default: break;
     }
   }
-  
+
   /** set primary nav 'active' styling */
   _primaryUpdated(){
-    let i, li; 
+    let i, li;
     let lsListItems = this.shadowRoot.querySelector("#site-links").getElementsByTagName("li");
     for(i = 0; i<lsListItems.length; i++) {
       li = lsListItems[i];
-      if((li.id).includes(this.curr_primary)){ li.classList.add("active"); } 
+      if((li.id).includes(this.curr_primary)){ li.classList.add("active"); }
       else{ li.classList.remove("active"); }
     }
   }
@@ -106,7 +106,7 @@ class BULHeader extends LitElement {
   /** set the primary, secondary, and search information according to the currentUrl  */
   _urlUpdated(){
     let currentUrl = (local)? this.curr_url : window.location.href;
-    
+
     let old_primary = this.curr_primary;
     if(currentUrl.includes("askalibrarian")){
       this.curr_primary = "help";
@@ -139,13 +139,13 @@ class BULHeader extends LitElement {
         this.curr_secondary = getLibraryCodeFromUrl(currentUrl) || "mugar-memorial";
       }
     }
-    
+
     // TODO remove and deal with changes in a nicer, more standardized way
     if(old_primary && old_primary !== this.curr_primary) { this._primaryUpdated(); }
 
     // add debug info
     if(debug){
-      console.log(`bulib-header) curr_primary: '${this.curr_primary}', curr_secondary: '${this.curr_secondary}'', curr_search: '${this.curr_search}'`);
+      console.log(`bulib-header) curr_primary: '${this.curr_primary}', curr_secondary: '${this.curr_secondary}', curr_search: '${this.curr_search}'`);
     }
   }
 
