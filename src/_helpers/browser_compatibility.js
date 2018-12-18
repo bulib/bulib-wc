@@ -25,4 +25,4 @@ var loadWebComponentInto = function(tagname, replacedElement){
     }
   }
 };
-module.exports = { loadWebComponentInto };
+module.exports = { loadWebComponentInto:loadWebComponentInto };
