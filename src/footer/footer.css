@@ -34,12 +34,18 @@ footer {
   }
   .ftr-middle { border-bottom: solid transparent 1px !important; }
   .ftr-right  { border-bottom: solid transparent 1px !important; }
-  #sitemap { width: 80%; }
+  #sitemap {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
 /* on super large screens, set the width to 80% to avoid getting too much spacing */
 @media only screen and (min-width: 1500px){
-  footer, #footer { width: 80%; }
+  footer { 
+    margin: 0 auto;
+    width: 80%;
+  }
 }
 
 /* map classes to grid areas */
