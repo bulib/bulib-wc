@@ -13,10 +13,15 @@
   <script src="../libsel/libsel.js" type="module"></script>
   <script src="../search/search.js" type="module"></script>
   <script src="../select/select.js" type="module"></script>
+  <script src="../_helpers/browser_compatibility.js"></script>
 </head>
 
+
 <body>
-  <bulib-header curr_url="http://askalibrarian.bu.edu" curr_search="help" str_options="help wp primo guides">
+  
+  <div id="hide-me"><h2>hide me please</h2></div>
+  
+  <bulib-header curr_url="http://askalibrarian.bu.edu" str_options="help">
     <div slot="secondary-nav-main">
       <div id="subsite-navigation" class="inline">
         <label for="askalib-btns">Subsite Navigation Label</label>
@@ -54,4 +59,15 @@
     sel_title="Select Simulated URL" curr_sel="bu.edu/library/mugar-memorial" 
     opt_code="wp_urls" tag_name="bulib-header" attr_name="curr_url"
   ></bulib-select>
+  <script>
+    console.log("userAgent: " + navigator.userAgent);
+    console.log("documentMode (only defined in IE): " + document.documentMode);
+    window.addEventListener('WebComponentsReady', function() {
+      // show body now that everything is ready
+      console.log("web components loaded");
+      
+      // show/hide empty tag (and slotted info) or what we're replacing given browser compatibility
+      loadWebComponentInto("bulib-header", document.getElementById("hide-me"));
+    });
+  </script>
 </body>
