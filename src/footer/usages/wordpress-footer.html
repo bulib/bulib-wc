@@ -10,22 +10,32 @@
 <!-- pull in bulib-wc components -->
 <script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.2/src/locoso/locoso.min.js" type="module"></script>
 <script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.2/src/footer/footer.min.js" type="module"></script>
+<script>
+  window.addEventListener('WebComponentsReady',function() {
+    loadWebComponentInto("bulib-footer", [ 
+      document.getElementById("footer-logo-container"),
+      document.querySelector("#footer-content > h2"),
+      document.getElementById("footer-info"),
+      document.getElementById("footer-links")
+    ]); 
+ });
+</script>
 
+<!-- before web components -->
+<div id="footer-info"><p>Boston University Libraries, 771 Commonwealth Avenue, Boston, MA 02215 | Reference Desk: 617-353-2700</p></div>
+
+<!-- after web components -->
 <style>
-  /* hide BU Logo and 'Libraries & Archives' heading */
-  #footer-logo-container, #footer-content > h2 { display: none; }
-
-  /* prevent overflow of footer width to 900px on small screensq */
+  /* prevent overflow of footer width to 900px at small widths */
   #footer > div.container { width: auto; }
   #footer-content { float: inherit; }
-  
-  /* firefox-specific adjustments for text color, link background, margins */
+
+  /* -- firefox -- */
   h3.style-scope.bulib-footer { color: white; }
   li.style-scope.bulib-footer { 
     background-image: none; 
     color: white;
     margin: unset;
-}
+  }
 </style>
-
 <bulib-footer library="mugar-memorial" host_site="wordpress"></bulib-footer>

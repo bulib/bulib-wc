@@ -20,9 +20,7 @@ var loadWebComponentInto = function(tagname, replacedElements){
   ; 
   
   // do the hiding
-  for(var i=0; i<elementsToHide.length; i++){
-    elementsToHide[i].hidden = true;
-  }
+  for(var i=0; i<elementsToHide.length; i++){ elementsToHide[i].hidden = true; }
   
   // log the result
   if(debug){
