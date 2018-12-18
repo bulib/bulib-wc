@@ -11,9 +11,31 @@
     
     <!-- pull in bulib-wc components -->
     <script src="./search.js" type="module"></script>
+    <script src="../select/select.js" type="module"></script>
 
   </head>
   <body>
-    <bulib-search str_options="primo wp guides" str_default="guides" str_placeholder="input text"></bulib-search>
+    
+    <label>Empty</label>
+    <bulib-search></bulib-search>
+    <br /><br />
+    
+    <label>One Option, no Default</label>
+    <bulib-search str_options="industries"></bulib-search>
+    <br /><br />
+  
+    <label>Options, no Default</label>
+    <bulib-search id="options-no-default" str_options="primo industries wp"></bulib-search>
+    <br /><br />
+    
+    <label>Options, with Default</label>
+    <bulib-search name="options, with default" str_options="primo industries wp" str_selected="industries"></bulib-search>
+    <br /><br />
+    
+    <br /><hr /><br />
+    <bulib-select
+      sel_title="Select Search Source" curr_sel="primo" opt_code="search_options"
+      tag_name="bulib-search" attr_name="str_selected">
+    </bulib-select>
   </body>
 </html>

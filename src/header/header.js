@@ -1,14 +1,13 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import {getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
 const debug = false;
+const local = true;
 
 /** Reactive/responsive header with custom subsite display, bulib-search integration */
 class BULHeader extends LitElement {
 
   constructor(){ super(); }
-
-  // don't need 'slot' functionality, so lets use Light DOM
-  createRenderRoot(){ return this; }
 
   /** store information on the current page */
   static get properties() {
@@ -18,11 +17,11 @@ class BULHeader extends LitElement {
       /** current primary site [e.g. 'research', 'services', 'about', 'help'] */
       curr_primary: {type: String},
       /** current secondary site (within each primary) [e.g. 'guides', 'help', '{library-names}'] */
-      curr_secondary: {type: String}, 
+      curr_secondary: {type: String},
       /** currently active search style [e.g. 'primo', 'guides', 'wp', 'faq', ... ] */
-      curr_search: {type: String}, 
+      curr_search: {type: String},
       /** options included in search dropdown (passed to <-search>) */
-      str_options: {type: String}, 
+      str_options: {type: String},
       /** whether or not the current user is logged in */
       logged_in: {type: Boolean}
     };
@@ -30,57 +29,73 @@ class BULHeader extends LitElement {
 
   /** render the html (with 'bulib-search' wc) to the page  */
   render() {
-    this._setCurrSiteInfo();
-    let secondaryNavMain = (this.curr_library)? html`<bulib-libsel library="${this.curr_library}"></bulib-libsel>` : html`<h1>Subsite: ${this.curr_secondary}</h1>`;
     return html`
-      <link rel="stylesheet" type="text/css" href="/assets/css/common.css">
-      <link rel="stylesheet" type="text/css" href="/assets/icons/bulib-logo.png">
-      <link rel="stylesheet" type="text/css" href="./header.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.5/assets/css/common.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.5/src/header/header.min.css">
+      <style>
+        a { text-decoration: none; }
+        .primary-navbar, .secondary-navbar > div { vertical-align: bottom; }
+        .right { float:right; }
+        .mvm { margin: 15px 0px; }
+        .txtr { text-align: right; }
+      </style>
       <nav>
         <div class="primary-navbar">
-          <div class="brand">
-            <a title="BU Libraries Homepage" href="https://bu.edu/library/">
-              <img id="bu-logo" src="https://search.bu.edu/static/img/site-title-alt.png"><strong>Libraries</strong>
+          <div class="primary-nav-left">
+            <a title="BU Libraries Homepage" href="http://bu.edu/library/">
+              <img id="bu-logo" class="pam" src="https://raw.githubusercontent.com/bulib/bulib-wc/header/assets/icons/bulib-logo.png">
             </a>
           </div>
-          <div class="main-menu-items">
+          <div class="main-menu-items primary-nav-main">
             <ul id="site-links" class="nav navbar-nav inline-list">
-              <li id="subsite-research">
-                <a href="http://www.bu.edu/library/research/">Research</a>
-              </li>
-              <li id="subsite-services">
-                <a href="http://www.bu.edu/library/services/">Services</a>
-              </li>
-              <li id="subsite-about">
-                <a href="http://www.bu.edu/library/about/">About</a>
-              </li>
-              <li id="subsite-help">
-                <a href="http://askalibrarian.bu.edu/">Help</a>
-              </li>
+              <li id="subsite-research"><a href="https://www.bu.edu/library/research/">Research</a></li>
+              <li id="subsite-services"><a href="https://www.bu.edu/library/services/">Services</a></li>
+              <li id="subsite-about"><a href="https://www.bu.edu/library/about/">About</a></li>
+              <li id="subsite-help" class="active"><a href="http://askalibrarian.bu.edu/">Help</a></li>
             </ul>
           </div>
-          <div class="account-section">
-            <strong>My Account</strong>
-            <select>
-              <option>Option 1</option>
-              <option>Option 2</option>
-            </select>
+          <div class="primary-nav-right phm right mvm">
+            <slot name="primary-nav-right">
+              <bulib-libsel class="right"></bulib-libsel>
+            </slot>
           </div>
         </div>
-        <div class="secondary-nav">
-          <div id="secondary-nav-main" class="inline pal">${secondaryNavMain}</div>
-          <div id="secondary-nav-search" class="inline">
-            <bulib-search str_default="${this.curr_search}" str_options="${this.str_options}"></bulib-search>
+        <div class="secondary-navbar">
+          <div class="secondary-nav-left pam">
+            <slot name="secondary-nav-left">
+              <strong>${this.curr_secondary}</strong>
+            </slot>
+          </div>
+          <div class="secondary-nav-main pam">
+            <slot name="secondary-nav-main"></slot>
+          </div>
+          <div class="secondary-nav-right pam">
+            <bulib-search str_selected="${this.curr_search}" str_options="${this.str_options}" class="txtr"></bulib-search>
           </div>
         </div>
       </nav>`;
   }
 
-  /** once html is on the page, add classes based on 'curr_*' values */
-  updated(){
-    // set primary nav 'active' styling
+  /** for production purposes, react to url updating when the component is first loaded */
+  connectedCallback(){
+    if(!local) { this._urlUpdated(); }
+  }
+
+  /** for development purposes, react to manual changes to `this.curr_url` via _urlUpdated */
+  attributeChangedCallback(name, oldValue, newValue){
+    super.attributeChangedCallback(name, oldValue, newValue);
+    if(debug){ console.log(`bulib-header) attributeChangedCallback() called, changing '${name}' from '${oldValue}' to '${newValue}'...`); }
+    switch(name){
+      case "curr_url":      this._urlUpdated(); break;
+      case "curr_primary":  this._primaryUpdated(); break;
+      default: break;
+    }
+  }
+
+  /** set primary nav 'active' styling */
+  _primaryUpdated(){
     let i, li;
-    let lsListItems = document.getElementById("site-links").getElementsByTagName("li");
+    let lsListItems = this.shadowRoot.querySelector("#site-links").getElementsByTagName("li");
     for(i = 0; i<lsListItems.length; i++) {
       li = lsListItems[i];
       if((li.id).includes(this.curr_primary)){ li.classList.add("active"); }
@@ -88,11 +103,11 @@ class BULHeader extends LitElement {
     }
   }
 
-  /** update current properties to inform what to display */
-  _setCurrSiteInfo(){
-    let currentUrl = (this.curr_url)? this.curr_url : window.location.href;
+  /** set the primary, secondary, and search information according to the currentUrl  */
+  _urlUpdated(){
+    let currentUrl = (local)? this.curr_url : window.location.href;
 
-    this.curr_library = "";
+    let old_primary = this.curr_primary;
     if(currentUrl.includes("askalibrarian")){
       this.curr_primary = "help";
       this.curr_secondary = "Ask a Librarian";
@@ -121,15 +136,16 @@ class BULHeader extends LitElement {
       else{
         this.curr_primary = "about";
         this.curr_search = "wp";
-        this.curr_library = "mugar-memorial";
+        this.curr_secondary = getLibraryCodeFromUrl(currentUrl) || "mugar-memorial";
       }
     }
 
+    // TODO remove and deal with changes in a nicer, more standardized way
+    if(old_primary && old_primary !== this.curr_primary) { this._primaryUpdated(); }
+
     // add debug info
     if(debug){
-      console.log("curr_primary: " + this.curr_primary);
-      console.log("curr_secondary: " + this.curr_secondary);
-      console.log("curr_search: " + this.curr_search);
+      console.log(`bulib-header) curr_primary: '${this.curr_primary}', curr_secondary: '${this.curr_secondary}', curr_search: '${this.curr_search}'`);
     }
   }
 

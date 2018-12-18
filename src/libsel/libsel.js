@@ -1,9 +1,11 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import {getLibraryInfoFromCode} from 'https://cdn.jsdelivr.net/gh/bulib/bulib-wc@libsel-v0.7/src/_helpers/lib_info_helper.js?module';
 
-const debug = true;
-const change_url_on_select = false;
+const debug = false;
+const change_url_on_select = true;
 
 const lsLibraryCodes = ["mugar-memorial","african-studies","medlib","astronomy","lawlibrary","hgar","music","pardee","pickering","theology","sel","stone"];
+
 const lsLibraryOptions = [
   {"value":"mugar-memorial","name":"Library Locations"},
   {"value":"mugar-memorial","name":"Mugar Memorial"},
@@ -13,7 +15,7 @@ const lsLibraryOptions = [
   {"value":"lawlibrary","name":"Fineman and Pappas Law"},
   {"value":"hgar", "name":"Archival Research Center"},
   {"value":"music","name":"Music Library"},
-  {"value":"pardee","name":"Frederick S. Pardee Managment Library"},
+  {"value":"pardee","name":"Pardee Managment Library"},
   {"value":"pickering","name":"Pickering Educational Resources"},
   {"value":"theology","name":"School of Theology"},
   {"value":"sel","name":"Science and Engineering"},
@@ -73,7 +75,7 @@ class BULibSel extends LitElement {
     let value = event.currentTarget.value;
     this.library = value;
     let before = window.location.href;
-    let url_new = `http://bu.edu/library/${value}/`;
+    let url_new = getLibraryInfoFromCode(value)["website"] || `http://bu.edu/library/${value}/`;
     if(debug){ console.log(`bulib-libsel) '<libsel>.curr_url' changing from ${before} to ${url_new}...`); }
     if(change_url_on_select){ window.location.href = url_new; }
   }

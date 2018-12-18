@@ -1,6 +1,7 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import { getLibraryCodeFromUrl } from '../_helpers/lib_info_helper.js';
 
-const debug = true;
+const debug = false;
 const local = false;
 
 /** stored values for the sitemap */
@@ -56,29 +57,9 @@ class BULFooter extends LitElement {
   /** upon the element's first connection to the DOM, get the url and use it to determine $this.library */
   connectedCallback(){
     let current_url = local? "http://www.bu.edu/library/music/research/guides/" : window.location.href;
-    if(current_url.includes("bu.edu/library/")){
-      // try to get {library_code} from url 'http://www.bu.edu/library/{stone-science}/research/guides/'
-      let lib_url_fragment = current_url.split("bu.edu/library/")[1] || "";
-      lib_url_fragment = lib_url_fragment.split("/")[0];
-      
-      // set library code based on url fragment
-      let lib_code = "help";
-      if(debug){ console.log("bulib-footer) lib_url_fragment: " + lib_url_fragment); }
-      if(lib_url_fragment.includes("africa")){ lib_code = "african-studies"; }
-      else if(lib_url_fragment.includes("mugar")){ lib_code = "mugar-memorial"; }
-      else if(lib_url_fragment.includes("med")){ lib_code = "medlib"; }
-      else if(lib_url_fragment.includes("astronom")){ lib_code = "astronomy"; }
-      else if(lib_url_fragment.includes("law")){ lib_code = "lawlibrary"; }
-      else if(lib_url_fragment.includes("music")){ lib_code = "music"; }
-      else if(lib_url_fragment.includes("management")){ lib_code = "pardee"; }
-      else if(lib_url_fragment.includes("pickering")){ lib_code = "pickering"; }
-      else if(lib_url_fragment.includes("sel")){ lib_code = "sel"; }
-      else if(lib_url_fragment.includes("stone")){ lib_code = "stone"; }
-      else if(lib_url_fragment.includes("sthlibrary")){ lib_code = "stone"; }
-      else { lib_code = "help"; }
-      if(debug){ console.log("bulib-footer) library code: " + lib_code); }
-      this.library = lib_code;
-    }
+    let lib_code = getLibraryCodeFromUrl(current_url);
+    if(debug){ console.log("bulib-footer) selected library code: " + lib_code); }
+    this.library = lib_code;
   }
 
   render() {
