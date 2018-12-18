@@ -67,7 +67,7 @@
       console.log("web components loaded");
       
       // show/hide empty tag (and slotted info) or what we're replacing given browser compatibility
-      loadWebComponentInto("bulib-header", document.getElementById("hide-me"));
+      loadWebComponentInto("bulib-header", [document.getElementById("hide-me")]);
     });
   </script>
 </body>
