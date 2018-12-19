@@ -1,6 +1,6 @@
 import {_getDataFromFile} from './load_json.js';
 
-const debug = true;
+const debug = false;
 
 const libraries_data_backup = {
   "mugar-memorial":{
