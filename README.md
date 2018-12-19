@@ -1,2 +1,2 @@
 # bulib-wc
-collection of web components and customizations
+collection of web components and customizations used at Boston University Libraries

@@ -2,294 +2,6 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
-      "summary": "",
-      "path": "src/footer/footer.js",
-      "properties": [
-        {
-          "name": "library",
-          "type": "string | null | undefined",
-          "description": "provide window into setting displayed 'locoso' contact data",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 13,
-              "column": 6
-            },
-            "end": {
-              "line": 13,
-              "column": 42
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "notify": true,
-              "attributeType": "String"
-            }
-          }
-        }
-      ],
-      "methods": [
-        {
-          "name": "render",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 17,
-              "column": 2
-            },
-            "end": {
-              "line": 50,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": []
-        }
-      ],
-      "staticMethods": [],
-      "demos": [],
-      "metadata": {},
-      "sourceRange": {
-        "start": {
-          "line": 3,
-          "column": 0
-        },
-        "end": {
-          "line": 52,
-          "column": 1
-        }
-      },
-      "privacy": "public",
-      "superclass": "LitElement",
-      "name": "BULFooter",
-      "attributes": [
-        {
-          "name": "library",
-          "description": "provide window into setting displayed 'locoso' contact data",
-          "sourceRange": {
-            "start": {
-              "line": 13,
-              "column": 6
-            },
-            "end": {
-              "line": 13,
-              "column": 42
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        }
-      ],
-      "events": [
-        {
-          "type": "CustomEvent",
-          "name": "library-changed",
-          "description": "Fired when the `library` property changes.",
-          "metadata": {}
-        }
-      ],
-      "styling": {
-        "cssVariables": [],
-        "selectors": []
-      },
-      "slots": [],
-      "tagname": "bulib-footer"
-    },
-    {
-      "description": "display the *LO*cation, *CO*ntact, and *SO*cial media information for\n   a given library within the Boston Universities System.",
-      "summary": "",
-      "path": "src/locoso/locoso.js",
-      "properties": [
-        {
-          "name": "link_class",
-          "type": "string | null | undefined",
-          "description": "optional additional class added to each link in the rendered HTML",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 33,
-              "column": 6
-            },
-            "end": {
-              "line": 33,
-              "column": 32
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "library",
-          "type": "string | null | undefined",
-          "description": "current library code used as the key to swap between locoso data entries",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 35,
-              "column": 6
-            },
-            "end": {
-              "line": 35,
-              "column": 42
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "notify": true,
-              "attributeType": "String"
-            }
-          }
-        }
-      ],
-      "methods": [
-        {
-          "name": "createRenderRoot",
-          "description": "don't need 'slot' functionality, so lets use Light DOM",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 28,
-              "column": 2
-            },
-            "end": {
-              "line": 28,
-              "column": 36
-            }
-          },
-          "metadata": {},
-          "params": []
-        },
-        {
-          "name": "render",
-          "description": "",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 39,
-              "column": 2
-            },
-            "end": {
-              "line": 107,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": []
-        },
-        {
-          "name": "_prepareContacts",
-          "description": "use the raw 'contacts' data to populate a basic list that can more easily displayed as a list of links",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 110,
-              "column": 2
-            },
-            "end": {
-              "line": 125,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "rawContacts"
-            }
-          ]
-        },
-        {
-          "name": "_prepareSocial",
-          "description": "use raw 'social' data to generate a list of basic profile links for easy display",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 128,
-              "column": 2
-            },
-            "end": {
-              "line": 146,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [
-            {
-              "name": "rawSocial"
-            }
-          ]
-        }
-      ],
-      "staticMethods": [],
-      "demos": [],
-      "metadata": {},
-      "sourceRange": {
-        "start": {
-          "line": 23,
-          "column": 0
-        },
-        "end": {
-          "line": 148,
-          "column": 1
-        }
-      },
-      "privacy": "public",
-      "superclass": "LitElement",
-      "name": "BULocoso",
-      "attributes": [
-        {
-          "name": "link_class",
-          "description": "optional additional class added to each link in the rendered HTML",
-          "sourceRange": {
-            "start": {
-              "line": 33,
-              "column": 6
-            },
-            "end": {
-              "line": 33,
-              "column": 32
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "library",
-          "description": "current library code used as the key to swap between locoso data entries",
-          "sourceRange": {
-            "start": {
-              "line": 35,
-              "column": 6
-            },
-            "end": {
-              "line": 35,
-              "column": 42
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        }
-      ],
-      "events": [
-        {
-          "type": "CustomEvent",
-          "name": "library-changed",
-          "description": "Fired when the `library` property changes.",
-          "metadata": {}
-        }
-      ],
-      "styling": {
-        "cssVariables": [],
-        "selectors": []
-      },
-      "slots": [],
-      "tagname": "bulib-locoso"
-    },
-    {
       "description": "Reactive/responsive header with custom subsite display, bulib-search integration",
       "summary": "",
       "path": "src/header/header.js",
@@ -301,11 +13,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 16,
+              "line": 15,
               "column": 6
             },
             "end": {
-              "line": 16,
+              "line": 15,
               "column": 43
             }
           },
@@ -323,11 +35,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 18,
+              "line": 17,
               "column": 6
             },
             "end": {
-              "line": 18,
+              "line": 17,
               "column": 34
             }
           },
@@ -344,11 +56,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 20,
+              "line": 19,
               "column": 6
             },
             "end": {
-              "line": 20,
+              "line": 19,
               "column": 36
             }
           },
@@ -365,11 +77,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 22,
+              "line": 21,
               "column": 6
             },
             "end": {
-              "line": 22,
+              "line": 21,
               "column": 33
             }
           },
@@ -386,11 +98,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 24,
+              "line": 23,
               "column": 6
             },
             "end": {
-              "line": 24,
+              "line": 23,
               "column": 33
             }
           },
@@ -407,11 +119,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 26,
+              "line": 25,
               "column": 6
             },
             "end": {
-              "line": 26,
+              "line": 25,
               "column": 32
             }
           },
@@ -424,29 +136,12 @@
       ],
       "methods": [
         {
-          "name": "createRenderRoot",
-          "description": "don't need 'slot' functionality, so lets use Light DOM",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 10,
-              "column": 2
-            },
-            "end": {
-              "line": 10,
-              "column": 36
-            }
-          },
-          "metadata": {},
-          "params": []
-        },
-        {
           "name": "render",
           "description": "render the html (with 'bulib-search' wc) to the page",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 31,
+              "line": 30,
               "column": 2
             },
             "end": {
@@ -458,8 +153,8 @@
           "params": []
         },
         {
-          "name": "updated",
-          "description": "once html is on the page, add classes based on 'curr_*' values",
+          "name": "connectedCallback",
+          "description": "for production purposes, react to url updating when the component is first loaded",
           "privacy": "public",
           "sourceRange": {
             "start": {
@@ -467,7 +162,7 @@
               "column": 2
             },
             "end": {
-              "line": 88,
+              "line": 81,
               "column": 3
             }
           },
@@ -478,16 +173,66 @@
           }
         },
         {
-          "name": "_setCurrSiteInfo",
-          "description": "update current properties to inform what to display",
-          "privacy": "protected",
+          "name": "attributeChangedCallback",
+          "description": "for development purposes, react to manual changes to `this.curr_url` via _urlUpdated",
+          "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 91,
+              "line": 84,
               "column": 2
             },
             "end": {
-              "line": 133,
+              "line": 92,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "name"
+            },
+            {
+              "name": "oldValue"
+            },
+            {
+              "name": "newValue"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_primaryUpdated",
+          "description": "set primary nav 'active' styling",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 95,
+              "column": 2
+            },
+            "end": {
+              "line": 103,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_urlUpdated",
+          "description": "set the primary, secondary, and search information according to the currentUrl",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 2
+            },
+            "end": {
+              "line": 149,
               "column": 3
             }
           },
@@ -503,11 +248,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 5,
+          "line": 7,
           "column": 0
         },
         "end": {
-          "line": 135,
+          "line": 151,
           "column": 1
         }
       },
@@ -520,11 +265,11 @@
           "description": "current url used in testing to determine site",
           "sourceRange": {
             "start": {
-              "line": 16,
+              "line": 15,
               "column": 6
             },
             "end": {
-              "line": 16,
+              "line": 15,
               "column": 43
             }
           },
@@ -536,11 +281,11 @@
           "description": "current primary site [e.g. 'research', 'services', 'about', 'help']",
           "sourceRange": {
             "start": {
-              "line": 18,
+              "line": 17,
               "column": 6
             },
             "end": {
-              "line": 18,
+              "line": 17,
               "column": 34
             }
           },
@@ -552,11 +297,11 @@
           "description": "current secondary site (within each primary) [e.g. 'guides', 'help', '{library-names}']",
           "sourceRange": {
             "start": {
-              "line": 20,
+              "line": 19,
               "column": 6
             },
             "end": {
-              "line": 20,
+              "line": 19,
               "column": 36
             }
           },
@@ -568,11 +313,11 @@
           "description": "currently active search style [e.g. 'primo', 'guides', 'wp', 'faq', ... ]",
           "sourceRange": {
             "start": {
-              "line": 22,
+              "line": 21,
               "column": 6
             },
             "end": {
-              "line": 22,
+              "line": 21,
               "column": 33
             }
           },
@@ -584,11 +329,11 @@
           "description": "options included in search dropdown (passed to <-search>)",
           "sourceRange": {
             "start": {
-              "line": 24,
+              "line": 23,
               "column": 6
             },
             "end": {
-              "line": 24,
+              "line": 23,
               "column": 33
             }
           },
@@ -600,11 +345,11 @@
           "description": "whether or not the current user is logged in",
           "sourceRange": {
             "start": {
-              "line": 26,
+              "line": 25,
               "column": 6
             },
             "end": {
-              "line": 26,
+              "line": 25,
               "column": 32
             }
           },
@@ -639,11 +384,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 34,
+              "line": 36,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 36,
               "column": 42
             }
           },
@@ -661,11 +406,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 36,
+              "line": 38,
               "column": 6
             },
             "end": {
-              "line": 36,
+              "line": 38,
               "column": 43
             }
           },
@@ -684,11 +429,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 40,
+              "line": 42,
               "column": 2
             },
             "end": {
-              "line": 47,
+              "line": 49,
               "column": 3
             }
           },
@@ -701,11 +446,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 50,
+              "line": 52,
               "column": 2
             },
             "end": {
-              "line": 55,
+              "line": 57,
               "column": 3
             }
           },
@@ -721,11 +466,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 58,
+              "line": 60,
               "column": 2
             },
             "end": {
-              "line": 68,
+              "line": 70,
               "column": 3
             }
           },
@@ -741,11 +486,11 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 71,
+              "line": 73,
               "column": 2
             },
             "end": {
-              "line": 78,
+              "line": 80,
               "column": 3
             }
           },
@@ -765,11 +510,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 23,
+          "line": 25,
           "column": 0
         },
         "end": {
-          "line": 80,
+          "line": 82,
           "column": 1
         }
       },
@@ -782,11 +527,11 @@
           "description": "library code referring to the library whose hours we want to display",
           "sourceRange": {
             "start": {
-              "line": 34,
+              "line": 36,
               "column": 6
             },
             "end": {
-              "line": 34,
+              "line": 36,
               "column": 42
             }
           },
@@ -798,11 +543,11 @@
           "description": "current url (potentially) used for automatically setting the library",
           "sourceRange": {
             "start": {
-              "line": 36,
+              "line": 38,
               "column": 6
             },
             "end": {
-              "line": 36,
+              "line": 38,
               "column": 43
             }
           },
@@ -832,23 +577,23 @@
       "tagname": "bulib-libsel"
     },
     {
-      "description": "",
+      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
       "summary": "",
-      "path": "src/select/select.js",
+      "path": "src/search/search.js",
       "properties": [
         {
-          "name": "curr_sel",
+          "name": "str_selected",
           "type": "string | null | undefined",
-          "description": "currently selected item code (referring to values in option map)",
+          "description": "selected search source (defaulted to first option)",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 41,
+              "line": 51,
               "column": 6
             },
             "end": {
-              "line": 41,
-              "column": 43
+              "line": 51,
+              "column": 47
             }
           },
           "metadata": {
@@ -859,18 +604,18 @@
           }
         },
         {
-          "name": "opt_code",
+          "name": "str_options",
           "type": "string | null | undefined",
-          "description": "the key for which option map to use for populating the dropdown",
+          "description": "search sources included in the dropdown (defaulted to all)",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 43,
+              "line": 53,
               "column": 6
             },
             "end": {
-              "line": 43,
-              "column": 30
+              "line": 53,
+              "column": 33
             }
           },
           "metadata": {
@@ -880,60 +625,18 @@
           }
         },
         {
-          "name": "sel_title",
+          "name": "search_btn_classes",
           "type": "string | null | undefined",
-          "description": "title displayed next to the dropdown",
+          "description": "classes added to the search <button>",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 45,
+              "line": 55,
               "column": 6
             },
             "end": {
-              "line": 45,
-              "column": 31
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "tag_name",
-          "type": "string | null | undefined",
-          "description": "the name of the tag which we desire to update (e.g. <bulib-locoso> = 'bulib-locoso')",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 47,
-              "column": 6
-            },
-            "end": {
-              "line": 47,
-              "column": 30
-            }
-          },
-          "metadata": {
-            "polymer": {
-              "attributeType": "String"
-            }
-          }
-        },
-        {
-          "name": "attr_name",
-          "type": "string | null | undefined",
-          "description": "the attribute of that tag which needs to be changed",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 49,
-              "column": 6
-            },
-            "end": {
-              "line": 49,
-              "column": 31
+              "line": 55,
+              "column": 40
             }
           },
           "metadata": {
@@ -945,16 +648,33 @@
       ],
       "methods": [
         {
+          "name": "createRenderRoot",
+          "description": "don't need 'slot' functionality, so lets use Light DOM",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 60,
+              "column": 2
+            },
+            "end": {
+              "line": 60,
+              "column": 36
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
           "name": "render",
           "description": "",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 62,
               "column": 2
             },
             "end": {
-              "line": 61,
+              "line": 79,
               "column": 3
             }
           },
@@ -962,16 +682,16 @@
           "params": []
         },
         {
-          "name": "_loadOptions",
-          "description": "populate internal options list with the values from the specified 'opt_code'",
+          "name": "_initSelectedOptions",
+          "description": "set display options on user input (if present)",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 64,
+              "line": 82,
               "column": 2
             },
             "end": {
-              "line": 66,
+              "line": 108,
               "column": 3
             }
           },
@@ -982,16 +702,56 @@
           }
         },
         {
-          "name": "_SelectionChanged",
-          "description": "react to changes in which <option> is currently 'selected'",
-          "privacy": "protected",
+          "name": "updated",
+          "description": "once html is on the page, update the visual to reflect the web component's data",
+          "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 69,
+              "line": 111,
               "column": 2
             },
             "end": {
-              "line": 76,
+              "line": 130,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_doSearch",
+          "description": "perform a search for the input query on the selected database",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 133,
+              "column": 2
+            },
+            "end": {
+              "line": 146,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_handleSearchEnter",
+          "description": "call this._doSearch() if key that user pressed is ENTER",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 149,
+              "column": 2
+            },
+            "end": {
+              "line": 151,
               "column": 3
             }
           },
@@ -1011,11 +771,267 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 32,
+          "line": 39,
           "column": 0
         },
         "end": {
-          "line": 78,
+          "line": 153,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "LitElement",
+      "name": "BULSearch",
+      "attributes": [
+        {
+          "name": "str_selected",
+          "description": "selected search source (defaulted to first option)",
+          "sourceRange": {
+            "start": {
+              "line": 51,
+              "column": 6
+            },
+            "end": {
+              "line": 51,
+              "column": 47
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "str_options",
+          "description": "search sources included in the dropdown (defaulted to all)",
+          "sourceRange": {
+            "start": {
+              "line": 53,
+              "column": 6
+            },
+            "end": {
+              "line": 53,
+              "column": 33
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "search_btn_classes",
+          "description": "classes added to the search <button>",
+          "sourceRange": {
+            "start": {
+              "line": 55,
+              "column": 6
+            },
+            "end": {
+              "line": 55,
+              "column": 40
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "str_selected-changed",
+          "description": "Fired when the `str_selected` property changes.",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "bulib-search"
+    },
+    {
+      "description": "",
+      "summary": "",
+      "path": "src/select/select.js",
+      "properties": [
+        {
+          "name": "curr_sel",
+          "type": "string | null | undefined",
+          "description": "currently selected item code (referring to values in option map)",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 50,
+              "column": 6
+            },
+            "end": {
+              "line": 50,
+              "column": 43
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "opt_code",
+          "type": "string | null | undefined",
+          "description": "the key for which option map to use for populating the dropdown",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 52,
+              "column": 6
+            },
+            "end": {
+              "line": 52,
+              "column": 30
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "sel_title",
+          "type": "string | null | undefined",
+          "description": "title displayed next to the dropdown",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 54,
+              "column": 6
+            },
+            "end": {
+              "line": 54,
+              "column": 31
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "tag_name",
+          "type": "string | null | undefined",
+          "description": "the name of the tag which we desire to update (e.g. <bulib-locoso> = 'bulib-locoso')",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 56,
+              "column": 6
+            },
+            "end": {
+              "line": 56,
+              "column": 30
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        },
+        {
+          "name": "attr_name",
+          "type": "string | null | undefined",
+          "description": "the attribute of that tag which needs to be changed",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 58,
+              "column": 6
+            },
+            "end": {
+              "line": 58,
+              "column": 31
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 62,
+              "column": 2
+            },
+            "end": {
+              "line": 69,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "connectedCallback",
+          "description": "populate internal options list with the values from the specified 'opt_code'",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 72,
+              "column": 2
+            },
+            "end": {
+              "line": 74,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "_SelectionChanged",
+          "description": "react to changes in which <option> is currently 'selected'",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 77,
+              "column": 2
+            },
+            "end": {
+              "line": 97,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "event"
+            }
+          ],
+          "return": {
+            "type": "void"
+          }
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 41,
+          "column": 0
+        },
+        "end": {
+          "line": 99,
           "column": 1
         }
       },
@@ -1028,11 +1044,11 @@
           "description": "currently selected item code (referring to values in option map)",
           "sourceRange": {
             "start": {
-              "line": 41,
+              "line": 50,
               "column": 6
             },
             "end": {
-              "line": 41,
+              "line": 50,
               "column": 43
             }
           },
@@ -1044,11 +1060,11 @@
           "description": "the key for which option map to use for populating the dropdown",
           "sourceRange": {
             "start": {
-              "line": 43,
+              "line": 52,
               "column": 6
             },
             "end": {
-              "line": 43,
+              "line": 52,
               "column": 30
             }
           },
@@ -1060,11 +1076,11 @@
           "description": "title displayed next to the dropdown",
           "sourceRange": {
             "start": {
-              "line": 45,
+              "line": 54,
               "column": 6
             },
             "end": {
-              "line": 45,
+              "line": 54,
               "column": 31
             }
           },
@@ -1076,11 +1092,11 @@
           "description": "the name of the tag which we desire to update (e.g. <bulib-locoso> = 'bulib-locoso')",
           "sourceRange": {
             "start": {
-              "line": 47,
+              "line": 56,
               "column": 6
             },
             "end": {
-              "line": 47,
+              "line": 56,
               "column": 30
             }
           },
@@ -1092,11 +1108,11 @@
           "description": "the attribute of that tag which needs to be changed",
           "sourceRange": {
             "start": {
-              "line": 49,
+              "line": 58,
               "column": 6
             },
             "end": {
-              "line": 49,
+              "line": 58,
               "column": 31
             }
           },
@@ -1120,23 +1136,23 @@
       "tagname": "bulib-select"
     },
     {
-      "description": "",
+      "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
       "summary": "",
-      "path": "src/search/search.js",
+      "path": "src/footer/footer.js",
       "properties": [
         {
-          "name": "str_default",
+          "name": "library",
           "type": "string | null | undefined",
-          "description": "selected search source (defaulted to first option)",
+          "description": "provide window into setting displayed 'locoso' contact data",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 51,
+              "line": 50,
               "column": 6
             },
             "end": {
-              "line": 51,
-              "column": 47
+              "line": 50,
+              "column": 42
             }
           },
           "metadata": {
@@ -1147,18 +1163,149 @@
           }
         },
         {
-          "name": "str_options",
+          "name": "host_site",
           "type": "string | null | undefined",
-          "description": "search sources included in the dropdown (defaulted to all)",
+          "description": "key for the subsite (used to populate the sitemap)",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 52,
               "column": 6
             },
             "end": {
-              "line": 53,
-              "column": 33
+              "line": 52,
+              "column": 31
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "attributeType": "String"
+            }
+          }
+        }
+      ],
+      "methods": [
+        {
+          "name": "connectedCallback",
+          "description": "upon the element's first connection to the DOM, get the url and use it to determine $this.library",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 57,
+              "column": 2
+            },
+            "end": {
+              "line": 62,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "void"
+          }
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 64,
+              "column": 2
+            },
+            "end": {
+              "line": 110,
+              "column": 3
+            }
+          },
+          "metadata": {},
+          "params": []
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 40,
+          "column": 0
+        },
+        "end": {
+          "line": 112,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "superclass": "LitElement",
+      "name": "BULFooter",
+      "attributes": [
+        {
+          "name": "library",
+          "description": "provide window into setting displayed 'locoso' contact data",
+          "sourceRange": {
+            "start": {
+              "line": 50,
+              "column": 6
+            },
+            "end": {
+              "line": 50,
+              "column": 42
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "host_site",
+          "description": "key for the subsite (used to populate the sitemap)",
+          "sourceRange": {
+            "start": {
+              "line": 52,
+              "column": 6
+            },
+            "end": {
+              "line": 52,
+              "column": 31
+            }
+          },
+          "metadata": {},
+          "type": "string | null | undefined"
+        }
+      ],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "library-changed",
+          "description": "Fired when the `library` property changes.",
+          "metadata": {}
+        }
+      ],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "bulib-footer"
+    },
+    {
+      "description": "display the *LO*cation, *CO*ntact, and *SO*cial media information for\n   a given library within the Boston Universities System.",
+      "summary": "",
+      "path": "src/locoso/locoso.js",
+      "properties": [
+        {
+          "name": "link_class",
+          "type": "string | null | undefined",
+          "description": "optional additional class added to each link in the rendered HTML",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 19,
+              "column": 6
+            },
+            "end": {
+              "line": 19,
+              "column": 32
             }
           },
           "metadata": {
@@ -1168,22 +1315,23 @@
           }
         },
         {
-          "name": "str_placeholder",
+          "name": "library",
           "type": "string | null | undefined",
-          "description": "string displayed within the input box before user adds any",
+          "description": "current library code used as the key to swap between locoso data entries",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 55,
+              "line": 21,
               "column": 6
             },
             "end": {
-              "line": 55,
-              "column": 37
+              "line": 21,
+              "column": 42
             }
           },
           "metadata": {
             "polymer": {
+              "notify": true,
               "attributeType": "String"
             }
           }
@@ -1196,11 +1344,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 45,
+              "line": 14,
               "column": 2
             },
             "end": {
-              "line": 45,
+              "line": 14,
               "column": 36
             }
           },
@@ -1213,11 +1361,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 59,
+              "line": 25,
               "column": 2
             },
             "end": {
-              "line": 71,
+              "line": 97,
               "column": 3
             }
           },
@@ -1225,64 +1373,46 @@
           "params": []
         },
         {
-          "name": "_prepareOptions",
-          "description": "set display options on user input (if present)",
+          "name": "_prepareContacts",
+          "description": "use the raw 'contacts' data to populate a basic list that can more easily displayed as a list of links",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 74,
-              "column": 2
-            },
-            "end": {
               "line": 100,
-              "column": 3
-            }
-          },
-          "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
-        },
-        {
-          "name": "updated",
-          "description": "once html is on the page, update the visual to reflect the web component's data",
-          "privacy": "public",
-          "sourceRange": {
-            "start": {
-              "line": 103,
               "column": 2
             },
             "end": {
-              "line": 116,
+              "line": 117,
               "column": 3
             }
           },
           "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
+          "params": [
+            {
+              "name": "rawContacts"
+            }
+          ]
         },
         {
-          "name": "_doSearch",
-          "description": "perform a search for the input query on the selected database",
+          "name": "_prepareSocial",
+          "description": "use raw 'social' data to generate a list of basic profile links for easy display",
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 119,
+              "line": 120,
               "column": 2
             },
             "end": {
-              "line": 130,
+              "line": 140,
               "column": 3
             }
           },
           "metadata": {},
-          "params": [],
-          "return": {
-            "type": "void"
-          }
+          "params": [
+            {
+              "name": "rawSocial"
+            }
+          ]
         }
       ],
       "staticMethods": [],
@@ -1290,61 +1420,45 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 36,
+          "line": 9,
           "column": 0
         },
         "end": {
-          "line": 132,
+          "line": 142,
           "column": 1
         }
       },
       "privacy": "public",
       "superclass": "LitElement",
-      "name": "BULSearch",
+      "name": "BULocoso",
       "attributes": [
         {
-          "name": "str_default",
-          "description": "selected search source (defaulted to first option)",
+          "name": "link_class",
+          "description": "optional additional class added to each link in the rendered HTML",
           "sourceRange": {
             "start": {
-              "line": 51,
+              "line": 19,
               "column": 6
             },
             "end": {
-              "line": 51,
-              "column": 47
+              "line": 19,
+              "column": 32
             }
           },
           "metadata": {},
           "type": "string | null | undefined"
         },
         {
-          "name": "str_options",
-          "description": "search sources included in the dropdown (defaulted to all)",
+          "name": "library",
+          "description": "current library code used as the key to swap between locoso data entries",
           "sourceRange": {
             "start": {
-              "line": 53,
+              "line": 21,
               "column": 6
             },
             "end": {
-              "line": 53,
-              "column": 33
-            }
-          },
-          "metadata": {},
-          "type": "string | null | undefined"
-        },
-        {
-          "name": "str_placeholder",
-          "description": "string displayed within the input box before user adds any",
-          "sourceRange": {
-            "start": {
-              "line": 55,
-              "column": 6
-            },
-            "end": {
-              "line": 55,
-              "column": 37
+              "line": 21,
+              "column": 42
             }
           },
           "metadata": {},
@@ -1354,8 +1468,8 @@
       "events": [
         {
           "type": "CustomEvent",
-          "name": "str_default-changed",
-          "description": "Fired when the `str_default` property changes.",
+          "name": "library-changed",
+          "description": "Fired when the `library` property changes.",
           "metadata": {}
         }
       ],
@@ -1364,7 +1478,7 @@
         "selectors": []
       },
       "slots": [],
-      "tagname": "bulib-search"
+      "tagname": "bulib-locoso"
     },
     {
       "description": "display the hours of operation for a given library",
@@ -1629,6 +1743,62 @@
       },
       "slots": [],
       "tagname": "bulib-hours"
+    }
+  ],
+  "functions": [
+    {
+      "name": "_getDataFromFile",
+      "description": "make a get request to load the data as json from specified file at particular version",
+      "summary": "",
+      "sourceRange": {
+        "file": "src/_helpers/load_json.js",
+        "start": {
+          "line": 3,
+          "column": 7
+        },
+        "end": {
+          "line": 11,
+          "column": 1
+        }
+      },
+      "privacy": "protected",
+      "params": []
+    },
+    {
+      "name": "getLibraryInfoFromCode",
+      "description": "",
+      "summary": "",
+      "sourceRange": {
+        "file": "src/_helpers/lib_info_helper.js",
+        "start": {
+          "line": 82,
+          "column": 7
+        },
+        "end": {
+          "line": 87,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "params": []
+    },
+    {
+      "name": "getLibraryCodeFromUrl",
+      "description": "",
+      "summary": "",
+      "sourceRange": {
+        "file": "src/_helpers/lib_info_helper.js",
+        "start": {
+          "line": 89,
+          "column": 7
+        },
+        "end": {
+          "line": 113,
+          "column": 1
+        }
+      },
+      "privacy": "public",
+      "params": []
     }
   ]
 }
