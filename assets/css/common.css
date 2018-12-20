@@ -2,9 +2,9 @@
 .pam { padding: 10px; }
 .pvm { padding: 10px 0px; }
 .phm { padding: 0px 10px; }
+.phxl { padding: 0px 30px; }
 .ptl { padding-top: 15px; }
 .left { float: left; }
-.txtc { text-align: center; }
 .inline { display: inline-block; }
 .multi-column {
   column-gap: 5%;
@@ -13,6 +13,11 @@
 }
 
 /* -- general styling -- */
+
+/* text */
+.txtc { text-align: center; }
+.big-text { font-size: 130%; }
+
 
 /* list styles */
 .no-bullet > li { list-style:none; }
