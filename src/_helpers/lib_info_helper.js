@@ -73,7 +73,7 @@ const libraries_data_backup = {
     "social":{"twitter":"BUSTHLibrary","facebook":"busthlibrary","instagram":"butheologylibrary"}
   },"help":{
     "name":"BU Libraries",
-    "website":"https://askalibrarian.bu.edu/",
+    "website":"http://bu.edu/library",
     "address":["771 Commonwealth Avenue","Boston, MA 02215"],
     "contacts":{"phone":"617-353-2700","email":"ask@bu.edu","text":"617-431-2427"},
     "social":{"twitter":"BULibNews"}
@@ -112,4 +112,3 @@ export function getLibraryCodeFromUrl(lib_url, defLibCode="help"){
   if(debug){ console.log(`_lib_info_helper) returning lib_code '${lib_code}' from lib_url '${lib_url}'.`); }
   return lib_code;
 }
-
