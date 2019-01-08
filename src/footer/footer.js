@@ -53,7 +53,7 @@ class BULFooter extends LitElement {
       host_site: {type: String}
     };
   }
-  
+
   /** upon the element's first connection to the DOM, get the url and use it to determine $this.library */
   connectedCallback(){
     let current_url = local? "http://www.bu.edu/library/music/research/guides/" : window.location.href;
@@ -65,14 +65,14 @@ class BULFooter extends LitElement {
   render() {
     // fill in the sitemap middle section of the footer
     let sitemap_data = sitemap_values[this.host_site] || sitemap_values["askalibrarian"];
-    let links = sitemap_data["links"]; 
+    let links = sitemap_data["links"];
     let sitemap_content = html`
       <h3 class="txtc">${sitemap_data["header"]}</h3>
       <ul class="multi-column no-bullet">
         ${links.map((l) => html`<li><a class="white-link pvm" href="${l.href}">${l.title}</a></li>`)}
       </ul>
     `;
-    
+
     // render the main content of the component
     return html`
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.5/assets/css/common.min.css">
@@ -95,6 +95,7 @@ class BULFooter extends LitElement {
                 <ul class="no-bullet ptl">
                   <li><a class="white-link" href="https://www.bu.edu/library/" title="Libraries Home">Libraries Home</a></li>
                   <li><a class="white-link" href="http://bu.edu/library/search" title="Search available/licensed content">Libraries Search</a></li>
+                  <li><a class="white-link" href="http://bu.edu/library/about" title="Information regarding various BU Libraries">Libraries Locations</a></li>
                   <li><a class="white-link" href="https://askalibrarian.bu.edu/" title="Help">Help</a></li>
                 </ul>
             </div>
