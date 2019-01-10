@@ -1,0 +1,34 @@
+<title>Primo Home Page (BU) - bulib-footer | BULib Web Components</title>
+
+<!-- browser compatibility checks and polyfills -->
+<script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.1.3/webcomponents-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@browser-v1.0/src/_helpers/browser_compatibility.js"></script>
+
+<!-- styling -->
+<link rel="stylesheet" type="text/css" href="../../../../assets/css/common.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.2/src/footer/footer.min.css">
+
+<!-- pull in bulib-wc components -->
+<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.2/src/locoso/locoso.min.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@locoso-v1.0/src/footer/footer.min.js" type="module"></script>
+<script>
+  /* once the DOM tags have been loaded, use 'browser_compatibility' helper to show/hide relevant elements */
+  window.addEventListener('DOMContentLoaded',function() {
+    loadWebComponentInto("bulib-footer", [ ]); 
+  });
+</script>
+
+<bulib-footer library="help">
+  <div slot="sitemap" class="centered-div red">
+    <h2 class="txtc">BU Libraries Search</h2>
+    <p><a class="white-link" href="">Search Help</a></p>
+
+    <p>Try searching all BU Library Resources by:</p>
+    <ul>
+      <li>[1]article/book title</li>
+      <li>[2]journal name</li>
+      <li>[3]start a new search</li>
+    </ul>
+
+  </div>
+</bulib-footer>

@@ -2,7 +2,6 @@
 .pam { padding: 10px; }
 .pvm { padding: 10px 0px; }
 .phm { padding: 0px 10px; }
-.phxl { padding: 0px 30px; }
 .ptl { padding-top: 15px; }
 .left { float: left; }
 .inline { display: inline-block; }
@@ -11,6 +10,7 @@
   column-count: 2;
   padding-inline-start: 0px;
 }
+.centered-div {  margin: 0 auto; width: 70%; }
 
 /* -- general styling -- */
 
