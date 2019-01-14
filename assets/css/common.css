@@ -1,4 +1,5 @@
 /* -- padding and alignment -- */
+.mvm { margin: 10px 0px; }
 .pam { padding: 10px; }
 .pvm { padding: 10px 0px; }
 .phm { padding: 0px 10px; }

@@ -34,6 +34,14 @@ const sitemap_values = {
       {"title":"Make a Research Appointment", "href":"https://www.bu.edu/library/services/reference/appointments/"},
       {"title":"Library Locations",           "href":"http://www.bu.edu/library/about/"}
     ]
+  },"primo-bu":{
+    "header":"BU Libraries Search",
+    "links":[
+      {"title":"Browse",          "href":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/browse?vid=BU"},
+      {"title":"Search Help",     "href":""},
+      {"title":"Databases List",  "href":"http://library.bu.edu/az.php"},
+      {"title":"What's New",      "href":"https://www.bu.edu/library/help/bu-libraries-search/new-bu-libraries-search-features/"}
+    ]
   }
 };
 
@@ -69,7 +77,7 @@ class BULFooter extends LitElement {
     let sitemap_content = html`
       <h3 class="txtc">${sitemap_data["header"]}</h3>
       <ul class="multi-column no-bullet">
-        ${links.map((l) => html`<li><a class="white-link pvm" href="${l.href}">${l.title}</a></li>`)}
+        ${links.map((l) => html`<li><a class="white-link mvm" href="${l.href}">${l.title}</a></li>`)}
       </ul>
     `;
     

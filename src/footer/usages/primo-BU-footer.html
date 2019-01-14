@@ -9,8 +9,8 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.2/src/footer/footer.min.css">
 
 <!-- pull in bulib-wc components -->
-<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.2/src/locoso/locoso.min.js" type="module"></script>
-<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@locoso-v1.0/src/footer/footer.min.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@locoso-v1.0/src/locoso/locoso.min.js" type="module"></script>
+<script src="../footer.js" type="module"></script>
 <script>
   /* once the DOM tags have been loaded, use 'browser_compatibility' helper to show/hide relevant elements */
   window.addEventListener('DOMContentLoaded',function() {
@@ -18,17 +18,4 @@
   });
 </script>
 
-<bulib-footer library="help">
-  <div slot="sitemap" class="centered-div red">
-    <h2 class="txtc">BU Libraries Search</h2>
-    <p><a class="white-link" href="">Search Help</a></p>
-
-    <p>Try searching all BU Library Resources by:</p>
-    <ul>
-      <li>[1]article/book title</li>
-      <li>[2]journal name</li>
-      <li>[3]start a new search</li>
-    </ul>
-
-  </div>
-</bulib-footer>
+<bulib-footer library="help" host_site="primo-bu"></bulib-footer>
