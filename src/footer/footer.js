@@ -31,8 +31,7 @@ const sitemap_values = {
       {"title":"Research Guides by Subject",  "href":"/guides"},
       {"title":"Course Guides",               "href":"https://www.bu.edu/library/research/guides/course-guides/"},
       {"title":"How-To Guides",               "href":"https://www.bu.edu/library/help/how-to/"},
-      {"title":"Make a Research Appointment", "href":"https://www.bu.edu/library/services/reference/appointments/"},
-      {"title":"Library Locations",           "href":"http://www.bu.edu/library/about/"}
+      {"title":"Make a Research Appointment", "href":"https://www.bu.edu/library/services/reference/appointments/"}
     ]
   }
 };
@@ -95,7 +94,7 @@ class BULFooter extends LitElement {
                 <ul class="no-bullet ptl">
                   <li><a class="white-link" href="https://www.bu.edu/library/" title="Libraries Home">Libraries Home</a></li>
                   <li><a class="white-link" href="http://bu.edu/library/search" title="Search available/licensed content">Libraries Search</a></li>
-                  <li><a class="white-link" href="http://bu.edu/library/about" title="Information regarding various BU Libraries">Libraries Locations</a></li>
+                  <li><a class="white-link" href="http://bu.edu/library/about" title="Information regarding various BU Libraries">Library Locations</a></li>
                   <li><a class="white-link" href="https://askalibrarian.bu.edu/" title="Help">Help</a></li>
                 </ul>
             </div>
