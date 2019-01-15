@@ -1,4 +1,4 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
 import { getLibraryCodeFromUrl } from '../_helpers/lib_info_helper.js';
 
 const debug = false;
@@ -31,8 +31,7 @@ const sitemap_values = {
       {"title":"Research Guides by Subject",  "href":"/guides"},
       {"title":"Course Guides",               "href":"https://www.bu.edu/library/research/guides/course-guides/"},
       {"title":"How-To Guides",               "href":"https://www.bu.edu/library/help/how-to/"},
-      {"title":"Make a Research Appointment", "href":"https://www.bu.edu/library/services/reference/appointments/"},
-      {"title":"Library Locations",           "href":"http://www.bu.edu/library/about/"}
+      {"title":"Make a Research Appointment", "href":"https://www.bu.edu/library/services/reference/appointments/"}
     ]
   }
 };
@@ -75,8 +74,8 @@ class BULFooter extends LitElement {
 
     // render the main content of the component
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.5/assets/css/common.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.5/src/footer/footer.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.3/assets/css/common.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.3/src/footer/footer.css">
       <style>
         /* firefox fix to stop the 'Follow Us' from becoming centered */
         ::slotted(h3) { text-align: left; }
@@ -95,7 +94,7 @@ class BULFooter extends LitElement {
                 <ul class="no-bullet ptl">
                   <li><a class="white-link" href="https://www.bu.edu/library/" title="Libraries Home">Libraries Home</a></li>
                   <li><a class="white-link" href="http://bu.edu/library/search" title="Search available/licensed content">Libraries Search</a></li>
-                  <li><a class="white-link" href="http://bu.edu/library/about" title="Information regarding various BU Libraries">Libraries Locations</a></li>
+                  <li><a class="white-link" href="http://bu.edu/library/about" title="Information regarding various BU Libraries">Library Locations</a></li>
                   <li><a class="white-link" href="https://askalibrarian.bu.edu/" title="Help">Help</a></li>
                 </ul>
             </div>
