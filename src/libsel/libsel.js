@@ -1,4 +1,4 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
 import {getLibraryInfoFromCode} from 'https://cdn.jsdelivr.net/gh/bulib/bulib-wc@libsel-v0.7/src/_helpers/lib_info_helper.js?module';
 
 const debug = false;

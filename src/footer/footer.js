@@ -1,4 +1,4 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
 import { getLibraryCodeFromUrl } from '../_helpers/lib_info_helper.js';
 
 const debug = false;
@@ -75,8 +75,8 @@ class BULFooter extends LitElement {
 
     // render the main content of the component
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.5/assets/css/common.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.5/src/footer/footer.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.2/assets/css/common.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.2/src/footer/footer.css">
       <style>
         /* firefox fix to stop the 'Follow Us' from becoming centered */
         ::slotted(h3) { text-align: left; }
