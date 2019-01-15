@@ -1,4 +1,4 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
 import {getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
 const debug = false;
@@ -30,8 +30,8 @@ class BULHeader extends LitElement {
   /** render the html (with 'bulib-search' wc) to the page  */
   render() {
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.5/assets/css/common.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.5/src/header/header.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.6/assets/css/common.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.6/src/header/header.min.css">
       <style>
         a { text-decoration: none; }
         .primary-navbar, .secondary-navbar > div { vertical-align: bottom; }

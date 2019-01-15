@@ -1,4 +1,4 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
 const ENTER_KEY_VALUE = 13;
 
 /* configurable defaults for logging, dropdown, submission action */

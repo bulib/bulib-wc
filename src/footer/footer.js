@@ -1,4 +1,4 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@latest/lit-element.js?module';
+import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
 import { getLibraryCodeFromUrl } from '../_helpers/lib_info_helper.js';
 
 const debug = false;
@@ -31,8 +31,7 @@ const sitemap_values = {
       {"title":"Research Guides by Subject",  "href":"/guides"},
       {"title":"Course Guides",               "href":"https://www.bu.edu/library/research/guides/course-guides/"},
       {"title":"How-To Guides",               "href":"https://www.bu.edu/library/help/how-to/"},
-      {"title":"Make a Research Appointment", "href":"https://www.bu.edu/library/services/reference/appointments/"},
-      {"title":"Library Locations",           "href":"http://www.bu.edu/library/about/"}
+      {"title":"Make a Research Appointment", "href":"https://www.bu.edu/library/services/reference/appointments/"}
     ]
   },"primo-bu":{
     "header":"BU Libraries Search",
@@ -61,7 +60,7 @@ class BULFooter extends LitElement {
       host_site: {type: String}
     };
   }
-  
+
   /** upon the element's first connection to the DOM, get the url and use it to determine $this.library */
   connectedCallback(){
     let current_url = local? "http://www.bu.edu/library/music/research/guides/" : window.location.href;
@@ -73,18 +72,18 @@ class BULFooter extends LitElement {
   render() {
     // fill in the sitemap middle section of the footer
     let sitemap_data = sitemap_values[this.host_site] || sitemap_values["askalibrarian"];
-    let links = sitemap_data["links"]; 
+    let links = sitemap_data["links"];
     let sitemap_content = html`
       <h3 class="txtc">${sitemap_data["header"]}</h3>
       <ul class="multi-column no-bullet">
         ${links.map((l) => html`<li><a class="white-link mvm" href="${l.href}">${l.title}</a></li>`)}
       </ul>
     `;
-    
+
     // render the main content of the component
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.2/assets/css/common.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.2/src/footer/footer.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.4/assets/css/common.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.4/src/footer/footer.css">
       <style>
         /* firefox fix to stop the 'Follow Us' from becoming centered */
         ::slotted(h3) { text-align: left; }
@@ -100,11 +99,12 @@ class BULFooter extends LitElement {
                 <small><a class="white-link" href="https://www.bu.edu/copyright" title="Copyright">&copy; Copyright ${new Date().getFullYear()}</a></small>
                 <br /><br />
               </div>
-              <ul class="no-bullet ptl">
-                <li><a class="white-link" href="https://www.bu.edu/library/" title="Libraries Home">Libraries Home</a></li>
-                <li><a class="white-link" href="http://bu.edu/library/search" title="Search available/licensed content">Libraries Search</a></li>
-                <li><a class="white-link" href="https://askalibrarian.bu.edu/" title="Help">Help</a></li>
-              </ul>
+                <ul class="no-bullet ptl">
+                  <li><a class="white-link" href="https://www.bu.edu/library/" title="Libraries Home">Libraries Home</a></li>
+                  <li><a class="white-link" href="http://bu.edu/library/search" title="Search available/licensed content">Libraries Search</a></li>
+                  <li><a class="white-link" href="http://bu.edu/library/about" title="Information regarding various BU Libraries">Library Locations</a></li>
+                  <li><a class="white-link" href="https://askalibrarian.bu.edu/" title="Help">Help</a></li>
+                </ul>
             </div>
           </div>
           <div class="ftr-middle">
