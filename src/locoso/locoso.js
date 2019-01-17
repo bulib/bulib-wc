@@ -51,24 +51,7 @@ class BULocoso extends LitElement {
       `;
     }
     return html`
-      <style>
-        /* layout and responsiveness */
-        #locoso.left { flex: 1; padding-left: 30px; }
-        #locoso.right { flex: 2; padding-right: 30px; }
-        @media only screen and (min-width: 350px){
-          #locoso { display: flex; }
-          .left { flex: 1; }
-        }
-
-        /* list styles, */
-        ul, ol { margin: 5px 0px; padding-left: 0; padding-bottom: 10px; }
-
-        /* padding and margins */
-        #locoso > div > h3 { margin-top: 0px; margin-bottom: 0px; text-align: }
-        .prm { margin-right: 10px; padding-right: 10px; }
-        .sm-icon { width: 30px; height: 30px; border: solid transparent 1px; }
-        .sm-icon:hover { width: 30px; height: 30px; border: solid white 1px; }
-      </style>
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@locoso-v1.2/src/locoso/locoso.min.css">
       <div id="locoso">
         <div class="left prm">
           <h3 class="inline">Visit Us</h3>&nbsp;

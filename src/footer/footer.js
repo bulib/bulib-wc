@@ -76,7 +76,7 @@ class BULFooter extends LitElement {
     let sitemap_content = html`
       <h3 class="txtc">${sitemap_data["header"]}</h3>
       <ul class="multi-column no-bullet">
-        ${links.map((l) => html`<li><a class="white-link mvm" href="${l.href}">${l.title}</a></li>`)}
+        ${links.map((l) => html`<li><a class="white-link" href="${l.href}">${l.title}</a></li>`)}
       </ul>
     `;
 
