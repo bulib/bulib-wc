@@ -7,7 +7,7 @@
 }
 
 /* list styles, */
-ul, ol { margin: 5px 0px; padding-left: 0; padding-bottom: 10px; }
+#locoso > div > ul, ol { margin: 5px 0px; padding-left: 0; padding-bottom: 10px; }
 
 /* padding and margins */
 #locoso > div > h3 { margin-top: 0px; margin-bottom: 0px; text-align: }
