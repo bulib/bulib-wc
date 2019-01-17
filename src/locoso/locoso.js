@@ -51,7 +51,7 @@ class BULocoso extends LitElement {
       `;
     }
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@locoso-v1.2/src/locoso/locoso.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@locoso-v1.3/src/locoso/locoso.min.css">
       <div id="locoso">
         <div class="left prm">
           <h3 class="inline">Visit Us</h3>&nbsp;
