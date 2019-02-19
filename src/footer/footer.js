@@ -76,14 +76,14 @@ class BULFooter extends LitElement {
     let sitemap_content = html`
       <h3 class="txtc">${sitemap_data["header"]}</h3>
       <ul class="multi-column no-bullet">
-        ${links.map((l) => html`<li><a class="white-link mvm" href="${l.href}">${l.title}</a></li>`)}
+        ${links.map((l) => html`<li><a class="white-link" href="${l.href}">${l.title}</a></li>`)}
       </ul>
     `;
 
     // render the main content of the component
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.4/assets/css/common.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.4/src/footer/footer.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@common-v1.0/assets/css/common.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.6/src/footer/footer.css">
       <style>
         /* firefox fix to stop the 'Follow Us' from becoming centered */
         ::slotted(h3) { text-align: left; }
