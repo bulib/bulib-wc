@@ -3,6 +3,7 @@
   "moduleResolution": "node",
   "entrypoint": "index.html",
   "builds": [
-    { "preset": "es5-bundled" }
+    { "preset": "es5-bundled" },
+    { "preset": "es6-bundled" }
   ]
 }
