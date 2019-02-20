@@ -1,5 +1,5 @@
 node_modules/
 build/
-!build/*/shared_bundle.js
+!build/*/shared_bundle_1.js
 .idea/
 .DS_Store
