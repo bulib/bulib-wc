@@ -1,4 +1,4 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
+import {LitElement, html} from 'lit-element';
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
 
 const debug = false;
@@ -51,6 +51,7 @@ class BULocoso extends LitElement {
       `;
     }
     return html`
+      <link rel="stylesheet" type="text/css" href="../../assets/css/common.css">
       <style>
         /* layout and responsiveness */
         #locoso.left { flex: 1; padding-left: 30px; }
@@ -64,7 +65,7 @@ class BULocoso extends LitElement {
         ul, ol { margin: 5px 0px; padding-left: 0; padding-bottom: 10px; }
 
         /* padding and margins */
-        #locoso > div > h3 { margin-top: 0px; margin-bottom: 0px; text-align: }
+        #locoso > div > h3 { margin-top: 0px; margin-bottom: 0px; }
         .prm { margin-right: 10px; padding-right: 10px; }
         .sm-icon { width: 30px; height: 30px; border: solid transparent 1px; }
         .sm-icon:hover { width: 30px; height: 30px; border: solid white 1px; }

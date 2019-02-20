@@ -1,33 +1,24 @@
-<!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Docs - BULib Web Components</title>
-
-  <!-- Polyfills only needed for Firefox and Edge. -->
-  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-
-  <!-- documentation -->
-  <script type="module">import '@polymer/iron-component-page/iron-component-page';</script>
-  <script type="module">import '@polymer/iron-doc-viewer/default-theme.js';</script>
-
-  <!-- styling -->
-  <style>
-    header[main]   {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        padding: 15px 20px;
-        background-color: #fff;
-        box-sizing: border-box;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  <head>
+    <title>Docs - BULib Web Components</title>
+    <script src="./node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
+    <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <scrpit src="./index.js"></scrpit>
+    <style>
+      body {
+        background-color: #f2f2f2;
       }
-  </style>
-</head>
+      bulib-demo {
+        display: flex;
+        flex-direction: column;
+        max-width: 800px;
+        margin: 24px auto;
+      }
+    </style>
+  </head>
 
-<body>
-  <iron-component-page></iron-component-page>
-</body>
-
+  <body>
+    <h1><code>bulib-demo</code></h1>
+    <bulib-demo></bulib-demo>
+  </body>
 </html>
