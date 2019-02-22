@@ -1,13 +1,17 @@
-/**
- * This component combines all the examples to be displayed. See the basic/intermediate/advanced folders for the actual examples.
- */
-
 import { LitElement, html } from 'lit-element';
-import '../src/footer/footer.js';
+
+const component_usages = {
+  "footer": html`<bulib-footer host_site="askalibrarian"></bulib-footer>`,
+  "header": html`<bulib-header curr_url="http://askalibrarian.bu.edu" curr_search="help" str_options="help"></bulib-header>`,
+  "search": html`<bulib-search name="options, with default" str_options="primo industries wp" str_selected="industries"></bulib-search>`,
+  "locoso": html`<bulib-locoso library="astronomy"></bulib-locoso>`
+};
 
 class BulibDemo extends LitElement {
     static get properties() {
-      return {}
+      return {
+        component: {type: String, notify: true}
+      };
     }
 
     constructor(){ super(); }
@@ -17,11 +21,8 @@ class BulibDemo extends LitElement {
 
     render() {
       return html`
-        <div>
-          <h2>TITLE IN BODY</h2>
-          <bulib-locoso library="mugar-memorial"></bulib-locoso>
-        </div>
-        <bulib-footer library="help" host_site="askalibrarian"></bulib-footer>
+        <h3><code>bulib-${this.component}</code></h3>
+        <div>${component_usages[this.component]}</div>
       `;
     }
   }

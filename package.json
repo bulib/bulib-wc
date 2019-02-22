@@ -1,7 +1,7 @@
 {
   "name": "bulib-webcomponents",
   "version": "0.9.0",
-  "description": "collection of web components and helpers  used at Boston University Libraries",
+  "description": "collection of web components and helpers used at Boston University Libraries",
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.2.7",
     "lit-element": "^2.0.1"
@@ -13,11 +13,8 @@
     "owc-dev-server": "^0.1.6",
     "polymer-cli": "^1.9.6",
     "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "webpack-dev-server": "^3.2.0",
+    "webpack-cli": "^3.2.3"
   },
   "repository": {
     "type": "git",
@@ -25,7 +22,6 @@
   },
   "keywords": [
     "web-components",
-    "webcomponents",
     "lit-element",
     "lit-html",
     "polymer",
@@ -38,10 +34,11 @@
   },
   "homepage": "https://github.com/bulib/bulib-wc#readme",
   "scripts": {
+    "build": "webpack index.js --output ./dist/bundle.js",
     "start": "webpack-dev-server --mode development --open",
     "start:es5": "webpack-dev-server --mode development --es5",
     "start:build": "http-server dist/ -o",
-    "build": "webpack --mode production",
     "build:stats": "webpack --mode production --profile --json > bundle-stats.json"
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

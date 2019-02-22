@@ -1,15 +1,14 @@
 <html>
   <head>
     <title>Docs - BULib Web Components</title>
-    <script src="./node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
-    <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-    <scrpit src="./index.js"></scrpit>
+    <script src="./dist/bundle.js"></script>
     <style>
       body {
         background-color: #f2f2f2;
       }
       bulib-demo {
         display: flex;
+        background-color: white;
         flex-direction: column;
         max-width: 800px;
         margin: 24px auto;
@@ -18,7 +17,22 @@
   </head>
 
   <body>
-    <h1><code>bulib-demo</code></h1>
-    <bulib-demo></bulib-demo>
+    <h1>BU Libraries Web Components</h1>
+    <p>A series of web components web components and helpers used at Boston University Libraries</p>
+
+    <hr />
+    <bulib-demo component="header"></bulib-demo>
+    <hr />
+    <bulib-demo component="libsel"></bulib-demo>
+    <hr />
+    <bulib-demo component="locoso"></bulib-demo>
+    <hr />
+    <bulib-demo component="search"></bulib-demo>
+    <hr />
+    <bulib-demo component="select"></bulib-demo>
+    <hr />
+    <bulib-demo component="footer"></bulib-demo>
+    <hr />
+
   </body>
 </html>
