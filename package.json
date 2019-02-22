@@ -34,11 +34,10 @@
   },
   "homepage": "https://github.com/bulib/bulib-wc#readme",
   "scripts": {
-    "build": "webpack index.js --output ./dist/bundle.js",
-    "start": "webpack-dev-server --mode development --open",
-    "start:es5": "webpack-dev-server --mode development --es5",
-    "start:build": "http-server dist/ -o",
-    "build:stats": "webpack --mode production --profile --json > bundle-stats.json"
+    "build": "webpack ./index.js --output ./build/bundle.js",
+    "build:es5": "webpack ./index.js --output ./build/bundle_es5.js --mode production --es5",
+    "build:es6": "webpack ./index.js --output ./build/bundle_es6.js --mode production --es6",
+    "start": "webpack-dev-server --mode production --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
