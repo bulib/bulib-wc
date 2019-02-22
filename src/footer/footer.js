@@ -1,5 +1,6 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
+import {LitElement, html} from 'lit-element';
 import { getLibraryCodeFromUrl } from '../_helpers/lib_info_helper.js';
+import '../locoso/locoso.js';
 
 const debug = false;
 const local = false;
