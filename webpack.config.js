@@ -1,3 +1,13 @@
-const defaultConfig = require('@open-wc/building-webpack/default-config');
+const path = require('path');
 
-module.exports = defaultConfig();
+// const merge = require('webpack-merge');
+// const createDefaultConfig = require('@open-wc/building-webpack/default-config');
+// const defaultConfig = createDefaultConfig();
+
+module.exports = {
+  entry: ['./index.js'],
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    filename: 'bundle.js'
+  }
+};

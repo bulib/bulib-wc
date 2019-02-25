@@ -7,14 +7,15 @@
     "lit-element": "^2.0.1"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.3.1",
     "@open-wc/building-webpack": "^0.1.9",
     "@open-wc/polyfills-loader": "^0.2.2",
     "http-server": "^0.11.1",
     "owc-dev-server": "^0.1.6",
     "polymer-cli": "^1.9.6",
     "webpack": "^4.29.5",
-    "webpack-dev-server": "^3.2.0",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.0"
   },
   "repository": {
     "type": "git",
@@ -37,7 +38,7 @@
     "build": "webpack ./index.js --output ./build/bundle.js",
     "build:es5": "webpack ./index.js --output ./build/bundle_es5.js --mode production --es5",
     "build:es6": "webpack ./index.js --output ./build/bundle_es6.js --mode production --es6",
-    "start": "webpack-dev-server --mode production --open",
+    "start": "webpack-dev-server --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
