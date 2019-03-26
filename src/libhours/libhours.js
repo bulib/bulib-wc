@@ -19,8 +19,9 @@ class BULibHours extends LitElement {
 
   static get properties() {
     return { 
-      library: {type: String},
-      show_name: {type: Boolean}
+      library: {type: String}, 
+      show_name: {type: Boolean},
+      link_class: {type: String}
     };
   }
 
@@ -35,9 +36,10 @@ class BULibHours extends LitElement {
     let lid = lib_info.libcal_lid;
 
     return html`
+      <style> :host { color: white; } </style>
       <div class="libhours">
         <strong>${this.show_name? html`${library_name}`: html``}
-          <a title="${library_name} hours" href="${hours_url}">hours</a>
+          <a title="${library_name} hours" class="${this.link_class}" href="${hours_url}">hours</a>
         </strong>
         <em id="hours-display">${until(_fetchHoursDataFromLibCalForLibrary(lid), html` loading ...`)}</em> 
       </div>`;
