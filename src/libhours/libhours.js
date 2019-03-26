@@ -6,11 +6,6 @@ import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
 const all_lib_hours_url = "http://www.bu.edu/library/about/hours/";
 const cors_anywhere_prefix = 'https://cors-anywhere.herokuapp.com/';
 const libcal_hours_api_url = 'https://api3.libcal.com/api_hours_today.php';
-const _fetchHoursData = function(lid=1475){
-  let url = `${cors_anywhere_prefix}${libcal_hours_api_url}?format=json&systemTime=0&iid=1740&lid=${lid}`;
-  return fetch( url, { method: 'GET', mode:'cors'})
-    .then(r => r.json()).then(data => (data.locations[0]).rendered);
-};
 
 
 /** display the hours of operation for a given library */
@@ -22,9 +17,18 @@ class BULibHours extends LitElement {
     return { 
       library: {type: String}, 
       verbose: {type: Boolean},
-      link_class: {type: String}
+      link_class: {type: String},
+      
+      debug: {type: Boolean}
     };
   }
+  
+  _fetchHoursData = function(lid=1475){
+    let url = `${cors_anywhere_prefix}${libcal_hours_api_url}?format=json&systemTime=0&iid=1740&lid=${lid}`;
+    this._logToConsole("calling 'libcal' with lid: '" + lid + "'.");
+    return fetch( url, { method: 'GET', mode:'cors'})
+      .then(r => r.json()).then(data => (data.locations[0]).rendered);
+  };
 
   render() {
     // get general library information
@@ -38,7 +42,8 @@ class BULibHours extends LitElement {
     if(library_name.includes("BU Librar")){ library_name = "Mugar Library"; }
 
     // prepare templates
-    let hours_loading = html`<em id="hours-display" class="gold">${until(_fetchHoursData(lid), html`<small> loading hours...</small>`)}</em>`;
+    this._logToConsole(`rendering hours for ${library_name} (code:'${libCode}').`);
+    let hours_loading = html`<em id="hours-display" class="gold">${until(this._fetchHoursData(lid), html`<small> loading hours...</small>`)}</em>`;
     let hours_link = html`<a title="see full hours for ${library_name}" class="${this.link_class}" href="${hours_url}">hours</a>`;
     let see_all_link = html`<small><a href="${all_lib_hours_url}" class=${this.link_class}>(all location hours)</a></small>`;
 
@@ -58,6 +63,10 @@ class BULibHours extends LitElement {
         <div id="hours-bottom">${this.verbose? html`${hours_loading} ${see_all_link}` : html`` }</div>
       </div>
       `;
+  }
+  
+  _logToConsole = function(message){
+    if(this.debug){ console.log("bulib-hours) " + message); }
   }
 
 }

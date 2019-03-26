@@ -1,21 +1,19 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
 import {getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
-const debug = false;
-const local = true;
-
 /** Reactive/responsive header with custom subsite display, bulib-search integration */
 class BULHeader extends LitElement {
 
   /** store information on the current page */
   static get properties() {
     return {
+      // current library (sent to hours) 
+      library: {type: String},
+      
       // current url used in testing to determine site
       curr_url: {type: String},
-      // current primary site [e.g. 'research', 'services', 'about', 'help'] 
-      curr_primary: {type: String},
-      // current library (sent to hours) 
-      library: {type: String}
+      // debugging tools
+      debug: {type: Boolean}
     };
   }
 
@@ -52,21 +50,19 @@ class BULHeader extends LitElement {
       </nav>`;
   }
   
-  connectedCallback(){ this._urlUpdated(); }
+  connectedCallback(){  this._urlUpdated(); }
 
   /** for development purposes, react to manual changes to `this.curr_url` via _urlUpdated */
   attributeChangedCallback(name, oldValue, newValue){
     super.attributeChangedCallback(name, oldValue, newValue);
-    if(debug){ console.log(`bulib-header) attributeChangedCallback() called, changing '${name}' from '${oldValue}' to '${newValue}'...`); }
     switch(name){
       case "curr_url":      this._urlUpdated(); break;
-      case "curr_primary":  this._primaryUpdated(); break;
       default: break;
     }
   }
 
   /** set primary nav 'active' styling */
-  _primaryUpdated(){
+  _primaryUpdated(newPrimary){
     let i, li;
     let siteLinksElem = this.shadowRoot.querySelector("#site-links");
     if(!siteLinksElem){ return; }
@@ -81,7 +77,7 @@ class BULHeader extends LitElement {
 
   /** set the primary, secondary, and search information according to the currentUrl  */
   _urlUpdated(){
-    let currentUrl = (local)? this.curr_url : window.location.href;
+    let currentUrl = (this.curr_url)? this.curr_url : window.location.href;
 
     let old_primary = this.curr_primary;
     if(currentUrl.includes("askalibrarian")){
@@ -94,15 +90,20 @@ class BULHeader extends LitElement {
       else if(currentUrl.includes("/services")){ this.curr_primary = "services"; }
       else{ this.curr_primary = "about"; }
       this.library = getLibraryCodeFromUrl(currentUrl);
+      this._logToConsole(`library set to '${this.library}'.`);
+    }else{
+      this.curr_primary = "about";
     }
 
     // TODO remove and deal with changes in a nicer, more standardized way
-    if(!old_primary || old_primary !== this.curr_primary) { this._primaryUpdated(); }
-
-    // add debug info
-    if(debug){
-      console.log(`bulib-header) curr_primary: '${this.curr_primary}'`);
+    if(!old_primary || old_primary != this.curr_primary) { 
+      this._primaryUpdated(); 
+      this._logToConsole(`curr_primary: changed from '${old_primary || ""}' to '${this.curr_primary}'.`);
     }
+  }
+  
+  _logToConsole(message){
+    if(this.debug){ console.log("bulib-header) " + message); }
   }
 
 }
