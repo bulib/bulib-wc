@@ -80,7 +80,7 @@ const libraries_data_backup = {
     "libcal_lid":1783
   },"sel":{
     "name":"Science & Engineering Library",
-    "short":"SEL Library",
+    "short":"SciEng Library",
     "website":"https://www.bu.edu/library/sel/",
     "address":["38 Cummington Mall","Boston, MA 02215"],
     "contacts":{"phone":"617-353-3733","fax":"617-353-3470"},
