@@ -1,7 +1,6 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
 import {search_options} from '../search/search.js';
 
-const debug = false;
 const libraries =  [
   {"value":"mugar-memorial","name":"SELECT LIBRARY"},
   {"value":"mugar-memorial","name":"Mugar Memorial"},
@@ -47,22 +46,20 @@ const opt_map = {
 
 class BULSelect extends LitElement{
 
-  constructor(){
-    super();
-  }
-
   static get properties(){
     return {
+      /** title displayed next to the dropdown */
+      sel_title: {type: String},
       /** currently selected item code (referring to values in option map) */
       curr_sel: {type: String, notify:true},
       /** the key for which option map to use for populating the dropdown */
       opt_code: {type: String},
-      /** title displayed next to the dropdown */
-      sel_title: {type: String},
       /** the name of the tag which we desire to update (e.g. <bulib-locoso> = 'bulib-locoso') */
       tag_name: {type: String},
       /** the attribute of that tag which needs to be changed */
-      attr_name: {type: String}
+      attr_name: {type: String},
+      /* controls logging to the console */
+      debug: {type:Boolean}
     };
   }
 
@@ -91,14 +88,14 @@ class BULSelect extends LitElement{
       element.setAttribute(this.attr_name, current);
       after = element.getAttribute(this.attr_name);
       
-      if(debug && before != after){ 
+      if(this.debug && before != after){ 
         let id_string = "?";
         if(element){
           if(element.id){ id_string = "#"+element.id; }
           if(element.hasAttribute("name")){ id_string = "'" + element.getAttribute("name") + "'"; }
         } 
         
-        if(debug){ console.log(`bulib-select) changed '<${this.tag_name}>[${id_string}].${this.attr_name}' from '${before}' to '${after}'.`); }
+        if(this.debug){ console.log(`bulib-select) changed '<${this.tag_name}>[${id_string}].${this.attr_name}' from '${before}' to '${after}'.`); }
       }
     }
   }
