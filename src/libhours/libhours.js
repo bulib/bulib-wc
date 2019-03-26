@@ -14,12 +14,13 @@ const _fetchHoursDataFromLibCalForLibrary = function(lid=1475){
 
 /** display the hours of operation for a given library */
 class BULibHours extends LitElement {
-    
+
   createRenderRoot(){ return this; } // don't need 'slot' functionality, so lets use Light DOM
 
   static get properties() {
     return { 
-      library: {type: String}
+      library: {type: String},
+      show_name: {type: Boolean}
     };
   }
 
@@ -31,12 +32,14 @@ class BULibHours extends LitElement {
     // extract relevant pieces from lib_info
     let library_name = lib_info.name;
     let hours_url = lib_info.hours_url;
-    let lid = lib_info.libcal_lid || 1475;
+    let lid = lib_info.libcal_lid;
 
     return html`
       <div class="libhours">
-        <strong>${library_name} <a title="${library_name} hours" href="${hours_url}">hours</a></strong>
-        <em id="hours-display">: ${until(_fetchHoursDataFromLibCalForLibrary(lid), html`loading ...`)}</em> 
+        <strong>${this.show_name? html`${library_name}`: html``}
+          <a title="${library_name} hours" href="${hours_url}">hours</a>
+        </strong>
+        <em id="hours-display">${until(_fetchHoursDataFromLibCalForLibrary(lid), html` loading ...`)}</em> 
       </div>`;
   }
 
