@@ -46,7 +46,7 @@ class BULHeader extends LitElement {
             </ul>
           </div>
           <div class="primary-nav-right phm right">
-            <div class="mvm right"><bulib-hours library="${this.library}" link_class="white-link"></bulib-hours></div>
+            <div class="mvm right"><bulib-hours show_name library="${this.library}" link_class="white-link"></bulib-hours></div>
           </div>
         </div>
       </nav>`;

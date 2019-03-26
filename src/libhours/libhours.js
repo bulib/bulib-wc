@@ -3,6 +3,7 @@ import {until} from 'https://unpkg.com/lit-html@1.0.0/directives/until.js?module
 
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
 
+const all_lib_hours_url = "http://www.bu.edu/library/about/hours/";
 const cors_anywhere_prefix = 'https://cors-anywhere.herokuapp.com/';
 const libcal_hours_api_url = 'https://api3.libcal.com/api_hours_today.php';
 const _fetchHoursDataFromLibCalForLibrary = function(lid=1475){
@@ -15,34 +16,48 @@ const _fetchHoursDataFromLibCalForLibrary = function(lid=1475){
 /** display the hours of operation for a given library */
 class BULibHours extends LitElement {
 
-  createRenderRoot(){ return this; } // don't need 'slot' functionality, so lets use Light DOM
+  createRenderRoot(){ return this;} // don't need 'slot' functionality, so lets use Light DOM
 
   static get properties() {
     return { 
       library: {type: String}, 
-      show_name: {type: Boolean},
+      verbose: {type: Boolean},
       link_class: {type: String}
     };
   }
 
   render() {
+    this.verbose = true; 
     // get general library information
     let libCode = this.library || "mugar-memorial";
     let lib_info = getLibraryInfoFromCode(libCode);
     
     // extract relevant pieces from lib_info
-    let library_name = lib_info.name;
+    let library_name = lib_info.short || lib_info.name;
     let hours_url = lib_info.hours_url;
     let lid = lib_info.libcal_lid;
 
+    // default to labeling default as mugar-specific
+    if(library_name.includes("BU Librar")){ library_name = "Mugar Library"; }
+
     return html`
-      <style> :host { color: white; } </style>
+      <style> 
+        :host { color: white; } 
+        .libhours { text-align: center; }
+        .gold { color: gold; }
+      </style>
       <div class="libhours">
-        <strong>${this.show_name? html`${library_name}`: html``}
-          <a title="${library_name} hours" class="${this.link_class}" href="${hours_url}">hours</a>
-        </strong>
-        <em id="hours-display">${until(_fetchHoursDataFromLibCalForLibrary(lid), html` loading ...`)}</em> 
-      </div>`;
+        <div id="single-library">
+          <strong>${this.verbose? html`${library_name}`: html``}
+            <a title="${library_name} hours" class="${this.link_class}" href="${hours_url}">hours</a>
+          </strong>
+        </div>
+        <div>
+          <em id="hours-display" class="gold">${until(_fetchHoursDataFromLibCalForLibrary(lid), html`<small> loading hours...</small>`)}</em> 
+          ${this.verbose? html`<small><a class="${this.link_class}" href="${all_lib_hours_url}">(all location hours)</a><small>`: html``}
+        </div>
+      </div>
+      `;
   }
 
 }

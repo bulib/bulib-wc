@@ -22,8 +22,14 @@ const wp_urls = [
   {"name":"Primo Search",   "value":"buprimo.hosted.exlibrisgroup.com/primo-explore/search"},
   {"name":"Guides",         "value":"www.bu.edu/library/research/guides/course-guides/"},
   {"name":"Services",       "value":"http://www.bu.edu/library/services/"},
-  {"name":"Mugar Library",  "value":"www.bu.edu/library/mugar-memorial"},
   {"name":"African Studies","value":"https://www.bu.edu/library/african-studies/", },
+  {"name":"Astronomy Library","value":"http://www.bu.edu/library/astronomy/", },
+  {"name":"Music Library",  "value":"http://www.bu.edu/library/music/"},
+  {"name":"Mugar Library",  "value":"www.bu.edu/library/mugar-memorial"},
+  {"name":"Pardee Library", "value":"http://www.bu.edu/library/management/", },
+  {"name":"Pickering Library","value":"http://www.bu.edu/library/pickering-educational/"},
+  {"name":"Science & Engineering","value":"http://www.bu.edu/library/sel/", },
+  {"name":"Stone Library",  "value":"http://www.bu.edu/library/stone-science/"},
   {"name":"Help",           "value":"askalibrarian.bu.edu/"}
 ];
 const sites = [
