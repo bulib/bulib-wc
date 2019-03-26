@@ -1,10 +1,6 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
 const ENTER_KEY_VALUE = 13;
-
-/* configurable defaults for logging, dropdown, submission action */
-const debug = true;
 const default_to_just_primo = true;
-const search_on_submit = true;
 
 /** data on the overall search sources we have available to search on */
 export const search_options = [
@@ -53,12 +49,22 @@ class BULSearch extends LitElement {
       /** search sources included in the dropdown (defaulted to all) */
       str_options: {type: String},
       /** classes added to the search <button> */
-      search_btn_classes: {type: String}
+      search_btn_classes: {type: String},
+      
+      /* configurable defaults for logging, dropdown, submission action */
+      debug: {type: Boolean},
+      prevent_submit: {type: Boolean}
     };
   }
 
   /** don't need 'slot' functionality, so lets use Light DOM */
   createRenderRoot(){ return this; }
+  
+  /** for development purposes, react to manual changes to `this.curr_url` via _urlUpdated */
+  attributeChangedCallback(name, oldValue, newValue){
+    super.attributeChangedCallback(name, oldValue, newValue);
+    this._logToConsole(`${name} changed from ${oldValue} to ${newValue}.`);
+  }
 
   render() {
     this._initSelectedOptions();
@@ -142,13 +148,17 @@ class BULSearch extends LitElement {
     let domain = option["domain"] || "";
 
     //conditionally log and/or perform search
-    if(debug){ console.log(`bulib-search) searching '${site}' for query: '${query}' on domain: '${domain}'...`); }
-    if(search_on_submit){ window.location = domain + encodeURIComponent(query); }
+    this._logToConsole(`searching '${site}' for query: '${query}' on domain: '${domain}'...`);
+    if(!this.prevent_submit){ window.location = domain + encodeURIComponent(query); }
   }
   
   /** call this._doSearch() if key that user pressed is ENTER */ 
   _handleSearchEnter(event){
     if(event.keyCode && event.keyCode === ENTER_KEY_VALUE){ this._doSearch(); }
+  }
+  
+  _logToConsole = function(message){
+    if(this.debug){ console.log("bulib-search) " + message); }
   }
 
 }
