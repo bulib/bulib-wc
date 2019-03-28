@@ -17,8 +17,17 @@
 </head>
 
 <body>
-  <bulib-header debug></bulib-header>
+  <h1><code>bulib-header</code></h1>
+  <p><em>BU Libraries-branded header for use across our many sites</em></p>
+  <p><small>*includes <code>&lt;bulib-hours&gt;</code></small></p>
+  <p><small>**reacts to the current (or simulated) url (<code>curr_url</code></small>)</p>
+  
   <br /><hr /><br />
+  
+  <bulib-header debug></bulib-header>
+  
+  <br /><hr /><br />
+  
   <bulib-select 
     sel_title="Select Simulated URL" opt_code="sample_urls" 
     tag_name="bulib-header" attr_name="curr_url"

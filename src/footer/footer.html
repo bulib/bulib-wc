@@ -16,8 +16,17 @@
     <script src="../select/select.js" type="module"></script>
   </head>
   <body>
-    <bulib-footer debug></bulib-footer>
+    <h1><code>bulib-footer</code></h1>
+    <p><em>BU-branded footer for use across our many sites</em></p>
+    <p><small>*includes <code>&lt;bulib-locoso&gt;</code></small></p>
+    <p><small>**reacts to the current (or simulated) url (<code>curr_url</code></small>)</p>
+    
     <br /><hr /><br />
+    
+    <bulib-footer debug></bulib-footer>
+    
+    <br /><hr /><br />
+    
     <bulib-select 
       sel_title="Select Simulated URL" curr_sel="bu.edu/library/mugar-memorial" 
       opt_code="sample_urls" tag_name="bulib-footer" attr_name="curr_url"

@@ -19,19 +19,26 @@
     .demo{ text-align: center; margin: 30px; }
     code { background-color: gainsboro; }  
   </style>
-  <h1><code>&lt;bulib-hours&gt;</code></h1>
-  <p><em>display the current hours of a given library (informed by url)</em></p>
+  
+  <h1><code>bulib-hours</code></h1>
+  <p><em>display the current hours of a given '<code>library</code>'</em></p>
+  
   <br /><hr /><br />
+  
   <div class="demo">
     <h3>&lt;bulib-hours&gt;</h3>
     <bulib-hours></bulib-hours>
   </div>
+  
   <br /><hr /><br />
+  
   <div class="demo">
     <h3>&lt;bulib-hours <code>verbose</code>&gt;</h3>
     <bulib-hours verbose debug></bulib-hours>
   </div>
+  
   <br /><hr /><br />
+  
   <bulib-select
     sel_title="Select Library" curr_sel="astronomy" opt_code="libraries"
     tag_name="bulib-hours" attr_name="library">
