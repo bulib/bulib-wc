@@ -55,19 +55,26 @@ class BULFooter extends LitElement {
 
   /** upon the element's first connection to the DOM, get the url and use it to determine $this.library */
   updated(){
-    let current_url = this.curr_url? this.curr_url : window.location.href
+    let current_url = this.curr_url? this.curr_url : window.location.href;
     
     // determine site
+    let old_site = this.host_site;
     let main_site = getSiteCodeFromUrl(current_url);
     if(["about","research","services"].includes(main_site)){ this.host_site = "wordpress"; }
     else if(main_site == "help"){ this.host_site = "askalibrarian"; }
     else if(main_site == "guides"){ this.host_site = "guides"; }
     else{ this.host_site = "askalibrarian"; }
+    if(old_site != this.host_site){
+      this._logToConsole(`'host_site' changed from '${old_site}' to '${this.host_site}'`);
+    }
     
     // determine library
+    let old_library = this.library;
     let lib_code = getLibraryCodeFromUrl(current_url);
-    if(this.debug){ console.log("bulib-footer) selected library code: " + lib_code); }
     this.library = lib_code;
+    if(old_library != this.library){
+      this._logToConsole(`library changed from '${old_library}' to '${this.library}'.`);
+    }
   }
 
   render() {
@@ -117,6 +124,10 @@ class BULFooter extends LitElement {
         </footer>
       </div>
     `;
+  }
+  
+  _logToConsole(message){
+    if(this.debug){ console.log("bulib-footer) " + message); }
   }
 
 }
