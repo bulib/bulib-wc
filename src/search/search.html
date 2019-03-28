@@ -17,7 +17,7 @@
   <body>
     
     <label>Empty</label>
-    <bulib-search></bulib-search>
+    <bulib-search debug prevent_action></bulib-search>
     <br /><br />
     
     <label>One Option, no Default</label>
@@ -25,17 +25,18 @@
     <br /><br />
   
     <label>Options, no Default</label>
-    <bulib-search id="options-no-default" str_options="primo industries wp"></bulib-search>
+    <bulib-search id="options-no-default" str_options="primo industries wp help" debug prevent_action></bulib-search>
     <br /><br />
     
     <label>Options, with Default</label>
-    <bulib-search name="options, with default" str_options="primo industries wp" str_selected="industries"></bulib-search>
+    <bulib-search name="options, with default" str_options="primo industries wp" 
+                  str_selected="industries" debug prevent_action></bulib-search>
     <br /><br />
     
     <br /><hr /><br />
     <bulib-select
       sel_title="Select Search Source" curr_sel="primo" opt_code="search_options"
-      tag_name="bulib-search" attr_name="str_selected">
+      tag_name="bulib-search" attr_name="str_selected" debug prevent_action>
     </bulib-select>
   </body>
 </html>

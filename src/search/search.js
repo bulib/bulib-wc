@@ -4,8 +4,8 @@ const default_to_just_primo = true;
 
 /** data on the overall search sources we have available to search on */
 export const search_options = [
-  {"value":"primo",     "name":"BU Libraries Search",      "placeholder": "Search library resources",     "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&vid=BU&query=any,contains,"},
-  {"value":"industries","name":"Industry Survey Locator",  "placeholder": "Search for industry surveys",  "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&vid=ISL&query=any,contains,"},
+  {"value":"primo",     "name":"BU Libraries Search",      "placeholder": "Search library resources",     "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=BUinstitution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
+  {"value":"industries","name":"Industry Survey Locator",  "placeholder": "Search for industry surveys",  "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=ISL&institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
   {"value":"worldcat",  "name":"OCLC WorldCat",            "placeholder": "BU Libraries Search",          "domain":"https://bu.on.worldcat.org/search?queryString="},
   {"value":"wp",        "name":"Boston University Site",   "placeholder": "Search library info/services", "domain":"https://search.bu.edu/?site=www.bu.edu%2Flibrary&q="},
   // {"value":"directory", "name":"Staff Directory",          "placeholder": "Search for people at BU",      "domain":"https://www.bu.edu/phpbin/directory/?q="},
@@ -53,7 +53,7 @@ class BULSearch extends LitElement {
       
       /* configurable defaults for logging, dropdown, submission action */
       debug: {type: Boolean},
-      prevent_submit: {type: Boolean}
+      prevent_action: {type: Boolean}
     };
   }
 
@@ -148,8 +148,9 @@ class BULSearch extends LitElement {
     let domain = option["domain"] || "";
 
     //conditionally log and/or perform search
-    this._logToConsole(`searching '${site}' for query: '${query}' on domain: '${domain}'...`);
-    if(!this.prevent_submit){ window.location = domain + encodeURIComponent(query); }
+    let domain_to_print = domain.length > 80? domain.substring(0,80) + "..." : domain;
+    this._logToConsole(`searching '${site}' for query: '${query}' on domain: '${domain_to_print}'`);
+    if(!this.prevent_action === true){ window.location = domain + encodeURIComponent(query); }
   }
   
   /** call this._doSearch() if key that user pressed is ENTER */ 
