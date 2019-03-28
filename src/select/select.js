@@ -31,17 +31,10 @@ const sample_urls = [
   {"name":"Stone Library",  "value":"http://www.bu.edu/library/stone-science/"},
   {"name":"Help",           "value":"askalibrarian.bu.edu/"}
 ];
-const sites = [
-  {"name":"SELECT A SITE",  "value":"askalibrarian"},
-  {"name":"Ask a Librarian","value":"askalibrarian"},
-  {"name":"LibGuides",      "value":"guides"},
-  {"name":"Wordpress",      "value":"wordpress"}
-];
 const opt_map = {
   "libraries":libraries,
   "sample_urls":sample_urls,
-  "search_options":search_options,
-  "sites":sites
+  "search_options":search_options
 };
 
 class BULSelect extends LitElement{
