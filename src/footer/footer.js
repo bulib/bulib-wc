@@ -1,8 +1,5 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
-import { getLibraryCodeFromUrl } from '../_helpers/lib_info_helper.js';
-
-const debug = false;
-const local = false;
+import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
 /** stored values for the sitemap */
 const sitemap_values = {
@@ -49,15 +46,27 @@ class BULFooter extends LitElement {
       /** provide window into setting displayed 'locoso' contact data */
       library: {type: String, notify:true},
       /** key for the subsite (used to populate the sitemap) */
-      host_site: {type: String}
+      host_site: {type: String},
+      
+      debug: {type: Boolean},
+      curr_url: {type: String}
     };
   }
 
   /** upon the element's first connection to the DOM, get the url and use it to determine $this.library */
-  connectedCallback(){
-    let current_url = local? "http://www.bu.edu/library/music/research/guides/" : window.location.href;
+  updated(){
+    let current_url = this.curr_url? this.curr_url : window.location.href
+    
+    // determine site
+    let main_site = getSiteCodeFromUrl(current_url);
+    if(["about","research","services"].includes(main_site)){ this.host_site = "wordpress"; }
+    else if(main_site == "help"){ this.host_site = "askalibrarian"; }
+    else if(main_site == "guides"){ this.host_site = "guides"; }
+    else{ this.host_site = "askalibrarian"; }
+    
+    // determine library
     let lib_code = getLibraryCodeFromUrl(current_url);
-    if(debug){ console.log("bulib-footer) selected library code: " + lib_code); }
+    if(this.debug){ console.log("bulib-footer) selected library code: " + lib_code); }
     this.library = lib_code;
   }
 

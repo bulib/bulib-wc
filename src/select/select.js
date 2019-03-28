@@ -16,7 +16,7 @@ const libraries =  [
   {"value":"sel","name":"Science and Engineering"},
   {"value":"stone","name":"Stone Science"}
 ];
-const wp_urls = [
+const sample_urls = [
   {"name":"SELECT URL",     "value":"www.bu.edu/library"},
   {"name":"Primo Search",   "value":"buprimo.hosted.exlibrisgroup.com/primo-explore/search"},
   {"name":"Guides",         "value":"www.bu.edu/library/research/guides/course-guides/"},
@@ -39,7 +39,7 @@ const sites = [
 ];
 const opt_map = {
   "libraries":libraries,
-  "wp_urls":wp_urls,
+  "sample_urls":sample_urls,
   "search_options":search_options,
   "sites":sites
 };
