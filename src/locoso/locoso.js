@@ -1,8 +1,6 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
 
-const debug = false;
-
 /**
  * display the *LO*cation, *CO*ntact, and *SO*cial media information for
  *    a given library within the Boston Universities System.
@@ -19,13 +17,15 @@ class BULocoso extends LitElement {
       /** optional additional class added to each link in the rendered HTML */
       link_class: {type: String},
       /** current library code used as the key to swap between locoso data entries */
-      library: {type: String, notify:true}
+      library: {type: String, notify:true},
+      
+      debug: {type: Boolean}
     };
   }
 
   render() {
     let myLocoso = getLibraryInfoFromCode(this.library) || {};
-    if(debug){ console.log("bulib-locoso) myLocoso: "); console.log(myLocoso); }
+    this._logToConsole("raw lib_data from lib_info_helper: \n" + JSON.stringify(myLocoso));
 
     let lib_name = myLocoso["name"] || "BU Libraries";
     let address = myLocoso["address"] || ["771 Commonwealth Avenue","Boston, MA 02215"];
@@ -114,6 +114,7 @@ class BULocoso extends LitElement {
     if(rawContacts["fax"]){
       contacts.push( {"text":"fax", "url":"fax:"+rawContacts["fax"], "val":rawContacts["fax"] } );
     }
+    this._logToConsole(`${contacts.length.toString()} items found for 'contacts'.`);
     return contacts;
   }
 
@@ -137,7 +138,12 @@ class BULocoso extends LitElement {
     if(rawSocial["tumblr"]){
       social.push( {"text":"tumblr", "url":"http://tumblr."+rawSocial["tumblr"]+".com/"} );
     }
+    this._logToConsole(`${social.length.toString()} items found for 'social'.`);
     return social;
+  }
+  
+  _logToConsole(message){
+    if(this.debug){ console.log("bulib-locoso) " + message); }
   }
 
 }
