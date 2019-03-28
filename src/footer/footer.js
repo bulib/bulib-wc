@@ -59,7 +59,7 @@ class BULFooter extends LitElement {
     
     // determine site
     let old_site = this.host_site;
-    let main_site = getSiteCodeFromUrl(current_url);
+    let main_site = getSiteCodeFromUrl(current_url, this.debug);
     if(["about","research","services"].includes(main_site)){ this.host_site = "wordpress"; }
     else if(main_site == "help"){ this.host_site = "askalibrarian"; }
     else if(main_site == "guides"){ this.host_site = "guides"; }
@@ -70,7 +70,7 @@ class BULFooter extends LitElement {
     
     // determine library
     let old_library = this.library;
-    let lib_code = getLibraryCodeFromUrl(current_url);
+    let lib_code = getLibraryCodeFromUrl(current_url, this.debug);
     this.library = lib_code;
     if(old_library != this.library){
       this._logToConsole(`library changed from '${old_library}' to '${this.library}'.`);
