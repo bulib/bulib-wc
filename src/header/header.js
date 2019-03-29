@@ -1,4 +1,5 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
+
 import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
 /** Reactive/responsive header with custom subsite display, bulib-search integration */
@@ -23,6 +24,7 @@ class BULHeader extends LitElement {
     return html`
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.6/assets/css/common.min.css">
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.6/src/header/header.min.css">
+      <script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@libhours-v0.9/src/libhours/libhours.min.js" type="module"></script>
       <style>
         a { text-decoration: none; }
         .right { float:right; }
