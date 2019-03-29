@@ -11,7 +11,7 @@ const libcal_hours_api_url = 'https://api3.libcal.com/api_hours_today.php';
 /** display the hours of operation for a given library */
 class BULibHours extends LitElement {
 
-  // createRenderRoot(){ return this;} // don't need 'slot' functionality, so lets use Light DOM
+  createRenderRoot(){ return this;} // don't need 'slot' functionality, so lets use Light DOM
 
   static get properties() {
     return { 
@@ -48,7 +48,7 @@ class BULibHours extends LitElement {
 
     return html`
       <style> 
-        // :host { color: white; }
+        :host { color: white; } 
         .libhours { text-align: center; }
         .gold { color: gold; }
       </style>
