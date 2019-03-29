@@ -11,14 +11,14 @@ const libcal_hours_api_url = 'https://api3.libcal.com/api_hours_today.php';
 /** display the hours of operation for a given library */
 class BULibHours extends LitElement {
 
-  createRenderRoot(){ return this;} // don't need 'slot' functionality, so lets use Light DOM
+  // use light DOM to allow for external styling (bulib-header, .white-link)
+  createRenderRoot(){ return this;} 
 
   static get properties() {
     return { 
       library: {type: String}, 
       verbose: {type: Boolean},
       link_class: {type: String},
-      
       debug: {type: Boolean}
     };
   }
@@ -37,30 +37,31 @@ class BULibHours extends LitElement {
     
     // extract relevant pieces from lib_info
     let library_name = lib_info.short || lib_info.name;
-    let hours_url = lib_info.hours_url;
     let lid = lib_info.libcal_lid;
     if(library_name.includes("BU Librar")){ library_name = "Mugar Library"; }
 
     // prepare templates
     this._logToConsole(`rendering hours for ${library_name} (code:'${libCode}').`);
     let hours_loading = html`
-      <span id="hours-display" style="display: inline-block">
-        ${until(this._fetchHoursData(lid), html`<small> loading hours...</small>`)}</span>`;
-    let see_all_link = html`<small><a href="${all_lib_hours_url}" class=${this.link_class}>see all location hours</a></small>`;
+      <span id="hours-display" class="inline" aria-label="today's hours for ${library_name}">
+        ${until(this._fetchHoursData(lid), html`<small> loading hours...</small>`)}
+      </span>`;
+    let clock_icon = html`<img alt="clock-icon" id="clock-icon" src="https://material.io/tools/icons/static/icons/baseline-schedule-24px.svg">`;
+    let main_display = html`<strong>${library_name}:</strong>&nbsp;${hours_loading}`;
 
     return html`
       <style> 
         :host { color: white; } 
         .libhours { text-align: center; }
+        .txtv { display: flex; align-items: center; text-align: center; }
       </style>
       <div class="libhours">
-        <div id="hours-top">
-          ${this.verbose
-            ? html`<strong>${library_name}:</strong> ${hours_loading}` 
-            : html`<a class="${this.link_class}" href="${hours_url}">hours today</a> <strong>${hours_loading}</strong>`
-          }
-        </div>
-        <div id="hours-bottom">${this.verbose? html`${see_all_link}` : html`` }</div>
+        ${this.verbose 
+          ? html` <div id="hours-top">${main_display}</div>
+                  <div id="hours-btm">
+                    <small><a href="${all_lib_hours_url}" class=${this.link_class}>see all location hours</a></small>
+                  </div>`
+          : html`<div class="txtv center">${clock_icon}&nbsp;&nbsp;${main_display}</div>`}
       </div>
       `;
   }
