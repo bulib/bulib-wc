@@ -43,14 +43,15 @@ class BULibHours extends LitElement {
 
     // prepare templates
     this._logToConsole(`rendering hours for ${library_name} (code:'${libCode}').`);
-    let hours_loading = html`<span id="hours-display">${until(this._fetchHoursData(lid), html`<small> loading hours...</small>`)}</span>`;
+    let hours_loading = html`
+      <span id="hours-display" style="display: inline-block">
+        ${until(this._fetchHoursData(lid), html`<small> loading hours...</small>`)}</span>`;
     let see_all_link = html`<small><a href="${all_lib_hours_url}" class=${this.link_class}>see all location hours</a></small>`;
 
     return html`
       <style> 
         :host { color: white; } 
         .libhours { text-align: center; }
-        .gold { color: gold; }
       </style>
       <div class="libhours">
         <div id="hours-top">
