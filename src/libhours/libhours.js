@@ -43,9 +43,8 @@ class BULibHours extends LitElement {
 
     // prepare templates
     this._logToConsole(`rendering hours for ${library_name} (code:'${libCode}').`);
-    let hours_loading = html`<em id="hours-display" class="gold">${until(this._fetchHoursData(lid), html`<small> loading hours...</small>`)}</em>`;
-    let hours_link = html`<a title="see full hours for ${library_name}" class="${this.link_class}" href="${hours_url}">hours</a>`;
-    let see_all_link = html`<small><a href="${all_lib_hours_url}" class=${this.link_class}>(all location hours)</a></small>`;
+    let hours_loading = html`<span id="hours-display">${until(this._fetchHoursData(lid), html`<small> loading hours...</small>`)}</span>`;
+    let see_all_link = html`<small><a href="${all_lib_hours_url}" class=${this.link_class}>see all location hours</a></small>`;
 
     return html`
       <style> 
@@ -56,11 +55,11 @@ class BULibHours extends LitElement {
       <div class="libhours">
         <div id="hours-top">
           ${this.verbose
-            ? html`<strong>${library_name} ${hours_link}</strong>` 
+            ? html`<strong>${library_name}:</strong> ${hours_loading}` 
             : html`<a class="${this.link_class}" href="${hours_url}">hours today</a> <strong>${hours_loading}</strong>`
           }
         </div>
-        <div id="hours-bottom">${this.verbose? html`${hours_loading} ${see_all_link}` : html`` }</div>
+        <div id="hours-bottom">${this.verbose? html`${see_all_link}` : html`` }</div>
       </div>
       `;
   }
