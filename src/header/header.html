@@ -13,42 +13,11 @@
   <script src="../libsel/libsel.js" type="module"></script>
   <script src="../search/search.js" type="module"></script>
   <script src="../select/select.js" type="module"></script>
+  <script src="../libhours/libhours.js" type="module"></script>
 </head>
 
 <body>
-  <bulib-header curr_url="http://askalibrarian.bu.edu" str_options="help">
-    <div slot="secondary-nav-main">
-      <div id="subsite-navigation" class="inline">
-        <label for="askalib-btns">Subsite Navigation Label</label>
-        <ul id="askalib-btns" class="nav navbar-nav s-la-navbrowse">
-          <!-- Navigate through parts of the site at a high level -->
-          <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false">Sections of the Site</a>
-            <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="s-la-browse-group-drop" aria-hidden="true">
-              <li><a href="#" role="menuitem">Section of Site 1</a></li>
-              <li><a href="#" role="menuitem">Section of Site 2</a></li>
-              <li><a href="#" role="menuitem">Section of Site 3</a></li>
-            </ul>
-          </li>
-          <!-- select additional pages at a more granular level -->
-          <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-haspopup="true" aria-expanded="false">Granular pages within the site</a>
-            <ul class="dropdown-menu dropdown-scroll dropdown-menu-right" role="menu" aria-hidden="true">
-              <li><a href="#" role="menuitem">Page 1</a></li>
-              <li><a href="#" role="menuitem">Page 2</a></li>
-              <li><a href="#" role="menuitem">Page 3</a></li>
-              <li><a href="#" role="menuitem">Page 4</a></li>
-              <li><a href="#" role="menuitem">Page 5</a></li>
-              <li><a href="#" role="menuitem">Page 6</a></li>
-              <li><a href="#" role="menuitem">Page 7</a></li>
-              <li><a href="#" role="menuitem">Page 8</a></li>
-              <li><a href="#" role="menuitem">Page 9</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </bulib-header>
+  <bulib-header curr_url="http://askalibrarian.bu.edu"></bulib-header>
   <br /><hr /><br />
   <bulib-select 
     sel_title="Select Simulated URL" curr_sel="bu.edu/library/mugar-memorial" 
