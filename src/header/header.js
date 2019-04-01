@@ -1,5 +1,6 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
-import {getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
+
+import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
 /** Reactive/responsive header with custom subsite display, bulib-search integration */
 class BULHeader extends LitElement {
@@ -9,6 +10,7 @@ class BULHeader extends LitElement {
     return {
       // current library (sent to hours) 
       library: {type: String},
+      site: {type: String},
       
       // current url used in testing to determine site
       curr_url: {type: String},
@@ -22,6 +24,7 @@ class BULHeader extends LitElement {
     return html`
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.6/assets/css/common.min.css">
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.6/src/header/header.min.css">
+      <script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@libhours-v0.9/src/libhours/libhours.min.js" type="module"></script>
       <style>
         a { text-decoration: none; }
         .right { float:right; }
@@ -44,7 +47,7 @@ class BULHeader extends LitElement {
             </ul>
           </div>
           <div class="primary-nav-right phm right">
-            <div class="mvm right"><bulib-hours show_name library="${this.library}" link_class="white-link"></bulib-hours></div>
+            <div class="mvm right"><bulib-hours library="${this.library}" link_class="white-link" verbose></bulib-hours></div>
           </div>
         </div>
       </nav>`;
@@ -55,14 +58,11 @@ class BULHeader extends LitElement {
   /** for development purposes, react to manual changes to `this.curr_url` via _urlUpdated */
   attributeChangedCallback(name, oldValue, newValue){
     super.attributeChangedCallback(name, oldValue, newValue);
-    switch(name){
-      case "curr_url":      this._urlUpdated(); break;
-      default: break;
-    }
+    if(name == "curr_url"){ this._urlUpdated(); }
   }
 
   /** set primary nav 'active' styling */
-  _primaryUpdated(newPrimary){
+  updated(){
     let i, li;
     let siteLinksElem = this.shadowRoot.querySelector("#site-links");
     if(!siteLinksElem){ return; }
@@ -70,35 +70,21 @@ class BULHeader extends LitElement {
     let lsListItems = siteLinksElem.getElementsByTagName("li");
     for(i = 0; i<lsListItems.length; i++) {
       li = lsListItems[i];
-      if((li.id).includes(this.curr_primary)){ li.classList.add("active"); }
+      if((li.id).includes(this.site)){ li.classList.add("active"); }
       else{ li.classList.remove("active"); }
     }
   }
 
   /** set the primary, secondary, and search information according to the currentUrl  */
   _urlUpdated(){
+    let old_site = this.site;
     let currentUrl = (this.curr_url)? this.curr_url : window.location.href;
-
-    let old_primary = this.curr_primary;
-    if(currentUrl.includes("askalibrarian")){
-      this.curr_primary = "help";
-    }else if(currentUrl.includes("buprimo") || currentUrl.includes("exlibrisgroup")){
-      this.curr_primary = "search";
-    }else if(currentUrl.includes(".bu.edu/library")){
-
-      if(currentUrl.includes("/research")){ this.curr_primary = "research"; }
-      else if(currentUrl.includes("/services")){ this.curr_primary = "services"; }
-      else{ this.curr_primary = "about"; }
-      this.library = getLibraryCodeFromUrl(currentUrl);
-      this._logToConsole(`library set to '${this.library}'.`);
-    }else{
-      this.curr_primary = "about";
-    }
+    this.site = getSiteCodeFromUrl(currentUrl, this.debug);
+    this.library = getLibraryCodeFromUrl(currentUrl, this.debug);
 
     // TODO remove and deal with changes in a nicer, more standardized way
-    if(!old_primary || old_primary != this.curr_primary) { 
-      this._primaryUpdated(); 
-      this._logToConsole(`curr_primary: changed from '${old_primary || ""}' to '${this.curr_primary}'.`);
+    if(!old_site || old_site != this.site) { 
+      this._logToConsole(`curr_primary: changed from '${old_site || ""}' to '${this.site}'.`);
     }
   }
   

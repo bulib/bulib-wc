@@ -1,8 +1,6 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
 import {getLibraryInfoFromCode} from 'https://cdn.jsdelivr.net/gh/bulib/bulib-wc@libsel-v0.8/src/_helpers/lib_info_helper.js?module';
 
-const debug = false;
-const change_url_on_select = true;
 
 const lsLibraryCodes = ["mugar-memorial","african-studies","medlib","astronomy","lawlibrary","hgar","music","pardee","pickering","theology","sel","stone"];
 
@@ -36,7 +34,11 @@ class BULibSel extends LitElement {
       /** library code referring to the library whose hours we want to display */
       library: {type: String, notify:true},
       /** current url (potentially) used for automatically setting the library */
-      curr_url: {type: String, notify:true}
+      curr_url: {type: String, notify:true},
+      
+      /** log to console */
+      debug: {type:Boolean},
+      prevent_action: {type:Boolean}
     };
   }
 
@@ -47,14 +49,6 @@ class BULibSel extends LitElement {
       <select id="libsel-select" @input=${(e) => this._SelectionChanged(e)}}>
         ${lsLibraryOptions.map((o) => html`<option value="${o.value}">${o.name}</option>`)}
       </select>`;
-  }
-
-  /** once html is on the page, add classes based on current values */
-  updated(){
-
-    let libsel_elem = document.getElementById("libsel-select");
-    //TODO ensule the current selection is displayed in the dropdown
-    //libsel_elem.selected = this.library;
   }
 
   /** update current properties to inform what to display */
@@ -76,8 +70,8 @@ class BULibSel extends LitElement {
     this.library = value;
     let before = window.location.href;
     let url_new = getLibraryInfoFromCode(value)["website"] || `http://bu.edu/library/${value}/`;
-    if(debug){ console.log(`bulib-libsel) '<libsel>.curr_url' changing from ${before} to ${url_new}...`); }
-    if(change_url_on_select){ window.location.href = url_new; }
+    if(this.debug){ console.log(`bulib-libsel) '<libsel>.curr_url' changing from ${before} to ${url_new}...`); }
+    if(!this.prevent_action){ window.location.href = url_new; }
   }
 
 }

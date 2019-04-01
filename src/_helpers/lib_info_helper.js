@@ -1,6 +1,4 @@
-import {_getDataFromFile} from './load_json.js';
-
-const debug = false;
+// import {_getDataFromFile} from './load_json.js';
 
 const libraries_data_backup = {
   "mugar-memorial":{
@@ -115,14 +113,31 @@ const libraries_data_backup = {
   }
 };
 
-export function getLibraryInfoFromCode(lib_code, defLibCode="help"){
+export function getLibraryInfoFromCode(lib_code, debug=false, defLibCode="help"){
   let libraries_data = /* TODO: _getDataFromFile("lib_info.json") || */ libraries_data_backup;
   let library_data = libraries_data[lib_code] || libraries_data[defLibCode];
-  if(debug){ console.log(`_lib_info_helper) getting library_data for code: '${lib_code}' with default '${defLibCode}'.`);}
+  logToConsole(`getting library_data for code: '${lib_code}' with default '${defLibCode}'.`, debug);
   return library_data;
 }
 
-export function getLibraryCodeFromUrl(lib_url, defLibCode="help"){
+export function getSiteCodeFromUrl(url, debug=false, defSiteCode="help"){
+  let site_code = "about";
+  if(url.includes("askalibrarian")){ site_code = "help"; }
+  // else if(url.includes("openbu")){ site_code = "collections"; }
+  else if(url.includes("guides")){ site_code = "guides" }
+  else if(url.includes("buprimo") || url.includes("exlibrisgroup")){ site_code = "research"/*"search"*/; }
+  
+  else if(url.includes(".bu.edu/library")){
+    if(url.includes("/research")){ site_code = "research"; }
+    else if(url.includes("/services")){ site_code = "services"; }
+    else{ site_code = "about"; }
+  }else{ site_code = "about"; }
+  
+  logToConsole(`site_code '${site_code}' extracted from url '${url}'.`, debug);
+  return site_code;
+}
+
+export function getLibraryCodeFromUrl(lib_url, debug=false, defLibCode="help"){
   let lib_code = defLibCode;
   if(lib_url.includes("bu.edu/library/")){
     // try to get {library_code} from url 'http://www.bu.edu/library/{stone-science}/research/guides/'
@@ -144,6 +159,10 @@ export function getLibraryCodeFromUrl(lib_url, defLibCode="help"){
     else { lib_code = "help"; }
   }
   if(!Object.keys(libraries_data_backup).includes(lib_code)){ lib_code = "help"; }
-  if(debug){ console.log(`_lib_info_helper) returning lib_code '${lib_code}' from lib_url '${lib_url}'.`); }
+  logToConsole(`lib_code '${lib_code}' from lib_url '${lib_url}'`, debug);
   return lib_code;
 }
+
+const logToConsole = function(message, debug=false){
+  if(debug){ console.log("lib_info_helper) " + message); }
+};
