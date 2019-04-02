@@ -163,6 +163,6 @@ export function getLibraryCodeFromUrl(lib_url, debug=false, defLibCode="help"){
   return lib_code;
 }
 
-const logToConsole = function(message, debug=false){
+function logToConsole(message, debug=false){
   if(debug){ console.log("lib_info_helper) " + message); }
 };

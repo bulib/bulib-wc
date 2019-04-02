@@ -158,7 +158,7 @@ class BULSearch extends LitElement {
     if(event.keyCode && event.keyCode === ENTER_KEY_VALUE){ this._doSearch(); }
   }
   
-  _logToConsole = function(message){
+  _logToConsole(message){
     if(this.debug){ console.log("bulib-search) " + message); }
   }
 
