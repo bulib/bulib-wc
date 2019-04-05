@@ -105,6 +105,7 @@ class BULFooter extends LitElement {
                 <a href="https://www.bu.edu/" title="Boston University Home"><img alt="boston university logo" src="http://www.bu.edu/academics/files/bu-logo.gif"></a>
                 <br /><br />
                 <small><a class="white-link" href="https://www.bu.edu/copyright" title="Copyright">&copy; Copyright ${new Date().getFullYear()}</a></small>
+                <small><a class="white-link" href="https://www.bu.edu/policies/information-security-home/digital-privacy-statement/" title="Privacy Statement">Privacy Statement</a></small>
                 <br /><br />
               </div>
                 <ul class="no-bullet ptl">
