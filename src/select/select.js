@@ -18,9 +18,6 @@ const libraries =  [
 ];
 const sample_urls = [
   {"name":"SELECT URL",     "value":"www.bu.edu/library"},
-  {"name":"Primo Search",   "value":"buprimo.hosted.exlibrisgroup.com/primo-explore/search"},
-  {"name":"Guides",         "value":"www.bu.edu/library/research/guides/course-guides/"},
-  {"name":"Services",       "value":"http://www.bu.edu/library/services/"},
   {"name":"African Studies","value":"https://www.bu.edu/library/african-studies/", },
   {"name":"Astronomy Library","value":"http://www.bu.edu/library/astronomy/", },
   {"name":"Music Library",  "value":"http://www.bu.edu/library/music/"},
@@ -29,9 +26,15 @@ const sample_urls = [
   {"name":"Pickering Library","value":"http://www.bu.edu/library/pickering-educational/"},
   {"name":"Science & Engineering","value":"http://www.bu.edu/library/sel/", },
   {"name":"Stone Library",  "value":"http://www.bu.edu/library/stone-science/"},
+  {"name":"Primo Search",   "value":"buprimo.hosted.exlibrisgroup.com/primo-explore/search"},
+  {"name":"Subject Guides", "value":"www.bu.edu/library/research/guides"},
+  {"name":"Course Guides",  "value":"www.bu.edu/library/research/guides/course-guides/"},
+  {"name":"Library Services","value":"http://www.bu.edu/library/astronomy/services"},
+  {"name":"Digital Scholarship","value":"http://www.bu.edu/disc/"},
+  {"name":"Digital Initiatives","value":"http://www.bu.edu/dioa/"},
   {"name":"Open BU",        "value":"https://open.bu.edu/"},
   {"name":"BU Archives",    "value":"http://archives.bu.edu/"},
-  {"name":"Help",           "value":"askalibrarian.bu.edu/"}
+  {"name":"Ask a Librarian","value":"askalibrarian.bu.edu/"}
 ];
 const opt_map = {
   "libraries":libraries,

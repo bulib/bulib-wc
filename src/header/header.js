@@ -1,6 +1,6 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
 
-import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
+import {getSiteCodeFromUrl, getLibraryCodeFromUrl, makeLibraryUrlList} from '../_helpers/lib_info_helper.js';
 
 /** Reactive/responsive header with custom subsite display, bulib-search integration */
 class BULHeader extends LitElement {
@@ -28,31 +28,37 @@ class BULHeader extends LitElement {
       <style>
         a { text-decoration: none; }
         .right { float:right; }
-        .txtr 
         .mvn { margin-top: 0px !important; margin-bottom: 0px !important; }
+        .primary-nav-left, .nav-menu { position: fixed; }
       </style>
       <div class="header-wrapper">
         <nav>
           <div class="primary-navbar">
-            <div class="primary-nav-left">
+            <div class="primary-nav-left dropdown-header">
               <a title="BU Libraries Homepage" href="http://bu.edu/library/">
                 <img id="bu-logo" src="https://raw.githubusercontent.com/bulib/bulib-wc/header/assets/icons/bulib-logo.png">
               </a>
+              <div class="dropdown-content">Hello World<br/><br/></div>
             </div>
             <div class="main-menu-items primary-nav-main">
-              <ul id="site-links" class="inline-list mvn">
+              <ul id="site-links" class="nav-menu">
                 <li id="subsite-about"><a href="https://www.bu.edu/library/research/">About</a></li>
-                <li id="subsite-research">
-                  <a href="https://www.bu.edu/library/services/">Search</a>
-                </li>
-                <li id="subsite-guides">
-                  <a href="https://www.bu.edu/library/about/">Guides</a>
-                </li>
-                <li id="subsite-services">
+                <li id="subsite-research"><a href="https://www.bu.edu/library/services/">Search</a></li>
+                <li id="subsite-guides"><a href="https://www.bu.edu/library/about/">Guides</a></li>
+                <li id="subsite-services" class="dropdown-header">
                   <a href="https://www.bu.edu/library/about/">Services</a>
+                  <ul class="dropdown-content">
+                    <li><a href="#">general</a></li>
+                    <li><a href="#">dioa</a></li>
+                    <li><a href="#">disc</a></li>
+                  </ul>
                 </li>
-                <li id="subsite-collections">
+                <li id="subsite-collections" class="dropdown-header">
                   <a href="https://www.bu.edu/library/about/">Collections</a>
+                  <ul class="dropdown-content">
+                    <li><a href="#">hgar</a></li>
+                    <li><a href="#">open bu</a></li>
+                  </ul>
                 </li>
                 <li id="subsite-help">
                   <a href="http://askalibrarian.bu.edu/">Help</a>
