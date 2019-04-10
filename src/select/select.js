@@ -29,6 +29,8 @@ const sample_urls = [
   {"name":"Pickering Library","value":"http://www.bu.edu/library/pickering-educational/"},
   {"name":"Science & Engineering","value":"http://www.bu.edu/library/sel/", },
   {"name":"Stone Library",  "value":"http://www.bu.edu/library/stone-science/"},
+  {"name":"Open BU",        "value":"https://open.bu.edu/"},
+  {"name":"BU Archives",    "value":"http://archives.bu.edu/"},
   {"name":"Help",           "value":"askalibrarian.bu.edu/"}
 ];
 const opt_map = {

@@ -123,7 +123,7 @@ export function getLibraryInfoFromCode(lib_code, debug=false, defLibCode="help")
 export function getSiteCodeFromUrl(url, debug=false, defSiteCode="help"){
   let site_code = "about";
   if(url.includes("askalibrarian")){ site_code = "help"; }
-  // else if(url.includes("openbu")){ site_code = "collections"; }
+  else if(url.includes("open.bu") || url.includes("archives")){ site_code = "collections"; }
   else if(url.includes("guides")){ site_code = "guides" }
   else if(url.includes("buprimo") || url.includes("exlibrisgroup")){ site_code = "research"/*"search"*/; }
   

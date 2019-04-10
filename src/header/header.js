@@ -28,8 +28,8 @@ class BULHeader extends LitElement {
       <style>
         a { text-decoration: none; }
         .right { float:right; }
-        .mvm { margin: 15px 0px; }
-        .txtr { text-align: right; }
+        .txtr 
+        .mvn { margin-top: 0px !important; margin-bottom: 0px !important; }
       </style>
       <div class="header-wrapper">
         <nav>
@@ -40,22 +40,35 @@ class BULHeader extends LitElement {
               </a>
             </div>
             <div class="main-menu-items primary-nav-main">
-              <ul id="site-links" class="inline-list">
-                <li id="subsite-research"><a href="https://www.bu.edu/library/research/">Research</a></li>
-                <li id="subsite-services"><a href="https://www.bu.edu/library/services/">Services</a></li>
-                <li id="subsite-about"><a href="https://www.bu.edu/library/about/">About</a></li>
-                <li id="subsite-help"><a href="http://askalibrarian.bu.edu/">Help</a></li>
+              <ul id="site-links" class="inline-list mvn">
+                <li id="subsite-about"><a href="https://www.bu.edu/library/research/">About</a></li>
+                <li id="subsite-research">
+                  <a href="https://www.bu.edu/library/services/">Search</a>
+                </li>
+                <li id="subsite-guides">
+                  <a href="https://www.bu.edu/library/about/">Guides</a>
+                </li>
+                <li id="subsite-services">
+                  <a href="https://www.bu.edu/library/about/">Services</a>
+                </li>
+                <li id="subsite-collections">
+                  <a href="https://www.bu.edu/library/about/">Collections</a>
+                </li>
+                <li id="subsite-help">
+                  <a href="http://askalibrarian.bu.edu/">Help</a>
+                </li>
               </ul>
             </div>
             <div class="primary-nav-right phm right">
-              <div class="mvm right"><bulib-hours library="${this.library}" link_class="white-link" verbose></bulib-hours></div>
+              <div class="right"><bulib-hours library="${this.library}" link_class="white-link" verbose></bulib-hours></div>
             </div>
           </div>
         </nav>
       </div>`;
   }
   
-  connectedCallback(){  this._urlUpdated(); }
+  /** when the web component is first added to the DOM, set the url. */
+  connectedCallback(){ this._urlUpdated(); }
 
   /** for development purposes, react to manual changes to `this.curr_url` via _urlUpdated */
   attributeChangedCallback(name, oldValue, newValue){
