@@ -22,8 +22,8 @@ class BULHeader extends LitElement {
   /** render the html (with 'bulib-search' wc) to the page  */
   render() {
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.6/assets/css/common.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.9.6/src/header/header.min.css">
+      <link rel="stylesheet" type="text/css" href="/assets/css/common.css">
+      <link rel="stylesheet" type="text/css" href="/src/header/header.css">
       <script src="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@libhours-v0.9/src/libhours/libhours.min.js" type="module"></script>
       <style>
         a { text-decoration: none; }
@@ -31,26 +31,28 @@ class BULHeader extends LitElement {
         .mvm { margin: 15px 0px; }
         .txtr { text-align: right; }
       </style>
-      <nav>
-        <div class="primary-navbar">
-          <div class="primary-nav-left">
-            <a title="BU Libraries Homepage" href="http://bu.edu/library/">
-              <img id="bu-logo" class="pam" src="https://raw.githubusercontent.com/bulib/bulib-wc/header/assets/icons/bulib-logo.png">
-            </a>
+      <div class="header-wrapper">
+        <nav>
+          <div class="primary-navbar">
+            <div class="primary-nav-left">
+              <a title="BU Libraries Homepage" href="http://bu.edu/library/">
+                <img id="bu-logo" src="https://raw.githubusercontent.com/bulib/bulib-wc/header/assets/icons/bulib-logo.png">
+              </a>
+            </div>
+            <div class="main-menu-items primary-nav-main">
+              <ul id="site-links" class="inline-list">
+                <li id="subsite-research"><a href="https://www.bu.edu/library/research/">Research</a></li>
+                <li id="subsite-services"><a href="https://www.bu.edu/library/services/">Services</a></li>
+                <li id="subsite-about"><a href="https://www.bu.edu/library/about/">About</a></li>
+                <li id="subsite-help"><a href="http://askalibrarian.bu.edu/">Help</a></li>
+              </ul>
+            </div>
+            <div class="primary-nav-right phm right">
+              <div class="mvm right"><bulib-hours library="${this.library}" link_class="white-link" verbose></bulib-hours></div>
+            </div>
           </div>
-          <div class="main-menu-items primary-nav-main">
-            <ul id="site-links" class="inline-list">
-              <li id="subsite-research"><a href="https://www.bu.edu/library/research/">Research</a></li>
-              <li id="subsite-services"><a href="https://www.bu.edu/library/services/">Services</a></li>
-              <li id="subsite-about"><a href="https://www.bu.edu/library/about/">About</a></li>
-              <li id="subsite-help"><a href="http://askalibrarian.bu.edu/">Help</a></li>
-            </ul>
-          </div>
-          <div class="primary-nav-right phm right">
-            <div class="mvm right"><bulib-hours library="${this.library}" link_class="white-link" verbose></bulib-hours></div>
-          </div>
-        </div>
-      </nav>`;
+        </nav>
+      </div>`;
   }
   
   connectedCallback(){  this._urlUpdated(); }

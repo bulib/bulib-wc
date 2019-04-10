@@ -1,3 +1,18 @@
+/* -- pagewidth -- */
+
+.header-wrapper, .footer-wrapper {
+  background-color: #212121;
+  color: white;
+  padding: 2%;
+  font-size: 115%;
+}
+
+/* on super large screens, set the width to 80% to avoid getting too much spacing */
+@media only screen and (min-width: 1500px){
+  footer, nav { margin: 0 auto; width: 85%; }
+}
+
+
 /* -- padding and alignment -- */
 .pam { padding: 10px; }
 .pvm { padding: 10px 0px; }
@@ -35,3 +50,4 @@ a.white-link:hover {
   text-decoration: underline;
   font-weight: normal;
 }
+
