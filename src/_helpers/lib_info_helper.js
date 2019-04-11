@@ -165,6 +165,8 @@ export function getLibraryCodeFromUrl(lib_url, debug=false, defLibCode="help"){
   return lib_code;
 }
 
+export const getAllLibraryInfo = function(){ return libraries_data_backup; }
+
 export const makeLibraryUrlList = function(){
   let ls_items = ""; let code;
   for(code in libraries_data_backup){

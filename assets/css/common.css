@@ -35,7 +35,8 @@
 
 
 /* list styles */
-.no-bullet > li { list-style:none; }
+ul.no-bullet { padding-left: 0em; }
+.no-bullet > li { list-style:none; padding-left: 0em; }
 .inline-list > li { display: inline; padding-right: 5px;}
 
 /* '.white-link' used in footer */

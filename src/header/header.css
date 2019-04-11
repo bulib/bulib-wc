@@ -39,7 +39,7 @@ ul.nav-menu > li:hover > a { color: #f4d67a; }
 
 .dropdown-header > .dropdown-content { 
   display: none; 
-  background-color: grey;
+  background-color: lightgrey;
   color: inherit;
 }
 .dropdown-header:hover > .dropdown-content { display: block; }
@@ -54,3 +54,20 @@ ul.dropdown-content {
 /* assorted minor styles */ 
 .primary-nav-main > ul { padding-left: 0px; }
 .right { float:right; }
+
+
+/* library list */
+ul.library-list {
+  background-color: lightgrey;
+}
+
+ul.library-list > li {
+  border-top: solid grey 1px;
+  border-bottom: solid grey 1px;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+ul.library-list > li:hover {
+  background-color: gainsboro;
+}
