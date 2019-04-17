@@ -2,6 +2,42 @@ import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit
 
 import {getSiteCodeFromUrl, getLibraryCodeFromUrl, getAllLibraryInfo} from '../_helpers/lib_info_helper.js';
 
+const primary_header_list = [
+  {"title":"About",  "id":"subsite-about", "url":""},
+  {"title":"Search", "id":"subsite-research", "url":""},
+  {"title":"Guides", "id":"subsite-guides", "url":""},
+  {"title":"Services", "id":"subsite-services",
+    "sublist":[
+      {"title":"Services Home", "url":"http://bu.edu/library/services"},
+      {"title":"Digital Scholarship Services", "url":"https://bu.edu/disc"},
+      {"title":"Digital Initiatives and Open Access", "url":"https://bu.edu/dioa/"},
+      {"title":"Data Services", "url":"https://bu.edu/data"}
+    ]
+  },
+  {"title":"Collections", "id":"subsite-collections", 
+    "sublist":[
+      {"title":"Open BU", "url":"https://open.bu.edu/"},
+      {"title":"BU Archives", "url":""}
+    ]
+  },
+  {"title":"Help", "id":"subsite-help", "url":""}
+];
+const library_header_list = [
+  {"id":"lib-african", "title":"African Studies", "url":""},
+  {"id":"lib-astronomy", "title":"Astronomy", "url":""},
+  {"id":"lib-disc", "title":"Digital Collections", "url":""},
+  {"id":"lib-hgar", "title":"HGARC",     "url":""},
+  {"id":"lib-mugar", "title":"Mugar",     "url":""},
+  {"id":"lib-music", "title":"Music",     "url":""},
+  {"id":"lib-openbu", "title":"OpenBU",    "url":""},
+  {"id":"lib-pardee", "title":"Pardee",    "url":""},
+  {"id":"lib-mgmt", "title":"Pickering", "url":""},
+  {"id":"lib-scieng", "title":"Sci & Eng", "url":""},
+  {"id":"lib-stone", "title":"Stone",     "url":""},
+  {"id":"lib-other", "title":"Other Libraries", "url":""},
+];
+const header_link = (data) => { return html`<a href="${data.url}">${data.title}</a>`; }
+
 /** Reactive/responsive header with custom subsite display, bulib-search integration */
 class BULHeader extends LitElement {
 
@@ -26,17 +62,7 @@ class BULHeader extends LitElement {
     console.log(domain);
     
     let library_list_html = html`
-      <ul class="library-list no-bullet">
-    		<li><a href="https://www.bu.edu/library/african-studies/">African Studies Library</a></li>
-    		<li><a href="https://www.bu.edu/library/astronomy/">Astronomy Library</a></li>
-    		<li><a href="https://www.bu.edu/library/mugar-memorial/">Mugar Library</a></li>
-    		<li><a href="https://www.bu.edu/library/music/">Music Library</a></li>
-    		<li><a href="https://www.bu.edu/library/management/">Pardee Management Library</a></li>
-    		<li><a href="https://www.bu.edu/library/pickering-educational/">Pickering Educational Resources Library</a></li>
-    		<li><a href="https://www.bu.edu/library/sel/">Science &amp; Engineering Library</a></li>
-    		<li><a href="https://www.bu.edu/library/stone-science/">Stone Science Library</a></li>
-    		<li><a href="https://www.bu.edu/library/about/">All BU Library Locations</a></li>
-    	</ul>
+      <ul class="library-list no-bullet">${library_header_list.map((item) => html`<li>${header_link(item)}</li>`)}</ul>
     `;
     
     return html`
@@ -60,12 +86,7 @@ class BULHeader extends LitElement {
             
             <div class="menu-items-wrapper primary-nav-main">
               <ul id="site-links" class="nav-menu">
-                <li id="subsite-about"><a href="https://www.bu.edu/library/research/">About</a></li>
-                <li id="subsite-research"><a href="https://www.bu.edu/library/services/">Search</a></li>
-                <li id="subsite-guides"><a href="https://www.bu.edu/library/about/">Guides</a></li>
-                <li id="subsite-services"><a href="https://www.bu.edu/library/about/">Services</a></li>
-                <li id="subsite-collections" class="dropdown-header"><a href="https://www.bu.edu/library/about/">Collections</a></li>
-                <li id="subsite-help"><a href="http://askalibrarian.bu.edu/">Help</a></li>
+                ${primary_header_list.map((item) => html`<li id="${item.id}">${header_link(item)}</li>`)}
               </ul>
             </div>
             <div class="primary-nav-right phm right">
