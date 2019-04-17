@@ -57,7 +57,8 @@ class BULHeader extends LitElement {
               </a>
               <div class="dropdown-content">${library_list_html}</div>
             </div>
-            <div class="main-menu-items primary-nav-main">
+            
+            <div class="menu-items-wrapper primary-nav-main">
               <ul id="site-links" class="nav-menu">
                 <li id="subsite-about"><a href="https://www.bu.edu/library/research/">About</a></li>
                 <li id="subsite-research"><a href="https://www.bu.edu/library/services/">Search</a></li>

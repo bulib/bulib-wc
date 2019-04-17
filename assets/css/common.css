@@ -31,7 +31,7 @@
 
 /* text */
 .txtc { text-align: center; }
-.big-text { font-size: 130%; }
+.big-text { font-size: 110%; }
 
 
 /* list styles */
@@ -50,5 +50,3 @@ a.white-link:hover {
   text-decoration: underline;
   font-weight: normal;
 }
-
-/* -- dropdown -- */
