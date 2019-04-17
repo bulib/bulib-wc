@@ -36,7 +36,15 @@ const library_header_list = [
   {"id":"lib-stone", "title":"Stone",     "url":""},
   {"id":"lib-other", "title":"Other Libraries", "url":""},
 ];
-const header_link = (data) => { return html`<a href="${data.url}">${data.title}</a>`; }
+const header_list_item = (item) => { 
+  let innerHTML = item.hasOwnProperty('sublist')
+    ? html`<a href="#">${item.title}</a>
+           <ul style="display: none;">
+             ${item.sublist.map((sub_item) => html`<li><a href="${sub_item.url}">${sub_item.title}</a></li>`)}
+           </ul>`
+    : html`<a href="${item.url}">${item.title}</a>`;
+  return html`<li id="${item.id}">${innerHTML}</li>`;
+};
 
 /** Reactive/responsive header with custom subsite display, bulib-search integration */
 class BULHeader extends LitElement {
@@ -62,7 +70,7 @@ class BULHeader extends LitElement {
     console.log(domain);
     
     let library_list_html = html`
-      <ul class="library-list no-bullet">${library_header_list.map((item) => html`<li>${header_link(item)}</li>`)}</ul>
+      <ul class="library-list no-bullet">${library_header_list.map((item) => header_list_item(item))}</ul>
     `;
     
     return html`
@@ -86,7 +94,7 @@ class BULHeader extends LitElement {
             
             <div class="menu-items-wrapper primary-nav-main">
               <ul id="site-links" class="nav-menu">
-                ${primary_header_list.map((item) => html`<li id="${item.id}">${header_link(item)}</li>`)}
+                ${primary_header_list.map((item) => header_list_item(item))}
               </ul>
             </div>
             <div class="primary-nav-right phm right">
