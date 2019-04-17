@@ -1,12 +1,12 @@
 import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
 
-import {getSiteCodeFromUrl, getLibraryCodeFromUrl, getAllLibraryInfo} from '../_helpers/lib_info_helper.js';
+import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
 const primary_header_list = [
-  {"title":"About",  "id":"subsite-about", "url":""},
-  {"title":"Search", "id":"subsite-research", "url":""},
-  {"title":"Guides", "id":"subsite-guides", "url":""},
-  {"title":"Services", "id":"subsite-services",
+  {"title":"About",  "id":"subsite-about", "url":"http://bu.edu/library/"},
+  {"title":"Search", "id":"subsite-research", "url":"http://bu.edu/library/research"},
+  {"title":"Guides", "id":"subsite-guides", "url":"http://library.bu.edu/guides"},
+  {"title":"Services", "id":"subsite-services", "url":"http://bu.edu/library/services",
     "sublist":[
       {"title":"Services Home", "url":"http://bu.edu/library/services"},
       {"title":"Digital Scholarship Services", "url":"https://bu.edu/disc"},
@@ -14,13 +14,13 @@ const primary_header_list = [
       {"title":"Data Services", "url":"https://bu.edu/data"}
     ]
   },
-  {"title":"Collections", "id":"subsite-collections", 
+  {"title":"Collections", "id":"subsite-collections", "url":"",
     "sublist":[
       {"title":"Open BU", "url":"https://open.bu.edu/"},
-      {"title":"BU Archives", "url":""}
+      {"title":"BU Archives", "url":"http://archives.bu.edu"}
     ]
   },
-  {"title":"Help", "id":"subsite-help", "url":""}
+  {"title":"Help", "id":"subsite-help", "url":"http://askalibrarian.bu.edu/"}
 ];
 const library_header_list = [
   {"id":"lib-african", "title":"African Studies", "url":""},
@@ -36,19 +36,10 @@ const library_header_list = [
   {"id":"lib-stone", "title":"Stone",     "url":""},
   {"id":"lib-other", "title":"Other Libraries", "url":""},
 ];
-const header_list_item = (item) => { 
-  let innerHTML = item.hasOwnProperty('sublist')
-    ? html`<a href="#">${item.title}</a>
-           <ul style="display: none;">
-             ${item.sublist.map((sub_item) => html`<li><a href="${sub_item.url}">${sub_item.title}</a></li>`)}
-           </ul>`
-    : html`<a href="${item.url}">${item.title}</a>`;
-  return html`<li id="${item.id}">${innerHTML}</li>`;
-};
 
 /** Reactive/responsive header with custom subsite display, bulib-search integration */
 class BULHeader extends LitElement {
-
+  
   /** store information on the current page */
   static get properties() {
     return {
@@ -65,12 +56,9 @@ class BULHeader extends LitElement {
 
   /** render the html (with 'bulib-search' wc) to the page  */
   render() {
-    let lib_info = getAllLibraryInfo;
     let domain = this.debug? "" : "https://cdn.jsdelivr.net/gh/bulib/bulib-wc";
-    console.log(domain);
-    
     let library_list_html = html`
-      <ul class="library-list no-bullet">${library_header_list.map((item) => header_list_item(item))}</ul>
+      <ul class="library-list no-bullet">${library_header_list.map((item) => this._prepare_list_option(item))}</ul>
     `;
     
     return html`
@@ -91,10 +79,9 @@ class BULHeader extends LitElement {
               </a>
               <div class="dropdown-content">${library_list_html}</div>
             </div>
-            
             <div class="menu-items-wrapper primary-nav-main">
               <ul id="site-links" class="nav-menu">
-                ${primary_header_list.map((item) => header_list_item(item))}
+                ${primary_header_list.map((item) => this._prepare_list_option(item))}
               </ul>
             </div>
             <div class="primary-nav-right phm right">
@@ -126,6 +113,26 @@ class BULHeader extends LitElement {
       if((li.id).includes(this.site)){ li.classList.add("active"); }
       else{ li.classList.remove("active"); }
     }
+  }
+
+  _prepare_list_option(item){ 
+    let innerHTML = item.hasOwnProperty('sublist')
+      ? html`<a @click="${(e) => this._open_dropdown(item.id)}">${item.title}</a>
+             <ul class="dropdown-content" style="display: none;">
+               ${item.sublist.map((sub_item) => html`<li><a href="${sub_item.url}">${sub_item.title}</a></li>`)}
+             </ul>`
+      : html`<a @click="${(e) => this._open_header_link(item.url)}">${item.title}</a>`;
+    return html`<li id="${item.id}">${innerHTML}</li>`;
+  }
+  
+  _open_dropdown(id){
+    this._logToConsole(`opening dropdown for id:'${id}'.`);
+    this.querySelector(`li#${id} > ul`).style="display: table-caption;";
+  }
+  
+  _open_header_link(url){
+    this._logToConsole(`opening header link for '${url}'.`);
+    this.requestUpdate();
   }
 
   /** set the primary, secondary, and search information according to the currentUrl  */
