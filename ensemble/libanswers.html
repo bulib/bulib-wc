@@ -17,6 +17,7 @@
     <script src="/src/header/header.js" type="module"></script>
 
     <script src="/src/select/select.js" type="module"></script>
+    <script src="/src/dropdown/dropdown.js" type="module"></script>
 
     <script src="/src/locoso/locoso.js" type="module"></script>
     <script src="/src/footer/footer.js" type="module"></script>
@@ -32,6 +33,13 @@
       tag_name="bulib-header bulib-footer" attr_name="curr_url" debug>
     </bulib-select><br />
 
+    <br /><hr /><br />
+    
+    <bulib-dropdown>
+      <span slot="header">DROPDOWN</span>
+      <div slot="content">This should show and hide</div>
+    </bulib-dropdown>
+    
     <br /><hr /><br />
 
     <bulib-footer debug></bulib-footer>

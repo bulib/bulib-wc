@@ -4,7 +4,7 @@ import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_he
 
 const primary_header_list = [
   {"title":"About",  "id":"subsite-about", "url":"http://bu.edu/library/"},
-  {"title":"Search", "id":"subsite-research", "url":"http://bu.edu/library/research"},
+  {"title":"Research", "id":"subsite-research", "url":"http://bu.edu/library/research"},
   // {"title":"Guides", "id":"subsite-guides", "url":"http://library.bu.edu/guides"},
   {"title":"Services", "id":"subsite-services", "url":"http://bu.edu/library/services",
     "sublist":[
@@ -68,16 +68,19 @@ class BULHeader extends LitElement {
       <style>
         a { text-decoration: none; }
         .right { float:right; }
-        .primary-nav-left { position: absolute; }
       </style>
       <div class="header-wrapper">
         <nav>
           <div class="primary-navbar">
-            <div class="primary-nav-left dropdown-header">
-              <a title="BU Libraries Homepage" href="http://bu.edu/library/">
-                <img id="bu-logo" src="https://raw.githubusercontent.com/bulib/bulib-wc/header/assets/icons/bulib-logo.png">
-              </a>
-              <div class="dropdown-content">${library_list_html}</div>
+            <div class="primary-nav-left">
+              <bulib-dropdown>
+                <div slot="header" class="dropdown-header">
+                  <a title="BU Libraries Homepage">
+                    <img id="bu-logo" src="https://raw.githubusercontent.com/bulib/bulib-wc/header/assets/icons/bulib-logo.png">
+                  </a>
+                </div>
+                <div slot="content" class="dropdown-content">${library_list_html}</div>
+              </bulib-dropdown>
             </div>
             <div class="menu-items-wrapper primary-nav-main">
               <ul id="site-links" class="nav-menu">
@@ -117,22 +120,14 @@ class BULHeader extends LitElement {
 
   _prepare_list_option(item){ 
     let innerHTML = item.hasOwnProperty('sublist')
-      ? html`<a @click="${(e) => this._open_dropdown(item.id)}">${item.title}</a>
-             <ul class="dropdown-content" style="display: none;">
-               ${item.sublist.map((sub_item) => html`<li><a href="${sub_item.url}">${sub_item.title}</a></li>`)}
-             </ul>`
+      ? html`<bulib-dropdown>
+              <a class="dropdown-header" slot="header">${item.title}</a>
+              <ul slot="content">
+                ${item.sublist.map((sub_item) => html`<li><a href="${sub_item.url}">${sub_item.title}</a></li>`)}
+              </ul>
+             </bulib-dropdown>`
       : html`<a @click="${(e) => this._open_header_link(item.url)}">${item.title}</a>`;
     return html`<li id="${item.id}">${innerHTML}</li>`;
-  }
-  
-  _open_dropdown(id){
-    this._logToConsole(`opening dropdown for id:'${id}'.`);
-    this.querySelector(`li#${id} > ul`).style="display: table-caption;";
-  }
-  
-  _open_header_link(url){
-    this._logToConsole(`opening header link for '${url}'.`);
-    this.requestUpdate();
   }
 
   /** set the primary, secondary, and search information according to the currentUrl  */

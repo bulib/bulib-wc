@@ -38,25 +38,13 @@ ul.nav-menu > li {
   margin: 2px;
   /*padding: 0px 10px; */
 }
-ul.nav-menu > li > a { 
+ul.nav-menu > li > a, ul.nav-menu > li > bulib-dropdown { 
   color: white; 
   padding: 0.35rem;
   display: block;
 }
 ul.nav-menu > li.active > a { color: #ffc20e; }
 ul.nav-menu > li:hover > a { color: #f4d67a; }
-
-.dropdown-header > .dropdown-content { 
-  display: none; 
-  background-color: lightgrey;
-  color: inherit;
-}
-.dropdown-header:hover > .dropdown-content { display: block; }
-ul.dropdown-content {
-  list-style: none;
-  padding-left: 0px;
-  position: relative;
-}
 
 .menu-items-wrapper {
   text-align: center;
