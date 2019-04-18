@@ -40,7 +40,7 @@ ul.nav-menu > li {
 }
 ul.nav-menu > li > a { 
   color: white; 
-  padding: 0.5rem 0.5rem;
+  padding: 0.35rem;
   display: block;
 }
 ul.nav-menu > li.active > a { color: #ffc20e; }

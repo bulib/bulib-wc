@@ -5,7 +5,7 @@ import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_he
 const primary_header_list = [
   {"title":"About",  "id":"subsite-about", "url":"http://bu.edu/library/"},
   {"title":"Search", "id":"subsite-research", "url":"http://bu.edu/library/research"},
-  {"title":"Guides", "id":"subsite-guides", "url":"http://library.bu.edu/guides"},
+  // {"title":"Guides", "id":"subsite-guides", "url":"http://library.bu.edu/guides"},
   {"title":"Services", "id":"subsite-services", "url":"http://bu.edu/library/services",
     "sublist":[
       {"title":"Services Home", "url":"http://bu.edu/library/services"},
