@@ -74,11 +74,11 @@ class BULHeader extends LitElement {
           <div class="primary-navbar">
             <div class="primary-nav-left">
               <bulib-dropdown>
-                <div slot="header" class="dropdown-header">
+                <span slot="header" class="dropdown-header">
                   <a title="BU Libraries Homepage">
                     <img id="bu-logo" src="https://raw.githubusercontent.com/bulib/bulib-wc/header/assets/icons/bulib-logo.png">
                   </a>
-                </div>
+                </span>
                 <div slot="content" class="dropdown-content">${library_list_html}</div>
               </bulib-dropdown>
             </div>
@@ -87,7 +87,7 @@ class BULHeader extends LitElement {
                 ${primary_header_list.map((item) => this._prepare_list_option(item))}
               </ul>
             </div>
-            <div class="primary-nav-right phm right">
+            <div class="primary-nav-right right">
               <div class="right"><bulib-hours library="${this.library}" link_class="white-link" verbose></bulib-hours></div>
             </div>
           </div>
@@ -123,10 +123,10 @@ class BULHeader extends LitElement {
       ? html`<bulib-dropdown>
               <a class="dropdown-header" slot="header">${item.title}</a>
               <ul slot="content">
-                ${item.sublist.map((sub_item) => html`<li><a href="${sub_item.url}">${sub_item.title}</a></li>`)}
+                ${item.sublist.map((sub_item) => html`<li><a href="${sub_item.url}" class="phm">${sub_item.title}</a></li>`)}
               </ul>
              </bulib-dropdown>`
-      : html`<a @click="${(e) => this._open_header_link(item.url)}">${item.title}</a>`;
+      : html`<a href="${item.url}">${item.title}</a>`;
     return html`<li id="${item.id}">${innerHTML}</li>`;
   }
 

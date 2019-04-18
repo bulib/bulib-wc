@@ -3,10 +3,10 @@
   background-color: #212121;
   color: white;
   padding: 2%;
-  font-size: 115%;
+  font-size: 105%;
 }
 
-/* on super large screens, set the width to 80% to avoid getting too much spacing */
+/* on super large screens, set the width to avoid getting too much spacing */
 @media only screen and (min-width: 1500px){
   footer, nav { margin: 0 auto; width: 85%; }
 }
@@ -24,12 +24,12 @@
 .multi-column {
   column-gap: 5%;
   column-count: 2;
-  padding-inline-start: 0px;
 }
 
 /* -- general styling -- */
 
 /* text */
+.txtl { text-align: left; }
 .txtc { text-align: center; }
 .big-text { font-size: 110%; }
 

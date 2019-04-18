@@ -19,8 +19,13 @@ export class BULDropdown extends LitElement {
     return html`
       <link rel="stylesheet" type="text/css" href="${domain}/assets/css/common.css">
       <style>
-        .dropdown-header:hover > .dropdown-content { display: block; }
+        .dropdown-header {
+          display: flex;
+          z-index: 10;
+        }
         .dropdown-content { 
+          z-index: 9;
+          position: relative;
           background-color: lightgrey;
           color: inherit;
         }
@@ -32,8 +37,7 @@ export class BULDropdown extends LitElement {
       <div>
         <div class="dropdown-header" @click="${(e) => this._toggleOpen()}">
           <div class="left"><slot name="header"></slot></div>
-          &nbsp;
-          <div class="inline">${this.open ? html`^` : html`v`}</div>
+          <div class="inline" style="margin: auto; margin-right: 0px; margin-left: 0px;">&nbsp;${this.open ? html`^` : html`v`}</div>
         </div>
         <div class="dropdown-content" style="display: ${this.open ? "block" : "none"}">
           <slot name="content"></slot>

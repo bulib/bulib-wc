@@ -19,9 +19,9 @@ footer {
       "ftr-lt ftr-lt ftr-lt ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt";
   }
   .ftr-middle { border-bottom: solid transparent 1px; }
-  .ftr-middle > div { width: 75%; }
   .ftr-right  { border-bottom: solid transparent 1px !important; }
-  .ftr-left > div { width: 100%; }
+  .ftr-middle > div { width: 75%; }
+  .ftr-left > div, .ftr-right > div { width: 100%; }
 }
 
 /* large-sized screen */

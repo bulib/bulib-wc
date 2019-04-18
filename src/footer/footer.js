@@ -82,8 +82,8 @@ class BULFooter extends LitElement {
     let sitemap_data = sitemap_values[this.host_site] || sitemap_values["askalibrarian"];
     let links = sitemap_data["links"];
     let sitemap_content = html`
-      <h3 class="txtc">${sitemap_data["header"]}</h3>
-      <ul class="multi-column no-bullet">
+      <h3>${sitemap_data["header"]}</h3>
+      <ul class="multi-column no-bullet txtl">
         ${links.map((l) => html`<li><a class="white-link pvm" href="${l.href}">${l.title}</a></li>`)}
       </ul>
     `;
@@ -123,7 +123,7 @@ class BULFooter extends LitElement {
                 </ul>
             </div>
           </div>
-          <div class="ftr-middle">
+          <div class="ftr-middle txtc">
             <div id="sitemap"><slot name="sitemap">${sitemap_content}</slot></div>
           </div>
           <div class="ftr-right">
