@@ -7,7 +7,7 @@ const libraries_data_backup = {
     "website":"https://www.bu.edu/library/mugar-memorial/",
     "address":["771 Commonwealth Avenue","Boston, MA 02215"],
     "contacts":{"phone":"617-353-2700","email":"ask@bu.edu"},
-    "social":{"facebook":"mugarlib","twitter":"mugarlib","instagram":"mugarlib"},
+    "social":{"facebook":"bostonulibraries","twitter":"bulibraries","instagram":"bulibraries"},
     "hours_url": "http://www.bu.edu/library/mugar-memorial/about/hours/",
     "libcal_lid": 1475
   },"african-studies":{
@@ -107,7 +107,7 @@ const libraries_data_backup = {
     "website":"http://bu.edu/library",
     "address":["771 Commonwealth Avenue","Boston, MA 02215"],
     "contacts":{"phone":"617-353-2700","email":"ask@bu.edu","text":"617-431-2427"},
-    "social":{"twitter":"BULibNews"},
+    "social":{"facebook":"bostonulibraries","twitter":"bulibraries","instagram":"bulibraries"},
     "hours_url": "http://www.bu.edu/library/mugar-memorial/about/hours/",
     "libcal_lid": 1475
   }
