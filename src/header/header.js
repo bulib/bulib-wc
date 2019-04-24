@@ -9,9 +9,9 @@ const primary_header_list = [
   {"title":"Services", "id":"subsite-services", "url":"http://bu.edu/library/services",
     "sublist":[
       {"title":"Services Home", "url":"http://bu.edu/library/services"},
-      {"title":"Digital Scholarship Services", "url":"https://bu.edu/disc"},
-      {"title":"Digital Initiatives and Open Access", "url":"https://bu.edu/dioa/"},
-      {"title":"Data Services", "url":"https://bu.edu/data"}
+      {"title":"Digital Scholarship Services", "url":"http://bu.edu/disc"},
+      {"title":"Digital Initiatives and Open Access", "url":"http://bu.edu/dioa/"},
+      {"title":"Data Services", "url":"http://bu.edu/data"}
     ]
   },
   {"title":"Collections", "id":"subsite-collections", "url":"",

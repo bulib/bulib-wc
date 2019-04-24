@@ -8,14 +8,14 @@
 .primary-navbar {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-gap: 15px;
+  grid-gap: 10px;
   grid-template-areas:
     "hdr-lt hdr-lt hdr-lt hdr-rt hdr-rt hdr-rt"
     "hdr-md hdr-md hdr-md hdr-md hdr-md hdr-md";
 }
 
 /* medium-sized screen */
-@media only screen and (min-width: 900px){
+@media only screen and (min-width: /*900*/750px){
   .primary-navbar {
     grid-template-areas:"hdr-lt hdr-md hdr-md hdr-md hdr-rt hdr-rt";
   }
@@ -33,8 +33,9 @@ ul.nav-menu { padding-left: 10px; }
 ul.nav-menu > li { 
   float: left;
   position: relative;
-  border: solid white 1px;
-  margin: 2px;
+  border-left: solid gainsboro 1px;
+  border-right: solid gainsboro 1px;
+  /*margin: 2px;*/
   /*padding: 0px 10px; */
 }
 ul.nav-menu > li > a, ul.nav-menu > li > bulib-dropdown { 
