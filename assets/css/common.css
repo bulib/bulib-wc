@@ -1,3 +1,17 @@
+/* -- pagewidth -- */
+.header-wrapper, .footer-wrapper {
+  background-color: #212121;
+  color: white;
+  padding: 2%;
+  font-size: 105%;
+}
+
+/* on super large screens, set the width to avoid getting too much spacing */
+@media only screen and (min-width: 1500px){
+  footer, nav { margin: 0 auto; width: 85%; }
+}
+
+
 /* -- padding and alignment -- */
 .pam { padding: 10px; }
 .pvm { padding: 10px 0px; }
@@ -10,18 +24,19 @@
 .multi-column {
   column-gap: 5%;
   column-count: 2;
-  padding-inline-start: 0px;
 }
 
 /* -- general styling -- */
 
 /* text */
+.txtl { text-align: left; }
 .txtc { text-align: center; }
-.big-text { font-size: 130%; }
+.big-text { font-size: 110%; }
 
 
 /* list styles */
-.no-bullet > li { list-style:none; }
+ul.no-bullet { padding-left: 0em; }
+.no-bullet > li { list-style:none; padding-left: 0em; }
 .inline-list > li { display: inline; padding-right: 5px;}
 
 /* '.white-link' used in footer */

@@ -123,7 +123,8 @@ export function getLibraryInfoFromCode(lib_code, debug=false, defLibCode="help")
 export function getSiteCodeFromUrl(url, debug=false, defSiteCode="help"){
   let site_code = "about";
   if(url.includes("askalibrarian")){ site_code = "help"; }
-  // else if(url.includes("openbu")){ site_code = "collections"; }
+  else if(url.includes("/disc/") || url.includes("/dioa")){ site_code ="services"; }
+  else if(url.includes("open.bu") || url.includes("archives")){ site_code = "collections"; }
   else if(url.includes("guides")){ site_code = "guides" }
   else if(url.includes("buprimo") || url.includes("exlibrisgroup")){ site_code = "research"/*"search"*/; }
   
@@ -139,6 +140,7 @@ export function getSiteCodeFromUrl(url, debug=false, defSiteCode="help"){
 
 export function getLibraryCodeFromUrl(lib_url, debug=false, defLibCode="help"){
   let lib_code = defLibCode;
+  if(lib_url.includes("archives.bu.edu")){ lib_code="hgar"; }
   if(lib_url.includes("bu.edu/library/")){
     // try to get {library_code} from url 'http://www.bu.edu/library/{stone-science}/research/guides/'
     let lib_url_fragment = lib_url.split("bu.edu/library/")[1] || "";
@@ -162,6 +164,17 @@ export function getLibraryCodeFromUrl(lib_url, debug=false, defLibCode="help"){
   logToConsole(`lib_code '${lib_code}' from lib_url '${lib_url}'`, debug);
   return lib_code;
 }
+
+export const getAllLibraryInfo = function(){ return libraries_data_backup; }
+
+export const makeLibraryUrlList = function(){
+  let ls_items = ""; let code;
+  for(code in libraries_data_backup){
+    let item = getLibraryInfoFromCode(code)
+    ls_items += `\t<li href="${item.website}">${item.name}"<li>\n`;
+  }
+  return `<ul>\n${ls_items}</ul>\n`;
+};
 
 const logToConsole = function(message, debug=false){
   if(debug){ console.log("lib_info_helper) " + message); }

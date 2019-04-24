@@ -18,9 +18,6 @@ const libraries =  [
 ];
 const sample_urls = [
   {"name":"SELECT URL",     "value":"www.bu.edu/library"},
-  {"name":"Primo Search",   "value":"buprimo.hosted.exlibrisgroup.com/primo-explore/search"},
-  {"name":"Guides",         "value":"www.bu.edu/library/research/guides/course-guides/"},
-  {"name":"Services",       "value":"http://www.bu.edu/library/services/"},
   {"name":"African Studies","value":"https://www.bu.edu/library/african-studies/", },
   {"name":"Astronomy Library","value":"http://www.bu.edu/library/astronomy/", },
   {"name":"Music Library",  "value":"http://www.bu.edu/library/music/"},
@@ -29,7 +26,15 @@ const sample_urls = [
   {"name":"Pickering Library","value":"http://www.bu.edu/library/pickering-educational/"},
   {"name":"Science & Engineering","value":"http://www.bu.edu/library/sel/", },
   {"name":"Stone Library",  "value":"http://www.bu.edu/library/stone-science/"},
-  {"name":"Help",           "value":"askalibrarian.bu.edu/"}
+  {"name":"Primo Search",   "value":"buprimo.hosted.exlibrisgroup.com/primo-explore/search"},
+  {"name":"Subject Guides", "value":"www.bu.edu/library/research/guides"},
+  {"name":"Course Guides",  "value":"www.bu.edu/library/research/guides/course-guides/"},
+  {"name":"Library Services","value":"http://www.bu.edu/library/astronomy/services"},
+  {"name":"Digital Scholarship","value":"http://www.bu.edu/disc/"},
+  {"name":"Digital Initiatives","value":"http://www.bu.edu/dioa/"},
+  {"name":"Open BU",        "value":"https://open.bu.edu/"},
+  {"name":"BU Archives",    "value":"http://archives.bu.edu/"},
+  {"name":"Ask a Librarian","value":"askalibrarian.bu.edu/"}
 ];
 const opt_map = {
   "libraries":libraries,
@@ -73,8 +78,21 @@ class BULSelect extends LitElement{
   /** react to changes in which <option> is currently 'selected' */ 
   _SelectionChanged(event){
     let current = event.currentTarget.value;
-    let elements = document.getElementsByTagName(this.tag_name);
+    let elements = [];
+    let tag_names = this.tag_name.split(" ");
+    this._logToConsole("tag_names: " + tag_names.toString());
+    for(let i=0; i<tag_names.length; i++){
+      let tag_name = tag_names[i];
+      let elementsFromThatTag = document.getElementsByTagName(tag_name);
+      this._logToConsole(elementsFromThatTag.length.toString() + " elements from tag " + tag_name);
+      elements.push(elementsFromThatTag[0]); //TODO only adds first item
+    }
+    
+    this._logToConsole("num elements: " + elements.length.toString());
+    console.log(elements);
+    
     let i, before, after, element;
+    
     for(i=0; i<elements.length; i++){
       element = elements[i];
       before = element.getAttribute(this.attr_name);
@@ -88,9 +106,13 @@ class BULSelect extends LitElement{
           if(element.hasAttribute("name")){ id_string = "'" + element.getAttribute("name") + "'"; }
         } 
         
-        if(this.debug){ console.log(`bulib-select) changed '<${this.tag_name}>[${id_string}].${this.attr_name}' from '${before}' to '${after}'.`); }
+        this._logToConsole(`changed '<${this.tag_name}>[${id_string}].${this.attr_name}' from '${before}' to '${after}'.`);
       }
     }
+  }
+  
+  _logToConsole = function(message){
+    if(this.debug){ console.log("bulib-select) " + message); }
   }
 
 }

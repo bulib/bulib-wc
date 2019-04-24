@@ -82,32 +82,34 @@ class BULFooter extends LitElement {
     let sitemap_data = sitemap_values[this.host_site] || sitemap_values["askalibrarian"];
     let links = sitemap_data["links"];
     let sitemap_content = html`
-      <h3 class="txtc">${sitemap_data["header"]}</h3>
-      <ul class="multi-column no-bullet">
+      <h3>${sitemap_data["header"]}</h3>
+      <ul class="multi-column no-bullet txtl">
         ${links.map((l) => html`<li><a class="white-link pvm" href="${l.href}">${l.title}</a></li>`)}
       </ul>
     `;
 
     // render the main content of the component
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.7/assets/css/common.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.4/src/footer/footer.css">
+      <link rel="stylesheet" type="text/css" href="/assets/css/common.css">
+      <link rel="stylesheet" type="text/css" href="/src/footer/footer.css">
       <style>
         /* firefox fix to stop the 'Follow Us' from becoming centered */
         ::slotted(h3) { text-align: left; }
       </style>
       <div class="footer-wrapper">
-        <footer class="pam">
+        <footer>
           <div class="ftr-left">
             <div id="bu-content">
               <div class="left txtc bu-logo">
                 <br />
-                <a href="https://www.bu.edu/" title="Boston University Home"><img alt="boston university logo" src="http://www.bu.edu/academics/files/bu-logo.gif"></a>
+                <a href="https://www.bu.edu/" title="Boston University Home">
+                  <img alt="boston university logo" src="http://www.bu.edu/academics/files/bu-logo.gif">
+                </a>
                 <br /><br />
                 <small>
                   <a class="white-link" target="_blank" title="Copyright" href="https://www.bu.edu/copyright">&copy; Copyright ${new Date().getFullYear()}</a>
                 </small>
-                <div class="mvs"></div>
+                <br />
                 <small>
                   <a class="white-link" target="_blank" title="Privacy Statement" href="https://www.bu.edu/policies/information-security-home/digital-privacy-statement/">Privacy Statement</a>
                 </small>
@@ -121,11 +123,13 @@ class BULFooter extends LitElement {
                 </ul>
             </div>
           </div>
-          <div class="ftr-middle">
+          <div class="ftr-middle txtc">
             <div id="sitemap"><slot name="sitemap">${sitemap_content}</slot></div>
           </div>
           <div class="ftr-right">
-            <div><bulib-locoso library="${this.library}" link_class="white-link"></bulib-locoso></div>
+            <div id="ftr-locoso">
+              <bulib-locoso library="${this.library}" link_class="white-link"></bulib-locoso>
+            </div>
           </div>
         </footer>
       </div>

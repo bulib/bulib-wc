@@ -1,10 +1,3 @@
-/* set bulib-footer wrapper styling */
-.footer-wrapper {
-  background-color: #212121;
-  margin: 0 auto;
-  color: white;
-}
-
 /* footer grid and colors */
 footer {
   display: grid;
@@ -16,9 +9,10 @@ footer {
     "ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt";
   grid-gap: 10px;
 }
+.ftr-middle > div, .ftr-right > div, .ftr-left > div { width: 85%; margin: 0 auto; }
 
 /* medium-sized screen */
-@media only screen and (min-width: 600px){
+@media only screen and (min-width: 850px){
   footer {
     grid-template-areas:
       "ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md"
@@ -26,35 +20,25 @@ footer {
   }
   .ftr-middle { border-bottom: solid transparent 1px; }
   .ftr-right  { border-bottom: solid transparent 1px !important; }
+  .ftr-middle > div { width: 75%; }
+  .ftr-left > div, .ftr-right > div { width: 100%; }
 }
 
 /* large-sized screen */
-@media only screen and (min-width: 1240px /* 850px */){
+@media only screen and (min-width: 1200px ){
   footer {
     grid-template-areas: "ftr-lt ftr-lt ftr-md ftr-md ftr-md ftr-rt ftr-rt ftr-rt";
   }
   .ftr-middle { border-bottom: solid transparent 1px !important; }
+  .ftr-middle > div { width: 85%; margin: 0 auto; }
   .ftr-right  { border-bottom: solid transparent 1px !important; }
-  #sitemap {
-    width: 80%;
-    margin: 0 auto;
-  }
-}
-
-/* on super large screens, set the width to 80% to avoid getting too much spacing */
-@media only screen and (min-width: 1500px){
-  footer { 
-    margin: 0 auto;
-    width: 80%;
-  }
 }
 
 /* map classes to grid areas */
 .ftr-left   { grid-area: ftr-lt; border-bottom: solid transparent 1px; padding-bottom: 20px; }
 .ftr-middle { grid-area: ftr-md; border-bottom: solid lightgrey 1px; }
 .ftr-right  { grid-area: ftr-rt; border-bottom: solid lightgrey 1px; }
-.ftr-left > div, .ftr-middle > div, .ftr-right > div { margin: 6%; }
+/*.ftr-left > div, .ftr-middle > div, .ftr-right > div { margin: 6%; }*/
 
 /* etc */
 .bu-logo { padding-right: 25px; }
-#sitemap > h3, #sitemap > * > h3 { font-size: 130%; }
