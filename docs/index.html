@@ -21,21 +21,47 @@
 
     <script src="/src/locoso/locoso.js" type="module"></script>
     <script src="/src/footer/footer.js" type="module"></script>
+    
+    <!-- script logic -->
+    <script src="./index.js" type="text/javascript"></script>
   </head>
 
   <body>
+    
     <bulib-header debug></bulib-header>
+      
+    <div style="background-color: lightgrey;">
+      <a href="https://github.com/bulib" class="pam"><img src="/assets/icons/icons8-github-96.png" style="width: 35px; height: 35px; vertical-align: text-bottom;"></img></a>
+      <h1 class="inline">Web Components</h1>&nbsp;&nbsp;
+      
+      <ul class="inline inline-list">
+        <li><a href="#footer">Footer</a></li>
+        <li><a href="#header">Header</a></li>
+        
+        <li><a href="#libhours">LibHours</a></li>
+        <li><a href="#locoso">Locoso</a></li>
+        <li><a href="#search">Search</a></li>
+      </ul>
+    </div>
+    
+    <br /><hr /><br />
+
+    <div id="main-content">
+      <h2><code>bulib-hours</code></h2>
+      <bulib-hours></bulib-hours>
+      <hr />
+      
+      <h2><code>bulib-locoso</code></h2>
+      <bulib-locoso></bulib-locoso>
+      <hr />
+      
+      <h2><code>bulib-search</code></h2>
+      <bulib-search></bulib-search>
+    </div>
 
     <br /><hr /><br />
 
-    <bulib-select
-      sel_title="Simulated URL" curr_sel="www.bu.edu/library" opt_code="sample_urls"
-      tag_name="bulib-header bulib-footer" attr_name="curr_url" debug>
-    </bulib-select><br />
-
-    <br /><hr /><br />
-
-    <bulib-footer debug></bulib-footer>
+    <bulib-footer></bulib-footer>
     
   </body>
 </html>
