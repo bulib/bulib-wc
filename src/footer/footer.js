@@ -107,11 +107,13 @@ class BULFooter extends LitElement {
                 </a>
                 <br /><br />
                 <small>
-                  <a class="white-link" target="_blank" title="Copyright" href="https://www.bu.edu/copyright">&copy; Copyright ${new Date().getFullYear()}</a>
+                  <a class="white-link" target="_blank" title="Copyright" 
+                     href="https://www.bu.edu/copyright">&copy; Copyright ${new Date().getFullYear()}</a>
                 </small>
                 <br />
                 <small>
-                  <a class="white-link" target="_blank" title="Privacy Statement" href="https://www.bu.edu/policies/information-security-home/digital-privacy-statement/">Privacy Statement</a>
+                  <a class="white-link" target="_blank" title="Privacy Statement" 
+                     href="https://www.bu.edu/policies/information-security-home/digital-privacy-statement/">Privacy Statement</a>
                 </small>
                 <br /><br />
               </div>
@@ -128,7 +130,7 @@ class BULFooter extends LitElement {
           </div>
           <div class="ftr-right">
             <div id="ftr-locoso">
-              <bulib-locoso library="${this.library}" link_class="white-link"></bulib-locoso>
+              <bulib-locoso library="${this.library}" link_class="white-link" debug></bulib-locoso>
             </div>
           </div>
         </footer>
