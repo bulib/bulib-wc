@@ -38,7 +38,7 @@ class BULocoso extends LitElement {
     let raw_social = myLocoso["social"] || {};
     let social = this._prepareSocial(raw_social);
     
-    let include_libhours = this.library != "help";
+    let include_libhours = this.library && this.library != "help";
     this._logToConsole("lib_name: " + lib_name + ", include_libhours: " + include_libhours);
     
     let socialDisplay;
@@ -54,6 +54,7 @@ class BULocoso extends LitElement {
         </ul>
       `;
     }
+    
     return html`
       <style>
         /* layout and responsiveness */
@@ -73,8 +74,8 @@ class BULocoso extends LitElement {
           <div class="txtv">
             <h3 class="inline">Visit Us</h3>&nbsp;&nbsp;&nbsp;
             ${include_libhours 
-                ? html`-&nbsp;&nbsp;<bulib-hours class="inline" link_class="${this.link_class}" library="${this.library}" short></bulib-hours>` 
-                : html``
+              ? html`-&nbsp;&nbsp;<bulib-hours class="inline" link_class="${this.link_class}" library="${this.library}" short></bulib-hours>` 
+              : html``
             }
           </div>
           <ol class="no-bullet" aria-label="address">
