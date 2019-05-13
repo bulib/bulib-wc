@@ -1,4 +1,4 @@
-import {LitElement, html} from 'https://unpkg.com/lit-element@2.1.0/lit-element.js?module';
+import {LitElement, html} from 'https://unpkg.com/lit-element@0.6.4/lit-element.js?module';
 import {until} from 'https://unpkg.com/lit-html@1.0.0/directives/until.js?module';
 
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
