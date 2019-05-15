@@ -38,7 +38,7 @@ const library_header_list = [
 ];
 
 /** Reactive/responsive header with custom subsite display, bulib-search integration */
-class BULHeader extends LitElement {
+export class BULHeader extends LitElement {
   
   /** store information on the current page */
   static get properties() {
@@ -148,5 +148,3 @@ class BULHeader extends LitElement {
   }
 
 }
-
-customElements.define('bulib-header', BULHeader);

@@ -34,7 +34,7 @@ const sitemap_values = {
 };
 
 /** Reactive/responsive footer providing slotted middle section and customizable LoCoSo data */
-class BULFooter extends LitElement {
+export class BULFooter extends LitElement {
 
   constructor(){
     super();
@@ -141,5 +141,3 @@ class BULFooter extends LitElement {
   }
 
 }
-
-customElements.define('bulib-footer', BULFooter);

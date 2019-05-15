@@ -33,7 +33,7 @@ const handleSearchSelect = function(event, defaultCode="primo"){
 };
 
 /** context-sensitive search form allowing you to search across multiple 'search_options' */
-class BULSearch extends LitElement {
+export class BULSearch extends LitElement {
 
   constructor(){ 
     super(); 
@@ -163,5 +163,3 @@ class BULSearch extends LitElement {
   }
 
 }
-
-customElements.define('bulib-search', BULSearch);

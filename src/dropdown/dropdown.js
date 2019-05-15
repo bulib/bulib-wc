@@ -54,5 +54,3 @@ export class BULDropdown extends LitElement {
   }
 
 }
-
-customElements.define('bulib-dropdown', BULDropdown);

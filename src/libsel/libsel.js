@@ -21,7 +21,7 @@ const lsLibraryOptions = [
 ];
 
 /** change the current page when user selects a library from the dropdown */
-class BULibSel extends LitElement {
+export class BULLibSel extends LitElement {
 
   constructor(){
     super();
@@ -75,5 +75,3 @@ class BULibSel extends LitElement {
   }
 
 }
-
-customElements.define('bulib-libsel', BULibSel);
