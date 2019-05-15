@@ -1,5 +1,5 @@
-import {LitElement, html} from 'https://unpkg.com/lit-element@2.1.0/lit-element.js?module';
-import {until} from 'https://unpkg.com/lit-html@1.0.0/directives/until.js?module';
+import {LitElement, html} from 'lit-element/lit-element';
+import {until} from 'lit-html/directives/until';
 
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
 
@@ -12,7 +12,7 @@ const libcal_hours_api_url = 'https://api3.libcal.com/api_hours_today.php';
 class BULibHours extends LitElement {
 
   // use light DOM to allow for external styling (bulib-header, .white-link)
-  createRenderRoot(){ return this;} 
+  createRenderRoot(){ return this; } 
 
   static get properties() {
     return { 

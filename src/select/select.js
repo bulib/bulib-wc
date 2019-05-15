@@ -1,4 +1,4 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
+import {LitElement, html} from 'lit-element/lit-element';
 import {search_options} from '../search/search.js';
 
 const libraries =  [

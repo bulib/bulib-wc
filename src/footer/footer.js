@@ -1,5 +1,5 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
-import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from 'https://cdn.jsdelivr.net/gh/bulib/bulib-wc@locoso-v1.5/src/_helpers/lib_info_helper.js';
+import {LitElement, html} from 'lit-element/lit-element';
+import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
 /** stored values for the sitemap */
 const sitemap_values = {

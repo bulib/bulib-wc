@@ -1,4 +1,4 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
+import {LitElement, html} from 'lit-element/lit-element';
 const ENTER_KEY_VALUE = 13;
 const default_to_just_primo = true;
 
