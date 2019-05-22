@@ -34,7 +34,7 @@ const sitemap_values = {
 };
 
 /** Reactive/responsive footer providing slotted middle section and customizable LoCoSo data */
-export class BULFooter extends LitElement {
+export default class BULibFooter extends LitElement {
 
   constructor(){
     super();
@@ -90,8 +90,8 @@ export class BULFooter extends LitElement {
 
     // render the main content of the component
     return html`
-      <link rel="stylesheet" type="text/css" href="/assets/css/common.css">
-      <link rel="stylesheet" type="text/css" href="/src/footer/footer.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.3/assets/css/common.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.6.3/src/footer/footer.css">
       <style>
         /* firefox fix to stop the 'Follow Us' from becoming centered */
         ::slotted(h3) { text-align: left; }

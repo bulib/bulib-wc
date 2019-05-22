@@ -5,7 +5,7 @@ import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
  * display the *LO*cation, *CO*ntact, and *SO*cial media information for
  *    a given library within the Boston Universities System.
  */
-class BULocoso extends LitElement {
+export default class Locoso extends LitElement {
 
   constructor(){ super(); }
 
@@ -142,5 +142,3 @@ class BULocoso extends LitElement {
   }
 
 }
-
-customElements.define('bulib-locoso', BULocoso);

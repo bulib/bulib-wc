@@ -33,7 +33,7 @@ const handleSearchSelect = function(event, defaultCode="primo"){
 };
 
 /** context-sensitive search form allowing you to search across multiple 'search_options' */
-export class BULSearch extends LitElement {
+export default class BULibSearch extends LitElement {
 
   constructor(){ 
     super(); 

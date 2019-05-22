@@ -1,7 +1,7 @@
 import {html, LitElement} from 'lit-element/lit-element';
 
 /** Reactive/responsive header with custom subsite display, bulib-search integration */
-export class BULDropdown extends LitElement {
+export default class BULibDropdown extends LitElement {
   
   /** store information on the current page */
   static get properties() {

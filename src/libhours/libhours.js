@@ -9,7 +9,7 @@ const libcal_hours_api_url = 'https://api3.libcal.com/api_hours_today.php';
 
 
 /** display the hours of operation for a given library */
-export class BULHours extends LitElement {
+export default class LibHours extends LitElement {
 
   // use light DOM to allow for external styling (bulib-header, .white-link)
   createRenderRoot(){ return this; } 

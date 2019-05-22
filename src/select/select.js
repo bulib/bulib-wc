@@ -42,7 +42,7 @@ const opt_map = {
   "search_options":search_options
 };
 
-class BULSelect extends LitElement{
+export default class BULibSelect extends LitElement {
 
   static get properties(){
     return {
@@ -116,5 +116,3 @@ class BULSelect extends LitElement{
   }
 
 }
-
-customElements.define('bulib-select', BULSelect);

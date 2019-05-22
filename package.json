@@ -7,7 +7,13 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "site:build": "npm run storybook:build",
+    "storybook": "start-storybook -p 9001",
+    "storybook:build": "build-storybook -o _site -s storybook-static",
+    "build": "rimraf dist && rollup -c rollup.config.js",
+    "start:build": "http-server dist -o -c-1",
+    "watch:build": "rimraf dist && rollup --watch -c rollup.config.js & http-server dist -o -c-1"
   },
   "repository": {
     "type": "git",
@@ -30,10 +36,11 @@
     "lit-html": "^1.0.0"
   },
   "devDependencies": {
-    "@open-wc/building-rollup": "^0.4.1",
+    "@open-wc/building-rollup": "^0.3.0",
     "http-server": "^0.11.1",
     "owc-dev-server": "^0.3.0",
     "rimraf": "^2.6.3",
-    "rollup": "^1.12.3"
+    "rollup": "^1.6.0",
+    "@open-wc/demoing-storybook": "^0.2.0"
   }
 }
