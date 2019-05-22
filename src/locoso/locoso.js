@@ -51,6 +51,7 @@ export default class Locoso extends LitElement {
       `;
     }
     return html`
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/assets/css/common.css">
       <style>
         /* layout and responsiveness */
         .locoso-left { flex: 1; }
