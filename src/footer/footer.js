@@ -44,7 +44,7 @@ export default class BULibFooter extends LitElement {
   static get properties() {
     return {
       /** provide window into setting displayed 'locoso' contact data */
-      library: {type: String, notify:true},
+      library: {type: String},
       /** key for the subsite (used to populate the sitemap) */
       host_site: {type: String},
       
@@ -70,7 +70,7 @@ export default class BULibFooter extends LitElement {
     
     // determine library
     let old_library = this.library;
-    let lib_code = getLibraryCodeFromUrl(current_url, this.debug);
+    let lib_code = this.curr_url? getLibraryCodeFromUrl(current_url, this.debug) : this.library;
     this.library = lib_code;
     if(old_library != this.library){
       this._logToConsole(`library changed from '${old_library}' to '${this.library}'.`);
