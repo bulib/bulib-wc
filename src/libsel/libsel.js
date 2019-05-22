@@ -1,5 +1,5 @@
 import {LitElement, html} from 'lit-element/lit-element';
-import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js?module';
+import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
 
 
 const lsLibraryCodes = ["mugar-memorial","african-studies","medlib","astronomy","lawlibrary","hgar","music","pardee","pickering","theology","sel","stone"];

@@ -111,7 +111,7 @@ class BULSelect extends LitElement{
     }
   }
   
-  _logToConsole = function(message){
+  _logToConsole(message){
     if(this.debug){ console.log("bulib-select) " + message); }
   }
 
