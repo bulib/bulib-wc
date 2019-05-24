@@ -9,9 +9,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "site:build": "npm run storybook:build",
+    "build": "rollup -i src/index.js -o dist/bundle.js --format umd --inlineDynamicImports",
     "storybook": "start-storybook -p 9001",
     "storybook:build": "build-storybook -o _site -s storybook-static",
-    "build": "rimraf dist && rollup -c rollup.config.js",
     "start:build": "http-server dist -o -c-1",
     "watch:build": "rimraf dist && rollup --watch -c rollup.config.js & http-server dist -o -c-1"
   },
