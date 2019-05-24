@@ -46,3 +46,28 @@ export const hours_demo = `
   <h3>&lt;bulib-hours <code>verbose</code>&gt;</h3>
   <bulib-hours verbose debug></bulib-hours>
 `;
+
+export const locoso_demo = `
+  <div>
+    <bulib-locoso library="astronomy" debug></bulib-locoso>
+  </div>
+
+  <br /><hr /><br />
+
+  <bulib-select 
+    sel_title="Select Library" curr_sel="astronomy" opt_code="libraries"
+    tag_name="bulib-locoso" attr_name="library">
+  </bulib-select>
+`;
+
+
+export const footer_demo = `
+  <bulib-footer debug></bulib-footer>
+      
+  <br /><hr /><br />
+
+  <bulib-select 
+    sel_title="Select Simulated URL" curr_sel="bu.edu/library/mugar-memorial" 
+    opt_code="sample_urls" tag_name="bulib-footer" attr_name="curr_url"
+  ></bulib-select>
+`;
