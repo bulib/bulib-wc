@@ -1,21 +1,16 @@
 {
   "name": "bulib-wc",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "collection of web components and styles used at Boston University Libraries",
-  "main": "docs/index.js",
-  "directories": {
-    "doc": "docs"
-  },
   "files": [ "dist" ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "site:build": "npm run storybook:build",
     "prebuild": "rm -rf dist || true",
-    "build": "rollup -i src/index.js -o dist/bundle.js --format esm --inlineDynamicImports",
+    "build": "rollup -i src/index.js -o dist/bundle.js --format umd --inlineDynamicImports",
+    "watch": "rollup -i src/index.js -o dist/bundle.js --format umd --inlineDynamicImports --watch",
+    "start": "npm run storybook & npm run watch",
     "storybook": "start-storybook -p 9001",
-    "storybook:build": "build-storybook -o _site -s storybook-static",
-    "start:build": "http-server dist -o -c-1",
-    "watch:build": "rimraf dist && rollup --watch -c rollup.config.js & http-server dist -o -c-1"
+    "storybook:build": "build-storybook -o _site -s storybook-static"
   },
   "repository": {
     "type": "git",
@@ -24,7 +19,8 @@
   "keywords": [
     "web-components",
     "code4lib",
-    "lit-element"
+    "lit-element",
+    "lit-html"
   ],
   "author": "bulib",
   "license": "MIT",
@@ -39,10 +35,11 @@
   },
   "devDependencies": {
     "@open-wc/building-rollup": "^0.3.0",
+    "@open-wc/demoing-storybook": "^0.2.0",
     "http-server": "^0.11.1",
     "owc-dev-server": "^0.3.0",
-    "rimraf": "^2.6.3",
     "rollup": "^1.6.0",
-    "@open-wc/demoing-storybook": "^0.2.0"
+    "rollup-plugin-babel-minify": "^8.0.0",
+    "rollup-plugin-node-resolve": "^5.0.0"
   }
 }

@@ -1,3 +1,4 @@
+// import '../dist/bundle';
 import '../src/index';
 import { storiesOf, withKnobs, withClassPropertiesKnobs } from '@open-wc/demoing-storybook';
 
@@ -11,4 +12,3 @@ storiesOf('bulib-wc', module)
   .add('bulib-locoso', () => locoso_demo)
   .add('bulib-footer', () => footer_demo)
 ;
-
