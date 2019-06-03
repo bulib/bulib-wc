@@ -1,4 +1,3 @@
-// import createDefaultConfig from '@open-wc/building-rollup/modern-and-legacy-config';
 import resolve from 'rollup-plugin-node-resolve';
 import minify from 'rollup-plugin-babel-minify';
 
@@ -8,8 +7,8 @@ export default {
   output: [
     {
       name: 'bulibwc',
-      file: 'dist/bundle.umd.js',
-      format: 'umd',
+      file: 'dist/bundle.esm.js',
+      format: 'esm',
       globals: []
     }
   ],
