@@ -1,13 +1,13 @@
 {
   "name": "bulib-wc",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "collection of web components and styles used at Boston University Libraries",
   "files": [ "dist" ],
   "scripts": {
     "site:build": "npm run storybook:build",
     "prebuild": "rm -rf dist || true",
-    "build": "rollup -i src/index.js -o dist/bundle.js --format umd --inlineDynamicImports",
-    "watch": "rollup -i src/index.js -o dist/bundle.js --format umd --inlineDynamicImports --watch",
+    "build": "rollup -c",
+    "watch": "rollup -c --watch",
     "start": "npm run storybook & npm run watch",
     "storybook": "start-storybook -p 9001",
     "storybook:build": "build-storybook -o _site -s storybook-static"
