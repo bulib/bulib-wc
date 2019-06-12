@@ -2,6 +2,5 @@ import createDefaultConfig from '@open-wc/building-rollup/modern-and-legacy-conf
 
 export default createDefaultConfig({
   input: 'src/index.html',
-  output: 'dist/bundle.js',
-  inlineDynamicImports: true
+  output: 'dist/bundle.js'
 });

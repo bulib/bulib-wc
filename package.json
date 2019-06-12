@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "rm -rf dist || true",
     "build:owc": "rollup -c rollup.config.own.js",
-    "build": "rollup -c rollup.config.own.js",
+    "build": "rollup -c rollup.config.js",
     "watch": "rollup -c --watch",
     "serve": "http-server . && npm run watch",
     "start": "npm run storybook & npm run watch",

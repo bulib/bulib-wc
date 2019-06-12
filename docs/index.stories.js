@@ -7,6 +7,7 @@ import {ensemble_demo, search_demo, hours_demo, locoso_demo, footer_demo} from '
 storiesOf('bulib-wc', module)
   .addDecorator(withKnobs)
   .add('ensemble',     () => ensemble_demo)
+//.add('bulib-search', () => withClassPropertiesKnobs(BULibSearch))
   .add('bulib-search', () => search_demo)
   .add('bulib-hours',  () => hours_demo)
   .add('bulib-locoso', () => locoso_demo)

@@ -1,5 +1,4 @@
 import loadPolyfills from '@open-wc/polyfills-loader';
-// import {loadWebComponentInto} from './_helpers/browser_compatibility';
 
 loadPolyfills().then(() => {
   import ('./select/bulib-select');
