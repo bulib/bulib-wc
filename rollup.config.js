@@ -7,7 +7,7 @@ export default {
   output: [
     {
       name: 'bulibwc',
-      file: 'dist/bundle.js',
+      file: 'dist/bundle.esm.js',
       format: 'esm',
       globals: []
     }

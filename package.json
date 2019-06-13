@@ -1,11 +1,10 @@
 {
   "name": "bulib-wc",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "collection of web components and styles used at Boston University Libraries",
   "files": [ "dist" ],
   "scripts": {
-    "prebuild": "rm -rf dist || true",
-    "build:owc": "rollup -c rollup.config.own.js",
+    "build:owc": "rollup -c rollup.config.owc.js",
     "build": "rollup -c rollup.config.js",
     "watch": "rollup -c --watch",
     "serve": "http-server . && npm run watch",
