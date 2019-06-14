@@ -1,8 +1,9 @@
 {
   "name": "bulib-wc",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "collection of web components and styles used at Boston University Libraries",
-  "files": [ "dist" ],
+  "main": "src/index.js",
+  "module": "src/index.js",
   "scripts": {
     "build:owc": "rollup -c rollup.config.owc.js",
     "build": "rollup -c rollup.config.js",
@@ -29,7 +30,7 @@
   },
   "homepage": "https://github.com/bulib/bulib-wc#readme",
   "dependencies": {
-    "@open-wc/polyfills-loader": "^0.3.1",
+    "@open-wc/polyfills-loader": "^0.3.2",
     "lit-element": "^2.1.0",
     "lit-html": "^1.0.0"
   },
