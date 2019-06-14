@@ -1,4 +1,3 @@
-// import '../dist/bundle';
 import '../src/index';
 import { storiesOf, withKnobs, withClassPropertiesKnobs } from '@open-wc/demoing-storybook';
 
