@@ -60,6 +60,8 @@ export const locoso_demo = `
   </bulib-select>
 `;
 
+export const header_demo = "<bulib-header></bulib-header>";
+
 
 export const footer_demo = `
   <bulib-footer debug></bulib-footer>

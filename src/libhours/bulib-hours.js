@@ -1,3 +1,3 @@
-import LibHours from './libhours';
+import BULibHours from './libhours';
 
-window.customElements.define("bulib-hours", LibHours);
+window.customElements.define("bulib-hours", BULibHours);
