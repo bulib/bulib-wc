@@ -2,6 +2,8 @@ import {LitElement, html} from 'lit-element/lit-element';
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
 import '../libhours/libhours.js';
 
+const ALLOW_HOURS_DISPLAY = false;
+
 /**
  * display the *LO*cation, *CO*ntact, and *SO*cial media information for
  *    a given library within the Boston Universities System.
@@ -38,7 +40,7 @@ export default class Locoso extends LitElement {
     let raw_social = myLocoso["social"] || {};
     let social = this._prepareSocial(raw_social);
     
-    let include_libhours = this.library && this.library != "help";
+    let include_libhours = ALLOW_HOURS_DISPLAY && this.library && this.library != "help";
     this._logToConsole("lib_name: " + lib_name + ", include_libhours: " + include_libhours);
     
     let socialDisplay;
