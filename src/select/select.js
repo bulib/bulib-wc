@@ -2,7 +2,7 @@ import {LitElement, html} from 'lit-element/lit-element';
 import {search_options} from '../search/search.js';
 
 const libraries =  [
-  {"value":"mugar-memorial","name":"SELECT LIBRARY"},
+  {"value":"help","name":"SELECT LIBRARY"},
   {"value":"mugar-memorial","name":"Mugar Memorial"},
   {"value":"african-studies","name":"African Studies"},
   {"value":"medlib", "name":"Alumni Medical"},
@@ -89,10 +89,8 @@ export default class BULibSelect extends LitElement {
     }
     
     this._logToConsole("num elements: " + elements.length.toString());
-    console.log(elements);
     
     let i, before, after, element;
-    
     for(i=0; i<elements.length; i++){
       element = elements[i];
       before = element.getAttribute(this.attr_name);

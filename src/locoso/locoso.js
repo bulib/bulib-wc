@@ -1,5 +1,6 @@
 import {LitElement, html} from 'lit-element/lit-element';
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
+import '../libhours/libhours.js';
 
 /**
  * display the *LO*cation, *CO*ntact, and *SO*cial media information for
@@ -37,6 +38,9 @@ export default class Locoso extends LitElement {
     let raw_social = myLocoso["social"] || {};
     let social = this._prepareSocial(raw_social);
     
+    let include_libhours = this.library && this.library != "help";
+    this._logToConsole("lib_name: " + lib_name + ", include_libhours: " + include_libhours);
+    
     let socialDisplay;
     if(social.length < 1){ socialDisplay = html``; }
     else{
@@ -50,6 +54,7 @@ export default class Locoso extends LitElement {
         </ul>
       `;
     }
+    
     return html`
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/assets/css/common.css">
       <style>
@@ -67,7 +72,13 @@ export default class Locoso extends LitElement {
       </style>
       <div class="locoso-wrapper">
         <div class="locoso-left">
-          <h3 class="inline">Visit Us</h3>&nbsp;
+          <div class="txtv">
+            <h3 class="inline">Visit Us</h3>&nbsp;&nbsp;&nbsp;
+            ${include_libhours 
+              ? html`-&nbsp;&nbsp;<bulib-hours class="inline" link_class="${this.link_class}" library="${this.library}" short></bulib-hours>` 
+              : html``
+            }
+          </div>
           <ol class="no-bullet" aria-label="address">
             <li>${lib_name}</li>
             ${address.map((l) => html`<li>${l}</li>`)}
