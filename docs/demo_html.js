@@ -40,11 +40,21 @@ export const search_demo = `
 `;
 
 export const hours_demo = `
-  <h3>&lt;bulib-hours&gt;</h3>
-  <bulib-hours debug></bulib-hours>
-    
-  <h3>&lt;bulib-hours <code>verbose</code>&gt;</h3>
-  <bulib-hours verbose debug></bulib-hours>
+<h3>&lt;bulib-hours&gt;</h3>
+<bulib-hours></bulib-hours>
+
+<h3>&lt;bulib-hours <code>short</code>&gt;</h3>
+<bulib-hours short debug></bulib-hours>
+
+<h3>&lt;bulib-hours <code>long</code>&gt;</h3>
+<bulib-hours long debug></bulib-hours>
+
+<br /><hr /><br />
+
+<bulib-select
+  sel_title="Select Library" opt_code="libraries"
+  tag_name="bulib-hours" attr_name="library">
+</bulib-select>
 `;
 
 export const locoso_demo = `
