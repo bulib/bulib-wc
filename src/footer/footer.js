@@ -3,7 +3,7 @@ import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_he
 
 /** stored values for the sitemap */
 const sitemap_values = {
-  "wordpress":{
+    "wordpress":{
     "header":"Boston University Libraries",
     "links":[
       {"title":"InterLibrary Borrowing","href":"/library/services/ill/"},
@@ -30,6 +30,14 @@ const sitemap_values = {
       {"title":"How-To Guides",               "href":"https://www.bu.edu/library/help/how-to/"},
       {"title":"Make a Research Appointment", "href":"https://www.bu.edu/library/services/reference/appointments/"}
     ]
+  },"primo":{
+    "header":"BU Libraries Search",
+    "links":[
+      {"title":"Browse",          "href":"/primo-explore/browse?vid=BU"},
+      {"title":"Search Help",     "href":"https://www.bu.edu/library/help/bu-libraries-search/"},
+      {"title":"Databases List",  "href":"https://library.bu.edu/az.php"},
+      {"title":"What's New",      "href":"https://www.bu.edu/library/help/bu-libraries-search/new-bu-libraries-search-features/"}
+    ]
   }
 };
 
@@ -55,7 +63,7 @@ export default class BULibFooter extends LitElement {
 
   /** upon the element's first connection to the DOM, get the url and use it to determine $this.library */
   updated(){
-    let current_url = this.curr_url? this.curr_url : window.location.href;
+    let current_url = !!this.curr_url? this.curr_url : window.location.href;
     
     // determine site
     let old_site = this.host_site;
@@ -63,6 +71,7 @@ export default class BULibFooter extends LitElement {
     if(["about","research","services"].includes(main_site)){ this.host_site = "wordpress"; }
     else if(main_site == "help"){ this.host_site = "askalibrarian"; }
     else if(main_site == "guides"){ this.host_site = "guides"; }
+    else if(main_site == "search" || main_site == "primo"){ this.host_site = "primo"; }
     else{ this.host_site = "askalibrarian"; }
     if(old_site != this.host_site){
       this._logToConsole(`'host_site' changed from '${old_site}' to '${this.host_site}'`);
