@@ -1,6 +1,6 @@
 {
   "name": "bulib-wc",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "collection of web components and styles used at Boston University Libraries",
   "main": "src/index.js",
   "module": "src/index.js",
@@ -10,7 +10,9 @@
     "start": "start-storybook -p 9001",
     "build": "rollup -c rollup.config.js",
     "build:owc": "rollup -c rollup.config.owc.js",
-    "build:storybook": "npm run reinstall && build-storybook -o _site -s storybook-static"
+    "build:storybook": "npm run reinstall && build-storybook -o _site -s storybook-static",
+    "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -o dist",
+    "publish":"npm publish && npm run deploy:storybook"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,7 @@
   "devDependencies": {
     "@open-wc/building-rollup": "^0.3.0",
     "@open-wc/demoing-storybook": "^0.2.0",
+    "@storybook/storybook-deployer": "^2.8.1",
     "rollup": "^1.6.0",
     "rollup-plugin-babel-minify": "^8.0.0",
     "rollup-plugin-node-resolve": "^5.0.0"
