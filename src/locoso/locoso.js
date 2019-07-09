@@ -1,8 +1,7 @@
 import {LitElement, html} from 'lit-element/lit-element';
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
-import '../libhours/libhours.js';
 
-const ALLOW_HOURS_DISPLAY = false;
+const ALLOW_HOURS_DISPLAY = true;
 
 /**
  * display the *LO*cation, *CO*ntact, and *SO*cial media information for
