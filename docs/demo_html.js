@@ -84,42 +84,85 @@ export const footer_demo = `
   ></bulib-select>
 `;
 
+export const bulib_card_demo = `
+  <div class="deck">
+    <bulib-card title="Email" icon="email" link="https://askalibrarian.bu.edu/form.php?quid=511" debug
+      description="Email us your research questions and we’ll respond within 24 hours."></bulib-card>
+    <bulib-card title="Chat" icon="question_answer" debug
+      action="document.querySelector('button.s-lch-widget-float-btn').click();" 
+      description="Talk online to a research librarian on weekdays and Sundays"></bulib-card>
+  </div>
+`;
+
 export const card_demo = `
-<link rel="stylesheet" type="text/css" href="/assets/css/card.css">
-<div class="deck">
-  <div class="card"><a href=""> </a>
-    <h3>Borrowing Items</h3>
-    <p><a href="/search?topics=Books">see all entries</a></p>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- @todo: replace with npm install -->
+  <style>
+    .deck, .ctas {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .card, .cta {
+      flex: 2 3 300px; 
+      display: flex;
+      justify-content: space-between;
+      max-width: 325px;
+      /* border: 1px gainsboro solid; */
+    }
+    .card i { 
+      font-size: 4em;
+      margin: 0.2em;
+      text-align: center;
+      flex: 1;
+    }
+    .card i:hover { cursor: pointer; }
+  </style>
+  <div class="deck">
+    <div class="card">
+      <i class="material-icons" onclick="window.open('/form.php?quid=511','_self')">email</i>
+    <div class="inline">
+      <h3><a href="/form.php?quid=511">Email</a></h3>
+      <p>Email us your research questions and we&rsquo;ll respond within 24 hours.</p>
+    </div>
   </div>
 
   <div class="card">
-    <h3>Pardee Business Library</h3>
-    <p><a href="/businessFAQs">see all entries</a></p>
+    <i class="material-icons" onclick="document.querySelector('button.s-lch-widget-float-btn').click();">question_answer</i>  
+    <div class="inline">
+      <h3><a onclick="document.querySelector('button.s-lch-widget-float-btn').click();" href="javascript:void(0)">Chat</a></h3>
+      <p>Talk online to a research librarian on weekdays and Sundays</p>
+    </div>
   </div>
 
   <div class="card">
-    <h3>BU Libraries Search</h3>
-    <p><a href="/search?topics=BU%20Libraries%20Search">see all entries</a></p>
+    <i class="material-icons" onclick="window.open('tel:6173532700','_self')">phone</i>
+    <div class="inline">
+      <h3><a href="tel:6173532700">Call</a></h3>
+      <p>Call us at 617-353-2700 during our open hours</p>
+    </div>
+  </div>
+
+  <div class="card"><i class="material-icons">smartphone</i> 
+    <div class="inline">
+      <h3><a href="sms:6174312427">Text</a></h3>
+      <p>Send us your questions at 617-431-2427.</p>
+    </div>
   </div>
 
   <div class="card">
-    <h3>Dissertations and Theses</h3>
-    <p><a href="/search?topics=Dissertations%20%26%20Theses">see all entries</a></p>
+    <i class="material-icons">people</i>
+    <div class="inline">
+      <h3><a href="https://www.bu.edu/library/services/reference/appointments/">Meet</a></h3>
+      <p>Make an appointment with a subject specialist librarian</p>
+    </div>
   </div>
 
   <div class="card">
-    <h3>Open Access</h3>
-    <p><a href="/search?topics=Open%20Access%20and%20OpenBU">see all entries</a></p>
-  </div>
-
-  <div class="card">
-    <h3>Open BU and Publishing</h3>
-    <p><a href="/search?topics=OpenBU">see all entries</a></p>
-  </div>
-
-  <div class="card">
-    <h3>Wayfinding (Where is...?)</h3>
-    <p><a href="/search?topics=Where%20Is%20It%3F">see all entries</a></p>
+    <i class="material-icons">local_library</i>
+    <div class="inline">
+      <h3><a href="https://www.bu.edu/library/about/">Visit</a></h3>
+      <p>Come talk to us in person at any of our locations</p>
+    </div>
   </div>
 </div>`;
 
