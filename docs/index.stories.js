@@ -19,7 +19,7 @@ storiesOf('components', module)
   .add('bulib-locoso', () => locoso_demo)
 ;
 
-storiesOf('patterns', module)
+storiesOf('nojs', module)
   .add('card', () => card_demo)
   .add('call-to-action', () => cta_demo)
 ;

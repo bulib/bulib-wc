@@ -168,28 +168,54 @@ export const card_demo = `
 
 export const cta_demo = `
 <link rel="stylesheet" type="text/css" href="../assets/css/cta.css">
+<style>
+  .ctas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+    grid-template-rows: repeat(auto, 200px);
+  }
+  div.cta { 
+    text-align: center;
+    background-color: verylightgray;
+    border: 1px solid darkgrey;
+    min-width: 200px;
+  }
+  div.cta:hover { 
+    background-color: gainsboro; 
+    cursor: pointer;
+  }
+</style>
 <div class="ctas">
-  <div class="cta">
-    <a onclick="document.querySelector('button.s-lch-widget-float-btn').click();"> 
-      <span><i class="material-icons">question_answer</i>&nbsp;Chat With Us!</span> 
-    </a>
+  <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Borrowing','_self')">
+    <h3><a href="/search/?g=716&amp;topics=Borrowing">Borrowing Items</a></h3>
   </div>
 
-  <div class="cta">
-    <a href="tel:6173532700">
-      <span><i class="material-icons">phone</i>&nbsp;Call 617-353-2700</span> 
-    </a>
+  <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Troubleshooting','_self')">
+    <h3><a href="/search/?g=716&amp;topics=Troubleshooting">Troubleshooting</a></h3>
   </div>
 
-  <div class="cta">
-    <a href="mailto:ask@bu.edu">
-    <span><i class="material-icons">email</i>&nbsp;Email ask@bu.edu</span>
-    </a>
+  <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1','_self')">
+    <h3><a href="/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1">Where is it?</a></h3>
   </div>
 
-  <div class="cta">
-    <a href="sms:6174312427">
-    <span><i class="material-icons">textsms</i>&nbsp;Text 617-431-2427</span>
-    </a>
+  <div class="cta" onclick="window.open('/businessFAQs/','_self')">
+    <h3><a href="/businessFAQs/">Pardee/Business Library</a></h3>
+  </div>
+
+  <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1','_self')">
+    <h3><a href="/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1">Newspapers</a></h3>
+  </div>
+
+  <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1','_self')">
+    <h3><a href="/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1">Journals</a></h3>
+  </div>
+
+  <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Books&amp;adv=1','_self')">
+    <h3><a href="/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1">Books</a></h3>
+  </div>
+
+  <div class="cta" onclick="window.open('/search/','_self')">
+    <h3><a href="/search">All Topics</a></h3>
   </div>
 </div>`;
