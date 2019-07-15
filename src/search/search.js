@@ -56,9 +56,6 @@ export default class BULibSearch extends LitElement {
       prevent_action: {type: Boolean}
     };
   }
-
-  /** don't need 'slot' functionality, so lets use Light DOM */
-  createRenderRoot(){ return this; }
   
   /** for development purposes, react to manual changes to `this.curr_url` via _urlUpdated */
   attributeChangedCallback(name, oldValue, newValue){
