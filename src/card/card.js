@@ -17,16 +17,17 @@ export default class BULCard extends LitElement {
       /** material icon displayed to the left of the  */
       icon: {type: String},
       /** optional link for the href/window.open() action */
-      href: {type: String},
+      link: {type: String},
       /** custom javascript */
-      action: {type: String},
+      js: {type: String},
       
       debug: {type: Boolean}
     };
   }
 
   render() {
-    let action = !!this.action ? this.action : `window.open('${this.href}', '_self')`;
+    let href = !!this.js ? "javascript:void(0);" : this.link;
+    let action = !!this.js ? this.js : `window.open('${this.link}', '_self')`;
     return html`
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- @todo: replace with npm install -->
       <style>
@@ -54,16 +55,16 @@ export default class BULCard extends LitElement {
       <div class="card">
         <i class="material-icons" onclick="${action}">${this.icon}</i>
         <div class="inline">
-          <h3><a onclick="${action}" href="${this.href}">Email</a></h3>
+          <h3><a onclick="${action}" href="${href}">${this.title}</a></h3>
           <p>${this.description}</p>
         </div>
       </div>
     `;
   }
 
-  connectedCallback(){
-    this._logToConsole(`'${this.title}' card loaded`);
-  }
+  // connectedCallback(){
+  //   this._logToConsole(`'${this.title}' card loaded`);
+  // }
   
   _logToConsole(message){
     if(!!this.debug){ console.log("bulib-card) " + message); }
