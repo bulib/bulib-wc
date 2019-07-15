@@ -1,4 +1,4 @@
-import {LitElement, html} from 'https://unpkg.com/lit-element@2.2.0/lit-element.js?module';
+import {LitElement, html} from 'lit-element/lit-element';
 const ENTER_KEY_VALUE = 13;
 const default_to_just_primo = true;
 
@@ -7,7 +7,7 @@ export const search_options = [
   {"value":"primo",     "name":"BU Libraries Search",      "placeholder": "Search library resources",     "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=BU&institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
   {"value":"industries","name":"Industry Survey Locator",  "placeholder": "Search for industry surveys",  "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=ISL&institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
   {"value":"worldcat",  "name":"OCLC WorldCat",            "placeholder": "BU Libraries Search",          "domain":"https://bu.on.worldcat.org/search?queryString="},
-  {"value":"wp",        "name":"Boston University Site",   "placeholder": "Search library info/services", "domain":"https://search.bu.edu/?site=www.bu.edu%2Flibrary&q="},
+  {"value":"wp",        "name":"BU Libraries Site",   "placeholder": "Search library info/services", "domain":"https://search.bu.edu/?site=www.bu.edu%2Flibrary&q="},
   // {"value":"directory", "name":"Staff Directory",          "placeholder": "Search for people at BU",      "domain":"https://www.bu.edu/phpbin/directory/?q="},
   // {"value":"hgar",      "name":"Archival Research Center", "placeholder": "Search the BU Archive",        "domain":"http://archives.bu.edu/search/?search=SEARCH&query="},
   {"value":"openbu",    "name":"Open BU",                  "placeholder": "Search BU Digital Collections","domain":"https://open.bu.edu/discover?query="},
@@ -29,7 +29,7 @@ const _getOptionFromCode = function(code, lsOptions){
 
 /** helper calling _getOptionFromCode  */
 const handleSearchSelect = function(event, defaultCode="primo"){
-  return event.target.selectedOptions[0].value || defaultCode;
+  return event.target.defaultValue || defaultCode;
 };
 
 /** context-sensitive search form allowing you to search across multiple 'search_options' */
@@ -68,19 +68,26 @@ export default class BULibSearch extends LitElement {
 
   render() {
     this._initSelectedOptions();
-
-    /* determine whether or not to show dropdown of options */
-    let optionsDisplay = (this.options.length <= 1)? html`` : html`
-      <select id="search_source_select" @change="${(e) => this.str_selected = handleSearchSelect(e)}" @keypress="${(k) => this._handleSearchEnter(k)}">
-        ${this.options.map((o) => html`<option value="${o.value}">${o.name}</option>`)}
-      </select>
-    `;
     
     return html`
-      <div id="bulib-search">
-        <input id="search_query_input" type="text" placeholder="${this.selected["placeholder"]}" @keypress="${(e) => this._handleSearchEnter(e)}"></input>
-        ${optionsDisplay}
-        <button type="submit" class="${this.search_btn_classes}" title="Search ${this.selected["name"]}" @click="${(e) => this._doSearch()}">Search</button>
+      <style>
+        .search-box > * { font-size: 1.1em; }
+        .search-box > input { min-width: 500px; }
+        .bulib-search { font-size: 1.1em; }
+      </style>
+      <div class="bulib-search">
+        <div class="search-box">
+          <input type="text" placeholder="${this.selected["placeholder"]}" @keypress="${(e) => this._handleSearchEnter(e)}">
+          <button type="submit" class="${this.search_btn_classes}" title="Search ${this.selected["name"]}" @click="${(e) => this._doSearch()}">Search</button>
+        </div>
+        <div id="search-options">
+          ${this.options.map((o) => html`
+            <label>
+              <input type="radio" name="source" value="${o.value}"
+                @change="${(e) => this.str_selected = handleSearchSelect(e)}"
+                @keypress="${(k) => this._handleSearchEnter(k)}">${o.name}
+            </label>`)}
+        </div>
       </div>
     `;
   }
@@ -132,14 +139,14 @@ export default class BULibSearch extends LitElement {
     }
     
     // set the input box width based on the placeholder
-    let inputElem = this.querySelector("#search_query_input");
+    let inputElem = this.querySelector("#search-query-input");
     inputElem.setAttribute('size',inputElem.getAttribute('placeholder').length);
   }
 
   /** perform a search for the input query on the selected database */
   _doSearch(){
     // obtain values required for the search from the input and currently selected option.
-    let userInputElem = this.querySelector("#search_query_input");
+    let userInputElem = this.querySelector("#search-query-input");
     let query = userInputElem ? userInputElem.value : "";
 
     // track and store the selected option and its information
