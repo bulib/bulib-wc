@@ -12,7 +12,7 @@ jobs:
       - run:
           name: install cypress binary and dependencies
           command: npm ci
-      - run: npm run cy:verify
+      - run: cypress verify
       - save_cache:
           name: save binary and dependencies to cache
           key: cache-{{ checksum "package.json" }}
@@ -21,7 +21,7 @@ jobs:
             - ~/.cache
       - run:
           name: install npm dependencies
-          command: npm run reinstall
+          command: npm run reinstall;
       - run: 
           name: build with rollup
           command: npm run build;
