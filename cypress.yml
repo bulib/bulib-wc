@@ -1,0 +1,47 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: cypress/base:10
+    steps:
+      - checkout
+      - restore_cache:
+          name: restore binary/dependencies from cache
+          keys:
+            - cache-{{ checksum "package.json" }}
+      - run:
+          name: install cypress binary and dependencies
+          command: npm ci
+      - run: npm run cy:verify
+      - save_cache:
+          name: save binary and dependencies to cache
+          key: cache-{{ checksum "package.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
+      - run:
+          name: install npm dependencies
+          command: npm run reinstall
+      - run: 
+          name: build with rollup
+          command: npm run build;
+      - store_artifacts:
+          name: upload bundle
+          path: /root/project/dist/bundle.esm.js
+          destination: /dist/
+      - run: 
+          name: build with open-wc
+          command: npm run build:owc;
+      - run: 
+          name: build storybook site
+          command: npm run build:storybook;
+      - store_artifacts:
+          name: upload bundle
+          path: /root/project/_site
+          destination: /dist/_site
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - test 

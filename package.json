@@ -4,7 +4,12 @@
   "description": "collection of web components and styles used at Boston University Libraries",
   "main": "src/index.js",
   "module": "src/index.js",
-  "files":["src/*/*.js", "src/*/*.css", "dist/bundle*.js", "assets"],
+  "files": [
+    "src/*/*.js",
+    "src/*/*.css",
+    "dist/bundle*.js",
+    "assets"
+  ],
   "scripts": {
     "clean": "rm -rf node_modules/ || true",
     "reinstall": "npm run clean && npm install",
