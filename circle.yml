@@ -23,15 +23,19 @@ jobs:
           name: install npm dependencies
           command: npm run reinstall;
       - run: 
-          name: build with rollup
+          name: build with open-wc
+          command: npm run build:owc;
+      - store_artifacts:
+          name: upload bundle
+          path: /root/project/dist/
+          destination: /bundles/open-wc/
+      - run: 
+          name: build with custom rollup config
           command: npm run build;
       - store_artifacts:
           name: upload bundle
           path: /root/project/dist/bundle.esm.js
           destination: /bundles/bundle.esm.js
-      - run: 
-          name: build with open-wc
-          command: npm run build:owc;
       - run: 
           name: build storybook site
           command: npm run build:storybook;
