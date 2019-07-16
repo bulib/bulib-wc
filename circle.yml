@@ -28,7 +28,7 @@ jobs:
       - store_artifacts:
           name: upload bundle
           path: /root/project/dist/bundle.esm.js
-          destination: /dist/
+          destination: /bundles/bundle.esm.js
       - run: 
           name: build with open-wc
           command: npm run build:owc;
@@ -37,8 +37,8 @@ jobs:
           command: npm run build:storybook;
       - store_artifacts:
           name: upload bundle
-          path: /root/project/_site
-          destination: /dist/_site
+          path: /root/project/_site/
+          destination: /_site/
 
 workflows:
   version: 2
