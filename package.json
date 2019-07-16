@@ -12,6 +12,7 @@
   ],
   "scripts": {
     "clean": "rm -rf node_modules/ || true",
+    "cy:verify": "cypress verify",
     "reinstall": "npm run clean && npm install",
     "start": "start-storybook -p 9001",
     "build": "rollup -c rollup.config.js",

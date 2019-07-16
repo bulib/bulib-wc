@@ -10,9 +10,9 @@ jobs:
           keys:
             - cache-{{ checksum "package.json" }}
       - run:
-          name: install cypress binary and dependencies
+          name: install cypress binary and dependencies from package-lock
           command: npm ci
-      - run: cypress verify
+      - run: npm run cy:verify;
       - save_cache:
           name: save binary and dependencies to cache
           key: cache-{{ checksum "package.json" }}
