@@ -1,5 +1,4 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
-
+import {LitElement, html} from 'lit-element/lit-element';
 import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
 const primary_header_list = [
@@ -38,7 +37,7 @@ const library_header_list = [
 ];
 
 /** Reactive/responsive header with custom subsite display, bulib-search integration */
-class BULHeader extends LitElement {
+export default class BULibHeader extends LitElement {
   
   /** store information on the current page */
   static get properties() {
@@ -56,15 +55,13 @@ class BULHeader extends LitElement {
 
   /** render the html (with 'bulib-search' wc) to the page  */
   render() {
-    let domain = this.debug? "" : "https://cdn.jsdelivr.net/gh/bulib/bulib-wc";
     let library_list_html = html`
       <ul class="library-list no-bullet">${library_header_list.map((item) => this._prepare_list_option(item))}</ul>
     `;
     
     return html`
-      <link rel="stylesheet" type="text/css" href="${domain}/assets/css/common.css">
-      <link rel="stylesheet" type="text/css" href="${domain}/src/header/header.css">
-      <script src="${domain}/src/libhours/libhours.js" type="module"></script>
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/assets/css/common.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/src/header/header.css">
       <style>
         a { text-decoration: none; }
         .right { float:right; }
@@ -148,5 +145,3 @@ class BULHeader extends LitElement {
   }
 
 }
-
-customElements.define('bulib-header', BULHeader);

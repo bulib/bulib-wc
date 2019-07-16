@@ -1,5 +1,5 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
-import {getLibraryInfoFromCode} from 'https://cdn.jsdelivr.net/gh/bulib/bulib-wc@libsel-v0.8/src/_helpers/lib_info_helper.js?module';
+import {LitElement, html} from 'lit-element/lit-element';
+import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
 
 
 const lsLibraryCodes = ["mugar-memorial","african-studies","medlib","astronomy","lawlibrary","hgar","music","pardee","pickering","theology","sel","stone"];
@@ -21,7 +21,7 @@ const lsLibraryOptions = [
 ];
 
 /** change the current page when user selects a library from the dropdown */
-class BULibSel extends LitElement {
+export default class BULibSel extends LitElement {
 
   constructor(){
     super();
@@ -75,5 +75,3 @@ class BULibSel extends LitElement {
   }
 
 }
-
-customElements.define('bulib-libsel', BULibSel);

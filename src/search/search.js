@@ -1,4 +1,4 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
+import {LitElement, html} from 'lit-element/lit-element';
 const ENTER_KEY_VALUE = 13;
 const default_to_just_primo = true;
 
@@ -33,7 +33,7 @@ const handleSearchSelect = function(event, defaultCode="primo"){
 };
 
 /** context-sensitive search form allowing you to search across multiple 'search_options' */
-class BULSearch extends LitElement {
+export default class BULibSearch extends LitElement {
 
   constructor(){ 
     super(); 
@@ -158,10 +158,8 @@ class BULSearch extends LitElement {
     if(event.keyCode && event.keyCode === ENTER_KEY_VALUE){ this._doSearch(); }
   }
   
-  _logToConsole = function(message){
+  _logToConsole(message){
     if(this.debug){ console.log("bulib-search) " + message); }
   }
 
 }
-
-customElements.define('bulib-search', BULSearch);

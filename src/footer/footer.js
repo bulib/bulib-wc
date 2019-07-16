@@ -1,5 +1,5 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
-import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from 'https://cdn.jsdelivr.net/gh/bulib/bulib-wc@footer-v2.7.2/src/_helpers/lib_info_helper.js';
+import {LitElement, html} from 'lit-element/lit-element';
+import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
 /** stored values for the sitemap */
 const sitemap_values = {
@@ -42,7 +42,7 @@ const sitemap_values = {
 };
 
 /** Reactive/responsive footer providing slotted middle section and customizable LoCoSo data */
-class BULFooter extends LitElement {
+export default class BULibFooter extends LitElement {
 
   constructor(){
     super();
@@ -52,7 +52,7 @@ class BULFooter extends LitElement {
   static get properties() {
     return {
       /** provide window into setting displayed 'locoso' contact data */
-      library: {type: String, notify:true},
+      library: {type: String},
       /** key for the subsite (used to populate the sitemap) */
       host_site: {type: String},
       
@@ -79,7 +79,7 @@ class BULFooter extends LitElement {
     
     // determine library
     let old_library = this.library;
-    let lib_code = getLibraryCodeFromUrl(current_url, this.debug);
+    let lib_code = this.curr_url? getLibraryCodeFromUrl(current_url, this.debug) : this.library;
     this.library = lib_code;
     if(old_library != this.library){
       this._logToConsole(`library changed from '${old_library}' to '${this.library}'.`);
@@ -99,8 +99,8 @@ class BULFooter extends LitElement {
 
     // render the main content of the component
     return html`
-      <link rel="stylesheet" type="text/css" href="/assets/css/common.css">
-      <link rel="stylesheet" type="text/css" href="/src/footer/footer.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/assets/css/common.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/src/footer/footer.css">
       <style>
         /* firefox fix to stop the 'Follow Us' from becoming centered */
         ::slotted(h3) { text-align: left; }
@@ -116,11 +116,13 @@ class BULFooter extends LitElement {
                 </a>
                 <br /><br />
                 <small>
-                  <a class="white-link" target="_blank" title="Copyright" href="https://www.bu.edu/copyright">&copy; Copyright ${new Date().getFullYear()}</a>
+                  <a class="white-link" target="_blank" title="Copyright" 
+                     href="https://www.bu.edu/copyright">&copy; Copyright ${new Date().getFullYear()}</a>
                 </small>
                 <br />
                 <small>
-                  <a class="white-link" target="_blank" title="Privacy Statement" href="https://www.bu.edu/policies/information-security-home/digital-privacy-statement/">Privacy Statement</a>
+                  <a class="white-link" target="_blank" title="Privacy Statement" 
+                     href="https://www.bu.edu/policies/information-security-home/digital-privacy-statement/">Privacy Statement</a>
                 </small>
                 <br /><br />
               </div>
@@ -137,7 +139,7 @@ class BULFooter extends LitElement {
           </div>
           <div class="ftr-right">
             <div id="ftr-locoso">
-              <bulib-locoso library="${this.library}" link_class="white-link"></bulib-locoso>
+              <bulib-locoso library="${this.library}" link_class="white-link" debug></bulib-locoso>
             </div>
           </div>
         </footer>
@@ -150,5 +152,3 @@ class BULFooter extends LitElement {
   }
 
 }
-
-customElements.define('bulib-footer', BULFooter);
