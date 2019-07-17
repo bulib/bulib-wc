@@ -1,7 +1,8 @@
 import '../src/index';
-import { storiesOf, withKnobs, withClassPropertiesKnobs } from '@open-wc/demoing-storybook';
+import { storiesOf, withKnobs } from '@open-wc/demoing-storybook';
 
-import {ensemble_demo, search_demo, hours_demo, locoso_demo, header_demo, footer_demo, bulib_card_demo, card_demo, cta_demo} from './demo_html';
+import {ensemble_demo, search_demo, hours_demo, locoso_demo, header_demo, footer_demo, bulib_card_demo} from './demo_wc';
+import {card_demo, cta_demo, popup_demo} from './demo_nojs';
 
 storiesOf('composites', module)
   .addDecorator(withKnobs)
@@ -22,4 +23,5 @@ storiesOf('components', module)
 storiesOf('nojs', module)
   .add('card', () => card_demo)
   .add('call-to-action', () => cta_demo)
+  .add('popup', () => popup_demo)
 ;

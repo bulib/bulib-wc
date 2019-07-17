@@ -1,3 +1,9 @@
+.hamburger { 
+  font-size: 3em; 
+  text-decoration: none; 
+}
+
+
 /* from paul (@peiche) via codepen [https://codepen.io/peiche/pen/vhqym] */
 .overlay {
   position: absolute;
