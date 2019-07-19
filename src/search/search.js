@@ -68,16 +68,47 @@ export default class BULibSearch extends LitElement {
     
     return html`
       <style>
-        .search-box > * { font-size: 1.1em; }
-        .search-box > input { min-width: 500px; }
-        .bulib-search { font-size: 1.1em; }
+        .search-options > label, .search-box > * { 
+          font-size: 1.1em; 
+          padding-right: 5px;
+        }
+        .bulib-search { 
+          min-width: 500px;
+          max-width: 850px;
+          padding: 1em;
+          font-size: 1.3em; 
+          background-color: #5a5d61;
+        }
+        .search-box {
+          display: flex; 
+        }
+        .search-box > input {
+          flex: 80%;
+        }
+        .search-options {
+          color: white;
+          padding: 0.3em;
+        }
+        input[type=radio] {
+          transform: scale(1.5)
+        }
+        .search-options input {
+          padding-right: 0.5em;
+        }
+        button { 
+          background-color: #35619c; 
+          color: white; 
+        }
+        button:hover { background-color: #265694; }
       </style>
       <div class="bulib-search">
         <div class="search-box">
           <input type="text" placeholder="${this.selected["placeholder"]}" @keypress="${(e) => this._handleSearchEnter(e)}">
-          <button type="submit" class="${this.search_btn_classes}" title="Search ${this.selected["name"]}" @click="${(e) => this._doSearch()}">Search</button>
+          <button type="submit" title="Search${this.selected["name"]}" class="${this.search_btn_classes}" @click="${(e) => this._doSearch()}" style="margin-left: 0px;">
+            <i class="material-icons">search</i>
+          </button>
         </div>
-        <div id="search-options">
+        <div class="search-options">
           ${this.options.map((o) => html`
             <label>
               <input type="radio" name="source" value="${o.value}"

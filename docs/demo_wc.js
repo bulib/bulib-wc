@@ -24,12 +24,8 @@ export const search_demo = `
   <bulib-search debug></bulib-search>
   <br /><br />
 
-  <label>Empty (inactive)</label>
-  <bulib-search debug prevent_action></bulib-search>
-  <br /><br />
-
-  <label>One Option, no Default</label>
-  <bulib-search str_options="industries"></bulib-search>
+  <label>Ask a Librarian</label>
+  <bulib-search str_options="help primo"></bulib-search>
   <br /><br />
 
   <label>Options, no Default</label>
