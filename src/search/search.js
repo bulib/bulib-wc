@@ -64,7 +64,8 @@ export default class BULibSearch extends LitElement {
   }
 
   render() {
-    this._initSelectedOptions();
+    this._setSelectedOptions();
+    let hidden_html = (!this.options || this.options.length <= 1)? " hidden": "";
     
     return html`
       <style>
@@ -73,7 +74,7 @@ export default class BULibSearch extends LitElement {
           padding-right: 5px;
         }
         .bulib-search { 
-          min-width: 500px;
+          min-width: 250px;
           max-width: 850px;
           padding: 1em;
           font-size: 1.3em; 
@@ -100,6 +101,7 @@ export default class BULibSearch extends LitElement {
           color: white; 
         }
         button:hover { background-color: #265694; }
+        .hidden { display: none; }
       </style>
       <div class="bulib-search">
         <div class="search-box">
@@ -108,7 +110,7 @@ export default class BULibSearch extends LitElement {
             <i class="material-icons">search</i>
           </button>
         </div>
-        <div class="search-options">
+        <div class="search-options${hidden_html}">
           ${this.options.map((o) => html`
             <label>
               <input type="radio" name="source" value="${o.value}"
@@ -121,7 +123,7 @@ export default class BULibSearch extends LitElement {
   }
 
   /** set display options on user input (if present) */
-  _initSelectedOptions(){
+  _setSelectedOptions(){
     
     // try to set 'options' and 'selected' based on user input (with fallbacks) 
     this.options = []; this.selected = {};
@@ -165,10 +167,6 @@ export default class BULibSearch extends LitElement {
         if(option.value === this.selected["value"]){ option.selected = "selected"; }
       }
     }
-    
-    // set the input box width based on the placeholder
-    let inputElem = this.querySelector("#search-query-input");
-    inputElem.setAttribute('size',inputElem.getAttribute('placeholder').length);
   }
 
   /** perform a search for the input query on the selected database */
