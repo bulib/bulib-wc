@@ -201,3 +201,4 @@ export default class BULibSearch extends LitElement {
   }
 
 }
+window.customElements.define("bulib-search",BULibSearch);
