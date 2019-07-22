@@ -69,60 +69,77 @@ export default class BULibSearch extends LitElement {
     
     return html`
       <style>
-        .search-options > label, .search-box > * { 
-          font-size: 1.1em; 
-          padding-right: 5px;
+        .bulib-search-wrapper {
+          width: 100%;
+          background-color: #5a5d61;
         }
         .bulib-search { 
+          display: flex;
+          flex-wrap: wrap;
           min-width: 250px;
-          max-width: 850px;
           padding: 1em;
-          font-size: 1.3em; 
-          background-color: #5a5d61;
+          font-size: 1.3em;
+        }
+        .search-box, .search-options {
+          padding: 0.2em 0.7em; 
+          vertical-align: middle;
         }
         .search-box {
           display: flex; 
+          flex: auto;
+          max-width: 800px;
         }
         .search-box > input {
           flex: 80%;
         }
+        .search-box > *, .search-options > label { 
+          font-size: 1.1em; 
+        }
         .search-options {
           color: white;
-          padding: 0.3em;
+          flex: auto;
+        }
+        .search-options > label {
+          margin-right: 0.5em;
+          padding-left: 0.5em;
+          cursor: pointer;
         }
         input[type=radio] {
-          transform: scale(1.5)
-        }
-        .search-options input {
-          padding-right: 0.5em;
+          /* transform: scale(1.3); */
+          cursor: pointer;
+          margin-right: 7px;
+          vertical-align: middle;
         }
         button { 
           background-color: #35619c; 
           color: white; 
+          cursor: pointer;
         }
         button:hover { background-color: #265694; }
         .hidden { display: none; }
       </style>
-      <div class="bulib-search">
-        <div class="search-box">
-          <input type="text" placeholder="${this.selected["placeholder"]}" @keypress="${(e) => this._handleSearchEnter(e)}">
-          <button type="submit" title="Search${this.selected["name"]}" class="${this.search_btn_classes}" @click="${(e) => this._doSearch()}" style="margin-left: 0px;">
-            <i class="material-icons">search</i>
-          </button>
-        </div>
-        <div class="search-options${hidden_html}">
-          ${this.options.map((o) => html`
-            <label>
-              ${this.selected["value"] == o.value
-                ? html`<input type="radio" name="source" value="${o.value}" checked
-                          @change="${(e) => this.str_selected = handleSearchSelect(e)}"
-                          @keypress="${(k) => this._handleSearchEnter(k)}">${o.name}` 
-                : html`<input type="radio" name="source" value="${o.value}"
-                          @change="${(e) => this.str_selected = handleSearchSelect(e)}"
-                          @keypress="${(k) => this._handleSearchEnter(k)}">${o.name}`
-              }
-            </label>`
-          )}
+      <div class="bulib-search-wrapper">
+        <div class="bulib-search">
+          <div class="search-box">
+            <input type="text" placeholder="${this.selected["placeholder"]}" @keypress="${(e) => this._handleSearchEnter(e)}">
+            <button type="submit" title="Search${this.selected["name"]}" class="${this.search_btn_classes}" @click="${(e) => this._doSearch()}" style="margin-left: 0px;">
+              <i class="material-icons">search</i>
+            </button>
+          </div>
+          <div class="search-options${hidden_html}">
+            ${this.options.map((o) => html`
+              <label>
+                ${this.selected["value"] == o.value
+                  ? html`<input type="radio" name="source" value="${o.value}" checked
+                            @change="${(e) => this.str_selected = handleSearchSelect(e)}"
+                            @keypress="${(k) => this._handleSearchEnter(k)}">${o.name}` 
+                  : html`<input type="radio" name="source" value="${o.value}"
+                            @change="${(e) => this.str_selected = handleSearchSelect(e)}"
+                            @keypress="${(k) => this._handleSearchEnter(k)}">${o.name}`
+                }
+              </label>`
+            )}
+          </div>
         </div>
       </div>
     `;
