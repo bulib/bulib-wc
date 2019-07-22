@@ -113,10 +113,16 @@ export default class BULibSearch extends LitElement {
         <div class="search-options${hidden_html}">
           ${this.options.map((o) => html`
             <label>
-              <input type="radio" name="source" value="${o.value}"
-                @change="${(e) => this.str_selected = handleSearchSelect(e)}"
-                @keypress="${(k) => this._handleSearchEnter(k)}">${o.name}
-            </label>`)}
+              ${this.selected["value"] == o.value
+                ? html`<input type="radio" name="source" value="${o.value}" checked
+                          @change="${(e) => this.str_selected = handleSearchSelect(e)}"
+                          @keypress="${(k) => this._handleSearchEnter(k)}">${o.name}` 
+                : html`<input type="radio" name="source" value="${o.value}"
+                          @change="${(e) => this.str_selected = handleSearchSelect(e)}"
+                          @keypress="${(k) => this._handleSearchEnter(k)}">${o.name}`
+              }
+            </label>`
+          )}
         </div>
       </div>
     `;
@@ -148,24 +154,6 @@ export default class BULibSearch extends LitElement {
     // set 'str_selected', defaulting to the first 'option'
     if(Object.keys(this.selected).length == 0){ 
       this.selected = _getOptionFromCode(this.str_selected, this.options); 
-    }
-  }
-  
-  /** once html is on the page, update the visual to reflect the web component's data  */
-  updated(){
-    // auto-set this.str_selected to the first option if it's empty
-    if(this.str_options && !this.str_selected){
-      this.str_selected = this.str_options.split(" ")[0] || "";
-    }
-    
-    // if selected is accurately set, update the <select> element to reflect the new value
-    if(this.selected){ 
-      let searchSourceSelect = this.querySelector("#search_source_select");
-      let lsSearchSourceOptions = searchSourceSelect ? searchSourceSelect.options : [];
-      for(let i=0; i<lsSearchSourceOptions.length; i++){
-        let option = lsSearchSourceOptions[i];
-        if(option.value === this.selected["value"]){ option.selected = "selected"; }
-      }
     }
   }
 
