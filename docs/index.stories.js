@@ -1,7 +1,8 @@
 import '../src/index';
 import { storiesOf, withKnobs } from '@open-wc/demoing-storybook';
 
-import {ensemble_demo, search_demo, hours_demo, locoso_demo, header_demo, footer_demo, bulib_card_demo} from './demo_wc';
+import {header_demo} from './demo_comp';
+import {ensemble_demo, search_demo, hours_demo, locoso_demo, footer_demo, bulib_card_demo} from './demo_wc';
 import {card_demo, cta_demo, popup_demo} from './demo_nojs';
 
 storiesOf('composites', module)

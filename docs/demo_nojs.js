@@ -60,10 +60,11 @@ export const popup_demo = `
   </style>
   <h1>Popup/Modal Windows without JavaScript</h1>
   <div id="wrapper">
-    <p><a class="button" href="#popup1">&equiv;</a></p>
+    <p><a class="hamburger" href="#popup1">&equiv;</a></p>
   </div>
 
   <div id="popup1" class="overlay">
+    <a class="cancel" href="#"></a>
     <div class="popup">
       <h2>Info box</h2>
       <a class="close" href="#">&times;</a>
