@@ -1,4 +1,4 @@
-import {LitElement, html} from 'https://unpkg.com/lit-element@2.2.0/lit-element.js?module';
+import {LitElement, html} from 'lit-element/lit-element'; //'https://unpkg.com/lit-element@2.2.0/lit-element.js?module';
 const ENTER_KEY_VALUE = 13;
 const default_to_just_primo = true;
 
@@ -199,4 +199,3 @@ export default class BULibSearch extends LitElement {
   }
 
 }
-window.customElements.define("bulib-search",BULibSearch);
