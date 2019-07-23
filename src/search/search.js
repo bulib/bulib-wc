@@ -123,8 +123,10 @@ export default class BULibSearch extends LitElement {
       <div class="bulib-search-wrapper">
         <div class="bulib-search">
           <div class="search-box">
-            <input type="text" placeholder="${this.selected["placeholder"]}" @keypress="${(e) => this._handleSearchEnter(e)}">
-            <button type="submit" title="Search${this.selected["name"]}" class="${this.search_btn_classes}" @click="${(e) => this._doSearch()}" style="margin-left: 0px;">
+            <input type="text" id="search-query-input" placeholder="${this.selected["placeholder"]}" 
+              @keypress="${(e) => this._handleSearchEnter(e)}">
+            <button type="submit" title="Search${this.selected["name"]}" class="${this.search_btn_classes}" 
+              @click="${(e) => this._doSearch()}" style="margin-left: 0px;">
               <i class="material-icons">search</i>
             </button>
           </div>
@@ -175,7 +177,7 @@ export default class BULibSearch extends LitElement {
   /** perform a search for the input query on the selected database */
   _doSearch(){
     // obtain values required for the search from the input and currently selected option.
-    let userInputElem = this.querySelector("#search-query-input");
+    let userInputElem = this.shadowRoot.querySelector("input#search-query-input");
     let query = userInputElem ? userInputElem.value : "";
 
     // track and store the selected option and its information
