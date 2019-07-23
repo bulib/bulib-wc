@@ -6,7 +6,7 @@ const default_to_just_primo = true;
 export const search_options = [
   {"value":"help",      "name":"Ask a Librarian",          "placeholder": "Type your question here",      "domain":"http://askalibrarian.bu.edu/search/?t=0&q="},
   {"value":"primo",     "name":"BU Libraries Search",      "placeholder": "Search library resources",     "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=BU&institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
-  {"value":"wp",        "name":"BU Libraries Site",   "placeholder": "Search library info/services", "domain":"https://search.bu.edu/?site=www.bu.edu%2Flibrary&q="},
+  {"value":"wp",        "name":"BU Libraries Site",        "placeholder": "Search library info/services", "domain":"https://search.bu.edu/?site=www.bu.edu%2Flibrary&q="},
   {"value":"industries","name":"Industry Survey Locator",  "placeholder": "Search for industry surveys",  "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=ISL&institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
   {"value":"guides",    "name":"Library Guides",           "placeholder": "Search Research Guides",       "domain":"http://library.bu.edu/srch.php?q="},
   {"value":"openbu",    "name":"Open BU",                  "placeholder": "Search BU Digital Collections","domain":"https://open.bu.edu/discover?query="},
@@ -14,6 +14,8 @@ export const search_options = [
   // {"value":"directory", "name":"Staff Directory",          "placeholder": "Search for people at BU",      "domain":"https://www.bu.edu/phpbin/directory/?q="},
   // {"value":"hgar",      "name":"Archival Research Center", "placeholder": "Search the BU Archive",        "domain":"http://archives.bu.edu/search/?search=SEARCH&query="},
 ];
+
+const search_option_codes = search_options.map( x => x.value );
 
 /** move from 'code' string to option object (with backup) */
 const _getOptionFromCode = function(code, lsOptions){
@@ -45,7 +47,7 @@ export default class BULibSearch extends LitElement {
   static get properties() {
     return {
       /** selected search source (defaulted to first option) */
-      str_selected: {type: String, notify:true},
+      str_selected: {type: String},
       /** search sources included in the dropdown (defaulted to all) */
       str_options: {type: String},
       /** classes added to the search <button> */
@@ -55,12 +57,6 @@ export default class BULibSearch extends LitElement {
       debug: {type: Boolean},
       prevent_action: {type: Boolean}
     };
-  }
-  
-  /** for development purposes, react to manual changes to `this.curr_url` via _urlUpdated */
-  attributeChangedCallback(name, oldValue, newValue){
-    super.attributeChangedCallback(name, oldValue, newValue);
-    this._logToConsole(`${name} changed from ${oldValue} to ${newValue}.`);
   }
 
   render() {
@@ -151,23 +147,19 @@ export default class BULibSearch extends LitElement {
     // try to set 'options' and 'selected' based on user input (with fallbacks) 
     this.options = []; this.selected = {};
     if(!this.str_options || this.str_options === ""){ 
-      this.options = default_to_just_primo? [_getOptionFromCode("primo")] : search_options;
-    }else{
-      let i, searchOption, optionCode;
-      for(i=0; i<search_options.length; i++){
-        searchOption = search_options[i];
-        optionCode = searchOption["value"];
-        if(optionCode && this.str_options.includes(optionCode)){ 
-          this.options.push(searchOption); 
-        }
+      this.str_options = default_to_just_primo? ["primo"] : search_options;
+    }
+      
+    let i, option, optionCode;
+    let selectedOptionCodes = this.str_options.includes(" ")? this.str_options.split(" ") : [this.str_options];
+    for(i=0; i<selectedOptionCodes.length; i++){
+      optionCode = selectedOptionCodes[i];
+      if(optionCode && search_option_codes.includes(optionCode)){ 
+        option = _getOptionFromCode(optionCode);
+        if(option){ this.options.push(option); }
       }
     }
-    
-    // enact default yor possible options list
-    if(!this.options  || this.options.length  < 1){ 
-      this.options = default_to_just_primo ? [_getOptionFromCode("primo")] : search_options; 
-    } 
-    
+
     // set 'str_selected', defaulting to the first 'option'
     if(Object.keys(this.selected).length == 0){ 
       this.selected = _getOptionFromCode(this.str_selected, this.options); 
