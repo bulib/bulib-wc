@@ -72,9 +72,6 @@ export default class BULibSearch extends LitElement {
         .bulib-search { 
           display: flex;
           flex-wrap: wrap;
-          min-width: 250px;
-          padding: 1em;
-          font-size: 1.3em;
         }
         .search-box, .search-options {
           padding: 0.2em 0.7em; 
@@ -87,9 +84,6 @@ export default class BULibSearch extends LitElement {
         }
         .search-box > input {
           flex: 80%;
-        }
-        .search-box > *, .search-options > label { 
-          font-size: 1.1em; 
         }
         .search-options {
           color: white;
@@ -113,6 +107,18 @@ export default class BULibSearch extends LitElement {
         }
         button:hover { background-color: #265694; }
         .hidden { display: none; }
+
+        /* medium-sized screen and above */
+        @media only screen and (min-width: 400px){
+          .search-box > *, .search-options > label { 
+            font-size: 1.1em; 
+          }
+          .bulib-search {
+            font-size: 1.3em;
+            padding: 1em;
+            min-width: 150px;
+          }
+        }
       </style>
       <div class="bulib-search-wrapper">
         <div class="bulib-search">
