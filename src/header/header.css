@@ -58,6 +58,7 @@
   .menu-items > li, .menu-item { display: none; }
   .mobile-navigation { display: block !important; }
 } 
+
 /* based heavily on the [CodePen](https://codepen.io/erikterwan/pen/EVzeRP)... 
  *   Made by Erik Terwan (@terwanerik)
  *   24th of November 2015
@@ -122,10 +123,10 @@
  * Make this absolute positioned
  * at the top left of the screen
  */
-#menu {
+#mobile-menu {
   position: absolute;
-  width: 200px;
-  height: 60vh;
+  width: 250px;
+  height: 80vh;
   margin: -100px 0 0 -200px;
   padding: 50px;
   padding-top: 125px;
@@ -135,9 +136,9 @@
   transform-origin: 0% 0%;
   transform: translate(400%, 0);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); }
-  #menu a {
+  #mobile-menu a {
     color: black; }
-  #menu li {
+  #mobile-menu li {
     padding: 10px 0;
     font-size: 22px; }
 
