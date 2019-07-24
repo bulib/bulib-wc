@@ -74,7 +74,7 @@ export default class BULibSearch extends LitElement {
           flex-wrap: wrap;
         }
         .search-box, .search-options {
-          padding: 0.2em 0.7em; 
+          padding: 0.2rem 0.7rem; 
           vertical-align: middle;
         }
         .search-box {
@@ -90,8 +90,8 @@ export default class BULibSearch extends LitElement {
           flex: auto;
         }
         .search-options > label {
-          margin-right: 0.5em;
-          padding-left: 0.5em;
+          margin-right: 0.5rem;
+          padding-left: 0.5rem;
           cursor: pointer;
         }
         input[type=radio] {
@@ -111,11 +111,11 @@ export default class BULibSearch extends LitElement {
         /* medium-sized screen and above */
         @media only screen and (min-width: 400px){
           .search-box > *, .search-options > label { 
-            font-size: 1.1em; 
+            font-size: 1.1rem; 
           }
           .bulib-search {
-            font-size: 1.3em;
-            padding: 1em;
+            font-size: 1.3rem;
+            padding: 1rem;
             min-width: 150px;
           }
         }
