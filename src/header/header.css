@@ -16,35 +16,20 @@
 .menu-items {
   text-align: center;
   justify-content: space-between;
-}
-.menu-items > li a, .menu-item { display: block; }
-@media only screen and (max-width: 750px){ 
-  .menu-items > li, .menu-item { display: none; }
-  .hamburger { display: block !important; }
-} 
-
-/* assorted minor styles */ 
-.menu-items { 
   padding-left: 0px; 
   display: flex;
   list-style: none;
 }
+.menu-items > li a, .menu-item { 
+  display: block; 
+  padding-right: 20px;
+}
+
+/* assorted minor styles */ 
 .primary-nav-main li {
   padding-left: 15px; padding-right: 15px;
 }
-
-/* hamburger menu */
-input.hamburger { 
-  display: none;
-  font-size: 3em; 
-  margin-top: -15px;
-  border: solid transparent 1px;
-}
-input.hamburger:checked { 
-  text-decoration: none;
-  color: white !important;
-  border: solid white 1px; 
-}
+.none { display: none; }
 
 /* dropdown */ 
 .dropdown {
@@ -66,33 +51,98 @@ input.hamburger:checked {
   display: block;
 }
 
-body {
-  background-color: lightblue;
-}
 
-#nav-toggle { 
-  position: absolute;
-  opacity: 0;
-  display: none;
-}
-#nav-toggle ~ .mobile-menu { display: none; }
-#nav-toggle:checked ~ .mobile-menu { display: block; }
-.mobile-menu {
-  position: absolute; 
-  right: -100%;
-  top: 50px;
-  overflow: visible;
-  background-color: black;
-  height: 100%;
-  width: 250px; 
-}
-#nav-toggle:checked ~ .mobile-menu, #nav-toggle:checked ~ label {
-  transform: translateX(250);
-}
-.hamburger {
+/* - mobile nav - */
+
+@media only screen and (max-width: 750px){ 
+  .menu-items > li, .menu-item { display: none; }
+  .mobile-navigation { display: block !important; }
+} 
+/* based heavily on the [CodePen](https://codepen.io/erikterwan/pen/EVzeRP)... 
+ *   Made by Erik Terwan (@terwanerik)
+ *   24th of November 2015
+ *   MIT License
+ */
+#menuToggle {
+  display: block;
   position: relative;
-  display: none;
-}
-.hamburger label { 
-  font-size: 2em; 
-}
+  padding: 20px;
+  float: right;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none; }
+  #menuToggle input {
+    display: block;
+    padding: 20px;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    /* hide this */
+    z-index: 2;
+    /* and place it over the hamburger */
+    -webkit-touch-callout: none; }
+  #menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #cdcdcd;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease; }
+
+/* change  */
+#menuToggle span:first-child {
+  transform-origin: 0% 0%; }
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%; }
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323; }
+
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px); }
+
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2); }
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu {
+  position: absolute;
+  width: 200px;
+  height: 60vh;
+  margin: -100px 0 0 -200px;
+  padding: 50px;
+  padding-top: 125px;
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(400%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); }
+  #menu a {
+    color: black; }
+  #menu li {
+    padding: 10px 0;
+    font-size: 22px; }
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul {
+  transform: none; }
