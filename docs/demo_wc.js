@@ -1,5 +1,4 @@
 export const ensemble_demo = `
-  <bulib-header></bulib-header>
 
   <div id="main-content">
     <h2><code>bulib-hours</code></h2>
@@ -24,9 +23,10 @@ export const search_demo = `
   <bulib-search debug></bulib-search>
   <br /><br />
 
-  <label>Ask a Librarian</label>
-  <bulib-search str_options="help primo"></bulib-search>
-  <br /><br />
+  <label>Ask a Librarian (with fallback)</label>
+  <bulib-search str_options="help primo" str_selected="help">
+    <form action="/search" method="get"><input name="q" type="text" /><button type="submit">Search</button></form>
+  </bulib-search>
 
   <label>Options, no Default</label>
   <bulib-search id="options-no-default" str_options="primo industries wp help" debug prevent_action></bulib-search>

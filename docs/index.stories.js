@@ -7,7 +7,7 @@ import {card_demo, cta_demo, popup_demo} from './demo_nojs';
 
 storiesOf('composites', module)
   .addDecorator(withKnobs)
-  .add('ensemble',     () => ensemble_demo)
+  .add('ensemble',     () => header_demo + ensemble_demo)
   .add('bulib-header', () => header_demo)
   .add('bulib-footer', () => footer_demo)
 ;
