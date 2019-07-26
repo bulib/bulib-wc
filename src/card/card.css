@@ -8,7 +8,6 @@
   display: flex;
   justify-content: space-between;
   max-width: 400px;
-/*   border: 1px gainsboro solid; */
 }
 .card i { 
   font-size: 4em;
