@@ -1,3 +1,22 @@
+export const ensemble_demo = `
+  <div id="main-content">
+    <h2><code>bulib-hours</code></h2>
+    <bulib-hours></bulib-hours>
+    <hr />
+
+    <h2><code>bulib-search</code></h2>
+    <bulib-search></bulib-search>
+    
+    <h2><code>bulib-locoso</code></h2>
+    <bulib-locoso></bulib-locoso>
+    <hr />
+  </div>
+
+  <br /><hr /><br />
+
+  <bulib-footer></bulib-footer>
+`;
+
 export const header_demo = `
 <head>
 <meta content="width=device-width, initial-scale=1" name="viewport" />

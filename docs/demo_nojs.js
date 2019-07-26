@@ -1,63 +1,4 @@
 export const popup_demo = `
-  <style>
-    .hamburger { 
-      font-size: 3em; 
-      text-decoration: none; 
-    }
-    /* from paul (@peiche) via codepen [https://codepen.io/peiche/pen/vhqym] */
-    .overlay {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.5);
-      transition: opacity 200ms;
-      visibility: hidden;
-      opacity: 0; }
-      .overlay .cancel {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        cursor: default; }
-      .overlay:target {
-        visibility: visible;
-        opacity: 1; }
-    
-    .popup {
-      margin: 75px auto;
-      padding: 20px;
-      background: #fff;
-      border: 1px solid #666;
-      width: 300px;
-      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-      position: relative; }
-      .popup h2 {
-        margin-top: 0;
-        color: #666;
-        font-family: "Trebuchet MS", Tahoma, Arial, sans-serif; }
-      .popup .close {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        top: 20px;
-        right: 20px;
-        opacity: 0.8;
-        transition: all 200ms;
-        font-size: 24px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #666; }
-        .popup .close:hover {
-          opacity: 1; }
-      .popup .content {
-        max-height: 400px;
-        overflow: auto; }
-      .popup p {
-        margin: 0 0 1em; }
-        .popup p:last-child {
-          margin: 0; }  
-  </style>
   <h1>Popup/Modal Windows without JavaScript</h1>
   <div id="wrapper">
     <p><a class="hamburger" href="#popup1">&equiv;</a></p>
@@ -86,27 +27,6 @@ export const popup_demo = `
 
 export const card_demo = `
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- @todo: replace with npm install -->
-  <style>
-    .deck, .ctas {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .card, .cta {
-      flex: 2 3 300px; 
-      display: flex;
-      justify-content: space-between;
-      max-width: 325px;
-      /* border: 1px gainsboro solid; */
-    }
-    .card i { 
-      font-size: 4em;
-      margin: 0.2em;
-      text-align: center;
-      flex: 1;
-    }
-    .card i:hover { cursor: pointer; }
-  </style>
   <div class="deck">
     <div class="card">
       <i class="material-icons" onclick="window.open('/form.php?quid=511','_self')">email</i>
@@ -157,25 +77,6 @@ export const card_demo = `
   </div>`;
 
   export const cta_demo = `
-    <link rel="stylesheet" type="text/css" href="../assets/css/cta.css">
-    <style>
-      .ctas {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 15px;
-        grid-template-rows: repeat(auto, 200px);
-      }
-      div.cta { 
-        text-align: center;
-        background-color: verylightgray;
-        border: 1px solid darkgrey;
-        min-width: 200px;
-      }
-      div.cta:hover { 
-        background-color: gainsboro; 
-        cursor: pointer;
-      }
-    </style>
     <div class="ctas">
       <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Borrowing','_self')">
         <h3><a href="/search/?g=716&amp;topics=Borrowing">Borrowing Items</a></h3>

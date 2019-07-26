@@ -4,11 +4,10 @@
   align-items: center;
 }
 .card {
-  flex: 1 4 270px; 
+  flex: 2 4 270px; 
   display: flex;
   justify-content: space-between;
   max-width: 400px;
-/*   border: 1px gainsboro solid; */
 }
 .card i { 
   font-size: 4em;

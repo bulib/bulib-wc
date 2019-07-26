@@ -1,9 +1,17 @@
 import '../src/index';
 import { storiesOf, withKnobs } from '@open-wc/demoing-storybook';
 
-import {header_demo} from './demo_comp';
-import {ensemble_demo, search_demo, hours_demo, locoso_demo, footer_demo, bulib_card_demo} from './demo_wc';
+// demos
+import {header_demo, ensemble_demo} from './demo_comp';
+import {search_demo, hours_demo, locoso_demo, footer_demo, bulib_card_demo} from './demo_wc';
 import {card_demo, cta_demo, popup_demo} from './demo_nojs';
+
+// css
+import '../assets/css/common.css';
+import '../assets/css/cta.css';
+import '../src/card/card.css';
+import '../src/header/header.css';
+import '../src/popup/popup.css';
 
 storiesOf('composites', module)
   .addDecorator(withKnobs)

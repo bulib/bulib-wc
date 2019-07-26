@@ -30,28 +30,7 @@ export default class BULCard extends LitElement {
     let action = !!this.js ? this.js : `window.open('${this.link}', '_self')`;
     return html`
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- @todo: replace with npm install -->
-      <style>
-        /* cards */
-        .deck, .ctas {
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-        }
-        .card, .cta {
-          flex: 2 3 300px; 
-          display: flex;
-          justify-content: space-between;
-          max-width: 325px;
-          /* border: 1px gainsboro solid; */
-        }
-        .card i { 
-          font-size: 4em;
-          margin: 0.2em;
-          text-align: center;
-          flex: 1;
-        }
-        .card i:hover { cursor: pointer; }
-      </style>
+      <link href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@cards-v1.0.0/src/card/card.css" rel="stylesheet">
       <div class="card">
         <i class="material-icons" onclick="${action}">${this.icon}</i>
         <div class="inline">
@@ -61,10 +40,6 @@ export default class BULCard extends LitElement {
       </div>
     `;
   }
-
-  // connectedCallback(){
-  //   this._logToConsole(`'${this.title}' card loaded`);
-  // }
   
   _logToConsole(message){
     if(!!this.debug){ console.log("bulib-card) " + message); }
