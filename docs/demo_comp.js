@@ -1,73 +1,23 @@
+export const ensemble_demo = `
+  <div id="main-content">
+    <h2><code>bulib-hours</code></h2>
+    <bulib-hours></bulib-hours>
+    <hr />
+
+    <h2><code>bulib-search</code></h2>
+    <bulib-search></bulib-search>
+    
+    <h2><code>bulib-locoso</code></h2>
+    <bulib-locoso></bulib-locoso>
+    <hr />
+  </div>
+
+  <br /><hr /><br />
+
+  <bulib-footer></bulib-footer>
+`;
+
 export const header_demo = `
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/assets/css/common.css">
-  <style>
-    /* header grid and responsivensess */
-    .primary-navbar {
-      display: flex;
-      justify-content: space-between; 
-    }
-    .primary-navbar a { 
-      color: white;
-      text-decoration: none;
-    }
-    .primary-navbar a:hover {
-      text-decoration: underline;
-    }
-
-    /* menu items */
-    .menu-items {
-      text-align: center;
-      justify-content: space-between;
-    }
-    .menu-items > li a, .menu-item { display: block; }
-    @media only screen and (max-width: 750px){ 
-      .menu-items > li, .menu-item { display: none; }
-      .hamburger { display: block !important; }
-    } 
-
-    /* assorted minor styles */ 
-    .menu-items { 
-      padding-left: 0px; 
-      display: flex;
-      list-style: none;
-    }
-    .primary-nav-main > ul > li {
-      padding-left: 15px; padding-right: 15px;
-    }
-
-    /* hamburger menu */
-    a.hamburger { 
-      display: none;
-      font-size: 3em; 
-      margin-top: -15px;
-      border: solid transparent 1px;
-    }
-    a.hamburger:hover { 
-      text-decoration: none;
-      color: white !important;
-      border: solid white 1px; 
-    }
-
-    /* dropdown */ 
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: black;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      padding: 12px 16px;
-      z-index: 1;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-  </style>
   <div class="header-wrapper">
     <nav>
       <div class="primary-navbar">

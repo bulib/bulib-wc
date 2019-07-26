@@ -1,24 +1,3 @@
-export const ensemble_demo = `
-  <bulib-header></bulib-header>
-
-  <div id="main-content">
-    <h2><code>bulib-hours</code></h2>
-    <bulib-hours></bulib-hours>
-    <hr />
-
-    <h2><code>bulib-search</code></h2>
-    <bulib-search></bulib-search>
-    
-    <h2><code>bulib-locoso</code></h2>
-    <bulib-locoso></bulib-locoso>
-    <hr />
-  </div>
-
-  <br /><hr /><br />
-
-  <bulib-footer></bulib-footer>
-`;
-
 export const search_demo = `
   <label>Empty (active)</label>
   <bulib-search debug></bulib-search>
@@ -68,11 +47,7 @@ export const locoso_demo = `
   </bulib-select>
 `;
 
-export const header_demo = `
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/assets/css/common.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/src/header/header.css">
-  <bulib-header></bulib-header>`;
-
+export const header_demo = `<bulib-header></bulib-header>`;
 
 export const footer_demo = `
   <bulib-footer debug></bulib-footer>
