@@ -1,20 +1,16 @@
-div.ctas { 
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between; 
-  width: 100%;
+/* calls to action */
+div.ctas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+  grid-template-rows: repeat(auto, 200px);
 }
-div.cta {
-  vertical-align: middle !important;
-  width: 100%;
+div.cta { 
   text-align: center;
-  padding: 0.5em;
   background-color: verylightgray;
   border: 1px solid darkgrey;
 }
-div.cta:hover { background-color: gainsboro; }
-div.cta > a > span > i {
-  font-size: 3em;
-  line-height: inherit;
-  vertical-align: bottom; 
+div.cta:hover { 
+  background-color: gainsboro; 
+  cursor: pointer;
 }

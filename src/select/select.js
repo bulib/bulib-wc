@@ -62,17 +62,13 @@ export default class BULibSelect extends LitElement {
   }
 
   render(){
+    let options = opt_map[this.opt_code];
     return html`
       <strong>${this.sel_title}</strong>:
       <select @input=${(e) => this._SelectionChanged(e)}}>
-        ${this.options.map((o) => html`<option value="${o.value}">${o.name}</option>`)}
+        ${options.map((o) => html`<option value="${o.value}">${o.name}</option>`)}
       </select>
     `;
-  }
-  
-  /** populate internal options list with the values from the specified 'opt_code' */
-  connectedCallback(){
-    this.options = opt_map[this.opt_code];
   }
 
   /** react to changes in which <option> is currently 'selected' */ 

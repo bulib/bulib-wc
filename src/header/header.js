@@ -91,9 +91,6 @@ export default class BULibHeader extends LitElement {
         </nav>
       </div>`;
   }
-  
-  /** when the web component is first added to the DOM, set the url. */
-  connectedCallback(){ this._urlUpdated(); }
 
   /** for development purposes, react to manual changes to `this.curr_url` via _urlUpdated */
   attributeChangedCallback(name, oldValue, newValue){

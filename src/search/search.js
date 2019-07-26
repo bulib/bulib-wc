@@ -1,19 +1,21 @@
-import {LitElement, html} from 'lit-element/lit-element';
+import {LitElement, html} from 'lit-element/lit-element'; //'https://unpkg.com/lit-element@2.2.0/lit-element.js?module';
 const ENTER_KEY_VALUE = 13;
 const default_to_just_primo = true;
 
 /** data on the overall search sources we have available to search on */
 export const search_options = [
+  {"value":"help",      "name":"Ask a Librarian",          "placeholder": "Type your question here",      "domain":"http://askalibrarian.bu.edu/search/?t=0&q="},
   {"value":"primo",     "name":"BU Libraries Search",      "placeholder": "Search library resources",     "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=BU&institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
+  {"value":"wp",        "name":"BU Libraries Site",        "placeholder": "Search library info/services", "domain":"https://search.bu.edu/?site=www.bu.edu%2Flibrary&q="},
   {"value":"industries","name":"Industry Survey Locator",  "placeholder": "Search for industry surveys",  "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=ISL&institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
-  {"value":"worldcat",  "name":"OCLC WorldCat",            "placeholder": "BU Libraries Search",          "domain":"https://bu.on.worldcat.org/search?queryString="},
-  {"value":"wp",        "name":"Boston University Site",   "placeholder": "Search library info/services", "domain":"https://search.bu.edu/?site=www.bu.edu%2Flibrary&q="},
+  {"value":"guides",    "name":"Library Guides",           "placeholder": "Search Research Guides",       "domain":"http://library.bu.edu/srch.php?q="},
+  {"value":"openbu",    "name":"Open BU",                  "placeholder": "Search BU Digital Collections","domain":"https://open.bu.edu/discover?query="},
+  {"value":"worldcat",  "name":"OCLC WorldCat",            "placeholder": "BU Libraries Search",          "domain":"https://bu.on.worldcat.org/search?queryString="}
   // {"value":"directory", "name":"Staff Directory",          "placeholder": "Search for people at BU",      "domain":"https://www.bu.edu/phpbin/directory/?q="},
   // {"value":"hgar",      "name":"Archival Research Center", "placeholder": "Search the BU Archive",        "domain":"http://archives.bu.edu/search/?search=SEARCH&query="},
-  {"value":"openbu",    "name":"Open BU",                  "placeholder": "Search BU Digital Collections","domain":"https://open.bu.edu/discover?query="},
-  {"value":"guides",    "name":"Library Guides",           "placeholder": "Search Research Guides",       "domain":"http://library.bu.edu/srch.php?q="},
-  {"value":"help",      "name":"Ask a Librarian",          "placeholder": "Type your question here",      "domain":"http://askalibrarian.bu.edu/search/?t=0&q="}
 ];
+
+const search_option_codes = search_options.map( x => x.value );
 
 /** move from 'code' string to option object (with backup) */
 const _getOptionFromCode = function(code, lsOptions){
@@ -29,7 +31,7 @@ const _getOptionFromCode = function(code, lsOptions){
 
 /** helper calling _getOptionFromCode  */
 const handleSearchSelect = function(event, defaultCode="primo"){
-  return event.target.selectedOptions[0].value || defaultCode;
+  return event.target.defaultValue || defaultCode;
 };
 
 /** context-sensitive search form allowing you to search across multiple 'search_options' */
@@ -45,7 +47,7 @@ export default class BULibSearch extends LitElement {
   static get properties() {
     return {
       /** selected search source (defaulted to first option) */
-      str_selected: {type: String, notify:true},
+      str_selected: {type: String},
       /** search sources included in the dropdown (defaulted to all) */
       str_options: {type: String},
       /** classes added to the search <button> */
@@ -57,89 +59,125 @@ export default class BULibSearch extends LitElement {
     };
   }
 
-  /** don't need 'slot' functionality, so lets use Light DOM */
-  createRenderRoot(){ return this; }
-  
-  /** for development purposes, react to manual changes to `this.curr_url` via _urlUpdated */
-  attributeChangedCallback(name, oldValue, newValue){
-    super.attributeChangedCallback(name, oldValue, newValue);
-    this._logToConsole(`${name} changed from ${oldValue} to ${newValue}.`);
-  }
-
   render() {
-    this._initSelectedOptions();
-
-    /* determine whether or not to show dropdown of options */
-    let optionsDisplay = (this.options.length <= 1)? html`` : html`
-      <select id="search_source_select" @change="${(e) => this.str_selected = handleSearchSelect(e)}" @keypress="${(k) => this._handleSearchEnter(k)}">
-        ${this.options.map((o) => html`<option value="${o.value}">${o.name}</option>`)}
-      </select>
-    `;
+    this._setSelectedOptions();
+    let hidden_html = (!this.options || this.options.length <= 1)? " hidden": "";
     
     return html`
-      <div id="bulib-search">
-        <input id="search_query_input" type="text" placeholder="${this.selected["placeholder"]}" @keypress="${(e) => this._handleSearchEnter(e)}"></input>
-        ${optionsDisplay}
-        <button type="submit" class="${this.search_btn_classes}" title="Search ${this.selected["name"]}" @click="${(e) => this._doSearch()}">Search</button>
+      <style>
+        .bulib-search-wrapper {
+          width: 100%;
+          background-color: #5a5d61;
+        }
+        .bulib-search { 
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .search-box, .search-options {
+          padding: 0.2rem 0.7rem; 
+          vertical-align: middle;
+        }
+        .search-box {
+          display: flex; 
+          flex: auto;
+          max-width: 800px;
+        }
+        .search-box > input {
+          flex: 80%;
+        }
+        .search-options {
+          color: white;
+          flex: auto;
+        }
+        .search-options > label {
+          margin-right: 0.5rem;
+          padding-left: 0.5rem;
+          cursor: pointer;
+        }
+        input[type=radio] {
+          /* transform: scale(1.3); */
+          cursor: pointer;
+          margin-right: 7px;
+          vertical-align: middle;
+        }
+        button { 
+          background-color: #35619c; 
+          color: white; 
+          cursor: pointer;
+        }
+        button:hover { background-color: #265694; }
+        .hidden { display: none; }
+
+        /* medium-sized screen and above */
+        @media only screen and (min-width: 400px){
+          .search-box > *, .search-options > label { 
+            font-size: 1.1rem; 
+          }
+          .bulib-search {
+            font-size: 1.3rem;
+            padding: 1rem;
+            min-width: 150px;
+          }
+        }
+      </style>
+      <div class="bulib-search-wrapper">
+        <div class="bulib-search">
+          <div class="search-box">
+            <input type="text" id="search-query-input" placeholder="${this.selected["placeholder"]}" 
+              @keypress="${(e) => this._handleSearchEnter(e)}">
+            <button type="submit" title="Search${this.selected["name"]}" class="${this.search_btn_classes}" 
+              @click="${(e) => this._doSearch()}" style="margin-left: 0px;">
+              <i class="material-icons">search</i>
+            </button>
+          </div>
+          <div class="search-options${hidden_html}">
+            ${this.options.map((o) => html`
+              <label>
+                ${this.selected["value"] == o.value
+                  ? html`<input type="radio" name="source" value="${o.value}" checked
+                            @change="${(e) => this.str_selected = handleSearchSelect(e)}"
+                            @keypress="${(k) => this._handleSearchEnter(k)}">${o.name}` 
+                  : html`<input type="radio" name="source" value="${o.value}"
+                            @change="${(e) => this.str_selected = handleSearchSelect(e)}"
+                            @keypress="${(k) => this._handleSearchEnter(k)}">${o.name}`
+                }
+              </label>`
+            )}
+          </div>
+        </div>
       </div>
     `;
   }
 
   /** set display options on user input (if present) */
-  _initSelectedOptions(){
+  _setSelectedOptions(){
     
     // try to set 'options' and 'selected' based on user input (with fallbacks) 
     this.options = []; this.selected = {};
     if(!this.str_options || this.str_options === ""){ 
-      this.options = default_to_just_primo? [_getOptionFromCode("primo")] : search_options;
-    }else{
-      let i, searchOption, optionCode;
-      for(i=0; i<search_options.length; i++){
-        searchOption = search_options[i];
-        optionCode = searchOption["value"];
-        if(optionCode && this.str_options.includes(optionCode)){ 
-          this.options.push(searchOption); 
-        }
+      this.str_options = default_to_just_primo? ["primo"] : search_options;
+    }
+      
+    let i, option, optionCode;
+    let selectedOptionCodes = this.str_options.includes(" ")? this.str_options.split(" ") : [this.str_options];
+    for(i=0; i<selectedOptionCodes.length; i++){
+      optionCode = selectedOptionCodes[i];
+      if(optionCode && search_option_codes.includes(optionCode)){ 
+        option = _getOptionFromCode(optionCode);
+        if(option){ this.options.push(option); }
       }
     }
-    
-    // enact default yor possible options list
-    if(!this.options  || this.options.length  < 1){ 
-      this.options = default_to_just_primo ? [_getOptionFromCode("primo")] : search_options; 
-    } 
-    
+
     // set 'str_selected', defaulting to the first 'option'
     if(Object.keys(this.selected).length == 0){ 
       this.selected = _getOptionFromCode(this.str_selected, this.options); 
     }
   }
-  
-  /** once html is on the page, update the visual to reflect the web component's data  */
-  updated(){
-    // auto-set this.str_selected to the first option if it's empty
-    if(this.str_options && !this.str_selected){
-      this.str_selected = this.str_options.split(" ")[0] || "";
-    }
-    
-    // if selected is accurately set, update the <select> element to reflect the new value
-    if(this.selected){ 
-      let searchSourceSelect = this.querySelector("#search_source_select");
-      let lsSearchSourceOptions = searchSourceSelect ? searchSourceSelect.options : [];
-      for(let i=0; i<lsSearchSourceOptions.length; i++){
-        let option = lsSearchSourceOptions[i];
-        if(option.value === this.selected["value"]){ option.selected = "selected"; }
-      }
-    }
-    
-    // set the input box width based on the placeholder
-    let inputElem = this.querySelector("#search_query_input");
-    inputElem.setAttribute('size',inputElem.getAttribute('placeholder').length);
-  }
 
   /** perform a search for the input query on the selected database */
   _doSearch(){
     // obtain values required for the search from the input and currently selected option.
-    let userInputElem = this.querySelector("#search_query_input");
+    let userInputElem = this.shadowRoot.querySelector("input#search-query-input");
     let query = userInputElem ? userInputElem.value : "";
 
     // track and store the selected option and its information
