@@ -8,8 +8,8 @@ import {card_demo, cta_demo, popup_demo} from './demo_nojs';
 
 // css
 import '../assets/css/common.css';
-import '../assets/css/card.css';
 import '../assets/css/cta.css';
+import '../src/card/card.css';
 import '../src/header/header.css';
 import '../src/popup/popup.css';
 
