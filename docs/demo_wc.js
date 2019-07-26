@@ -14,6 +14,12 @@ export const search_demo = `
   <label>Options, with Default</label>
   <bulib-search name="options, with default" str_options="primo industries wp" 
                 str_selected="industries" debug prevent_action></bulib-search>
+
+  <br /><br />
+  <bulib-select
+    sel_title="Select Search Source" curr_sel="primo" opt_code="search_options"
+    tag_name="bulib-search" attr_name="str_selected" debug prevent_action>
+  </bulib-select>
 `;
 
 export const hours_demo = `
