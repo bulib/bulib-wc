@@ -22,26 +22,26 @@ export const header_demo = `
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/assets/css/common.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.11.1/src/header/header.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.11.4/src/header/header.min.css">
 
 </head>
 
 <body>
-<div class="header-wrapper">
+  <div class="header-wrapper">
   <nav>
     <div class="primary-navbar">
       <div class="primary-nav-left">
-        <a title="BU Libraries Homepage">
+        <a title="BU Libraries Homepage" href="https://www.bu.edu/library">
           <img id="bu-logo" src="https://github.com/bulib/bulib-wc/blob/master/assets/icons/bulib-logo.png?raw=true">
         </a>
       </div>
       <div class="primary-nav-main menu-items-wrapper">
         <ul class="menu-items">
-          <li id="subsite-research"><a href="http://bu.edu/library/research">Research</a></li>
-          <li id="subsite-services"><a href="http://bu.edu/library/services">Services</a></li>
-          <li id="subsite-about"><a href="http://bu.edu/library/">About</a></li>
-          <!-- <li id="subsite-guides"><a href="http://library.bu.edu/guides">Guides</a></li> -->
-          <!-- <li id="subsite-help"><a href="http://askalibrarian.bu.edu/">Help</a></li> -->
+          <li id="subsite-research"><a href="https://bu.edu/library/research">Research</a></li>
+          <li id="subsite-services"><a href="https://bu.edu/library/services">Services</a></li>
+          <li id="subsite-about"><a href="https://bu.edu/library/">About</a></li>
+          <!-- <li id="subsite-guides"><a href="https://library.bu.edu/guides">Guides</a></li> -->
+          <!-- <li id="subsite-help"><a href="https://askalibrarian.bu.edu/">Help</a></li> -->
         </ul>
       </div>
       <div class="primary-nav-right">
@@ -65,7 +65,7 @@ export const header_demo = `
                 <li id="subsite-about"><a href="https://www.bu.edu/library/">About</a></li>
                 <li><hr /></li>
                 <li><a href="https://www.bu.edu/library/about">Library Locations</a></li>
-                <li><a href="https://buprimo.hosted.exlibrisgroup.com/primo-explore/account?vid=default&lang=en_US">Library Account</a></li>
+                <li><a href="https://askalibrarian.bu.edu/">Ask a Librarian</a></li>
               </ul>
             </div>
         </div>
@@ -92,12 +92,16 @@ export const header_demo = `
                 </div>
               </div>
             </li>
-            <li><a class="menu-item" href="https://buprimo.hosted.exlibrisgroup.com/primo-explore/account?vid=default&lang=en_US">My Library Account</a></li>
+            <li>
+              <a class="menu-item inline" href="https://askalibrarian.bu.edu/">
+                <span style="vertical-align: super; padding-right: 10px;">Ask a Librarian</span><i class="material-icons inline">question_answer</i>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
     </div>
   </nav>
-</div>
+  </div>
 </body>
 `;
