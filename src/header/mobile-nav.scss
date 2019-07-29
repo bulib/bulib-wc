@@ -12,13 +12,13 @@
   margin-top: -15px;
   right: 0;
   top: 0;
-  min-width: 250px;
+  min-width: 75px;
   min-height: 80vh;
   padding: 25px;
 
   opacity:0;
   transition: opacity 0.55s;
-  -webkit-transition: opacity 0.55s; /* Safari */
+  -webkit-transition: opacity 0.55s; // Safari
   
   background: #ededed;
   list-style-type: none;
@@ -28,11 +28,7 @@
   li { padding: 10px 0;  }
 }
 
-/* based heavily on the [CodePen](https://codepen.io/erikterwan/pen/EVzeRP)... 
- *   Made by Erik Terwan (@terwanerik)
- *   24th of November 2015
- *   MIT License
- */
+/* based heavily on the [CodePen](https://codepen.io/erikterwan/pen/EVzeRP) by Erik Terwan (@terwanerik) under the MIT License] */
 
 #menuToggle {
   display: block;
