@@ -14,6 +14,7 @@
     "clean": "rm -rf node_modules/ || true",
     "cy:verify": "cypress verify",
     "reinstall": "npm run clean && npm install",
+    "prestart": "npm run build:css",
     "start": "start-storybook -p 9001",
     "build": "rollup -c rollup.config.js",
     "build:css": "scss ./src/header/header.scss > ./src/header/header.css && scss ./src/header/mobile-nav.scss >> ./src/header/header.css",

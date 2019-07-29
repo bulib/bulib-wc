@@ -11,7 +11,6 @@ import '../assets/css/common.css';
 import '../assets/css/cta.css';
 import '../src/card/card.css';
 import '../src/header/header.css';
-import '../src/popup/popup.css';
 
 storiesOf('composites', module)
   .addDecorator(withKnobs)
