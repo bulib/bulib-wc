@@ -4,7 +4,7 @@ import { storiesOf, withKnobs } from '@open-wc/demoing-storybook';
 // demos
 import {header_demo, ensemble_demo} from './demo_comp';
 import {search_demo, hours_demo, locoso_demo, footer_demo, bulib_card_demo} from './demo_wc';
-import {card_demo, cta_demo, popup_demo} from './demo_nojs';
+import {card_demo, cta_demo} from './demo_nojs';
 
 // css
 import '../assets/css/common.css';
@@ -32,5 +32,4 @@ storiesOf('components', module)
 storiesOf('nojs', module)
   .add('card', () => card_demo)
   .add('call-to-action', () => cta_demo)
-  .add('popup', () => popup_demo)
 ;

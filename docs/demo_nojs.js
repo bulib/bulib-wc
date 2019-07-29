@@ -1,30 +1,3 @@
-export const popup_demo = `
-  <h1>Popup/Modal Windows without JavaScript</h1>
-  <div id="wrapper">
-    <p><a class="hamburger" href="#popup1">&equiv;</a></p>
-  </div>
-
-  <div id="popup1" class="overlay">
-    <a class="cancel" href="#"></a>
-    <div class="popup">
-      <h2>Info box</h2>
-      <a class="close" href="#">&times;</a>
-      <div class="content">
-        <p>This is done totally without JavaScript. Just HTML and CSS.</p>
-      </div>
-    </div>
-  </div>
-
-  <div id="popup2" class="overlay light">
-    <a class="cancel" href="#"></a>
-    <div class="popup">
-      <h2>What the what?</h2>
-      <div class="content">
-        <p>Click outside the popup to close.</p>
-      </div>
-    </div>
-  </div>`;
-
 export const card_demo = `
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- @todo: replace with npm install -->
   <div class="deck">
