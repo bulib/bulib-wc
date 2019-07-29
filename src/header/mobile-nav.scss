@@ -3,18 +3,18 @@
 @media only screen and (max-width: 825px){ 
   .menu-items > li, .menu-item { display: none; }
   .mobile-navigation { display: block !important; }
-  #bu-logo { margin-top: 15px; }
 } 
 
 /* position mobile menu hidden in the top right, a z-layer beneath everything else */
  #mobile-menu {
   position: absolute;
-  margin-top: -15px;
-  right: 0;
-  top: 0;
+  right: 0; margin-right: -6px;
+  top: 0; margin-top: -6px;
+  width: fit-content;
   min-width: 75px;
-  min-height: 80vh;
-  padding: 25px;
+  padding: 30px;
+  padding-top: 20px;
+  padding-right: 80px;
 
   opacity:0;
   transition: opacity 0.55s;
@@ -25,7 +25,7 @@
   -webkit-font-smoothing: antialiased; // stop flickering of text in safari
   
   a { color: black; }
-  li { padding: 10px 0;  }
+  li { padding: 10px 0; }
 }
 
 /* based heavily on the [CodePen](https://codepen.io/erikterwan/pen/EVzeRP) by Erik Terwan (@terwanerik) under the MIT License] */
