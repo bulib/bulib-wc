@@ -1,4 +1,4 @@
-import {LitElement, html} from 'lit-element/lit-element';
+import {LitElement, html, css} from 'lit-element/lit-element';
 import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
 /** stored values for the sitemap */
@@ -47,6 +47,57 @@ export default class BULibFooter extends LitElement {
   constructor(){
     super();
     this.library = "help";
+  }
+
+  static get styles(){
+    return [
+      css`
+        /* footer grid and colors */
+        footer {
+          display: grid;
+          grid-template-columns: repeat(8, 1fr);
+          grid-auto-rows: minmax(50px, auto);
+          grid-template-areas:
+            "ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md"
+            "ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt"
+            "ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt";
+          grid-gap: 10px;
+        }
+        .ftr-middle > div, .ftr-right > div, .ftr-left > div { width: 85%; margin: 0 auto; }
+
+        /* medium-sized screen */
+        @media only screen and (min-width: 850px){
+          footer {
+            grid-template-areas:
+              "ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md"
+              "ftr-lt ftr-lt ftr-lt ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt";
+          }
+          .ftr-middle { border-bottom: solid transparent 1px; }
+          .ftr-right  { border-bottom: solid transparent 1px !important; }
+          .ftr-middle > div { width: 75%; }
+          .ftr-left > div, .ftr-right > div { width: 100%; }
+        }
+
+        /* large-sized screen */
+        @media only screen and (min-width: 1200px ){
+          footer {
+            grid-template-areas: "ftr-lt ftr-lt ftr-md ftr-md ftr-md ftr-rt ftr-rt ftr-rt";
+          }
+          .ftr-middle { border-bottom: solid transparent 1px !important; }
+          .ftr-middle > div { width: 85%; margin: 0 auto; }
+          .ftr-right  { border-bottom: solid transparent 1px !important; }
+        }
+
+        /* map classes to grid areas */
+        .ftr-left   { grid-area: ftr-lt; border-bottom: solid transparent 1px; padding-bottom: 20px; }
+        .ftr-middle { grid-area: ftr-md; border-bottom: solid lightgrey 1px; }
+        .ftr-right  { grid-area: ftr-rt; border-bottom: solid lightgrey 1px; }
+        /*.ftr-left > div, .ftr-middle > div, .ftr-right > div { margin: 6%; }*/
+
+        /* etc */
+        .bu-logo { padding-right: 25px; }
+      `
+    ]
   }
 
   static get properties() {
