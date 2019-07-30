@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 /* -- pagewidth -- */
 .header-wrapper, .footer-wrapper {
   background-color: #212121;
   color: white;
   padding: 2%;
   font-size: 105%;
+  width: 100%;
 }
 
 /* on super large screens, set the width to avoid getting too much spacing */

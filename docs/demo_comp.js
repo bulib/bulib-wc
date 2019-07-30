@@ -1,17 +1,16 @@
 export const ensemble_demo = `
-  <div id="main-content">
-    <h2><code>bulib-hours</code></h2>
-    <bulib-hours></bulib-hours>
-    <hr />
+  <br /><hr /><br />
 
-    <h2><code>bulib-search</code></h2>
-    <bulib-search></bulib-search>
-    
-    <h2><code>bulib-locoso</code></h2>
-    <bulib-locoso></bulib-locoso>
-    <hr />
-  </div>
+  <h2><code>bulib-hours</code></h2>
+  <bulib-hours></bulib-hours>
+  <br /><hr /><br />
 
+  <h2><code>bulib-search</code></h2>
+  <bulib-search></bulib-search>
+  <br /><hr /><br />
+  
+  <h2><code>bulib-locoso</code></h2>
+  <bulib-locoso></bulib-locoso>
   <br /><hr /><br />
 
   <bulib-footer></bulib-footer>`;

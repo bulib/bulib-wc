@@ -1,7 +1,3 @@
-/* header grid and responsivensess */
-.header-wrapper, .footer-wrapper {
-  width: 100%; }
-
 .primary-navbar {
   display: flex;
   justify-content: space-between;

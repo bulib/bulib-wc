@@ -17,7 +17,7 @@
     "prestart": "npm run build:css",
     "start": "start-storybook -p 9001",
     "build": "rollup -c rollup.config.js",
-    "build:css": "scss ./src/header/header.scss > ./src/header/header.css && scss ./src/header/mobile-nav.scss >> ./src/header/header.css",
+    "build:css": "./scripts/bundle_css.sh",
     "build:owc": "rollup -c rollup.config.owc.js",
     "build:storybook": "npm run reinstall && build-storybook -o _site -s storybook-static",
     "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -o dist",
