@@ -1,4 +1,5 @@
 export const search_demo = `
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <label>Empty (active)</label>
   <bulib-search debug></bulib-search>
   <br /><br />
@@ -7,6 +8,7 @@ export const search_demo = `
   <bulib-search str_options="help primo" str_selected="help">
     <form action="/search" method="get"><input name="q" type="text" /><button type="submit">Search</button></form>
   </bulib-search>
+  <br /><br />
 
   <label>Options, no Default</label>
   <bulib-search id="options-no-default" str_options="primo industries wp help" debug prevent_action></bulib-search>
@@ -68,6 +70,7 @@ export const footer_demo = `
 `;
 
 export const bulib_card_demo = `
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- @todo: replace with npm install -->
   <div class="deck">
     <bulib-card title="Email" icon="email" link="https://askalibrarian.bu.edu/form.php?quid=511" debug
       description="Email us your research questions and we’ll respond within 24 hours."></bulib-card>
