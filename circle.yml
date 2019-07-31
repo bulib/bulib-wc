@@ -31,7 +31,7 @@ jobs:
           destination: /bundles/open-wc/
       - run: 
           name: build with custom rollup config
-          command: npm run build;
+          command: npm run build:rollup;
       - store_artifacts:
           name: upload bundle
           path: /root/project/dist/bundle.esm.js
@@ -43,6 +43,13 @@ jobs:
           name: upload bundle
           path: /root/project/_site/
           destination: /_site/
+      - run:
+          name: simulate npm package creation
+          command: npm pack
+      - store_artifacts:
+          name: upload simulated package
+          path: /root/project/bulib-wc.*.tgz
+          destination: /npm/
 
 workflows:
   version: 2

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# exit when any command fails
+set -e
+
 # update the NPM package
 npm version patch
 npm run build:all 

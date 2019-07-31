@@ -11,16 +11,18 @@
   ],
   "scripts": {
     "clean": "rm -rf node_modules/ || true",
-    "cy:verify": "cypress verify",
     "reinstall": "npm run clean && npm install",
-    "prestart": "npm run build:css",
+    "cy:verify": "cypress verify",
+    "css": "./scripts/bundle_css.sh",
+    "prestart": "npm run css",
     "start": "start-storybook -p 9001",
-    "build": "rollup -c rollup.config.js",
-    "build:css": "./scripts/bundle_css.sh",
+    "build:all": "./scripts/rebuild.sh",
+    "build:rollup": "rollup -c rollup.config.js",
     "build:owc": "rollup -c rollup.config.owc.js",
-    "build:storybook": "npm run reinstall && build-storybook -o _site -s storybook-static",
-    "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -o dist",
-    "publish": "npm publish && npm run deploy:storybook"
+    "prebuild:storybook": "npm run css",
+    "build:storybook": "build-storybook -o _site -s storybook-static",
+    "deploy": "./scripts/deploy.sh",
+    "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -o dist"
   },
   "repository": {
     "type": "git",
