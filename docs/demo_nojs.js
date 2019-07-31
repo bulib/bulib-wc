@@ -1,5 +1,4 @@
 export const card_demo = `
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- @todo: replace with npm install -->
   <div class="deck">
     <div class="card">
       <i class="material-icons" onclick="window.open('/form.php?quid=511','_self')">email</i>

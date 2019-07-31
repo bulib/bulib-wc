@@ -10,4 +10,3 @@ mkdir dist || rm $CSS_BUNDLE_FILEPATH || true;
 touch $CSS_BUNDLE_FILEPATH;
 cat assets/css/*.css >> $CSS_BUNDLE_FILEPATH
 cat src/header/header.css >>  $CSS_BUNDLE_FILEPATH
-cat src/footer/footer.css >> $CSS_BUNDLE_FILEPATH

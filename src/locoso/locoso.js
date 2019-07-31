@@ -11,9 +11,6 @@ export default class Locoso extends LitElement {
 
   constructor(){ super(); }
 
-  // don't need 'slot' functionality, so lets use Light DOM
-  createRenderRoot(){ return this; }
-
   static get properties() {
     return {
       /** optional additional class added to each link in the rendered HTML */
@@ -64,7 +61,7 @@ export default class Locoso extends LitElement {
         .locoso-wrapper { display: flex; }
 
         /* list styles, */
-        ul, ol { margin: 5px 0px; padding-left: 0; padding-bottom: 10px; }
+        .locoso-left ul, .locoso-left ol { margin: 5px 0px; padding-left: 0; padding-bottom: 10px; }
 
         /* padding and margins */
         .prm { margin-right: 10px; padding-right: 10px; }

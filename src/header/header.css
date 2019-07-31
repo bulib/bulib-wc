@@ -9,6 +9,9 @@
   .primary-navbar a:hover {
     text-decoration: underline; }
 
+#bu-logo {
+  padding-top: 10px; }
+
 /* menu items */
 .menu-items {
   text-align: center;
@@ -24,9 +27,6 @@
 .primary-nav-main li {
   padding-left: 15px;
   padding-right: 15px; }
-
-.primary-nav-left {
-  padding-top: 10px; }
 
 .none {
   display: none; }
@@ -53,14 +53,20 @@
     display: none; }
 
   .mobile-navigation {
-    display: block !important; } }
+    display: block !important; }
+
+  #bu-logo {
+    padding-top: unset; }
+
+  .primary-nav-right {
+    padding-top: 7px; } }
 /* position mobile menu hidden in the top right, a z-layer beneath everything else */
 #mobile-menu {
   position: absolute;
   right: 0;
   margin-right: -6px;
   top: 0;
-  margin-top: -6px;
+  margin-top: -10px;
   width: fit-content;
   min-width: 75px;
   padding: 30px;
@@ -81,7 +87,6 @@
 #menuToggle {
   display: block;
   position: relative;
-  padding: 20px;
   float: right;
   z-index: 1;
   -webkit-user-select: none;

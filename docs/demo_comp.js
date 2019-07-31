@@ -16,14 +16,6 @@ export const ensemble_demo = `
   <bulib-footer></bulib-footer>`;
 
 export const header_demo = `
-<head>
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/assets/css/common.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@header-v0.11.5/src/header/header.min.css">
-</head>
-
-<body>
   <div class="header-wrapper">
     <nav>
       <div class="primary-navbar">
@@ -99,5 +91,4 @@ export const header_demo = `
         </div>
       </div>
     </nav>
-  </div>
-</body>`;
+  </div>`;

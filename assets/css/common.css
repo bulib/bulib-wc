@@ -4,7 +4,7 @@
 .header-wrapper, .footer-wrapper {
   background-color: #212121;
   color: white;
-  padding: 2%;
+  padding: 10px;
   font-size: 105%;
   width: 100%;
 }
