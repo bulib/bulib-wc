@@ -91,12 +91,12 @@ export default class BULibSearch extends LitElement {
         .search-options > label {
           margin-right: 0.5rem;
           padding-left: 0.5rem;
-          font-size: large;
+          font-size: large !important;
           cursor: pointer;
         }
         input[type=radio] {
           cursor: pointer;
-          font-size: large;
+          font-size: large !important;
           margin-right: 7px;
           vertical-align: text-bottom;
         }
