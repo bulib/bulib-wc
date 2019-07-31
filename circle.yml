@@ -48,7 +48,7 @@ jobs:
           command: npm pack
       - store_artifacts:
           name: upload simulated package
-          path: /root/project/bulib-wc.*.tgz
+          path: /root/project/bulib-wc-*.tgz
           destination: /npm/
 
 workflows:
