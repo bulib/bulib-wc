@@ -96,6 +96,9 @@ export default class BULibFooter extends LitElement {
 
         /* etc */
         .bu-logo { padding-right: 25px; }
+
+        /* firefox fix to stop the 'Follow Us' from becoming centered */
+        ::slotted(h3) { text-align: left; }
       `
     ]
   }
@@ -150,12 +153,7 @@ export default class BULibFooter extends LitElement {
 
     // render the main content of the component
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/assets/css/common.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/src/footer/footer.css">
-      <style>
-        /* firefox fix to stop the 'Follow Us' from becoming centered */
-        ::slotted(h3) { text-align: left; }
-      </style>
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/bundle.min.css">
       <div class="footer-wrapper">
         <footer>
           <div class="ftr-left">

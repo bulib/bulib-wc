@@ -5,10 +5,9 @@
   "main": "src/index.js",
   "module": "src/index.js",
   "files": [
-    "src/*/*.js",
-    "src/*/*.css",
+    "assets/",
     "dist/bundle*.js",
-    "assets"
+    "dist/bundle.css"
   ],
   "scripts": {
     "clean": "rm -rf node_modules/ || true",
