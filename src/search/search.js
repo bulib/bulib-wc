@@ -81,6 +81,7 @@ export default class BULibSearch extends LitElement {
         }
         .search-box > input {
           flex: 80%;
+          font-size: large;
         }
         .search-options {
           padding-top: 10px;
@@ -90,10 +91,12 @@ export default class BULibSearch extends LitElement {
         .search-options > label {
           margin-right: 0.5rem;
           padding-left: 0.5rem;
+          font-size: large;
           cursor: pointer;
         }
         input[type=radio] {
           cursor: pointer;
+          font-size: large;
           margin-right: 7px;
           vertical-align: text-bottom;
         }
