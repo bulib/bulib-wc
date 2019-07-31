@@ -68,12 +68,12 @@ export default class BULibHours extends LitElement {
     let libhours_display;
     if(!lid){ libhours_display = none_display; }
     if(this.short){ libhours_display = small_display; }
-    else if(this.long){  libhours_display = large_display; }
+    else if(this.long){ libhours_display = large_display; }
     else{ libhours_display = medium_display; }
 
     return html`
       <style> 
-        :host { color: white; } 
+        bulib-hours:host { color: white; } 
         a > span { text-decoration: underline; }
         .txtv { display: flex; align-items: center; text-align: center; }
       </style>
