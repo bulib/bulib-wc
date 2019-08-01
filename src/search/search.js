@@ -73,8 +73,7 @@ export default class BULibSearch extends LitElement {
           flex-wrap: wrap;
         }
         .search-box, .search-options {
-          padding: 0.2rem 0.7rem; 
-          vertical-align: middle;
+          margin: 0.2rem 0.4rem; 
         }
         .search-box {
           display: flex; 
@@ -118,7 +117,7 @@ export default class BULibSearch extends LitElement {
         .hidden { display: none; }
 
         /* medium-sized screen and above */
-        @media only screen and (min-width: 400px){
+        @media only screen and (min-width: 300px){
           #bulib-search { padding: 10px; }
           .search-box > input, input[type=radio], .search-options > label { 
             font-size: large; 
