@@ -1,16 +1,4 @@
-.card {
-  font-family: 'Noto Sans', sans-serif;
-}
-.card a {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1.4em;
-  color: #0B4473;
-}
-.card i {
-  color: #065180;
-  border-left: 4px solid #008C77;
-  padding: 0px 10px;
-}
+
 /*TK HIDE OTB SEARCH*/
 #s-la-page-title-bar .navbar {display: none;}
 

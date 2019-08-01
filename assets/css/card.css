@@ -3,23 +3,27 @@
 .deck {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: center;
 }
 .card {
-  flex: 2 3 270px; 
+  font-family: 'Noto Sans', sans-serif;
+  flex-shrink: inherit;
   flex-basis: 100%;
+  align-items: center;
   display: flex;
-  justify-content: space-between;
   max-width: 400px;
 }
 .card i { 
+  color: #0B4473;
   font-size: 4em;
   margin: 0.2em;
   text-align: center;
   flex: 1;
 }
 .card i:hover { cursor: pointer; }
-
-.card > div { 
-  flex: 2;
+.card a { 
+  font-size: x-large;
+  color: #0B4473;
 }
+
+.card > div { flex: 2; }
