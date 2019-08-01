@@ -1,30 +1,3 @@
-export const popup_demo = `
-  <h1>Popup/Modal Windows without JavaScript</h1>
-  <div id="wrapper">
-    <p><a class="hamburger" href="#popup1">&equiv;</a></p>
-  </div>
-
-  <div id="popup1" class="overlay">
-    <a class="cancel" href="#"></a>
-    <div class="popup">
-      <h2>Info box</h2>
-      <a class="close" href="#">&times;</a>
-      <div class="content">
-        <p>This is done totally without JavaScript. Just HTML and CSS.</p>
-      </div>
-    </div>
-  </div>
-
-  <div id="popup2" class="overlay light">
-    <a class="cancel" href="#"></a>
-    <div class="popup">
-      <h2>What the what?</h2>
-      <div class="content">
-        <p>Click outside the popup to close.</p>
-      </div>
-    </div>
-  </div>`;
-
 export const card_demo = `
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- @todo: replace with npm install -->
   <div class="deck">
@@ -82,8 +55,8 @@ export const card_demo = `
         <h3><a href="/search/?g=716&amp;topics=Borrowing">Borrowing Items</a></h3>
       </div>
 
-      <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Troubleshooting','_self')">
-        <h3><a href="/search/?g=716&amp;topics=Troubleshooting">Troubleshooting</a></h3>
+      <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1','_self')">
+        <h3><a href="/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1">Alumni</a></h3>
       </div>
 
       <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1','_self')">
@@ -91,7 +64,7 @@ export const card_demo = `
       </div>
 
       <div class="cta" onclick="window.open('/businessFAQs/','_self')">
-        <h3><a href="/businessFAQs/">Pardee/Business Library</a></h3>
+        <h3><a href="/businessFAQs/">Pardee / Management</a></h3>
       </div>
 
       <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1','_self')">
@@ -102,11 +75,12 @@ export const card_demo = `
         <h3><a href="/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1">Journals</a></h3>
       </div>
 
-      <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Books&amp;adv=1','_self')">
-        <h3><a href="/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1">Books</a></h3>
+      <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Troubleshooting','_self')">
+        <h3><a href="/search/?g=716&amp;topics=Troubleshooting">Troubleshooting</a></h3>
       </div>
 
       <div class="cta" onclick="window.open('/search/','_self')">
         <h3><a href="/search">All Topics</a></h3>
       </div>
+
     </div>`;

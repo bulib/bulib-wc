@@ -1,4 +1,4 @@
-import {LitElement, html} from 'lit-element/lit-element'; //'https://unpkg.com/lit-element@2.2.0/lit-element.js?module';
+import {LitElement, html, css} from 'lit-element/lit-element'; //'https://unpkg.com/lit-element@2.2.0/lit-element.js?module';
 const ENTER_KEY_VALUE = 13;
 const default_to_just_primo = true;
 
@@ -59,12 +59,10 @@ export default class BULibSearch extends LitElement {
     };
   }
 
-  render() {
-    this._setSelectedOptions();
-    let hidden_html = (!this.options || this.options.length <= 1)? " hidden": "";
-    
-    return html`
-      <style>
+  static get styles(){
+    return [
+      css`
+        i:host { display: block; }
         .bulib-search-wrapper {
           width: 100%;
           background-color: #5a5d61;
@@ -119,15 +117,27 @@ export default class BULibSearch extends LitElement {
             min-width: 150px;
           }
         }
-      </style>
+      `
+    ]
+  }
+
+  render() {
+    this._setSelectedOptions();
+    let hidden_html = (!this.options || this.options.length <= 1)? " hidden": "";
+    
+    return html`
       <div class="bulib-search-wrapper">
         <div class="bulib-search">
           <div class="search-box">
             <input type="text" id="search-query-input" placeholder="${this.selected["placeholder"]}" 
               @keypress="${(e) => this._handleSearchEnter(e)}">
-            <button type="submit" title="Search${this.selected["name"]}" class="${this.search_btn_classes}" 
+            <button type="submit" title="Search ${this.selected["name"]}" class="${this.search_btn_classes}" 
               @click="${(e) => this._doSearch()}" style="margin-left: 0px;">
-              <i class="material-icons">search</i>
+              <!-- material-icon svg from https://material.io/resources/icons/?icon=search&style=baseline -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
+                <path font-weight="bold" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                <path d="M0 0h24v24H0z" fill="none"/>
+              </svg>
             </button>
           </div>
           <div class="search-options${hidden_html}">

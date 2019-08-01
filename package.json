@@ -1,6 +1,6 @@
 {
   "name": "bulib-wc",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "collection of web components and styles used at Boston University Libraries",
   "main": "src/index.js",
   "module": "src/index.js",
@@ -14,8 +14,10 @@
     "clean": "rm -rf node_modules/ || true",
     "cy:verify": "cypress verify",
     "reinstall": "npm run clean && npm install",
+    "prestart": "npm run build:css",
     "start": "start-storybook -p 9001",
     "build": "rollup -c rollup.config.js",
+    "build:css": "scss ./src/header/header.scss > ./src/header/header.css && scss ./src/header/mobile-nav.scss >> ./src/header/header.css",
     "build:owc": "rollup -c rollup.config.owc.js",
     "build:storybook": "npm run reinstall && build-storybook -o _site -s storybook-static",
     "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -o dist",
@@ -49,6 +51,7 @@
     "cypress": "^3.4.0",
     "rollup": "^1.6.0",
     "rollup-plugin-babel-minify": "^8.0.0",
-    "rollup-plugin-node-resolve": "^5.0.0"
+    "rollup-plugin-node-resolve": "^5.0.0",
+    "scss": "^0.2.4"
   }
 }

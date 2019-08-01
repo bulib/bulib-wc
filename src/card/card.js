@@ -29,8 +29,6 @@ export default class BULCard extends LitElement {
     let href = !!this.js ? "javascript:void(0);" : this.link;
     let action = !!this.js ? this.js : `window.open('${this.link}', '_self')`;
     return html`
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- @todo: replace with npm install -->
-      <link href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@cards-v1.0.0/src/card/card.css" rel="stylesheet">
       <div class="card">
         <i class="material-icons" onclick="${action}">${this.icon}</i>
         <div class="inline">
