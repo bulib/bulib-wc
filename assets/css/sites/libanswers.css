@@ -2,41 +2,6 @@
 /*TK HIDE OTB SEARCH*/
 #s-la-page-title-bar .navbar {display: none;}
 
-.ctas {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 25px 150px;
-  grid-template-rows: repeat(auto, 200px);
-}
-div.cta {
-  text-align: center;
-  background-color: #fefefe;
-  border: 1px solid #e1e1e1;
-  border-radius: 4px;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-}
-div.cta:last-of-type{
-  text-transform: uppercase;
-  background-color: #dddddd; 
-}
-div.cta:hover { 
-  background-color: #f1f1f1; 
-  cursor: pointer;
-}
-div.cta h3 {
-  margin: 0px;
-  padding: 25px 0px;
-  font-size: 1.5em;
-}
-.cta a{
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1em;
-  color: #0B4473;
-}
-div.cta a, div.card a {
-  text-decoration: underline dotted;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Source Sans Pro', sans-serif;
 }
