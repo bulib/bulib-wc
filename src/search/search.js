@@ -66,8 +66,9 @@ export default class BULibSearch extends LitElement {
           width: 100%;
           background-color: #212121;
           background: linear-gradient(#212121,#333333,#444444);
+          border-radius: 4px;
         }
-        .bulib-search { 
+        #bulib-search { 
           display: flex;
           flex-wrap: wrap;
         }
@@ -78,11 +79,10 @@ export default class BULibSearch extends LitElement {
         .search-box {
           display: flex; 
           flex: auto;
-          max-width: 800px;
+          max-width: 750px;
         }
         .search-box > input {
           flex: 80%;
-          font-size: large;
           border-top-left-radius: 4px;
           border-bottom-left-radius: 4px;
           border: 0px;
@@ -96,12 +96,10 @@ export default class BULibSearch extends LitElement {
         .search-options > label {
           margin-right: 0.5rem;
           padding-left: 0.5rem;
-          font-size: large !important;
           cursor: pointer;
         }
         input[type=radio] {
           cursor: pointer;
-          font-size: large !important;
           margin-right: 7px;
           vertical-align: text-bottom;
         }
@@ -121,13 +119,9 @@ export default class BULibSearch extends LitElement {
 
         /* medium-sized screen and above */
         @media only screen and (min-width: 400px){
-          .search-box > *, .search-options > label { 
-            font-size: 1.1rem; 
-          }
-          .bulib-search {
-            font-size: 1.3rem;
-            padding: 1rem;
-            min-width: 150px;
+          #bulib-search { padding: 10px; }
+          .search-box > input, input[type=radio], .search-options > label { 
+            font-size: large; 
           }
         }
       `
@@ -140,7 +134,7 @@ export default class BULibSearch extends LitElement {
     
     return html`
       <div class="bulib-search-wrapper">
-        <div class="bulib-search">
+        <div id="bulib-search">
           <div class="search-box">
             <input type="text" id="search-query-input" placeholder="${this.selected["placeholder"]}" 
               @keypress="${(e) => this._handleSearchEnter(e)}">
