@@ -12,12 +12,9 @@
   "scripts": {
     "clean": "rm -rf node_modules/ || true",
     "reinstall": "npm run clean && npm install",
-<<<<<<< Updated upstream
     "cy:verify": "cypress verify",
     "css": "./scripts/bundle_css.sh",
     "prestart": "npm run css",
-=======
->>>>>>> Stashed changes
     "start": "start-storybook -p 9001",
     "build:all": "./scripts/rebuild.sh",
     "build:rollup": "rollup -c rollup.config.js",
