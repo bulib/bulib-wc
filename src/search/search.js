@@ -4,7 +4,7 @@ const default_to_just_primo = true;
 
 /** data on the overall search sources we have available to search on */
 export const search_options = [
-  {"value":"help",      "name":"Ask a Librarian",          "placeholder": "Type your question here",      "domain":"http://askalibrarian.bu.edu/search/?t=0&q="},
+  {"value":"help",      "name":"Ask A Librarian",          "placeholder": "Search for help topics",      "domain":"http://askalibrarian.bu.edu/search/?t=0&q="},
   {"value":"primo",     "name":"BU Libraries Search",      "placeholder": "Search library resources",     "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=BU&institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
   {"value":"wp",        "name":"BU Libraries Site",        "placeholder": "Search library info/services", "domain":"https://search.bu.edu/?site=www.bu.edu%2Flibrary&q="},
   {"value":"industries","name":"Industry Survey Locator",  "placeholder": "Search for industry surveys",  "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=ISL&institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
@@ -64,7 +64,8 @@ export default class BULibSearch extends LitElement {
       css`
         .bulib-search-wrapper {
           width: 100%;
-          background-color: #5a5d61;
+          background-color: #212121;
+          background: linear-gradient(#212121,#333333,#444444);
         }
         .bulib-search { 
           display: flex;
@@ -82,6 +83,10 @@ export default class BULibSearch extends LitElement {
         .search-box > input {
           flex: 80%;
           font-size: large;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+          border: 0px;
+          padding-left: 6px;
         }
         .search-options {
           padding-top: 10px;
@@ -100,12 +105,18 @@ export default class BULibSearch extends LitElement {
           margin-right: 7px;
           vertical-align: text-bottom;
         }
-        button { 
-          background-color: #35619c; 
+        button {
+          background-color: #257abe; 
           color: white; 
           cursor: pointer;
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+          border: 0px;
+          font-family: 'Source Sans Pro';
         }
-        button:hover { background-color: #265694; }
+        button:hover, button:focus, button:active { 
+          background-color: #1B598C;
+         }
         .hidden { display: none; }
 
         /* medium-sized screen and above */
