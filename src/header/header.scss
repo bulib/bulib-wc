@@ -1,19 +1,24 @@
+.header-wrapper {
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;    
+}
+
 .primary-navbar {
   display: flex;
+  align-items: center; 
   justify-content: space-between; 
   width: 100%;
 
   a, span, i {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
   }
-  a:hover {
-    text-decoration: underline;
-  }
+  
+  a:hover { text-decoration: underline; }
 }
-
-#bu-logo { padding-top: 10px; }
 
 /* menu items */
 .menu-items {
@@ -52,6 +57,8 @@
   z-index: 1;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+// unhide on hover
+.dropdown:hover .dropdown-content { display: block; }
+
+// align the 'library-locations' dropdown
+div.dropdown.menu-item { padding-top: 5px; }
