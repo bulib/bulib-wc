@@ -4,6 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-bottom: 20px;
 }
 .card {
   font-family: 'Noto Sans', sans-serif;
@@ -11,7 +12,7 @@
   flex-basis: 100%;
   align-items: center;
   display: flex;
-  max-width: 400px;
+  max-width: 325px;
 }
 .card i { 
   color: #0B4473;
