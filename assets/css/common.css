@@ -47,7 +47,7 @@ ul.no-bullet { padding-left: 0em; }
 
 /* '.white-link' used in footer */
 a.white-link, a.white-link:active, a.white-link:visited {
-  color: whitesmoke;
+  color: #e1e1e1;
   text-decoration: underline;
   font-weight: normal;
 }

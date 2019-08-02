@@ -6,8 +6,3 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Source Sans Pro', sans-serif;
 }
 div#slogan {display:none;}
-
-/*footer styles */
-.footer-wrapper {
-  font-family: 'Benton', sans-serif;
-}

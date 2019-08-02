@@ -62,31 +62,27 @@ div.dropdown.menu-item {
   .mobile-navigation {
     display: block !important; }
 
-  #bu-logo {
-    padding-top: unset; }
-
   .primary-nav-right {
     padding-top: 7px; } }
 /* position mobile menu hidden in the top right, a z-layer beneath everything else */
 #mobile-menu {
   position: absolute;
-  right: 0;
-  margin-right: -6px;
   top: 0;
-  margin-top: -10px;
-  width: fit-content;
+  right: 0;
+  margin-top: 35px;
+  margin-right: -10px;
+  width: 100vw;
   min-width: 75px;
   padding: 30px;
-  padding-top: 20px;
   padding-right: 80px;
   opacity: 0;
   transition: opacity 0.55s;
   -webkit-transition: opacity 0.55s;
-  background: #ededed;
+  background: #222222;
   list-style-type: none;
   -webkit-font-smoothing: antialiased; }
   #mobile-menu a {
-    color: black; }
+    color: #eeeeee; }
   #mobile-menu li {
     padding: 10px 0; }
 
@@ -131,7 +127,7 @@ div.dropdown.menu-item {
 #menuToggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323; }
+  background: whitesmoke; }
 
 #menuToggle input:checked ~ span:nth-last-child(2) {
   transform: rotate(-45deg) translate(0, -1px); }
@@ -142,4 +138,4 @@ div.dropdown.menu-item {
 
 #menuToggle input:checked ~ #mobile-menu {
   visibility: visible;
-  opacity: 1; }
+  opacity: 0.95; }
