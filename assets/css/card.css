@@ -25,6 +25,8 @@
 .card a { 
   font-size: x-large;
   color: #0B4473;
+  text-decoration: underline solid #0B4473;
+  font-weight: 500;
 }
 
 .card > div { flex: 2; }
