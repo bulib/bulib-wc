@@ -9,7 +9,6 @@
   font-family: 'Noto Sans', sans-serif;
   flex-shrink: inherit;
   flex-basis: 100%;
-  align-items: center;
   display: flex;
   max-width: 325px;
 }

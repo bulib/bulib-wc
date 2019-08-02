@@ -54,6 +54,19 @@
 
 div.dropdown.menu-item {
   padding-top: 5px; }
+
+.library-list {
+  text-align: left;
+  width: max-content; }
+  .library-list a {
+    text-transform: capitalize;
+    font-weight: lighter;
+    font-size: medium; }
+  .library-list li {
+    padding-bottom: 5px;
+    padding-top: 5px; }
+  .library-list li:nth-child(odd) {
+    background-color: #3a3a3a; }
 /* --- from mobile-nav.scss --- */
 @media only screen and (max-width: 825px) {
   .menu-items > li, .menu-item {

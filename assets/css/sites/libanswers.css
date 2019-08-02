@@ -9,3 +9,9 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Source Sans Pro', sans-serif;
 }
+
+/* unset random 'ol, ul' default that's messing with the header alignment */
+ol, ul {
+  margin-top: auto; 
+  margin-bottom: auto;
+}
