@@ -57,12 +57,16 @@ div.dropdown.menu-item {
 
 .library-list {
   text-align: left;
-  width: max-content; }
+  width: max-content;
+  /* chrome, safari */
+  width: -moz-max-content;
+  /* firefox */ }
   .library-list a {
     text-transform: capitalize;
     font-weight: lighter;
     font-size: medium; }
   .library-list li {
+    width: 100%;
     padding-bottom: 5px;
     padding-top: 5px; }
   .library-list li:nth-child(odd) {
