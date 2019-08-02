@@ -1,8 +1,11 @@
+/* hide various */ 
+.s-la-public-header-text, #s-la-page-title-bar, /* automatic headers */
+  #s-la-page-title-bar .navbar, /* HIDE OTB SEARCH */
+  div#slogan, #s-la-bc, /* slogan and breadcrumbs */
+  #s-la-public-footer /* footer */
+  { display: none; }
 
-/*TK HIDE OTB SEARCH*/
-#s-la-page-title-bar .navbar {display: none;}
-
+/* set header font */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Source Sans Pro', sans-serif;
 }
-div#slogan {display:none;}
