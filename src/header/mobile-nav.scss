@@ -19,6 +19,7 @@
   padding: 30px;
   padding-right: 80px;
 
+  display: none;
   opacity:0;
   transition: opacity 0.55s;
   -webkit-transition: opacity 0.55s; // Safari
@@ -96,4 +97,5 @@
 #menuToggle input:checked ~ #mobile-menu {
   visibility: visible;
   opacity: 0.95;
+  display: block;
 }
