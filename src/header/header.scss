@@ -66,12 +66,20 @@ div.dropdown.menu-item { padding-top: 5px; }
 // library list dropdown
 .library-list {
   text-align: left;
-  width: max-content;
+
+  // make ul as wide as widest li
+  width: max-content; /* chrome, safari */
+  width: -moz-max-content; /* firefox */
+  
   a { 
     text-transform: capitalize; 
     font-weight: lighter;
     font-size: medium;
   }
-  li { padding-bottom: 5px; padding-top:5px; }
+  li { 
+    width: 100%; 
+    padding-bottom: 5px; 
+    padding-top:5px; 
+  }
   li:nth-child(odd){ background-color: rgb(58, 58, 58); }
 }
