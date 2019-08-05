@@ -1,4 +1,6 @@
+_site/
+dist/
 node_modules/
-build/
 .idea/
 .DS_Store
+*.scssc

@@ -1,16 +1,15 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
+import {LitElement, html} from 'lit-element/lit-element';
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
+
+const ALLOW_HOURS_DISPLAY = true;
 
 /**
  * display the *LO*cation, *CO*ntact, and *SO*cial media information for
  *    a given library within the Boston Universities System.
  */
-class BULocoso extends LitElement {
+export default class Locoso extends LitElement {
 
   constructor(){ super(); }
-
-  // don't need 'slot' functionality, so lets use Light DOM
-  createRenderRoot(){ return this; }
 
   static get properties() {
     return {
@@ -37,6 +36,9 @@ class BULocoso extends LitElement {
     let raw_social = myLocoso["social"] || {};
     let social = this._prepareSocial(raw_social);
     
+    let include_libhours = ALLOW_HOURS_DISPLAY && this.library && this.library != "help";
+    this._logToConsole("lib_name: " + lib_name + ", include_libhours: " + include_libhours);
+    
     let socialDisplay;
     if(social.length < 1){ socialDisplay = html``; }
     else{
@@ -45,33 +47,36 @@ class BULocoso extends LitElement {
         <ul aria-description="list of social media accounts" class="no-bullet inline-list plm">
         ${social.map((s) =>
           html`<li><a class="${this.link_class}" target="_blank" href="${s.url}" title="${s.text}"><img alt="${s.text} icon" class="sm-icon ${this.link_class}"
-                      src="https://raw.githubusercontent.com/bulib/bulib-wc/master/assets/icons/icons8-${s.text}-48.png"></a></li>`
+                      src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/assets/icons/icons8-${s.text}-48.png"></a></li>`
         )}
         </ul>
       `;
     }
+    
     return html`
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/assets/css/common.css">
       <style>
         /* layout and responsiveness */
-        #locoso.left { flex: 1; padding-left: 30px; }
-        #locoso.right { flex: 2; padding-right: 30px; }
-        @media only screen and (min-width: 350px){
-          #locoso { display: flex; }
-          .left { flex: 1; }
-        }
+        .locoso-left { flex: 1; }
+        .locoso-wrapper { display: flex; }
 
         /* list styles, */
-        ul, ol { margin: 5px 0px; padding-left: 0; padding-bottom: 10px; }
+        .locoso-left ul, .locoso-left ol { margin: 5px 0px; padding-left: 0; padding-bottom: 10px; }
 
         /* padding and margins */
-        #locoso > div > h3 { margin-top: 0px; margin-bottom: 0px; text-align: }
         .prm { margin-right: 10px; padding-right: 10px; }
         .sm-icon { width: 30px; height: 30px; border: solid transparent 1px; }
         .sm-icon:hover { width: 30px; height: 30px; border: solid white 1px; }
       </style>
-      <div id="locoso">
-        <div class="left prm">
-          <h3 class="inline">Visit Us</h3>&nbsp;
+      <div class="locoso-wrapper">
+        <div class="locoso-left">
+          <div class="txtv">
+            <h3 class="inline">Visit Us</h3>&nbsp;&nbsp;&nbsp;
+            ${include_libhours 
+              ? html`-&nbsp;&nbsp;<bulib-hours class="inline" link_class="${this.link_class}" library="${this.library}" short></bulib-hours>` 
+              : html``
+            }
+          </div>
           <ol class="no-bullet" aria-label="address">
             <li>${lib_name}</li>
             ${address.map((l) => html`<li>${l}</li>`)}
@@ -84,7 +89,7 @@ class BULocoso extends LitElement {
             </li>
           </ol>
         </div>
-        <div>
+        <div class="locoso-right">
           <h3 class="inline">Contact Us</h3>
           <ul class="no-bullet" aria-label="contact-links">
             ${contacts.map((c) =>
@@ -147,5 +152,3 @@ class BULocoso extends LitElement {
   }
 
 }
-
-customElements.define('bulib-locoso', BULocoso);

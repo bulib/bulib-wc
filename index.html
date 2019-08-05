@@ -1,33 +1,40 @@
-<!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Docs - BULib Web Components</title>
+  <head>
+    <title>BULib Web Components</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" src="../assets/css/shared.css">
+    <script type="module" src="./src/index.js"></script>
+  </head>
 
-  <!-- Polyfills only needed for Firefox and Edge. -->
-  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <body>
+    <h1>BULib Web Components</h1>
+    
+    <h2><code>bulib-header</code></h2>
+    <bulib-header></bulib-header>
 
-  <!-- documentation -->
-  <script type="module">import '@polymer/iron-component-page/iron-component-page';</script>
-  <script type="module">import '@polymer/iron-doc-viewer/default-theme.js';</script>
+    <h2><code>bulib-select</code></h2>
+    <bulib-select tag_name="bulib-footer" attr_name="curr_url"
+                  curr_sel="bu.edu/library/mugar-memorial" opt_code="sample_urls">
+    </bulib-select>
 
-  <!-- styling -->
-  <style>
-    header[main]   {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        padding: 15px 20px;
-        background-color: #fff;
-        box-sizing: border-box;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.4);
-      }
-  </style>
-</head>
+    <h2><code>bulib-libsel</code></h2>
+    <bulib-libsel prevent_action></bulib-libsel>
 
-<body>
-  <iron-component-page></iron-component-page>
-</body>
+    <h2><code>bulib-hours</code></h2>
+    <bulib-hours library="pardee"></bulib-hours>
 
+    <h2><code>bulib-search</code></h2>
+    <label>Empty (inactive)</label>
+    <bulib-search prevent_action></bulib-search>
+    <br />
+
+    <label>Options, with Default</label>
+    <bulib-search str_options="primo industries wp" str_selected="industries" prevent_action></bulib-search>
+
+    <h2><code>bulib-locoso</code></h2>
+    <bulib-locoso library="sel"></bulib-locoso>
+
+    <h2><code>bulib-footer</code></h2>
+    <bulib-footer></bulib-footer>
+  </body>
 </html>

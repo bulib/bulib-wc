@@ -1,0 +1,17 @@
+/* -- calls to action -- */
+
+div.ctas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+  grid-template-rows: repeat(auto, 200px);
+}
+div.cta { 
+  text-align: center;
+  background-color: verylightgray;
+  border: 1px solid darkgrey;
+}
+div.cta:hover { 
+  background-color: gainsboro; 
+  cursor: pointer;
+}

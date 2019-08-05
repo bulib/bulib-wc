@@ -7,7 +7,7 @@ const libraries_data_backup = {
     "website":"https://www.bu.edu/library/mugar-memorial/",
     "address":["771 Commonwealth Avenue","Boston, MA 02215"],
     "contacts":{"phone":"617-353-2700","email":"ask@bu.edu"},
-    "social":{"facebook":"mugarlib","twitter":"mugarlib","instagram":"mugarlib"},
+    "social":{"facebook":"bostonulibraries","twitter":"bulibraries","instagram":"bulibraries"},
     "hours_url": "http://www.bu.edu/library/mugar-memorial/about/hours/",
     "libcal_lid": 1475
   },"african-studies":{
@@ -107,7 +107,7 @@ const libraries_data_backup = {
     "website":"http://bu.edu/library",
     "address":["771 Commonwealth Avenue","Boston, MA 02215"],
     "contacts":{"phone":"617-353-2700","email":"ask@bu.edu","text":"617-431-2427"},
-    "social":{"twitter":"BULibNews"},
+    "social":{"facebook":"bostonulibraries","twitter":"bulibraries","instagram":"bulibraries"},
     "hours_url": "http://www.bu.edu/library/mugar-memorial/about/hours/",
     "libcal_lid": 1475
   }
@@ -123,9 +123,10 @@ export function getLibraryInfoFromCode(lib_code, debug=false, defLibCode="help")
 export function getSiteCodeFromUrl(url, debug=false, defSiteCode="help"){
   let site_code = "about";
   if(url.includes("askalibrarian")){ site_code = "help"; }
-  // else if(url.includes("openbu")){ site_code = "collections"; }
+  else if(url.includes("/disc/") || url.includes("/dioa")){ site_code ="services"; }
+  else if(url.includes("open.bu") || url.includes("archives")){ site_code = "collections"; }
   else if(url.includes("guides")){ site_code = "guides" }
-  else if(url.includes("buprimo") || url.includes("exlibrisgroup")){ site_code = "research"/*"search"*/; }
+  else if(url.includes("buprimo") || url.includes("exlibrisgroup")){ site_code = "search"; }
   
   else if(url.includes(".bu.edu/library")){
     if(url.includes("/research")){ site_code = "research"; }
@@ -139,6 +140,7 @@ export function getSiteCodeFromUrl(url, debug=false, defSiteCode="help"){
 
 export function getLibraryCodeFromUrl(lib_url, debug=false, defLibCode="help"){
   let lib_code = defLibCode;
+  if(lib_url.includes("archives.bu.edu")){ lib_code="hgar"; }
   if(lib_url.includes("bu.edu/library/")){
     // try to get {library_code} from url 'http://www.bu.edu/library/{stone-science}/research/guides/'
     let lib_url_fragment = lib_url.split("bu.edu/library/")[1] || "";
@@ -163,6 +165,17 @@ export function getLibraryCodeFromUrl(lib_url, debug=false, defLibCode="help"){
   return lib_code;
 }
 
-function logToConsole(message, debug=false){
-  if(debug){ console.log("lib_info_helper) " + message); }
+export const getAllLibraryInfo = () => { return libraries_data_backup; }
+
+export const makeLibraryUrlList = () => {
+  let ls_items = ""; let code;
+  for(code in libraries_data_backup){
+    let item = getLibraryInfoFromCode(code)
+    ls_items += `\t<li href="${item.website}">${item.name}"<li>\n`;
+  }
+  return `<ul>\n${ls_items}</ul>\n`;
+};
+
+const logToConsole = function(message, debug){
+  if(debug || !!debug){ console.log("lib_info_helper) " + message); }
 };

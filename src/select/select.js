@@ -1,8 +1,8 @@
-import {LitElement, html} from 'https://unpkg.com/@polymer/lit-element@0.6.4/lit-element.js?module';
+import {LitElement, html} from 'lit-element/lit-element';
 import {search_options} from '../search/search.js';
 
 const libraries =  [
-  {"value":"mugar-memorial","name":"SELECT LIBRARY"},
+  {"value":"help","name":"SELECT LIBRARY"},
   {"value":"mugar-memorial","name":"Mugar Memorial"},
   {"value":"african-studies","name":"African Studies"},
   {"value":"medlib", "name":"Alumni Medical"},
@@ -18,9 +18,6 @@ const libraries =  [
 ];
 const sample_urls = [
   {"name":"SELECT URL",     "value":"www.bu.edu/library"},
-  {"name":"Primo Search",   "value":"buprimo.hosted.exlibrisgroup.com/primo-explore/search"},
-  {"name":"Guides",         "value":"www.bu.edu/library/research/guides/course-guides/"},
-  {"name":"Services",       "value":"http://www.bu.edu/library/services/"},
   {"name":"African Studies","value":"https://www.bu.edu/library/african-studies/", },
   {"name":"Astronomy Library","value":"http://www.bu.edu/library/astronomy/", },
   {"name":"Music Library",  "value":"http://www.bu.edu/library/music/"},
@@ -29,7 +26,15 @@ const sample_urls = [
   {"name":"Pickering Library","value":"http://www.bu.edu/library/pickering-educational/"},
   {"name":"Science & Engineering","value":"http://www.bu.edu/library/sel/", },
   {"name":"Stone Library",  "value":"http://www.bu.edu/library/stone-science/"},
-  {"name":"Help",           "value":"askalibrarian.bu.edu/"}
+  {"name":"Primo Search",   "value":"buprimo.hosted.exlibrisgroup.com/primo-explore/search"},
+  {"name":"Subject Guides", "value":"www.bu.edu/library/research/guides"},
+  {"name":"Course Guides",  "value":"www.bu.edu/library/research/guides/course-guides/"},
+  {"name":"Library Services","value":"http://www.bu.edu/library/astronomy/services"},
+  {"name":"Digital Scholarship","value":"http://www.bu.edu/disc/"},
+  {"name":"Digital Initiatives","value":"http://www.bu.edu/dioa/"},
+  {"name":"Open BU",        "value":"https://open.bu.edu/"},
+  {"name":"BU Archives",    "value":"http://archives.bu.edu/"},
+  {"name":"Ask a Librarian","value":"askalibrarian.bu.edu/"}
 ];
 const opt_map = {
   "libraries":libraries,
@@ -37,7 +42,7 @@ const opt_map = {
   "search_options":search_options
 };
 
-class BULSelect extends LitElement{
+export default class BULibSelect extends LitElement {
 
   static get properties(){
     return {
@@ -57,23 +62,30 @@ class BULSelect extends LitElement{
   }
 
   render(){
+    let options = opt_map[this.opt_code];
     return html`
       <strong>${this.sel_title}</strong>:
       <select @input=${(e) => this._SelectionChanged(e)}}>
-        ${this.options.map((o) => html`<option value="${o.value}">${o.name}</option>`)}
+        ${options.map((o) => html`<option value="${o.value}">${o.name}</option>`)}
       </select>
     `;
-  }
-  
-  /** populate internal options list with the values from the specified 'opt_code' */
-  connectedCallback(){
-    this.options = opt_map[this.opt_code];
   }
 
   /** react to changes in which <option> is currently 'selected' */ 
   _SelectionChanged(event){
     let current = event.currentTarget.value;
-    let elements = document.getElementsByTagName(this.tag_name);
+    let elements = [];
+    let tag_names = this.tag_name.split(" ");
+    this._logToConsole("tag_names: " + tag_names.toString());
+    for(let i=0; i<tag_names.length; i++){
+      let tag_name = tag_names[i];
+      let elementsFromThatTag = document.getElementsByTagName(tag_name);
+      this._logToConsole(elementsFromThatTag.length.toString() + " elements from tag " + tag_name);
+      elements.push(elementsFromThatTag[0]); //TODO only adds first item
+    }
+    
+    this._logToConsole("num elements: " + elements.length.toString());
+    
     let i, before, after, element;
     for(i=0; i<elements.length; i++){
       element = elements[i];
@@ -88,11 +100,13 @@ class BULSelect extends LitElement{
           if(element.hasAttribute("name")){ id_string = "'" + element.getAttribute("name") + "'"; }
         } 
         
-        if(this.debug){ console.log(`bulib-select) changed '<${this.tag_name}>[${id_string}].${this.attr_name}' from '${before}' to '${after}'.`); }
+        this._logToConsole(`changed '<${this.tag_name}>[${id_string}].${this.attr_name}' from '${before}' to '${after}'.`);
       }
     }
   }
+  
+  _logToConsole(message){
+    if(this.debug){ console.log("bulib-select) " + message); }
+  }
 
 }
-
-customElements.define('bulib-select', BULSelect);

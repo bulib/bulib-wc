@@ -1,11 +1,21 @@
-<head>
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/assets/css/common.css">
-  <link rel="stylesheet" type="text/css" href="./header.css">
-</head>
+export const ensemble_demo = `
+  <br /><hr /><br />
 
-<body>
+  <h2><code>bulib-hours</code></h2>
+  <bulib-hours></bulib-hours>
+  <br /><hr /><br />
+
+  <h2><code>bulib-search</code></h2>
+  <bulib-search></bulib-search>
+  <br /><hr /><br />
+  
+  <h2><code>bulib-locoso</code></h2>
+  <bulib-locoso></bulib-locoso>
+  <br /><hr /><br />
+
+  <bulib-footer></bulib-footer>`;
+
+export const header_demo = `
   <div class="header-wrapper">
     <nav>
       <div class="primary-navbar">
@@ -81,5 +91,4 @@
         </div>
       </div>
     </nav>
-  </div>
-</body>
+  </div>`;

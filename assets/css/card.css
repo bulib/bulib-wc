@@ -1,0 +1,25 @@
+/* -- cards -- */
+
+.deck {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.card {
+  flex: 2 3 270px; 
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+}
+.card i { 
+  font-size: 4em;
+  margin: 0.2em;
+  text-align: center;
+  flex: 1;
+}
+.card i:hover { cursor: pointer; }
+
+.card > div { 
+  flex: 2;
+}
