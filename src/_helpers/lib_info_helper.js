@@ -1,6 +1,6 @@
 // import {_getDataFromFile} from './load_json.js';
 
-const libraries_data_backup = {
+var libraries_data_backup = {
   "mugar-memorial":{
     "name":"Mugar Memorial Library",
     "short":"Mugar Library",
@@ -165,9 +165,9 @@ export function getLibraryCodeFromUrl(lib_url, debug=false, defLibCode="help"){
   return lib_code;
 }
 
-export const getAllLibraryInfo = () => { return libraries_data_backup; }
+export function getAllLibraryInfo(){ return libraries_data_backup; }
 
-export const makeLibraryUrlList = () => {
+export function makeLibraryUrlList(){
   let ls_items = ""; let code;
   for(code in libraries_data_backup){
     let item = getLibraryInfoFromCode(code)
@@ -176,6 +176,6 @@ export const makeLibraryUrlList = () => {
   return `<ul>\n${ls_items}</ul>\n`;
 };
 
-const logToConsole = function(message, debug){
+export function logToConsole(message, debug){
   if(debug || !!debug){ console.log("lib_info_helper) " + message); }
 };
