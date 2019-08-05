@@ -61,8 +61,10 @@ export const header_demo = `
           <div class="top-right">
             <ul class="menu-items">
               <li>
-                <div class="dropdown menu-item">
-                  <span>Library Locations	&or;</span>
+                <div class="dropdown">
+                  <a class="menu-item inline" href="https://www.bu.edu/library/about">
+                    <span class="labeled-icon">Library Locations</span><i class="material-icons inline">arrow_drop_down</i>
+                  </a>
                   <div class="dropdown-content">
                     <ul class="library-list no-bullet">
                       <li><a href="https://www.bu.edu/library/african-studies/">African Studies Library</a></li>
@@ -83,7 +85,7 @@ export const header_demo = `
               </li>
               <li>
                 <a class="menu-item inline" href="https://askalibrarian.bu.edu/">
-                  <span style="vertical-align: super; padding-right: 10px;">Ask a Librarian</span><i class="material-icons inline">question_answer</i>
+                  <span class="labeled-icon">Ask a Librarian</span><i class="material-icons inline">question_answer</i>
                 </a>
               </li>
             </ul>

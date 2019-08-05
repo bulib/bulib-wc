@@ -83,3 +83,9 @@ div.dropdown.menu-item { padding-top: 5px; }
   }
   li:nth-child(odd){ background-color: rgb(58, 58, 58); }
 }
+
+// align labels when icons are nearby
+.labeled-icon {
+  vertical-align: super; 
+  padding-right: 10px;
+}
