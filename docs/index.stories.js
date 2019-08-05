@@ -7,10 +7,7 @@ import {search_demo, hours_demo, locoso_demo, footer_demo, bulib_card_demo} from
 import {card_demo, cta_demo} from './demo_nojs';
 
 // css
-import '../assets/css/common.css';
-import '../assets/css/cta.css';
-import '../src/card/card.css';
-import '../src/header/header.css';
+import '../assets/css/shared.css';
 
 storiesOf('composites', module)
   .addDecorator(withKnobs)

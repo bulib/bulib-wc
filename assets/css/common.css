@@ -1,9 +1,14 @@
-/* -- pagewidth -- */
+/* -- common -- */
+
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+/* - pagewidth - */
 .header-wrapper, .footer-wrapper {
   background-color: #212121;
   color: white;
-  padding: 2%;
+  padding: 10px;
   font-size: 105%;
+  width: 100%;
 }
 
 /* on super large screens, set the width to avoid getting too much spacing */
@@ -12,7 +17,7 @@
 }
 
 
-/* -- padding and alignment -- */
+/* - padding and alignment - */
 .pam { padding: 10px; }
 .pvm { padding: 10px 0px; }
 .phm { padding: 0px 10px; }
@@ -26,7 +31,7 @@
   column-count: 2;
 }
 
-/* -- general styling -- */
+/* - general styling - */
 
 /* text */
 .txtl { text-align: left; }

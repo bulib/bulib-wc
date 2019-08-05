@@ -26,27 +26,25 @@ export const search_demo = `
 `;
 
 export const hours_demo = `
-<h3>&lt;bulib-hours&gt;</h3>
-<bulib-hours></bulib-hours>
+  <h3>&lt;bulib-hours&gt;</h3>
+  <bulib-hours></bulib-hours>
 
-<h3>&lt;bulib-hours <code>short</code>&gt;</h3>
-<bulib-hours short debug></bulib-hours>
+  <h3>&lt;bulib-hours <code>short</code>&gt;</h3>
+  <bulib-hours short debug></bulib-hours>
 
-<h3>&lt;bulib-hours <code>long</code>&gt;</h3>
-<bulib-hours long debug></bulib-hours>
+  <h3>&lt;bulib-hours <code>long</code>&gt;</h3>
+  <bulib-hours long debug></bulib-hours>
 
-<br /><hr /><br />
+  <br /><hr /><br />
 
-<bulib-select
-  sel_title="Select Library" opt_code="libraries"
-  tag_name="bulib-hours" attr_name="library">
-</bulib-select>
+  <bulib-select
+    sel_title="Select Library" opt_code="libraries"
+    tag_name="bulib-hours" attr_name="library">
+  </bulib-select>
 `;
 
 export const locoso_demo = `
-  <div>
-    <bulib-locoso library="astronomy" debug></bulib-locoso>
-  </div>
+  <bulib-locoso library="astronomy" debug></bulib-locoso>
 
   <br /><hr /><br />
 

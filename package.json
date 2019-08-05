@@ -1,27 +1,28 @@
 {
   "name": "bulib-wc",
-  "version": "0.0.12",
+  "version": "0.0.16",
   "description": "collection of web components and styles used at Boston University Libraries",
   "main": "src/index.js",
   "module": "src/index.js",
   "files": [
-    "src/*/*.js",
-    "src/*/*.css",
+    "assets/",
     "dist/bundle*.js",
-    "assets"
+    "dist/bundle.css"
   ],
   "scripts": {
     "clean": "rm -rf node_modules/ || true",
-    "cy:verify": "cypress verify",
     "reinstall": "npm run clean && npm install",
-    "prestart": "npm run build:css",
+    "cy:verify": "cypress verify",
+    "css": "./scripts/bundle_css.sh",
+    "prestart": "npm run css",
     "start": "start-storybook -p 9001",
-    "build": "rollup -c rollup.config.js",
-    "build:css": "scss ./src/header/header.scss > ./src/header/header.css && scss ./src/header/mobile-nav.scss >> ./src/header/header.css",
+    "build:all": "./scripts/rebuild.sh",
+    "build:rollup": "rollup -c rollup.config.js",
     "build:owc": "rollup -c rollup.config.owc.js",
-    "build:storybook": "npm run reinstall && build-storybook -o _site -s storybook-static",
-    "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -o dist",
-    "publish": "npm publish && npm run deploy:storybook"
+    "prebuild:storybook": "npm run css",
+    "build:storybook": "build-storybook -o _site -s storybook-static",
+    "deploy": "./scripts/deploy.sh",
+    "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -o dist"
   },
   "repository": {
     "type": "git",
@@ -41,7 +42,7 @@
   "homepage": "https://github.com/bulib/bulib-wc#readme",
   "dependencies": {
     "@open-wc/polyfills-loader": "^0.3.2",
-    "lit-element": "^2.1.0",
+    "lit-element": "^2.2.1",
     "lit-html": "^1.0.0"
   },
   "devDependencies": {
@@ -49,6 +50,7 @@
     "@open-wc/demoing-storybook": "^0.2.0",
     "@storybook/storybook-deployer": "^2.8.1",
     "cypress": "^3.4.0",
+    "material-icons": "^0.3.1",
     "rollup": "^1.6.0",
     "rollup-plugin-babel-minify": "^8.0.0",
     "rollup-plugin-node-resolve": "^5.0.0",

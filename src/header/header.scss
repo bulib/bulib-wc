@@ -1,8 +1,3 @@
-/* header grid and responsivensess */
-.header-wrapper, .footer-wrapper {
-  width: 100%;
-}
-
 .primary-navbar {
   display: flex;
   justify-content: space-between; 
@@ -17,6 +12,8 @@
     text-decoration: underline;
   }
 }
+
+#bu-logo { padding-top: 10px; }
 
 /* menu items */
 .menu-items {
@@ -34,9 +31,9 @@
 
 /* assorted minor styles */ 
 .primary-nav-main li {
-  padding-left: 15px; padding-right: 15px;
+  padding-left: 15px; 
+  padding-right: 15px;
 }
-.primary-nav-left { padding-top: 10px; }
 .none { display: none; }
 
 /* dropdown */ 

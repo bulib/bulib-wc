@@ -3,13 +3,15 @@
 @media only screen and (max-width: 825px){ 
   .menu-items > li, .menu-item { display: none; }
   .mobile-navigation { display: block !important; }
+  #bu-logo { padding-top: unset; }
+  .primary-nav-right { padding-top: 7px; }
 } 
 
 /* position mobile menu hidden in the top right, a z-layer beneath everything else */
- #mobile-menu {
+#mobile-menu {
   position: absolute;
   right: 0; margin-right: -6px;
-  top: 0; margin-top: -6px;
+  top: 0; margin-top: -10px;
   width: fit-content;
   min-width: 75px;
   padding: 30px;
@@ -33,7 +35,6 @@
 #menuToggle {
   display: block;
   position: relative;
-  padding: 20px;
   float: right;
   
   z-index: 1;
