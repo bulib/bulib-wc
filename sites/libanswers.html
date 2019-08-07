@@ -1,4 +1,7 @@
 <style type="text/css">
+
+  /* -- General (all) -- */
+
   /* hide various */ 
   .s-la-public-header-text, #s-la-page-title-bar, /* automatic headers */
     #s-la-page-title-bar .navbar, /* HIDE OTB SEARCH */
@@ -16,7 +19,10 @@
     margin-top: auto; 
     margin-bottom: auto;
   }
-  
+
+
+  /* -- FAQ page (/faq/) -- */
+
   /* adjust vertical spacing of the main content */
   #s-la-page-maincontent { 
     margin-top: -50px; 
@@ -45,6 +51,16 @@
   }
 
   /* .deck { border: 1px solid black; border-radius: 5px; } */
+
+
+  /* -- SEARCH page (/search) -- */
+
+  /* hide the 'submit your question' section/button */
+  #s-srch-results-container .s-srch-askbutton { display: none; }   
+
+  /* increase the width of the search results section */
+  #s-srch-source-0 > div > div.col-md-9 { width: 100% !important; }
+  #s-srch-source-0 > div > div.col-md-3 { display: none; }  
 </style>
 
 <section id="contact-us-cards">
