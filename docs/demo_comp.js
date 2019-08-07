@@ -34,7 +34,7 @@ export const header_demo = `
           </ul>
         </div>
         <div class="primary-nav-right">
-          <div class="mobile-navigation none">
+          <div class="mobile-navigation none" aria-hidden="true">
             <script>
               let RIGHT_MOUSE_BUTTON = 3;
               let input = document.querySelector("#menuToggle > input");
@@ -46,7 +46,7 @@ export const header_demo = `
             </script>
             <div id="menuToggle">
                 <!-- invisible toggle with hamburger -->
-                <input type="checkbox" onfocusout="this.checked = false;"/>
+                <input type="checkbox" onfocusout="this.checked = false;" tabindex="-1"/>
                 <span></span>
                 <span></span>
                 <span></span>
