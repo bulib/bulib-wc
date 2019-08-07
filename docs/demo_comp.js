@@ -61,21 +61,23 @@ export const header_demo = `
           <div class="top-right">
             <ul class="menu-items">
               <li>
-                <div class="dropdown menu-item">
-                  <span>Library Locations	&or;</span>
+                <div class="dropdown">
+                  <a class="menu-item inline" href="https://www.bu.edu/library/about">
+                    <span class="labeled-icon">Library Locations</span><i class="material-icons inline">arrow_drop_down</i>
+                  </a>
                   <div class="dropdown-content">
                     <ul class="library-list no-bullet">
-                      <li><a href="https://www.bu.edu/library/african-studies/">African Studies</a></li>
-                      <li><a href="https://www.bu.edu/library/astronomy/">Astronomy</a></li>
+                      <li><a href="https://www.bu.edu/library/african-studies/">African Studies Library</a></li>
+                      <li><a href="https://www.bu.edu/library/astronomy/">Astronomy Library</a></li>
                       <!-- <li><a href="https://www.bu.edu/disc/">Digital Collections</a></li> -->
                       <!-- <li><a href="http://archives.bu.edu/">HGARC</a></li> -->
-                      <li><a href="https://www.bu.edu/library/mugar-memorial/">Mugar</a></li>
-                      <li><a href="https://www.bu.edu/library/music/">Music</a></li>
+                      <li><a href="https://www.bu.edu/library/mugar-memorial/">Mugar Memorial Library</a></li>
+                      <li><a href="https://www.bu.edu/library/music/">Music Library</a></li>
                       <!-- <li><a href="https://open.bu.edu/">OpenBU</a></li> -->
-                      <li><a href="https://www.bu.edu/library/management/">Management</a></li>
-                      <li><a href="https://www.bu.edu/library/pickering-educational/">Education</a></li>
-                      <li><a href="https://www.bu.edu/library/sel/">Sci &amp; Eng</a></li>
-                      <li><a href="https://www.bu.edu/library/stone-science/">Stone</a></li>
+                      <li><a href="https://www.bu.edu/library/management/">Pardee Management Library</a></li>
+                      <li><a href="https://www.bu.edu/library/pickering-educational/">Pickering Educational Resources Library</a></li>
+                      <li><a href="https://www.bu.edu/library/sel/">Science &amp; Engineering Library</a></li>
+                      <li><a href="https://www.bu.edu/library/stone-science/">Stone Library</a></li>
                       <li><a href="https://www.bu.edu/library/about/additional-libraries/">Other Libraries</a></li>
                     </ul>
                   </div>
@@ -83,7 +85,7 @@ export const header_demo = `
               </li>
               <li>
                 <a class="menu-item inline" href="https://askalibrarian.bu.edu/">
-                  <span style="vertical-align: super; padding-right: 10px;">Ask a Librarian</span><i class="material-icons inline">question_answer</i>
+                  <span class="labeled-icon">Ask a Librarian</span><i class="material-icons inline">question_answer</i>
                 </a>
               </li>
             </ul>

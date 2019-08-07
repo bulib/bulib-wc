@@ -1,19 +1,24 @@
+.header-wrapper {
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;    
+}
+
 .primary-navbar {
   display: flex;
+  align-items: center; 
   justify-content: space-between; 
   width: 100%;
 
   a, span, i {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
   }
-  a:hover {
-    text-decoration: underline;
-  }
+  
+  a:hover { text-decoration: underline; }
 }
-
-#bu-logo { padding-top: 10px; }
 
 /* menu items */
 .menu-items {
@@ -52,6 +57,35 @@
   z-index: 1;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
+// unhide on hover
+.dropdown:hover .dropdown-content { display: block; }
+
+// align the 'library-locations' dropdown
+div.dropdown.menu-item { padding-top: 5px; }
+
+// library list dropdown
+.library-list {
+  text-align: left;
+
+  // make ul as wide as widest li
+  width: max-content; /* chrome, safari */
+  width: -moz-max-content; /* firefox */
+  
+  a { 
+    text-transform: capitalize; 
+    font-weight: lighter;
+    font-size: medium;
+  }
+  li { 
+    width: 100%; 
+    padding-bottom: 5px; 
+    padding-top:5px; 
+  }
+  li:nth-child(odd){ background-color: rgb(58, 58, 58); }
+}
+
+// align labels when icons are nearby
+.labeled-icon {
+  vertical-align: super; 
+  padding-right: 10px;
 }

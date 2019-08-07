@@ -1,13 +1,15 @@
 {
   "name": "bulib-wc",
-  "version": "0.0.16",
+  "version": "0.0.22",
   "description": "collection of web components and styles used at Boston University Libraries",
+  "type": "module",
   "main": "src/index.js",
   "module": "src/index.js",
   "files": [
     "assets/",
     "dist/bundle*.js",
-    "dist/bundle.css"
+    "dist/bundle.css",
+    "src/"
   ],
   "scripts": {
     "clean": "rm -rf node_modules/ || true",

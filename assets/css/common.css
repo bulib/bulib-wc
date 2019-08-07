@@ -4,10 +4,10 @@
 
 /* - pagewidth - */
 .header-wrapper, .footer-wrapper {
+  font-family: 'Benton', sans-serif;
   background-color: #212121;
-  color: white;
+  color: whitesmoke;
   padding: 10px;
-  font-size: 105%;
   width: 100%;
 }
 

@@ -1,0 +1,101 @@
+/* -- Benton Font -- */
+
+@font-face {
+  font-family: "Benton";
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light/1d3e1be9-e2ca-44c3-b674-7228a7c97407-2.eot");
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light/1d3e1be9-e2ca-44c3-b674-7228a7c97407-2.eot?") format("embedded-opentype"),
+       url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light/1d3e1be9-e2ca-44c3-b674-7228a7c97407-3.woff") format("woff"),
+       url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light/1d3e1be9-e2ca-44c3-b674-7228a7c97407-1.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Benton";
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light-Italic/15a2d62b-ca5c-45cb-9b3d-29bef80c6e9d-2.eot");
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light-Italic/15a2d62b-ca5c-45cb-9b3d-29bef80c6e9d-2.eot?") format("embedded-opentype"),
+       url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light-Italic/15a2d62b-ca5c-45cb-9b3d-29bef80c6e9d-3.woff") format("woff"),
+       url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light-Italic/15a2d62b-ca5c-45cb-9b3d-29bef80c6e9d-1.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 300;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-1.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-1.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium/8e221891-e89b-4eae-95ca-6346d9a41d20-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium/8e221891-e89b-4eae-95ca-6346d9a41d20-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium/8e221891-e89b-4eae-95ca-6346d9a41d20-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium/8e221891-e89b-4eae-95ca-6346d9a41d20-1.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium-Italic/289d6a90-eab9-4614-9e7d-c0df14839178-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium-Italic/289d6a90-eab9-4614-9e7d-c0df14839178-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium-Italic/289d6a90-eab9-4614-9e7d-c0df14839178-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium-Italic/289d6a90-eab9-4614-9e7d-c0df14839178-1.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-1.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-1.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black/bc06c909-a731-43ae-a772-ea42520c81b9-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black/bc06c909-a731-43ae-a772-ea42520c81b9-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black/bc06c909-a731-43ae-a772-ea42520c81b9-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black/bc06c909-a731-43ae-a772-ea42520c81b9-1.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black-Italic/9afa6c31-8572-45ee-8575-c3c541f31e3f-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black-Italic/9afa6c31-8572-45ee-8575-c3c541f31e3f-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black-Italic/9afa6c31-8572-45ee-8575-c3c541f31e3f-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black-Italic/9afa6c31-8572-45ee-8575-c3c541f31e3f-1.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 900;
+}
