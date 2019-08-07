@@ -36,10 +36,12 @@ export const header_demo = `
         <div class="primary-nav-right">
           <div class="mobile-navigation none">
             <script>
+              let RIGHT_MOUSE_BUTTON = 3;
               let input = document.querySelector("#menuToggle > input");
               window.addEventListener("mousedown", function(event){
-                if(!!event.target.href){ window.open(event.target.href, "_self"); }
-                if(!!input){ input.removeAttribute("checked"); }
+                if(event.which !== RIGHT_MOUSE_BUTTON){
+                  if(!!event.target.href){ window.open(event.target.href, "_self"); }
+                }
               });
             </script>
             <div id="menuToggle">
