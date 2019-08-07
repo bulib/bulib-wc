@@ -29,9 +29,11 @@
         <div class="primary-nav-right">
           <div class="mobile-navigation none">
             <script>
-              let menu = document.getElementById("menuToggle");
               let input = document.querySelector("#menuToggle > input");
-              menu.addEventListener("focusout", input.removeAttribute("checked"));
+              window.addEventListener("mousedown", function(event){
+                if(!!event.target.href){ window.open(event.target.href, "_self"); }
+                if(!!input){ input.removeAttribute("checked"); }
+              });
             </script>
             <div id="menuToggle">
                 <!-- invisible toggle with hamburger -->
