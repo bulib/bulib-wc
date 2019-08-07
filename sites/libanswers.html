@@ -5,6 +5,7 @@
     div#slogan, #s-la-bc, /* slogan and breadcrumbs */
     #s-la-public-footer /* footer */
     { display: none; }
+
   /* set header font */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Source Sans Pro', sans-serif;
@@ -15,6 +16,35 @@
     margin-top: auto; 
     margin-bottom: auto;
   }
+  
+  /* adjust vertical spacing of the main content */
+  #s-la-page-maincontent { 
+    margin-top: -50px; 
+    margin-bottom: 30px;
+  }
+
+  /* general libanswers box */
+  .s-la-box-content { 
+    padding-left: 8%;  padding-right: 8%; 
+    padding-top: 4%;  padding-bottom: 4%;
+  }
+  .s-la-box-container { 
+    border-radius: 4px; 
+    margin-left: 15px; 
+    margin-right: 15px;
+  }
+
+  /* FAQ - question and answer box */ 
+  .question-title-bar h2 { font-size: xx-large; }
+  .question-title-bar .s-la-faq-owner, .question-title-bar .s-la-faq-updated { font-size: medium; }
+  .question-title-bar {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  /* .deck { border: 1px solid black; border-radius: 5px; } */
 </style>
 
 <section id="contact-us-cards">
