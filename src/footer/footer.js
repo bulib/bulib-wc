@@ -188,7 +188,7 @@ export default class BULibFooter extends LitElement {
           </div>
           <div class="ftr-right">
             <div id="ftr-locoso">
-              <bulib-locoso library="${this.library}" link_class="white-link" debug></bulib-locoso>
+              <bulib-locoso library="${this.library}" link_class="white-link"></bulib-locoso>
             </div>
           </div>
         </footer>

@@ -3,19 +3,21 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 /* - pagewidth - */
-.header-wrapper, .footer-wrapper {
+.header-wrapper, .footer-wrapper, .banner-wrapper {
   font-family: 'Benton', sans-serif;
-  background-color: #212121;
-  color: whitesmoke;
   padding: 10px;
   width: 100%;
 }
 
-/* on super large screens, set the width to avoid getting too much spacing */
-@media only screen and (min-width: 1500px){
-  footer, nav { margin: 0 auto; width: 85%; }
+.header-wrapper, .footer-wrapper {
+  background-color: #212121;
+  color: whitesmoke;
 }
 
+/* on super large screens, set the width to avoid getting too much spacing */
+@media only screen and (min-width: 1500px){
+  footer, nav, .banner { margin: 0 auto; width: 85%; }
+}
 
 /* - padding and alignment - */
 .pam { padding: 10px; }

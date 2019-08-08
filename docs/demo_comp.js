@@ -93,4 +93,10 @@ export const header_demo = `
         </div>
       </div>
     </nav>
+  </div>
+  <div class="banner-wrapper">
+    <div class="banner">
+      <h1>Ask a Librarian: Help &amp; FAQs</h1>
+      <bulib-search str_options="help primo"></bulib-search>
+    </div>
   </div>`;
