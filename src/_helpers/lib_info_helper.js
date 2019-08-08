@@ -8,7 +8,7 @@ const libraries_data_backup = {
     "address":["771 Commonwealth Avenue","Boston, MA 02215"],
     "contacts":{"phone":"617-353-2700","email":"ask@bu.edu"},
     "social":{"facebook":"bostonulibraries","twitter":"bulibraries","instagram":"bulibraries"},
-    "hours_url": "http://www.bu.edu/library/mugar-memorial/about/hours/",
+    "hours_url": "https://www.bu.edu/library/mugar-memorial/about/hours/",
     "libcal_lid": 1475
   },"african-studies":{
     "name":"African Studies Library",
@@ -17,7 +17,7 @@ const libraries_data_backup = {
     "address":["771 Commonwealth Ave, 6th Floor","Boston, MA, 02215"],
     "contacts":{"phone":"617-353-3726"},
     "social":{"facebook":"BuAfricanStudiesLibrary","flickr":"123460528@N03"},
-    "hours_url":"http://www.bu.edu/library/african-studies/about/hours/",
+    "hours_url":"https://www.bu.edu/library/african-studies/about/hours/",
     "libcal_lid":1809
   },"medlib":{
     "name":"Alumni Medical Library",
@@ -25,14 +25,14 @@ const libraries_data_backup = {
     "website":"https://medlib.bu.edu/",
     "address":["72 E Concord, L-12","Boston, MA 02118"],
     "contacts":{"phone":"617-358-2350","fax":"617-358-2347","email":"refquest@bu.edu"},
-    "hours_url": "http://www.bumc.bu.edu/medlib/about-us/hours/"
+    "hours_url": "https://www.bumc.bu.edu/medlib/about-us/hours/"
   },"astronomy":{
     "name":"Astronomy Library",
     "short":"Astronomy Library",
     "website":"https://www.bu.edu/library/astronomy/",
     "address":["725 Commonwealth Avenue","Boston, MA 02445"],
     "contacts":{"phone":"617-353-2625"},
-    "hours_url":"http://www.bu.edu/library/astronomy/about/hours/",
+    "hours_url":"https://www.bu.edu/library/astronomy/about/hours/",
     "libcal_lid":1784
   },"lawlibrary":{
     "name":"Fineman & Pappas Law Libraries",
@@ -40,7 +40,7 @@ const libraries_data_backup = {
     "website":"https://www.bu.edu/lawlibrary/",
     "address":["765 Commonwealth Ave, 2nd Floor","Boston, MA 02215"],
     "contacts":{"phone":"617-353-8411","text":"1-617-997-4475"},
-    "hours_url":"http://www.bu.edu/lawlibrary/using-the-library/access-policy/"
+    "hours_url":"https://www.bu.edu/lawlibrary/using-the-library/access-policy/"
   },"hgar":{
     "name":"Howard Gotlieb Archival Research Center",
     "short":"BU Archive",
@@ -56,7 +56,7 @@ const libraries_data_backup = {
     "address":["771 Commonwealth Ave, Floor 2","Boston, MA 02215"],
     "contacts":{"phone":"617-353-3705","email":"musiclib@bu.edu"},
     "social":{"twitter":"BUMusicLib","facebook":"bumusiclib"},
-    "hours_url":"http://www.bu.edu/library/music/about/hours/",
+    "hours_url":"https://www.bu.edu/library/music/about/hours/",
     "libcal_lid":1810
   },"pardee":{
     "name":"Pardee Management Library",
@@ -65,7 +65,7 @@ const libraries_data_backup = {
     "address":["595 Commonwealth Avenue","Boston, MA 02215"],
     "contacts":{"phone":"617-353-4301","fax":"617-353-4307","email":"pardstf@bu.edu"},
     "social":{"twitter":"BUpardeelibrary","facebook":"pardeelibrary"},
-    "hours_url":"http://www.bu.edu/library/management/about/hours/",
+    "hours_url":"https://www.bu.edu/library/management/about/hours/",
     "libcal_lid":1476
   },"pickering":{
     "name":"Pickering Educational Resources Library",
@@ -74,7 +74,7 @@ const libraries_data_backup = {
     "address":["2 Silber Way","Boston, MA 02215"],
     "contacts":{"phone":"617-353-3734"},
     "social":{"twitter":"BUPickeringLib","facebook":"BUPickeringLibrary"},
-    "hours_url":"http://www.bu.edu/library/pickering-educational/about/hours",
+    "hours_url":"https://www.bu.edu/library/pickering-educational/about/hours",
     "libcal_lid":1783
   },"sel":{
     "name":"Science & Engineering Library",
@@ -91,7 +91,7 @@ const libraries_data_backup = {
     "website":"https://www.bu.edu/library/stone-science/",
     "address":["675 Commonwealth Ave, Floor 2","Boston, MA 02445"],
     "contacts":{"phone":"617-353-5679"},
-    "hours_url":"http://www.bu.edu/library/stone-science/about/hours/",
+    "hours_url":"https://www.bu.edu/library/stone-science/about/hours/",
     "libcal_lid":1785
   },"theology":{
     "name":"School of Theology Library",
@@ -104,11 +104,11 @@ const libraries_data_backup = {
   },"help":{
     "name":"BU Libraries",
     "short":"BU Libraries",
-    "website":"http://bu.edu/library",
+    "website":"https://www.bu.edu/library",
     "address":["771 Commonwealth Avenue","Boston, MA 02215"],
     "contacts":{"phone":"617-353-2700","email":"ask@bu.edu","text":"617-431-2427"},
     "social":{"facebook":"bostonulibraries","twitter":"bulibraries","instagram":"bulibraries"},
-    "hours_url": "http://www.bu.edu/library/mugar-memorial/about/hours/",
+    "hours_url": "https://www.bu.edu/library/mugar-memorial/about/hours/",
     "libcal_lid": 1475
   }
 };
