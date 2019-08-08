@@ -1,7 +1,7 @@
 .banner-wrapper {
   background: rgba(200,200,200,0.3);
   border-bottom: 1px solid #C8C8C8;
-  font-family: 'Benton', sans-serif !important;
+  font-family: 'Benton', sans-serif;
   box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.1)
 }
 
@@ -11,6 +11,7 @@
   justify-content: space-between;
 
   h1 {
+    font-family: 'Benton', sans-serif;
     font-weight: 400 !important;
     color: #333333;
     font-size: 30px;
