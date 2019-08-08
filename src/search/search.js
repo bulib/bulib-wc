@@ -1,4 +1,6 @@
 import {LitElement, html, css} from 'lit-element/lit-element'; //'https://unpkg.com/lit-element@2.2.0/lit-element.js?module';
+import {sendGAEvent} from '../_helpers/google_analytics';
+
 const ENTER_KEY_VALUE = 13;
 const default_to_just_primo = true;
 
@@ -204,7 +206,10 @@ export default class BULibSearch extends LitElement {
     //conditionally log and/or perform search
     let domain_to_print = domain.length > 80? domain.substring(0,80) + "..." : domain;
     this._logToConsole(`searching '${site}' for query: '${query}' on domain: '${domain_to_print}'`);
-    if(!this.prevent_action === true){ window.location = domain + encodeURIComponent(query); }
+    if(!this.prevent_action === true){ 
+      sendGAEvent("bulib-search", site, query);
+      window.location = domain + encodeURIComponent(query); 
+    }
   }
   
   /** call this._doSearch() if key that user pressed is ENTER */ 
