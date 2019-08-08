@@ -188,7 +188,8 @@ div.dropdown.menu-item {
   flex-wrap: wrap;
   justify-content: space-between; }
   .banner h1 {
-    font-weight: 400;
+    font-family: 'Benton', sans-serif;
+    font-weight: 400 !important;
     color: #333333;
     font-size: 30px;
     margin-top: 20px;
