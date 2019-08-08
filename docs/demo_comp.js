@@ -34,15 +34,19 @@ export const header_demo = `
           </ul>
         </div>
         <div class="primary-nav-right">
-          <div class="mobile-navigation none">
+          <div class="mobile-navigation none" aria-hidden="true">
             <script>
-              let menu = document.getElementById("menuToggle");
+              let RIGHT_MOUSE_BUTTON = 3;
               let input = document.querySelector("#menuToggle > input");
-              menu.addEventListener("focusout", input.removeAttribute("checked"));
+              window.addEventListener("mousedown", function(event){
+                if(event.which !== RIGHT_MOUSE_BUTTON){
+                  if(!!event.target.href){ window.open(event.target.href, "_self"); }
+                }
+              });
             </script>
             <div id="menuToggle">
                 <!-- invisible toggle with hamburger -->
-                <input type="checkbox" onfocusout="this.checked = false;"/>
+                <input type="checkbox" onfocusout="this.checked = false;" tabindex="-1"/>
                 <span></span>
                 <span></span>
                 <span></span>

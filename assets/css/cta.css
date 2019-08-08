@@ -6,7 +6,6 @@ div.ctas {
   grid-gap: 4%;
   grid-auto-rows: 1fr;
   grid-template-columns: repeat(2, 1fr);
-  padding-bottom: 20px;
 }
 div.cta { 
   text-align: center;
@@ -29,7 +28,7 @@ div.cta:hover {
   background-color: gainsboro; 
   cursor: pointer;
 }
-div.cta:last-of-type{
+.ctas .cta:last-of-type{
   background-color: gainsboro; 
   text-transform: uppercase;
 }

@@ -1,0 +1,184 @@
+<style type="text/css">
+
+  /* -- General (all) -- */
+
+  /* hide various */ 
+  .s-la-public-header-text, #s-la-page-title-bar, /* automatic headers */
+    #s-la-page-title-bar .navbar, /* HIDE OTB SEARCH */
+    div#slogan, #s-la-bc, /* slogan and breadcrumbs */
+    #s-la-public-footer /* footer */
+    { display: none; }
+
+  /* set header font */
+  h2, h3, h4, h5, h6 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  /* unset random 'ol, ul' default that's messing with the header alignment */
+  ol, ul {
+    margin-top: auto; 
+    margin-bottom: auto;
+  }
+
+
+  /* -- FAQ page (/faq/) -- */
+
+  /* adjust vertical spacing of the main content */
+  #s-la-page-maincontent { 
+    margin-top: -50px; 
+    margin-bottom: 30px;
+  }
+
+  /* general libanswers box */
+  .s-la-box-content { 
+    padding-left: 8%;  padding-right: 8%; 
+    padding-top: 4%;  padding-bottom: 4%;
+  }
+  .s-la-box-container { 
+    border-radius: 4px; 
+    margin-left: 15px; 
+    margin-right: 15px;
+  }
+
+  /* FAQ - question and answer box */ 
+  .question-title-bar h2 { font-size: xx-large; }
+  .question-title-bar .s-la-faq-owner, .question-title-bar .s-la-faq-updated { font-size: medium; }
+  .question-title-bar {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  /* .deck { border: 1px solid black; border-radius: 5px; } */
+
+
+  /* -- SEARCH page (/search) -- */
+
+  /* hide the 'submit your question' section/button */
+  #s-srch-results-container .s-srch-askbutton { display: none; }   
+
+  /* increase the width of the search results section */
+  #s-srch-source-0 > div > div.col-md-9 { width: 100% !important; }
+  #s-srch-source-0 > div > div.col-md-3 { display: none; }  
+</style>
+
+<section id="contact-us-cards">
+  <div class="deck">
+    <div class="card">
+      <i class="material-icons" onclick="window.open('/form.php?quid=511','_self')">email</i>
+      <div class="inline">
+        <h3><a href="/form.php?quid=511">Email</a></h3>
+        <p>Email us your research questions and we’ll respond within 24 hours.</p>
+      </div>
+    </div>
+      
+    <div class="card">
+      <i class="material-icons" onclick="document.querySelector('button.s-lch-widget-float-btn').click();">question_answer</i>
+      <div class="inline">
+        <h3><a onclick="document.querySelector('button.s-lch-widget-float-btn').click();">Chat</a></h3>
+        <p>Talk online to a research librarian on weekdays and Sundays</p>
+      </div>
+    </div>
+      
+    <div class="card">
+      <i class="material-icons" onclick="window.open('tel:6173532700','_self')">phone</i>
+      <div class="inline">
+        <h3><a href="tel:6173532700">Call</a></h3>
+        <p>Call us at 617-353-2700 during our open hours</p>
+      </div>
+    </div>
+      
+    <div class="card">
+      <i class="material-icons" onclick="window.open('sms:6174312427','_self')">smartphone</i>
+      <div class="inline">
+        <h3><a href="sms:6174312427">Text</a></h3>
+        <p>Send us your questions at 617-431-2427.</p>
+      </div>
+    </div>
+      
+    <div class="card">
+      <i class="material-icons" onclick="window.open('https://www.bu.edu/library/services/reference/appointments/','_self')">people</i>
+      <div class="inline">
+        <h3><a href="https://www.bu.edu/library/services/reference/appointments/">Meet</a></h3>
+        <p>Make an appointment with a subject specialist librarian</p>
+      </div>
+    </div>
+      
+    <div class="card">
+      <i class="material-icons" onclick="window.open('https://www.bu.edu/library/about/','_self')">local_library</i>
+      <div class="inline">
+        <h3><a href="https://www.bu.edu/library/about/">Visit</a></h3>
+        <p>Come talk to us in person at any of our locations</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bulib-search">
+  <style type="text/css"> .banner > bulib-search { display: none; } </style>
+  <bulib-search str_options="help primo"></bulib-search>
+</section>
+
+<section id="browse-topics-ctas">
+  <div class="ctas">
+    <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Borrowing','_self')">
+      <h3><a href="/search/?g=716&amp;topics=Borrowing">Borrowing Items</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1">Alumni</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1">Where is it?</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/','_self')">
+      <h3><a href="/businessFAQs/">Pardee / Management</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1">Newspapers</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1">Journals</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Troubleshooting','_self')">
+      <h3><a href="/search/?g=716&amp;topics=Troubleshooting">Troubleshooting</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/search/','_self')">
+      <h3><a href="/search">All Topics</a></h3>
+    </div>
+  </div>
+</section>
+
+<section id="faq-box">
+  <div class="question-title-bar">
+    <h2>Q. {{{question}}} </h2>
+    <span class="s-la-faq-updated" title="Last Updated"><i class="fa fa-calendar-o"></i>  {{updated}}</span>
+  </div>
+  <div class="s-la-faq-answer">{{{answer}}}</div>
+  {{#linksfiles}}
+    <div class="s-la-faq-links">
+      <h3>Links & Files</h3>
+      <ul class="list-unstyled">{{{linksfiles}}}</ul>
+    </div>
+  {{/linksfiles}}
+  {{#media}}
+    <div class="s-la-faq-media">
+      <h3>Media</h3>
+      <ul class="list-unstyled">{{{media}}}</ul>
+    </div>
+  {{/media}}
+</section>
+
+<section id="view-all-topics">
+  <div class="cta pvm" style="background-color: white;" onclick="window.open('/search','_self')">
+    <span class="labeled-icon"><a href="/search">VIEW ALL HELP TOPICS</a></span>
+    <i class="material-icons"> chevron_right</i>
+  </div>
+</section>

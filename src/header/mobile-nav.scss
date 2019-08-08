@@ -1,7 +1,17 @@
 /* --- from mobile-nav.scss --- */
 
 @media only screen and (max-width: 850px){ 
-  .menu-items > li, .menu-item { display: none; }
+  .menu-items > li, .menu-item { 
+    /* screen-reader only */
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    clip: rect(1px 1px 1px 1px); // IE 6 and 7
+    clip: rect(1px,1px,1px,1px);
+    clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+    -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+    overflow: hidden !important;
+  }
   .mobile-navigation { display: block !important; }
   .primary-nav-right { padding-top: 7px; }
   .banner > *:first-child { margin-right: auto; }
