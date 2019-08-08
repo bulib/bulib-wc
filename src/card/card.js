@@ -1,4 +1,5 @@
 import {LitElement, html} from 'lit-element/lit-element';
+import {sendGAEvent} from '../_helpers/google_analytics';
 
 /**
  * display a single concept (heading, description, cta, icon) in a small UI element
@@ -27,16 +28,26 @@ export default class BULCard extends LitElement {
 
   render() {
     let href = !!this.js ? "javascript:void(0);" : this.link;
-    let action = !!this.js ? this.js : `window.open('${this.link}', '_self')`;
     return html`
       <div class="card">
-        <i class="material-icons" onclick="${action}">${this.icon}</i>
+        <i class="material-icons" @click="${(ev) => this._doAction(ev)}">${this.icon}</i>
         <div class="inline">
-          <h3><a onclick="${action}" href="${href}">${this.title}</a></h3>
+          <h3><a @click="${(ev) => this._doAction(ev)}" href=" ${href}">${this.title}</a></h3>
           <p>${this.description}</p>
         </div>
       </div>
     `;
+  }
+
+  _doAction(event){
+    event.preventDefault();
+    sendGAEvent("card", this.title, "a");
+    
+    if(!this.prevent_action === true){
+      if(!!this.js){ eval(this.js); }
+      else{ window.open(this.link, '_self'); }
+    }
+
   }
   
   _logToConsole(message){
