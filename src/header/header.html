@@ -28,22 +28,9 @@
         </div>
         <div class="primary-nav-right">
           <div class="mobile-navigation none" aria-hidden="true">
-            <script type="text/javascript">
-              let RIGHT_MOUSE_BUTTON = 3;
-              let input = document.querySelector("#menuToggle > input");
-              window.addEventListener("mousedown", function(event){
-                if(event.which !== RIGHT_MOUSE_BUTTON){
-                  if(!!event.target.href && !event.target.href.includes("javascript:void") ){ 
-                    window.open(event.target.href, "_self"); 
-                  }else{
-                    eval(event.target.onclick);
-                  }
-                }
-              });
-            </script>
             <div id="menuToggle">
               <!-- invisible toggle with hamburger -->
-              <input type="checkbox" onfocusout="this.checked = false;" tabindex="-1"/>
+              <input type="checkbox" tabindex="-1"/>
               <span></span>
               <span></span>
               <span></span>
@@ -101,7 +88,7 @@
       <bulib-search str_options="help primo"></bulib-search>
     </div>
   </div>
-  <div>
+  <div class="lorem-ipsum">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam illum, voluptate repellat, ex minus at odio alias tenetur optio voluptatibus dicta deleniti cupiditate rem culpa laudantium, dolore deserunt fugiat repudiandae.</p>
     <p>Cumque provident nam, inventore repudiandae animi doloribus dignissimos illo ea error esse reprehenderit possimus odio, libero beatae, accusamus ratione itaque laboriosam expedita amet nihil voluptatum blanditiis obcaecati. Possimus, assumenda sint.</p>
     <p>Sunt quas dicta, vel perspiciatis ducimus placeat voluptates ad necessitatibus quis reprehenderit ullam consectetur! Enim neque ab architecto praesentium voluptatem saepe commodi, aperiam odio facere illum incidunt laborum laudantium pariatur?</p>
@@ -160,7 +147,8 @@
       anchorElements[i].addEventListener("click", (ev) => {
         href = ev.target.href || "#";
         contentClicked = ev.target.innerText ? ev.target.innerText : ev.target.querySelector("span").innerText || "[unknown]";
-        sendGAEvent(eventName, contentClicked.replace(/\/ /g,"-").toLowerCase(), window.location.pathname);
+        contentClicked = contentClicked.replace(/\//,"")
+        sendGAEvent(eventName, contentClicked.replace(/ +/g,"-").toLowerCase(), window.location.pathname);
       });
     }
   }
@@ -174,5 +162,14 @@
 
     let ctaLinks = document.querySelectorAll(".ctas a");
     addSendGAEventOnAnchorClickToAnchorElements(ctaLinks, "cta");
+
+    let input = document.querySelector("#menuToggle > input");
+    window.addEventListener("click", (event) => {
+      let clicked = event.target;
+      let clicked_within_mobile_menu = clicked.closest("#menuToggle") != null;
+      if(input && clicked != input && !clicked_within_mobile_menu && input.checked){
+        input.checked = false; // uncheck the #menuToggle input, closing the mobile nav
+      }
+    });
   };
 </script>
