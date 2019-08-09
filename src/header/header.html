@@ -28,12 +28,16 @@
         </div>
         <div class="primary-nav-right">
           <div class="mobile-navigation none" aria-hidden="true">
-            <script>
+            <script type="text/javascript">
               let RIGHT_MOUSE_BUTTON = 3;
               let input = document.querySelector("#menuToggle > input");
               window.addEventListener("mousedown", function(event){
                 if(event.which !== RIGHT_MOUSE_BUTTON){
-                  if(!!event.target.href){ window.open(event.target.href, "_self"); }
+                  if(!!event.target.href && !event.target.href.includes("javascript:void") ){ 
+                    window.open(event.target.href, "_self"); 
+                  }else{
+                    eval(event.target.onclick);
+                  }
                 }
               });
             </script>
@@ -116,7 +120,7 @@
     <div class="card">
       <i class="material-icons" onclick="document.querySelector('button.s-lch-widget-float-btn').click();">question_answer</i>  
       <div class="inline">
-        <h3><a onclick="document.querySelector('button.s-lch-widget-float-btn').click();" href="javascript:void(0)">Chat</a></h3>
+        <h3><a onclick="console.log('chat says hi')" href="javascript:void(0)">Chat</a></h3>
         <p>Talk online to a research librarian on weekdays and Sundays</p>
       </div>
     </div>
@@ -147,3 +151,28 @@
     </div>
   </div>
 </body>
+<script type="module">
+  import {sendGAEvent} from 'https://unpkg.com/bulib-wc@latest/src/_helpers/google_analytics.js?module';
+
+  function addSendGAEventOnAnchorClickToAnchorElements(anchorElements, eventName){
+    let href, contentClicked = "";
+    for(let i=0; i<anchorElements.length; i++){
+      anchorElements[i].addEventListener("click", (ev) => {
+        href = ev.target.href || "#";
+        contentClicked = ev.target.innerText ? ev.target.innerText : ev.target.querySelector("span").innerText || "[unknown]";
+        sendGAEvent(eventName, contentClicked.replace(/\/ /g,"-").toLowerCase(), window.location.pathname);
+      });
+    }
+  }
+
+  window.onload = () => {
+    let headerLinks = document.querySelectorAll(".header-wrapper a");
+    addSendGAEventOnAnchorClickToAnchorElements(headerLinks, "bulib-header");
+
+    let cardLinks = document.querySelectorAll(".deck a");
+    addSendGAEventOnAnchorClickToAnchorElements(cardLinks, "card");
+
+    let ctaLinks = document.querySelectorAll(".ctas a");
+    addSendGAEventOnAnchorClickToAnchorElements(ctaLinks, "cta");
+  };
+</script>
