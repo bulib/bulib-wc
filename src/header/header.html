@@ -80,6 +80,16 @@
           </div>
         </div>
       </div>
+      <script id="mobile-nav-clickout" type="text/javascript">
+        let input = document.querySelector("#menuToggle > input");
+        window.addEventListener("click", (event) => {
+          let clicked = event.target;
+          let clicked_within_mobile_menu = clicked.closest("#menuToggle") != null;
+          if(input && clicked != input && !clicked_within_mobile_menu || clicked.tagName == "A"){
+            input.checked = false; // uncheck the #menuToggle input, closing the mobile nav
+          }
+        });
+      </script>
     </nav>
   </div>
   <div class="banner-wrapper">
@@ -137,39 +147,29 @@
       <h3><a href="/businessFAQs/">Pardee / Management</a></h3>
     </div>
   </div>
-</body>
-<script type="module">
-  import {sendGAEvent} from 'https://unpkg.com/bulib-wc@latest/src/_helpers/google_analytics.js?module';
+  <script id="google-analytics-link-tracker" type="module" defer>
+    import {sendGAEvent} from 'https://unpkg.com/bulib-wc@latest/src/_helpers/google_analytics.js?module';
 
-  function addSendGAEventOnAnchorClickToAnchorElements(anchorElements, eventName){
-    let href, contentClicked = "";
-    for(let i=0; i<anchorElements.length; i++){
-      anchorElements[i].addEventListener("click", (ev) => {
-        href = ev.target.href || "#";
-        contentClicked = ev.target.innerText ? ev.target.innerText : ev.target.querySelector("span").innerText || "[unknown]";
-        contentClicked = contentClicked.replace(/\//,"")
-        sendGAEvent(eventName, contentClicked.replace(/ +/g,"-").toLowerCase(), window.location.pathname);
-      });
-    }
-  }
-
-  window.onload = () => {
-    let headerLinks = document.querySelectorAll(".header-wrapper a");
-    addSendGAEventOnAnchorClickToAnchorElements(headerLinks, "bulib-header");
-
-    let cardLinks = document.querySelectorAll(".deck a");
-    addSendGAEventOnAnchorClickToAnchorElements(cardLinks, "card");
-
-    let ctaLinks = document.querySelectorAll(".ctas a");
-    addSendGAEventOnAnchorClickToAnchorElements(ctaLinks, "cta");
-
-    let input = document.querySelector("#menuToggle > input");
-    window.addEventListener("click", (event) => {
-      let clicked = event.target;
-      let clicked_within_mobile_menu = clicked.closest("#menuToggle") != null;
-      if(input && clicked != input && !clicked_within_mobile_menu || clicked.tagName == "A"){
-        input.checked = false; // uncheck the #menuToggle input, closing the mobile nav
+    function addSendGAEventOnAnchorClickToAnchorElements(anchorElements, eventName){
+      let contentClicked = "";
+      for(let i=0; i<anchorElements.length; i++){
+        anchorElements[i].addEventListener("click", (ev) => {
+          contentClicked = ev.target.innerText ? ev.target.innerText : ev.target.querySelector("span").innerText || "[unknown]";
+          contentClicked = contentClicked.replace(/\//,"")
+          sendGAEvent(eventName, contentClicked.replace(/ +/g,"-").toLowerCase(), window.location.pathname);
+        });
       }
-    });
-  };
-</script>
+    }
+    
+    window.onload = function(){
+      let headerLinks = document.querySelectorAll(".header-wrapper a");
+      addSendGAEventOnAnchorClickToAnchorElements(headerLinks, "bulib-header");
+      
+      let cardLinks = document.querySelectorAll(".deck a");
+      addSendGAEventOnAnchorClickToAnchorElements(cardLinks, "card");
+      
+      let ctaLinks = document.querySelectorAll(".ctas a");
+      addSendGAEventOnAnchorClickToAnchorElements(ctaLinks, "cta");
+    };
+  </script>
+</body>
