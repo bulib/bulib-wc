@@ -167,7 +167,7 @@
     window.addEventListener("click", (event) => {
       let clicked = event.target;
       let clicked_within_mobile_menu = clicked.closest("#menuToggle") != null;
-      if(input && clicked != input && !clicked_within_mobile_menu && input.checked){
+      if(input && clicked != input && !clicked_within_mobile_menu || clicked.tagName == "A"){
         input.checked = false; // uncheck the #menuToggle input, closing the mobile nav
       }
     });
