@@ -20,10 +20,11 @@
 
     a { 
       color: black; 
-      font-weight: 500;
       text-decoration: none;
       cursor: pointer;
     }
+
+    a:last-child{ font-weight: 300; }
   }
 
   > *:first-child { display: flex; }

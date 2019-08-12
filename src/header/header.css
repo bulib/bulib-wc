@@ -196,9 +196,10 @@ div.dropdown.menu-item {
     margin-bottom: 20px; }
     .banner h1 a {
       color: black;
-      font-weight: 500;
       text-decoration: none;
       cursor: pointer; }
+    .banner h1 a:last-child {
+      font-weight: 300; }
   .banner > *:first-child {
     display: flex; }
   .banner > *:last-child {
