@@ -14,7 +14,7 @@ export function sendGAEvent(eventName, action, label){
       'event_label': label 
     });
   }else{
-    logSendGAEvent("tried to sendGAEvent for '" + eventName +"' but neither 'ga()' nor 'gtag()' were found");
+    logSendGAEvent("tried to sendGAEvent for '" + eventName + "' but neither 'ga()' nor 'gtag()' were found");
   }
 }
 
