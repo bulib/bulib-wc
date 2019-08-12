@@ -21,12 +21,6 @@
 
   /* -- FAQ page (/faq/) -- */
 
-  /* adjust vertical spacing of the main content */
-  #s-la-page-maincontent { 
-    margin-top: -50px; 
-    margin-bottom: 30px;
-  }
-
   /* general libanswers box */
   .s-la-box-content { 
     padding-left: 8%;  padding-right: 8%; 
@@ -62,7 +56,7 @@
   #s-la-box-66294-container { display: none; }
 
   /* increase font size of search results */
-  .s-srch-result-title { font-size: 1.7em; }
+  .s-srch-result-title { font-size: 2em; font-weight: 500; }
   .s-srch-result-meta { font-size: 1.3em; }
 
   /* label colors */
@@ -70,4 +64,6 @@
   .s-srch-result-subj > ul > li > span.label.label-default {
     color: white;
     background-color: #06605A; 
+    font-size: 0.9em;
+    font-weight: 400;
   }
