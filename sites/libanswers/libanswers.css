@@ -33,6 +33,7 @@
   }
 
   /* FAQ - question and answer box */ 
+  .s-la-faq-answer { font-size: large; }
   .question-title-bar h2 { font-size: xx-large; }
   .question-title-bar .s-la-faq-owner, .question-title-bar .s-la-faq-updated { font-size: medium; }
   .question-title-bar {
