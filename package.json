@@ -7,8 +7,7 @@
   "module": "src/index.js",
   "files": [
     "assets/",
-    "dist/bundle*.js",
-    "dist/bundle.css",
+    "dist/",
     "src/"
   ],
   "scripts": {
@@ -24,7 +23,7 @@
     "prebuild:storybook": "npm run css",
     "build:storybook": "build-storybook -o _site -s storybook-static",
     "deploy": "./scripts/deploy.sh",
-    "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -o dist"
+    "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -o _site"
   },
   "repository": {
     "type": "git",
