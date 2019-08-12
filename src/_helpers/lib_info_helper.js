@@ -1,5 +1,4 @@
-// import {_getDataFromFile} from './load_json.js';
-
+// static data about each library, powering LoCoSo, LibHours
 const libraries_data_backup = {
   "mugar-memorial":{
     "name":"Mugar Memorial Library",

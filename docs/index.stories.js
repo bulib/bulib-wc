@@ -3,7 +3,7 @@ import { storiesOf, withKnobs } from '@open-wc/demoing-storybook';
 
 // demos
 import {header_demo, ensemble_demo} from './demo_comp';
-import {search_demo, hours_demo, locoso_demo, footer_demo, bulib_card_demo} from './demo_wc';
+import {search_demo, hours_demo, locoso_demo, footer_demo, wc_card_demo} from './demo_wc';
 import {card_demo, cta_demo} from './demo_nojs';
 
 // css
@@ -19,7 +19,7 @@ storiesOf('composites', module)
 storiesOf('components', module)
   .addDecorator(withKnobs)
 //.add('bulib-search', () => withClassPropertiesKnobs(BULibSearch))
-  .add('bulib-card',   () => bulib_card_demo)
+  .add('bulib-card',   () => wc_card_demo)
   .add('bulib-search', () => search_demo)
   .add('bulib-hours',  () => hours_demo)
   .add('bulib-locoso', () => locoso_demo)
