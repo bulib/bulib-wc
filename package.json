@@ -42,19 +42,19 @@
   },
   "homepage": "https://github.com/bulib/bulib-wc#readme",
   "dependencies": {
-    "@open-wc/polyfills-loader": "^0.3.2",
+    "@open-wc/polyfills-loader": "^0.3.3",
     "lit-element": "^2.2.1",
-    "lit-html": "^1.0.0"
+    "lit-html": "^1.1.2"
   },
   "devDependencies": {
-    "@open-wc/building-rollup": "^0.3.0",
-    "@open-wc/demoing-storybook": "^0.2.0",
+    "@open-wc/building-rollup": "^0.9.12",
+    "@open-wc/demoing-storybook": "^0.3.0",
     "@storybook/storybook-deployer": "^2.8.1",
-    "cypress": "^3.4.0",
+    "cypress": "^3.4.1",
     "material-icons": "^0.3.1",
-    "rollup": "^1.6.0",
-    "rollup-plugin-babel-minify": "^8.0.0",
-    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup": "^1.19.4",
+    "rollup-plugin-babel-minify": "^9.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "scss": "^0.2.4"
   }
 }
