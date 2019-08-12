@@ -5,6 +5,7 @@
 /* - pagewidth - */
 .header-wrapper, .footer-wrapper, .banner-wrapper {
   font-family: 'Benton', sans-serif;
+  width: inherit;
   padding: 10px;
 }
 
