@@ -14,3 +14,9 @@ cat assets/css/common.css >> $CSS_BUNDLE_FILEPATH;
 cat assets/css/card.css >> $CSS_BUNDLE_FILEPATH;
 cat assets/css/cta.css >> $CSS_BUNDLE_FILEPATH;
 cat src/header/header.css >>  $CSS_BUNDLE_FILEPATH;
+
+# copy site-specific css into dist/
+cp ./sites/libanswers/libanswers.css ./dist/libanswers.css
+
+# move icons into dist/
+cp -R ./assets/icons ./dist/icons

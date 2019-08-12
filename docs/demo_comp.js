@@ -21,7 +21,7 @@ export const header_demo = `
       <div class="primary-navbar">
         <div class="primary-nav-left">
           <a title="BU Libraries Homepage" href="https://www.bu.edu/library">
-            <img id="bu-logo" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/assets/icons/bulib-logo.png">
+            <img id="bu-logo" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/bulib-logo.png">
           </a>
         </div>
         <div class="primary-nav-main menu-items-wrapper">
@@ -34,15 +34,19 @@ export const header_demo = `
           </ul>
         </div>
         <div class="primary-nav-right">
-          <div class="mobile-navigation none">
+          <div class="mobile-navigation none" aria-hidden="true">
             <script>
-              let menu = document.getElementById("menuToggle");
+              let RIGHT_MOUSE_BUTTON = 3;
               let input = document.querySelector("#menuToggle > input");
-              menu.addEventListener("focusout", input.removeAttribute("checked"));
+              window.addEventListener("mousedown", function(event){
+                if(event.which !== RIGHT_MOUSE_BUTTON){
+                  if(!!event.target.href){ window.open(event.target.href, "_self"); }
+                }
+              });
             </script>
             <div id="menuToggle">
                 <!-- invisible toggle with hamburger -->
-                <input type="checkbox" onfocusout="this.checked = false;"/>
+                <input type="checkbox" onfocusout="this.checked = false;" tabindex="-1"/>
                 <span></span>
                 <span></span>
                 <span></span>
@@ -96,7 +100,7 @@ export const header_demo = `
   </div>
   <div class="banner-wrapper">
     <div class="banner">
-      <h1>Ask a Librarian: Help &amp; FAQs</h1>
+      <h1><a href="/">Ask a Librarian</a>: &nbsp; <a href="/dev_staging">Help &amp; FAQs</a></h1>
       <bulib-search str_options="help primo"></bulib-search>
     </div>
   </div>`;

@@ -16,16 +16,16 @@ const sitemap_values = {
   },"askalibrarian":{
     "header":"Ask A Librarian",
     "links":[
-      {"title":"Research Guides by Subject",    "href":"/guides"},
+      {"title":"Research Guides by Subject",    "href":"https://library.bu.edu/guides/"},
       {"title":"Course Guides",                 "href":"https://www.bu.edu/library/research/guides/course-guides/"},
       {"title":"How-To Guides",                 "href":"https://www.bu.edu/library/help/how-to/"},
-      {"title":"Pardee Management Library FAQs","href":"/businessFAQs/"},
+      {"title":"Pardee Management Library FAQs","href":"https://askalibrarian.bu.edu/businessFAQs/"},
       {"title":"Make a Research Appointment",   "href":"https://www.bu.edu/library/services/reference/appointments/"}
     ]
   },"guides":{
     "header":"Library Guides",
     "links":[
-      {"title":"Research Guides by Subject",  "href":"/guides"},
+      {"title":"Research Guides by Subject",  "href":"https://library.bu.edu/guides/"},
       {"title":"Course Guides",               "href":"https://www.bu.edu/library/research/guides/course-guides/"},
       {"title":"How-To Guides",               "href":"https://www.bu.edu/library/help/how-to/"},
       {"title":"Make a Research Appointment", "href":"https://www.bu.edu/library/services/reference/appointments/"}
@@ -33,7 +33,7 @@ const sitemap_values = {
   },"primo":{
     "header":"BU Libraries Search",
     "links":[
-      {"title":"Browse",          "href":"/primo-explore/browse?vid=BU"},
+      {"title":"Browse",          "href":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/browse?vid=BU&lang=en_US"},
       {"title":"Search Help",     "href":"https://www.bu.edu/library/help/bu-libraries-search/"},
       {"title":"Databases List",  "href":"https://library.bu.edu/az.php"},
       {"title":"What's New",      "href":"https://www.bu.edu/library/help/bu-libraries-search/new-bu-libraries-search-features/"}
@@ -177,8 +177,8 @@ export default class BULibFooter extends LitElement {
               </div>
                 <ul class="no-bullet ptl">
                   <li><a class="white-link" href="https://www.bu.edu/library/" title="Libraries Home">Libraries Home</a></li>
-                  <li><a class="white-link" href="http://bu.edu/library/search" title="Search available/licensed content">Libraries Search</a></li>
-                  <li><a class="white-link" href="http://bu.edu/library/about" title="Information regarding various BU Libraries">Library Locations</a></li>
+                  <li><a class="white-link" href="https://www.bu.edu/library/search" title="Search available/licensed content">Libraries Search</a></li>
+                  <li><a class="white-link" href="https://www.bu.edu/library/about" title="Information regarding various BU Libraries">Library Locations</a></li>
                   <li><a class="white-link" href="https://askalibrarian.bu.edu/" title="Help">Help</a></li>
                 </ul>
             </div>
