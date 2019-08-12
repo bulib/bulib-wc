@@ -21,7 +21,7 @@ export const header_demo = `
       <div class="primary-navbar">
         <div class="primary-nav-left">
           <a title="BU Libraries Homepage" href="https://www.bu.edu/library">
-            <img id="bu-logo" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/assets/icons/bulib-logo.png">
+            <img id="bu-logo" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/bulib-logo.png">
           </a>
         </div>
         <div class="primary-nav-main menu-items-wrapper">
