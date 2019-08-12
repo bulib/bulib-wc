@@ -1,6 +1,6 @@
-import loadPolyfills from '@open-wc/polyfills-loader';
+import '@webcomponents/webcomponentsjs/webcomponents-loader';
 
-loadPolyfills().then(() => {
+WebComponents.waitFor(async () => {
   import ('./select/bulib-select');
   import ('./card/bulib-card');
   import ('./dropdown/bulib-dropdown');
