@@ -64,7 +64,7 @@ const libraries_data_backup = {
     "website":"https://www.bu.edu/library/management/",
     "address":["595 Commonwealth Avenue","Boston, MA 02215"],
     "contacts":{"phone":"617-353-4301","fax":"617-353-4307","email":"pardstf@bu.edu"},
-    "social":{"twitter":"BUpardeelibrary","facebook":"pardeelibrary"},
+    "social":{"twitter":"BUpardeelibrary","facebook":"BUpardeelibrary"},
     "hours_url":"https://www.bu.edu/library/management/about/hours/",
     "libcal_lid":1476
   },"pickering":{

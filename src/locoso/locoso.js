@@ -141,7 +141,7 @@ export default class Locoso extends LitElement {
       social.push( {"text":"flickr", "url":"https://www.flickr.com/photos/"+rawSocial["flickr"]} );
     }
     if(rawSocial["tumblr"]){
-      social.push( {"text":"tumblr", "url":"http://"+rawSocial["tumblr"]+"tumblr.com/"} );
+      social.push( {"text":"tumblr", "url":"http://"+rawSocial["tumblr"]+".tumblr.com/"} );
     }
     this._logToConsole(`${social.length.toString()} items found for 'social'.`);
     return social;
