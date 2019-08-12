@@ -1,5 +1,5 @@
 import {LitElement, html} from 'lit-element/lit-element';
-import {search_options} from '../search/search.js';
+import {search_options} from '../search/search_options';
 
 const libraries =  [
   {"value":"help","name":"SELECT LIBRARY"},
