@@ -57,3 +57,17 @@
   /* increase the width of the search results section */
   #s-srch-source-0 > div > div.col-md-9 { width: 100% !important; }
   #s-srch-source-0 > div > div.col-md-3 { display: none; }  
+
+  /* hide the bottom 'Showing 0 - 0 (of 0) */
+  #s-la-box-66294-container { display: none; }
+
+  /* increase font size of search results */
+  .s-srch-result-title { font-size: 1.7em; }
+  .s-srch-result-meta { font-size: 1.3em; }
+
+  /* label colors */
+  .s-srch-result-title a { color: #0B4473; }
+  .s-srch-result-subj > ul > li > span.label.label-default {
+    color: white;
+    background-color: #06605A; 
+  }
