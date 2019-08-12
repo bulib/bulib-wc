@@ -5,14 +5,16 @@
 /* - pagewidth - */
 .header-wrapper, .footer-wrapper, .banner-wrapper {
   font-family: 'Benton', sans-serif;
+  width: inherit;
   padding: 10px;
-  width: 100%;
 }
 
 .header-wrapper, .footer-wrapper {
   background-color: #212121;
   color: whitesmoke;
 }
+
+.full-width { width: 100%; }
 
 /* on super large screens, set the width to avoid getting too much spacing */
 @media only screen and (min-width: 1500px){
