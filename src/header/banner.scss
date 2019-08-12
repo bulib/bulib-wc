@@ -17,6 +17,14 @@
     font-size: 30px;
     margin-top: 20px;
     margin-bottom: 20px;
+
+    a { 
+      color: black; 
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    a:last-child{ font-weight: 300; }
   }
 
   > *:first-child { display: flex; }

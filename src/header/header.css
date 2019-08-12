@@ -194,6 +194,12 @@ div.dropdown.menu-item {
     font-size: 30px;
     margin-top: 20px;
     margin-bottom: 20px; }
+    .banner h1 a {
+      color: black;
+      text-decoration: none;
+      cursor: pointer; }
+    .banner h1 a:last-child {
+      font-weight: 300; }
   .banner > *:first-child {
     display: flex; }
   .banner > *:last-child {

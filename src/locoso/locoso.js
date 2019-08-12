@@ -47,14 +47,14 @@ export default class Locoso extends LitElement {
         <ul aria-description="list of social media accounts" class="no-bullet inline-list plm">
         ${social.map((s) =>
           html`<li><a class="${this.link_class}" target="_blank" href="${s.url}" title="${s.text}"><img alt="${s.text} icon" class="sm-icon ${this.link_class}"
-                      src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/assets/icons/icons8-${s.text}-48.png"></a></li>`
+                      src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/icons8-${s.text}-48.png"></a></li>`
         )}
         </ul>
       `;
     }
     
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/assets/css/common.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/bundle.css">
       <style>
         /* layout and responsiveness */
         .locoso-left { flex: 1; }
@@ -141,7 +141,7 @@ export default class Locoso extends LitElement {
       social.push( {"text":"flickr", "url":"https://www.flickr.com/photos/"+rawSocial["flickr"]} );
     }
     if(rawSocial["tumblr"]){
-      social.push( {"text":"tumblr", "url":"http://"+rawSocial["tumblr"]+"tumblr.com/"} );
+      social.push( {"text":"tumblr", "url":"http://"+rawSocial["tumblr"]+".tumblr.com/"} );
     }
     this._logToConsole(`${social.length.toString()} items found for 'social'.`);
     return social;
