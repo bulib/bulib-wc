@@ -1,5 +1,6 @@
 import {LitElement, html, css} from 'lit-element/lit-element';
 import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
+import {sendGAEvent} from '../_helpers/google_analytics.js';
 
 /** stored values for the sitemap */
 const sitemap_values = {
@@ -176,7 +177,7 @@ export default class BULibFooter extends LitElement {
                 <br /><br />
               </div>
                 <ul class="no-bullet ptl">
-                  <li><a class="white-link" href="https://www.bu.edu/library/" title="Libraries Home">Libraries Home</a></li>
+                  <li><a class="white-link" @click="${(ev) => this._logEvent(ev) }" href="https://www.bu.edu/library/" title="Libraries Home">Libraries Home</a></li>
                   <li><a class="white-link" href="https://www.bu.edu/library/search" title="Search available/licensed content">Libraries Search</a></li>
                   <li><a class="white-link" href="https://www.bu.edu/library/about" title="Information regarding various BU Libraries">Library Locations</a></li>
                   <li><a class="white-link" href="https://askalibrarian.bu.edu/" title="Help">Help</a></li>
@@ -194,6 +195,11 @@ export default class BULibFooter extends LitElement {
         </footer>
       </div>
     `;
+  }
+
+  _logEvent(event){
+    sendGAEvent("bulib-footer", event.target.innerHTML, window.location.pathname);
+    debugger
   }
   
   _logToConsole(message){

@@ -35,32 +35,23 @@ export const header_demo = `
         </div>
         <div class="primary-nav-right">
           <div class="mobile-navigation none" aria-hidden="true">
-            <script>
-              let RIGHT_MOUSE_BUTTON = 3;
-              let input = document.querySelector("#menuToggle > input");
-              window.addEventListener("mousedown", function(event){
-                if(event.which !== RIGHT_MOUSE_BUTTON){
-                  if(!!event.target.href){ window.open(event.target.href, "_self"); }
-                }
-              });
-            </script>
             <div id="menuToggle">
-                <!-- invisible toggle with hamburger -->
-                <input type="checkbox" onfocusout="this.checked = false;" tabindex="-1"/>
-                <span></span>
-                <span></span>
-                <span></span>
-                
-                <!-- mobile nav menu -->
-                <ul id="mobile-menu">
-                  <li id="subsite-research"><a href="https://www.bu.edu/library/research">Research</a></li>
-                  <li id="subsite-services"><a href="https://www.bu.edu/library/services">Services</a></li>
-                  <li id="subsite-about"><a href="https://www.bu.edu/library/">About</a></li>
-                  <li><hr /></li>
-                  <li><a href="https://www.bu.edu/library/about">Library Locations</a></li>
-                  <li><a href="https://askalibrarian.bu.edu/">Ask a Librarian</a></li>
-                </ul>
-              </div>
+              <!-- invisible toggle with hamburger -->
+              <input type="checkbox" tabindex="-1"/>
+              <span></span>
+              <span></span>
+              <span></span>
+              
+              <!-- mobile nav menu -->
+              <ul id="mobile-menu">
+                <li id="subsite-research"><a href="https://www.bu.edu/library/research">Research</a></li>
+                <li id="subsite-services"><a href="https://www.bu.edu/library/services">Services</a></li>
+                <li id="subsite-about"><a href="https://www.bu.edu/library/">About</a></li>
+                <li><hr /></li>
+                <li><a href="https://www.bu.edu/library/about">Library Locations</a></li>
+                <li><a href="https://askalibrarian.bu.edu/">Ask a Librarian</a></li>
+              </ul>
+            </div>
           </div>
           <div class="top-right">
             <ul class="menu-items">
@@ -96,9 +87,19 @@ export const header_demo = `
           </div>
         </div>
       </div>
+      <script id="mobile-nav-clickout" type="text/javascript">
+        let input = document.querySelector("#menuToggle > input");
+        window.addEventListener("click", (event) => {
+          let clicked = event.target;
+          let clicked_within_mobile_menu = clicked.closest("#menuToggle") != null;
+          if(input && clicked != input && !clicked_within_mobile_menu || clicked.tagName == "A"){
+            input.checked = false; // uncheck the #menuToggle input, closing the mobile nav
+          }
+        });
+      </script>
     </nav>
-  </div>
-  <div class="banner-wrapper">
+    </div>
+    <div class="banner-wrapper">
     <div class="banner">
       <h1><a href="/">Ask a Librarian</a>: &nbsp; <a href="/dev_staging">Help &amp; FAQs</a></h1>
       <bulib-search str_options="help primo"></bulib-search>
