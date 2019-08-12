@@ -1,0 +1,59 @@
+  /* -- General (all) -- */
+
+  /* hide various */ 
+  .s-la-public-header-text, #s-la-page-title-bar, /* automatic headers */
+    #s-la-page-title-bar .navbar, /* HIDE OTB SEARCH */
+    div#slogan, #s-la-bc, /* slogan and breadcrumbs */
+    #s-la-public-footer /* footer */
+    { display: none; }
+
+  /* set header font */
+  h2, h3, h4, h5, h6 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  /* unset random 'ol, ul' default that's messing with the header alignment */
+  ol, ul {
+    margin-top: auto; 
+    margin-bottom: auto;
+  }
+
+
+  /* -- FAQ page (/faq/) -- */
+
+  /* adjust vertical spacing of the main content */
+  #s-la-page-maincontent { 
+    margin-top: -50px; 
+    margin-bottom: 30px;
+  }
+
+  /* general libanswers box */
+  .s-la-box-content { 
+    padding-left: 8%;  padding-right: 8%; 
+    padding-top: 4%;  padding-bottom: 4%;
+  }
+  .s-la-box-container { 
+    border-radius: 4px; 
+    margin-left: 15px; 
+    margin-right: 15px;
+  }
+
+  /* FAQ - question and answer box */ 
+  .question-title-bar h2 { font-size: xx-large; }
+  .question-title-bar .s-la-faq-owner, .question-title-bar .s-la-faq-updated { font-size: medium; }
+  .question-title-bar {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+
+  /* -- SEARCH page (/search) -- */
+
+  /* hide the 'submit your question' section/button */
+  #s-srch-results-container .s-srch-askbutton { display: none; }   
+
+  /* increase the width of the search results section */
+  #s-srch-source-0 > div > div.col-md-9 { width: 100% !important; }
+  #s-srch-source-0 > div > div.col-md-3 { display: none; }  
