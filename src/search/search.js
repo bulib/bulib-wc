@@ -100,7 +100,6 @@ export default class BULibSearch extends LitElement {
         input[type=radio] {
           cursor: pointer;
           margin-right: 7px;
-          vertical-align: text-bottom;
         }
         button {
           background-color: #257abe; 

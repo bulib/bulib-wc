@@ -1,8 +1,8 @@
   /* -- General (all) -- */
 
   /* hide various */ 
-  .s-la-public-header-text, #s-la-page-title-bar, /* automatic headers */
-    #s-la-page-title-bar .navbar, /* HIDE OTB SEARCH */
+  .s-la-public-header-text, /* hide automatic headers (replaced by banner text) */
+    #s-la-page-title-bar, #s-la-page-title-bar .navbar, /* hide out-of-the-box search/browse banner */
     div#slogan, #s-la-bc, /* slogan and breadcrumbs */
     #s-la-public-footer /* footer */
     { display: none; }
@@ -33,8 +33,8 @@
   }
 
   /* FAQ - question and answer box */ 
-  .s-la-faq-answer { font-size: large; }
-  .question-title-bar h2 { font-size: xx-large; }
+  .s-la-faq-answer { font-size: large; } /* increase font size of answer */
+  .question-title-bar h2 { font-size: xx-large; } /* greatly increase question title */
   .question-title-bar .s-la-faq-owner, .question-title-bar .s-la-faq-updated { font-size: medium; }
   .question-title-bar {
     display: flex !important;
@@ -42,7 +42,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
   }
-
+  
 
   /* -- SEARCH page (/search) -- */
 
