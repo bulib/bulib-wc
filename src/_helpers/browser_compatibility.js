@@ -1,4 +1,4 @@
-var debug = false;
+const DEBUG_BROWSER = false;
 
 /** determine the browser the code is being run on */
 const doesBrowserSupportWebComponents = function(){
@@ -23,7 +23,7 @@ export const loadWebComponentInto = function(tagname, replacedElements){
   for(var i=0; i<elementsToHide.length; i++){ elementsToHide[i].hidden = true; }
   
   // log the result
-  if(debug){
+  if(DEBUG_BROWSER){
     var supportsMessage = user_agent_supports_web_components ? ": ]" : ":(";
     console.log("user_agent_supports_web_components: " + supportsMessage);
   }

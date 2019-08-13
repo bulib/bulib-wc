@@ -1,8 +1,8 @@
 
-const debug = true;
+const DEBUG_ANALYTICS = false;
 
 function logSendGAEvent(message){
-  if(debug){ console.log("google_analytics_helper) " + message); debugger }
+  if(DEBUG_ANALYTICS){ console.log("google_analytics_helper) " + message); }
 }
 
 export function sendGAEvent(eventName, action, label){
@@ -16,6 +16,7 @@ export function sendGAEvent(eventName, action, label){
   }else{
     logSendGAEvent("tried to sendGAEvent for '" + eventName + "' but neither 'ga()' nor 'gtag()' were found");
   }
+  if(DEBUG_ANALYTICS){ debugger; }
 }
 
 export function sendGAEventFromClickEvent(clickEvent, eventName){

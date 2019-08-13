@@ -62,8 +62,8 @@ export const footer_demo = `
   <br /><hr /><br />
 
   <bulib-select 
-    sel_title="Select Simulated URL" curr_sel="bu.edu/library/mugar-memorial" 
-    opt_code="sample_urls" tag_name="bulib-footer" attr_name="curr_url"
+    sel_title="Select Simulated URL" opt_code="sample_urls" 
+    tag_name="bulib-footer" attr_name="curr_url"
   ></bulib-select>
 `;
 

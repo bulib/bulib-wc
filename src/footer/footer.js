@@ -4,7 +4,6 @@ import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_he
 import {sendGAEventFromClickEvent} from '../_helpers/google_analytics.js';
 
 /** stored values for the sitemap */
-const is_debug_environment = (location) => { return location.includes("github.io") || window.location.href.includes("localhost"); }
 const sitemap_values = {
     "wordpress":{
     "header":"Boston University Libraries",
@@ -120,8 +119,7 @@ export default class BULibFooter extends LitElement {
 
   connectedCallback(){
     super.connectedCallback();
-    let location = window.location.href; 
-    let current_url = is_debug_environment(location)? "http://www.bu.edu/library/music/research/guides/" : location;
+    let current_url = (this.curr_url)? this.curr_url : window.location.href || "";
     let lib_code = getLibraryCodeFromUrl(current_url);
     this._logToConsole("selected library code: " + lib_code);
     this.library = lib_code;
@@ -133,7 +131,7 @@ export default class BULibFooter extends LitElement {
     
     // determine site
     let old_site = this.host_site;
-    let main_site = getSiteCodeFromUrl(current_url, this.debug);
+    let main_site = getSiteCodeFromUrl(current_url);
     if(["about","research","services"].includes(main_site)){ this.host_site = "wordpress"; }
     else if(main_site == "help"){ this.host_site = "askalibrarian"; }
     else if(main_site == "guides"){ this.host_site = "guides"; }
@@ -145,7 +143,7 @@ export default class BULibFooter extends LitElement {
     
     // determine library
     let old_library = this.library;
-    let lib_code = this.curr_url? getLibraryCodeFromUrl(current_url, this.debug) : this.library;
+    let lib_code = this.curr_url? getLibraryCodeFromUrl(current_url) : this.library;
     this.library = lib_code;
     if(old_library != this.library){
       this._logToConsole(`library changed from '${old_library}' to '${this.library}'.`);
