@@ -190,16 +190,16 @@ export default class BULibFooter extends LitElement {
                 </small>
                 <br /><br />
               </div>
-                <ul class="no-bullet ptl">
-                  <li><a title="Libraries Home" class="white-link" href="https://www.bu.edu/library/"
-                         @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Libraries Home</a></li>
-                  <li><a title="Search available/licensed content" class="white-link" href="https://www.bu.edu/library/search"
-                         @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Libraries Search</a></li>
-                  <li><a title="Information regarding various BU Libraries" class="white-link" href="https://www.bu.edu/library/about"
-                         @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Library Locations</a></li>
-                  <li><a title="Help" class="white-link" href="https://askalibrarian.bu.edu/"
-                         @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Help</a></li>
-                </ul>
+              <ul class="no-bullet ptl">
+                <li><a title="Libraries Home" class="white-link" href="https://www.bu.edu/library/"
+                        @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Libraries Home</a></li>
+                <li><a title="Search available/licensed content" class="white-link" href="https://www.bu.edu/library/search"
+                        @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Libraries Search</a></li>
+                <li><a title="Information regarding various BU Libraries" class="white-link" href="https://www.bu.edu/library/about"
+                        @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Library Locations</a></li>
+                <li><a title="Help" class="white-link" href="https://askalibrarian.bu.edu/"
+                        @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Help</a></li>
+              </ul>
             </div>
           </div>
           <div class="ftr-middle txtc">
