@@ -2,6 +2,7 @@ import {LitElement, html, css} from 'lit-element/lit-element';
 import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
 /** stored values for the sitemap */
+const is_debug_environment = (location) => { return location.includes("github.io") || window.location.href.includes("localhost"); }
 const sitemap_values = {
     "wordpress":{
     "header":"Boston University Libraries",
@@ -113,6 +114,15 @@ export default class BULibFooter extends LitElement {
       debug: {type: Boolean},
       curr_url: {type: String}
     };
+  }
+
+  connectedCallback(){
+    super.connectedCallback();
+    let location = window.location.href; 
+    let current_url = is_debug_environment(location)? "http://www.bu.edu/library/music/research/guides/" : location;
+    let lib_code = getLibraryCodeFromUrl(current_url);
+    this._logToConsole("selected library code: " + lib_code);
+    this.library = lib_code;
   }
 
   /** upon the element's first connection to the DOM, get the url and use it to determine $this.library */
