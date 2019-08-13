@@ -1,6 +1,8 @@
 import {LitElement, html} from 'lit-element/lit-element';
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
 
+import {sendGAEvent} from '../_helpers/google_analytics.js';
+
 const ALLOW_HOURS_DISPLAY = true;
 
 /**
@@ -46,7 +48,8 @@ export default class Locoso extends LitElement {
         <h3>Follow Us</h3>
         <ul aria-description="list of social media accounts" class="no-bullet inline-list plm">
         ${social.map((s) =>
-          html`<li><a class="${this.link_class}" target="_blank" href="${s.url}" title="${s.text}"><img alt="${s.text} icon" class="sm-icon ${this.link_class}"
+          html`<li><a title="${s.text}" class="${this.link_class}" @click="${(ev) => {this._logGAEvent(ev, s.text);}}" 
+                      href="${s.url}" target="_blank"><img alt="${s.text} icon" class="sm-icon ${this.link_class}"
                       src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/icons8-${s.text}-48.png"></a></li>`
         )}
         </ul>
@@ -82,9 +85,11 @@ export default class Locoso extends LitElement {
             ${address.map((l) => html`<li>${l}</li>`)}
             <li>
               <small>
-                <a class="${this.link_class}" aria-label="Open library site" href="${website}" title="${lib_name} website">website</a>
-                <a class="${this.link_class}" aria-label="Directions to the Library" title="get directions" target="_blank"
-                    href="${'https://google.com/maps/search/' + encodeURI("Boston University " + lib_name)}">directions &raquo;</a>
+                <a title="${lib_name} website" class="${this.link_class}" @click="${(ev) => {this._logGAEvent('website');}}"
+                   aria-label="Open library site" href="${website}">website</a>
+                <a title="get directions" class="${this.link_class}" @click="${(ev) => {this._logGAEvent('directions');}}"
+                   aria-label="Directions to the Library" href="${'https://google.com/maps/search/' + encodeURI("Boston University " + lib_name)}" 
+                   target="_blank">directions &raquo;</a>
               </small>
             </li>
           </ol>
@@ -92,8 +97,10 @@ export default class Locoso extends LitElement {
         <div class="locoso-right">
           <h3 class="inline">Contact Us</h3>
           <ul class="no-bullet" aria-label="contact-links">
-            ${contacts.map((c) =>
-                html`<li>${c.text} <a class="${this.link_class}" href="${c.url}">${c.val}</a></li>`
+            ${contacts.map((c) => html`
+              <li>${c.text} <a class="${this.link_class}" href="${c.url}" 
+                               @click="${(ev) => {this._logGAEvent(c.text);}}">${c.val}</a>
+              </li>`
              )}
           </ul>
           ${socialDisplay}
@@ -145,6 +152,10 @@ export default class Locoso extends LitElement {
     }
     this._logToConsole(`${social.length.toString()} items found for 'social'.`);
     return social;
+  }
+
+  _logGAEvent(clickedContent){
+    sendGAEvent('bulib-locoso', clickedContent, this.library);
   }
   
   _logToConsole(message){
