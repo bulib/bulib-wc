@@ -20,34 +20,29 @@ export default class BULCard extends LitElement {
       /** optional link for the href/window.open() action */
       link: {type: String},
       /** custom javascript */
-      js: {type: String},
+      action: {type: String},
       
       debug: {type: Boolean}
     };
   }
 
   render() {
-    let href = !!this.js ? "javascript:void(0);" : this.link;
+    let href = (!!this.action || !this.link)? "javascript:void(0);" : this.link;
     return html`
       <div class="card">
-        <i class="material-icons" @click="${(ev) => this._doAction(ev)}">${this.icon}</i>
+        <i class="material-icons" @click="${(ev) => this._logGAEvent()}">${this.icon}</i>
         <div class="inline">
-          <h3><a @click="${(ev) => this._doAction(ev)}" href=" ${href}">${this.title}</a></h3>
+          <h3><a @click="${(ev) => this._logGAEvent()}" href="${href}">${this.title}</a></h3>
           <p>${this.description}</p>
         </div>
       </div>
     `;
   }
 
-  _doAction(event){
-    event.preventDefault();
-    sendGAEvent("card", this.title, "a");
-    
-    if(!this.prevent_action === true){
-      if(!!this.js){ eval(this.js); }
-      else{ window.open(this.link, '_self'); }
-    }
-
+  _logGAEvent(event){
+    sendGAEvent("bulib-card", this.title.toLowerCase(), window.location.pathname);
+    if(this.action){ eval(this.action); }
+    else{ window.location = this.link; }
   }
   
   _logToConsole(message){
