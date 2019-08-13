@@ -23,10 +23,11 @@ export function sendGAEventFromClickEvent(clickEvent, eventName){
     ? clickEvent.target.innerText 
     : clickEvent.target.querySelector("span").innerText 
     || "[unknown]";
-  contentClicked = contentClicked.replace(/\//,"");
-  contentClicked = contentClicked.toLowerCase().replace(/ +/g,"-");
+  contentClicked = contentClicked.replace(/\//,"").replace(/\&/,"");  // remove special characters
+  contentClicked = contentClicked.toLowerCase().replace(/ +/g,"-");   // slugify (lowercase, dashes)
   sendGAEvent(eventName, contentClicked, window.location.pathname);
 }
+
 export function addSendGAEventOnAnchorClickToAnchorElements(anchorElements, eventName){
   for(let i=0; i<anchorElements.length; i++){
     anchorElements[i].addEventListener("click", (ev) => sendGAEventFromClickEvent(ev, eventName));

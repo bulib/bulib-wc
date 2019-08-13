@@ -1,6 +1,8 @@
 import {LitElement, html, css} from 'lit-element/lit-element';
 import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
+import {sendGAEventFromClickEvent} from '../_helpers/google_analytics.js';
+
 /** stored values for the sitemap */
 const is_debug_environment = (location) => { return location.includes("github.io") || window.location.href.includes("localhost"); }
 const sitemap_values = {
@@ -157,7 +159,9 @@ export default class BULibFooter extends LitElement {
     let sitemap_content = html`
       <h3>${sitemap_data["header"]}</h3>
       <ul class="multi-column no-bullet txtl">
-        ${links.map((l) => html`<li><a class="white-link pvm" href="${l.href}">${l.title}</a></li>`)}
+        ${links.map((l) => html`<li>
+          <a class="white-link pvm" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" href="${l.href}">${l.title}</a>
+        </li>`)}
       </ul>
     `;
 
@@ -170,26 +174,32 @@ export default class BULibFooter extends LitElement {
             <div id="bu-content">
               <div class="left txtc bu-logo">
                 <br />
-                <a href="https://www.bu.edu/" title="Boston University Home">
+                <a title="Boston University Home" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" href="https://www.bu.edu/">
                   <img alt="boston university logo" src="http://www.bu.edu/academics/files/bu-logo.gif">
                 </a>
                 <br /><br />
                 <small>
                   <a class="white-link" target="_blank" title="Copyright" 
+                     @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" 
                      href="https://www.bu.edu/copyright">&copy; Copyright ${new Date().getFullYear()}</a>
                 </small>
                 <br />
                 <small>
                   <a class="white-link" target="_blank" title="Privacy Statement" 
+                     @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" 
                      href="https://www.bu.edu/policies/information-security-home/digital-privacy-statement/">Privacy Statement</a>
                 </small>
                 <br /><br />
               </div>
                 <ul class="no-bullet ptl">
-                  <li><a class="white-link" href="https://www.bu.edu/library/" title="Libraries Home">Libraries Home</a></li>
-                  <li><a class="white-link" href="https://www.bu.edu/library/search" title="Search available/licensed content">Libraries Search</a></li>
-                  <li><a class="white-link" href="https://www.bu.edu/library/about" title="Information regarding various BU Libraries">Library Locations</a></li>
-                  <li><a class="white-link" href="https://askalibrarian.bu.edu/" title="Help">Help</a></li>
+                  <li><a class="white-link" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" 
+                         href="https://www.bu.edu/library/" title="Libraries Home">Libraries Home</a></li>
+                  <li><a class="white-link" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" 
+                         href="https://www.bu.edu/library/search" title="Search available/licensed content">Libraries Search</a></li>
+                  <li><a class="white-link" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" 
+                         href="https://www.bu.edu/library/about" title="Information regarding various BU Libraries">Library Locations</a></li>
+                  <li><a class="white-link" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" 
+                         href="https://askalibrarian.bu.edu/" title="Help">Help</a></li>
                 </ul>
             </div>
           </div>
