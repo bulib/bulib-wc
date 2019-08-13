@@ -48,7 +48,7 @@ export default class Locoso extends LitElement {
         <h3>Follow Us</h3>
         <ul aria-description="list of social media accounts" class="no-bullet inline-list plm">
         ${social.map((s) =>
-          html`<li><a title="${s.text}" class="${this.link_class}" @click="${(ev) => {this._logGAEvent(ev, s.text);}}" 
+          html`<li><a title="${s.text}" class="${this.link_class}" @click="${(ev) => {this._logGAEvent(s.text);}}" 
                       href="${s.url}" target="_blank"><img alt="${s.text} icon" class="sm-icon ${this.link_class}"
                       src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/icons8-${s.text}-48.png"></a></li>`
         )}
