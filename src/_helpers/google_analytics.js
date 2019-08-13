@@ -18,13 +18,17 @@ export function sendGAEvent(eventName, action, label){
   }
 }
 
+export function sendGAEventFromClickEvent(clickEvent, eventName){
+  let contentClicked = clickEvent.target.innerText 
+    ? clickEvent.target.innerText 
+    : clickEvent.target.querySelector("span").innerText 
+    || "[unknown]";
+  contentClicked = contentClicked.replace(/\//,"");
+  contentClicked = contentClicked.toLowerCase().replace(/ +/g,"-");
+  sendGAEvent(eventName, contentClicked, window.location.pathname);
+}
 export function addSendGAEventOnAnchorClickToAnchorElements(anchorElements, eventName){
-  let contentClicked = "";
   for(let i=0; i<anchorElements.length; i++){
-    anchorElements[i].addEventListener("click", (ev) => {
-      contentClicked = ev.target.innerText ? ev.target.innerText : ev.target.querySelector("span").innerText || "[unknown]";
-      contentClicked = contentClicked.replace(/\//,"")
-      sendGAEvent(eventName, contentClicked.replace(/ +/g,"-").toLowerCase(), window.location.pathname);
-    });
+    anchorElements[i].addEventListener("click", (ev) => sendGAEventFromClickEvent(ev, eventName));
   }
 }
