@@ -1,3 +1,5 @@
+const INFO_HELPER_DEBUG = false;
+
 // static data about each library, powering LoCoSo, LibHours
 const libraries_data_backup = {
   "mugar-memorial":{
@@ -112,14 +114,14 @@ const libraries_data_backup = {
   }
 };
 
-export function getLibraryInfoFromCode(lib_code, debug=false, defLibCode="help"){
+export function getLibraryInfoFromCode(lib_code, debug=INFO_HELPER_DEBUG, defLibCode="help"){
   let libraries_data = /* TODO: _getDataFromFile("lib_info.json") || */ libraries_data_backup;
   let library_data = libraries_data[lib_code] || libraries_data[defLibCode];
   logToConsole(`getting library_data for code: '${lib_code}' with default '${defLibCode}'.`, debug);
   return library_data;
 }
 
-export function getSiteCodeFromUrl(url, debug=false, defSiteCode="help"){
+export function getSiteCodeFromUrl(url, debug=INFO_HELPER_DEBUG, defSiteCode="help"){
   let site_code = "about";
   if(url.includes("askalibrarian")){ site_code = "help"; }
   else if(url.includes("/disc/") || url.includes("/dioa")){ site_code ="services"; }
@@ -137,7 +139,7 @@ export function getSiteCodeFromUrl(url, debug=false, defSiteCode="help"){
   return site_code;
 }
 
-export function getLibraryCodeFromUrl(lib_url, debug=false, defLibCode="help"){
+export function getLibraryCodeFromUrl(lib_url, debug=INFO_HELPER_DEBUG, defLibCode="help"){
   let lib_code = defLibCode;
   if(lib_url.includes("archives.bu.edu")){ lib_code="hgar"; }
   if(lib_url.includes("bu.edu/library/")){
@@ -175,6 +177,6 @@ export const makeLibraryUrlList = function(){
   return `<ul>\n${ls_items}</ul>\n`;
 };
 
-const logToConsole = function(message, debug=false){
-  if(debug){ console.log("lib_info_helper) " + message); }
+const logToConsole = function(message, debug){
+  if(debug && debug === true){ console.log("lib_info_helper) " + message); }
 };

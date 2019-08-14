@@ -2,6 +2,7 @@ import {LitElement, html} from 'lit-element/lit-element';
 import {until} from 'lit-html/directives/until';
 
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
+import {sendGAEvent} from '../_helpers/google_analytics.js';
 
 const all_lib_hours_url = "https://www.bu.edu/library/about/hours/";
 const cors_anywhere_prefix = 'https://cors-anywhere.herokuapp.com/';
@@ -26,9 +27,11 @@ export default class BULibHours extends LitElement {
     };
   }
   
-  _fetchHoursData(lid=1475){
+  _fetchHoursData(libCode, lid){
+    if(!lid){ lid = 1475; }
     let url = `${cors_anywhere_prefix}${libcal_hours_api_url}?format=json&systemTime=0&iid=1740&lid=${lid}`;
     this._logToConsole("calling 'libcal' with lid: '" + lid + "'.");
+    this._logGAEvent("api-call", libCode);
     return fetch( url, { method: 'GET', mode:'cors'})
       .then(r => r.json()).then(data => (data.locations[0]).rendered);
   };
@@ -47,20 +50,25 @@ export default class BULibHours extends LitElement {
     this._logToConsole(`rendering hours for ${library_name} (code:'${libCode}').`);
     let hours_loading = html`
       <span id="hours-display" class="inline" aria-label="today's hours for ${library_name}">
-        ${until(this._fetchHoursData(lid), html`<small> loading hours...</small>`)}
+        ${until(this._fetchHoursData(libCode, lid), html`<small> loading hours...</small>`)}
       </span>`;
     let clock_icon = html`<img alt="clock-icon" id="clock-icon" src="https://material.io/tools/icons/static/icons/baseline-schedule-24px.svg">`;
     
     // establish variants 
     let none_display = html``;
-    let small_display = html`<a title="today's hours for ${library_name}" href="${all_lib_hours_url}" class="${this.link_class}">${hours_loading}</a>`;
+    let small_display = html`
+      <a title="today's hours for ${library_name}" class="${this.link_class}"
+         @click="${(ev) => {this._logGAEvent("clicked", libCode)}}" href="${all_lib_hours_url}">${hours_loading}</a>`;
     let medium_display = html`<div class="txtv center">${clock_icon}&nbsp;&nbsp;<strong>${library_name}:</strong>&nbsp;${hours_loading}</div>`;
     let large_display = html`
       <div id="hours-top">
         <strong>${library_name}:</strong>&nbsp;${hours_loading}</div>
       </div>
       <div id="hours-btm">
-        <small><a href="${all_lib_hours_url}" class="${this.link_class}">see all location hours</a></small>
+        <small>
+          <a title="today's hours for all bu-libraries" class="${this.link_class}" 
+             @click="${(ev) => {this._logGAEvent("clicked", "all")}}" href="${all_lib_hours_url}">see all location hours</a>
+        </small>
       </div>
     `;
     
@@ -79,6 +87,10 @@ export default class BULibHours extends LitElement {
       </style>
       <div class="libhours">${libhours_display}</div>
     `;
+  }
+
+  _logGAEvent(action, libCode){
+    sendGAEvent("bulib-libhours", action, libCode || this.library);
   }
   
   _logToConsole(message){

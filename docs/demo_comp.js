@@ -21,7 +21,7 @@ export const header_demo = `
       <div class="primary-navbar">
         <div class="primary-nav-left">
           <a title="BU Libraries Homepage" href="https://www.bu.edu/library">
-            <img id="bu-logo" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/assets/icons/bulib-logo.png">
+            <img id="bu-logo" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/bulib-logo.png">
           </a>
         </div>
         <div class="primary-nav-main menu-items-wrapper">
@@ -98,10 +98,24 @@ export const header_demo = `
         });
       </script>
     </nav>
-    </div>
-    <div class="banner-wrapper">
+  </div>
+  <div class="banner-wrapper">
     <div class="banner">
       <h1><a href="/">Ask a Librarian</a>: &nbsp; <a href="/dev_staging">Help &amp; FAQs</a></h1>
       <bulib-search str_options="help primo"></bulib-search>
     </div>
-  </div>`;
+  </div>
+  <script id="google-analytics-link-tracker" type="module" defer>
+    import {addSendGAEventOnAnchorClickToAnchorElements} from 'https://unpkg.com/bulib-wc@latest/src/_helpers/google_analytics.js?module';
+    
+    window.onload = function(){
+      let headerLinks = document.querySelectorAll(".header-wrapper a");
+      addSendGAEventOnAnchorClickToAnchorElements(headerLinks, "bulib-header");
+      
+      let cardLinks = document.querySelectorAll(".deck a");
+      addSendGAEventOnAnchorClickToAnchorElements(cardLinks, "card");
+      
+      let ctaLinks = document.querySelectorAll(".ctas a");
+      addSendGAEventOnAnchorClickToAnchorElements(ctaLinks, "cta");
+    };
+  </script>`;
