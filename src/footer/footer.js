@@ -173,7 +173,7 @@ export default class BULibFooter extends LitElement {
               <div class="left txtc bu-logo">
                 <br />
                 <a title="Boston University Home" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" href="https://www.bu.edu/">
-                  <img alt="boston university logo" src="http://www.bu.edu/academics/files/bu-logo.gif">
+                  <img alt="boston university logo" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/bu-logo.gif">
                 </a>
                 <br /><br />
                 <small>
