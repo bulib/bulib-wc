@@ -1,6 +1,6 @@
 import '@webcomponents/webcomponentsjs/webcomponents-loader';
 
-WebComponents.waitFor(() => {
+WebComponents.waitFor(function(){
   import ('./select/bulib-select');
   import ('./card/bulib-card');
   import ('./libhours/bulib-hours');
