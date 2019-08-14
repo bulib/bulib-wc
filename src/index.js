@@ -1,3 +1,5 @@
+import '@webcomponents/webcomponentsjs/webcomponents-loader';
+
 window.WebComponents.waitFor(() => {
   console.log("polyfills loaded (?)");
 
