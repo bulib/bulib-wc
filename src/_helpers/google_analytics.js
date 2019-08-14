@@ -1,5 +1,5 @@
 
-const DEBUG_ANALYTICS = false;
+const DEBUG_ANALYTICS = true;
 
 function logSendGAEvent(message){
   if(DEBUG_ANALYTICS){ console.log("google_analytics_helper) " + message); }
@@ -7,12 +7,21 @@ function logSendGAEvent(message){
 
 export function sendGAEvent(eventName, action, label){
   logSendGAEvent(`request made to sendGAEvent('${eventName}', '${action}', '${label}')`);
-  if(window.ga){ window.ga('send', eventName, action, label); }
+  if(window.ga){ 
+    try{
+      window.ga('send', eventName, action, label); 
+      logSendGAEvent("window.ga() found and called");
+    }catch(err){
+      logSendGAEvent("ERROR! - "); 
+      if(DEBUG_ANALYTICS){ console.log(err); }
+    }
+  }
   else if(window.gtag){ 
     window.gtag('event', eventName, {
       'event_category': action,
       'event_label': label 
     });
+    logSendGAEvent("window.gtag() found and called");
   }else{
     logSendGAEvent("tried to sendGAEvent for '" + eventName + "' but neither 'ga()' nor 'gtag()' were found");
   }
