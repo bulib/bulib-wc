@@ -161,7 +161,7 @@ export default class BULibFooter extends LitElement {
               <div class="left txtc bu-logo">
                 <br />
                 <a href="https://www.bu.edu/" title="Boston University Home">
-                  <img alt="boston university logo" src="http://www.bu.edu/academics/files/bu-logo.gif">
+                  <img alt="boston university logo" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/bu-logo.gif">
                 </a>
                 <br /><br />
                 <small>
