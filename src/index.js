@@ -1,8 +1,6 @@
 import '@webcomponents/webcomponentsjs/webcomponents-loader';
 
-window.WebComponents.waitFor(() => {
-  console.log("polyfills loaded (?)");
-
+WebComponents.waitFor(() => {
   import ('./select/bulib-select');
   import ('./card/bulib-card');
   import ('./libhours/bulib-hours');
