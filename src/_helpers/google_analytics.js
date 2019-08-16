@@ -24,23 +24,22 @@ export function initializeGTAG(ga_tracking_id){
 
 export function sendGAEvent(eventName, action, label){
   logSendGAEvent(`request made to sendGAEvent('${eventName}', '${action}', '${label}')`);
-  if(window.ga){ 
-    try{
+  try{
+    if(window.gtag){ 
+      window.gtag('event', eventName, {
+        'event_category': action,
+        'event_label': label 
+      });
+      logSendGAEvent("window.gtag() found and called");
+    }else if(window.ga){ 
       window.ga('send', eventName, action, label); 
       logSendGAEvent("window.ga() found and called");
-    }catch(err){
-      logSendGAEvent("ERROR! - "); 
-      if(DEBUG_ANALYTICS){ console.log(err); }
+    }else{
+      logSendGAEvent("tried to sendGAEvent for '" + eventName + "' but neither 'ga()' nor 'gtag()' were found");
     }
-  }
-  else if(window.gtag){ 
-    window.gtag('event', eventName, {
-      'event_category': action,
-      'event_label': label 
-    });
-    logSendGAEvent("window.gtag() found and called");
-  }else{
-    logSendGAEvent("tried to sendGAEvent for '" + eventName + "' but neither 'ga()' nor 'gtag()' were found");
+  }catch(err){
+    logSendGAEvent("ERROR! - "); 
+    if(DEBUG_ANALYTICS){ console.log(err); }
   }
   if(DEBUG_ANALYTICS){ debugger; }
 }
