@@ -1,7 +1,7 @@
 
 const DEBUG_ANALYTICS = true;
 
-function logSendGAEvent(message){
+function logGoogleAnalyticsMessage(message){
   if(DEBUG_ANALYTICS){ console.log("google_analytics_helper) " + message); }
 }
 
@@ -13,6 +13,7 @@ export function initializeGA(ga_tracking_id){
 
   ga('create', ga_tracking_id, 'auto');
   ga('send', 'pageview');
+  logGoogleAnalyticsMessage("GA initialized");
 }
 
 export function initializeGTAG(ga_tracking_id){
@@ -20,25 +21,26 @@ export function initializeGTAG(ga_tracking_id){
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', ga_tracking_id);  
+  logGoogleAnalyticsMessage("GTAG initialized");
 }
 
 export function sendGAEvent(eventName, action, label){
-  logSendGAEvent(`request made to sendGAEvent('${eventName}', '${action}', '${label}')`);
+  logGoogleAnalyticsMessage(`request made to sendGAEvent('${eventName}', '${action}', '${label}')`);
   try{
     if(window.gtag){ 
       window.gtag('event', eventName, {
         'event_category': action,
         'event_label': label 
       });
-      logSendGAEvent("window.gtag() found and called");
+      logGoogleAnalyticsMessage("window.gtag() found and called");
     }else if(window.ga){ 
       window.ga('send', eventName, action, label); 
-      logSendGAEvent("window.ga() found and called");
+      logGoogleAnalyticsMessage("window.ga() found and called");
     }else{
-      logSendGAEvent("tried to sendGAEvent for '" + eventName + "' but neither 'ga()' nor 'gtag()' were found");
+      logGoogleAnalyticsMessage("tried to sendGAEvent for '" + eventName + "' but neither 'ga()' nor 'gtag()' were found");
     }
   }catch(err){
-    logSendGAEvent("ERROR! - "); 
+    logGoogleAnalyticsMessage("ERROR! - "); 
     if(DEBUG_ANALYTICS){ console.log(err); }
   }
   if(DEBUG_ANALYTICS){ debugger; }
