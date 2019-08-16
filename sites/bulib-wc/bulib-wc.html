@@ -1,0 +1,19 @@
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5204430-8"></script>
+  <script id="google-analytics-link-tracker" type="module" defer>
+    import {initializeGTAG, addSendGAEventOnAnchorClickToAnchorElements} from 'https://unpkg.com/bulib-wc@latest/src/_helpers/google_analytics.js?module';
+    initializeGTAG('UA-5204430-8');
+    
+    window.onload = function(){
+      let headerLinks = document.querySelectorAll(".header-wrapper a");
+      addSendGAEventOnAnchorClickToAnchorElements(headerLinks, "bulib-header");
+
+      let cardLinks = document.querySelectorAll(".deck a");
+      addSendGAEventOnAnchorClickToAnchorElements(cardLinks, "card");
+
+      let ctaLinks = document.querySelectorAll(".ctas a");
+      addSendGAEventOnAnchorClickToAnchorElements(ctaLinks, "cta");
+    };
+  </script>
+</head>
