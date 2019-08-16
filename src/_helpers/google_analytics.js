@@ -1,30 +1,11 @@
-
 const DEBUG_ANALYTICS = true;
 
 function logGoogleAnalyticsMessage(message){
   if(DEBUG_ANALYTICS){ console.log("google_analytics_helper) " + message); }
 }
 
-export function initializeGA(ga_tracking_id){
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', ga_tracking_id, 'auto');
-  ga('send', 'pageview');
-  logGoogleAnalyticsMessage("GA initialized");
-}
-
-export function initializeGTAG(ga_tracking_id){
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', ga_tracking_id);  
-  logGoogleAnalyticsMessage("GTAG initialized");
-}
-
 export function sendGAEvent(eventName, action, label){
+  /** note: this assumes that a 'gtag' or a 'ga' has already been initialized/added to `window` */
   logGoogleAnalyticsMessage(`request made to sendGAEvent('${eventName}', '${action}', '${label}')`);
   try{
     if(window.gtag){ 
