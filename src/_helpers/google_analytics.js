@@ -21,19 +21,26 @@ export function sendGAEvent(eventName, action, label){
       logGoogleAnalyticsMessage("tried to sendGAEvent for '" + eventName + "' but neither 'ga()' nor 'gtag()' were found");
     }
   }catch(err){
-    logGoogleAnalyticsMessage("ERROR! - "); 
+    logGoogleAnalyticsMessage("ERROR! - unable to sendGAEvent with gtag, ga, or nothing."); 
     if(DEBUG_ANALYTICS){ console.log(err); }
   }
   if(DEBUG_ANALYTICS){ debugger; }
 }
 
 export function sendGAEventFromClickEvent(clickEvent, eventName){
-  let contentClicked = clickEvent.target.innerText 
-    ? clickEvent.target.innerText 
-    : clickEvent.target.querySelector("span").innerText 
-    || "[unknown]";
-  contentClicked = contentClicked.replace(/\//,"").replace(/\&/,"");  // remove special characters
-  contentClicked = contentClicked.toLowerCase().replace(/ +/g,"-");   // slugify (lowercase, dashes)
+  let contentClicked = "[unknown]"; 
+  
+  try{ 
+    contentClicked = clickEvent.target.innerText 
+      ? clickEvent.target.innerText 
+      : clickEvent.target.querySelector("span").innerText 
+      || "[unknown]";
+    contentClicked = contentClicked.replace(/\//,"").replace(/\&/,"");  // remove special characters
+    contentClicked = contentClicked.toLowerCase().replace(/ +/g,"-");   // slugify (lowercase, dashes)
+  }catch(err){
+    logGoogleAnalyticsMessage("error getting contentClicked from clickEvent: ");
+    if(DEBUG_ANALYTICS){ console.log(err); }
+  }
   sendGAEvent(eventName, contentClicked, window.location.pathname);
 }
 
