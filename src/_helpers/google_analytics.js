@@ -9,8 +9,8 @@ export function sendGAEvent(eventName, action, label){
   logGoogleAnalyticsMessage(`request made to sendGAEvent('${eventName}', '${action}', '${label}')`);
   try{
     if(window.gtag){ 
-      window.gtag('event', eventName, {
-        'event_category': action,
+      window.gtag('event', action, {
+        'event_category': eventName,
         'event_label': label 
       });
       logGoogleAnalyticsMessage("window.gtag() found and called");
