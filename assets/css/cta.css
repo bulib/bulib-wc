@@ -6,6 +6,7 @@ div.ctas {
   grid-gap: 4%;
   grid-auto-rows: 1fr;
   grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 25px;
 }
 div.cta { 
   text-align: center;
