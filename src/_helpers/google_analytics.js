@@ -1,4 +1,4 @@
-const DEBUG_ANALYTICS = true;
+const DEBUG_ANALYTICS = false;
 
 function logGoogleAnalyticsMessage(message){
   if(DEBUG_ANALYTICS){ console.log("google_analytics_helper) " + message); }
