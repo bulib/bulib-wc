@@ -66,28 +66,48 @@ export default class BULibFooter extends LitElement {
           grid-gap: 10px;
         }
         .ftr-middle > div, .ftr-right > div, .ftr-left > div { width: 85%; margin: 0 auto; }
+        .ftr-right { padding-bottom: 0px; }
 
         /* medium-sized screen */
-        @media only screen and (min-width: 850px){
+        @media only screen and (min-width: 850px) and (max-width: 1100px){
           footer {
             grid-template-areas:
               "ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md"
               "ftr-lt ftr-lt ftr-lt ftr-rt ftr-rt ftr-rt ftr-rt ftr-rt";
           }
           .ftr-middle { border-bottom: solid transparent 1px; }
-          .ftr-right  { border-bottom: solid transparent 1px !important; }
+          .ftr-right  { 
+            border-bottom: solid transparent 1px !important; 
+            padding-bottom: 60px;
+          }
           .ftr-middle > div { width: 75%; }
           .ftr-left > div, .ftr-right > div { width: 100%; }
         }
-
-        /* large-sized screen */
-        @media only screen and (min-width: 1200px ){
+      
+        /* large-sized screen */ 
+        @media only screen and (min-width: 1100px) and (max-width: 1400px ){
           footer {
             grid-template-areas: "ftr-lt ftr-lt ftr-md ftr-md ftr-md ftr-rt ftr-rt ftr-rt";
           }
           .ftr-middle { border-bottom: solid transparent 1px !important; }
           .ftr-middle > div { width: 85%; margin: 0 auto; }
-          .ftr-right  { border-bottom: solid transparent 1px !important; }
+          .ftr-right  { 
+            border-bottom: solid transparent 1px !important; 
+            padding-bottom: 60px;
+          } 
+        }
+
+        /* x-large-sized screen */
+        @media only screen and (min-width: 1400px ){
+          footer {
+            grid-template-areas: "ftr-lt ftr-lt ftr-md ftr-md ftr-md ftr-rt ftr-rt ftr-rt";
+          }
+          .ftr-middle { border-bottom: solid transparent 1px !important; }
+          .ftr-middle > div { width: 85%; margin: 0 auto; }
+          .ftr-right  { 
+            border-bottom: solid transparent 1px !important; 
+            padding-bottom: 0px !important;
+          }
         }
 
         /* map classes to grid areas */
