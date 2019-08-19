@@ -90,7 +90,7 @@ export default class BULibHours extends LitElement {
   }
 
   _logGAEvent(action, libCode){
-    sendGAEvent("bulib-libhours", action, libCode || this.library);
+    sendGAEvent("bulib-hours", action, libCode || this.library);
   }
   
   _logToConsole(message){
