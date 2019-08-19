@@ -1,3 +1,14 @@
+<head>
+  <!-- Google Analytics (GTAG) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5204430-1"></script>
+  <script id="google-analytics-registration" defer>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', "UA-5204430-1");  
+  </script>
+</head>
+
 <style type="text/css">
   /* prevent overflow of footer width to 900px at small widths */
   #footer > div.container { width: auto; }
@@ -16,7 +27,7 @@
 </style>
 
 <script id="insert-hours" type="text/javascript">
-  window.addEventListener("WebComponentsReady", function(event)  {
+  window.addEventListener("WebComponentsReady", function(event){
     if(window.location.pathname === "/library/"){ 
       var elem_hours = document.querySelector("#menu-item-22914");
       var spanToReplace = elem_hours.querySelector("span");
@@ -41,6 +52,5 @@
         document.getElementById("footer-links")
       ]
     );
-    document.querySelector("bulib-footer").curr_url = window.location.href; 
   });
 </script>

@@ -77,19 +77,27 @@ export default class BULibSelect extends LitElement {
     let elements = [];
     let tag_names = this.tag_name.split(" ");
     this._logToConsole("tag_names: " + tag_names.toString());
-    for(let i=0; i<tag_names.length; i++){
+    let i=0;
+    for(i=0; i<tag_names.length; i++){
       let tag_name = tag_names[i];
       let elementsFromThatTag = document.getElementsByTagName(tag_name);
       this._logToConsole(elementsFromThatTag.length.toString() + " elements from tag " + tag_name);
-      elements.push(elementsFromThatTag[0]); //TODO only adds first item
+      for(let j=0; j<elementsFromThatTag.length; j++){
+        elements.push(elementsFromThatTag[j]);
+      }
     }
-    
     this._logToConsole("num elements: " + elements.length.toString());
     
-    let i, before, after, element;
+    let before, after, element;
     for(i=0; i<elements.length; i++){
       element = elements[i];
       before = element.getAttribute(this.attr_name);
+
+      // don't change a 'bulib-search' to something that's not a listed option
+      let strOptions = element.hasAttribute("str_options")? element.getAttribute("str_options") : "";
+      if(strOptions && !strOptions.includes(current)){ continue; }
+
+      // adjust the selected element's value and log if it changed
       element.setAttribute(this.attr_name, current);
       after = element.getAttribute(this.attr_name);
       

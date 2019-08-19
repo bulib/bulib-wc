@@ -1,6 +1,8 @@
 import {LitElement, html, css} from 'lit-element/lit-element';
 import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
+import {sendGAEventFromClickEvent} from '../_helpers/google_analytics.js';
+
 /** stored values for the sitemap */
 const sitemap_values = {
     "wordpress":{
@@ -115,13 +117,21 @@ export default class BULibFooter extends LitElement {
     };
   }
 
+  connectedCallback(){
+    super.connectedCallback();
+    let current_url = (this.curr_url)? this.curr_url : window.location.href || "";
+    let lib_code = getLibraryCodeFromUrl(current_url);
+    this._logToConsole("selected library code: " + lib_code);
+    this.library = lib_code;
+  }
+
   /** upon the element's first connection to the DOM, get the url and use it to determine $this.library */
   updated(){
     let current_url = !!this.curr_url? this.curr_url : window.location.href;
     
     // determine site
     let old_site = this.host_site;
-    let main_site = getSiteCodeFromUrl(current_url, this.debug);
+    let main_site = getSiteCodeFromUrl(current_url);
     if(["about","research","services"].includes(main_site)){ this.host_site = "wordpress"; }
     else if(main_site == "help"){ this.host_site = "askalibrarian"; }
     else if(main_site == "guides"){ this.host_site = "guides"; }
@@ -133,7 +143,7 @@ export default class BULibFooter extends LitElement {
     
     // determine library
     let old_library = this.library;
-    let lib_code = this.curr_url? getLibraryCodeFromUrl(current_url, this.debug) : this.library;
+    let lib_code = this.curr_url? getLibraryCodeFromUrl(current_url) : this.library;
     this.library = lib_code;
     if(old_library != this.library){
       this._logToConsole(`library changed from '${old_library}' to '${this.library}'.`);
@@ -147,7 +157,9 @@ export default class BULibFooter extends LitElement {
     let sitemap_content = html`
       <h3>${sitemap_data["header"]}</h3>
       <ul class="multi-column no-bullet txtl">
-        ${links.map((l) => html`<li><a class="white-link pvm" href="${l.href}">${l.title}</a></li>`)}
+        ${links.map((l) => html`<li>
+          <a class="white-link pvm" href="${l.href}" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">${l.title}</a>
+        </li>`)}
       </ul>
     `;
 
@@ -160,27 +172,32 @@ export default class BULibFooter extends LitElement {
             <div id="bu-content">
               <div class="left txtc bu-logo">
                 <br />
-                <a href="https://www.bu.edu/" title="Boston University Home">
+                <a title="Boston University Home" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" href="https://www.bu.edu/">
                   <img alt="boston university logo" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/bu-logo.gif">
                 </a>
                 <br /><br />
                 <small>
-                  <a class="white-link" target="_blank" title="Copyright" 
-                     href="https://www.bu.edu/copyright">&copy; Copyright ${new Date().getFullYear()}</a>
+                  <a title="Copyright" class="white-link" href="https://www.bu.edu/copyright" target="_blank"
+                     @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">&copy; Copyright ${new Date().getFullYear()}</a>
                 </small>
                 <br />
                 <small>
-                  <a class="white-link" target="_blank" title="Privacy Statement" 
-                     href="https://www.bu.edu/policies/information-security-home/digital-privacy-statement/">Privacy Statement</a>
+                  <a title="Privacy Statement" class="white-link" target="_blank" 
+                     href="https://www.bu.edu/policies/information-security-home/digital-privacy-statement/"
+                     @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Privacy Statement</a>
                 </small>
                 <br /><br />
               </div>
-                <ul class="no-bullet ptl">
-                  <li><a class="white-link" href="https://www.bu.edu/library/" title="Libraries Home">Libraries Home</a></li>
-                  <li><a class="white-link" href="https://www.bu.edu/library/search" title="Search available/licensed content">Libraries Search</a></li>
-                  <li><a class="white-link" href="https://www.bu.edu/library/about" title="Information regarding various BU Libraries">Library Locations</a></li>
-                  <li><a class="white-link" href="https://askalibrarian.bu.edu/" title="Help">Help</a></li>
-                </ul>
+              <ul class="no-bullet ptl">
+                <li><a title="Libraries Home" class="white-link" href="https://www.bu.edu/library/"
+                        @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Libraries Home</a></li>
+                <li><a title="Search available/licensed content" class="white-link" href="https://www.bu.edu/library/search"
+                        @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Libraries Search</a></li>
+                <li><a title="Information regarding various BU Libraries" class="white-link" href="https://www.bu.edu/library/about"
+                        @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Library Locations</a></li>
+                <li><a title="Help" class="white-link" href="https://askalibrarian.bu.edu/"
+                        @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Help</a></li>
+              </ul>
             </div>
           </div>
           <div class="ftr-middle txtc">

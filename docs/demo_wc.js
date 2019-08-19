@@ -1,11 +1,11 @@
 export const search_demo = `
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <label>Empty (active)</label>
-  <bulib-search debug></bulib-search>
+  <bulib-search id="empty-search" debug></bulib-search>
   <br /><br />
 
   <label>Ask a Librarian (with fallback)</label>
-  <bulib-search str_options="help primo" str_selected="help">
+  <bulib-search id="askalib" str_options="help primo" str_selected="help">
     <form action="/search" method="get"><input name="q" type="text" /><button type="submit">Search</button></form>
   </bulib-search>
   <br /><br />
@@ -15,7 +15,7 @@ export const search_demo = `
   <br /><br />
 
   <label>Options, with Default</label>
-  <bulib-search name="options, with default" str_options="primo industries wp" 
+  <bulib-search id="options-with-default" str_options="primo industries wp" 
                 str_selected="industries" debug prevent_action></bulib-search>
 
   <br /><br />
@@ -62,8 +62,8 @@ export const footer_demo = `
   <br /><hr /><br />
 
   <bulib-select 
-    sel_title="Select Simulated URL" curr_sel="bu.edu/library/mugar-memorial" 
-    opt_code="sample_urls" tag_name="bulib-footer" attr_name="curr_url"
+    sel_title="Select Simulated URL" opt_code="sample_urls" 
+    tag_name="bulib-footer" attr_name="curr_url"
   ></bulib-select>
 `;
 
@@ -72,8 +72,7 @@ export const wc_card_demo = `
   <div class="deck">
     <bulib-card title="Email" icon="email" link="https://askalibrarian.bu.edu/form.php?quid=511" debug
       description="Email us your research questions and we’ll respond within 24 hours."></bulib-card>
-    <bulib-card title="Chat" icon="question_answer" debug
-      action="document.querySelector('button.s-lch-widget-float-btn').click();" 
+    <bulib-card title="Chat" icon="question_answer" action="console.log('chat says hi')" debug
       description="Talk online to a research librarian on weekdays and Sundays"></bulib-card>
   </div>
 `;
