@@ -72,7 +72,7 @@ export const header_demo = `
                       <li><a href="https://www.bu.edu/library/management/">Pardee Management Library</a></li>
                       <li><a href="https://www.bu.edu/library/pickering-educational/">Pickering Educational Resources Library</a></li>
                       <li><a href="https://www.bu.edu/library/sel/">Science &amp; Engineering Library</a></li>
-                      <li><a href="https://www.bu.edu/library/stone-science/">Stone Library</a></li>
+                      <li><a href="https://www.bu.edu/library/stone-science/">Stone Science Library</a></li>
                       <li><a href="https://www.bu.edu/library/about/additional-libraries/">Other Libraries</a></li>
                     </ul>
                   </div>
