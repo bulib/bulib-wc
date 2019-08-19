@@ -6,7 +6,7 @@
   justify-content: center;
 }
 .card {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   flex-shrink: inherit;
   flex-basis: 100%;
   display: flex;
@@ -25,6 +25,9 @@
   color: #0B4473;
   text-decoration: underline solid #0B4473;
   font-weight: 500;
+}
+.card p {
+  font-size: medium;
 }
 
 .card > div { flex: 2; }
