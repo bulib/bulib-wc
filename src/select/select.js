@@ -95,7 +95,7 @@ export default class BULibSelect extends LitElement {
 
       // don't change a 'bulib-search' to something that's not a listed option
       let strOptions = element.hasAttribute("str_options")? element.getAttribute("str_options") : "";
-      if(strOptions && !strOptions.includes(current)){ console.log("hasOptions but doesn't match"); continue; }
+      if(strOptions && !strOptions.includes(current)){ continue; }
 
       // adjust the selected element's value and log if it changed
       element.setAttribute(this.attr_name, current);
