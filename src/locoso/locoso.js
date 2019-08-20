@@ -11,8 +11,6 @@ const ALLOW_HOURS_DISPLAY = true;
  */
 export default class Locoso extends LitElement {
 
-  constructor(){ super(); }
-
   static get properties() {
     return {
       /** optional additional class added to each link in the rendered HTML */
