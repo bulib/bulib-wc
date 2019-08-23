@@ -34,7 +34,7 @@
 
   /* FAQ - question and answer box */ 
   .s-la-faq-answer { font-size: large; } /* increase font size of answer */
-  .question-title-bar h2 { font-size: xx-large; } /* greatly increase question title */
+  .question-title-bar h2 { font-size: x-large; } /* greatly increase question title */
   .question-title-bar .s-la-faq-owner, .question-title-bar .s-la-faq-updated { font-size: medium; }
   .question-title-bar {
     display: flex !important;
