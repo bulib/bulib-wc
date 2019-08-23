@@ -5,14 +5,15 @@ div.ctas {
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  margin-bottom: 25px;
+  margin: 25px 0px;
 }
 div.cta { 
   text-align: center;
   flex-basis: 100%;
   min-width: 175px;
+  max-width: 30%;
   max-width: 300px;
-  margin: 10px;
+  margin: 10px 8px;
   
   background-color: #fefefe;
   border: 1px solid #e1e1e1;
@@ -26,7 +27,7 @@ div.cta a {
 }
 div.cta h3 {
   margin: 0px;
-  padding: 25px 0px;
+  padding: 20px 0px;
   font-size: 1.5em;
 }
 div.cta:hover { 
