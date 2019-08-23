@@ -54,3 +54,24 @@
     );
   });
 </script>
+
+<!-- industry survey locator -->
+<div id="isl-no-wc">
+  <script type="text/javascript">
+    function doISLSearch(){ 
+      var isl_search_url = "https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=ISL&institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,";
+      var query = document.getElementById("isl-query").value;
+      window.location = isl_search_url + query;
+    }
+  </script>
+  <form action="javascript:void(0)" onsubmit="doISLSearch()" style="display: ruby;">
+    <input type="text" id="isl-query" class="inline">
+    <input type="submit" class="inline">
+  </form>
+</div>
+<bulib-search str_options="industries" search_btn_classes="button gform_button man">
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    loadWebComponentInto("bulib-search", [document.getElementById("isl-no-wc")]);
+  });
+</script>

@@ -5,7 +5,8 @@ var doesBrowserSupportWebComponents = function(){
   // note: thanks to [stackoverflow](https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser/9851769) for the implementation
   var isIE = !!document.documentMode;
   var isEdge = !!window.StyleMedia;
-  var user_agent_supports_web_components = !isIE && !isEdge;
+  var isFirefox60 = navigator.userAgent.includes("Firefox/60.");
+  var user_agent_supports_web_components = !isIE && !isEdge && !isFirefox60;
   return user_agent_supports_web_components;
 };
 
