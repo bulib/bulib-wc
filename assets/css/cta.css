@@ -12,11 +12,11 @@ div.cta {
   flex-basis: 100%;
   min-width: 175px;
   max-width: 30%;
-  max-width: 300px;
-  margin: 10px 8px;
+  max-width: 275px;
+  margin: 8px;
   
   background-color: #fefefe;
-  border: 1px solid #e1e1e1;
+  border: 2px solid #e1e1e1;
   border-radius: 4px;
   box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
 }
@@ -35,6 +35,5 @@ div.cta:hover {
   cursor: pointer;
 }
 .ctas .cta:last-of-type{
-  background-color: gainsboro; 
   text-transform: uppercase;
 }
