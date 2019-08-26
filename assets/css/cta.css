@@ -4,16 +4,15 @@ div.ctas {
   font-family: 'Source Sans Pro', sans-serif;
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: space-evenly;
   margin: 25px 0px;
 }
 div.cta { 
   text-align: center;
   flex-basis: 100%;
   min-width: 175px;
-  max-width: 30%;
   max-width: 275px;
-  margin: 8px;
+  margin: 12px;
   
   background-color: #fefefe;
   border: 2px solid #e1e1e1;

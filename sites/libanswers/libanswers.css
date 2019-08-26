@@ -8,6 +8,7 @@
     { display: none; }
 
   /* set header font */
+  h2 { font-size: x-large; }
   h2, h3, h4, h5, h6, body {
     font-family: 'Source Sans Pro', sans-serif;
   }
@@ -22,10 +23,7 @@
   /* -- FAQ page (/faq/) -- */
 
   /* general libanswers box */
-  .s-la-box-content { 
-    padding-left: 8%;  padding-right: 8%; 
-    padding-top: 4%;  padding-bottom: 4%;
-  }
+  .s-la-box-content { padding: 4% 8%; }
   .s-la-box-container { 
     border-radius: 4px; 
     margin-left: 15px; 
