@@ -71,6 +71,19 @@
 </section>
 
 <section id="bulib-search">
+  <div class="txtc full-width" id="nowc-search">
+    <style type="text/css">.banner > bulib-search { display: none; }</style>
+    <form action="http://askalibrarian.bu.edu/search/" style="display: ruby;">
+      <input name="q" type="text" /> 
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
+  <div><bulib-search str_options="help primo"></bulib-search></div>
+  <script src="https://unpkg.com/bulib-wc@latest/src/_helpers/browser_compatibility.js?"></script><script>
+    window.addEventListener("DOMContentLoaded", function(event)  {
+        loadWebComponentInto("bulib-search", [document.getElementById("nojs-search")]);
+    });
+  </script>
   <style type="text/css"> .banner > bulib-search { display: none; } </style>
   <bulib-search str_options="help primo"></bulib-search>
 </section>
@@ -146,6 +159,16 @@
 
 <section id="footer">
   <div class="full-width">
+    <div id="nowc-footer">
+      <a href="https://www.bu.edu/library"><img src="https://s3.amazonaws.com/libapps/accounts/15585/images/BULibAnswersFooter.jpg" width="100%"></a>
+    </div>
     <bulib-footer></bulib-footer>
   </div>
+    
+  <script src="https://unpkg.com/bulib-wc@latest/src/_helpers/browser_compatibility.js?"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", function(event)  {
+      loadWebComponentInto("bulib-footer", [document.getElementById("nowc-footer")]);
+    });
+  </script>
 </section>
