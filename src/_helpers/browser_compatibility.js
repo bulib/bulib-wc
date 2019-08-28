@@ -11,6 +11,16 @@ var doesBrowserSupportWebComponents = function(){
   var isEdge = !!window.StyleMedia;
   var isFirefox60 = navigator.userAgent.includes("Firefox/60.");
   var user_agent_supports_web_components = !isIE && !isEdge && !isFirefox60;
+
+  if(!user_agent_supports_web_components){
+    var browserGuess = isIE? "ie" : isEdge? "edge (old)" : "firefox (old)";
+    logBrowserMessage("user_agent doesn't support browser guess: " + browserGuess);
+
+    // log google analytics event (duplicates sendGAEvent, but saves having to load it)
+    var category = "browser_compatability"; var path = window.location.pathname; 
+    if(window.gtag){ window.gtag('event', browserGuess, {'event_category':category, 'event_label':path}); }
+    else if(window.ga){ window.ga('send', category, browserGuess, path); }
+  }
   return user_agent_supports_web_components;
 };
 
