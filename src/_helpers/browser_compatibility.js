@@ -1,4 +1,4 @@
-var DEBUG_BROWSER = true;
+var DEBUG_BROWSER = false;
 
 var logBrowserMessage = function(msg){ 
   if(DEBUG_BROWSER){ console.log("_browserCompatability) " + msg); }
@@ -17,7 +17,7 @@ var doesBrowserSupportWebComponents = function(){
     logBrowserMessage("user_agent doesn't support browser guess: " + browserGuess);
 
     // log google analytics event (duplicates sendGAEvent, but saves having to load it)
-    var category = "browser_compatability"; var path = window.location.pathname; 
+    var category = "browser-compatability"; var path = window.location.pathname; 
     if(window.gtag){ window.gtag('event', browserGuess, {'event_category':category, 'event_label':path}); }
     else if(window.ga){ window.ga('send', category, browserGuess, path); }
   }
