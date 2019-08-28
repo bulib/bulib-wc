@@ -1,4 +1,21 @@
-var DEBUG_BROWSER = false;
+var DEBUG_BROWSER = true;
+
+var logBrowserMessage = function(msg){ 
+  if(DEBUG_BROWSER){ console.log("_browserCompatability) " + msg); }
+}
+
+var makeCORSrequest = function(url){
+  try{
+    var requester = (typeof XDomainRequest != "undefined")? new XDomainRequest() : new XMLHttpRequest();
+    var response = requester.open('GET', url);
+    logBrowserMessage("request made to '"+url+"' without incident.");
+    return !!response;
+  }catch(err){
+    logBrowserMessage("couldn't make request"); 
+    console.log(err);
+  }
+  
+}
 
 /** determine the browser the code is being run on */
 var doesBrowserSupportWebComponents = function(){
@@ -10,12 +27,16 @@ var doesBrowserSupportWebComponents = function(){
   return user_agent_supports_web_components;
 };
 
+var canMakeCallToGoogleAnalytics = function(){
+  makeCORSrequest("https://www.google-analytics.com/analytics.js")
+}
+
 /** determine, based on user_agent, which elements to show/hide given web components support */
 var loadWebComponentInto = function(tagname, replacedElements){
   var user_agent_supports_web_components = doesBrowserSupportWebComponents();
   
   // determine which elements to hide
-  var elementsToHide = user_agent_supports_web_components 
+  var elementsToHide = user_agent_supports_web_components && canMakeCallToGoogleAnalytics
     ? replacedElements // hide replaced elements if the web components worked,
     : document.getElementsByTagName(tagname) // hide the contents of the custom tag if they don't (avoid showing 'slotted' coni)
   ; 
@@ -24,8 +45,6 @@ var loadWebComponentInto = function(tagname, replacedElements){
   for(var i=0; i<elementsToHide.length; i++){ elementsToHide[i].hidden = true; }
   
   // log the result
-  if(DEBUG_BROWSER){
-    var supportsMessage = user_agent_supports_web_components ? ": ]" : ":(";
-    console.log("user_agent_supports_web_components: " + supportsMessage);
-  }
+  var supportsMessage = user_agent_supports_web_components ? ": ]" : ":(";
+  logBrowserMessage("user_agent_supports_web_components: " + supportsMessage);
 };
