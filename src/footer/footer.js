@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element/lit-element';
 import {getSiteCodeFromUrl, getLibraryCodeFromUrl} from '../_helpers/lib_info_helper.js';
 
-import {sendGAEventFromClickEvent} from '../_helpers/google_analytics.js';
+import {sendGAEventFromClickEvent} from '../_helpers/google_analytix';
 
 /** stored values for the sitemap */
 const sitemap_values = {

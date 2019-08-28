@@ -1,7 +1,7 @@
 import {LitElement, html} from 'lit-element/lit-element';
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
 
-import {sendGAEvent} from '../_helpers/google_analytics.js';
+import {sendGAEvent} from '../_helpers/google_analytix';
 
 const ALLOW_HOURS_DISPLAY = true;
 
