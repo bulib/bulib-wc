@@ -106,7 +106,7 @@ export const header_demo = `
     </div>
   </div>
   <script id="google-analytics-link-tracker" type="module" defer>
-    import {addSendGAEventOnAnchorClickToAnchorElements} from 'https://unpkg.com/bulib-wc@latest/src/_helpers/google_analytics.js?module';
+    import {addSendGAEventOnAnchorClickToAnchorElements} from 'https://unpkg.com/bulib-wc@latest/src/_helpers/google_analytix.js?module';
     
     window.onload = function(){
       let headerLinks = document.querySelectorAll(".header-wrapper a");
