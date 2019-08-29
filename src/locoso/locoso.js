@@ -72,9 +72,9 @@ export default class Locoso extends LitElement {
       <div class="locoso-wrapper">
         <div class="locoso-left">
           <div class="txtv">
-            <h3 class="inline">Visit Us</h3>&nbsp;&nbsp;&nbsp;
+            <h3 class="inline">Visit Us</h3>&nbsp;
             ${include_libhours 
-              ? html`-&nbsp;&nbsp;<bulib-hours class="inline" link_class="${this.link_class}" library="${this.library}" short></bulib-hours>` 
+              ? html`-&nbsp;<bulib-hours class="inline" link_class="${this.link_class}" library="${this.library}" short></bulib-hours>` 
               : html``
             }
           </div>
