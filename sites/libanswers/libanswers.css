@@ -3,9 +3,14 @@
   /* hide various */ 
   .s-la-public-header-text, /* hide automatic headers (replaced by banner text) */
     #s-la-page-title-bar, #s-la-page-title-bar .navbar, /* hide out-of-the-box search/browse banner */
-    div#slogan, #s-la-bc, /* slogan and breadcrumbs */
-    #s-la-public-footer /* footer */
+    div#slogan, #s-la-bc /* slogan and breadcrumbs */
     { display: none; }
+
+  #s-la-public-footer {
+    width: 100vw !important;
+    left: 0px !important;
+    position: absolute;
+  }
 
   /* set header font */
   h2 { font-size: x-large; }
@@ -55,6 +60,9 @@
   /* increase font size of search results */
   .s-srch-result-title { font-size: 2em; font-weight: 500; }
   .s-srch-result-meta { font-size: 1.3em; }
+
+  /* increase font size of the pagination */
+  .s-srch-range, .pagination { font-size: large; }
 
   /* label colors */
   .s-srch-result-title a { color: #0B4473; }
