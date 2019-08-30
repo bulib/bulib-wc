@@ -2,7 +2,7 @@ import {LitElement, html} from 'lit-element/lit-element';
 import {until} from 'lit-html/directives/until';
 
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
-import {sendGAEvent} from '../_helpers/google_analytics.js';
+import {sendGAEvent} from '../_helpers/google_analytix';
 
 const all_lib_hours_url = "https://www.bu.edu/library/about/hours/";
 const cors_anywhere_prefix = 'https://cors-anywhere.herokuapp.com/';

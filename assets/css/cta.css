@@ -2,26 +2,31 @@
 
 div.ctas {
   font-family: 'Source Sans Pro', sans-serif;
-  display: grid;
-  grid-gap: 4%;
-  grid-auto-rows: 1fr;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 25px 0px;
 }
 div.cta { 
   text-align: center;
+  flex-basis: 100%;
+  min-width: 175px;
+  max-width: 275px;
+  margin: 12px;
+  
   background-color: #fefefe;
-  border: 1px solid #e1e1e1;
+  border: 2px solid #e1e1e1;
   border-radius: 4px;
   box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
 }
-div.cta a{
+div.cta a {
   font-weight: 400;
   font-size: large;
   color: #0B4473;
 }
 div.cta h3 {
   margin: 0px;
-  padding: 25px 0px;
+  padding: 20px 0px;
   font-size: 1.5em;
 }
 div.cta:hover { 
@@ -29,6 +34,5 @@ div.cta:hover {
   cursor: pointer;
 }
 .ctas .cta:last-of-type{
-  background-color: gainsboro; 
   text-transform: uppercase;
 }

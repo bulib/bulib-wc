@@ -62,8 +62,8 @@ export const card_demo = `
         <h3><a href="/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1">Where is it?</a></h3>
       </div>
 
-      <div class="cta" onclick="window.open('/businessFAQs/','_self')">
-        <h3><a href="/businessFAQs/">Pardee / Management</a></h3>
+      <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Troubleshooting','_self')">
+        <h3><a href="/search/?g=716&amp;topics=Troubleshooting">Troubleshooting</a></h3>
       </div>
 
       <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1','_self')">
@@ -74,12 +74,15 @@ export const card_demo = `
         <h3><a href="/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1">Journals</a></h3>
       </div>
 
-      <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Troubleshooting','_self')">
-        <h3><a href="/search/?g=716&amp;topics=Troubleshooting">Troubleshooting</a></h3>
+      <div class="cta" onclick="window.open('/businessFAQs/','_self')">
+        <h3><a href="/businessFAQs/">Pardee / Management</a></h3>
+      </div>
+
+      <div class="cta" onclick="window.open('/search/?t=0&adv=1&topics=Services','_self')">
+        <h3><a href="/search/?t=0&adv=1&topics=Services">Services</a></h3>
       </div>
 
       <div class="cta" onclick="window.open('/search/','_self')">
         <h3><a href="/search">All Topics</a></h3>
       </div>
-
     </div>`;

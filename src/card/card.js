@@ -1,5 +1,5 @@
 import {LitElement, html} from 'lit-element/lit-element';
-import {sendGAEvent} from '../_helpers/google_analytics';
+import {sendGAEvent} from '../_helpers/google_analytix';
 
 /**
  * display a single concept (heading, description, cta, icon) in a small UI element
