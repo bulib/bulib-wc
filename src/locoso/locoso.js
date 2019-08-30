@@ -1,6 +1,8 @@
 import {LitElement, html} from 'lit-element/lit-element';
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
 
+import {sendGAEvent} from '../_helpers/google_analytix';
+
 const ALLOW_HOURS_DISPLAY = true;
 
 /**
@@ -8,8 +10,6 @@ const ALLOW_HOURS_DISPLAY = true;
  *    a given library within the Boston Universities System.
  */
 export default class Locoso extends LitElement {
-
-  constructor(){ super(); }
 
   static get properties() {
     return {
@@ -46,15 +46,16 @@ export default class Locoso extends LitElement {
         <h3>Follow Us</h3>
         <ul aria-description="list of social media accounts" class="no-bullet inline-list plm">
         ${social.map((s) =>
-          html`<li><a class="${this.link_class}" target="_blank" href="${s.url}" title="${s.text}"><img alt="${s.text} icon" class="sm-icon ${this.link_class}"
-                      src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/assets/icons/icons8-${s.text}-48.png"></a></li>`
+          html`<li><a title="${s.text}" class="${this.link_class}" @click="${(ev) => {this._logGAEvent(s.text);}}" 
+                      href="${s.url}" target="_blank"><img alt="${s.text} icon" class="sm-icon ${this.link_class}"
+                      src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/icons8-${s.text}-48.png"></a></li>`
         )}
         </ul>
       `;
     }
     
     return html`
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bulib/bulib-wc@latest/assets/css/common.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/bundle.css">
       <style>
         /* layout and responsiveness */
         .locoso-left { flex: 1; }
@@ -71,20 +72,22 @@ export default class Locoso extends LitElement {
       <div class="locoso-wrapper">
         <div class="locoso-left">
           <div class="txtv">
-            <h3 class="inline">Visit Us</h3>&nbsp;&nbsp;&nbsp;
+            <h3 class="inline">Visit Us</h3>&nbsp;
             ${include_libhours 
-              ? html`-&nbsp;&nbsp;<bulib-hours class="inline" link_class="${this.link_class}" library="${this.library}" short></bulib-hours>` 
+              ? html`-&nbsp;<bulib-hours class="inline" link_class="${this.link_class}" library="${this.library}" short></bulib-hours>` 
               : html``
             }
           </div>
           <ol class="no-bullet" aria-label="address">
             <li>${lib_name}</li>
-            ${address.map((l) => html`<li>${l}</li>`)}
+            <address>${address.map((l) => html`<li>${l}</li>`)}</address>
             <li>
               <small>
-                <a class="${this.link_class}" aria-label="Open library site" href="${website}" title="${lib_name} website">website</a>
-                <a class="${this.link_class}" aria-label="Directions to the Library" title="get directions" target="_blank"
-                    href="${'https://google.com/maps/search/' + encodeURI("Boston University " + lib_name)}">directions &raquo;</a>
+                <a title="${lib_name} website" class="${this.link_class}" @click="${(ev) => {this._logGAEvent('website');}}"
+                   aria-label="Open library site" href="${website}">website</a>
+                <a title="get directions" class="${this.link_class}" @click="${(ev) => {this._logGAEvent('directions');}}"
+                   aria-label="Directions to the Library" href="${'https://google.com/maps/search/' + encodeURI("Boston University " + lib_name)}" 
+                   target="_blank">directions &raquo;</a>
               </small>
             </li>
           </ol>
@@ -92,8 +95,10 @@ export default class Locoso extends LitElement {
         <div class="locoso-right">
           <h3 class="inline">Contact Us</h3>
           <ul class="no-bullet" aria-label="contact-links">
-            ${contacts.map((c) =>
-                html`<li>${c.text} <a class="${this.link_class}" href="${c.url}">${c.val}</a></li>`
+            ${contacts.map((c) => html`
+              <li>${c.text} <a class="${this.link_class}" href="${c.url}" 
+                               @click="${(ev) => {this._logGAEvent(c.text);}}">${c.val}</a>
+              </li>`
              )}
           </ul>
           ${socialDisplay}
@@ -145,6 +150,10 @@ export default class Locoso extends LitElement {
     }
     this._logToConsole(`${social.length.toString()} items found for 'social'.`);
     return social;
+  }
+
+  _logGAEvent(clickedContent){
+    sendGAEvent('bulib-locoso', clickedContent, this.library);
   }
   
   _logToConsole(message){

@@ -1,6 +1,9 @@
 import {LitElement, html, css} from 'lit-element/lit-element';
 import {search_options} from './search_options';
 
+import {sendGAEvent} from '../_helpers/google_analytix';
+
+
 const ENTER_KEY_VALUE = 13;
 const default_to_just_primo = true;
 
@@ -193,7 +196,10 @@ export default class BULibSearch extends LitElement {
     //conditionally log and/or perform search
     let domain_to_print = domain.length > 80? domain.substring(0,80) + "..." : domain;
     this._logToConsole(`searching '${site}' for query: '${query}' on domain: '${domain_to_print}'`);
-    if(!this.prevent_action === true){ window.location = domain + encodeURIComponent(query); }
+    if(!this.prevent_action === true){ 
+      sendGAEvent("bulib-search", site, query);
+      window.location = domain + encodeURIComponent(query); 
+    }
   }
   
   /** call this._doSearch() if key that user pressed is ENTER */ 

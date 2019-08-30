@@ -14,7 +14,7 @@
       <div class="primary-navbar">
         <div class="primary-nav-left">
           <a title="BU Libraries Homepage" href="https://www.bu.edu/library">
-            <img id="bu-logo" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/assets/icons/bulib-logo.png">
+            <img id="bu-logo" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/bulib-logo.png">
           </a>
         </div>
         <div class="primary-nav-main menu-items-wrapper">
@@ -28,32 +28,23 @@
         </div>
         <div class="primary-nav-right">
           <div class="mobile-navigation none" aria-hidden="true">
-            <script>
-              let RIGHT_MOUSE_BUTTON = 3;
-              let input = document.querySelector("#menuToggle > input");
-              window.addEventListener("mousedown", function(event){
-                if(event.which !== RIGHT_MOUSE_BUTTON){
-                  if(!!event.target.href){ window.open(event.target.href, "_self"); }
-                }
-              });
-            </script>
             <div id="menuToggle">
-                <!-- invisible toggle with hamburger -->
-                <input type="checkbox" onfocusout="this.checked = false;" tabindex="-1"/>
-                <span></span>
-                <span></span>
-                <span></span>
-                
-                <!-- mobile nav menu -->
-                <ul id="mobile-menu">
-                  <li id="subsite-research"><a href="https://www.bu.edu/library/research">Research</a></li>
-                  <li id="subsite-services"><a href="https://www.bu.edu/library/services">Services</a></li>
-                  <li id="subsite-about"><a href="https://www.bu.edu/library/">About</a></li>
-                  <li><hr /></li>
-                  <li><a href="https://www.bu.edu/library/about">Library Locations</a></li>
-                  <li><a href="https://askalibrarian.bu.edu/">Ask a Librarian</a></li>
-                </ul>
-              </div>
+              <!-- invisible toggle with hamburger -->
+              <input type="checkbox" tabindex="-1"/>
+              <span></span>
+              <span></span>
+              <span></span>
+              
+              <!-- mobile nav menu -->
+              <ul id="mobile-menu">
+                <li id="subsite-research"><a href="https://www.bu.edu/library/research">Research</a></li>
+                <li id="subsite-services"><a href="https://www.bu.edu/library/services">Services</a></li>
+                <li id="subsite-about"><a href="https://www.bu.edu/library/">About</a></li>
+                <li><hr /></li>
+                <li><a href="https://www.bu.edu/library/about">Library Locations</a></li>
+                <li><a href="https://askalibrarian.bu.edu/">Ask a Librarian</a></li>
+              </ul>
+            </div>
           </div>
           <div class="top-right">
             <ul class="menu-items">
@@ -67,15 +58,15 @@
                       <li><a href="https://www.bu.edu/library/african-studies/">African Studies Library</a></li>
                       <li><a href="https://www.bu.edu/library/astronomy/">Astronomy Library</a></li>
                       <!-- <li><a href="https://www.bu.edu/disc/">Digital Collections</a></li> -->
-                      <!-- <li><a href="http://archives.bu.edu/">HGARC</a></li> -->
+                      <li><a href="http://archives.bu.edu/">Howard Gotlieb Archival Research Center</a></li>
                       <li><a href="https://www.bu.edu/library/mugar-memorial/">Mugar Memorial Library</a></li>
                       <li><a href="https://www.bu.edu/library/music/">Music Library</a></li>
                       <!-- <li><a href="https://open.bu.edu/">OpenBU</a></li> -->
                       <li><a href="https://www.bu.edu/library/management/">Pardee Management Library</a></li>
                       <li><a href="https://www.bu.edu/library/pickering-educational/">Pickering Educational Resources Library</a></li>
                       <li><a href="https://www.bu.edu/library/sel/">Science &amp; Engineering Library</a></li>
-                      <li><a href="https://www.bu.edu/library/stone-science/">Stone Library</a></li>
-                      <li><a href="https://www.bu.edu/library/about/additional-libraries/">Other Libraries</a></li>
+                      <li><a href="https://www.bu.edu/library/stone-science/">Stone Science Library</a></li>
+                      <li><a href="https://www.bu.edu/library/about/additional-libraries/">Additional Libraries</a></li>
                     </ul>
                   </div>
                 </div>
@@ -89,6 +80,16 @@
           </div>
         </div>
       </div>
+      <script id="mobile-nav-clickout" type="text/javascript">
+        let input = document.querySelector("#menuToggle > input");
+        window.addEventListener("click", (event) => {
+          let clicked = event.target;
+          let clicked_within_mobile_menu = clicked.closest("#menuToggle") != null;
+          if(input && clicked != input && !clicked_within_mobile_menu || clicked.tagName == "A"){
+            input.checked = false; // uncheck the #menuToggle input, closing the mobile nav
+          }
+        });
+      </script>
     </nav>
   </div>
   <div class="banner-wrapper">
@@ -97,11 +98,68 @@
       <bulib-search str_options="help primo"></bulib-search>
     </div>
   </div>
-  <div>
+  <div class="lorem-ipsum">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam illum, voluptate repellat, ex minus at odio alias tenetur optio voluptatibus dicta deleniti cupiditate rem culpa laudantium, dolore deserunt fugiat repudiandae.</p>
     <p>Cumque provident nam, inventore repudiandae animi doloribus dignissimos illo ea error esse reprehenderit possimus odio, libero beatae, accusamus ratione itaque laboriosam expedita amet nihil voluptatum blanditiis obcaecati. Possimus, assumenda sint.</p>
     <p>Sunt quas dicta, vel perspiciatis ducimus placeat voluptates ad necessitatibus quis reprehenderit ullam consectetur! Enim neque ab architecto praesentium voluptatem saepe commodi, aperiam odio facere illum incidunt laborum laudantium pariatur?</p>
     <p>Minima quo molestias asperiores nam nisi officia impedit molestiae, sed hic reiciendis. Officia atque labore odit aliquid inventore ab possimus, incidunt provident ut at, neque consequatur minus quod expedita eligendi!</p>
     <p>Amet unde eligendi provident molestias suscipit itaque exercitationem voluptatum, ut natus id quas consectetur illo! Libero cum eum sit autem aliquid officia consequuntur tempore velit rerum? Vero blanditiis odio omnis.</p>
   </div>
+  <div class="deck">
+    <div class="card">
+      <i class="material-icons" onclick="window.open('/form.php?quid=511','_self')">email</i>
+      <div class="inline">
+        <h3><a href="/form.php?quid=511">Email</a></h3>
+        <p>Email us your research questions and we&rsquo;ll respond within 24 hours.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <i class="material-icons" onclick="document.querySelector('button.s-lch-widget-float-btn').click();">question_answer</i>  
+      <div class="inline">
+        <h3><a onclick="console.log('chat says hi')" href="javascript:void(0)">Chat</a></h3>
+        <p>Talk online to a research librarian on weekdays and Sundays</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <i class="material-icons" onclick="window.open('tel:6173532700','_self')">phone</i>
+      <div class="inline">
+        <h3><a href="tel:6173532700">Call</a></h3>
+        <p>Call us at 617-353-2700 during our open hours</p>
+      </div>
+    </div>
+  </div>
+  <div class="ctas">
+    <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Borrowing','_self')">
+      <h3><a href="/search/?g=716&amp;topics=Borrowing">Borrowing Items</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1">Alumni</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1">Where is it?</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/','_self')">
+      <h3><a href="/businessFAQs/">Pardee / Management</a></h3>
+    </div>
+  </div>
+  <bulib-footer></bulib-footer>
+  <script id="google-analytics-link-tracker" type="module" defer>
+    import {addSendGAEventOnAnchorClickToAnchorElements} from 'https://unpkg.com/bulib-wc@latest/src/_helpers/google_analytix.js?module';
+    
+    window.onload = function(){
+      let headerLinks = document.querySelectorAll(".header-wrapper a");
+      addSendGAEventOnAnchorClickToAnchorElements(headerLinks, "bulib-header");
+      
+      let cardLinks = document.querySelectorAll(".deck a");
+      addSendGAEventOnAnchorClickToAnchorElements(cardLinks, "card");
+      
+      let ctaLinks = document.querySelectorAll(".ctas a");
+      addSendGAEventOnAnchorClickToAnchorElements(ctaLinks, "cta");
+    };
+  </script>
 </body>
