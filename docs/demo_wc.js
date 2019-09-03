@@ -1,5 +1,4 @@
 export const search_demo = `
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <label>Empty (active)</label>
   <bulib-search id="empty-search" debug></bulib-search>
   <br /><br />
@@ -68,7 +67,6 @@ export const footer_demo = `
 `;
 
 export const wc_card_demo = `
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- @todo: replace with npm install -->
   <div class="deck">
     <bulib-card title="Email" icon="email" link="https://askalibrarian.bu.edu/form.php?quid=511" debug
       description="Email us your research questions and we’ll respond within 24 hours."></bulib-card>
