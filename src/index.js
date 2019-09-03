@@ -1,4 +1,3 @@
-import './_helpers/browser_compatibility';
 import loadPolyfills from '@open-wc/polyfills-loader';
 
 loadPolyfills().then(() => {
