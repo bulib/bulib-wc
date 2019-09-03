@@ -1,4 +1,4 @@
-import '@webcomponents/webcomponentsjs/webcomponents-loader';
+// import '@webcomponents/webcomponentsjs/webcomponents-loader';
 
 WebComponents.waitFor(function(){
   import ('./select/bulib-select');
