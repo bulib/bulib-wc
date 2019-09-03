@@ -3,14 +3,18 @@
   /* hide various */ 
   .s-la-public-header-text, /* hide automatic headers (replaced by banner text) */
     #s-la-page-title-bar, #s-la-page-title-bar .navbar, /* hide out-of-the-box search/browse banner */
-    div#slogan, #s-la-bc, /* slogan and breadcrumbs */
-    #s-la-public-footer /* footer */
+    div#slogan, #s-la-bc /* slogan and breadcrumbs */
     { display: none; }
 
-  /* set header font */
-  h2, h3, h4, h5, h6, body {
-    font-family: 'Source Sans Pro', sans-serif;
+  #s-la-public-footer {
+    width: 100vw !important;
+    left: 0px !important;
+    position: absolute;
   }
+
+  /* set header font */
+  h2 { font-size: x-large; }
+  h2, h3, h4, h5, h6, body { font-family: 'Source Sans Pro', sans-serif; }
 
   /* unset random 'ol, ul' default that's messing with the header alignment */
   ol, ul {
@@ -22,10 +26,7 @@
   /* -- FAQ page (/faq/) -- */
 
   /* general libanswers box */
-  .s-la-box-content { 
-    padding-left: 8%;  padding-right: 8%; 
-    padding-top: 4%;  padding-bottom: 4%;
-  }
+  .s-la-box-content { padding: 4% 8%; }
   .s-la-box-container { 
     border-radius: 4px; 
     margin-left: 15px; 
@@ -34,7 +35,7 @@
 
   /* FAQ - question and answer box */ 
   .s-la-faq-answer { font-size: large; } /* increase font size of answer */
-  .question-title-bar h2 { font-size: xx-large; } /* greatly increase question title */
+  .question-title-bar h2 { font-size: x-large; } /* greatly increase question title */
   .question-title-bar .s-la-faq-owner, .question-title-bar .s-la-faq-updated { font-size: medium; }
   .question-title-bar {
     display: flex !important;
@@ -59,6 +60,9 @@
   /* increase font size of search results */
   .s-srch-result-title { font-size: 2em; font-weight: 500; }
   .s-srch-result-meta { font-size: 1.3em; }
+
+  /* increase font size of the pagination */
+  .s-srch-range, .pagination { font-size: large; }
 
   /* label colors */
   .s-srch-result-title a { color: #0B4473; }

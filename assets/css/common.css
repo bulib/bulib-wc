@@ -46,8 +46,8 @@
 
 /* list styles */
 ul.no-bullet { padding-left: 0em; }
-.no-bullet li { list-style:none; padding-left: 0em; }
-.inline-list li { display: inline; padding-right: 5px;}
+.no-bullet > li, .no-bullet > * > li { list-style:none !important; padding-left: 0em; }
+.inline-list > li { display: inline; padding-right: 5px;}
 
 /* '.white-link' used in footer */
 a.white-link, a.white-link:active, a.white-link:visited {

@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit-element/lit-element';
 import {search_options} from './search_options';
 
-import {sendGAEvent} from '../_helpers/google_analytics';
+import {sendGAEvent} from '../_helpers/google_analytix';
 
 const ENTER_KEY_VALUE = 13;
 const default_to_just_primo = true;

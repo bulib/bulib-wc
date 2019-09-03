@@ -2,7 +2,7 @@ import {LitElement, html} from 'lit-element/lit-element';
 import {until} from 'lit-html/directives/until';
 
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
-import {sendGAEvent} from '../_helpers/google_analytics.js';
+import {sendGAEvent} from '../_helpers/google_analytix';
 
 const all_lib_hours_url = "https://www.bu.edu/library/about/hours/";
 const cors_anywhere_prefix = 'https://cors-anywhere.herokuapp.com/';
@@ -52,7 +52,7 @@ export default class BULibHours extends LitElement {
       <span id="hours-display" class="inline" aria-label="today's hours for ${library_name}">
         ${until(this._fetchHoursData(libCode, lid), html`<small> loading hours...</small>`)}
       </span>`;
-    let clock_icon = html`<img alt="clock-icon" id="clock-icon" src="https://material.io/tools/icons/static/icons/baseline-schedule-24px.svg">`;
+    let clock_icon = html`<img alt="clock-icon" id="clock-icon" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/clock-icon-24px.svg">`;
     
     // establish variants 
     let none_display = html``;
@@ -90,7 +90,7 @@ export default class BULibHours extends LitElement {
   }
 
   _logGAEvent(action, libCode){
-    sendGAEvent("bulib-libhours", action, libCode || this.library);
+    sendGAEvent("bulib-hours", action, libCode || this.library);
   }
   
   _logToConsole(message){

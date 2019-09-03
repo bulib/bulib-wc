@@ -161,6 +161,7 @@ export function getLibraryCodeFromUrl(lib_url, debug=INFO_HELPER_DEBUG, defLibCo
     else if(lib_url_fragment.includes("sthlibrary")){ lib_code = "stone"; }
     else { lib_code = "help"; }
   }
+  if(lib_url.includes("askalibrarian") && lib_url.includes("business")){ lib_code = "pardee"; }
   if(!Object.keys(libraries_data_backup).includes(lib_code)){ lib_code = "help"; }
   logToConsole(`lib_code '${lib_code}' from lib_url '${lib_url}'`, debug);
   return lib_code;

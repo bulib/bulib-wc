@@ -1,3 +1,18 @@
+<head>  
+  <!-- Google Analytics (GTAG) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5204430-7"></script>
+  <script id="google-analytics-registration" defer>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', "UA-5204430-7");  
+  </script>
+
+  <!-- styling -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap"> 
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/libanswers.css">
+</head>
+
 <style type="text/css">
   /* unhide the title text (enable administrator to edit the page title) */
   /* .s-la-public-header-text { display: block; } */
@@ -9,14 +24,14 @@
       <i class="material-icons" onclick="window.open('/form.php?quid=511','_self')">email</i>
       <div class="inline">
         <h3><a href="/form.php?quid=511">Email</a></h3>
-        <p>Email us your research questions and we’ll respond within 24 hours.</p>
+        <p>Email us your research questions and we’ll respond within 24 hours</p>
       </div>
     </div>
       
     <div class="card">
       <i class="material-icons" onclick="document.querySelector('button.s-lch-widget-float-btn').click();">question_answer</i>
       <div class="inline">
-        <h3><a onclick="document.querySelector('button.s-lch-widget-float-btn').click();">Chat</a></h3>
+        <h3><a href="javascript:void(0)" onclick="document.querySelector('button.s-lch-widget-float-btn').click();">Chat</a></h3>
         <p>Talk online to a research librarian on weekdays and Sundays</p>
       </div>
     </div>
@@ -33,7 +48,7 @@
       <i class="material-icons" onclick="window.open('sms:6174312427','_self')">smartphone</i>
       <div class="inline">
         <h3><a href="sms:6174312427">Text</a></h3>
-        <p>Send us your questions at 617-431-2427.</p>
+        <p>Send us your questions at 617-431-2427</p>
       </div>
     </div>
       
@@ -46,7 +61,7 @@
     </div>
       
     <div class="card">
-      <i class="material-icons" onclick="window.open('https://www.bu.edu/library/about/','_self')">local_library</i>
+      <i class="material-icons" onclick="window.open('https://www.bu.edu/library/about/','_self')">location_city</i>
       <div class="inline">
         <h3><a href="https://www.bu.edu/library/about/">Visit</a></h3>
         <p>Come talk to us in person at any of our locations</p>
@@ -55,7 +70,67 @@
   </div>
 </section>
 
+<section id="contact-us-cards-pardee">
+  <div class="deck">
+    <div class="card">
+      <i class="material-icons" onclick="window.open('mailto:pardstf@bu.edu')">email</i>
+      <div class="inline">
+        <h3><a href="mailto:pardstf@bu.edu">Email</a></h3>
+        <p>Email us your research questions and we&rsquo;ll respond within 24 hours</p>
+      </div>
+    </div>
+    <div class="card">
+      <i class="material-icons" onclick="document.querySelector('button.s-lch-widget-float-btn').click();">question_answer</i>
+      <div class="inline">
+        <h3><a href="javascript:void(0)" onclick="document.querySelector('button.s-lch-widget-float-btn').click();">Chat</a></h3>
+        <p>Talk online to a research librarian on weekdays and Sundays</p>
+      </div>
+    </div>
+    <div class="card">
+      <i class="material-icons" onclick="window.open('tel:6173532700','_self')">phone</i>
+      <div class="inline">
+        <h3><a href="tel:6173534304">Call</a></h3>
+        <p>Call us at 617-353-4304 during our open hours</p>
+      </div>
+    </div>
+    <div class="card">
+      <i class="material-icons" onclick="window.open('mailto:pardstf@bu.edu')">people</i>
+      <div class="inline">
+        <h3><a href="mailto:pardstf@bu.edu">Meet</a></h3>
+        <p>Make an appointment with a subject specialist librarian</p>
+      </div>
+    </div>
+    <div class="card">
+      <i class="material-icons" onclick="window.open('sms:6174312427','_self')">smartphone</i>
+      <div class="inline">
+        <h3><a href="sms:6174312427">Text</a></h3>
+        <p>Send us your questions at 617-431-2427</p>
+      </div>
+    </div>
+    <div class="card">
+      <i class="material-icons" onclick="window.open('https://www.bu.edu/library/management/','_self')">location_city</i>
+      <div class="inline">
+        <h3><a href="https://www.bu.edu/library/management/">Visit</a></h3>
+        <p>Come talk to us in person in the Questrom Building</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="bulib-search">
+  <div class="txtc full-width" id="nowc-search">
+    <style type="text/css">.banner > bulib-search { display: none; }</style>
+    <form action="https://askalibrarian.bu.edu/search/" style="display: ruby;">
+      <input name="q" type="text" /> 
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
+  <div><bulib-search str_options="help primo"></bulib-search></div>
+  <script src="https://unpkg.com/bulib-wc@latest/src/_helpers/browser_compatibility.js?"></script><script>
+    window.addEventListener("DOMContentLoaded", function(event)  {
+      loadWebComponentInto("bulib-search", [document.getElementById("nowc-search")]);
+    });
+  </script>
   <style type="text/css"> .banner > bulib-search { display: none; } </style>
   <bulib-search str_options="help primo"></bulib-search>
 </section>
@@ -74,8 +149,8 @@
       <h3><a href="/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1">Where is it?</a></h3>
     </div>
 
-    <div class="cta" onclick="window.open('/businessFAQs/','_self')">
-      <h3><a href="/businessFAQs/">Pardee / Management</a></h3>
+    <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Troubleshooting','_self')">
+      <h3><a href="/search/?g=716&amp;topics=Troubleshooting">Troubleshooting</a></h3>
     </div>
 
     <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1','_self')">
@@ -86,12 +161,90 @@
       <h3><a href="/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1">Journals</a></h3>
     </div>
 
-    <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Troubleshooting','_self')">
-      <h3><a href="/search/?g=716&amp;topics=Troubleshooting">Troubleshooting</a></h3>
+    <div class="cta" onclick="window.open('/businessFAQs/','_self')">
+      <h3><a href="/businessFAQs/">Business FAQs</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/search/?t=0&adv=1&topics=Services','_self')">
+      <h3><a href="/search/?t=0&adv=1&topics=Services">Services</a></h3>
     </div>
 
     <div class="cta" onclick="window.open('/search/','_self')">
       <h3><a href="/search">All Topics</a></h3>
+    </div>
+  </div>
+
+  <br /><br />
+</section>
+
+<section id="browse-topics-ctas-pardee">
+  <div class="ctas">
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=About%20Pardee%20Management%20Library','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=About%20Pardee%20Management%20Library">About Pardee Management Library</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=Bloomberg','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=Bloomberg">Bloomberg</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=Boston%20University%20Questrom%20School%20of%20Business','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=Boston%20University%20Questrom%20School%20of%20Business">Questrom School of Business</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=Business%20Databases','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=Business%20Databases">Business Databases</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=Careers','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=Careers">Careers</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=Companies','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=Companies">Companies</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=Corporate%20Finance','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=Corporate%20Finance">Corporate Finance</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=Economics','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=Economics">Economics</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=General%20Business','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=General%20Business">General Business</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=Industry','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=Industry">Industry</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=International%20Business','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=International%20Business">International Business</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=Investing','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=Investing">Investing</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=Labor','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=Labor">Labor</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=Management','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=Management">Management</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=Marketing%20and%20Advertising','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=Marketing%20and%20Advertising">Marketing and Advertising</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/?t=0&adv=1&topics=Taxation%20and%20Accounting','_self')">
+      <h3><a href="/businessFAQs/search/?t=0&adv=1&topics=Taxation%20and%20Accounting">Taxation and Accounting</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/search/','_self')">
+      <h3><a href="/businessFAQs/search">All Topics</a></h3>
     </div>
   </div>
 
@@ -126,7 +279,17 @@
 </section>
 
 <section id="footer">
-  <div class="full-width">
+  <div class="full-width ptl">
+    <div id="nowc-footer">
+      <a href="https://www.bu.edu/library"><img src="https://s3.amazonaws.com/libapps/accounts/15585/images/BULibAnswersFooter.jpg" width="100%"></a>
+    </div>
     <bulib-footer></bulib-footer>
   </div>
+    
+  <script src="https://unpkg.com/bulib-wc@latest/src/_helpers/browser_compatibility.js?"></script>
+  <script>
+    window.addEventListener("DOMContentLoaded", function(event)  {
+      loadWebComponentInto("bulib-footer", [document.getElementById("nowc-footer")]);
+    });
+  </script>
 </section>

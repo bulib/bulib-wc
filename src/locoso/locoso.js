@@ -1,7 +1,7 @@
 import {LitElement, html} from 'lit-element/lit-element';
 import {getLibraryInfoFromCode} from '../_helpers/lib_info_helper.js';
 
-import {sendGAEvent} from '../_helpers/google_analytics.js';
+import {sendGAEvent} from '../_helpers/google_analytix';
 
 const ALLOW_HOURS_DISPLAY = true;
 
@@ -10,8 +10,6 @@ const ALLOW_HOURS_DISPLAY = true;
  *    a given library within the Boston Universities System.
  */
 export default class Locoso extends LitElement {
-
-  constructor(){ super(); }
 
   static get properties() {
     return {
@@ -74,9 +72,9 @@ export default class Locoso extends LitElement {
       <div class="locoso-wrapper">
         <div class="locoso-left">
           <div class="txtv">
-            <h3 class="inline">Visit Us</h3>&nbsp;&nbsp;&nbsp;
+            <h3 class="inline">Visit Us</h3>&nbsp;
             ${include_libhours 
-              ? html`-&nbsp;&nbsp;<bulib-hours class="inline" link_class="${this.link_class}" library="${this.library}" short></bulib-hours>` 
+              ? html`-&nbsp;<bulib-hours class="inline" link_class="${this.link_class}" library="${this.library}" short></bulib-hours>` 
               : html``
             }
           </div>

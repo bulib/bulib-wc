@@ -19,4 +19,5 @@ cat src/header/header.css >>  $CSS_BUNDLE_FILEPATH;
 cp ./sites/libanswers/libanswers.css ./dist/libanswers.css
 
 # move icons into dist/
-cp -R ./assets/icons ./dist/icons
+mkdir ./dist/icons || true;
+cp ./assets/icons/* ./dist/icons/
