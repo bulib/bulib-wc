@@ -3,7 +3,6 @@ import {search_options} from './search_options';
 
 import {sendGAEvent} from '../_helpers/google_analytix';
 
-
 const ENTER_KEY_VALUE = 13;
 const default_to_just_primo = true;
 

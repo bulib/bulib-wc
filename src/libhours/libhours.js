@@ -52,7 +52,7 @@ export default class BULibHours extends LitElement {
       <span id="hours-display" class="inline" aria-label="today's hours for ${library_name}">
         ${until(this._fetchHoursData(libCode, lid), html`<small> loading hours...</small>`)}
       </span>`;
-    let clock_icon = html`<img alt="clock-icon" id="clock-icon" src="https://material.io/tools/icons/static/icons/baseline-schedule-24px.svg">`;
+    let clock_icon = html`<img alt="clock-icon" id="clock-icon" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/clock-icon-24px.svg">`;
     
     // establish variants 
     let none_display = html``;

@@ -80,7 +80,7 @@ export default class Locoso extends LitElement {
           </div>
           <ol class="no-bullet" aria-label="address">
             <li>${lib_name}</li>
-            <address>${address.map((l) => html`<li>${l}</li>`)}</address>
+            ${address.map((l) => html`<li>${l}</li>`)}
             <li>
               <small>
                 <a title="${lib_name} website" class="${this.link_class}" @click="${(ev) => {this._logGAEvent('website');}}"
