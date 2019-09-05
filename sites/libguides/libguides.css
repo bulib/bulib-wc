@@ -33,3 +33,16 @@ h2.s-lib-box-title {
   background-color: transparent !important;
   color: black !important;
 }
+
+/* 'Get Help' box styling (contact-us) */
+.get-help h4 { font-weight: bold; }
+.get-help { font-size: medium; }
+.get-help i { font-size: x-large; padding-right: 8px; }
+.get-help a { font-weight: 600; padding-right: 12px;  }
+.get-help li span { vertical-align: top;  }
+
+/* align items as table 
+  .get-help ul { display: table; width: 100%; border-spacing: 0px; }
+  .get-help ul > li { display: table-row; }
+  .get-help ul > li > * { display: table-cell; }
+*/
