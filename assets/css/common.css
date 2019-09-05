@@ -18,7 +18,7 @@
 
 /* on super large screens, set the width to avoid getting too much spacing */
 @media only screen and (min-width: 1500px){
-  .footer-wrapper footer, .header-wrapper nav, .header-wrapper .banner { 
+  .footer-wrapper footer, .header-wrapper nav, .banner-wrapper .banner { 
     margin: 0 auto; width: 85%; 
   }
 }
