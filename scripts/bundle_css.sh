@@ -17,6 +17,7 @@ cat src/header/header.css >>  $CSS_BUNDLE_FILEPATH;
 
 # copy site-specific css into dist/
 cp ./sites/libanswers/libanswers.css ./dist/libanswers.css
+cp ./sites/libguides/libguides.css ./dist/libguides.css 
 
 # move icons into dist/
 mkdir ./dist/icons || true;
