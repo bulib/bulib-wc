@@ -3,6 +3,7 @@ import loadPolyfills from '@open-wc/polyfills-loader';
 
 loadPolyfills().then(() => {
   import ('./select/bulib-select');
+  import ('./feedback/bulib-feedback');
   import ('./card/bulib-card');
   import ('./libhours/bulib-hours');
   import ('./search/bulib-search');

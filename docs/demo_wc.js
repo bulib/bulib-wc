@@ -76,3 +76,7 @@ export const wc_card_demo = `
       description="Talk online to a research librarian on weekdays and Sundays"></bulib-card>
   </div>
 `;
+
+export const feedback_demo = `
+  <bulib-feedback code="bulibwc-demo" debug prevent_action></bulib-feedback>
+`;
