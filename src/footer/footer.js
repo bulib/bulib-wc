@@ -35,10 +35,12 @@ const sitemap_values = {
   },"primo":{
     "header":"BU Libraries Search",
     "links":[
-      {"title":"Browse",          "href":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/browse?vid=BU&lang=en_US"},
-      {"title":"Search Help",     "href":"https://www.bu.edu/library/help/bu-libraries-search/"},
-      {"title":"Databases List",  "href":"https://library.bu.edu/az.php"},
-      {"title":"What's New",      "href":"https://www.bu.edu/library/help/bu-libraries-search/new-bu-libraries-search-features/"}
+      {"title":"My Library Account",  "href":"https://www.bu.edu/library/account/"},
+      {"title":"Advanced Search",     "href":"https://www.bu.edu/library/advancedsearch/"},
+      {"title":"Browse Search",       "href":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/browse?vid=BU&lang=en_US"},
+      {"title":"Databases List ",     "href":"https://library.bu.edu/az.php"},
+      {"title":"Search Help",         "href":"https://www.bu.edu/library/help/bu-libraries-search/"},
+      {"title":"What's New",          "href":"https://www.bu.edu/library/help/bu-libraries-search/new-bu-libraries-search-features/"}
     ]
   }
 };

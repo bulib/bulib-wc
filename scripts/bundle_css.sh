@@ -19,6 +19,9 @@ cat src/header/header.css >>  $CSS_BUNDLE_FILEPATH;
 cp ./sites/libanswers/libanswers.css ./dist/libanswers.css
 cp ./sites/libguides/libguides.css ./dist/libguides.css 
 
+# copy browser_compatibility.js into ./dist
+cp ./src/_helpers/browser_compatibility.js ./dist/
+
 # move icons into dist/
 mkdir ./dist/icons || true;
 cp ./assets/icons/* ./dist/icons/
