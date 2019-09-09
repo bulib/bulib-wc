@@ -5,6 +5,7 @@
   color: black !important;
   border-top: none;
 }
+.s-lib-footer a:hover { text-decoration: underline; color: #B4BCC1 !important; }
 
 /* 'Get Help' box styling (contact-us) */
 .get-help i { font-size: x-large; padding-right: 8px; }
