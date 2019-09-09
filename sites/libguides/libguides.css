@@ -6,34 +6,6 @@
   border-top: none;
 }
 
-/* ensure header-dropdown shows up above other items */
-div.header-wrapper, div.full-width, div.banner-wrapper { width: 100vw; margin-left: -15px; }
-#s-lib-public-main, #s-lg-guide-search-box .input-group > input, #s-lg-guide-search-box .input-group button { z-index: unset; }
-
-/* header styles */
-body h1 { font-size: xx-large !important; font-weight: 400; }
-body h2 { font-size: x-large !important; }
-body h3 { font-size: large; }
-h2, h3, h4, h5, h6, body { font-family: 'Source Sans Pro', sans-serif; }
-
-/* increase breadcrumb and guide description size */
-#s-lib-bc-list a { font-size: initial; }
-#s-lib-admin-bc .breadcrumb, #s-lib-bc .breadcrumb { font-size: small; }
-#s-lg-guide-description { font-size: medium; }
-
-/* adjust spacing above 'search-this-guide' search box */
-#s-lg-guide-header-search { padding-top: 10px; }
-
-/* change the box styling */
-.s-lib-box { 
-  border: none; 
-  box-shadow: none;
-}
-h2.s-lib-box-title { 
-  background-color: transparent !important;
-  color: black !important;
-}
-
 /* 'Get Help' box styling (contact-us) */
 .get-help i { font-size: x-large; padding-right: 8px; }
 .get-help a { font-weight: 600; padding-right: 12px;  }
