@@ -4,14 +4,16 @@ function logGoogleAnalyticsMessage(message){
   if(DEBUG_ANALYTICS){ console.log("google_analytics_helper) " + message); }
 }
 
-export function sendGAEvent(eventName, action, label){
+export function sendGAEvent(eventName, action, label, value){
   /** note: this assumes that a 'gtag' or a 'ga' has already been initialized/added to `window` */
-  logGoogleAnalyticsMessage(`request made to sendGAEvent('${eventName}', '${action}', '${label}')`);
+  let value_text = (value == null) || (value == undefined) ? "": `, value='${value}'`;
+  logGoogleAnalyticsMessage(`request made to sendGAEvent('${eventName}', '${action}', '${label}'${value_text})`);
   try{
     if(window.gtag){ 
       window.gtag('event', action, {
         'event_category': eventName,
-        'event_label': label 
+        'event_label': label,
+        'value': value || -1
       });
       logGoogleAnalyticsMessage("window.gtag() found and called");
     }else if(window.ga){ 

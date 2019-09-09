@@ -1,6 +1,12 @@
 import {LitElement, html} from 'lit-element/lit-element';
+import {sendGAEvent} from '../_helpers/google_analytix';
+
+// codify values for 'helpful' default 
+const HELPFUL = 1; const NOT_HELPFUL = 0;
 
 export default class BULibFeedback extends LitElement {
+
+  createRenderRoot(){ return this; }  // use light DOM
 
   static get properties(){
     return {
@@ -19,7 +25,19 @@ export default class BULibFeedback extends LitElement {
   }
 
   render(){
-    return html`<em>bulib-feedback content here</em>`;
+    return html`
+      <div style="display: ruby;">
+        <strong class="prm">Was this helpful?</strong>
+        <button @click="${(e) => this._submitFeedback(HELPFUL)}">Yes</button>
+        <button @click="${(e) => this._submitFeedback(NOT_HELPFUL)}">No</button>
+      </div>
+    `;
+  }
+
+  _submitFeedback(value){
+    let action = this.code;
+    let label = !!value? "helpful":"not-helpful";
+    sendGAEvent("bulib-feedback", action, label, value);
   }
 
   _logToConsole(message){
