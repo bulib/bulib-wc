@@ -1,7 +1,6 @@
-import './_helpers/browser_compatibility';
-import loadPolyfills from '@open-wc/polyfills-loader';
+import '@webcomponents/webcomponentsjs/webcomponents-loader';
 
-loadPolyfills().then(() => {
+WebComponents.waitFor(function(){
   import ('./select/bulib-select');
   import ('./feedback/bulib-feedback');
   import ('./card/bulib-card');
