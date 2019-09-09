@@ -6,11 +6,8 @@
     div#slogan, #s-la-bc /* slogan and breadcrumbs */
     { display: none; }
 
-  #s-la-public-footer {
-    width: 100vw !important;
-    left: 0px !important;
-    position: absolute;
-  }
+  /* hide the 'Powered by Springshare' banner with 'My Admin'/'Login to LibApps' */
+  #s-la-public-footer { display: none; }
 
   /* set header font */
   h2 { font-size: x-large; }
