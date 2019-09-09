@@ -35,8 +35,6 @@ h2.s-lib-box-title {
 }
 
 /* 'Get Help' box styling (contact-us) */
-.get-help h4 { font-weight: bold; }
-.get-help { font-size: medium; }
 .get-help i { font-size: x-large; padding-right: 8px; }
 .get-help a { font-weight: 600; padding-right: 12px;  }
 .get-help li span { vertical-align: top;  }
