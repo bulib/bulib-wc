@@ -1,5 +1,7 @@
 /* -- common -- */
 
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 /* - pagewidth - */
 .header-wrapper, .footer-wrapper, .banner-wrapper {
   font-family: 'Benton', sans-serif;
