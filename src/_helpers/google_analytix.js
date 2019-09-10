@@ -27,7 +27,6 @@ export function sendGAEvent(eventName, action, label, value){
     logGoogleAnalyticsMessage("ERROR! - unable to sendGAEvent with gtag, ga, or nothing."); 
     if(DEBUG_ANALYTICS){ console.log(err); }
   }
-  if(DEBUG_ANALYTICS){ debugger; }
 }
 
 export function sendGAEventFromClickEvent(clickEvent, eventName){
