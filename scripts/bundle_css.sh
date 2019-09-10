@@ -16,6 +16,8 @@ cat assets/css/benton-font.css >> $CSS_BUNDLE_FILEPATH;
 
 # copy site-specific css into dist/
 cp ./sites/libanswers/libanswers.css ./dist/libanswers.css
+cp ./sites/libguides/libguides.css ./dist/libguides.css 
+cp ./sites/libguides/restyle.css ./dist/libguides_restyle.css 
 
 # copy browser_compatibility.js into ./dist
 cp ./src/_helpers/browser_compatibility.js ./dist/
