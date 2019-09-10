@@ -269,6 +269,21 @@
       <ul class="list-unstyled">{{{media}}}</ul>
     </div>
   {{/media}}
+
+  <script id="faq-feedback" type="text/javascript">
+    let path = window.location.pathname;
+    if(path.includes("/faq/")){
+      // get the FAQ code from the pathname
+      let index_start = path.indexOf("/faq/")+1;
+      let faq_id = path.substring(index_start, index_start+"/faq/87444".length).replace("/","-");
+      
+      // create and append a 'bulib-feedback' element for that faq
+      let faq_box = document.querySelector(".s-la-box-content");
+      let new_feedback_faq = document.createElement("bulib-feedback");
+      new_feedback_faq.setAttribute("code", faq_id);
+      faq_box.appendChild(new_feedback_faq)
+    }
+  </script>
 </section>
 
 <section id="view-all-faqs">
@@ -276,27 +291,6 @@
     <span class="labeled-icon"><a href="/search">VIEW ALL FAQs</a></span>
     <i class="material-icons"> chevron_right</i>
   </div>
-</section>
-
-<section id="faq-feedback">
-  <script type="text/javascript">
-    var addFAQFeedback = function(){
-      let path = window.location.pathname;
-      if(path.includes("/faq/")){
-        // get the FAQ code from the pathname
-        let index_start = path.indexOf("/faq/")+1;
-        let faq_id = path.substring(index_start, index_start+"/faq/87444".length).replace("/","-");
-        console.log(faq_id);
-        
-        // create and append a 'bulib-feedback' element for that faq
-        let faq_box = document.querySelector(".s-la-box-content");
-        let new_feedback_faq = document.createElement("bulib-feedback");
-        new_feedback_faq.setAttribute("code", faq_id);
-        faq_box.appendChild(new_feedback_faq)
-      }
-    }
-    window.onload(addFAQFeedback());
-  </script>
 </section>
 
 <section id="footer">

@@ -28,8 +28,10 @@ export default class BULibFeedback extends LitElement {
     return html`
       <div style="display: ruby;">
         <strong class="prm">Was this helpful?</strong>
-        <button @click="${(e) => this._submitFeedback(HELPFUL)}">Yes</button>
-        <button @click="${(e) => this._submitFeedback(NOT_HELPFUL)}">No</button>
+        <div id="form" class="inline">
+          <button @click="${(e) => this._submitFeedback(HELPFUL)}">Yes</button>
+          <button @click="${(e) => this._submitFeedback(NOT_HELPFUL)}">No</button>
+        </div>
       </div>
     `;
   }
@@ -38,6 +40,7 @@ export default class BULibFeedback extends LitElement {
     let action = this.code;
     let label = !!value? "helpful":"not-helpful";
     sendGAEvent("bulib-feedback", action, label, value);
+    this.querySelector("#form").innerHTML = '<em>thanks for your feedback!</em>';
   }
 
   _logToConsole(message){
