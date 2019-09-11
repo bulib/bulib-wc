@@ -26,12 +26,20 @@ export default class BULibFeedback extends LitElement {
 
   render(){
     return html`
-      <div style="display: ruby;">
-        <strong class="prm">Was this helpful?</strong>
-        <div id="form" class="inline">
-          <button @click="${(e) => this._submitFeedback(HELPFUL)}">Yes</button>
-          <button @click="${(e) => this._submitFeedback(NOT_HELPFUL)}">No</button>
-        </div>
+      <style type="text/css">
+        bulib-feedback button { 
+          border-radius: 5px; 
+          margin-right: 5px; 
+        }
+        bulib-feedback button:hover { 
+          background-color: rgba(0, 0, 0, 0.05); 
+          cursor: pointer;
+        }
+      </style>
+      <strong class="prm">Was this helpful?</strong>
+      <div id="form" class="inline">
+        <button @click="${(e) => this._submitFeedback(HELPFUL)}">Yes</button>
+        <button @click="${(e) => this._submitFeedback(NOT_HELPFUL)}">No</button>
       </div>
     `;
   }
