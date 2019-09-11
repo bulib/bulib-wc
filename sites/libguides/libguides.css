@@ -8,6 +8,12 @@
 .s-lib-footer a:hover { text-decoration: underline; color: #B4BCC1 !important; }
 
 /* 'Get Help' box styling (contact-us) */
-.get-help i { font-size: x-large; padding-right: 8px; }
+.get-help i { font-size: xx-large; padding-right: 8px; }
 .get-help a { font-weight: 600; padding-right: 3px;  }
-.get-help li span { vertical-align: top;  }
+.get-help li span { vertical-align: top; font-size: medium; }
+
+@media only screen and (max-width: 450px){ 
+  .get-help i { font-size: large !important; padding-right: 4px; } 
+  .get-help span { font-size: small !important; padding-right: 0px; } 
+  .get-help li { padding-bottom: 5px; }
+}
