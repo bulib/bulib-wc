@@ -11,7 +11,7 @@ export function sendGAEvent(eventName, action, label){
     if(window.gtag){ 
       window.gtag('event', action, {
         'event_category': eventName,
-        'event_label': label 
+        'event_label': label
       });
       logGoogleAnalyticsMessage("window.gtag() found and called");
     }else if(window.ga){ 
