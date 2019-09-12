@@ -29,6 +29,7 @@
     margin-left: 15px; 
     margin-right: 15px;
   }
+  .s-la-box-container hr { border-color: lightgrey; }
 
   /* FAQ - question and answer box */ 
   .s-la-faq-answer { font-size: large; } /* increase font size of answer */
