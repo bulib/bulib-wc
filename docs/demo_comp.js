@@ -58,7 +58,7 @@ export const header_demo = `
               <li>
                 <div class="dropdown">
                   <a class="menu-item inline" href="https://www.bu.edu/library/about">
-                    <span class="labeled-icon">Library Locations</span><i class="material-icons inline">arrow_drop_down</i>
+                    <span class="labeled-icon prs">Library Locations</span><i class="material-icons inline">arrow_drop_down</i>
                   </a>
                   <div class="dropdown-content">
                     <ul class="library-list no-bullet">
@@ -80,7 +80,7 @@ export const header_demo = `
               </li>
               <li>
                 <a class="menu-item inline" href="https://askalibrarian.bu.edu/">
-                  <span class="labeled-icon">Ask a Librarian</span><i class="material-icons inline">question_answer</i>
+                  <span class="labeled-icon prm">Ask a Librarian</span><i class="material-icons inline">question_answer</i>
                 </a>
               </li>
             </ul>
