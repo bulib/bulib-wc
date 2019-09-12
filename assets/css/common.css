@@ -1,6 +1,6 @@
 /* -- common -- */
 
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
 
 /* - pagewidth - */
 .header-wrapper, .footer-wrapper, .banner-wrapper {
@@ -27,7 +27,11 @@
 .pam { padding: 10px; }
 .pvm { padding: 10px 0px; }
 .phm { padding: 0px 10px; }
-.prm { padding-right: 15px; }
+.plm { padding-left: 10px; }
+.pll { padding-left: 15px; }
+.prs { padding-right: 5px; }
+.prm { padding-right: 10px; }
+.prl { padding-right: 15px; }
 .ptl { padding-top: 15px; }
 .phxl { padding: 0px 30px; }
 .mvs { margin: 5px 0px; }
@@ -63,3 +67,6 @@ a.white-link:hover {
   text-decoration: underline;
   font-weight: normal;
 }
+
+/* align labels when material-icons are nearby */
+i.material-icons, i.material-icons-outlined { vertical-align: middle; }

@@ -36,7 +36,8 @@ export default class BULibFeedback extends LitElement {
           cursor: pointer;
         }
       </style>
-      <strong class="prm">Was this helpful?</strong>
+      <i class="material-icons-outlined prm">feedback</i>
+      <strong class="prl">Was this helpful?</strong>
       <div id="form" class="inline">
         <button @click="${(e) => this._submitFeedback(HELPFUL)}">Yes</button>
         <button @click="${(e) => this._submitFeedback(NOT_HELPFUL)}">No</button>

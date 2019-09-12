@@ -71,10 +71,6 @@ div.dropdown.menu-item {
     padding-top: 5px; }
   .library-list li:nth-child(odd) {
     background-color: #3a3a3a; }
-
-.labeled-icon {
-  vertical-align: super;
-  padding-right: 10px; }
 /* --- from mobile-nav.scss --- */
 @media only screen and (max-width: 850px) {
   .menu-items > li, .menu-item {
