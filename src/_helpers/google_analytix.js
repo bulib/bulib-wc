@@ -14,7 +14,7 @@ export function sendGAEvent(eventName, action, label, value){
       window.gtag('event', action, {
         'event_category': eventName,
         'event_label': label,
-        'value': value || -1
+        'value': value
       });
       logGoogleAnalyticsMessage("window.gtag() found and called");
     }else if(window.ga && !PREVENT_GA_CALL){ 
