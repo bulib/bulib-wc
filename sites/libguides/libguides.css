@@ -10,7 +10,7 @@
 /* 'Get Help' box styling (contact-us) */
 .get-help i { font-size: xx-large; padding-right: 8px; }
 .get-help a { font-weight: 600; padding-right: 3px;  }
-.get-help li span { vertical-align: medium; font-size: medium; }
+.get-help li span { vertical-align: middle; font-size: medium; }
 
 .get-help.small i { font-size: large !important; padding-right: 4px; } 
 .get-help.small span { font-size: small !important; padding-right: 0px; } 
