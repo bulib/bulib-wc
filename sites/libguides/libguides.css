@@ -12,6 +12,10 @@
 .get-help a { font-weight: 600; padding-right: 3px;  }
 .get-help li span { vertical-align: top; font-size: medium; }
 
+.get-help.small i { font-size: large !important; padding-right: 4px; } 
+.get-help.small span { font-size: small !important; padding-right: 0px; } 
+.get-help.small li { padding-bottom: 5px; }
+
 @media only screen and (max-width: 450px){ 
   .get-help i { font-size: large !important; padding-right: 4px; } 
   .get-help span { font-size: small !important; padding-right: 0px; } 
