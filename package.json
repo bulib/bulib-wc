@@ -1,6 +1,6 @@
 {
   "name": "bulib-wc",
-  "version": "0.0.77",
+  "version": "0.0.86",
   "description": "collection of web components and styles used at Boston University Libraries",
   "type": "module",
   "main": "src/index.js",
@@ -15,7 +15,7 @@
     "cy:verify": "cypress verify",
     "css": "./scripts/bundle_css.sh",
     "prestart": "npm run css",
-    "start": "start-storybook -p 9001",
+    "start": "npm install && start-storybook -p 9001",
     "build:all": "./scripts/rebuild.sh",
     "build:rollup": "rollup -c rollup.config.js",
     "build:owc": "rollup -c rollup.config.owc.js",

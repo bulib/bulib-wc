@@ -87,6 +87,7 @@ export default class BULibSearch extends LitElement {
         .search-options > label {
           margin-right: 0.5rem;
           padding-left: 0.5rem;
+          font-size: medium;
           cursor: pointer;
         }
         input[type=radio] {
@@ -111,7 +112,7 @@ export default class BULibSearch extends LitElement {
         @media only screen and (min-width: 300px){
           #bulib-search { padding: 10px; }
           .search-box > input, input[type=radio], .search-options > label { 
-            font-size: large; 
+            font-size: large !important; 
           }
         }
       `
