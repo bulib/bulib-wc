@@ -11,7 +11,7 @@
 .deck {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .deck .card { max-width: 325px; }
 .deck .card.small { max-width: 250px; }
