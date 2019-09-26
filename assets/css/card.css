@@ -1,33 +1,43 @@
 /* -- cards -- */
 
+/* universal 'card' styling (regardless of '.deck') */
+.card { 
+  display: table;
+  font-family: 'Source Sans Pro', sans-serif; 
+}
+.card > div { margin-left: 20px; }
+
+/* arrange groups of cards, and moderate their width */
 .deck {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
-.card {
-  font-family: 'Source Sans Pro', sans-serif;
-  flex-shrink: inherit;
-  flex-basis: 100%;
-  display: flex;
-  max-width: 325px;
-}
+.deck .card { max-width: 325px; }
+.deck .card.small { max-width: 250px; }
+
+/* card icon */
 .card i { 
+  display: table-cell;
   color: #0B4473;
   font-size: 4em;
-  margin: 0.2em;
   text-align: center;
-  flex: 1;
 }
+.card.small i { font-size: 2.5em; }
 .card i:hover { cursor: pointer; }
+
+/* card link/header styling */
 .card a { 
   font-size: x-large;
   color: #0B4473;
   text-decoration: underline solid #0B4473;
   font-weight: 500;
 }
-.card p {
-  font-size: medium;
+.card.small a { 
+  font-size: large !important;
+  font-weight: 700;
 }
+.card.small h3 { margin-bottom: 5px; }
 
-.card > div { flex: 2; }
+.card p { font-size: medium; }
+.card.small p { margin-top: 0px; }

@@ -27,6 +27,6 @@ storiesOf('components', module)
 ;
 
 storiesOf('nojs', module)
-  .add('card', () => card_demo)
+  .add('card', () => card_demo(false)+card_demo(true))
   .add('call-to-action', () => cta_demo)
 ;
