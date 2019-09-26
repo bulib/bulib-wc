@@ -66,12 +66,15 @@ export const footer_demo = `
   ></bulib-select>
 `;
 
-export const wc_card_demo = `
+export const wc_card_demo = (small) => `
+  <h2><code>bulib-card${small? " .small" : ""}</code></h2>
   <div class="deck">
-    <bulib-card title="Email" icon="email" link="https://askalibrarian.bu.edu/form.php?quid=511" debug
+    <bulib-card ${small? "small " : ""}title="Email" icon="email" link="https://askalibrarian.bu.edu/form.php?quid=511" debug
       description="Email us your research questions and we’ll respond within 24 hours."></bulib-card>
-    <bulib-card title="Chat" icon="question_answer" action="console.log('chat says hi')" debug
+    <bulib-card ${small? "small " : ""}title="Chat" icon="question_answer" action="console.log('chat says hi')" debug
       description="Talk online to a research librarian on weekdays and Sundays"></bulib-card>
+    <bulib-card ${small? "small " : ""}title="Call" icon="phone" link="tel:6173532700" debug
+      description="Call us at 617-353-2700 during our open hours"></bulib-card>
   </div>
 `;
 
