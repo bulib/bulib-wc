@@ -1,6 +1,7 @@
-export const card_demo = `
+export const card_demo = (small) => `
+  <h2>${small? 'small card (<code>.card.small</code>)': 'normal card (<code>.card</code>)'}</h2>
   <div class="deck">
-    <div class="card">
+    ${small? '<div class="card small">' : '<div class="card">'}
       <i class="material-icons" onclick="window.open('/form.php?quid=511','_self')">email</i>
       <div class="inline">
         <h3><a href="/form.php?quid=511">Email</a></h3>
@@ -8,7 +9,7 @@ export const card_demo = `
       </div>
     </div>
 
-    <div class="card">
+    ${small? '<div class="card small">' : '<div class="card">'}
       <i class="material-icons" onclick="document.querySelector('button.s-lch-widget-float-btn').click();">question_answer</i>  
       <div class="inline">
         <h3><a onclick="document.querySelector('button.s-lch-widget-float-btn').click();" href="javascript:void(0)">Chat</a></h3>
@@ -16,7 +17,7 @@ export const card_demo = `
       </div>
     </div>
 
-    <div class="card">
+    ${small? '<div class="card small">' : '<div class="card">'}
       <i class="material-icons" onclick="window.open('tel:6173532700','_self')">phone</i>
       <div class="inline">
         <h3><a href="tel:6173532700">Call</a></h3>
@@ -24,14 +25,15 @@ export const card_demo = `
       </div>
     </div>
 
-    <div class="card"><i class="material-icons">smartphone</i> 
+    ${small? '<div class="card small">' : '<div class="card">'}
+      <i class="material-icons">smartphone</i> 
       <div class="inline">
         <h3><a href="sms:6174312427">Text</a></h3>
         <p>Send us your questions at 617-431-2427.</p>
       </div>
     </div>
 
-    <div class="card">
+    ${small? '<div class="card small">' : '<div class="card">'}
       <i class="material-icons">people</i>
       <div class="inline">
         <h3><a href="https://www.bu.edu/library/services/reference/appointments/">Meet</a></h3>
@@ -39,7 +41,7 @@ export const card_demo = `
       </div>
     </div>
 
-    <div class="card">
+    ${small? '<div class="card small">' : '<div class="card">'}
       <i class="material-icons">local_library</i>
       <div class="inline">
         <h3><a href="https://www.bu.edu/library/about/">Visit</a></h3>

@@ -21,6 +21,8 @@ export default class BULCard extends LitElement {
       link: {type: String},
       /** custom javascript */
       action: {type: String},
+      /** add 'small' class to card */
+      small: {type: Boolean},
       
       debug: {type: Boolean}
     };
@@ -29,7 +31,7 @@ export default class BULCard extends LitElement {
   render() {
     let href = (!!this.action || !this.link)? "javascript:void(0);" : this.link;
     return html`
-      <div class="card">
+      <div class="card${this.small === true? ' small' : ''}">
         <i class="material-icons" @click="${(ev) => this._logGAEvent()}">${this.icon}</i>
         <div class="inline">
           <h3><a @click="${(ev) => this._logGAEvent()}" href="${href}">${this.title}</a></h3>
