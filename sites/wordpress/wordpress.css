@@ -1,4 +1,5 @@
   /* prevent overflow of footer width to 900px at small widths */
+  #footer { background-color: var(--color-primary-background, black) !important; }
   #footer > div.container { 
     width: auto; 
     background-color: var(--color-primary-background, black);
