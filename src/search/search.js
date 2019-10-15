@@ -81,7 +81,7 @@ export default class BULibSearch extends LitElement {
         }
         .search-options {
           padding-top: 10px;
-          color: var(--color-button-text, white);
+          color: var(--color-primary-text, white);
           flex: auto;
         }
         .search-options > label {

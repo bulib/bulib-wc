@@ -19,13 +19,13 @@ body {
 
   /* button/call to action (blue) */
   --color-button-background: #257abe;
+  --color-button-background-accent: #06605A;
   --color-button-background-dark: #1B598C;
   --color-button-text: whitesmoke;
 
   /* secondary background color (very light grey) */
   --color-secondary-background: #eeeeee /*rgba(200,200,200,0.3)*/;
   --color-secondary-background-dark: #C8C8C8;
-  --color-button-background-accent: #06605A;
   --color-secondary-text: #333333;
   --color-secondary-text-link: black;
 }
@@ -39,7 +39,7 @@ body {
 
 .header-wrapper, .footer-wrapper {
   background-color: var(--color-primary-background, black);
-  color: var(--color-text-primary, whitesmoke);
+  color: var(--color-primary-text, whitesmoke);
 }
 
 .full-width { width: 100%; }
