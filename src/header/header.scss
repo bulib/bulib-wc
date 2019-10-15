@@ -12,7 +12,7 @@
   width: 100%;
 
   a, span, i {
-    color: white;
+    color: var(--color-primary-text-light, whitesmoke);
     text-decoration: none;
     font-weight: 700;
   }
@@ -50,7 +50,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: black;
+  background-color: var(--color-primary-background, black);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;
@@ -81,5 +81,5 @@ div.dropdown.menu-item { padding-top: 5px; }
     padding-bottom: 5px; 
     padding-top:5px; 
   }
-  li:nth-child(odd){ background-color: rgb(58, 58, 58); }
+  li:nth-child(odd){ background-color: var(--color-primary-background-light); }
 }

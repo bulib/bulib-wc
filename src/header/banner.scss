@@ -1,8 +1,8 @@
 .banner-wrapper {
-  background: rgba(200,200,200,0.3);
-  border-bottom: 1px solid #C8C8C8;
   font-family: 'Benton', sans-serif;
-  box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.1)
+  background: var(--color-secondary-background, rgba(200,200,200,0.3));
+  border-bottom: 1px solid var(--color-secondary-background-dark, #C8C8C8);
+  box-shadow: 0px 0px 0px 1px var(--color-secondary-background-dark);
 }
 
 .banner {
@@ -13,14 +13,14 @@
   h1, span {
     font-family: 'Benton', sans-serif;
     font-weight: 400 !important;
-    color: #333333;
+    color: var(--color-secondary-text, black);
     font-size: x-large;
     margin-top: 20px;
     margin-bottom: 20px;
     padding-right: 10px;
 
     a { 
-      color: black; 
+      color: var(--color-secondary-text-link, black); 
       text-decoration: none;
       cursor: pointer;
     }
