@@ -119,7 +119,8 @@ export default class BULibFooter extends LitElement {
         /*.ftr-left > div, .ftr-middle > div, .ftr-right > div { margin: 6%; }*/
 
         /* etc */
-        .bu-logo { padding-right: 25px; }
+        
+        .bu-logo a { text-decoration: none !important; font-size: large; }
 
         /* firefox fix to stop the 'Follow Us' from becoming centered */
         ::slotted(h3) { text-align: left; }
@@ -191,35 +192,39 @@ export default class BULibFooter extends LitElement {
       <div class="footer-wrapper">
         <footer>
           <div class="ftr-left">
-            <div id="bu-content">
-              <div class="left txtc bu-logo">
-                <br />
-                <a title="Boston University Home" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" href="https://www.bu.edu/">
-                  <img alt="boston university logo" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/bu-logo.gif">
-                </a>
-                <br /><br />
+            <div class="txtc">
+              <div class="bu-logo">
+                <h3>
+                  <a title="Boston University Home" class="white-link" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" href="https://www.bu.edu/library">
+                    <strong>Boston University</strong><span class="plm">Libraries</span>
+                  </a>
+                </h3>
+              </div>
+            
+              <div style="font-size: small;">
                 <small>
                   <a title="Copyright" class="white-link" href="https://www.bu.edu/copyright" target="_blank"
-                     @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">&copy; Copyright ${new Date().getFullYear()}</a>
+                    @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">&copy; Copyright ${new Date().getFullYear()}</a>
                 </small>
-                <br />
                 <small>
                   <a title="Privacy Statement" class="white-link" target="_blank" 
-                     href="https://www.bu.edu/policies/information-security-home/digital-privacy-statement/"
-                     @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Privacy Statement</a>
+                    href="https://www.bu.edu/policies/information-security-home/digital-privacy-statement/"
+                    @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Privacy Statement</a>
                 </small>
-                <br /><br />
               </div>
-              <ul class="no-bullet ptl">
-                <li><a title="Libraries Home" class="white-link" href="https://www.bu.edu/library/"
-                        @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Libraries Home</a></li>
-                <li><a title="Search available/licensed content" class="white-link" href="https://www.bu.edu/library/search"
-                        @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Libraries Search</a></li>
-                <li><a title="Information regarding various BU Libraries" class="white-link" href="https://www.bu.edu/library/about"
-                        @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Library Locations</a></li>
-                <li><a title="Help" class="white-link" href="https://askalibrarian.bu.edu/"
-                        @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Help</a></li>
-              </ul>
+              <div>
+                <ul class="no-bullet inline-list ptl">
+                  <li><a title="Libraries Home" class="white-link" href="https://www.bu.edu/library/"
+                          @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Home</a></li>
+                  <li><a title="Search available/licensed content" class="white-link" href="https://www.bu.edu/library/search"
+                          @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Search</a></li>
+                  <li><a title="Information regarding various BU Libraries" class="white-link" href="https://www.bu.edu/library/about"
+                          @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Locations</a></li>
+                  <li><a title="Help" class="white-link" href="https://askalibrarian.bu.edu/"
+                          @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Help</a></li>
+                </ul>
+              </div>
+
             </div>
           </div>
           <div class="ftr-middle txtc">
