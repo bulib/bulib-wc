@@ -25,6 +25,7 @@ body {
   /* secondary background color (very light grey) */
   --color-secondary-background: #eeeeee /*rgba(200,200,200,0.3)*/;
   --color-secondary-background-dark: #C8C8C8;
+  --color-button-background-accent: #06605A;
   --color-secondary-text: #333333;
   --color-secondary-text-link: black;
 }

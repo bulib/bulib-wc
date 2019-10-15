@@ -1,11 +1,15 @@
 /* styling for the tags, staff login url, 'Powered by SpringShare' */
 #s-lib-footer-public {
-  font-size: small;
-  background-color: white !important;
+  font-size: small;  
+  background-color: var(--color-secondary-background, white) !important;
   color: black !important;
   border-top: none;
 }
-.s-lib-footer a:hover { text-decoration: underline; color: #B4BCC1 !important; }
+.s-lib-footer a { font-weight: 700; }
+.s-lib-footer a:hover { 
+  text-decoration: underline;
+  color: var(--color-secondary-text-link, #B4BCC1) !important; 
+}
 
 /* 'Get Help' box styling (contact-us) */
 .get-help i { font-size: xx-large; padding-right: 8px; }
