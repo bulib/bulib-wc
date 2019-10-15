@@ -1,0 +1,17 @@
+  /* prevent overflow of footer width to 900px at small widths */
+  #footer > div.container { 
+    width: auto; 
+    background-color: var(--color-primary-background, black);
+  }
+  #footer-content { float: inherit; }
+
+  /* firefox */
+  h3.style-scope.bulib-footer { color: var(--color-primary-text, white); }
+  li.style-scope.bulib-footer { 
+    background-image: none; 
+    color: var(--color-primary-text, white);
+    margin: unset;
+  }
+
+  /* hours */ 
+  #hours-display { font-size: 100% !important; }
