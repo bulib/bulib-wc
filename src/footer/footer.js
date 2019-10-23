@@ -6,7 +6,7 @@ import {sendGAEventFromClickEvent} from '../_helpers/google_analytix';
 /** stored values for the sitemap */
 const sitemap_values = {
     "wordpress":{
-    "header":"Boston University Libraries",
+    "header":"About the Libraries",
     "links":[
       {"title":"InterLibrary Borrowing","href":"/library/services/ill/"},
       {"title":"Course Reserves",       "href":"/library/services/reserves/"},
@@ -119,7 +119,6 @@ export default class BULibFooter extends LitElement {
         /*.ftr-left > div, .ftr-middle > div, .ftr-right > div { margin: 6%; }*/
 
         /* etc */
-        
         .bu-logo a { text-decoration: none !important; font-size: large; }
 
         /* firefox fix to stop the 'Follow Us' from becoming centered */
@@ -196,7 +195,8 @@ export default class BULibFooter extends LitElement {
               <div class="bu-logo">
                 <h3>
                   <a title="Boston University Home" class="white-link" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" href="https://www.bu.edu/library">
-                    <strong>Boston University</strong><span class="plm">Libraries</span>
+                    <span><strong>Boston University</strong></span>
+                    <span class="plm">Libraries</span>
                   </a>
                 </h3>
               </div>
