@@ -8,7 +8,7 @@
 .s-lib-footer a { font-weight: 700; }
 .s-lib-footer a:hover { 
   text-decoration: underline;
-  color: var(--color-secondary-text-link, #B4BCC1) !important; 
+  color: var(--color-secondary-text-dark, #B4BCC1) !important; 
 }
 
 /* 'Get Help' box styling (contact-us) */

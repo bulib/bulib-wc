@@ -81,7 +81,7 @@ export default class BULibSearch extends LitElement {
         }
         .search-options {
           padding-top: 10px;
-          color: var(--color-primary-text, white);
+          color: var(--color-primary-text-light, white);
           flex: auto;
         }
         .search-options > label {
@@ -104,7 +104,7 @@ export default class BULibSearch extends LitElement {
           font-family: 'Source Sans Pro';
         }
         button:hover, button:focus, button:active { 
-          background-color: var(--color-button-background-hover, #1B598C);
+          background-color: var(--color-button-background-dark, #1B598C);
          }
         .hidden { display: none; }
 
