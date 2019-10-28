@@ -71,7 +71,7 @@ export default class BULibFooter extends LitElement {
         .ftr-right { padding-bottom: 0px; }
 
         /* medium-sized screen */
-        @media only screen and (min-width: 850px) and (max-width: 1100px){
+        @media only screen and (min-width: 850px) and (max-width: 1200px){
           footer {
             grid-template-areas:
               "ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md ftr-md"
@@ -118,8 +118,9 @@ export default class BULibFooter extends LitElement {
         .ftr-right  { grid-area: ftr-rt; border-bottom: solid lightgrey 1px; }
         /*.ftr-left > div, .ftr-middle > div, .ftr-right > div { margin: 6%; }*/
 
-        /* etc */
-        .bu-logo a { text-decoration: none !important; font-size: large; }
+        /* '*Boston University* Libraries' styling */
+        .bulib-typeface a { text-decoration: none !important; font-size: large; }
+        .bulib-typeface a strong { padding-right: 5px; }
 
         /* firefox fix to stop the 'Follow Us' from becoming centered */
         ::slotted(h3) { text-align: left; }
@@ -192,11 +193,10 @@ export default class BULibFooter extends LitElement {
         <footer>
           <div class="ftr-left">
             <div class="txtc">
-              <div class="bu-logo">
+              <div class="bulib-typeface">
                 <h3>
-                  <a title="Boston University Home" class="white-link" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" href="https://www.bu.edu/library">
-                    <span><strong>Boston University</strong></span>
-                    <span class="plm">Libraries</span>
+                  <a class="white-link" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" href="https://www.bu.edu/library">
+                    <strong>Boston University</strong>&nbsp;<span>Libraries</span>
                   </a>
                 </h3>
               </div>
