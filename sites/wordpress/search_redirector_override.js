@@ -8,16 +8,16 @@
  */
 
 let doBULSCatalogSearch = function(query){
-  let base_url = "https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?tab=default_tab&search_scope=default_scope&vid=BU&lang=en_US&query=";
+  let base_url = "https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?tab=default_tab&search_scope=default_scope&vid=BU&lang=en_US&query=any,contains,";
   window.location = base_url+encodeURIComponent(query);
 }
 
 if(window.location.pathname === "/library/"){ 
-  var bulibHomeSearchForm = document.querySelector("div#search > form");
-  var searchQueryInputElem = document.querySelector("div#search > form input#q");
-  var bulsOptionInputElem = document.querySelector("div#search > form input#search-catalog");
+  let bulibHomeSearchForm = document.querySelector("div#search > form");
+  let searchQueryInputElem = document.querySelector("div#search > form input#q");
+  let bulsOptionInputElem = document.querySelector("div#search > form input#search-catalog");
 
-  form.addEventListener('submit', (ev) => {
+  bulibHomeSearchForm.addEventListener('submit', (ev) => {
     let qValue = searchQueryInputElem.value;
     if(bulsOptionInputElem.hasAttribute("checked")){
       doBULSCatalogSearch(qValue);
