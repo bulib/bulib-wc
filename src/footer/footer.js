@@ -119,8 +119,11 @@ export default class BULibFooter extends LitElement {
         /*.ftr-left > div, .ftr-middle > div, .ftr-right > div { margin: 6%; }*/
 
         /* '*Boston University* Libraries' styling */
-        .bulib-typeface a { text-decoration: none !important; font-size: large; }
-        .bulib-typeface a strong { padding-right: 5px; }
+        .bulib-typeface a { 
+          text-decoration: none !important; 
+          font-size: large; 
+          color: var(--color-primary-text-light, white);
+        }
 
         /* firefox fix to stop the 'Follow Us' from becoming centered */
         ::slotted(h3) { text-align: left; }
@@ -196,7 +199,7 @@ export default class BULibFooter extends LitElement {
               <div class="bulib-typeface">
                 <h3>
                   <a class="white-link" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" href="https://www.bu.edu/library">
-                    <strong>Boston University</strong>&nbsp;<span>Libraries</span>
+                    <strong>Boston University</strong>&nbsp; <span>Libraries</span>
                   </a>
                 </h3>
               </div>
