@@ -53,19 +53,6 @@ export const locoso_demo = `
   </bulib-select>
 `;
 
-export const header_demo = `<bulib-header></bulib-header>`;
-
-export const footer_demo = `
-  <bulib-footer debug></bulib-footer>
-      
-  <br /><hr /><br />
-
-  <bulib-select 
-    sel_title="Select Simulated URL" opt_code="sample_urls" 
-    tag_name="bulib-footer" attr_name="curr_url"
-  ></bulib-select>
-`;
-
 export const wc_card_demo = (small) => `
   <h2><code>bulib-card${small? " .small" : ""}</code></h2>
   <div class="deck">

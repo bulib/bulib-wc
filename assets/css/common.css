@@ -71,6 +71,16 @@ body {
 
 /* - general styling - */
 
+/* make divs display in a series of tiles */
+div.tiles {
+  display:flex;
+  grid-gap: 10px;
+  flex-wrap: wrap;
+}
+div.tiles > * {
+  margin: 5px;
+}
+
 /* text */
 .txtl { text-align: left; }
 .txtc { text-align: center; }
