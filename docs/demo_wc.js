@@ -70,14 +70,14 @@ export const feedback_demo = `
 `;
 
 export const color_demo = `
-  <h2><code>bulib-card</code></h2>
+  <h2><code>bulib-color</code></h2>
 
-  <h3><code>&lt;bulib-hours var="--color-primary-background"&gt;</code></h3>
+  <h3><code>&lt;bulib-color var="--color-primary-background"&gt;</code></h3>
   <bulib-color var="--color-secondary-background-dark"></bulib-color>
 
   <br /><hr />
 
-  <h3><code>&lt;bulib-hours val="red"&gt;</code></h3>
+  <h3><code>&lt;bulib-color val="red"&gt;</code></h3>
   <bulib-color val="red" white></bulib-color>
 
   <br /><hr />
