@@ -37,11 +37,11 @@
   transition: opacity 0.55s;
   -webkit-transition: opacity 0.55s; // Safari
   
-  background: #222222;
+  background: var(--color-primary-background, #222222);
   list-style-type: none;
   -webkit-font-smoothing: antialiased; // stop flickering of text in safari
   
-  a { color: #eeeeee; }
+  a { color: var(--color-primary-text, #eeeeee); }
   li { padding: 10px 0; }
 }
 
@@ -77,7 +77,7 @@
     margin-bottom: 5px;
     position: relative;
 
-    background: white;
+    background: var(--color-primary-text, white);
     border-radius: 3px;
 
     z-index: 1;
@@ -98,7 +98,7 @@
 #menuToggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: whitesmoke;
+  background: var(--color-primary-text, whitesmoke);
 }
 #menuToggle input:checked ~ span:nth-last-child(2){
   transform: rotate(-45deg) translate(0, -1px);
