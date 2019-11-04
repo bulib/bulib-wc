@@ -3,8 +3,8 @@
 # exit when any command fails
 set -e
 
-# update the NPM package
-npm run build:all 
+# rebuild, update, and publish as package
+npm run build:all
 npm version patch
 npm publish
 
