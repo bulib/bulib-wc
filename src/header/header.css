@@ -195,7 +195,7 @@ div.dropdown.menu-item {
     margin-bottom: 20px;
     padding-right: 10px; }
     .banner h1 a, .banner span a {
-      color: var(--color-secondary-text-link, black);
+      color: var(--color-secondary-text-dark, black);
       text-decoration: none;
       cursor: pointer; }
     .banner h1 a:last-child, .banner span a:last-child {

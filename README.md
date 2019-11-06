@@ -4,7 +4,7 @@ collection of web components and customizations used at Boston University Librar
 
 ### Description
 
-This repository contains web assets of Boston University Libraries that are used across a variety of our sites and 
+This repository contains web assets of Boston University Libraries that are used across a variety of our sites and
   demonstrated in isolation via [storybook](https://bulib.github.io/bulib-wc/).
 
 These take a number of forms...
