@@ -87,7 +87,7 @@ export default class BULibFooter extends LitElement {
         }
       
         /* large-sized screen */ 
-        @media only screen and (min-width: 1100px) and (max-width: 1400px ){
+        @media only screen and (min-width: 1100px) and (max-width: 1400px){
           footer {
             grid-template-areas: "ftr-lt ftr-lt ftr-md ftr-md ftr-md ftr-rt ftr-rt ftr-rt";
           }
@@ -100,7 +100,7 @@ export default class BULibFooter extends LitElement {
         }
 
         /* x-large-sized screen */
-        @media only screen and (min-width: 1400px ){
+        @media only screen and (min-width: 1400px){
           footer {
             grid-template-areas: "ftr-lt ftr-lt ftr-md ftr-md ftr-md ftr-rt ftr-rt ftr-rt";
           }
@@ -116,7 +116,6 @@ export default class BULibFooter extends LitElement {
         .ftr-left   { grid-area: ftr-lt; border-bottom: solid transparent 1px; padding-bottom: 20px; }
         .ftr-middle { grid-area: ftr-md; border-bottom: solid lightgrey 1px; }
         .ftr-right  { grid-area: ftr-rt; border-bottom: solid lightgrey 1px; }
-        /*.ftr-left > div, .ftr-middle > div, .ftr-right > div { margin: 6%; }*/
 
         /* '*Boston University* Libraries' styling */
         .bulib-typeface a { 
