@@ -19,7 +19,7 @@
 /* card icon */
 .card i { 
   display: table-cell;
-  color: #0B4473;
+  color: var(--color-button-background-dark, #0B4473);
   font-size: 4em;
   text-align: center;
 }
@@ -29,8 +29,8 @@
 /* card link/header styling */
 .card a { 
   font-size: x-large;
-  color: #0B4473;
-  text-decoration: underline solid #0B4473;
+  color: var(--color-button-background-dark, #0B4473);
+  text-decoration: underline  var(--color-button-background-dark, #0B4473);
   font-weight: 500;
 }
 .card.small a { 

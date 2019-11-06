@@ -63,10 +63,10 @@
   .s-srch-range, .pagination { font-size: large; }
 
   /* label colors */
-  .s-srch-result-title a { color: #0B4473; }
+  .s-srch-result-title a { color: var(--color-button-background, #0B4473); }
   .s-srch-result-subj > ul > li > span.label.label-default {
     color: white;
-    background-color: #06605A; 
+    background-color: var(--color-button-background-accent, #06605A); 
     font-size: 0.9em;
     font-weight: 400;
   }

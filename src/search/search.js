@@ -55,8 +55,8 @@ export default class BULibSearch extends LitElement {
       css`
         .bulib-search-wrapper {
           width: 100%;
-          background-color: #212121;
-          background: linear-gradient(#212121,#333333,#444444);
+          background-color: var(--color-primary-background, #212121);
+          background: linear-gradient(var(--color-primary-background-dark), var(--color-primary-background-light));
           border-radius: 4px;
           font-family: 'Benton', sans-serif !important;
         }
@@ -81,7 +81,7 @@ export default class BULibSearch extends LitElement {
         }
         .search-options {
           padding-top: 10px;
-          color: white;
+          color: var(--color-primary-text-light, white);
           flex: auto;
         }
         .search-options > label {
@@ -95,8 +95,8 @@ export default class BULibSearch extends LitElement {
           margin-right: 7px;
         }
         button {
-          background-color: #257abe; 
-          color: white; 
+          background-color: var(--color-button-background); 
+          color: var(--color-button-text, white); 
           cursor: pointer;
           border-top-right-radius: 4px;
           border-bottom-right-radius: 4px;
@@ -104,7 +104,7 @@ export default class BULibSearch extends LitElement {
           font-family: 'Source Sans Pro';
         }
         button:hover, button:focus, button:active { 
-          background-color: #1B598C;
+          background-color: var(--color-button-background-dark, #1B598C);
          }
         .hidden { display: none; }
 
