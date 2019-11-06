@@ -93,3 +93,28 @@ if you want to update the docs page before you're finished developing (without p
 $ npm run deploy:storybook
 ```
 
+#### Consuming
+
+We consume the published package over two main CDNs ([unkpg](https://unpkg.com), [jsdelivr](https://www.jsdelivr.com/)),
+  versioned and deployed using npm and added to each platform via a series of `<script>` and `<link>` tags stored in the `<head>`.
+
+All the **web components** are imported together from a single `index.js` file. Unpkg does some mapping here to chain together a
+  number of calls that leverage the `module` specification. This does the work that a bundler would do, but without the
+  extra build step, transpilation, etc.
+
+_note: one can import a specific version (e.g. `bulib-wc@0.0.92`) or the most recently published one (`bulib@latest`)_
+
+```html
+<!-- load web components -->
+<script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.min.js"></script>
+<script src="https://unpkg.com/bulib-wc@0.1.0/src/index.js?module" type="module"></script>
+```
+
+For the **css**, we have both a shared bundle (created via `scripts/bundle_css.sh`), and site-specific forms for each `site_name`. 
+  These are imported via `<link>` like the following:
+
+```html
+<!-- styling -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulib-wc@0.1.0/dist/bundle.min.css">
+<!--link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/{site_name}.css"-->
+```
