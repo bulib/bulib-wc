@@ -16,6 +16,7 @@
     "css": "./scripts/bundle_css.sh",
     "prestart": "npm run css",
     "start": "npm install && start-storybook -p 9001",
+    "build": "npm run build:rollup",
     "build:all": "./scripts/rebuild.sh",
     "build:rollup": "rollup -c rollup.config.js",
     "build:owc": "rollup -c rollup.config.owc.js",
