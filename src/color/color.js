@@ -36,4 +36,3 @@ export default class BULibColor extends LitElement {
     `;
   }
 }
-window.customElements.define("bulib-color", BULibColor);
