@@ -5,7 +5,7 @@ import { storiesOf, withKnobs } from '@open-wc/demoing-storybook';
 import {header_demo, ensemble_demo, css_vars_demo, footer_demo,} from './branding';
 import {color_demo, feedback_demo, hours_demo, locoso_demo, search_demo, wc_card_demo} from './components';
 import {card_demo, cta_demo} from './nojavascript';
-import {tiles_demo} from './layout';
+import {tiles_demo, main_with_sidebar} from './layout';
 
 // css
 import '../assets/css/shared.css';
@@ -21,6 +21,7 @@ storiesOf('branding', module)
 storiesOf('layouts', module)
   .addDecorator(withKnobs)
   .add('tiles', () => tiles_demo)
+  .add('floorplans', () => main_with_sidebar)
 ;
   
 storiesOf('components', module)
@@ -34,7 +35,7 @@ storiesOf('components', module)
   .add('bulib-search',  () => search_demo)
 ;
 
-storiesOf('nojs', module)
+storiesOf('no-javascript', module)
   .add('card', () => card_demo(false)+card_demo(true))
   .add('call-to-action', () => cta_demo)
 ;

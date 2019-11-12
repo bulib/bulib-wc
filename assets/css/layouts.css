@@ -6,6 +6,21 @@ div.demo {
 }
 .fill { width: 100%; height: 100%; }
 
+/* - main with sidebar - */
+div.main-with-sidebar { 
+  display: flex !important;
+  flex-wrap: wrap-reverse;
+  width: 100%;
+}
+div.main-with-sidebar > section { 
+  flex: 3;
+  justify-content: center;
+}
+div.main-with-sidebar > aside {
+  flex: 1;
+  min-width: 200px;
+}
+
 /* - make divs display in a series of tiles - */
 div.tiles {
   display: flex;
