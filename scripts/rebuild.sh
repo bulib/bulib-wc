@@ -5,7 +5,7 @@ set -e;
 
 # run each build step/version from scratch
 npm run clean;
-npm run css;
+npm run build:css;
 npm run build:rollup;
 # npm run build:owc;
 npm run build:storybook;

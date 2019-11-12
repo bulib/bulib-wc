@@ -8,11 +8,8 @@ scss ./src/header/banner.scss >> ./src/header/header.css;
 
 # bundle css into single 'shared' css file
 mkdir dist || true;
-cat assets/css/common.css > $CSS_BUNDLE_FILEPATH;
-cat assets/css/card.css >> $CSS_BUNDLE_FILEPATH;
-cat assets/css/cta.css >> $CSS_BUNDLE_FILEPATH;
+cat assets/css/*.css >> $CSS_BUNDLE_FILEPATH;
 cat src/header/header.css >>  $CSS_BUNDLE_FILEPATH;
-cat assets/css/benton-font.css >> $CSS_BUNDLE_FILEPATH;
 
 # copy site-specific css into dist/
 cp ./sites/libanswers/libanswers.css ./dist/libanswers.css

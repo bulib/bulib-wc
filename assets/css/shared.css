@@ -1,8 +1,9 @@
 @import url("./common.css");
+@import url("./variables.css");
+@import url("./layouts.css");
+@import url("./benton-font.css");
+@import url("./material-icons.css");
 @import url("./card.css");
 @import url("./cta.css");
-@import url("./benton-font.css");
-@import url("./layouts.css");
-@import url("./variables.css");
 
 @import url("../../src/header/header.css");
