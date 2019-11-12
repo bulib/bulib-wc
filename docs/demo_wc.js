@@ -53,19 +53,6 @@ export const locoso_demo = `
   </bulib-select>
 `;
 
-export const header_demo = `<bulib-header></bulib-header>`;
-
-export const footer_demo = `
-  <bulib-footer debug></bulib-footer>
-      
-  <br /><hr /><br />
-
-  <bulib-select 
-    sel_title="Select Simulated URL" opt_code="sample_urls" 
-    tag_name="bulib-footer" attr_name="curr_url"
-  ></bulib-select>
-`;
-
 export const wc_card_demo = (small) => `
   <h2><code>bulib-card${small? " .small" : ""}</code></h2>
   <div class="deck">
@@ -80,4 +67,18 @@ export const wc_card_demo = (small) => `
 
 export const feedback_demo = `
   <bulib-feedback code="bulibwc-demo" debug prevent_action></bulib-feedback>
+`;
+
+export const color_demo = `
+  <h2><code>bulib-color</code></h2>
+
+  <h3><code>&lt;bulib-color var="--color-primary-background"&gt;</code></h3>
+  <bulib-color var="--color-secondary-background-dark"></bulib-color>
+
+  <br /><hr />
+
+  <h3><code>&lt;bulib-color val="red"&gt;</code></h3>
+  <bulib-color val="red" white></bulib-color>
+
+  <br /><hr />
 `;

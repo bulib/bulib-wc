@@ -118,6 +118,7 @@ export default class BULibFooter extends LitElement {
         .ftr-right  { grid-area: ftr-rt; border-bottom: solid lightgrey 1px; }
 
         /* '*Boston University* Libraries' styling */
+        .bulib-typeface h3 a > span { font-weight: 400; }
         .bulib-typeface a { 
           text-decoration: none !important; 
           font-size: large; 
@@ -197,7 +198,7 @@ export default class BULibFooter extends LitElement {
             <div class="txtc">
               <div class="bulib-typeface">
                 <h3>
-                  <a class="white-link" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" href="https://www.bu.edu/library">
+                  <a @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" href="https://www.bu.edu/library">
                     <strong>Boston University</strong>&nbsp; <span>Libraries</span>
                   </a>
                 </h3>
