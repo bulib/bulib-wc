@@ -58,3 +58,15 @@
     loadWebComponentInto("bulib-search", [document.getElementById("nowc-isl")]);
   });
 </script>
+
+<style id="floorplan-css">
+  /* ensure floorplan image isn't cramped */ 
+  .main-with-sidebar > section img {
+    min-width: 350px;
+  }
+
+  /* floorplan responsiveness: enable responsiveness on particular pages */
+  @media only screen and (max-width: 850px){ 
+    #content { width: 100%; }
+  }
+</style>
