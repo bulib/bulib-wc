@@ -139,6 +139,7 @@ export const css_vars_demo = `
 
   <div class="tiles">
     <bulib-color var="--color-secondary-background"></bulib-color>
+    <bulib-color var="--color-secondary-background-light"></bulib-color>
     <bulib-color var="--color-secondary-background-dark"></bulib-color>
     <bulib-color var="--color-secondary-text" white></bulib-color>
     <bulib-color var="--color-secondary-text-dark" white></bulib-color>

@@ -20,7 +20,8 @@ li.style-scope.bulib-footer {
 /* hours */ 
 #hours-display { font-size: 100% !important; }
 
-/* - floorplans - */
+
+/* - universal floorplan styling (safe to include on all wp pages) - */
 
 /* general locate-by styling */
 div.floorplan-locate-by { margin-bottom: 15px; }
