@@ -8,12 +8,12 @@ const sitemap_values = {
     "wordpress":{
     "header":"About the Libraries",
     "links":[
-      {"title":"InterLibrary Borrowing","href":"/library/services/ill/"},
-      {"title":"Course Reserves",       "href":"/library/services/reserves/"},
-      {"title":"For Alumni",            "href":"/library/services/alumni/"},
-      {"title":"Staff Directory",       "href":"/library/about/who-we-are/staff-directory/"},
-      {"title":"Maps & Floorplans",     "href":"/library/about/maps-floorplans/"},
-      {"title":"For Faculty",           "href":"/library/services/for-faculty/"}
+      {"title":"InterLibrary Borrowing","href":"https://www.bu.edu/library/library/services/ill/"},
+      {"title":"Course Reserves",       "href":"https://www.bu.edu/library/library/services/reserves/"},
+      {"title":"For Alumni",            "href":"https://www.bu.edu/library/library/services/alumni/"},
+      {"title":"Staff Directory",       "href":"https://www.bu.edu/library/library/about/who-we-are/staff-directory/"},
+      {"title":"Maps & Floorplans",     "href":"https://www.bu.edu/library/library/about/maps-floorplans/"},
+      {"title":"For Faculty",           "href":"https://www.bu.edu/library/library/services/for-faculty/"}
     ]
   },"askalibrarian":{
     "header":"Ask A Librarian",
@@ -206,7 +206,7 @@ export default class BULibFooter extends LitElement {
             
               <div style="font-size: small;">
                 <small>
-                  <a title="Copyright" class="white-link" href="https://www.bu.edu/copyright" target="_blank"
+                  <a title="Copyright" class="white-link prs" href="https://www.bu.edu/copyright" target="_blank"
                     @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">&copy; Copyright ${new Date().getFullYear()}</a>
                 </small>
                 <small>
