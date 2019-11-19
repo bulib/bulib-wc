@@ -141,6 +141,8 @@ export function getSiteCodeFromUrl(url, debug=INFO_HELPER_DEBUG, defSiteCode="he
 export function getLibraryCodeFromUrl(lib_url, debug=INFO_HELPER_DEBUG, defLibCode="help"){
   let lib_code = defLibCode;
   if(lib_url.includes("archives.bu.edu")){ lib_code="hgar"; }
+
+  // main wordpress site
   if(lib_url.includes("bu.edu/library/")){
     // try to get {library_code} from url 'http://www.bu.edu/library/{stone-science}/research/guides/'
     let lib_url_fragment = lib_url.split("bu.edu/library/")[1] || "";
@@ -160,8 +162,24 @@ export function getLibraryCodeFromUrl(lib_url, debug=INFO_HELPER_DEBUG, defLibCo
     else if(lib_url_fragment.includes("sthlibrary")){ lib_code = "stone"; }
     else { lib_code = "help"; }
   }
+
+  // reserve a room
+  if(lib_url.includes("booking/mugarstudy")){ lib_code = "mugar-memorial"; }
+  else if(lib_url.includes("booking/Pickering")){ lib_code = "pickering"; }
+
+  // floorplans
+  if(lib_url.includes("maps-floorplans/mugar")){
+    lib_code = "mugar-memorial"; 
+    
+    if(lib_url.includes("mugar-2")){ lib_code = "music"; }
+    else if(lib_url.includes("mugar-6")){ lib_code = "african-studies"; }
+  }
+
+  // askalibrarian 
   if(lib_url.includes("askalibrarian") && lib_url.includes("business")){ lib_code = "pardee"; }
   if(!Object.keys(libraries_data_backup).includes(lib_code)){ lib_code = "help"; }
+
+  // return resulting code
   logToConsole(`lib_code '${lib_code}' from lib_url '${lib_url}'`, debug);
   return lib_code;
 }
