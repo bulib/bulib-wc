@@ -119,4 +119,12 @@
       #content { width: 100%; }
     }
   </style>
+  <script id="google-analytics-link-tracker" type="module" defer>
+    import {addSendGAEventOnAnchorClickToAnchorElements} from 'https://unpkg.com/bulib-wc@latest/src/_helpers/google_analytix.js?module';
+    
+    window.onload = function(){
+      let locateByLinks = document.querySelectorAll("div.locate-by-floor a");
+      addSendGAEventOnAnchorClickToAnchorElements(locateByLinks, "locate-by-floor");
+    };
+  </script>
 </section>
