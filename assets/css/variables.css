@@ -1,0 +1,27 @@
+/* -- css-variables -- */
+body {
+  /* primary background (black) */
+  --color-primary-background: #2D2926;
+  --color-primary-background-light: rgb(74, 71, 70);
+  --color-primary-background-dark: black;
+  --color-primary-text: #e1e1e1;
+  --color-primary-text-light: white;
+
+  /* BU official red accent background [http://www.bu.edu/brand/guidelines/design/colors/] */
+  --color-accent-background: #CC0000;
+  --color-accent-text: whitesmoke;
+  --color-accent-text-hover: white;
+
+  /* button/call to action (blue) */
+  --color-button-background: #257abe;
+  --color-button-background-accent: #06605A;
+  --color-button-background-dark: #1B598C;
+  --color-button-text: whitesmoke;
+
+  /* secondary background color (very light grey) */
+  --color-secondary-background: #eeeeee /*rgba(200,200,200,0.3)*/;
+  --color-secondary-background-light: #f5f5f5;
+  --color-secondary-background-dark: #C8C8C8;
+  --color-secondary-text: #333333;
+  --color-secondary-text-dark: black;
+}
