@@ -1,0 +1,44 @@
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/bundle.min.css">
+<link type="text/css" rel="stylesheet" href="./tabs.css">
+
+<div class="tabs">
+  <button class="active" onclick="openTab(event,'HTML')">HTML</button>
+  <button onclick="openTab(event,'CSS')">CSS</button>
+  <button onclick="openTab(event,'JS')">JS</button>
+  <button onclick="openTab(event,'PHP')">PHP</button>
+</div>
+
+<div id="HTML" class="tab active">
+  <h3>HyperText Markup Language</h3>
+  <p>HTML determines website content and structure.</p>
+</div>
+
+<div id="CSS" class="tab">
+  <h3>Cascading Style Sheet</h3>
+  <p>CSS adds to the style and presentation of your website.</p> 
+</div>
+
+<div id="JS" class="tab">
+  <h3>JavaScript</h3>
+  <p>JS is client-side script that adds functionality to your website.</p>
+</div>
+
+<div id="PHP" class="tab">
+  <h3>Hypertext Preprocessor</h3>
+  <p>PHP is one of multiple backend languages, meaning it is for server-side scripting.</p>
+</div>
+
+<script type="text/javascript">
+  function openTab(e, tabId) {
+    var links = document.querySelectorAll("div.tabs button");
+    var content = document.getElementsByClassName("tab");
+    for (i = 0; i < content.length; i++) {
+      content[i].style.display = "none";
+    }
+    for (i = 0; i < links.length; i++) {
+      links[i].className = links[i].className.replace("active", "");
+    }
+    document.getElementById(tabId).style.display = "block";
+    e.currentTarget.className += " active";
+  }
+</script>

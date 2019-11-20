@@ -1,0 +1,50 @@
+/* - top bar containing each tab - */
+div.tabs {
+  overflow: hidden; 
+  border: 1px solid var(--color-secondary-background-dark, #ccc);
+  background-color: var(--color-secondary-background, #eee);
+  border-radius: 4px 4px 0 0;
+}
+
+
+/* - styling for each tab - */
+
+div.tabs input { display: none; }
+
+/* default styling for each tab */
+div.tabs button, div.tabs input {
+  background-color: var(--color-secondary-background, #fff);
+  color: var(--color-secondary-text, black);
+  float: left;
+  border: none;
+  outline: none;
+  cursor: default;
+  padding: 10px;
+}
+
+/* highlight tab when it's moused-over */
+div.tabs button:hover, div.tabs input:hover {
+  background-color: var(--color-secondary-background-light, #fff);
+}
+
+/* styling for the currently opened tab */
+div.tabs button.active, div.tabs input.active{
+  background-color: var(--color-secondary-background-light, #ccc);
+  border-left: 1px solid var(--color-secondary-background-dark, #ccc);
+  border-right: 1px solid var(--color-secondary-background-dark, #ccc);
+  font-weight: bold;
+}
+
+/* avoid double-border for leftmost tab */
+div.tabs button.active:first-child { border-left: none; } 
+
+/* - default content of the dropdown to hidden - */ 
+.tab {
+  display: none;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+.tab.active { display: block; }
