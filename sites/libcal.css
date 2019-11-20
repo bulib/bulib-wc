@@ -1,0 +1,12 @@
+/* hide the breadcrumbs (not using the libcal landing page) */
+#s-lc-public-bc { display: none; }
+
+/* make the secondary footer go to the full page width */
+#s-lc-public-footer {
+  padding-top: 15px; padding-bottom: 15px;
+  width: 100vw;
+  left: 50%; margin-left: -50vw;
+  right: 50%;  margin-right: -50vw;
+  position: relative;
+  background-color: var(--color-secondary-background, #f5f5f5);
+}

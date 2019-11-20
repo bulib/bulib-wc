@@ -13,6 +13,7 @@ cat assets/css/*.css >> $CSS_BUNDLE_FILEPATH;
 
 # copy site-specific css into dist/
 cp ./sites/libanswers/libanswers.css ./dist/libanswers.css
+cp ./sites/libcal.css ./dist/libcal.css
 cp ./sites/libguides/libguides.css ./dist/libguides.css 
 cp ./sites/libguides/restyle.css ./dist/libguides_restyle.css 
 cp ./sites/wordpress/wordpress.css ./dist/wordpress.css
