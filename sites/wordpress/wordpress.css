@@ -20,32 +20,16 @@ li.style-scope.bulib-footer {
 /* hours */ 
 #hours-display { font-size: 100% !important; }
 
+/* locate by floor styling (/library/about/maps-floorplans/mugar) */
+div.locate-by-floor  { 
+  display: flex;
+  font-size: medium;
 
-/* - universal floorplan styling (safe to include on all wp pages) - */
-
-/* general locate-by styling */
-div.floorplan-locate-by { margin-bottom: 15px; }
-div.floorplan-locate-by > div {
+  border: 1px solid var(--color-secondary-background-dark);
+  background-color: var(--color-secondary-background-light);
+  
   padding: 10px;
-  border: 1px solid var(--color-secondary-background-dark, #d9dfe3);
+  padding-top: 20px;
 }
-div.floorplan-locate-by > div > ul li { 
-  background: none;
-  margin: unset;
-}
-
-/* locate by call number styling */
-div.locate-by-call-number {
-  background-color: var(--color-secondary-background-light, #f5f5f5);
-}
-div.locate-by-call-number > ul li a { 
-  font-weight: 600;
-}
-
-/* locate by floor styling */
-div.locate-by-floor { 
-  display: flex; 
-  justify-content: flex-end; 
-  background-color: var(--color-secondary-background, #e1e1e1);
-}
-div.locate-by-floor > strong { padding-right: 15px; }
+div.locate-by-floor strong { padding-right: 15px; }
+div.locate-by-floor ul { margin-top: 0px; }
