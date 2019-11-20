@@ -199,7 +199,7 @@ export default class BULibFooter extends LitElement {
               <div class="bulib-typeface">
                 <h3>
                   <a @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}" href="https://www.bu.edu/library">
-                    <strong>Boston University</strong>&nbsp; <span>Libraries</span>
+                    <strong>Boston University</strong> <span>Libraries</span>
                   </a>
                 </h3>
               </div>
