@@ -23,6 +23,7 @@ li.style-scope.bulib-footer {
 /* locate by floor styling (/library/about/maps-floorplans/mugar) */
 div.locate-by-floor  { 
   display: flex;
+  flex-wrap: wrap;
   font-size: medium;
 
   border: 1px solid var(--color-secondary-background-dark);
@@ -33,3 +34,7 @@ div.locate-by-floor  {
 }
 div.locate-by-floor strong { padding-right: 15px; }
 div.locate-by-floor ul { margin-top: 0px; }
+@media only screen and (max-width: 400px){ 
+  div.locate-by-floor ul.inline-list li { display: block; }
+  div.locate-by-floor ul.inline-list li img { display: none; }
+}

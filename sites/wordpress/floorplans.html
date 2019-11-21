@@ -34,18 +34,18 @@
 <section id="floorplan-locate-by-navigation">
 
   <div class="tabs">
-    <button onclick="openTab(event,'locate-callno')" class="active">Resources</button>
+    <button onclick="openTab(event,'locate-resources')" class="active">Resources</button>
     <button onclick="openTab(event,'locate-services')">Services</button>
     <button onclick="openTab(event,'locate-spaces')">Rooms and Spaces</button>
     <button onclick="openTab(event,'locate-exhibits')">Archives and Exhibits</button>
   </div>
 
-  <div id="locate-callno" class="tab active">
+  <div id="locate-resources" class="tab active">
     <h4>By Type:</h4>
     <ul class="no-bullet inline-list">
       <li><a href="/library/about/maps-floorplans/mugar-2">Audio/Music</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-1">Books</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-2">Journals</a></
+      <li><a href="/library/about/maps-floorplans/mugar-2">Journals</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-basement">Film/Video</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-6">Folios</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-1">Magazines</a></li>
@@ -53,7 +53,7 @@
       <li><a href="/library/about/maps-floorplans/mugar-1">Newspapers</a></li>
     </ul>
     <h4>By Call Number:</h4>
-    <ul class="no-bullet inline-list">
+    <ul id="locate-callno" class="no-bullet inline-list">
       <li><a title="Mugar 1st Floor" href="/library/about/maps-floorplans/mugar-1">A* </a></li>
       <li><img class="aligncenter size-full wp-image-2505" title="bluedot" alt="bluedot" src="/library/files/images/bluedot.png" height="10" width="10"></li>
       <li><a href="/library/about/maps-floorplans/mugar-2">AM</a></li>
@@ -131,7 +131,7 @@
       <li><a href="/library/music/maps-floorplans/mugar-2/">Arthur Fiedler Reading Room</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-6">Archive of the Republic of Niger (AREN)</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-1/">Gotlieb Gallery</a></li>
-      <li><a href="/library/mugar-memorial/about/mugar-5/">Howard Gotlieb Archival Research Center</a></li>
+      <li><a href="/library/mugar-memorial/about/mugar-5/">Main Archives and Reading Room</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-3">MLK Jr. Reading Room</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-1">Richards-Frost Room</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-1/">Richards-Theodore Roosevelt Room</a></li>
@@ -194,6 +194,18 @@
       margin: unset;
     }
 
+    /* flatten into single list on small screens */
+    @media only screen and (max-width: 400px){ 
+      div.tab ul.multi-column { 
+        padding-left: 15px !important; 
+        column-count: 1;
+      }
+      #locate-callno { column-count: 2 !important; }
+
+      div.locate-by-floor ul.inline-list li, .tab ul.inline-list > li { display: list-item; }
+      div.locate-by-floor ul.inline-list li img, .tab ul.inline-list > li img { display: none; }
+    }
+
     /* set the smallest width of a floorplan image */
     .main-with-sidebar > section img { min-width: 350px; }
   
@@ -209,6 +221,20 @@
       let locateByLinks = document.querySelectorAll("div.locate-by-floor a");
       addSendGAEventOnAnchorClickToAnchorElements(locateByLinks, "locate-by-floor");
     };
+  </script>
+  <script id="tabs" type="text/javascript">
+    function openTab(e, tabId) {
+      var links = document.querySelectorAll("div.tabs button");
+      var content = document.getElementsByClassName("tab");
+      for (i = 0; i < content.length; i++) {
+        content[i].style.display = "none";
+      }
+      for (i = 0; i < links.length; i++) {
+        links[i].className = links[i].className.replace("active", "");
+      }
+      document.getElementById(tabId).style.display = "block";
+      e.currentTarget.className += " active";
+    }
   </script>
 </section>
 </body>
