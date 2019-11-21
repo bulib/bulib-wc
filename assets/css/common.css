@@ -47,7 +47,7 @@
 .txtl { text-align: left; }
 .txtc { text-align: center; }
 .txtv { vertical-align: middle; }
-.big-text { font-size: 110%; }
+.big-text, .large-text { font-size: 110%; }
 
 /* list styles */
 ul.no-bullet { padding-left: 0em; }

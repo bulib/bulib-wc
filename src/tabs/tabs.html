@@ -2,33 +2,33 @@
 <link type="text/css" rel="stylesheet" href="./tabs.css">
 
 <div class="tabs">
-  <button class="active" onclick="openTab(event,'HTML')">HTML</button>
-  <button onclick="openTab(event,'CSS')">CSS</button>
-  <button onclick="openTab(event,'JS')">JS</button>
-  <button onclick="openTab(event,'PHP')">PHP</button>
+  <button class="active" onclick="openTab(event,'html')">HTML</button>
+  <button onclick="openTab(event,'css')">CSS</button>
+  <button onclick="openTab(event,'js')">JS</button>
+  <button onclick="openTab(event,'php')">PHP</button>
 </div>
 
-<div id="HTML" class="tab active">
+<div id="html" class="tab active">
   <h3>HyperText Markup Language</h3>
   <p>HTML determines website content and structure.</p>
 </div>
 
-<div id="CSS" class="tab">
+<div id="css" class="tab">
   <h3>Cascading Style Sheet</h3>
   <p>CSS adds to the style and presentation of your website.</p> 
 </div>
 
-<div id="JS" class="tab">
+<div id="js" class="tab">
   <h3>JavaScript</h3>
   <p>JS is client-side script that adds functionality to your website.</p>
 </div>
 
-<div id="PHP" class="tab">
+<div id="php" class="tab">
   <h3>Hypertext Preprocessor</h3>
   <p>PHP is one of multiple backend languages, meaning it is for server-side scripting.</p>
 </div>
 
-<script type="text/javascript">
+<script id="tabs" type="text/javascript">
   function openTab(e, tabId) {
     var links = document.querySelectorAll("div.tabs button");
     var content = document.getElementsByClassName("tab");

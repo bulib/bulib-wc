@@ -50,41 +50,84 @@ export const card_demo = (small) => `
     </div>
   </div>`;
 
-  export const cta_demo = `
-    <div class="ctas">
-      <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Borrowing','_self')">
-        <h3><a href="/search/?g=716&amp;topics=Borrowing">Borrowing Items</a></h3>
-      </div>
+export const cta_demo = `
+  <div class="ctas">
+    <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Borrowing','_self')">
+      <h3><a href="/search/?g=716&amp;topics=Borrowing">Borrowing Items</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1','_self')">
-        <h3><a href="/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1">Alumni</a></h3>
-      </div>
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1">Alumni</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1','_self')">
-        <h3><a href="/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1">Where is it?</a></h3>
-      </div>
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1">Where is it?</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Troubleshooting','_self')">
-        <h3><a href="/search/?g=716&amp;topics=Troubleshooting">Troubleshooting</a></h3>
-      </div>
+    <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Troubleshooting','_self')">
+      <h3><a href="/search/?g=716&amp;topics=Troubleshooting">Troubleshooting</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1','_self')">
-        <h3><a href="/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1">Newspapers</a></h3>
-      </div>
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1">Newspapers</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1','_self')">
-        <h3><a href="/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1">Journals</a></h3>
-      </div>
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1">Journals</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/businessFAQs/','_self')">
-        <h3><a href="/businessFAQs/">Pardee / Management</a></h3>
-      </div>
+    <div class="cta" onclick="window.open('/businessFAQs/','_self')">
+      <h3><a href="/businessFAQs/">Pardee / Management</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/search/?t=0&adv=1&topics=Services','_self')">
-        <h3><a href="/search/?t=0&adv=1&topics=Services">Services</a></h3>
-      </div>
+    <div class="cta" onclick="window.open('/search/?t=0&adv=1&topics=Services','_self')">
+      <h3><a href="/search/?t=0&adv=1&topics=Services">Services</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/search/','_self')">
-        <h3><a href="/search">All Topics</a></h3>
-      </div>
-    </div>`;
+    <div class="cta" onclick="window.open('/search/','_self')">
+      <h3><a href="/search">All Topics</a></h3>
+    </div>
+  </div>`;
+
+export const tabs_demo = `
+  <div class="tabs">
+    <button class="active" onclick="openTab(event,'html')">HTML</button>
+    <button onclick="openTab(event,'css')">CSS</button>
+    <button onclick="openTab(event,'js')">JS</button>
+    <button onclick="openTab(event,'php')">PHP</button>
+  </div>
+
+  <div id="html" class="tab active">
+    <h3>HyperText Markup Language</h3>
+    <p>HTML determines website content and structure.</p>
+  </div>
+
+  <div id="css" class="tab">
+    <h3>Cascading Style Sheet</h3>
+    <p>CSS adds to the style and presentation of your website.</p> 
+  </div>
+
+  <div id="js" class="tab">
+    <h3>JavaScript</h3>
+    <p>JS is client-side script that adds functionality to your website.</p>
+  </div>
+
+  <div id="php" class="tab">
+    <h3>Hypertext Preprocessor</h3>
+    <p>PHP is one of multiple backend languages, meaning it is for server-side scripting.</p>
+  </div>
+  
+  <script type="text/javascript">
+    function openTab(e, tabId) {
+      var links = document.querySelectorAll("div.tabs button");
+      var content = document.getElementsByClassName("tab");
+      for (i = 0; i < content.length; i++) {
+        content[i].style.display = "none";
+      }
+      for (i = 0; i < links.length; i++) {
+        links[i].className = links[i].className.replace("active", "");
+      }
+      document.getElementById(tabId).style.display = "block";
+      e.currentTarget.className += " active";
+    }
+  </script>`; 
