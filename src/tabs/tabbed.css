@@ -1,0 +1,46 @@
+/* big shout out to iamkate for her tutorial: http://code.iamkate.com/html-and-css/tabbed-panels/ */
+
+/* hide radio buttons */
+.tabbed > input { display: none; }
+
+/* show/hide content based on currently selected input */
+div.tabbed {
+  border: 1px solid var(--color-secondary-background-dark, #ccc);
+  border-radius: 4px 4px 0 0;
+  padding-top: 5px;
+}
+div.tabbed > div { 
+  border: 1px solid var(--color-secondary-background-dark, #ccc);
+  border-radius: 0 0 4px 4px;
+}
+div.tabbed { background-color: var(--color-secondary-background); }
+div.tabbed > div { 
+  background-color: var(--color-secondary-background-light);
+  display: none; 
+  float: right;
+  width: 100%;
+}
+
+/* tab header */
+div.tabbed > input + label { 
+  cursor: pointer;
+  padding: 5px 5px 0px 5px;
+  width: 100%; 
+}
+div.tabbed > input:checked + label {
+  background-color: var(--color-secondary-background-light, #ccc);
+  border-left: 1px solid var(--color-secondary-background-dark, #ccc);
+  border-right: 1px solid var(--color-secondary-background-dark, #ccc);
+  font-weight: bold;
+}
+div.tabbed > input + label:hover { background-color: var(--color-secondary-background-light, #ccc); }
+div.tabbed > input:first-child:checked + label { 
+  border-radius: 4px 0 0 0;
+  border-left: none; 
+} 
+
+/* tab content */
+div.tabbed > input:checked + label + div { 
+  background-color: var(--color-secondary-background-light);
+  display: block; 
+}

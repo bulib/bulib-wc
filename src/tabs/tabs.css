@@ -28,7 +28,7 @@ div.tabs button:hover, div.tabs input:hover {
 }
 
 /* styling for the currently opened tab */
-div.tabs button.active, div.tabs input.active{
+div.tabs button.active, div.tabs input:checked{
   background-color: var(--color-secondary-background-light, #ccc);
   border-left: 1px solid var(--color-secondary-background-dark, #ccc);
   border-right: 1px solid var(--color-secondary-background-dark, #ccc);
