@@ -189,7 +189,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style id="floorplan-styling">
     /* protect dividers from getting styled by the legacy wordpress.css */ 
-    div.locate-by-floor > ul li { 
+    #floorplan-locate-by-navigation ul li, div.locate-by-floor ul li { 
       background: none;
       margin: unset;
     }
@@ -208,7 +208,7 @@
 
     /* set the smallest width of a floorplan image */
     .main-with-sidebar > section img { min-width: 350px; }
-  
+    
     /* floorplan responsiveness */
     @media only screen and (max-width: 850px){ 
       #content { width: 100%; }
@@ -216,10 +216,10 @@
   </style>
   <script id="google-analytics-link-tracker" type="module" defer>
     import {addSendGAEventOnAnchorClickToAnchorElements} from 'https://unpkg.com/bulib-wc@latest/src/_helpers/google_analytix.js?module';
-    
+      
     window.onload = function(){
       let locateByLinks = document.querySelectorAll("div.locate-by-floor a");
-      addSendGAEventOnAnchorClickToAnchorElements(locateByLinks, "locate-by-floor");
+        addSendGAEventOnAnchorClickToAnchorElements(locateByLinks, "locate-by-floor");
     };
   </script>
   <script id="tabs" type="text/javascript">
