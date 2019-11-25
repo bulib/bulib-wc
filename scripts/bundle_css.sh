@@ -9,7 +9,6 @@ scss ./src/header/banner.scss >> ./src/header/header.css;
 # bundle css into single 'shared' css file
 mkdir dist || true;
 cat src/header/header.css >  $CSS_BUNDLE_FILEPATH;
-cat src/tabs/tabs.css >> $CSS_BUNDLE_FILEPATH;
 cat assets/css/*.css >> $CSS_BUNDLE_FILEPATH;
 
 # copy site-specific css into dist/
