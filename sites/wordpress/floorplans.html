@@ -32,29 +32,36 @@
 <br /><br /><br />
 
 <section id="floorplan-locate-by-navigation">
-
+  <h2>What are You Looking For?</h2>
   <div class="tabs">
-    <button onclick="openTab(event,'locate-resources')" class="active">Resources</button>
-    <button onclick="openTab(event,'locate-services')">Services</button>
+    <button onclick="openTab(event,'locate-services')" class="active">Services</button>
+    <button onclick="openTab(event,'locate-resources')">Call Number</button>
     <button onclick="openTab(event,'locate-spaces')">Rooms and Spaces</button>
     <button onclick="openTab(event,'locate-exhibits')">Archives and Exhibits</button>
   </div>
 
-  <div id="locate-resources" class="tab active">
-    <h4>By Type:</h4>
-    <ul class="no-bullet inline-list">
-      <li><a href="/library/about/maps-floorplans/mugar-2">Audio/Music</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-1">Books</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-2">Journals</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-basement">Film/Video</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-6">Folios</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-1">Magazines</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-basement">Microfiche/Microform</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-1">Newspapers</a></li>
-    </ul>
-    <h4>By Call Number:</h4>
+  <div id="locate-services" class="tab active">
+    <ul class="multi-column">
+      <li><a href="/library/african-studies/about/mugar-6/">African Studies Library</a></li>      
+      <li><a href="/library/about/maps-floorplans/mugar-1">BU Common (Computer Lab)</a></li>
+      <li><a href="/library/about/maps-floorplans/mugar-1/">CAS Writing Center</a></li>
+      <li><a href="/library/about/maps-floorplans/mugar-1/">Circulation</a></li>
+      <li><a href="/library/about/maps-floorplans/mugar-1">Course Reserves</a></li>
+      <li><a href="/library/about/maps-floorplans/mugar-3">Dissertations/Theses Coordination</a></li>
+      <li><a href="/library/about/maps-floorplans/mugar-basement/">Microform Reading and Digitization</a></li>
+      <li><a href="/library/about/maps-floorplans/mugar-1/">IS&T Help Center</a></li>
+      <li><a href="/library/about/maps-floorplans/mugar-basement/">Krasker Film/Video Services</a></li>
+      <li><a href="/library/about/maps-floorplans/mugar-3">Libraries Administration</a></li>
+      <li><a href="/library/about/maps-floorplans/mugar-2">Music Library</a></li>
+      <li><a href="/library/about/maps-floorplans/mugar-1">Research Center and Reference</a></li>
+      <li><a href="/library/about/maps-floorplans/mugar-1">Scan and Copy Center</a></li>
+    </ul>  
+  </div>
+
+  <div id="locate-resources" class="tab">
+    <strong><a href="/library/mugar-memorial/about/locationguide/">Call Number Ranges (Mugar Memorial)</a></strong>
     <ul id="locate-callno" class="no-bullet inline-list">
-      <li><a title="Mugar 1st Floor" href="/library/about/maps-floorplans/mugar-1">A* </a></li>
+      <li><a title="Mugar 1st Floor" href="/library/about/maps-floorplans/mugar-1">A </a></li>
       <li><img class="aligncenter size-full wp-image-2505" title="bluedot" alt="bluedot" src="/library/files/images/bluedot.png" height="10" width="10"></li>
       <li><a href="/library/about/maps-floorplans/mugar-2">AM</a></li>
       <li><img class="aligncenter size-full wp-image-2505" title="bluedot" alt="bluedot" src="/library/files/images/bluedot.png" height="10" width="10"></li>
@@ -107,38 +114,19 @@
       <li><a href="/library/mugar-memorial/about/mugar-1">Z</a></li>
     </ul>
   </div>
-
-  <div id="locate-services" class="tab">
-    <!-- <strong>Services</strong> -->
-    <ul class="multi-column">
-      <li><a href="/library/african-studies/about/mugar-6/">African Studies Circulation</a></li>      
-      <li><a href="/library/about/maps-floorplans/mugar-3">Bibliographic Services</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-1">BU Common (Computer Lab)</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-1/">CAS Writing Center</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-1/">Circulation</a></li>
-      <li><a href="/library/mugar-memorial/about/mugar-3">Dissertations/Theses Coordination</a></li>
-      <li><a href="/library/mugar-basement/">Film Reading and Digitization</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-1/">IT Help Center</a></li>
-      <li><a href="/library/music/about/mugar-2/">Music Circulation</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-1">Research Center and Reference</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-1">Scan and Copy Center</a></li>
-    </ul>  
-  </div>
+  
   <div id="locate-exhibits" class="tab">
-    <!-- <strong>Archives and Exhibits</strong> -->
     <strong><a href="http://archives.bu.edu">Howard Gotlieb Archival Research Center</a></strong>
     <ul class="multi-column">
+      <li><a href="/library/music/maps-floorplans/mugar-6/">African Studies Display Area</a></li>
       <li><a href="/library/music/maps-floorplans/mugar-2/">Arthur Fiedler Reading Room</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-6">Archive of the Republic of Niger (AREN)</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-1/">Gotlieb Gallery</a></li>
-      <li><a href="/library/mugar-memorial/about/mugar-5/">Main Archives and Reading Room</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-3">MLK Jr. Reading Room</a></li>
+      <li><a href="/library/about/maps-floorplans/mugar-3">Martin Luther King, Jr. Reading Room</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-1">Richards-Frost Room</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-1/">Richards-Theodore Roosevelt Room</a></li>
     </ul>  
   </div>
   <div id="locate-spaces" class="tab">
-    <!-- <strong>Rooms and Spaces</strong> -->
     <ul class="multi-column">
       <li><a href="/library/music/about/mugar-2/">203 - Classroom</a></li>
       <li><a href="/library/music/about/mugar-2/">205 - Classroom</a></li>
@@ -147,13 +135,12 @@
       <li><a href="/library/about/maps-floorplans/mugar-4">401 - Faculty Recording</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-4">424 - Classroom</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-5">503 - Classroom</a></li>
-      <!-- <br /> -->
       <li><a href="/library/about/maps-floorplans/mugar-1">Alcoves 1 and 2</a></li>
       <li><a href="/library/music/about/mugar-2/">Arthur Fiedler Reading Room</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-1/">BU Common Computer Lab</a></li>
       <li><a href="/library/music/about/mugar-2/">Listening Room</a></li>
       <li><a href="/library/about/maps-floorplans/mugar-3">PAL Study Lounge</a></li>
-      <li><a href="/library/about/maps-floorplans/mugar-1/">The Reserves Room</a></li>
+      <li><a href="/library/about/maps-floorplans/mugar-1/">Reserve Room</a></li>
     </ul>  
   </div>
 </section>
