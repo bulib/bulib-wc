@@ -91,43 +91,15 @@ export const cta_demo = `
 
 export const tabs_demo = `
   <div class="tabs">
-    <button class="active" onclick="openTab(event,'html')">HTML</button>
-    <button onclick="openTab(event,'css')">CSS</button>
-    <button onclick="openTab(event,'js')">JS</button>
-    <button onclick="openTab(event,'php')">PHP</button>
-  </div>
+    <input type="radio" name="tabs" id="option-1" checked>
+    <label for="option-1">Option One</label>
+    <div>the content within the first option</div>
+    
+    <input type="radio" name="tabs" id="option-2">
+    <label for="option-2">Option Two</label>
+    <div>the content within the second option</div>
 
-  <div id="html" class="tab active">
-    <h3>HyperText Markup Language</h3>
-    <p>HTML determines website content and structure.</p>
-  </div>
-
-  <div id="css" class="tab">
-    <h3>Cascading Style Sheet</h3>
-    <p>CSS adds to the style and presentation of your website.</p> 
-  </div>
-
-  <div id="js" class="tab">
-    <h3>JavaScript</h3>
-    <p>JS is client-side script that adds functionality to your website.</p>
-  </div>
-
-  <div id="php" class="tab">
-    <h3>Hypertext Preprocessor</h3>
-    <p>PHP is one of multiple backend languages, meaning it is for server-side scripting.</p>
-  </div>
-  
-  <script type="text/javascript">
-    function openTab(e, tabId) {
-      var links = document.querySelectorAll("div.tabs button");
-      var content = document.getElementsByClassName("tab");
-      for (i = 0; i < content.length; i++) {
-        content[i].style.display = "none";
-      }
-      for (i = 0; i < links.length; i++) {
-        links[i].className = links[i].className.replace("active", "");
-      }
-      document.getElementById(tabId).style.display = "block";
-      e.currentTarget.className += " active";
-    }
-  </script>`; 
+    <input type="radio" name="tabs" id="option-3">
+    <label for="option-3">Option Three</label>
+    <div>the content within the third option</div>
+  </div>`; 

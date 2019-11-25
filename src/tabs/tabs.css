@@ -1,50 +1,63 @@
-/* - top bar containing each tab - */
+/* - tabs.css: shout out to [kyusuf](https://github.com/KenanYusuf/) for his [tutorial](https://kyusuf.com/post/completely-css-tabs/) - */
+
+/* show/hide content based on currently selected input */
 div.tabs {
-  overflow: hidden; 
+  box-sizing: border-box;
+  display: flex; 
+  flex-wrap: wrap;
+  background-color: var(--color-secondary-background); 
+  border-radius: 5px;
   border: 1px solid var(--color-secondary-background-dark, #ccc);
-  background-color: var(--color-secondary-background, #eee);
-  border-radius: 4px 4px 0 0;
 }
 
-
-/* - styling for each tab - */
-
-div.tabs input { display: none; }
-
-/* default styling for each tab */
-div.tabs button, div.tabs input {
-  background-color: var(--color-secondary-background, #fff);
-  color: var(--color-secondary-text, black);
-  float: left;
-  border: none;
-  outline: none;
-  cursor: default;
-  padding: 10px;
+/* hide radio buttons */
+div.tabs > input { 
+  position: absolute;
+  opacity: 0;
 }
 
-/* highlight tab when it's moused-over */
-div.tabs button:hover, div.tabs input:hover {
-  background-color: var(--color-secondary-background-light, #fff);
+/* tab header label */
+div.tabs > label { 
+  cursor: pointer;
+  padding: 5px;
+  width: 100%; 
 }
-
-/* styling for the currently opened tab */
-div.tabs button.active, div.tabs input:checked{
+div.tabs > input:checked + label {
   background-color: var(--color-secondary-background-light, #ccc);
-  border-left: 1px solid var(--color-secondary-background-dark, #ccc);
-  border-right: 1px solid var(--color-secondary-background-dark, #ccc);
   font-weight: bold;
-}
 
-/* avoid double-border for leftmost tab */
-div.tabs button.active:first-child { border-left: none; } 
-
-/* - default content of the dropdown to hidden - */ 
-.tab {
-  display: none;
-  background-color: #fff;
-  padding: 10px;
-  border: 1px solid #ccc;
+  /* top and bottom border on small screens */
+  border-top: 1px solid var(--color-secondary-background-dark, #ccc);
+  border-left: none; border-right: none;
+div.tabs > input + label:hover { background-color: var(--color-secondary-background-light, #ccc); }
+div.tabs > input:first-child:checked + label { 
   border-top: none;
-  border-radius: 0 0 4px 4px;
+  border-left: none;
 }
-.tab.active { display: block; }
+
+
+/* tab content */
+div.tabs > div { 
+  padding: 10px;
+  border-top: 1px solid var(--color-secondary-background-dark, #ccc);
+  display: none; 
+  width: 100%;
+}
+div.tabs > input:checked + label + div { 
+  background-color: white !important;
+  display: block; 
+}
+
+@media only screen and (min-width: 400px) {
+  div.tabs > input:checked + label {
+    border-left: 1px solid var(--color-secondary-background-dark, #ccc);
+    border-right: 1px solid var(--color-secondary-background-dark, #ccc);
+    border-top: none;
+    border-bottom: none;
+  }
+  div.tabs > input + label:first-of-type { border-top-right-radius: 0px; }
+  div.tabs > label  { width: auto; }
+  div.tabs > div { 
+    order: 99; 
+  }
+}
