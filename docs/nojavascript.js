@@ -102,4 +102,20 @@ export const tabs_demo = `
     <input type="radio" name="tabs" id="option-3">
     <label for="option-3">Option Three</label>
     <div>the content within the third option</div>
+  </div>
+  
+  <br /><br />
+  
+  <div class="tabs">
+    <input type="radio" name="tabs-2" id="html" checked>
+    <label for="html">HTML</label>
+    <div>Hypertext Markup Language</div>
+    
+    <input type="radio" name="tabs-2" id="css">
+    <label for="css">CSS</label>
+    <div>Cascading Style Sheets</div>
+
+    <input type="radio" name="tabs-2" id="js">
+    <label for="js">JS</label>
+    <div>JavaScript</div>
   </div>`; 

@@ -22,6 +22,7 @@ div.tabs > label {
   padding: 5px;
   width: 100%; 
 }
+div.tabs > input:focus + label { text-decoration: underline;}
 div.tabs > input:checked + label {
   background-color: var(--color-secondary-background-light, #ccc);
   font-weight: bold;
@@ -61,7 +62,7 @@ div.tabs > input:checked + label + div {
   display: block; 
 }
 
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 300px) {
   div.tabs > input:checked + label {
     border-left: 1px solid var(--color-secondary-background-dark, #ccc);
     border-right: 1px solid var(--color-secondary-background-dark, #ccc);
