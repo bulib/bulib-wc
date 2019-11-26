@@ -1,0 +1,47 @@
+/* - javascript-version of tabs (used until INC12819503 is resolved) - */
+
+/* general tabs styling */
+div.tabs-js {
+  overflow: hidden; 
+  border: 1px solid var(--color-secondary-background-dark, #ccc);
+  background-color: var(--color-secondary-background, #eee);
+  border-radius: 4px 4px 0 0;
+}
+
+/* default styling for each tab */
+div.tabs-js button {
+  background-color: var(--color-secondary-background, #fff);
+  color: var(--color-secondary-text, black);
+  float: left;
+  border: none;
+  outline: none;
+  cursor: default;
+  padding: 10px;
+}
+
+/* highlight tab when it's moused-over */
+div.tabs-js button:hover {
+  background-color: var(--color-secondary-background-light, #fff);
+}
+
+/* styling for the currently opened tab */
+div.tabs-js button.active {
+  background-color: var(--color-secondary-background-light, #ccc);
+  border-left: 1px solid var(--color-secondary-background-dark, #ccc);
+  border-right: 1px solid var(--color-secondary-background-dark, #ccc);
+  font-weight: bold;
+}
+
+/* avoid double-border for leftmost tab */
+div.tabs-js button.active:first-child { border-left: none; } 
+
+/* - default content of the dropdown to hidden - */ 
+.tab {
+  display: none;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+.tab.active { display: block; }
