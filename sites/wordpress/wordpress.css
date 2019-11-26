@@ -34,6 +34,8 @@ div.locate-by-floor  {
 }
 div.locate-by-floor strong { padding-right: 15px; }
 div.locate-by-floor ul { margin-top: 0px; }
+div.locate-by-floor a { text-decoration: underline; font-weight: bold; }
+
 @media only screen and (max-width: 400px){ 
   div.locate-by-floor ul.inline-list li { display: block; }
   div.locate-by-floor ul.inline-list li img { display: none; }

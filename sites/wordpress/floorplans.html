@@ -294,6 +294,9 @@
 <section id="floorplan-specific">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style id="floorplan-styling">
+    /* respond to keyboard focus */
+    .tabs-js button:focus, .tab a:focus, .tabs a  { font-weight: bold; text-decoration: underline; }
+
     /* protect dividers from getting styled by the legacy wordpress.css */ 
     #floorplan-locate-by-navigation ul li, div.locate-by-floor ul li { 
       background: none;
