@@ -180,32 +180,11 @@
   
 <section id="floorplan-specific">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style id="floorplan-styling">
-    /* respond to keyboard focus */
-    .tabs-js button:focus, .tab a:focus, .tabs a  { font-weight: bold; text-decoration: underline; }
-
-    /* protect dividers from getting styled by the legacy wordpress.css */ 
-    #floorplan-locate-by-navigation ul li, div.locate-by-floor ul li { 
-      background: none;
-      margin: unset;
-    }
-
-    /* flatten into single list on small screens */
-    @media only screen and (max-width: 400px){ 
-      div.tab ul.multi-column { 
-        padding-left: 15px !important; 
-        column-count: 1;
-      }
-      #locate-callno { column-count: 2 !important; }
-
-      div.locate-by-floor ul.inline-list li, .tab ul.inline-list > li { display: list-item; }
-      div.locate-by-floor ul.inline-list li img, .tab ul.inline-list > li img { display: none; }
-    }
-
-    /* set the smallest width of a floorplan image */
+  <style id="floorplan-responsiveness">
+    /* set the smallest width of a floorplan image (when .main-with-sidebar wraps) */
     .main-with-sidebar > section img { min-width: 350px; }
     
-    /* floorplan responsiveness */
+    /* make the main content take up the entire width on low-medium scale  */
     @media only screen and (max-width: 850px){ 
       #content { width: 100%; }
     }
