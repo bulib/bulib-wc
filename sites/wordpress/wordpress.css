@@ -40,11 +40,10 @@ div.locate-by-floor  {
 /* assorted minor bits */
 div.locate-by-floor strong { padding-right: 15px; }
 div.locate-by-floor ul { margin-top: 0px; }
-div.locate-by-floor a { text-decoration: underline; font-weight: bold; }
-/* div.locate-by-floor ul.inline-list li { display: block; } */
+div.locate-by-floor a:focus { text-decoration: underline; font-weight: bold; }
 
 /* protect dividers from getting styled by the legacy wordpress.css */ 
-div.locate-by-floor ul li { 
+div.locate-by-floor ul li, ul#locate-callno li { 
   background: none;
   margin: unset;
 }
