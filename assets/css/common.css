@@ -69,7 +69,7 @@ a.white-link:hover {
 /* align labels when material-icons are nearby */
 i.material-icons, i.material-icons-outlined { vertical-align: middle; }
 
-/* accessibility - used to optimize the page for screenreaders */
+/* accessibility - used to optimize the page for screenreaders (code copied from [Orange-OpenSource](/web_EN/exemples/masquage/index.html) under CC BY SA 3.0)  */
 .sr-only {
   position: absolute;
   width: 1px;
