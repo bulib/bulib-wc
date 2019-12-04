@@ -18,7 +18,7 @@ div.main-with-sidebar > section {
 }
 div.main-with-sidebar > aside {
   flex: 1;
-  min-width: 200px;
+  min-width: 250px;
 }
 
 /* - make divs display in a series of tiles - */

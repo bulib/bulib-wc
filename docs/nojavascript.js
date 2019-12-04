@@ -50,41 +50,72 @@ export const card_demo = (small) => `
     </div>
   </div>`;
 
-  export const cta_demo = `
-    <div class="ctas">
-      <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Borrowing','_self')">
-        <h3><a href="/search/?g=716&amp;topics=Borrowing">Borrowing Items</a></h3>
-      </div>
+export const cta_demo = `
+  <div class="ctas">
+    <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Borrowing','_self')">
+      <h3><a href="/search/?g=716&amp;topics=Borrowing">Borrowing Items</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1','_self')">
-        <h3><a href="/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1">Alumni</a></h3>
-      </div>
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1">Alumni</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1','_self')">
-        <h3><a href="/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1">Where is it?</a></h3>
-      </div>
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1">Where is it?</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Troubleshooting','_self')">
-        <h3><a href="/search/?g=716&amp;topics=Troubleshooting">Troubleshooting</a></h3>
-      </div>
+    <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Troubleshooting','_self')">
+      <h3><a href="/search/?g=716&amp;topics=Troubleshooting">Troubleshooting</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1','_self')">
-        <h3><a href="/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1">Newspapers</a></h3>
-      </div>
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1">Newspapers</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1','_self')">
-        <h3><a href="/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1">Journals</a></h3>
-      </div>
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1">Journals</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/businessFAQs/','_self')">
-        <h3><a href="/businessFAQs/">Pardee / Management</a></h3>
-      </div>
+    <div class="cta" onclick="window.open('/businessFAQs/','_self')">
+      <h3><a href="/businessFAQs/">Pardee / Management</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/search/?t=0&adv=1&topics=Services','_self')">
-        <h3><a href="/search/?t=0&adv=1&topics=Services">Services</a></h3>
-      </div>
+    <div class="cta" onclick="window.open('/search/?t=0&adv=1&topics=Services','_self')">
+      <h3><a href="/search/?t=0&adv=1&topics=Services">Services</a></h3>
+    </div>
 
-      <div class="cta" onclick="window.open('/search/','_self')">
-        <h3><a href="/search">All Topics</a></h3>
-      </div>
-    </div>`;
+    <div class="cta" onclick="window.open('/search/','_self')">
+      <h3><a href="/search">All Topics</a></h3>
+    </div>
+  </div>`;
+
+export const tabs_demo = `
+  <div class="tabs">
+    <input type="radio" name="tabs" id="option-1" checked>
+    <label for="option-1">Option One</label>
+    <div>the content within the first option</div>
+    
+    <input type="radio" name="tabs" id="option-2">
+    <label for="option-2">Option Two</label>
+    <div>the content within the second option</div>
+
+    <input type="radio" name="tabs" id="option-3">
+    <label for="option-3">Option Three</label>
+    <div>the content within the third option</div>
+  </div>
+  
+  <br /><br />
+  
+  <div class="tabs">
+    <input type="radio" name="tabs-2" id="html" checked>
+    <label for="html">HTML</label>
+    <div>Hypertext Markup Language</div>
+    
+    <input type="radio" name="tabs-2" id="css">
+    <label for="css">CSS</label>
+    <div>Cascading Style Sheets</div>
+
+    <input type="radio" name="tabs-2" id="js">
+    <label for="js">JS</label>
+    <div>JavaScript</div>
+  </div>`; 

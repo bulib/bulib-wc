@@ -17,35 +17,50 @@ li.style-scope.bulib-footer {
   margin: unset;
 }
 
-/* hours */ 
+/* increase hours display size */ 
 #hours-display { font-size: 100% !important; }
 
 
-/* - universal floorplan styling (safe to include on all wp pages) - */
+/* - floorplans - */
 
-/* general locate-by styling */
-div.floorplan-locate-by { margin-bottom: 15px; }
-div.floorplan-locate-by > div {
+/* locate by floor styling */
+div.locate-by-floor  { 
+  /* display list horizontally */ 
+  display: flex;
+  flex-wrap: wrap;
+  font-size: medium;
+
+  /* style as a bordered, padded box */
+  border: 1px solid var(--color-secondary-background-dark);
+  background-color: var(--color-secondary-background-light);
   padding: 10px;
-  border: 1px solid var(--color-secondary-background-dark, #d9dfe3);
+  padding-top: 20px;
 }
-div.floorplan-locate-by > div > ul li { 
+
+/* assorted minor bits */
+div.locate-by-floor strong { padding-right: 15px; }
+div.locate-by-floor ul { margin-top: 0px; }
+div.locate-by-floor a:focus { text-decoration: underline; font-weight: bold; }
+
+/* protect dividers from getting styled by the legacy wordpress.css */ 
+div.locate-by-floor ul li, ul#locate-callno li { 
   background: none;
   margin: unset;
 }
 
-/* locate by call number styling */
-div.locate-by-call-number {
-  background-color: var(--color-secondary-background-light, #f5f5f5);
-}
-div.locate-by-call-number > ul li a { 
-  font-weight: 600;
-}
 
-/* locate by floor styling */
-div.locate-by-floor { 
-  display: flex; 
-  justify-content: flex-end; 
-  background-color: var(--color-secondary-background, #e1e1e1);
+/* floorplans: responsiveness */
+@media only screen and (max-width: 400px){ 
+  /* switch from horizontal list to vertical one */
+  div.locate-by-floor ul.inline-list li, div.tabs ul.inline-list li { display: list-item; }
+  div.locate-by-floor ul.inline-list li img, div.tabs ul.inline-list li img { display: none !important; }
+
+  /* flatten multi-column display into single list on small screens */
+  div.tabs ul.multi-column { 
+    padding-left: 15px !important; 
+    column-count: 1;
+  }
+  
+  /* make the call-numbers */ 
+  div.tabs #locate-resources { column-count: 2 !important; }
 }
-div.locate-by-floor > strong { padding-right: 15px; }

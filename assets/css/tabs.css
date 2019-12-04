@@ -1,0 +1,94 @@
+/* - tabs.css: shout out to [kyusuf](https://github.com/KenanYusuf/) for his [tutorial](https://kyusuf.com/post/completely-css-tabs/) - */
+
+/* show/hide content based on currently selected input */
+div.tabs {
+  box-sizing: border-box;
+  display: flex; 
+  flex-wrap: wrap;
+  background-color: var(--color-secondary-background, gainsboro); 
+  border-radius: 5px;
+  border: 1px solid var(--color-secondary-background-dark, #ccc);
+}
+
+/* hide radio buttons */
+div.tabs > input { 
+  position: absolute;
+  opacity: 0;
+}
+
+/* tab header label */
+div.tabs > label { 
+  cursor: pointer;
+  margin-bottom: 0px;
+  padding: 10px;
+  width: 100%; 
+}
+div.tabs > input:focus + label, div.tabs > input + label:focus { text-decoration: underline; }
+div.tabs > input:hover + label, div.tabs > input + label:hover { background-color: var(--color-secondary-background-light, #ccc); }
+div.tabs > input:checked + label {
+  background-color: var(--color-secondary-background-light, #ccc);
+  font-weight: bold;
+}
+
+/* adjust border presence and radius for top/bottom tabs on small screens */
+div.tabs > input:checked + label {
+  border-top: 1px solid var(--color-secondary-background-dark, #ccc);
+  border-left: none; border-right: none;
+}
+div.tabs > input + label:last-of-type { 
+  border-bottom-left-radius: 5px; 
+  border-bottom-right-radius: 5px;
+}
+div.tabs > input + label:first-of-type { 
+  border-top-left-radius: 5px; 
+  border-top-right-radius: 5px;
+}
+div.tabs > input:first-child:checked + label { 
+  border-top: none;
+  border-left: none;
+}
+
+/* respond to keyboard focus */
+div.tabs a:focus { font-weight: bold; text-decoration: underline; }
+
+
+/* tab content */
+div.tabs > div { 
+  padding: 10px;
+  border-top: 1px solid var(--color-secondary-background-dark, #ccc);
+  display: none; 
+  width: 100%;
+}
+div.tabs > div:last-of-type { 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+div.tabs > input:checked + label + div { 
+  background-color: white !important;
+  display: block; 
+}
+
+/* responsiveness (for large screens) */ 
+@media only screen and (min-width: 375px) {
+  
+  /* show the tab content body underneath the tab headers*/
+  div.tabs > div { 
+    order: 99; 
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  /* adjust tab labels to display horizontally */
+  div.tabs > label  { width: auto; }
+  div.tabs > input:checked + label {
+    border-left: 1px solid var(--color-secondary-background-dark, #ccc);
+    border-right: 1px solid var(--color-secondary-background-dark, #ccc);
+    border-top: none;
+    border-bottom: none;
+  }
+  div.tabs > input + label:first-of-type { border-top-right-radius: 0px; }
+  div.tabs > input + label:last-of-type { 
+    border-bottom-left-radius: 0px; 
+    border-bottom-right-radius: 0px;
+  }
+}

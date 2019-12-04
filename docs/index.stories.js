@@ -4,7 +4,7 @@ import { storiesOf, withKnobs } from '@open-wc/demoing-storybook';
 // demos
 import {header_demo, ensemble_demo, css_vars_demo, footer_demo,} from './branding';
 import {color_demo, feedback_demo, hours_demo, locoso_demo, search_demo, wc_card_demo} from './components';
-import {card_demo, cta_demo} from './nojavascript';
+import {card_demo, cta_demo, tabs_demo} from './nojavascript';
 import {tiles_demo, main_with_sidebar} from './layout';
 
 // css
@@ -38,4 +38,5 @@ storiesOf('components', module)
 storiesOf('no-javascript', module)
   .add('card', () => card_demo(false)+card_demo(true))
   .add('call-to-action', () => cta_demo)
+  .add('tabs', () => tabs_demo)
 ;

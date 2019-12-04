@@ -47,7 +47,7 @@
 .txtl { text-align: left; }
 .txtc { text-align: center; }
 .txtv { vertical-align: middle; }
-.big-text { font-size: 110%; }
+.big-text, .large-text { font-size: 110%; }
 
 /* list styles */
 ul.no-bullet { padding-left: 0em; }
@@ -68,3 +68,16 @@ a.white-link:hover {
 
 /* align labels when material-icons are nearby */
 i.material-icons, i.material-icons-outlined { vertical-align: middle; }
+
+/* accessibility - used to optimize the page for screenreaders (code copied from [Orange-OpenSource](/web_EN/exemples/masquage/index.html) under CC BY SA 3.0)  */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
