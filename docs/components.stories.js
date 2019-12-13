@@ -1,4 +1,39 @@
-export const search_demo = `
+import { storiesOf } from '@open-wc/demoing-storybook';
+import '../src/index';
+
+
+// display the html code above the active display
+const wrapInHtmlCode = (html_example) => { 
+  return `<hr /><code style="white-space: pre-wrap; font-size: small;">
+    ${html_example.replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+  </code><hr /><br />${html_example}`; 
+}
+
+
+const wc_card_demo = (small) => `
+  <h2><code>bulib-card${small? " .small" : ""}</code></h2>
+  <div class="deck">
+    <bulib-card ${small? "small " : ""}title="Email" icon="email" link="https://askalibrarian.bu.edu/form.php?quid=511" debug
+      description="Email us your research questions and we’ll respond within 24 hours."></bulib-card>
+    <bulib-card ${small? "small " : ""}title="Chat" icon="question_answer" action="console.log('chat says hi')" debug
+      description="Talk online to a research librarian on weekdays and Sundays"></bulib-card>
+    <bulib-card ${small? "small " : ""}title="Call" icon="phone" link="tel:6173532700" debug
+      description="Call us at 617-353-2700 during our open hours"></bulib-card>
+  </div>
+`;
+
+storiesOf('web-components', module)
+  // .addDecorator(withKnobs)
+  //.add('bulib-search', () => withClassPropertiesKnobs(BULibSearch))
+  .add('bulib-card',    () => wrapInHtmlCode(wc_card_demo(false)+wc_card_demo(true)), {notes: wrapInHtmlCode(wc_card_demo(false))})
+  .add('bulib-color',   () => wrapInHtmlCode(color_demo))
+  .add('bulib-feedback',() => wrapInHtmlCode(feedback_demo))
+  .add('bulib-hours',   () => wrapInHtmlCode(hours_demo))
+  .add('bulib-locoso',  () => wrapInHtmlCode(locoso_demo))
+  .add('bulib-search',  () => wrapInHtmlCode(search_demo))
+;
+
+const search_demo = `
   <label>Empty (active)</label>
   <bulib-search id="empty-search" debug></bulib-search>
   <br /><br />
@@ -24,7 +59,7 @@ export const search_demo = `
   </bulib-select>
 `;
 
-export const hours_demo = `
+const hours_demo = `
   <h3>&lt;bulib-hours&gt;</h3>
   <bulib-hours></bulib-hours>
 
@@ -42,7 +77,7 @@ export const hours_demo = `
   </bulib-select>
 `;
 
-export const locoso_demo = `
+const locoso_demo = `
   <bulib-locoso library="astronomy" debug></bulib-locoso>
 
   <br /><hr /><br />
@@ -53,23 +88,11 @@ export const locoso_demo = `
   </bulib-select>
 `;
 
-export const wc_card_demo = (small) => `
-  <h2><code>bulib-card${small? " .small" : ""}</code></h2>
-  <div class="deck">
-    <bulib-card ${small? "small " : ""}title="Email" icon="email" link="https://askalibrarian.bu.edu/form.php?quid=511" debug
-      description="Email us your research questions and we’ll respond within 24 hours."></bulib-card>
-    <bulib-card ${small? "small " : ""}title="Chat" icon="question_answer" action="console.log('chat says hi')" debug
-      description="Talk online to a research librarian on weekdays and Sundays"></bulib-card>
-    <bulib-card ${small? "small " : ""}title="Call" icon="phone" link="tel:6173532700" debug
-      description="Call us at 617-353-2700 during our open hours"></bulib-card>
-  </div>
-`;
-
-export const feedback_demo = `
+const feedback_demo = `
   <bulib-feedback code="bulibwc-demo" debug prevent_action></bulib-feedback>
 `;
 
-export const color_demo = `
+const color_demo = `
   <h2><code>bulib-color</code></h2>
 
   <h3><code>&lt;bulib-color var="--color-primary-background"&gt;</code></h3>

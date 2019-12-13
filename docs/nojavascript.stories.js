@@ -1,3 +1,13 @@
+import { storiesOf } from '@open-wc/demoing-storybook';
+import '../assets/css/shared.css';
+
+storiesOf('no-javascript', module)
+  .add('card', () => wrapInHtmlCode(card_demo(false)) )
+  .add('card.small', () => wrapInHtmlCode(card_demo(true)) )
+  .add('call-to-action', () => wrapInHtmlCode(cta_demo))
+  .add('tabs', () => wrapInHtmlCode(tabs_demo))
+;
+
 export const card_demo = (small) => `
   <h2>${small? 'small card (<code>.card.small</code>)': 'normal card (<code>.card</code>)'}</h2>
   <div class="deck">

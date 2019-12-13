@@ -1,3 +1,11 @@
+import { storiesOf } from '@open-wc/demoing-storybook';
+import '../assets/css/shared.css';
+
+storiesOf('layouts', module)
+  .add('tiles', () => tiles_demo)
+  .add('floorplans', () => main_with_sidebar)
+;
+
 export const tiles_demo = `
   <div class="tiles">
     <div class="demo"></div>

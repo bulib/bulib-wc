@@ -1,4 +1,16 @@
-export const ensemble_demo = `
+import { storiesOf } from '@open-wc/demoing-storybook';
+import '../src/index';
+import '../assets/css/shared.css';
+
+storiesOf('branding', module)
+  // .addDecorator(withKnobs)
+  .add('kitchen sink', () => header_demo + ensemble_demo)
+  .add('bulib-header', () => header_demo)
+  .add('colors',       () => css_vars_demo)
+  .add('bulib-footer', () => footer_demo)
+;
+
+const ensemble_demo = `
   <br /><hr /><br />
 
   <h2><code>bulib-hours</code></h2>
@@ -15,7 +27,7 @@ export const ensemble_demo = `
 
   <bulib-footer></bulib-footer>`;
 
-export const header_demo = `
+const header_demo = `
   <div class="header-wrapper">
     <nav>
       <div class="primary-navbar">
@@ -120,7 +132,7 @@ export const header_demo = `
     };
   </script>`;
 
-export const css_vars_demo = `
+const css_vars_demo = `
   <h3>Primary</h3>
   <p>Colors of the header and footer wrappers</p>
 
@@ -171,7 +183,7 @@ export const css_vars_demo = `
   <br /><hr />
 `;
 
-export const footer_demo = `
+const footer_demo = `
   <bulib-footer debug></bulib-footer>
       
   <br /><hr /><br />
@@ -181,3 +193,4 @@ export const footer_demo = `
     tag_name="bulib-footer" attr_name="curr_url"
   ></bulib-select>
 `;
+
