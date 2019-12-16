@@ -1,4 +1,6 @@
 import { storiesOf } from '@open-wc/demoing-storybook';
+import { wrapInHtmlCode } from './components.stories';
+
 import '../assets/css/shared.css';
 
 storiesOf('no-javascript', module)

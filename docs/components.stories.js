@@ -3,7 +3,7 @@ import '../src/index';
 
 
 // display the html code above the active display
-const wrapInHtmlCode = (html_example) => { 
+export const wrapInHtmlCode = (html_example) => { 
   return `<hr /><code style="white-space: pre-wrap; font-size: small;">
     ${html_example.replace(/</g,"&lt;").replace(/>/g,"&gt;")}
   </code><hr /><br />${html_example}`; 
