@@ -78,6 +78,7 @@
         },
         {
           "name": "debug",
+          "description": "enable logging (click tracking)",
           "type": "boolean"
         }
       ],
@@ -121,40 +122,7 @@
         {
           "name": "debug",
           "attribute": "debug",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
-      "name": "bulib-feedback",
-      "attributes": [
-        {
-          "name": "code",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "code",
-          "attribute": "code",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "attribute": "prevent_action",
+          "description": "enable logging (click tracking)",
           "type": "boolean"
         }
       ]
@@ -206,6 +174,40 @@
           "description": "provide window into setting displayed 'locoso' contact data",
           "type": "string",
           "default": "\"help\""
+        }
+      ]
+    },
+    {
+      "name": "bulib-feedback",
+      "attributes": [
+        {
+          "name": "code",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "code",
+          "attribute": "code",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "attribute": "prevent_action",
+          "type": "boolean"
         }
       ]
     },

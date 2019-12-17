@@ -10,27 +10,12 @@ export const wrapInHtmlCode = (html_example) => {
 }
 
 
-const wc_card_demo = (small) => `
-  <h2><code>bulib-card${small? " .small" : ""}</code></h2>
-  <div class="deck">
-    <bulib-card ${small? "small " : ""}title="Email" icon="email" link="https://askalibrarian.bu.edu/form.php?quid=511" debug
-      description="Email us your research questions and we’ll respond within 24 hours."></bulib-card>
-    <bulib-card ${small? "small " : ""}title="Chat" icon="question_answer" action="console.log('chat says hi')" debug
-      description="Talk online to a research librarian on weekdays and Sundays"></bulib-card>
-    <bulib-card ${small? "small " : ""}title="Call" icon="phone" link="tel:6173532700" debug
-      description="Call us at 617-353-2700 during our open hours"></bulib-card>
-  </div>
-`;
-
 storiesOf('web-components', module)
   // .addDecorator(withKnobs)
   //.add('bulib-search', () => withClassPropertiesKnobs(BULibSearch))
-  .add('bulib-card',    () => wrapInHtmlCode(wc_card_demo(false)+wc_card_demo(true)), {notes: wrapInHtmlCode(wc_card_demo(false))})
-  .add('bulib-color',   () => wrapInHtmlCode(color_demo))
   .add('bulib-feedback',() => wrapInHtmlCode(feedback_demo))
   .add('bulib-hours',   () => wrapInHtmlCode(hours_demo))
   .add('bulib-locoso',  () => wrapInHtmlCode(locoso_demo))
-  .add('bulib-search',  () => wrapInHtmlCode(search_demo))
 ;
 
 const search_demo = `
@@ -92,16 +77,3 @@ const feedback_demo = `
   <bulib-feedback code="bulibwc-demo" debug prevent_action></bulib-feedback>
 `;
 
-const color_demo = `
-  <h2><code>bulib-color</code></h2>
-
-  <h3><code>&lt;bulib-color var="--color-primary-background"&gt;</code></h3>
-  <bulib-color var="--color-secondary-background-dark"></bulib-color>
-
-  <br /><hr />
-
-  <h3><code>&lt;bulib-color val="red"&gt;</code></h3>
-  <bulib-color val="red" white></bulib-color>
-
-  <br /><hr />
-`;

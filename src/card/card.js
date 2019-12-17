@@ -23,7 +23,7 @@ export default class BULCard extends LitElement {
       action: {type: String},
       /** add 'small' class to card */
       small: {type: Boolean},
-      
+      /** enable logging (click tracking) */
       debug: {type: Boolean}
     };
   }

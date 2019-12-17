@@ -1,0 +1,84 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import './bulib-card.js';
+
+<Meta 
+  title="Web Components/bulib-card"
+  parameters={{
+    component: "bulib-card",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# Card Component
+
+Used as a shortcut to the "No Javascript" version, `<bulib-card>` presents a more human-readable
+  way to insert/display one or more a prominent, visual calls to action, with Material icons [https://material.io/tools/icons/].
+
+## Usages 
+
+### Alone
+
+<Preview withToolbar>
+  <Story name="alone-default">
+    {html`
+      <bulib-card debug
+        title="Email" icon="email" link="https://askalibrarian.bu.edu/form.php?quid=511" 
+        description="Email us your research questions and we’ll respond within 24 hours.">
+      </bulib-card>`}
+  </Story>
+</Preview>
+
+_add `small` attribute to the card to trigge `.small` styling_
+
+<Preview withToolbar>
+  <Story name="alone-small">
+    {html`
+      <bulib-card small debug
+        title="Email" icon="email" link="https://askalibrarian.bu.edu/form.php?quid=511" 
+        description="Email us your research questions and we’ll respond within 24 hours.">
+      </bulib-card>`}
+  </Story>
+</Preview>
+
+### Deck 
+
+<Preview withToolbar>
+  <Story name="deck-default">
+    {html`
+      <div class="deck">
+        <bulib-card debug 
+          title="Email" icon="email" link="https://askalibrarian.bu.edu/form.php?quid=511"
+          description="Email us your research questions and we’ll respond within 24 hours."></bulib-card>
+        <bulib-card debug 
+          title="Chat" icon="question_answer" action="console.log('chat says hi')"
+          description="Talk online to a research librarian on weekdays and Sundays"></bulib-card>
+        <bulib-card debug 
+          title="Call" icon="phone" link="tel:6173532700"
+          description="Call us at 617-353-2700 during our open hours"></bulib-card>
+      </div>`}
+  </Story>
+</Preview>
+
+_NOTE: decks with `small` cards can hold more cards per row_
+
+<Preview withToolbar>
+  <Story name="deck-small">
+    {html`
+      <div class="deck">
+        <bulib-card debug small
+          title="Email" icon="email" link="https://askalibrarian.bu.edu/form.php?quid=511"
+          description="Email us your research questions and we’ll respond within 24 hours."></bulib-card>
+        <bulib-card debug small
+          title="Chat" icon="question_answer" action="console.log('chat says hi')"
+          description="Talk online to a research librarian on weekdays and Sundays"></bulib-card>
+        <bulib-card debug small
+          title="Call" icon="phone" link="tel:6173532700"
+          description="Call us at 617-353-2700 during our open hours"></bulib-card>
+      </div>`}
+  </Story>
+</Preview>
+
+## API - Properties 
+
+<Props of="bulib-card" />
+
