@@ -7,7 +7,6 @@ storiesOf('branding', module)
   .add('kitchen sink', () => header_demo + ensemble_demo)
   .add('bulib-header', () => header_demo)
   .add('colors',       () => css_vars_demo)
-  .add('bulib-footer', () => footer_demo)
 ;
 
 const ensemble_demo = `
@@ -182,15 +181,3 @@ const css_vars_demo = `
 
   <br /><hr />
 `;
-
-const footer_demo = `
-  <bulib-footer debug></bulib-footer>
-      
-  <br /><hr /><br />
-
-  <bulib-select 
-    sel_title="Select Simulated URL" opt_code="sample_urls" 
-    tag_name="bulib-footer" attr_name="curr_url"
-  ></bulib-select>
-`;
-

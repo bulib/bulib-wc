@@ -2,6 +2,47 @@
   "version": "experimental",
   "tags": [
     {
+      "name": "bulib-color",
+      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
+      "attributes": [
+        {
+          "name": "var",
+          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "type": "string"
+        },
+        {
+          "name": "val",
+          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
+          "type": "string"
+        },
+        {
+          "name": "white",
+          "description": "whether to have a white or a black background",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "var",
+          "attribute": "var",
+          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "type": "string"
+        },
+        {
+          "name": "val",
+          "attribute": "val",
+          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
+          "type": "string"
+        },
+        {
+          "name": "white",
+          "attribute": "white",
+          "description": "whether to have a white or a black background",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
       "name": "bulib-card",
       "description": "display a single concept (heading, description, cta, icon) in a small UI element",
       "attributes": [
@@ -127,47 +168,6 @@
       ]
     },
     {
-      "name": "bulib-color",
-      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
-      "attributes": [
-        {
-          "name": "var",
-          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
-          "type": "string"
-        },
-        {
-          "name": "val",
-          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
-          "type": "string"
-        },
-        {
-          "name": "white",
-          "description": "whether to have a white or a black background",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "var",
-          "attribute": "var",
-          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
-          "type": "string"
-        },
-        {
-          "name": "val",
-          "attribute": "val",
-          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
-          "type": "string"
-        },
-        {
-          "name": "white",
-          "attribute": "white",
-          "description": "whether to have a white or a black background",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
       "name": "bulib-footer",
       "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
       "attributes": [
@@ -178,10 +178,12 @@
         },
         {
           "name": "debug",
+          "description": "[debugging] enable logging for parent and child events",
           "type": "boolean"
         },
         {
           "name": "curr_url",
+          "description": "[debugging] manually simulate the url to override/force different states",
           "type": "string"
         },
         {
@@ -201,11 +203,159 @@
         {
           "name": "debug",
           "attribute": "debug",
+          "description": "[debugging] enable logging for parent and child events",
           "type": "boolean"
         },
         {
           "name": "curr_url",
           "attribute": "curr_url",
+          "description": "[debugging] manually simulate the url to override/force different states",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "attribute": "library",
+          "description": "provide window into setting displayed 'locoso' contact data",
+          "type": "string",
+          "default": "\"help\""
+        }
+      ]
+    },
+    {
+      "name": "bulib-hours",
+      "description": "display the hours of operation for a given library",
+      "attributes": [
+        {
+          "name": "library",
+          "type": "string"
+        },
+        {
+          "name": "short",
+          "type": "boolean"
+        },
+        {
+          "name": "long",
+          "type": "boolean"
+        },
+        {
+          "name": "link_class",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "library",
+          "attribute": "library",
+          "type": "string"
+        },
+        {
+          "name": "short",
+          "attribute": "short",
+          "type": "boolean"
+        },
+        {
+          "name": "long",
+          "attribute": "long",
+          "type": "boolean"
+        },
+        {
+          "name": "link_class",
+          "attribute": "link_class",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-locoso",
+      "description": "display the *LO*cation, *CO*ntact, and *SO*cial media information for\n    a given library within the Boston Universities System.",
+      "attributes": [
+        {
+          "name": "link_class",
+          "description": "optional additional class added to each link in the rendered HTML",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "description": "current library code used as the key to swap between locoso data entries",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "link_class",
+          "attribute": "link_class",
+          "description": "optional additional class added to each link in the rendered HTML",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "attribute": "library",
+          "description": "current library code used as the key to swap between locoso data entries",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-footer",
+      "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
+      "attributes": [
+        {
+          "name": "host_site",
+          "description": "key for the subsite (used to populate the sitemap)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "description": "[debugging] enable logging for parent and child events",
+          "type": "boolean"
+        },
+        {
+          "name": "curr_url",
+          "description": "[debugging] manually simulate the url to override/force different states",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "description": "provide window into setting displayed 'locoso' contact data",
+          "type": "string",
+          "default": "\"help\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "host_site",
+          "attribute": "host_site",
+          "description": "key for the subsite (used to populate the sitemap)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "[debugging] enable logging for parent and child events",
+          "type": "boolean"
+        },
+        {
+          "name": "curr_url",
+          "attribute": "curr_url",
+          "description": "[debugging] manually simulate the url to override/force different states",
           "type": "string"
         },
         {

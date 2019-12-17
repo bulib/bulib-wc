@@ -1,0 +1,69 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import './bulib-footer.min.js';
+
+<Meta 
+  title="Branding/bulib-footer"
+  parameters={{
+    component: "bulib-footer",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# Footer Component
+
+Wrap the bottom of the page with important copywright/branding info, site-specific list of links, 
+  and context-sensitive location, social media, and contact information (via `bulib-locoso`).
+
+## Usages 
+
+### Default (generic)
+
+Without being given any information, the footer speaks generically about the BU Libraries
+  and displays the sitemap for the `about` (wordpress) site.
+
+<Preview withToolbar>
+  <Story name="default">
+    {html`<bulib-footer></bulib-footer>`}
+  </Story>
+</Preview>
+
+### Known Library, Unknown Site
+
+Here the library is specified to Pickering (`pel`) but we've not set any for this particular site, 
+  so we can display hours and particular contact/location info, but still default to the sitemap 
+  for the `about` section.
+
+<Preview withToolbar>
+  <Story name="known-library">
+    {html`<bulib-footer curr_url="http://bu.libcal.com/booking/Pickering-quietstudy"></bulib-footer>`}
+  </Story>
+</Preview>
+
+### Known Library, Known Site
+
+At this url, we know both the `library` and the `main_site` (`help`), so we can display 
+  library-specific information (`pardee`) as well as the sitemap for the askalibrarian site (`help`).
+
+<Preview withToolbar>
+  <Story name="known-library-site">
+    {html`<bulib-footer curr_url="https://askalibrarian.bu.edu/businessFAQs/"></bulib-footer>`}
+  </Story>
+</Preview>
+
+
+### Known Site, Unknown Library
+
+Here the `library` is unspecified (so we don't display any hours or particular info), but the
+  `main_site` is known, so the sitemap is customized for askalibrarian (`help`).
+
+<Preview withToolbar>
+  <Story name="known-site">
+    {html`<bulib-footer curr_url="https://askalibrarian.com/"></bulib-footer>`}
+  </Story>
+</Preview>
+
+
+## API - Properties 
+
+<Props of="bulib-footer" />
+
