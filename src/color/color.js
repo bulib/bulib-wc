@@ -5,8 +5,13 @@ export default class BULibColor extends LitElement {
 
   static get properties() {
     return {
-      var: {type: String}, /** name of a css variable */
+      /** name of a known, default css variable (e.g. 'blue', 'red') */
+      var: {type: String},
+
+      /** css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )*/
       val: {type: String}, /** color code */
+
+      /** whether to have a white or a black background  */
       white: {type: Boolean}
     }
   }

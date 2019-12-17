@@ -1,0 +1,445 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "bulib-color",
+      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
+      "attributes": [
+        {
+          "name": "var",
+          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "type": "string"
+        },
+        {
+          "name": "val",
+          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
+          "type": "string"
+        },
+        {
+          "name": "white",
+          "description": "whether to have a white or a black background",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "var",
+          "attribute": "var",
+          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "type": "string"
+        },
+        {
+          "name": "val",
+          "attribute": "val",
+          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
+          "type": "string"
+        },
+        {
+          "name": "white",
+          "attribute": "white",
+          "description": "whether to have a white or a black background",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-card",
+      "description": "display a single concept (heading, description, cta, icon) in a small UI element",
+      "attributes": [
+        {
+          "name": "title",
+          "description": "name and primary interactable link in the card",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "description": "short bit of text describing the main action/concept",
+          "type": "string"
+        },
+        {
+          "name": "icon",
+          "description": "material icon displayed to the left of the",
+          "type": "string"
+        },
+        {
+          "name": "link",
+          "description": "optional link for the href/window.open() action",
+          "type": "string"
+        },
+        {
+          "name": "action",
+          "description": "custom javascript",
+          "type": "string"
+        },
+        {
+          "name": "small",
+          "description": "add 'small' class to card",
+          "type": "boolean"
+        },
+        {
+          "name": "debug",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "title",
+          "attribute": "title",
+          "description": "name and primary interactable link in the card",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "attribute": "description",
+          "description": "short bit of text describing the main action/concept",
+          "type": "string"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "material icon displayed to the left of the",
+          "type": "string"
+        },
+        {
+          "name": "link",
+          "attribute": "link",
+          "description": "optional link for the href/window.open() action",
+          "type": "string"
+        },
+        {
+          "name": "action",
+          "attribute": "action",
+          "description": "custom javascript",
+          "type": "string"
+        },
+        {
+          "name": "small",
+          "attribute": "small",
+          "description": "add 'small' class to card",
+          "type": "boolean"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-footer",
+      "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
+      "attributes": [
+        {
+          "name": "host_site",
+          "description": "key for the subsite (used to populate the sitemap)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "type": "boolean"
+        },
+        {
+          "name": "curr_url",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "description": "provide window into setting displayed 'locoso' contact data",
+          "type": "string",
+          "default": "\"help\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "host_site",
+          "attribute": "host_site",
+          "description": "key for the subsite (used to populate the sitemap)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "type": "boolean"
+        },
+        {
+          "name": "curr_url",
+          "attribute": "curr_url",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "attribute": "library",
+          "description": "provide window into setting displayed 'locoso' contact data",
+          "type": "string",
+          "default": "\"help\""
+        }
+      ]
+    },
+    {
+      "name": "bulib-feedback",
+      "attributes": [
+        {
+          "name": "code",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "code",
+          "attribute": "code",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "attribute": "prevent_action",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-hours",
+      "description": "display the hours of operation for a given library",
+      "attributes": [
+        {
+          "name": "library",
+          "type": "string"
+        },
+        {
+          "name": "short",
+          "type": "boolean"
+        },
+        {
+          "name": "long",
+          "type": "boolean"
+        },
+        {
+          "name": "link_class",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "library",
+          "attribute": "library",
+          "type": "string"
+        },
+        {
+          "name": "short",
+          "attribute": "short",
+          "type": "boolean"
+        },
+        {
+          "name": "long",
+          "attribute": "long",
+          "type": "boolean"
+        },
+        {
+          "name": "link_class",
+          "attribute": "link_class",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-locoso",
+      "description": "display the *LO*cation, *CO*ntact, and *SO*cial media information for\n    a given library within the Boston Universities System.",
+      "attributes": [
+        {
+          "name": "link_class",
+          "description": "optional additional class added to each link in the rendered HTML",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "description": "current library code used as the key to swap between locoso data entries",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "link_class",
+          "attribute": "link_class",
+          "description": "optional additional class added to each link in the rendered HTML",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "attribute": "library",
+          "description": "current library code used as the key to swap between locoso data entries",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-search",
+      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
+      "attributes": [
+        {
+          "name": "str_selected",
+          "description": "selected search source (defaulted to first option)",
+          "type": "string"
+        },
+        {
+          "name": "str_options",
+          "description": "search sources included in the dropdown (defaulted to all)",
+          "type": "string"
+        },
+        {
+          "name": "search_btn_classes",
+          "description": "classes added to the search <button>",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "str_selected",
+          "attribute": "str_selected",
+          "description": "selected search source (defaulted to first option)",
+          "type": "string"
+        },
+        {
+          "name": "str_options",
+          "attribute": "str_options",
+          "description": "search sources included in the dropdown (defaulted to all)",
+          "type": "string"
+        },
+        {
+          "name": "search_btn_classes",
+          "attribute": "search_btn_classes",
+          "description": "classes added to the search <button>",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "attribute": "prevent_action",
+          "type": "boolean"
+        },
+        {
+          "name": "options",
+          "type": "never[]",
+          "default": "[]"
+        },
+        {
+          "name": "selected",
+          "type": "object",
+          "default": "{}"
+        }
+      ]
+    },
+    {
+      "name": "bulib-select",
+      "attributes": [
+        {
+          "name": "sel_title",
+          "description": "title displayed next to the dropdown",
+          "type": "string"
+        },
+        {
+          "name": "curr_sel",
+          "description": "currently selected item code (referring to values in option map)",
+          "type": "string"
+        },
+        {
+          "name": "opt_code",
+          "description": "the key for which option map to use for populating the dropdown",
+          "type": "string"
+        },
+        {
+          "name": "tag_name",
+          "description": "the name of the tag which we desire to update (e.g. <bulib-locoso> = 'bulib-locoso')",
+          "type": "string"
+        },
+        {
+          "name": "attr_name",
+          "description": "the attribute of that tag which needs to be changed",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "sel_title",
+          "attribute": "sel_title",
+          "description": "title displayed next to the dropdown",
+          "type": "string"
+        },
+        {
+          "name": "curr_sel",
+          "attribute": "curr_sel",
+          "description": "currently selected item code (referring to values in option map)",
+          "type": "string"
+        },
+        {
+          "name": "opt_code",
+          "attribute": "opt_code",
+          "description": "the key for which option map to use for populating the dropdown",
+          "type": "string"
+        },
+        {
+          "name": "tag_name",
+          "attribute": "tag_name",
+          "description": "the name of the tag which we desire to update (e.g. <bulib-locoso> = 'bulib-locoso')",
+          "type": "string"
+        },
+        {
+          "name": "attr_name",
+          "attribute": "attr_name",
+          "description": "the attribute of that tag which needs to be changed",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "type": "boolean"
+        }
+      ]
+    }
+  ]
+}

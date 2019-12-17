@@ -1,0 +1,35 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import './bulib-color.js';
+
+<Meta 
+  title="Web Components/bulib-color"
+  parameters={{
+    component: "bulib-color",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# Color Component
+
+(testing) Demonstrate a given color with a predetermined primitive _value_ (e.g. `val="red"`) 
+  or a css _variable_ (`var="--color-accent-background"`)
+
+<Preview withToolbar>
+  <Story name="Value">
+    {html`<bulib-color val="red"></bulib-color>`}
+  </Story>
+</Preview>
+
+## API
+
+<Props of="bulib-color" />
+
+## Variations
+
+###### Custom Title
+
+<Preview withToolbar>
+  <Story name="Variable">
+    {html`<bulib-color var="--color-accent-background" white></bulib-color>`}
+  </Story>
+</Preview>
