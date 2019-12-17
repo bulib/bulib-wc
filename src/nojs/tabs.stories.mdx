@@ -1,0 +1,38 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+
+<Meta title="No Javascript/tabs" />
+
+# Tabs
+
+Display a variety of related content in a single pane.
+
+
+## Example
+
+_NOTE: 'preview' for this is currently broken, but we'll fix that later_
+
+```html
+<div class="tabs">
+  <input type="radio" name="tabs" id="option-1" checked>
+  <label for="option-1">Option One</label>
+  <div>the content within the first option</div>
+  
+  <input type="radio" name="tabs" id="option-2">
+  <label for="option-2">Option Two</label>
+  <div>the content within the second option</div>
+
+  <input type="radio" name="tabs" id="option-3">
+  <label for="option-3">Option Three</label>
+  <div>the content within the third option</div>
+</div>
+```
+
+<!--Preview>
+  <Story name="Simple">
+    {html`<div class="tabs">
+        <input type="radio" name="tabs" id="option-1" checked>
+        <label for="option-1">Option One</label>
+        <div>the content within the first option</div>
+      </div>`}
+  </Story>
+</Preview-->

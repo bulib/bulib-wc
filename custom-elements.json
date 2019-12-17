@@ -2,47 +2,6 @@
   "version": "experimental",
   "tags": [
     {
-      "name": "bulib-color",
-      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
-      "attributes": [
-        {
-          "name": "var",
-          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
-          "type": "string"
-        },
-        {
-          "name": "val",
-          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
-          "type": "string"
-        },
-        {
-          "name": "white",
-          "description": "whether to have a white or a black background",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "var",
-          "attribute": "var",
-          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
-          "type": "string"
-        },
-        {
-          "name": "val",
-          "attribute": "val",
-          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
-          "type": "string"
-        },
-        {
-          "name": "white",
-          "attribute": "white",
-          "description": "whether to have a white or a black background",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
       "name": "bulib-card",
       "description": "display a single concept (heading, description, cta, icon) in a small UI element",
       "attributes": [
@@ -123,6 +82,47 @@
           "name": "debug",
           "attribute": "debug",
           "description": "enable logging (click tracking)",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-color",
+      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
+      "attributes": [
+        {
+          "name": "var",
+          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "type": "string"
+        },
+        {
+          "name": "val",
+          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
+          "type": "string"
+        },
+        {
+          "name": "white",
+          "description": "whether to have a white or a black background",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "var",
+          "attribute": "var",
+          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "type": "string"
+        },
+        {
+          "name": "val",
+          "attribute": "val",
+          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
+          "type": "string"
+        },
+        {
+          "name": "white",
+          "attribute": "white",
+          "description": "whether to have a white or a black background",
           "type": "boolean"
         }
       ]
