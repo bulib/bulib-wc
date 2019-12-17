@@ -126,6 +126,40 @@
       ]
     },
     {
+      "name": "bulib-feedback",
+      "attributes": [
+        {
+          "name": "code",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "code",
+          "attribute": "code",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "attribute": "prevent_action",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
       "name": "bulib-footer",
       "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
       "attributes": [
@@ -172,40 +206,6 @@
           "description": "provide window into setting displayed 'locoso' contact data",
           "type": "string",
           "default": "\"help\""
-        }
-      ]
-    },
-    {
-      "name": "bulib-feedback",
-      "attributes": [
-        {
-          "name": "code",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "code",
-          "attribute": "code",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "attribute": "prevent_action",
-          "type": "boolean"
         }
       ]
     },
@@ -302,75 +302,6 @@
       ]
     },
     {
-      "name": "bulib-search",
-      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
-      "attributes": [
-        {
-          "name": "str_selected",
-          "description": "selected search source (defaulted to first option)",
-          "type": "string"
-        },
-        {
-          "name": "str_options",
-          "description": "search sources included in the dropdown (defaulted to all)",
-          "type": "string"
-        },
-        {
-          "name": "search_btn_classes",
-          "description": "classes added to the search <button>",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "str_selected",
-          "attribute": "str_selected",
-          "description": "selected search source (defaulted to first option)",
-          "type": "string"
-        },
-        {
-          "name": "str_options",
-          "attribute": "str_options",
-          "description": "search sources included in the dropdown (defaulted to all)",
-          "type": "string"
-        },
-        {
-          "name": "search_btn_classes",
-          "attribute": "search_btn_classes",
-          "description": "classes added to the search <button>",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "attribute": "prevent_action",
-          "type": "boolean"
-        },
-        {
-          "name": "options",
-          "type": "never[]",
-          "default": "[]"
-        },
-        {
-          "name": "selected",
-          "type": "object",
-          "default": "{}"
-        }
-      ]
-    },
-    {
       "name": "bulib-select",
       "attributes": [
         {
@@ -437,6 +368,69 @@
         {
           "name": "debug",
           "attribute": "debug",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-search",
+      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
+      "attributes": [
+        {
+          "name": "str_selected",
+          "description": "selected search source (defaulted to first option)",
+          "type": "string"
+        },
+        {
+          "name": "str_options",
+          "description": "search sources included in the dropdown (defaulted to just 'primo')",
+          "type": "string"
+        },
+        {
+          "name": "search_btn_classes",
+          "description": "classes added to the search `<button>`",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "description": "[debugging] log actions to the console",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "description": "[debugging] prevent search button from executing and updating the window location",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "str_selected",
+          "attribute": "str_selected",
+          "description": "selected search source (defaulted to first option)",
+          "type": "string"
+        },
+        {
+          "name": "str_options",
+          "attribute": "str_options",
+          "description": "search sources included in the dropdown (defaulted to just 'primo')",
+          "type": "string"
+        },
+        {
+          "name": "search_btn_classes",
+          "attribute": "search_btn_classes",
+          "description": "classes added to the search `<button>`",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "[debugging] log actions to the console",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "attribute": "prevent_action",
+          "description": "[debugging] prevent search button from executing and updating the window location",
           "type": "boolean"
         }
       ]

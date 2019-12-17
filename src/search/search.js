@@ -30,8 +30,8 @@ export default class BULibSearch extends LitElement {
 
   constructor(){ 
     super(); 
-    this.options = [];
-    this.selected = {};
+    this._options = [];
+    this._selected = {};
   }
 
   /** allow consumer to set the options available in the dropdown, and which one is selected */
@@ -39,13 +39,14 @@ export default class BULibSearch extends LitElement {
     return {
       /** selected search source (defaulted to first option) */
       str_selected: {type: String},
-      /** search sources included in the dropdown (defaulted to all) */
+      /** search sources included in the dropdown (defaulted to just 'primo') */
       str_options: {type: String},
-      /** classes added to the search <button> */
+      /** classes added to the search `<button>` */
       search_btn_classes: {type: String},
       
-      /* configurable defaults for logging, dropdown, submission action */
+      /** [debugging] log actions to the console  */
       debug: {type: Boolean},
+      /** [debugging] prevent search button from executing and updating the window location */
       prevent_action: {type: Boolean}
     };
   }
@@ -121,15 +122,15 @@ export default class BULibSearch extends LitElement {
 
   render() {
     this._setSelectedOptions();
-    let hidden_html = (!this.options || this.options.length <= 1)? " hidden": "";
+    let hidden_html = (!this._options || this._options.length <= 1)? " hidden": "";
     
     return html`
       <div class="bulib-search-wrapper">
         <div id="bulib-search">
           <div class="search-box">
-            <input type="text" id="search-query-input" placeholder="${this.selected["placeholder"]}" 
+            <input type="text" id="search-query-input" placeholder="${this._selected["placeholder"]}" 
               @keypress="${(e) => this._handleSearchEnter(e)}">
-            <button type="submit" title="Search ${this.selected["name"]}" class="${this.search_btn_classes}" 
+            <button type="submit" title="Search ${this._selected["name"]}" class="${this.search_btn_classes}" 
               @click="${(e) => this._doSearch()}" style="margin-left: 0px;">
               <!-- material-icon svg from https://material.io/resources/icons/?icon=search&style=baseline -->
               <svg xmlns="http://www.w3.org/2000/svg" style="padding-top: 2px;" width="30" height="30" fill="white" viewBox="0 0 24 24">
@@ -139,9 +140,9 @@ export default class BULibSearch extends LitElement {
             </button>
           </div>
           <div class="search-options${hidden_html}">
-            ${this.options.map((o) => html`
+            ${this._options.map((o) => html`
               <label>
-                ${this.selected["value"] == o.value
+                ${this._selected["value"] == o.value
                   ? html`<input type="radio" name="source" value="${o.value}" checked
                             @change="${(e) => this.str_selected = handleSearchSelect(e)}"
                             @keypress="${(k) => this._handleSearchEnter(k)}">${o.name}` 
@@ -161,7 +162,7 @@ export default class BULibSearch extends LitElement {
   _setSelectedOptions(){
     
     // try to set 'options' and 'selected' based on user input (with fallbacks) 
-    this.options = []; this.selected = {};
+    this._options = []; this._selected = {};
     if(!this.str_options || this.str_options === ""){ 
       this.str_options = default_to_just_primo? ["primo"] : search_options;
     }
@@ -172,13 +173,13 @@ export default class BULibSearch extends LitElement {
       optionCode = selectedOptionCodes[i];
       if(optionCode && search_option_codes.includes(optionCode)){ 
         option = _getOptionFromCode(optionCode);
-        if(option){ this.options.push(option); }
+        if(option){ this._options.push(option); }
       }
     }
 
     // set 'str_selected', defaulting to the first 'option'
-    if(Object.keys(this.selected).length == 0){ 
-      this.selected = _getOptionFromCode(this.str_selected, this.options); 
+    if(Object.keys(this._selected).length == 0){ 
+      this._selected = _getOptionFromCode(this.str_selected, this._options); 
     }
   }
 
@@ -189,7 +190,7 @@ export default class BULibSearch extends LitElement {
     let query = userInputElem ? userInputElem.value : "";
 
     // track and store the selected option and its information
-    let option = (Object.keys(this.selected).length > 0) ? this.selected : this.options[0];
+    let option = (Object.keys(this._selected).length > 0) ? this._selected : this._options[0];
     let site = option["value"];
     let domain = option["domain"] || "";
 
