@@ -17,12 +17,16 @@ export default class BULibHours extends LitElement {
 
   static get properties() {
     return { 
+      /** established which library we're displaying the hours/info of */
       library: {type: String}, 
-      
+      /** alters the default display to be more succint/compact */
       short:{type: Boolean},
+      /** alters the default display to be more descriptive/verbose */
       long: {type: Boolean},
-      
+      /** provides means of adding classes to the inner link */
       link_class: {type: String},
+
+      /** [debugging] enable logging to the console */
       debug: {type: Boolean}
     };
   }

@@ -1,0 +1,62 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import '../index.js';
+
+<Meta 
+  title="Web Components/bulib-hours"
+  parameters={{
+    component: "bulib-hours",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# Library Hours Component
+
+Display hours information for a particular `library` in a variety of formats, via calls to the libcal API with 
+  help from `_helpers/lib_info_helper.js`.
+
+## Usages 
+
+### Default (generic)
+
+Without being given any information we assume the `library` to be `mugar-memorial`.
+
+<Preview withToolbar>
+  <Story name="default">
+    {html`<bulib-hours></bulib-hours>`}
+  </Story>
+</Preview>
+
+### Custom Library
+
+You can customize which library's hours information appears by setting the `library` value:
+
+<Preview withToolbar>
+  <Story name="library">
+    {html`<bulib-hours library="sel"></bulib-hours>`}
+  </Story>
+</Preview>
+
+### Visual Customizations
+
+You can also adjust the manner in which the information is displayed by adding bare `short` or `long` attributes
+
+#### Mini Display (`short`)
+
+<Preview withToolbar>
+  <Story name="visual-1-short">
+    {html`<bulib-hours short></bulib-hours>`}
+  </Story>
+</Preview>
+
+#### Verbose Display (`long`)
+
+<Preview withToolbar>
+  <Story name="visual-2-long">
+    {html`<bulib-hours long></bulib-hours>`}
+  </Story>
+</Preview>
+
+## API - Properties 
+
+<Props of="bulib-hours" />
+
