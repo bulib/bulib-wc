@@ -23,9 +23,9 @@
     "build:rollup": "rollup -c rollup.config.js",
     "build:owc": "rollup -c rollup.config.owc.js",
     "prebuild:storybook": "npm run css",
-    "build:storybook": "build-storybook --stories 'src/*/*.stories.mdx' -o _site",
+    "build:storybook": "build-storybook --stories 'src/*/*.stories.mdx' -o _site && cp dist/bundle.css _site/bundle.css",
     "deploy": "./scripts/deploy.sh",
-    "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -o _site"
+    "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -e _site -o _site"
   },
   "repository": {
     "type": "git",
