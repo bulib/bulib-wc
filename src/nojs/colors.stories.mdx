@@ -1,0 +1,87 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import '../color/bulib-color.js';
+
+<Meta 
+  title="Branding|Color Scheme"
+  parameters={{
+    component: "bulib-color",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# Color Scheme 
+
+Colors are an important part of making sites look cohesive and related. 
+
+This page exists to demonstrate the branding decisions described in the 
+  university-wide branding guidelines [http://www.bu.edu/brand/guidelines/design/colors/] and how they 
+  relate to BU Libraries CSS Variables [/assets/css/variables.css].
+
+## Primary 
+
+Colors that wrap the main content of the page, used in the header and footer.
+
+
+<Story name="Primary">
+  {html`
+    <div class="tiles">
+      <bulib-color var="--color-primary-background" white></bulib-color>
+      <bulib-color var="--color-primary-background-light" white></bulib-color>
+      <bulib-color var="--color-primary-background-dark" white></bulib-color>
+      <bulib-color var="--color-primary-text"></bulib-color>
+      <bulib-color var="--color-primary-text-light"></bulib-color>
+    </div>
+  `}
+</Story>
+
+
+## Secondory (banner styling)
+
+Used in the banner (under the header) and in various assorted section of UI (e.g. `tabs`).
+
+<Story name="Secondary">
+  {html`
+    <div class="tiles">
+      <bulib-color var="--color-secondary-background"></bulib-color>
+      <bulib-color var="--color-secondary-background-light"></bulib-color>
+      <bulib-color var="--color-secondary-background-dark"></bulib-color>
+      <bulib-color var="--color-secondary-text" white></bulib-color>
+      <bulib-color var="--color-secondary-text-dark" white></bulib-color>
+    </div>
+  `}
+</Story>
+
+
+
+## Calls to Action (CTAs)
+
+Buttons, links, and things that the user can/should interact with.
+
+
+<Story name="Calls to Action">
+  {html`
+    <div class="tiles">
+      <bulib-color var="--color-button-background" white></bulib-color>
+      <bulib-color var="--color-button-background-accent" white></bulib-color>
+      <bulib-color var="--color-button-background-dark" white></bulib-color>
+      <bulib-color var="--color-button-text"></bulib-color>
+    </div>
+  `}
+</Story>
+
+
+
+## Accents 
+
+Particular items (or calls to action) that you want to draw particular attention to (use sparingly).
+
+
+<Story name="Accents">
+  {html`
+    <div class="tiles">
+      <bulib-color var="--color-accent-background" white></bulib-color>
+      <bulib-color var="--color-accent-text"></bulib-color>
+      <bulib-color var="--color-accent-text-hover"></bulib-color>
+    </div>
+  `}
+</Story>

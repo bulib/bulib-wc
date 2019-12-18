@@ -6,7 +6,6 @@ storiesOf('branding', module)
   // .addDecorator(withKnobs)
   .add('kitchen sink', () => header_demo + ensemble_demo)
   .add('bulib-header', () => header_demo)
-  .add('colors',       () => css_vars_demo)
 ;
 
 const ensemble_demo = `
@@ -130,54 +129,3 @@ const header_demo = `
       addSendGAEventOnAnchorClickToAnchorElements(ctaLinks, "cta");
     };
   </script>`;
-
-const css_vars_demo = `
-  <h3>Primary</h3>
-  <p>Colors of the header and footer wrappers</p>
-
-  <div class="tiles">
-    <bulib-color var="--color-primary-background" white></bulib-color>
-    <bulib-color var="--color-primary-background-light" white></bulib-color>
-    <bulib-color var="--color-primary-background-dark" white></bulib-color>
-    <bulib-color var="--color-primary-text"></bulib-color>
-    <bulib-color var="--color-primary-text-light"></bulib-color>
-  </div>
-
-  <br /><hr />
-
-  <h3>Secondary</h3>
-  <p>Used in the banner (under the header)</p>
-
-  <div class="tiles">
-    <bulib-color var="--color-secondary-background"></bulib-color>
-    <bulib-color var="--color-secondary-background-light"></bulib-color>
-    <bulib-color var="--color-secondary-background-dark"></bulib-color>
-    <bulib-color var="--color-secondary-text" white></bulib-color>
-    <bulib-color var="--color-secondary-text-dark" white></bulib-color>
-  </div>
-
-  <br /><hr />
-
-  <h3>Accent Color</h3>
-  <p>BU Official Red</p>
-
-  <div class="tiles">
-    <bulib-color var="--color-accent-background" white></bulib-color>
-    <bulib-color var="--color-accent-text"></bulib-color>
-    <bulib-color var="--color-accent-text-hover"></bulib-color>
-  </div>
-
-  <br /><hr />
-
-  <h3>Calls-to-Action</h3>
-  <p>Buttons and things to click on</p>
-
-  <div class="tiles">
-    <bulib-color var="--color-button-background" white></bulib-color>
-    <bulib-color var="--color-button-background-accent" white></bulib-color>
-    <bulib-color var="--color-button-background-dark" white></bulib-color>
-    <bulib-color var="--color-button-text"></bulib-color>
-  </div>
-
-  <br /><hr />
-`;
