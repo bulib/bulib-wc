@@ -1,4 +1,5 @@
 import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import '../index.js';
 
 <Meta title="No Javascript|ctas" />
 
@@ -9,46 +10,38 @@ Display a (reasonable) number of similar links in a visually compelling block.
 
 ## Usage
 
-_NOTE: 'preview' for this is currently broken, but we'll fix that later_
+<Preview>
+  <Story name="ctas-example">
+    {html`
+      <div class="ctas">
+        <div class="cta"><h3><a href="/borrow">Borrowing Items</a></h3></div>
+        <div class="cta"><h3><a href="/alumni">Alumni</a></h3></div>
+        <div class="cta"><h3><a href="/where">Where is it?</a></h3></div>
+        <div class="cta"><h3><a href="/trouble">Troubleshooting</a></h3></div>
+        <div class="cta"><h3><a href="/form.php">Newspapers</a></h3></div>
+        <div class="cta"><h3><a href="/form.php">Journals</a></h3></div>
+        <div class="cta"><h3><a href="/businessFAQs">Business FAQS</a></h3></div>
+        <div class="cta"><h3><a href="/all">All Topics</a></h3></div>
+      </div>
+    `}
+  </Story>
+</Preview>
 
-```html
-<div class="ctas">
-  <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Borrowing','_self')">
-    <h3><a href="/search/?g=716&amp;topics=Borrowing">Borrowing Items</a></h3>
-  </div>
-
-  <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1','_self')">
-    <h3><a href="/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1">Alumni</a></h3>
-  </div>
-
-  <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1','_self')">
-    <h3><a href="/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1">Where is it?</a></h3>
-  </div>
-
-  <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Troubleshooting','_self')">
-    <h3><a href="/search/?g=716&amp;topics=Troubleshooting">Troubleshooting</a></h3>
-  </div>
-
-  <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1','_self')">
-    <h3><a href="/search/?t=0&amp;g=716&amp;topics=Newspapers&amp;adv=1">Newspapers</a></h3>
-  </div>
-
-  <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1','_self')">
-    <h3><a href="/search/?t=0&amp;g=716&amp;topics=Journals&amp;adv=1">Journals</a></h3>
-  </div>
-
-  <div class="cta" onclick="window.open('/businessFAQs/','_self')">
-    <h3><a href="/businessFAQs/">Pardee / Management</a></h3>
-  </div>
-
-  <div class="cta" onclick="window.open('/search/?t=0&adv=1&topics=Services','_self')">
-    <h3><a href="/search/?t=0&adv=1&topics=Services">Services</a></h3>
-  </div>
-
-  <div class="cta" onclick="window.open('/search/','_self')">
-    <h3><a href="/search">All Topics</a></h3>
-  </div>
-</div>
-```
+<Preview>
+  <Story name="tiles-example">
+    {html`
+      <div class="tiles">
+        <div class="cta"><h3><a href="/borrow">Borrowing Items</a></h3></div>
+        <div class="cta"><h3><a href="/alumni">Alumni</a></h3></div>
+        <div class="cta"><h3><a href="/where">Where is it?</a></h3></div>
+        <div class="cta"><h3><a href="/trouble">Troubleshooting</a></h3></div>
+        <div class="cta"><h3><a href="/form.php">Newspapers</a></h3></div>
+        <div class="cta"><h3><a href="/form.php">Journals</a></h3></div>
+        <div class="cta"><h3><a href="/businessFAQs">Business FAQS</a></h3></div>
+        <div class="cta"><h3><a href="/all">All Topics</a></h3></div>
+      </div>
+    `}
+  </Story>
+</Preview>
 
 _NOTE: it's useful to then add event-listeners via `_helpers/google-analytix.js`_
