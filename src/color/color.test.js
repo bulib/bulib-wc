@@ -12,6 +12,12 @@ describe('bulib-color', () => {
     expect(el.renderRoot.innerHTML).not.to.equal("");
   });
 
+  it('to effectively default to a color when unspecified', async () => {
+    const valElement = await fixture(html`<bulib-color></bulib-color>`)
+    let actualBgColor = bgColorOfBulibColorElement(valElement);
+    expect(actualBgColor).to.equal("lightblue");
+  });
+
   it('to effectively set a specified background color value', async () => {
     const valElement = await fixture(html`<bulib-color val="red"></bulib-color>`)
     let actualBgColor = bgColorOfBulibColorElement(valElement);
