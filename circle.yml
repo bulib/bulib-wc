@@ -25,6 +25,7 @@ jobs:
       - run: 
           name: build with open-wc
           command: npm run build:owc;
+      - run: npm run test;
       - store_artifacts:
           name: upload bundle
           path: /root/project/dist/

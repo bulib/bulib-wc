@@ -18,7 +18,8 @@ async function run() {
       config: {},
       options: {
         checks: { 'color-contrast': { options: { noScroll: true } } },
-        restoreScroll: true
+        restoreScroll: true,
+        panelPosition: 'bottom'
       }
     },
     docs: {

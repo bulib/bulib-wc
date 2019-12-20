@@ -5,8 +5,13 @@ set -e
 
 # rebuild, update, and publish as package
 npm run build:all
-npm version patch
-npm publish
+
+# make sure that it works
+npm run test 
 
 # update the demo-site to reflect it
 npm run deploy:storybook
+
+# update the npm version
+npm version patch
+# npm publish
