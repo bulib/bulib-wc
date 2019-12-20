@@ -1,11 +1,12 @@
-import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import { Story, Preview, Meta, Props, html, withKnobs, withWebComponentsKnobs } from '@open-wc/demoing-storybook';
 import './bulib-card.js';
 
 <Meta 
   title="Web Components|bulib-card"
+  decorators={[withKnobs, withWebComponentsKnobs]}
   parameters={{
     component: "bulib-card",
-    options: { selectedPanel: "storybookjs/knobs/panel" }
+    options: { selectedPanel: "storybookjs/knobs/panel" },
   }}
 />
 

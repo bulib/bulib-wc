@@ -1,8 +1,9 @@
-import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import { Story, Preview, Meta, Props, html, withKnobs, withWebComponentsKnobs } from '@open-wc/demoing-storybook';
 import '../index.js';
 
 <Meta 
   title="Web Components|bulib-locoso"
+  decorators={[withKnobs, withWebComponentsKnobs]}
   parameters={{
     component: "bulib-locoso",
     options: { selectedPanel: "storybookjs/knobs/panel" }

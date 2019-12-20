@@ -1,8 +1,9 @@
-import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import { Story, Preview, Meta, Props, html, withKnobs, withWebComponentsKnobs } from '@open-wc/demoing-storybook';
 import './bulib-feedback.js';
 
 <Meta 
   title="Web Components|bulib-feedback"
+  decorators={[withKnobs, withWebComponentsKnobs]}
   parameters={{
     component: "bulib-feedback",
     options: { selectedPanel: "storybookjs/knobs/panel" }
