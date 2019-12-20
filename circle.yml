@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: cypress/base:10
         environment:
-          - CHROME_BIN=/usr/bin/google-chrome
+          - CHROME_BIN: /usr/bin/google-chrome
     steps:
       - checkout
       - restore_cache:
