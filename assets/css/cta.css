@@ -1,7 +1,10 @@
 /* -- calls to action -- */
 
-div.ctas {
+div.ctas, div.cta {
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+div.ctas {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -9,30 +12,36 @@ div.ctas {
 }
 div.cta { 
   text-align: center;
+
   flex-basis: 100%;
   min-width: 175px;
   max-width: 275px;
   margin: 12px;
   
-  background-color: #fefefe;
-  border: 2px solid #e1e1e1;
+  background-color: transparent;
+  border: 2px solid var(--color-secondary-background-dark, #efefef);
   border-radius: 4px;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+  box-shadow: 0 1px 1px 0 var(--color-secondary-background-dark, rgba(0,0,0,.1));
 }
 div.cta a {
   font-weight: 400;
   font-size: large;
-  color: #0B4473;
+  color: var(--color-button-background-dark, rgb(86, 93, 99));
+
+  /* increase clickable area without affecting visual display */
+  padding: 1em 2em;     
+  margin: -1em -2em; 
 }
+
 div.cta h3 {
   margin: 0px;
   padding: 20px 0px;
   font-size: 1.5em;
 }
 div.cta:hover { 
-  background-color: gainsboro; 
+  background-color: var(--color-secondary-background, gainsboro); 
   cursor: pointer;
 }
-.ctas .cta:last-of-type{
+.ctas .cta:last-of-type {
   text-transform: uppercase;
 }

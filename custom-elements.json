@@ -137,7 +137,7 @@
         },
         {
           "name": "debug",
-          "description": "[debugging] enables controls logging to the console",
+          "description": "[debugging] enables logging to the console",
           "type": "boolean"
         },
         {
@@ -156,7 +156,7 @@
         {
           "name": "debug",
           "attribute": "debug",
-          "description": "[debugging] enables controls logging to the console",
+          "description": "[debugging] enables logging to the console",
           "type": "boolean"
         },
         {

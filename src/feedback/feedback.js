@@ -13,7 +13,7 @@ export default class BULibFeedback extends LitElement {
       /** unique identifier for each feedback input (event category)*/
       code: {type:String},
       
-      /** [debugging] enables controls logging to the console */
+      /** [debugging] enables logging to the console */
       debug: {type:Boolean},
 
       /** [debugging] override main action (prevent GAEvent logging) */
