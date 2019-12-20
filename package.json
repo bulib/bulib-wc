@@ -25,7 +25,8 @@
     "prebuild:storybook": "npm run css",
     "build:storybook": "build-storybook --stories 'src/*/*.stories.mdx' -o _site && cp dist/bundle.css _site/bundle.css",
     "deploy": "./scripts/deploy.sh",
-    "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -e _site -o _site"
+    "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -e _site -o _site",
+    "test": "karma start"
   },
   "repository": {
     "type": "git",
@@ -51,9 +52,12 @@
   "devDependencies": {
     "@open-wc/building-rollup": "^0.16.0",
     "@open-wc/demoing-storybook": "^1.0.1",
+    "@open-wc/testing": "^2.0.0",
+    "@open-wc/testing-karma": "^3.0.0",
     "@storybook/cli": "^5.2.3",
     "@storybook/storybook-deployer": "^2.8.1",
     "cypress": "^3.4.1",
+    "deepmerge": "^3.2.0",
     "es-dev-server": "^1.5.0",
     "material-icons": "^0.3.1",
     "npm-run-all": "^4.1.5",
