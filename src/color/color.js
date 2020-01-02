@@ -3,6 +3,12 @@ import {LitElement, html, css} from 'lit-element/lit-element';
 /** context-sensitive search form allowing you to search across multiple 'search_options' */
 export default class BULibColor extends LitElement {
 
+  /** set a default 'val' color (if nothing is set) */
+  updated(){
+    super.connectedCallback();
+    if(!this.var && !this.val){ this.val = "lightblue"; }
+  }  
+
   static get properties() {
     return {
       /** name of a known, default css variable (e.g. 'blue', 'red') */
