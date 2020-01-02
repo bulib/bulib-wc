@@ -1,0 +1,46 @@
+import { Story, Preview, Meta, Props, html, withKnobs, withWebComponentsKnobs } from '@open-wc/demoing-storybook';
+import '../index.js';
+
+<Meta 
+  title="Web Components|bulib-locoso"
+  decorators={[withKnobs, withWebComponentsKnobs]}
+  parameters={{
+    component: "bulib-locoso",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# Library 'LoCoSo' Component
+
+Display LOcation, COntact, and SOcial media location (occasionally even hours [via `bulib-hours`]) 
+  for any (or no) `library` with information stored in `_helpers/lib_info_helper.js`.
+
+## Usages 
+
+### Default (generic)
+
+When nothing is specified, locoso defaults to a semi-generic `help` information for "BU Libraries" 
+  showing the Mugar Memorial _building_ location, home website, shared/parent social media accounts and 
+  contact information. 
+
+<Preview withToolbar>
+  <Story name="default">
+    {html`<bulib-locoso></bulib-locoso>`}
+  </Story>
+</Preview>
+
+### Custom Library
+
+When you set a particular library (e.g. `music`), you get information for that _particular_ library,
+  including the _hours_ (where available).
+
+<Preview withToolbar>
+  <Story name="library">
+    {html`<bulib-locoso library="music"></bulib-locoso>`}
+  </Story>
+</Preview>
+
+## API - Properties 
+
+<Props of="bulib-locoso" />
+

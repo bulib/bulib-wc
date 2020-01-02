@@ -10,11 +10,13 @@ export default class BULibFeedback extends LitElement {
 
   static get properties(){
     return {
-      /* unique identifier for each feedback input */
+      /** unique identifier for each feedback input (event category)*/
       code: {type:String},
-      /* controls logging to the console */
+      
+      /** [debugging] enables logging to the console */
       debug: {type:Boolean},
-      /* override main action (prevent GAEvent logging) */
+
+      /** [debugging] override main action (prevent GAEvent logging) */
       prevent_action: {type:Boolean}
     }
   }

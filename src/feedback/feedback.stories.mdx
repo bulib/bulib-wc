@@ -1,0 +1,29 @@
+import { Story, Preview, Meta, Props, html, withKnobs, withWebComponentsKnobs } from '@open-wc/demoing-storybook';
+import './bulib-feedback.js';
+
+<Meta 
+  title="Web Components|bulib-feedback"
+  decorators={[withKnobs, withWebComponentsKnobs]}
+  parameters={{
+    component: "bulib-feedback",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# Feedback Component
+
+Prompt user for feedback from the user regarding the helpfulness of surrounding content, 
+  logging their responses to google analytics (via `_helpers/google_analytix.js`) under a custom `code`.
+
+## Usages 
+
+<Preview withToolbar>
+  <Story name="default">
+    {html`<bulib-feedback code="category"></bulib-feedback>`}
+  </Story>
+</Preview>
+
+## API - Properties 
+
+<Props of="bulib-feedback" />
+

@@ -159,7 +159,7 @@ export function getLibraryCodeFromUrl(lib_url, debug=INFO_HELPER_DEBUG, defLibCo
     else if(lib_url_fragment.includes("pickering")){ lib_code = "pickering"; }
     else if(lib_url_fragment.includes("sel")){ lib_code = "sel"; }
     else if(lib_url_fragment.includes("stone")){ lib_code = "stone"; }
-    else if(lib_url_fragment.includes("sthlibrary")){ lib_code = "stone"; }
+    else if(lib_url_fragment.includes("sth")){ lib_code = "stone"; }
     else { lib_code = "help"; }
   }
 

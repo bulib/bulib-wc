@@ -1,6 +1,6 @@
 {
   "name": "bulib-wc",
-  "version": "0.0.105",
+  "version": "0.0.106",
   "description": "collection of web components and styles used at Boston University Libraries",
   "type": "module",
   "main": "src/index.js",
@@ -10,21 +10,22 @@
     "src/"
   ],
   "scripts": {
+    "analyze": "wca analyze './src/*/*-*.js' --outFile ./custom-elements.json",
     "clean": "./scripts/clean.sh",
     "reinstall": "npm run clean && npm install",
     "cy:verify": "cypress verify",
     "css": "./scripts/bundle_css.sh",
     "prestart": "npm run css",
-    "start": "npm install && start-storybook -p 9001",
+    "start": "npm run analyze && start-storybook --node-resolve --watch --open --stories 'src/*/*.stories.mdx'",
     "build": "npm run build:rollup",
     "build:all": "./scripts/rebuild.sh",
     "build:css": "npm run css",
     "build:rollup": "rollup -c rollup.config.js",
     "build:owc": "rollup -c rollup.config.owc.js",
     "prebuild:storybook": "npm run css",
-    "build:storybook": "build-storybook -o _site -s storybook-static",
+    "build:storybook": "build-storybook --stories 'src/*/*.stories.mdx' -o _site && cp dist/bundle.css _site/bundle.css",
     "deploy": "./scripts/deploy.sh",
-    "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -o _site"
+    "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -e _site -o _site"
   },
   "repository": {
     "type": "git",
@@ -48,16 +49,19 @@
     "lit-html": "^1.1.2"
   },
   "devDependencies": {
-    "@open-wc/building-rollup": "^0.9.13",
-    "@open-wc/demoing-storybook": "^0.3.0",
+    "@open-wc/building-rollup": "^0.16.0",
+    "@open-wc/demoing-storybook": "^1.0.1",
     "@storybook/cli": "^5.2.3",
     "@storybook/storybook-deployer": "^2.8.1",
     "cypress": "^3.4.1",
+    "es-dev-server": "^1.5.0",
     "material-icons": "^0.3.1",
     "npm-run-all": "^4.1.5",
     "rollup": "^1.19.4",
     "rollup-plugin-babel-minify": "^9.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "web-component-analyzer": "^1.0.0",
+    "webpack-merge": "^4.1.5"
   }
 }

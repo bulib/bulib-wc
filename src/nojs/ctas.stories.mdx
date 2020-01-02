@@ -1,0 +1,67 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import '../index.js';
+
+<Meta title="No Javascript|ctas" />
+
+# Calls-To-Action
+
+Display a (reasonable) number of similar links in a visually compelling block.
+
+
+## Usage
+
+### Lone CTA
+
+Call to action is currently - more or less - a bordered link. 
+
+<Preview>
+  <Story name="cta-alone">
+    {html`
+      <div class="cta"><h3><a href="/all">All Topics</a></h3></div>
+    `}
+  </Story>
+</Preview>
+
+### Default CTA Group
+
+Flex-Wrapped and spaced evenly, with the last item in ALL CAPS
+
+<Preview>
+  <Story name="ctas-default">
+    {html`
+      <div class="ctas">
+        <div class="cta"><h3><a href="/borrow">Borrowing Items</a></h3></div>
+        <div class="cta"><h3><a href="/alumni">Alumni</a></h3></div>
+        <div class="cta"><h3><a href="/where">Where is it?</a></h3></div>
+        <div class="cta"><h3><a href="/trouble">Troubleshooting with the use of a very long name</a></h3></div>
+        <div class="cta"><h3><a href="/form.php">Newspapers</a></h3></div>
+        <div class="cta"><h3><a href="/form.php">Journals</a></h3></div>
+        <div class="cta"><h3><a href="/businessFAQs">Business FAQS</a></h3></div>
+        <div class="cta"><h3><a href="/all">All Topics</a></h3></div>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+### CTA Group with `.tiles`
+
+organize the CTAs in a basic, left-aligned grid
+
+<Preview>
+  <Story name="ctas-tiles">
+    {html`
+      <div class="tiles">
+        <div class="cta"><h3><a href="/borrow">Borrowing Items</a></h3></div>
+        <div class="cta"><h3><a href="/alumni">Alumni</a></h3></div>
+        <div class="cta"><h3><a href="/where">Where is it?</a></h3></div>
+        <div class="cta"><h3><a href="/trouble">Troubleshooting with the use of a very long name</a></h3></div>
+        <div class="cta"><h3><a href="/form.php">Newspapers</a></h3></div>
+        <div class="cta"><h3><a href="/form.php">Journals</a></h3></div>
+        <div class="cta"><h3><a href="/businessFAQs">Business FAQS</a></h3></div>
+        <div class="cta"><h3><a href="/all">All Topics</a></h3></div>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+_NOTE: it's useful to then add event-listeners via `_helpers/google-analytix.js`_

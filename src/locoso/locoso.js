@@ -18,6 +18,7 @@ export default class Locoso extends LitElement {
       /** current library code used as the key to swap between locoso data entries */
       library: {type: String, notify:true},
       
+      /** [debugging] log events to console */
       debug: {type: Boolean}
     };
   }

@@ -1,0 +1,68 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+
+<Meta title="No Javascript|tabs" />
+
+# Tabs
+
+Display a variety of related content in a single pane.
+
+
+## Usages
+
+Note: the tabs should be responsive, and the input group accessible via the tab index. Once focus on 
+  an input is obtained, you should be able to switch between active tabs with the arrow keys.
+
+### Basic Example
+
+Make sure you remember to add the `checked` attribute to the first `input`.
+
+<Preview>
+  <Story name="basic">
+    {html`
+      <div class="tabs">
+        <input type="radio" name="tabs" id="option-1" checked>
+        <label for="option-1">Option One</label>
+        <div>the content within the first option</div>
+        <input type="radio" name="tabs" id="option-2">
+        <label for="option-2">Option Two</label>
+        <div>the content within the second option</div>
+        <input type="radio" name="tabs" id="option-3">
+        <label for="option-3">Option Three</label>
+        <div>the content within the third option</div>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+### Complex
+
+So long as the input groups have a separate name (e.g. `tabs-2`) and `id`s, you can have multiple `.tabs` on one page,
+  and you can used the `checked` attribute to set a default tab.
+
+<Preview>
+  <Story name="complex">
+    {html`
+      <div class="tabs">
+        <input type="radio" name="tabs-2" id="option-2-1">
+        <label for="option-2-1">Option One</label>
+        <div class="lorem-ipsum">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam illum, voluptate repellat, ex minus at odio alias tenetur optio voluptatibus dicta deleniti cupiditate rem culpa laudantium, dolore deserunt fugiat repudiandae.</p>
+          <p>Cumque provident nam, inventore repudiandae animi doloribus dignissimos illo ea error esse reprehenderit possimus odio, libero beatae, accusamus ratione itaque laboriosam expedita amet nihil voluptatum blanditiis obcaecati. Possimus, assumenda sint.</p>
+          <p>Sunt quas dicta, vel perspiciatis ducimus placeat voluptates ad necessitatibus quis reprehenderit ullam consectetur! Enim neque ab architecto praesentium voluptatem saepe commodi, aperiam odio facere illum incidunt laborum laudantium pariatur?</p>
+          <p>Minima quo molestias asperiores nam nisi officia impedit molestiae, sed hic reiciendis. Officia atque labore odit aliquid inventore ab possimus, incidunt provident ut at, neque consequatur minus quod expedita eligendi!</p>
+          <p>Amet unde eligendi provident molestias suscipit itaque exercitationem voluptatum, ut natus id quas consectetur illo! Libero cum eum sit autem aliquid officia consequuntur tempore velit rerum? Vero blanditiis odio omnis.</p>
+        </div>
+        <input type="radio" name="tabs-2" id="option-2-2">
+        <label for="option-2-2">Option Two</label>
+        <div class="deck">
+          <bulib-card debug small title="Email" icon="email" link="https://askalibrarian.bu.edu/form.php?quid=511" description="Email us your research questions and we’ll respond within 24 hours."></bulib-card>
+          <bulib-card debug small title="Chat" icon="question_answer" action="console.log('chat says hi') description="Talk online to a research librarian on weekdays and Sundays"></bulib-card>
+          <bulib-card debug small title="Call" icon="phone" link="tel:6173532700" description="Call us at 617-353-2700 during our open hours"></bulib-card>
+        </div>
+        <input type="radio" name="tabs-2" id="option-2-3" checked>
+        <label for="option-2-3">Option Three</label>
+        <div><bulib-locoso library="sth"></bulib-locoso></div>
+      </div>
+    `}
+  </Story>
+</Preview>

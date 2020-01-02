@@ -134,11 +134,13 @@ export default class BULibFooter extends LitElement {
   static get properties() {
     return {
       /** provide window into setting displayed 'locoso' contact data */
-      library: {type: String},
+      library: {type: String}, //TODO resolve error (doesn't effectively cascade)
       /** key for the subsite (used to populate the sitemap) */
       host_site: {type: String},
       
+      /** [debugging] enable logging for parent and child events */
       debug: {type: Boolean},
+      /** [debugging] manually simulate the url to override/force different states */
       curr_url: {type: String}
     };
   }
