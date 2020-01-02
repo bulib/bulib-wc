@@ -14,4 +14,4 @@ npm run deploy:storybook
 
 # update the npm version
 npm version patch
-# npm publish
+npm publish
