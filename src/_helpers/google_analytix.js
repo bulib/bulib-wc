@@ -12,9 +12,7 @@ export function sendGAEvent(eventName, action, label, value){
   try{
     if(window.gtag && !PREVENT_GA_CALL){ 
       window.gtag('event', action, {
-        'event_category': eventName,
-        'event_label': label,
-        'value': value
+        'event_category': eventName, 'event_label': label, 'value': value
       });
       logGoogleAnalyticsMessage("window.gtag() found and called");
     }else if(window.ga && !PREVENT_GA_CALL){ 
@@ -47,14 +45,17 @@ export function sendGAEventFromClickEvent(clickEvent, eventName, actionName){
   }
 
   // allow user to specify an actionName as well as the eventName, pushing contentClicked into the label
-  if(typeof(actionName == "undefined")){
+  if(!actionName || actionName == ""){
+    logGoogleAnalyticsMessage(`actionName considered 'undefined' or empty. sending action:'${contentClicked}', label:'${window.location.pathname}'.`)
     sendGAEvent(eventName, contentClicked, window.location.pathname);
   }else{
+    logGoogleAnalyticsMessage(`actionName '${actionName}' registered as a real value, sending action with label as contentClicked: '${contentClicked}'`)
     sendGAEvent(eventName, actionName, contentClicked);
   }
 }
 
 export function addSendGAEventOnAnchorClickToAnchorElements(anchorElements, eventName, actionName){
+  logGoogleAnalyticsMessage(`anchorElements: '${anchorElements}', eventName: '${eventName}', actionName: '${actionName}'`);
   for(let i=0; i<anchorElements.length; i++){
     anchorElements[i].addEventListener("click", (ev) => sendGAEventFromClickEvent(ev, eventName, actionName));
   }
