@@ -29,25 +29,33 @@ export function sendGAEvent(eventName, action, label, value){
   }
 }
 
-export function sendGAEventFromClickEvent(clickEvent, eventName){
+export function sendGAEventFromClickEvent(clickEvent, eventName, actionName){
   let contentClicked = "[unknown]"; 
   
+  // obtain a label for the clicked link from its markup
   try{ 
     contentClicked = clickEvent.target.innerText 
       ? clickEvent.target.innerText 
       : clickEvent.target.querySelector("span").innerText 
       || "[unknown]";
     contentClicked = contentClicked.replace(/\//,"").replace(/\&/,"");  // remove special characters
+    contentClicked = contentClicked.substring(0, contentClicked.indexOf(" (")); // remove any parentheses from the slug
     contentClicked = contentClicked.toLowerCase().replace(/ +/g,"-");   // slugify (lowercase, dashes)
   }catch(err){
     logGoogleAnalyticsMessage("error getting contentClicked from clickEvent: ");
     if(DEBUG_ANALYTICS){ console.log(err); }
   }
-  sendGAEvent(eventName, contentClicked, window.location.pathname);
+
+  // allow user to specify an actionName as well as the eventName, pushing contentClicked into the label
+  if(typeof(actionName == "undefined")){
+    sendGAEvent(eventName, contentClicked, window.location.pathname);
+  }else{
+    sendGAEvent(eventName, actionName, contentClicked);
+  }
 }
 
-export function addSendGAEventOnAnchorClickToAnchorElements(anchorElements, eventName){
+export function addSendGAEventOnAnchorClickToAnchorElements(anchorElements, eventName, actionName){
   for(let i=0; i<anchorElements.length; i++){
-    anchorElements[i].addEventListener("click", (ev) => sendGAEventFromClickEvent(ev, eventName));
+    anchorElements[i].addEventListener("click", (ev) => sendGAEventFromClickEvent(ev, eventName, actionName));
   }
 }
