@@ -1,0 +1,31 @@
+/* main announce-banner styling */
+.announce-banner {
+  background-color: lightblue;
+  width: 100%;
+  font-size: 15px;
+  text-align: center;
+}
+
+prm-search-bar-after div.announce-banner, div.announce-banner {
+  position: absolute;
+  bottom: 0; left: 0;
+}
+
+/* style message (with background) */
+.announce-banner #message, .announce-banner .message { 
+  margin: 12px;
+  vertical-align: inherit;
+}
+.announce-banner.info {
+  background: #E0FFFF !important;
+}
+.announce-banner.success {
+  background: #B0E0E6 !important;
+}
+.announce-banner.warn {
+  background: #ede49e !important;
+}
+.announce-banner.alert {
+  background: lightsalmon !important;
+  font-weight: 600;
+}
