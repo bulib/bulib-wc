@@ -1,0 +1,43 @@
+<script id="homepage-link-tracking" type="module">
+  import {addSendGAEventOnAnchorClickToAnchorElements} from "https://unpkg.com/bulib-wc@0.1.4/src/_helpers/google_analytix.js?module";
+
+
+  window.onload = function(){
+
+    // search box
+    let searchBoxLinks = document.querySelectorAll("#search > p.advanced a");
+    addSendGAEventOnAnchorClickToAnchorElements(searchBoxLinks, "homepage-link", "search-box");
+
+    // research
+    let researchTopics = document.querySelectorAll("#menu-home-links-research-expanded a");
+    let researchLocations = document.querySelectorAll("#research-locations-list a");
+    let researchGuides = document.querySelectorAll("#menu-home-links-research > #menu-item-37934 a");
+    let researchCollections = document.querySelectorAll("#menu-home-links-research > #menu-item-31309 a");
+    addSendGAEventOnAnchorClickToAnchorElements(researchTopics, "homepage-link", "research-topics");
+    addSendGAEventOnAnchorClickToAnchorElements(researchLocations, "homepage-link", "research-locations");
+    addSendGAEventOnAnchorClickToAnchorElements(researchGuides, "homepage-link", "research-guides");
+    addSendGAEventOnAnchorClickToAnchorElements(researchCollections, "homepage-link", "research-collections");
+
+    // services
+    let servicesTopics = document.querySelectorAll("#menu-home-links-services-expanded a");
+    let servicesLocations = document.querySelectorAll("#services-locations-list a");
+    let servicesBorrowing = document.querySelectorAll("#menu-home-links-services > #menu-item-37937 a");
+    let servicesHelp = document.querySelectorAll("#menu-home-links-services > #menu-item-35887 a");
+    addSendGAEventOnAnchorClickToAnchorElements(servicesTopics, "homepage-link", "services-topics");
+    addSendGAEventOnAnchorClickToAnchorElements(servicesLocations, "homepage-link", "services-locations");
+    addSendGAEventOnAnchorClickToAnchorElements(servicesBorrowing, "homepage-link", "services-borrowing");
+    addSendGAEventOnAnchorClickToAnchorElements(servicesHelp, "homepage-link", "services-help");
+
+    // about
+    let aboutTopics = document.querySelectorAll("#menu-home-links-about-expanded a");
+    let aboutLocations = document.querySelectorAll("#about-locations-list a");
+    let aboutHours = document.querySelectorAll("#home-links-about > #menu-item-22914 a");
+    let aboutWhoWhere = document.querySelectorAll("#home-links-about > #menu-item-35895 a");
+    let aboutNews = document.querySelectorAll("#home-links-about > #menu-item-30557 a");
+    addSendGAEventOnAnchorClickToAnchorElements(aboutTopics, "homepage-link", "about-topics");
+    addSendGAEventOnAnchorClickToAnchorElements(aboutLocations, "homepage-link", "about-locations");
+    addSendGAEventOnAnchorClickToAnchorElements(aboutHours, "homepage-link", "research-guides");
+    addSendGAEventOnAnchorClickToAnchorElements(aboutWhoWhere, "homepage-link", "about-who");
+    addSendGAEventOnAnchorClickToAnchorElements(aboutNews, "homepage-link", "about-news");
+  }
+</script>

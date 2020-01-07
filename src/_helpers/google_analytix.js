@@ -1,4 +1,4 @@
-const DEBUG_ANALYTICS = true;
+const DEBUG_ANALYTICS = false;
 const PREVENT_GA_CALL = false;
 
 function logGoogleAnalyticsMessage(message){
@@ -54,7 +54,7 @@ export function sendGAEventFromClickEvent(clickEvent, eventName, actionName){
 }
 
 export function addSendGAEventOnAnchorClickToAnchorElements(anchorElements, eventName, actionName){
-  logGoogleAnalyticsMessage(`anchorElements: '${anchorElements}', eventName: '${eventName}', actionName: '${actionName}'`);
+  logGoogleAnalyticsMessage(`adding click listeners with eventName:'${eventName}', actionName:'${actionName}'`);
   for(let i=0; i<anchorElements.length; i++){
     anchorElements[i].addEventListener("click", (ev) => sendGAEventFromClickEvent(ev, eventName, actionName));
   }
