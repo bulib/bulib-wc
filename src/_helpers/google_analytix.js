@@ -36,8 +36,7 @@ export function sendGAEventFromClickEvent(clickEvent, eventName, actionName){
       ? clickEvent.target.innerText 
       : clickEvent.target.querySelector("span").innerText 
       || "[unknown]";
-    contentClicked = contentClicked.replace(/\//,"").replace(/\&/,"");  // remove special characters
-    contentClicked = contentClicked.substring(0, contentClicked.indexOf(" (")); // remove any parentheses from the slug
+    contentClicked = contentClicked.replace(/[^a-zA-Z0-9 ]/g, '');  // remove special characters
     contentClicked = contentClicked.toLowerCase().replace(/ +/g,"-");   // slugify (lowercase, dashes)
   }catch(err){
     logGoogleAnalyticsMessage("error getting contentClicked from clickEvent: ");
