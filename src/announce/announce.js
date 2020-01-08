@@ -1,5 +1,7 @@
 import {LitElement, html} from 'lit-element/lit-element';
 
+const LOCAL_STORAGE_EXPIRY_TIME = 1000 * 60 * 60 * 24 * 3; // 3 days
+
 /**
  * display time-sensitive message, call-to-action across the top of a screen
  */
@@ -11,6 +13,7 @@ export default class BULAnnounce extends LitElement {
   connectedCallback(){
     super.connectedCallback();
     if(!this.message){ this.message = "this is a default message"; }
+    if(!!this.dismissed == "undefined"){ this.dismissed = true; }
   }
 
   static get properties() {
@@ -25,6 +28,8 @@ export default class BULAnnounce extends LitElement {
       /** (optional) type of message to display (determine ) [info, success, alert, warn] */
       severity: {type: String},
       
+      /** (debugging) set the status to dismissed */
+      dismissed: {type: Boolean},
       /** (debugging) enable logging (click tracking)  */
       debug: {type: Boolean},
       /** (debugging) disable show/hide check, cta  */
@@ -33,7 +38,6 @@ export default class BULAnnounce extends LitElement {
   }
 
   render(){
-    this._logToConsole(`current sessionStorage 'announcement-dismissed' value: '${this._getDismissedValueFromSessionStorage()}'`);
     let icon = "";
     switch(this.severity){ // material icon code [https://material.io/resources/icons/]
       case "success": icon = "check_circle"; break;
@@ -43,17 +47,70 @@ export default class BULAnnounce extends LitElement {
       default:        icon = "info"; break;
     }
     return html`
-      <div class="announce-banner flex ${this.severity}">
+      <div class="announce-banner ${this.severity}" disabled="${this._getDismissedValueFromSessionStorage()}">
         <i class="material-icons">${icon}</i>
         <span class="message">${this.message}
           ${!!this.cta_url? html`<a href="${this.cta_url}">${this.cta_text}</a>`: ``}
         </span>
-        <button type="button" @click="${(e) => this._logToConsole("dismiss clicked")}">
+        <button type="button" @click="${(e) => this._toggleDismissed()}">
           <i class="material-icons">close</i>&nbsp;<span class="txtv">DISMISS</span>
         </button>
       </div>
     `;
   }
+
+  /** 
+   * attempt to gather dismissal information from localStorage (fallback to 'false') 
+   * @TODO convert to an new src/_helpers/storage.js
+   */
+  _getDismissedValueFromSessionStorage(){
+    let dismissedValueFromLocalStorage = false;
+    try{
+      // look in localStorage for our announcement-dismissed variables
+      let storedValue = localStorage.getItem("announcement-dismissed");
+      let lastUpdated = localStorage.getItem("announcement-dismissed-when");
+      
+      // if both localStorage values are present...
+      if(!!storedValue && !!lastUpdated){
+
+        // query the value if it hasn't 'expired': 
+        if( (Date.now() - lastUpdated) < LOCAL_STORAGE_EXPIRY_TIME){
+          dismissedValueFromLocalStorage = localStorage.getItem("announcement-dismissed") == "true";
+          
+          if(localStorage.getItem("announcement-dismissed") == "true" && !this.dismissed){
+            this._logToConsole(`unexpired 'announcement-dismissed' value of '${storedValue}' read from localStorage`);
+          }
+
+        // reset them (both) if they have
+        }else{
+          localStorage.removeItem("announcement-dismissed");
+          localStorage.removeItem("announcement-dismissed-when");
+          this._logToConsole(`expired 'announcement-dismissed*' values have been removed.`);
+        }
+      }
+    }catch(exception){
+      this._logToConsole("exception trying to getItem from localStorage: " + exception.message);
+    }finally{
+      return dismissedValueFromLocalStorage || this.dismissed;
+    }
+  }
+
+  _toggleDismissed(){
+    let value_before = this._getDismissedValueFromSessionStorage();
+
+    try{ // note: safari breaks with a security error any time 'localStorage' is accessed
+      localStorage.setItem("announcement-dismissed", !value_before); 
+      localStorage.setItem("announcement-dismissed-when", Date.now()); 
+    }
+    catch(exception){ this._logToConsole("exception trying to setItem in localStorage: " + exception.message); }
+    finally{
+      this.dismissed = !value_before;
+    }
+    
+    this._logToConsole(`dismiss clicked, session's' 'announcement-dismissed' value '${value_before}'->'${this._getDismissedValueFromSessionStorage()}'`);
+    this.requestUpdate();
+  }
+
   _logToConsole(message){
     if(this.debug){ console.log("bulib-announce) " + message); }
   }

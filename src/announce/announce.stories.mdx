@@ -43,17 +43,53 @@ You can specify a `message`, `severity`, and call to action text (`cta_url`) and
 
 you should be able to get the same styling with plain html as well.
 
+#### NoJS Announce (enabled)
+
 <Preview withToolbar>
   <Story name="nojs-announce">
     {html`
       <bulib-announce style="display: none;"></bulib-announce>
-      <div class="announce-banner layout-align-center-center layout-row flex warn" ng-if="$ctrl.showBanner()">
+      <div class="announce-banner warn" debug>
         <i class="material-icons">info</i>
         <span class="message">Sign in to view My Favorites: 
           <span translate="eshelf.signin.title">Sign in</span></button>
         </span>
-        <button>DISMISS</button>
+        <button onclick="localStorage.setItem('announcement-dismissed', true)">DISMISS</button>
       </div>
+    `}
+  </Story>
+</Preview>
+
+
+#### NoJS Announce (disabled)
+
+you should be able to get the same styling with plain html as well.
+
+_note: knobs will not have any effect here_
+
+<Preview withToolbar>
+  <Story name="nojs-announce-disabled">
+    {html`
+      <bulib-announce style="display: none;"></bulib-announce>
+      
+      <hr />
+      <small>there is an invisible banner here (<code>display: none;</code>) because the <code>debug</code> is absent</small>
+      <div class="announce-banner alert" disabled="true">
+        <i class="material-icons">info</i>
+        <span class="message">Sign in to view My Favorites: 
+          <span translate="eshelf.signin.title">Sign in</span></button>
+        </span>
+        <button onclick="localStorage.setItem('announcement-dismissed', true)">DISMISS</button>
+      </div>
+      <hr />
+      
+      <hr />
+      <div class="announce-banner warn" debug disabled="true">
+        <i class="material-icons">announcement</i>
+        <span class="message">Manually disabled, but with the <code>debug</code> tag</span>
+        <button onclick="localStorage.setItem('announcement-dismissed', true)">DISMISS</button>
+      </div>
+      <hr />
     `}
   </Story>
 </Preview>

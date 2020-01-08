@@ -11,6 +11,13 @@ div.announce-banner {
   display: inline-block;
 }
 
+/* hide announce banner if it's been disabled, unless 'debug' attribute is also present */
+div.announce-banner[disabled="true"] { display: none; }
+bulib-announce[debug] > div.announce-banner[disabled="true"], div.announce-banner[debug][disabled="true"]{
+  display: inline-block !important;
+  background-color: red !important;
+  color: yellow !important;
+}
 
 /* add horizontal spacing between outer-most children */
 div.announce-banner > *:first-child { margin-right: 1%; }
