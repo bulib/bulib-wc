@@ -2,6 +2,47 @@
   "version": "experimental",
   "tags": [
     {
+      "name": "bulib-color",
+      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
+      "attributes": [
+        {
+          "name": "var",
+          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "type": "string"
+        },
+        {
+          "name": "val",
+          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
+          "type": "string"
+        },
+        {
+          "name": "white",
+          "description": "whether to have a white or a black background",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "var",
+          "attribute": "var",
+          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "type": "string"
+        },
+        {
+          "name": "val",
+          "attribute": "val",
+          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
+          "type": "string"
+        },
+        {
+          "name": "white",
+          "attribute": "white",
+          "description": "whether to have a white or a black background",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
       "name": "bulib-card",
       "description": "display a single concept (heading, description, cta, icon) in a small UI element",
       "attributes": [
@@ -87,214 +128,76 @@
       ]
     },
     {
-      "name": "bulib-footer",
-      "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
+      "name": "bulib-announce",
+      "description": "display time-sensitive message, call-to-action across the top of a screen",
       "attributes": [
         {
-          "name": "host_site",
-          "description": "key for the subsite (used to populate the sitemap)",
+          "name": "message",
+          "description": "information to display to the user",
+          "type": "string"
+        },
+        {
+          "name": "cta_text",
+          "description": "(optional) main action displaying the",
+          "type": "string"
+        },
+        {
+          "name": "cta_link",
+          "description": "(optional) link the user should click to address/learn more about the message",
+          "type": "string"
+        },
+        {
+          "name": "severity",
+          "description": "(optional) type of message to display (determine ) [info, success, alert, warn]",
           "type": "string"
         },
         {
           "name": "debug",
-          "description": "[debugging] enable logging for parent and child events",
+          "description": "(debugging) enable logging (click tracking)",
           "type": "boolean"
         },
         {
-          "name": "curr_url",
-          "description": "[debugging] manually simulate the url to override/force different states",
-          "type": "string"
-        },
-        {
-          "name": "library",
-          "description": "provide window into setting displayed 'locoso' contact data",
-          "type": "string",
-          "default": "\"help\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "host_site",
-          "attribute": "host_site",
-          "description": "key for the subsite (used to populate the sitemap)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "[debugging] enable logging for parent and child events",
-          "type": "boolean"
-        },
-        {
-          "name": "curr_url",
-          "attribute": "curr_url",
-          "description": "[debugging] manually simulate the url to override/force different states",
-          "type": "string"
-        },
-        {
-          "name": "library",
-          "attribute": "library",
-          "description": "provide window into setting displayed 'locoso' contact data",
-          "type": "string",
-          "default": "\"help\""
-        }
-      ]
-    },
-    {
-      "name": "bulib-hours",
-      "description": "display the hours of operation for a given library",
-      "attributes": [
-        {
-          "name": "library",
-          "description": "established which library we're displaying the hours/info of",
-          "type": "string"
-        },
-        {
-          "name": "short",
-          "description": "alters the default display to be more succint/compact",
-          "type": "boolean"
-        },
-        {
-          "name": "long",
-          "description": "alters the default display to be more descriptive/verbose",
-          "type": "boolean"
-        },
-        {
-          "name": "link_class",
-          "description": "provides means of adding classes to the inner link",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "description": "[debugging] enable logging to the console",
+          "name": "prevent_action",
+          "description": "(debugging) disable show/hide check, cta",
           "type": "boolean"
         }
       ],
       "properties": [
         {
-          "name": "library",
-          "attribute": "library",
-          "description": "established which library we're displaying the hours/info of",
+          "name": "message",
+          "attribute": "message",
+          "description": "information to display to the user",
           "type": "string"
         },
         {
-          "name": "short",
-          "attribute": "short",
-          "description": "alters the default display to be more succint/compact",
-          "type": "boolean"
-        },
-        {
-          "name": "long",
-          "attribute": "long",
-          "description": "alters the default display to be more descriptive/verbose",
-          "type": "boolean"
-        },
-        {
-          "name": "link_class",
-          "attribute": "link_class",
-          "description": "provides means of adding classes to the inner link",
+          "name": "cta_text",
+          "attribute": "cta_text",
+          "description": "(optional) main action displaying the",
           "type": "string"
         },
         {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "[debugging] enable logging to the console",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
-      "name": "bulib-locoso",
-      "description": "display the *LO*cation, *CO*ntact, and *SO*cial media information for\n    a given library within the Boston Universities System.",
-      "attributes": [
-        {
-          "name": "link_class",
-          "description": "optional additional class added to each link in the rendered HTML",
+          "name": "cta_link",
+          "attribute": "cta_link",
+          "description": "(optional) link the user should click to address/learn more about the message",
           "type": "string"
         },
         {
-          "name": "library",
-          "description": "current library code used as the key to swap between locoso data entries",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "description": "[debugging] log events to console",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "link_class",
-          "attribute": "link_class",
-          "description": "optional additional class added to each link in the rendered HTML",
-          "type": "string"
-        },
-        {
-          "name": "library",
-          "attribute": "library",
-          "description": "current library code used as the key to swap between locoso data entries",
+          "name": "severity",
+          "attribute": "severity",
+          "description": "(optional) type of message to display (determine ) [info, success, alert, warn]",
           "type": "string"
         },
         {
           "name": "debug",
           "attribute": "debug",
-          "description": "[debugging] log events to console",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
-      "name": "bulib-footer",
-      "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
-      "attributes": [
-        {
-          "name": "host_site",
-          "description": "key for the subsite (used to populate the sitemap)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "description": "[debugging] enable logging for parent and child events",
+          "description": "(debugging) enable logging (click tracking)",
           "type": "boolean"
         },
         {
-          "name": "curr_url",
-          "description": "[debugging] manually simulate the url to override/force different states",
-          "type": "string"
-        },
-        {
-          "name": "library",
-          "description": "provide window into setting displayed 'locoso' contact data",
-          "type": "string",
-          "default": "\"help\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "host_site",
-          "attribute": "host_site",
-          "description": "key for the subsite (used to populate the sitemap)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "[debugging] enable logging for parent and child events",
+          "name": "prevent_action",
+          "attribute": "prevent_action",
+          "description": "(debugging) disable show/hide check, cta",
           "type": "boolean"
-        },
-        {
-          "name": "curr_url",
-          "attribute": "curr_url",
-          "description": "[debugging] manually simulate the url to override/force different states",
-          "type": "string"
-        },
-        {
-          "name": "library",
-          "attribute": "library",
-          "description": "provide window into setting displayed 'locoso' contact data",
-          "type": "string",
-          "default": "\"help\""
         }
       ]
     },
@@ -339,43 +242,56 @@
       ]
     },
     {
-      "name": "bulib-color",
-      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
+      "name": "bulib-footer",
+      "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
       "attributes": [
         {
-          "name": "var",
-          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "name": "host_site",
+          "description": "key for the subsite (used to populate the sitemap)",
           "type": "string"
         },
         {
-          "name": "val",
-          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
-          "type": "string"
-        },
-        {
-          "name": "white",
-          "description": "whether to have a white or a black background",
+          "name": "debug",
+          "description": "[debugging] enable logging for parent and child events",
           "type": "boolean"
+        },
+        {
+          "name": "curr_url",
+          "description": "[debugging] manually simulate the url to override/force different states",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "description": "provide window into setting displayed 'locoso' contact data",
+          "type": "string",
+          "default": "\"help\""
         }
       ],
       "properties": [
         {
-          "name": "var",
-          "attribute": "var",
-          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "name": "host_site",
+          "attribute": "host_site",
+          "description": "key for the subsite (used to populate the sitemap)",
           "type": "string"
         },
         {
-          "name": "val",
-          "attribute": "val",
-          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
-          "type": "string"
-        },
-        {
-          "name": "white",
-          "attribute": "white",
-          "description": "whether to have a white or a black background",
+          "name": "debug",
+          "attribute": "debug",
+          "description": "[debugging] enable logging for parent and child events",
           "type": "boolean"
+        },
+        {
+          "name": "curr_url",
+          "attribute": "curr_url",
+          "description": "[debugging] manually simulate the url to override/force different states",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "attribute": "library",
+          "description": "provide window into setting displayed 'locoso' contact data",
+          "type": "string",
+          "default": "\"help\""
         }
       ]
     },
