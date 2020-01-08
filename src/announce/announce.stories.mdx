@@ -17,13 +17,25 @@ Used to show site-wide, time-sensitive information from an [editable spreadsheet
 
 ## Usages 
 
-### Component (default)
+### Default Component
 
 by default, `bulib-announce` displays with a default message with an `info`-level severity and no call to action
 
 <Preview withToolbar>
   <Story name="default">
-    {html`<bulib-announce></bulib-announce>`}
+    {html`<bulib-announce debug></bulib-announce>`}
+  </Story>
+</Preview>
+
+### Custom Message
+
+You can specify a `message`, `severity`, and call to action text (`cta_url`) and url (`cta_url`). 
+
+<Preview withToolbar>
+  <Story name="message-success-cta">
+    {html`
+      <bulib-announce message="this is a custom message" severity="success" debug
+        cta_text="click me" cta_url="https://github.com/bulib/bulib-wc"></bulib-announce>`}
   </Story>
 </Preview>
 
@@ -36,11 +48,11 @@ you should be able to get the same styling with plain html as well.
     {html`
       <bulib-announce style="display: none;"></bulib-announce>
       <div class="announce-banner layout-align-center-center layout-row flex warn" ng-if="$ctrl.showBanner()">
-        <div>Sign in to view My Favorites: <prm-authentication><!----><button class="button-with-icon zero-margin md-button md-primoExplore-theme md-ink-ripple" type="button" ng-transclude="" ng-if="!$ctrl.isLoggedInIDP()" ng-click="$ctrl.handleLogin();" aria-label="Sign in"><prm-icon icon-type="svg" svg-icon-set="primo-ui" icon-definition="sign-in"><!----><md-icon ng-if="::(!$ctrl.isCustom &amp;&amp; !$ctrl.isEmailMode())" md-svg-icon="primo-ui:sign-in" alt="" class="md-primoExplore-theme" aria-hidden="true">
-          <svg id="sign-in_cache56" width="100%" height="100%" viewBox="0 0 24 24" y="192" xmlns="http://www.w3.org/2000/svg" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
-            <path d="M10,17.25V14H3V10H10V6.75L15.25,12L10,17.25M8,2H17A2,2 0 0,1 19,4V20A2,2 0 0,1 17,22H8A2,2 0 0,1 6,20V16H8V20H17V4H8V8H6V4A2,2 0 0,1 8,2Z"></path>
-          </svg></md-icon><!----><!----><prm-icon-after parent-ctrl="$ctrl"></prm-icon-after></prm-icon>
-      <span translate="eshelf.signin.title">Sign in</span></button><!----><!----><prm-authentication-after parent-ctrl="$ctrl"></prm-authentication-after></prm-authentication> </div>
+        <i class="material-icons">info</i>
+        <span class="message">Sign in to view My Favorites: 
+          <span translate="eshelf.signin.title">Sign in</span></button>
+        </span>
+        <button>DISMISS</button>
       </div>
     `}
   </Story>

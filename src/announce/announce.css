@@ -4,9 +4,17 @@ div.announce-banner {
   width: 100%;
   font-size: large;
   text-align: center;
-  margin: 0px !important;
+  border: 1px solid var(--color-secondary-background-dark, black);
+  border-radius: 2px;
+  margin-top: 0px !important;
   padding: 5px;
+  display: inline-block;
 }
+
+
+/* add horizontal spacing between outer-most children */
+div.announce-banner > *:first-child { margin-right: 1%; }
+div.announce-banner > *:last-child { margin-left: 1%; }
 
 /* style message (with background) */
 .announce-banner #message, .announce-banner .message { 
@@ -23,6 +31,6 @@ div.announce-banner {
   background: var(--color-severity-warn-background, #ede49e) !important;
 }
 .announce-banner.alert {
-  background: var(--color-severity-info-background, lightsalmon) !important;
+  background: var(--color-severity-alert-background, lightsalmon) !important;
   font-weight: 600;
 }
