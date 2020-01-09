@@ -10,12 +10,6 @@ export default class BULAnnounce extends LitElement {
   // don't need 'slot' functionality, so lets use Light DOM
   createRenderRoot(){ return this; }
 
-  connectedCallback(){
-    super.connectedCallback();
-    if(!this.message){ this.message = "this is a default message"; }
-    if(!!this.dismissed == "undefined"){ this.dismissed = true; }
-  }
-
   static get properties() {
     return {
       /** information to display to the user */
@@ -44,14 +38,15 @@ export default class BULAnnounce extends LitElement {
       case "alert":   icon = "announcement"; break;
       case "warn":    icon = "report_problem"; break;
       case "info":
-      default:        icon = "info"; break;
+        default:        icon = "info"; break;
     }
+    let sanitized_message = this.message? this.message.replace(/&#39;/g, "'") : "this is a default message";
+  
     return html`
       <div class="announce-banner ${this.severity}" disabled="${this._getDismissedValueFromSessionStorage()}">
         <i class="material-icons">${icon}</i>
-        <span class="message">${this.message}
-          ${!!this.cta_url? html`<a href="${this.cta_url}">${this.cta_text}</a>`: ``}
-        </span>
+        <span class="message">${sanitized_message}</span>
+        ${!!this.cta_url? html`<span class="cta"><a href="${this.cta_url}">${this.cta_text}</a></span>`: ``}
         <button type="button" @click="${(e) => this._toggleDismissed()}">
           <i class="material-icons">close</i>&nbsp;<span class="txtv">DISMISS</span>
         </button>
@@ -81,7 +76,7 @@ export default class BULAnnounce extends LitElement {
             this._logToConsole(`unexpired 'announcement-dismissed' value of '${storedValue}' read from localStorage`);
           }
 
-        // reset them (both) if they have
+        // reset them (both) if they have expired
         }else{
           localStorage.removeItem("announcement-dismissed");
           localStorage.removeItem("announcement-dismissed-when");

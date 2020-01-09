@@ -24,9 +24,9 @@ div.announce-banner > *:first-child { margin-right: 1%; }
 div.announce-banner > *:last-child { margin-left: 1%; }
 
 /* style message (with background) */
-.announce-banner #message, .announce-banner .message { 
+.announce-banner > span { 
   margin: 12px;
-  vertical-align: inherit;
+  vertical-align: middle;
 }
 .announce-banner.info {
   background: var(--color-severity-info-background, #E0FFFF) !important;
