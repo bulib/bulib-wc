@@ -2,42 +2,97 @@
   "version": "experimental",
   "tags": [
     {
-      "name": "bulib-color",
-      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
+      "name": "bulib-announce",
+      "description": "display time-sensitive message, call-to-action across the top of a screen",
       "attributes": [
         {
-          "name": "var",
-          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "name": "code",
+          "description": "unique identifier",
           "type": "string"
         },
         {
-          "name": "val",
-          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
+          "name": "message",
+          "description": "information to display to the user",
           "type": "string"
         },
         {
-          "name": "white",
-          "description": "whether to have a white or a black background",
+          "name": "cta_text",
+          "description": "(optional) main action displaying the",
+          "type": "string"
+        },
+        {
+          "name": "cta_url",
+          "description": "(optional) link the user should click to address/learn more about the message",
+          "type": "string"
+        },
+        {
+          "name": "severity",
+          "description": "(optional) type of message to display (determine ) [info, success, alert, warn]",
+          "type": "string"
+        },
+        {
+          "name": "dismissed",
+          "description": "(debugging) set the status to dismissed",
+          "type": "boolean"
+        },
+        {
+          "name": "debug",
+          "description": "(debugging) enable logging (click tracking)",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "description": "(debugging) disable show/hide check, cta",
           "type": "boolean"
         }
       ],
       "properties": [
         {
-          "name": "var",
-          "attribute": "var",
-          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "name": "code",
+          "attribute": "code",
+          "description": "unique identifier",
           "type": "string"
         },
         {
-          "name": "val",
-          "attribute": "val",
-          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
+          "name": "message",
+          "attribute": "message",
+          "description": "information to display to the user",
           "type": "string"
         },
         {
-          "name": "white",
-          "attribute": "white",
-          "description": "whether to have a white or a black background",
+          "name": "cta_text",
+          "attribute": "cta_text",
+          "description": "(optional) main action displaying the",
+          "type": "string"
+        },
+        {
+          "name": "cta_url",
+          "attribute": "cta_url",
+          "description": "(optional) link the user should click to address/learn more about the message",
+          "type": "string"
+        },
+        {
+          "name": "severity",
+          "attribute": "severity",
+          "description": "(optional) type of message to display (determine ) [info, success, alert, warn]",
+          "type": "string"
+        },
+        {
+          "name": "dismissed",
+          "attribute": "dismissed",
+          "description": "(debugging) set the status to dismissed",
+          "type": "boolean"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "(debugging) enable logging (click tracking)",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "attribute": "prevent_action",
+          "description": "(debugging) disable show/hide check, cta",
           "type": "boolean"
         }
       ]
@@ -128,120 +183,6 @@
       ]
     },
     {
-      "name": "bulib-announce",
-      "description": "display time-sensitive message, call-to-action across the top of a screen",
-      "attributes": [
-        {
-          "name": "message",
-          "description": "information to display to the user",
-          "type": "string"
-        },
-        {
-          "name": "cta_text",
-          "description": "(optional) main action displaying the",
-          "type": "string"
-        },
-        {
-          "name": "cta_link",
-          "description": "(optional) link the user should click to address/learn more about the message",
-          "type": "string"
-        },
-        {
-          "name": "severity",
-          "description": "(optional) type of message to display (determine ) [info, success, alert, warn]",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "description": "(debugging) enable logging (click tracking)",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "description": "(debugging) disable show/hide check, cta",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "message",
-          "attribute": "message",
-          "description": "information to display to the user",
-          "type": "string"
-        },
-        {
-          "name": "cta_text",
-          "attribute": "cta_text",
-          "description": "(optional) main action displaying the",
-          "type": "string"
-        },
-        {
-          "name": "cta_link",
-          "attribute": "cta_link",
-          "description": "(optional) link the user should click to address/learn more about the message",
-          "type": "string"
-        },
-        {
-          "name": "severity",
-          "attribute": "severity",
-          "description": "(optional) type of message to display (determine ) [info, success, alert, warn]",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "(debugging) enable logging (click tracking)",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "attribute": "prevent_action",
-          "description": "(debugging) disable show/hide check, cta",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
-      "name": "bulib-feedback",
-      "attributes": [
-        {
-          "name": "code",
-          "description": "unique identifier for each feedback input (event category)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "description": "[debugging] enables logging to the console",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "description": "[debugging] override main action (prevent GAEvent logging)",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "code",
-          "attribute": "code",
-          "description": "unique identifier for each feedback input (event category)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "[debugging] enables logging to the console",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "attribute": "prevent_action",
-          "description": "[debugging] override main action (prevent GAEvent logging)",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
       "name": "bulib-footer",
       "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
       "attributes": [
@@ -292,6 +233,87 @@
           "description": "provide window into setting displayed 'locoso' contact data",
           "type": "string",
           "default": "\"help\""
+        }
+      ]
+    },
+    {
+      "name": "bulib-color",
+      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
+      "attributes": [
+        {
+          "name": "var",
+          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "type": "string"
+        },
+        {
+          "name": "val",
+          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
+          "type": "string"
+        },
+        {
+          "name": "white",
+          "description": "whether to have a white or a black background",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "var",
+          "attribute": "var",
+          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "type": "string"
+        },
+        {
+          "name": "val",
+          "attribute": "val",
+          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
+          "type": "string"
+        },
+        {
+          "name": "white",
+          "attribute": "white",
+          "description": "whether to have a white or a black background",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-feedback",
+      "attributes": [
+        {
+          "name": "code",
+          "description": "unique identifier for each feedback input (event category)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "description": "[debugging] enables logging to the console",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "description": "[debugging] override main action (prevent GAEvent logging)",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "code",
+          "attribute": "code",
+          "description": "unique identifier for each feedback input (event category)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "[debugging] enables logging to the console",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "attribute": "prevent_action",
+          "description": "[debugging] override main action (prevent GAEvent logging)",
+          "type": "boolean"
         }
       ]
     },

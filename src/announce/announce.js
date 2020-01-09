@@ -60,7 +60,6 @@ export default class BULAnnounce extends LitElement {
    * attempt to gather dismissal information from localStorage (fallback to 'false') 
    */
   _getDismissedValueFromSessionStorage(){
-    this._logToConsole("this.dismissed: '"+this.dismissed+"'");
     if(this.hasAttribute("dismissed")){
       // only return false if it's explicitly set to "false"
       return this.hasAttribute("dismissed") && this.getAttribute("dismissed") !== "false";
@@ -87,7 +86,7 @@ export default class BULAnnounce extends LitElement {
     // save this updated setting in the localStorage
     setExpiringLocalValue(this._dismissedId(), !value_before);
 
-    this._logToConsole(`dismiss clicked, session's' 'announcement-dismissed' value '${value_before}'->'${this._getDismissedValueFromSessionStorage()}'`);
+    this._logToConsole(`dismiss clicked, session's' '${this._dismissedId()}' value '${value_before}'->'${this._getDismissedValueFromSessionStorage()}'`);
     this.requestUpdate();
   }
 

@@ -18,7 +18,7 @@ export function readExpiringLocalValue(keyName, fallback){
       // if it hasn't 'expired', query the value : 
       if( (Date.now() - lastUpdated) < DEFAULT_STORAGE_EXPIRATION_TIME){
         valueToReturn = localStorage.getItem(keyName) == "true";
-        _logToConsole(`unexpired 'announcement-dismissed' value of '${storedValue}' read from localStorage`);
+        _logToConsole(`unexpired '${keyName}' value of '${storedValue}' read from localStorage`);
 
       // if it has expired, reset/remove it
       }else{

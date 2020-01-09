@@ -34,13 +34,13 @@ Specifying a `severity` will alter its color and icon, and should be complimenta
 <Preview withToolbar>
   <Story name="message-severity">
     {html`
-      <bulib-announce debug severity="info" message="Situation-independent information"></bulib-announce>
+      <bulib-announce debug code="severity-info" severity="info" message="Situation-independent information"></bulib-announce>
       <hr />
-      <bulib-announce debug severity="success" message="A user action has been completed or verified"></bulib-announce>
+      <bulib-announce debug code="severity-success" severity="success" message="A user action has been completed or verified"></bulib-announce>
       <hr />
-      <bulib-announce debug severity="warn" message="Something is wrong, but it's not an emergency"></bulib-announce>
+      <bulib-announce debug code="severity-warn" severity="warn" message="Something is wrong, but it's not an emergency"></bulib-announce>
       <hr />
-      <bulib-announce debug severity="alert" message="Something is very wrong and needs immediate attention"></bulib-announce>
+      <bulib-announce debug code="severity-alert" severity="alert" message="Something is very wrong and needs immediate attention"></bulib-announce>
     `}
   </Story>
 </Preview>
@@ -52,7 +52,7 @@ You can also specify a call-to-action text (`cta_url`) and url (`cta_url`).
 <Preview withToolbar>
   <Story name="message-signin-cta">
     {html`
-      <bulib-announce debug severity="info" message="Sign in to view 'My Favorites'" 
+      <bulib-announce debug code="signin-cta" severity="info" message="Sign in to view 'My Favorites'" 
         cta_text="Sign In" cta_url="https://www.bu.edu/library/account/"></bulib-announce>
     `}
   </Story>
@@ -61,21 +61,43 @@ You can also specify a call-to-action text (`cta_url`) and url (`cta_url`).
 
 ### Banner Dismissal
 
-In order to not annoy the user (by presenting them with irrelevant or unwanted information), messages can be 
-  dismissed (setting them to `disabled`).
+In order to not annoy the user (by presenting them with irrelevant or unwanted information), banner 
+  messages can be hidden by being dismissed (by setting them to `disabled`).
 
-#### Manual
 
-This can be done manually - in which case it will always be hidden or `disabled` regardless of saved values.
+#### Session Memory (default)
+
+By default, we try to remember which banners have and haven't been dismissed by using the `src/_helpers/storageUtility`,
+  and look into the user's `localStorage` for the `announce-dismissal` for that specific `code`. 
 
 <Preview withToolbar>
-  <Story name="message-dismissed-manual">
+  <Story name="dismissed-memory">
     {html`
-      <bulib-announce debug dismissed severity="info" message="Sign in to view 'My Favorites'" 
-        cta_text="Sign In" cta_url="https://www.bu.edu/library/account/"></bulib-announce>
+      <bulib-announce debug severity="info" code="one"></bulib-announce> <hr />
+      <bulib-announce debug severity="warn" code="two"></bulib-announce> <hr />
+      <bulib-announce debug severity="alert" code="three"></bulib-announce> <hr />
+      <bulib-announce debug severity="success" code="four"></bulib-announce>
     `}
   </Story>
 </Preview>
+
+
+#### Manual Override
+
+For debugging purposes, this can be done manually - in which case it will _always_ be hidden (`dismissed="true"`, `dismissed`) 
+  or _always_ shown (`dismissed="false"`) regardless of what's been saved in the local storage.
+
+<Preview withToolbar>
+  <Story name="dismissed-manual">
+    {html`
+      <bulib-announce debug code="dismissed-present" dismissed message="'dismissed' is present, but unspecified"></bulib-announce> <hr />
+      <bulib-announce debug code="dismissed-true" dismissed="true" message="'dismissed' is present and set to 'true'"></bulib-announce> <hr />
+      <bulib-announce debug code="dismissed-false" dismissed="false" message="'dismissed' is present and set to 'false'"></bulib-announce>
+    `}
+  </Story>
+</Preview>
+
+_NOTE: clicking the DISMISS button will immediately toggle the `dismiss` value for the banner, save that value in local storage, and switch that banner's dismissal to manual mode until page is reloaded_
 
 
 ## API - Properties 
