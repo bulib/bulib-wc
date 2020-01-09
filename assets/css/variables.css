@@ -14,7 +14,7 @@ body {
 
   /* colors communicating severity or importance */
   --color-severity-info-background: #E0FFFF;
-  --color-severity-success-background: #B0E0E6;
+  --color-severity-success-background: #b1f5cb;
   --color-severity-warn-background: #EDE49E;
   --color-severity-alert-background: lightsalmon; 
 

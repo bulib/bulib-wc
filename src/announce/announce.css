@@ -15,7 +15,7 @@ div.announce-banner {
 div.announce-banner[disabled="true"] { display: none; }
 bulib-announce[debug] > div.announce-banner[disabled="true"], div.announce-banner[debug][disabled="true"]{
   display: inline-block !important;
-  background-color: red !important;
+  background-color: var(--color-accent-background, red) !important;
   color: yellow !important;
 }
 

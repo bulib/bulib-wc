@@ -25,7 +25,7 @@ export default class BULAnnounce extends LitElement {
       severity: {type: String},
       
       /** (debugging) set the status to dismissed */
-      dismissed: {type: Boolean},
+      dismissed: {type: Boolean, reflect: true},
       /** (debugging) enable logging (click tracking)  */
       debug: {type: Boolean},
       /** (debugging) disable show/hide check, cta  */
