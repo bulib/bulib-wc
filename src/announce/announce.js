@@ -1,6 +1,6 @@
 import {LitElement, html} from 'lit-element/lit-element';
 
-const LOCAL_STORAGE_EXPIRY_TIME = 1000 * 60 * 60 * 24 * 3; // 3 days
+import {readExpiringLocalValue, setExpiringLocalValue} from '../_helpers/storageUtility';
 
 /**
  * display time-sensitive message, call-to-action across the top of a screen
@@ -12,6 +12,8 @@ export default class BULAnnounce extends LitElement {
 
   static get properties() {
     return {
+      /** unique identifier */
+      code: {type: String},
       /** information to display to the user */
       message: {type: String},
 
@@ -38,7 +40,7 @@ export default class BULAnnounce extends LitElement {
       case "alert":   icon = "announcement"; break;
       case "warn":    icon = "report_problem"; break;
       case "info":
-        default:        icon = "info"; break;
+      default:        icon = "info"; break;
     }
     let sanitized_message = this.message? this.message.replace(/&#39;/g, "'") : "this is a default message";
   
@@ -56,52 +58,35 @@ export default class BULAnnounce extends LitElement {
 
   /** 
    * attempt to gather dismissal information from localStorage (fallback to 'false') 
-   * @TODO convert to an new src/_helpers/storage.js
    */
   _getDismissedValueFromSessionStorage(){
-    let dismissedValueFromLocalStorage = false;
-    try{
-      // look in localStorage for our announcement-dismissed variables
-      let storedValue = localStorage.getItem("announcement-dismissed");
-      let lastUpdated = localStorage.getItem("announcement-dismissed-when");
-      
-      // if both localStorage values are present...
-      if(!!storedValue && !!lastUpdated){
-
-        // query the value if it hasn't 'expired': 
-        if( (Date.now() - lastUpdated) < LOCAL_STORAGE_EXPIRY_TIME){
-          dismissedValueFromLocalStorage = localStorage.getItem("announcement-dismissed") == "true";
-          
-          if(localStorage.getItem("announcement-dismissed") == "true" && !this.dismissed){
-            this._logToConsole(`unexpired 'announcement-dismissed' value of '${storedValue}' read from localStorage`);
-          }
-
-        // reset them (both) if they have expired
-        }else{
-          localStorage.removeItem("announcement-dismissed");
-          localStorage.removeItem("announcement-dismissed-when");
-          this._logToConsole(`expired 'announcement-dismissed*' values have been removed.`);
-        }
-      }
-    }catch(exception){
-      this._logToConsole("exception trying to getItem from localStorage: " + exception.message);
-    }finally{
-      return dismissedValueFromLocalStorage || this.dismissed;
+    this._logToConsole("this.dismissed: '"+this.dismissed+"'");
+    if(this.hasAttribute("dismissed")){
+      // only return false if it's explicitly set to "false"
+      return this.hasAttribute("dismissed") && this.getAttribute("dismissed") !== "false";
+    }else{
+      return readExpiringLocalValue(this._dismissedId(), false) || false;
     }
   }
 
-  _toggleDismissed(){
-    let value_before = this._getDismissedValueFromSessionStorage();
-
-    try{ // note: safari breaks with a security error any time 'localStorage' is accessed
-      localStorage.setItem("announcement-dismissed", !value_before); 
-      localStorage.setItem("announcement-dismissed-when", Date.now()); 
-    }
-    catch(exception){ this._logToConsole("exception trying to setItem in localStorage: " + exception.message); }
-    finally{
-      this.dismissed = !value_before;
-    }
+  _dismissedId(){
+    let dismissed_id = "announcement-dismissed";
     
+    try{ dismissed_id += "-"+this.code; }
+    catch(exception){ this._logToConsole("error slugifying message to get new id: " + exception.message); }
+
+    return dismissed_id;
+  }
+
+  _toggleDismissed(){
+    let value_before = this._getDismissedValueFromSessionStorage("announcement-dismissed", false) || false;
+    
+    // auto-update the property and attribute value for the currently loaded tag
+    this.setAttribute("dismissed", !value_before);
+
+    // save this updated setting in the localStorage
+    setExpiringLocalValue(this._dismissedId(), !value_before);
+
     this._logToConsole(`dismiss clicked, session's' 'announcement-dismissed' value '${value_before}'->'${this._getDismissedValueFromSessionStorage()}'`);
     this.requestUpdate();
   }
