@@ -39,4 +39,18 @@ describe('bulib-announce', () => {
     let announceIcon = el.querySelector("div.announce-banner i");
     expect(announceIcon.innerHTML).to.include('report_problem')
   });
+
+  it("clicking 'dismiss' on a non-dismissed announce-banner dismisses it", async () => {
+    let el = await fixture(html`<bulib-announce dismissed="false"></bulib-announce>`);
+    let innerDiv = el.querySelector("div.announce-banner");
+
+    // click on the dismiss button and wait for the element to update
+    innerDiv.querySelector("button").click();
+    await elementUpdated(innerDiv);
+
+    // assert that the innerHTML changes and that the banner becomes hidden
+    expect(innerDiv.getAttribute("disabled") == "true").to.be.true;
+    innerDiv = el.querySelector("div.announce-banner");
+    expect(elementIsHidden(innerDiv)).to.be.true;
+  });
 });
