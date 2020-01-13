@@ -21,6 +21,12 @@ li.style-scope.bulib-footer {
 #hours-display { font-size: 100% !important; }
 
 
+/* - library & service hours (/library/about/hours/) - */
+.s-lc-whw-bh > button {
+  padding: 5px;
+  font-size: large;
+}
+
 /* - floorplans - */
 
 /* locate by floor styling */
