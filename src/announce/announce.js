@@ -45,7 +45,7 @@ export default class BULAnnounce extends LitElement {
     let sanitized_message = this.message? this.message.replace(/&#39;/g, "'") : "this is a default message";
   
     return html`
-      <div class="announce-banner ${this.severity}" disabled="${this._getDismissedValueFromSessionStorage()}">
+      <div class="announce-banner${ this.severity != undefined? " "+this.severity : ""}" disabled="${this._getDismissedValue()}">
         <i class="material-icons">${icon}</i>
         <span class="message">${sanitized_message}</span>
         ${!!this.cta_url? html`<span class="cta"><a href="${this.cta_url}">${this.cta_text}</a></span>`: ``}
@@ -59,7 +59,7 @@ export default class BULAnnounce extends LitElement {
   /** 
    * attempt to gather dismissal information from localStorage (fallback to 'false') 
    */
-  _getDismissedValueFromSessionStorage(){
+  _getDismissedValue(){
     if(this.hasAttribute("dismissed")){
       // only return false if it's explicitly set to "false"
       return this.hasAttribute("dismissed") && this.getAttribute("dismissed") !== "false";
@@ -78,16 +78,17 @@ export default class BULAnnounce extends LitElement {
   }
 
   _toggleDismissed(){
-    let value_before = this._getDismissedValueFromSessionStorage("announcement-dismissed", false) || false;
+    let value_before = this._getDismissedValue();
     
     // auto-update the property and attribute value for the currently loaded tag
     this.setAttribute("dismissed", !value_before);
 
+    // ensure the component updates (re-renders)
+    this._logToConsole(`dismiss clicked, session's' '${this._dismissedId()}' value '${value_before}'->'${this._getDismissedValue()}'`);
+    this.requestUpdate();
+
     // save this updated setting in the localStorage
     setExpiringLocalValue(this._dismissedId(), !value_before);
-
-    this._logToConsole(`dismiss clicked, session's' '${this._dismissedId()}' value '${value_before}'->'${this._getDismissedValueFromSessionStorage()}'`);
-    this.requestUpdate();
   }
 
   _logToConsole(message){

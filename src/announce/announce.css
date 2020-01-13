@@ -12,7 +12,8 @@ div.announce-banner {
 }
 
 /* hide announce banner if it's been disabled, unless 'debug' attribute is also present */
-div.announce-banner[disabled="true"] { display: none; }
+div.announce-banner[disabled], div.announce-banner[disabled="true"] { display: none; }
+div.announce-banner[disabled="false"] { display: inline-block; }
 bulib-announce[debug] > div.announce-banner[disabled="true"], div.announce-banner[debug][disabled="true"]{
   display: inline-block !important;
   background-color: var(--color-accent-background, red) !important;
@@ -40,4 +41,10 @@ div.announce-banner > *:last-child { margin-left: 1%; }
 .announce-banner.alert {
   background: var(--color-severity-alert-background, lightsalmon) !important;
   font-weight: 600;
+}
+
+/* round the corners of the buttons placed on announcment banners */
+.announce-banner button {
+  border-radius: 7px;
+  padding-left: 4px;
 }
