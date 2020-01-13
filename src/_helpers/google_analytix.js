@@ -1,4 +1,4 @@
-const DEBUG_ANALYTICS = true;
+const DEBUG_ANALYTICS = false;
 const PREVENT_GA_CALL = false;
 
 function logGoogleAnalyticsMessage(message){
@@ -12,9 +12,7 @@ export function sendGAEvent(eventName, action, label, value){
   try{
     if(window.gtag && !PREVENT_GA_CALL){ 
       window.gtag('event', action, {
-        'event_category': eventName,
-        'event_label': label,
-        'value': value
+        'event_category': eventName, 'event_label': label, 'value': value
       });
       logGoogleAnalyticsMessage("window.gtag() found and called");
     }else if(window.ga && !PREVENT_GA_CALL){ 
@@ -29,25 +27,35 @@ export function sendGAEvent(eventName, action, label, value){
   }
 }
 
-export function sendGAEventFromClickEvent(clickEvent, eventName){
+export function sendGAEventFromClickEvent(clickEvent, eventName, actionName){
   let contentClicked = "[unknown]"; 
   
+  // obtain a label for the clicked link from its markup
   try{ 
     contentClicked = clickEvent.target.innerText 
       ? clickEvent.target.innerText 
       : clickEvent.target.querySelector("span").innerText 
       || "[unknown]";
-    contentClicked = contentClicked.replace(/\//,"").replace(/\&/,"");  // remove special characters
+    contentClicked = contentClicked.replace(/[^a-zA-Z0-9 ]/g, '');  // remove special characters
     contentClicked = contentClicked.toLowerCase().replace(/ +/g,"-");   // slugify (lowercase, dashes)
   }catch(err){
     logGoogleAnalyticsMessage("error getting contentClicked from clickEvent: ");
     if(DEBUG_ANALYTICS){ console.log(err); }
   }
-  sendGAEvent(eventName, contentClicked, window.location.pathname);
+
+  // allow user to specify an actionName as well as the eventName, pushing contentClicked into the label
+  if(!actionName || actionName == ""){
+    logGoogleAnalyticsMessage(`actionName considered 'undefined' or empty. sending action:'${contentClicked}', label:'${window.location.pathname}'.`)
+    sendGAEvent(eventName, contentClicked, window.location.pathname);
+  }else{
+    logGoogleAnalyticsMessage(`actionName '${actionName}' registered as a real value, sending action with label as contentClicked: '${contentClicked}'`)
+    sendGAEvent(eventName, actionName, contentClicked);
+  }
 }
 
-export function addSendGAEventOnAnchorClickToAnchorElements(anchorElements, eventName){
+export function addSendGAEventOnAnchorClickToAnchorElements(anchorElements, eventName, actionName){
+  logGoogleAnalyticsMessage(`adding click listeners with eventName:'${eventName}', actionName:'${actionName}'`);
   for(let i=0; i<anchorElements.length; i++){
-    anchorElements[i].addEventListener("click", (ev) => sendGAEventFromClickEvent(ev, eventName));
+    anchorElements[i].addEventListener("click", (ev) => sendGAEventFromClickEvent(ev, eventName, actionName));
   }
 }
