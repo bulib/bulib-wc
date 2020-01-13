@@ -2,6 +2,16 @@ import {LitElement, html} from 'lit-element/lit-element';
 
 import {readExpiringLocalValue, setExpiringLocalValue} from '../_helpers/storageUtility';
 
+const primo_specific_padding_adjustment = html`
+  <style>
+    /* site-specific code for primo's announce-banner.js - removes the added padding under the search bar */ 
+    prm-search-bar { padding-bottom: var(--primo-announce-hidden-padding, 10px) !important; }
+    .__xs prm-search-bar, .__sm prm-search-bar { 
+      padding-bottom: var(--primo-announce-hidden-padding-small, 22.5px) !important; 
+    }
+  </style>
+`;
+
 /**
  * display time-sensitive message, call-to-action across the top of a screen
  */
@@ -45,6 +55,7 @@ export default class BULAnnounce extends LitElement {
     let sanitized_message = this.message? this.message.replace(/&#39;/g, "'") : "this is a default message";
   
     return html`
+      ${window.location.pathname.includes("primo-explore") && !this.debug && this.dismissed ? primo_specific_padding_adjustment : html``}
       <div class="announce-banner${ this.severity != undefined? " "+this.severity : ""}" disabled="${this._getDismissedValue()}">
         <i class="material-icons">${icon}</i>
         <span class="message">${sanitized_message}</span>
