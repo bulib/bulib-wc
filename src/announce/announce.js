@@ -53,7 +53,7 @@ export default class BULAnnounce extends LitElement {
     let sanitized_message = this.message? this.message.replace(/&#39;/g, "'") : "this is a default message";
   
     return html`
-      ${ window.location.pathname.includes("primo-explore") && (!this.debug && !this._getDismissedValue()) ? primo_specific_padding: html``}
+      ${ window.location.pathname.includes("primo-explore") && (this.debug || !this._getDismissedValue()) ? primo_specific_padding: html``}
       <div class="announce-banner${ this.severity != undefined? " "+this.severity : ""}" disabled="${this._getDismissedValue()}">
         <i class="material-icons">${icon}</i>
         <span class="message">${sanitized_message}</span>
