@@ -14,7 +14,7 @@ export default class BULibColor extends LitElement {
       /** name of a known, default css variable (e.g. 'blue', 'red') */
       var: {type: String},
 
-      /** css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )*/
+      /** css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-red-background' )*/
       val: {type: String}, /** color code */
 
       /** whether to have a white or a black background  */
