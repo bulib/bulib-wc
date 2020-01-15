@@ -6,7 +6,7 @@ import {sendGAEvent} from '../_helpers/google_analytix';
  */
 export default class BULCard extends LitElement {
 
-  // don't need 'slot' functionality, so lets use Light DOM
+  // rendering the content into the light DOM enables it to be styled by the default css
   createRenderRoot(){ return this; }
 
   static get properties() {

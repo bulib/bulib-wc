@@ -15,7 +15,7 @@ const primo_specific_padding = html`
  */
 export default class BULAnnounce extends LitElement {
 
-  // don't need 'slot' functionality, so lets use Light DOM
+  // rendering the content into the light DOM enables it to be styled by the default css
   createRenderRoot(){ return this; }
 
   static get properties() {
@@ -66,17 +66,20 @@ export default class BULAnnounce extends LitElement {
   }
 
   /** 
-   * attempt to gather dismissal information from localStorage (fallback to 'false') 
+   * attempt to gather dismissal information from 'storageUtility' helper, iff a hardcoded dismissal 
+   *   is not already set/present (e.g `dismissed`, `dismissed="true"`, `dismissed="false"`)
    */
   _getDismissedValue(){
     if(this.hasAttribute("dismissed")){
-      // only return false if it's explicitly set to "false"
+      // returns true if the attribute is present and set to anything other than 'false'
       return this.hasAttribute("dismissed") && this.getAttribute("dismissed") !== "false";
     }else{
+      // only check the value when it wouldn't be overwritten anyway
       return readExpiringLocalValue(this._dismissedId(), false) || false;
     }
   }
 
+  /** create and return a unique id to distinguish 'dismissal' information from other instances */
   _dismissedId(){
     let dismissed_id = "announcement-dismissed";
     
@@ -86,13 +89,14 @@ export default class BULAnnounce extends LitElement {
     return dismissed_id;
   }
 
+  /** react to user-triggered dismissal by setting the stored memory value and hardcoded attribute/property */
   _toggleDismissed(){
     let value_before = this._getDismissedValue();
     
     // auto-update the property and attribute value for the currently loaded tag
     this.setAttribute("dismissed", !value_before);
 
-    // ensure the component updates (re-renders)
+    // ensure the component updates (re-renders) and hides (or shows) the component
     this._logToConsole(`dismiss clicked, session's' '${this._dismissedId()}' value '${value_before}'->'${this._getDismissedValue()}'`);
     this.requestUpdate();
 
