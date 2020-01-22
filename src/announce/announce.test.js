@@ -33,14 +33,14 @@ describe('bulib-announce', () => {
     expect(elementIsHidden(innerDiv)).to.be.false;
   });
 
-  it('icon changes with severity', async () => {
+  it('the icon to change with the severity', async () => {
     const el = await fixture(html`<bulib-announce severity="warn"></bulib-announce>`);
     expect(el.innerHTML).not.to.be.undefined;
     let announceIcon = el.querySelector("div.announce-banner i");
     expect(announceIcon.innerHTML).to.include('report_problem')
   });
 
-  it("clicking 'dismiss' on a non-dismissed announce-banner dismisses it", async () => {
+  it("that clicking 'dismiss' on a non-dismissed announce-banner dismisses it", async () => {
     let el = await fixture(html`<bulib-announce dismissed="false"></bulib-announce>`);
     let innerDiv = el.querySelector("div.announce-banner");
 

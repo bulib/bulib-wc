@@ -50,7 +50,7 @@ export default class BULAnnounce extends LitElement {
       case "info":
       default:        icon = "info"; break;
     }
-    let sanitized_message = this.message? this.message.replace(/&#39;/g, "'") : "this is a default message";
+    let sanitized_message = this.message? this.message.replace(/&#39;/g, "'") : "Please standby while we address an ongoing issue, and email 'ask@bu.edu' if the problem persists";
   
     return html`
       ${ window.location.pathname.includes("primo-explore") && (this.debug || !this._getDismissedValue()) ? primo_specific_padding: html``}
