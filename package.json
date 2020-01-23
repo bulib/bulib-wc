@@ -1,6 +1,6 @@
 {
   "name": "bulib-wc",
-  "version": "0.1.4",
+  "version": "0.1.9",
   "description": "collection of web components and styles used at Boston University Libraries",
   "type": "module",
   "main": "src/index.js",
@@ -26,6 +26,7 @@
     "build:storybook": "build-storybook --stories 'src/*/*.stories.mdx' -o _site && cp dist/bundle.css _site/bundle.css",
     "deploy": "./scripts/deploy.sh",
     "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -e _site -o _site",
+    "pretest": "npm run build:css",
     "test": "karma start"
   },
   "repository": {

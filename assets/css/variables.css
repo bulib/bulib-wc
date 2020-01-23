@@ -12,6 +12,12 @@ body {
   --color-accent-text: whitesmoke;
   --color-accent-text-hover: white;
 
+  /* colors communicating severity or importance */
+  --color-severity-info-background: #E0FFFF;
+  --color-severity-success-background: #b1f5cb;
+  --color-severity-warn-background: #EDE49E;
+  --color-severity-alert-background: lightsalmon; 
+
   /* button/call to action (blue) */
   --color-button-background: #257abe;
   --color-button-background-accent: #06605A;

@@ -7,4 +7,5 @@
 @import url("./cta.css");
 @import url("./tabs.css");
 
+@import url("../../src/announce/announce.css");
 @import url("../../src/header/header.css");

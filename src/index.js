@@ -3,6 +3,7 @@ import '@webcomponents/webcomponentsjs/webcomponents-loader';
 WebComponents.waitFor(function(){
   import ('./select/bulib-select');
   import ('./feedback/bulib-feedback');
+  import ('./announce/bulib-announce');
   import ('./card/bulib-card');
   import ('./libhours/bulib-hours');
   import ('./search/bulib-search');

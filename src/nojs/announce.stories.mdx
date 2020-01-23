@@ -1,0 +1,74 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+
+
+<Meta title="No Javascript|announce-banner" />
+
+# Announce Banner (nojs)
+  
+Show a site-wide message and call to action with manual severity and optional, clear call to action.
+
+
+## Default (enabled)
+
+### Default (without CTA)
+
+Announcement banners can be used without any call to action if you're just telling the user a basic fact.
+
+<Preview withToolbar>
+  <Story name="default">
+    {html`
+      <div class="announce-banner success">
+        <i class="material-icons">check_circle</i>
+        <span class="message">You have successfully used a banner without any Call-To-Action</span>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+### Default (with CTA)
+
+Most announcements, however, will likely come with an action the user should take to complete a given task.
+
+<Preview withToolbar>
+  <Story name="default-with-cta">
+    {html`
+      <div class="announce-banner info">
+        <i class="material-icons">info</i>
+        <span class="message">Sign in to view 'My Favorites'</span>
+        <a href="https://www.bu.edu/library/account/">Sign in</a>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+
+#### Disabled/Dismissed Messages
+
+You can show/hide banner messages in `bulib-announce` by setting the `div.announce-banner`'s `disabled` value to true.
+
+
+_NOTE: There is an invisible banner below that you can't see because the <code>debug</code> is absent_
+
+<Preview withToolbar>
+  <Story name="disabled-default">
+    {html`
+      <div class="announce-banner alert" disabled="true">
+        <i class="material-icons">announcement</i>
+        <span class="message">This message cannot be seen because it is set to disabled='true' and doesn't have a 'debug' attribute</span>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+To manually show disabled (or 'dismissed') messages (e.g. when debugging), simply add the `debug` attribute to the same level
+
+<Preview withToolbar>
+  <Story name="disabled-debug">
+    {html`
+      <div class="announce-banner warn" debug disabled="true">
+        <i class="material-icons">report_problem</i>
+        <span class="message">This banner is manually disabled, but can still be seen because of the <code>debug</code> attribute</span>
+      </div>
+    `}
+  </Story>
+</Preview>

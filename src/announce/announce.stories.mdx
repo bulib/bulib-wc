@@ -1,0 +1,106 @@
+import { Story, Preview, Meta, Props, html, withKnobs, withWebComponentsKnobs } from '@open-wc/demoing-storybook';
+import './bulib-announce.js';
+
+<Meta 
+  title="Web Components|bulib-announce"
+  decorators={[withKnobs, withWebComponentsKnobs]}
+  parameters={{
+    component: "bulib-announce",
+    options: { selectedPanel: "storybookjs/knobs/panel" },
+  }}
+/>
+
+# Announcement Banner Component
+
+Used to show site-wide, time-sensitive, dismissable chunk of information with varying severity, a prominent message, 
+  and a clear call to action.
+
+## Usages 
+
+### Default Component
+
+by default, `bulib-announce` displays with a default message with an `info`-level severity and no call to action
+
+<Preview withToolbar>
+  <Story name="basic">
+    {html`<bulib-announce debug></bulib-announce>`}
+  </Story>
+</Preview>
+
+### Custom Message and Severity
+
+Specifying a `severity` will alter its color and icon, and should be complimentary to the specified `message`.
+
+<Preview withToolbar>
+  <Story name="custom-severity">
+    {html`
+      <bulib-announce debug code="severity-info" severity="info" message="Situation-independent information"></bulib-announce>
+      <hr />
+      <bulib-announce debug code="severity-success" severity="success" message="A user action has been completed or verified"></bulib-announce>
+      <hr />
+      <bulib-announce debug code="severity-warn" severity="warn" message="Something is wrong, but it's not an emergency"></bulib-announce>
+      <hr />
+      <bulib-announce debug code="severity-alert" severity="alert" message="Something is very wrong and needs immediate attention"></bulib-announce>
+    `}
+  </Story>
+</Preview>
+
+### Custom Calls-to-Actions
+
+You can also specify a call-to-action text (`cta_text`) and url (`cta_url`). 
+
+<Preview withToolbar>
+  <Story name="custom-signin-cta">
+    {html`
+      <bulib-announce debug code="signin-cta" severity="info" message="Sign in to view 'My Favorites'" 
+        cta_text="Sign In" cta_url="https://www.bu.edu/library/account/"></bulib-announce>
+    `}
+  </Story>
+</Preview>
+
+
+### Banner Dismissal
+
+In order to not annoy the user (by presenting them with irrelevant or unwanted information), banner 
+  messages can be hidden by being dismissed (by setting them to `disabled`).
+
+
+#### Session Memory (default)
+
+By default, we try to remember which banners have and haven't been dismissed by using the `src/_helpers/storageUtility`,
+  and look into the user's `localStorage` for the `announce-dismissal` for that specific `code`. 
+
+<Preview withToolbar>
+  <Story name="dismissed-memory">
+    {html`
+      <bulib-announce debug severity="info" code="one"></bulib-announce> <hr />
+      <bulib-announce debug severity="warn" code="two"></bulib-announce> <hr />
+      <bulib-announce debug severity="alert" code="three"></bulib-announce> <hr />
+      <bulib-announce debug severity="success" code="four"></bulib-announce>
+    `}
+  </Story>
+</Preview>
+
+
+#### Manual Override
+
+For debugging purposes, this can be done manually - in which case it will _always_ be hidden (`dismissed="true"`, `dismissed`) 
+  or _always_ shown (`dismissed="false"`) regardless of what's been saved in the local storage.
+
+<Preview withToolbar>
+  <Story name="dismissed-override">
+    {html`
+      <bulib-announce debug code="dismissed-present" dismissed message="'dismissed' is present, but unspecified"></bulib-announce> <hr />
+      <bulib-announce debug code="dismissed-true" dismissed="true" message="'dismissed' is present and set to 'true'"></bulib-announce> <hr />
+      <bulib-announce debug code="dismissed-false" dismissed="false" message="'dismissed' is present and set to 'false'"></bulib-announce>
+    `}
+  </Story>
+</Preview>
+
+_NOTE: clicking the DISMISS button will immediately toggle the `dismiss` value for the banner, save that value in local storage, and switch that banner's dismissal to manual mode until page is reloaded_
+
+
+## API - Properties 
+
+<Props of="bulib-announce" />
+
