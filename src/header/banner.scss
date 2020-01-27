@@ -10,13 +10,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
 
-  h1, span {
+  h1 {
     font-family: 'Benton', sans-serif;
     font-weight: 400 !important;
     color: var(--color-secondary-text, black);
     font-size: x-large;
-    margin-top: 20px;
-    margin-bottom: 20px;
     padding-right: 10px;
 
     a { 
@@ -28,7 +26,6 @@
 
     bulib-search { min-width: 350px; }
   }
-
-  > *:first-child { display: flex; }
+  
   > *:last-child { max-width: 450px; }
 }

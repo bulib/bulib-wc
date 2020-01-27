@@ -25,3 +25,6 @@
   .get-help span { font-size: small !important; padding-right: 0px; } 
   .get-help li { padding-bottom: 5px; }
 }
+
+/* enable mobile header to open above the rest of the page */
+.s-lib-main, #s-lg-guide-main { z-index: unset; }
