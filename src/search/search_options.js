@@ -7,6 +7,7 @@ export const search_options = [
   {"value":"industries",  "name":"Industry Survey Locator",  "placeholder": "Search for industry surveys",      "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=ISL&institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
   {"value":"guides",      "name":"Library Guides",           "placeholder": "Search Research Guides",           "domain":"http://library.bu.edu/srch.php?q="},
   {"value":"openbu",      "name":"Open BU",                  "placeholder": "Search BU Digital Collections",    "domain":"https://open.bu.edu/discover?query="},
+  {"value":"db",          "name":"BU Databases",             "placeholder": "Search for databases",             "domain":"http://library.bu.edu/az.php?q="},
   {"value":"worldcat",    "name":"OCLC WorldCat",            "placeholder": "BU Libraries Search",              "domain":"https://bu.on.worldcat.org/search?queryString="}
   // {"value":"directory", "name":"Staff Directory",          "placeholder": "Search for people at BU",      "domain":"https://www.bu.edu/phpbin/directory/?q="},
   // {"value":"hgar",      "name":"Archival Research Center", "placeholder": "Search the BU Archive",        "domain":"http://archives.bu.edu/search/?search=SEARCH&query="},
