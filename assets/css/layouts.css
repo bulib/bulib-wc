@@ -30,3 +30,7 @@ div.tiles {
 div.tiles > * {
   margin: 5px;
 }
+
+/* - flexbox shortcut - */
+.flex  { display: flex; }
+.flexw { display: flex; flex-wrap: wrap; }
