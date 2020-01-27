@@ -1,3 +1,9 @@
+/* add some padding for the header and footer */
+#s-lib-public-main {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
 /* styling for the tags, staff login url, 'Powered by SpringShare' */
 #s-lib-footer-public {
   font-size: small; 
@@ -33,7 +39,7 @@
 /* - A-Z Database list - */
 
 /* enable mobile header to open above the rest of the page */
-.s-lib-main, #s-lg-guide-main { z-index: unset !important; margin-top: 10px !important; }
+.s-lib-main, #s-lg-guide-main { z-index: unset !important; }
 
 /* adjust breadcrumb size when added to the bulib custom banner */
 .banner #s-lib-admin-bc .breadcrumb, .banner #s-lib-bc .breadcrumb { font-size: small; }
