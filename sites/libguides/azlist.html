@@ -93,7 +93,7 @@
     <div class="banner-wrapper">
       <div class="banner">
         <div>
-          <h1><a href="/az.php">A-Z Databases List</a>&nbsp;</h1>
+          <h1><a href="/az.php">A-Z Databases</a>&nbsp;</h1>
           <div id="s-lib-bc">{{breadcrumbs}}</div>
         </div>
         
@@ -113,26 +113,29 @@
       <section>
         <div id="s-lg-az-search-bar" class="row">
           <div id="az-search-col-1" class="col-md-12 center">
-            {{navbar}}
+            <div id="s-lg-az-search-reset" class="pad-top-med pad-bottom-med">
+              {{search_reset}}
+            </div>
           </div>
         </div>
       </section>
       <section>
         <div id="s-lg-az-cols" class="row">
-          <div id="col1" class="col-md-8 center">
-            <div id="s-lg-az-filters" class="pad-right-sm pad-bottom-med">
-              <section>
-                <div id="s-lg-az-filter-cols" class="row">
-                  <div id="col-subjects" class="col-md-4 center">
-                    {{subject_list}}
-                  </div>
-                  <div id="col-types" class="col-md-4 center">
-                    {{type_list}}
-                  </div>
-                  <div id="col-vendors" class="col-md-4 center">
-                    {{vendor_list}}
-                  </div>
+          <div id="col1" class="col-lg-8 center">
+            <div id="s-lg-az-filters" class="secondary-menu">
+              <strong>Filter Database List:</strong>
+              <section id="s-lg-az-filter-cols" class="row">
+                <div id="col-subjects" class="col-sm-3">{{subject_list}}</div>
+                <div class="col-sm-6">
+                  <form class="flexw" role="search" onsubmit="springSpace.publicObj.filterAzBySearch(2345); return false;">
+                    <div style="flex: 1;">
+                      <label class="control-label sr-only" for="s-lg-az-search">DATABASES</label>
+                      <input type="text" id="s-lg-az-search" placeholder="Filter results" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-default">Go</button>
+                  </form>
                 </div>
+                <div id="col-types" class="col-sm-3">{{type_list}}</div>
               </section>
             </div>
             <div id="s-lg-az-index" class="pad-right-sm">
@@ -151,16 +154,13 @@
               <img src="https://s3.amazonaws.com/libapps/sites/2345/icons/10443/gavel.jpg" hspace="3"> = Law School only
               <p>&nbsp;</p>
             </div>
-            <div id="s-lg-az-search-reset" class="pad-top-med pad-bottom-med">
-              {{search_reset}}
-            </div>
             <div id="s-lg-az-content" class="pad-right-sm pad-top-med">
               <div class="bold s-lib-color-lt-grey pad-top-med text-center">
                 Loading...
               </div>
             </div>
           </div>
-          <div id="col2" class="col-md-4 center">
+          <div id="col2" class="col-lg-4 center">
             <h4>Introducing Policy Map</h4>
             <p>
               <a href="https://bu-policymap-com.ezproxy.bu.edu/maps">Policy Map</a> 
