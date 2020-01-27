@@ -1,9 +1,8 @@
 /* styling for the tags, staff login url, 'Powered by SpringShare' */
 #s-lib-footer-public {
-  font-size: small;  
-  background-color: var(--color-secondary-background, white) !important;
-  color: black !important;
-  border-top: none;
+  font-size: small; 
+  color: var(--color-primary-text, whitesmoke);
+  background-color: var(--color-primary-background, black);
 }
 .s-lib-footer a { font-weight: 700; }
 .s-lib-footer a:hover { 
@@ -24,7 +23,9 @@
   .get-help i { font-size: large !important; padding-right: 4px; } 
   .get-help span { font-size: small !important; padding-right: 0px; } 
   .get-help li { padding-bottom: 5px; }
+  .banner bulib-search { display: none; }
 }
 
 /* enable mobile header to open above the rest of the page */
-.s-lib-main, #s-lg-guide-main { z-index: unset; }
+.s-lib-main, #s-lg-guide-main { z-index: unset !important; margin-top: 10px !important; }
+#s-lib-admin-bc .breadcrumb, #s-lib-bc .breadcrumb { font-size: small; }

@@ -186,19 +186,19 @@ div.dropdown.menu-item {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between; }
-  .banner h1 {
+  .banner h1, .banner span {
     font-family: 'Benton', sans-serif;
     font-weight: 400 !important;
     color: var(--color-secondary-text, black);
     font-size: x-large;
     padding-right: 10px; }
-    .banner h1 a {
+    .banner h1 a, .banner span a {
       color: var(--color-secondary-text-dark, black);
       text-decoration: none;
       cursor: pointer; }
-    .banner h1 a:last-child {
+    .banner h1 a:last-child, .banner span a:last-child {
       font-weight: 300; }
-    .banner h1 bulib-search {
+    .banner h1 bulib-search, .banner span bulib-search {
       min-width: 350px; }
   .banner > *:last-child {
-    max-width: 450px; }
+    max-width: 550px; }

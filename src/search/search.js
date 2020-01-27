@@ -113,7 +113,7 @@ export default class BULibSearch extends LitElement {
         @media only screen and (min-width: 300px){
           #bulib-search { padding: 10px; }
           .search-box > input, input[type=radio], .search-options > label { 
-            font-size: large !important; 
+            font-size: medium; 
           }
         }
       `
