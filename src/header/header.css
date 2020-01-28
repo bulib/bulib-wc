@@ -176,29 +176,35 @@ div.dropdown.menu-item {
   visibility: visible;
   opacity: 0.95;
   display: block; }
+/* overall styling with padding and shadow */
 .banner-wrapper {
   font-family: 'Benton', sans-serif;
   background: var(--color-secondary-background, rgba(200, 200, 200, 0.3));
   border-bottom: 1px solid var(--color-secondary-background-dark, #C8C8C8);
-  box-shadow: 0px 0px 0px 1px var(--color-secondary-background-dark); }
+  box-shadow: 0px 0px 0px 1px var(--color-secondary-background-dark);
+  padding: 10px; }
 
 .banner {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; }
-  .banner h1, .banner span {
-    font-family: 'Benton', sans-serif;
-    font-weight: 400 !important;
-    color: var(--color-secondary-text, black);
+  justify-content: space-between;
+  align-items: center;
+  font-size: larger;
+  color: var(--color-secondary-text, black);
+  /* overwrite font-weight for strong links */
+  /* adjust the font, style, margins of site banner text/links */
+  /* ensure the bulib-search is displayed multi-row  */ }
+  .banner strong > a, .banner a:first-of-type {
+    font-weight: 500; }
+  .banner h1, .banner span, .banner strong {
+    font-family: 'Benton', sans-serif !important;
     font-size: x-large;
-    padding-right: 10px; }
-    .banner h1 a, .banner span a {
+    font-weight: 400; }
+    .banner h1 a, .banner span a, .banner strong a {
       color: var(--color-secondary-text-dark, black);
       text-decoration: none;
       cursor: pointer; }
-    .banner h1 a:last-child, .banner span a:last-child {
-      font-weight: 300; }
-    .banner h1 bulib-search, .banner span bulib-search {
-      min-width: 350px; }
-  .banner > *:last-child {
+  .banner > *:first-child {
+    margin-bottom: 10px; }
+  .banner > bulib-search {
     max-width: 550px; }
