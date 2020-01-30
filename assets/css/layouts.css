@@ -32,5 +32,4 @@ div.tiles > * {
 }
 
 /* - flexbox shortcut - */
-.flex  { display: flex; }
 .flexw { display: flex; flex-wrap: wrap; }
