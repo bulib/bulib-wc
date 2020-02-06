@@ -46,7 +46,7 @@
 
 /* color the 'Clear Filters' button to make it stand out more */
 #s-lg-az-search-reset button#s-lg-az-reset {
-  background-color: var(--color-button-background-light, #639CC9);
+  background-color: var(--color-button-background, #639CC9);
   color: var(--color-button-text-light, white);
 }
 
