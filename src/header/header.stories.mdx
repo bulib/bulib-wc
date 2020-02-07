@@ -122,7 +122,7 @@ Links for a hierarchy of '**parent**: child' (unless otherwise specified), and s
     {html`
       <div class="banner-wrapper">
         <div class="banner">
-          <span><a href="/">Ask a Librarian:</a>&nbsp; <a href="/businessFAQs">Business FAQs</a></span>
+          <span><a href="/">Ask a Librarian:</a> <a href="/businessFAQs">Business FAQs</a></span>
           <bulib-search str_options="pardee-help primo"></bulib-search>
         </div>
       </div>
@@ -135,15 +135,41 @@ LibCal exception case in which the site is dual-purpose (has two landing pages).
 <Preview>
   <Story name="site-banner-libcal">
     {html`
-      <style>
-        div.banner-wrapper.libcal > .banner { display: inline-block; font-weight: normal; }
-        div.banner-wrapper.libcal > .banner a { font-weight: 500 !important; }
-      </style>
-      <div class="banner-wrapper libcal">
+      <div class="banner-wrapper">
         <div class="banner">
-          <span><a href="/calendar">Events</a> &nbsp; and &nbsp; <a href="https://www.bu.edu/library/about/study-spaces">Reservations</a>&nbsp; </span>
+          <span>
+            <strong><a href="/calendar">Events</a></strong> &nbsp; and &nbsp;
+            <strong><a href="https://www.bu.edu/library/about/study-spaces">Reservations</a></strong>
+          </span>
         </div>
       </div>
+    `}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="site-banner-libguides">
+    {html`
+      <div class="banner-wrapper">
+      <div class="banner">
+        <div>
+          <h1><a href="/az.php">A-Z Databases List</a>&nbsp;</h1>
+          <div id="s-lib-bc">
+            <ol id="s-lib-bc-list" class="breadcrumb">
+              <li id="s-lib-bc-customer">
+                <a title="Boston University Libraries" href="http://bu.edu/library">Boston University Libraries</a>
+              </li>
+              <li id="s-lib-bc-site">
+                <a title="Research" href="//library.bu.edu/">Research</a>
+              </li>
+              <li id="s-lib-bc-page" class="active">A-Z Databases</li>
+            </ol>
+          </div>
+        </div>
+        
+        <bulib-search str_options="db guides primo"></bulib-search>
+      </div>
+    </div>
     `}
   </Story>
 </Preview>

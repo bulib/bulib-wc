@@ -1,14 +1,22 @@
+/* add some padding for the header and footer */
+#s-lib-public-main {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
 /* styling for the tags, staff login url, 'Powered by SpringShare' */
 #s-lib-footer-public {
-  font-size: small;  
-  background-color: var(--color-secondary-background, white) !important;
-  color: black !important;
-  border-top: none;
+  font-size: small; 
+  color: var(--color-primary-text, whitesmoke);
+  background-color: var(--color-primary-background, black);
 }
-.s-lib-footer a { font-weight: 700; }
-.s-lib-footer a:hover { 
+#s-lib-footer-public a { 
+  font-weight: 700; 
+  color: var(--color-primary-text, #B4BCC1);
   text-decoration: underline;
-  color: var(--color-secondary-text-dark, #B4BCC1) !important; 
+}
+#s-lib-footer-public a:hover { 
+  color: var(--color-primary-text-light, white); 
 }
 
 /* 'Get Help' box styling (contact-us) */
@@ -24,4 +32,35 @@
   .get-help i { font-size: large !important; padding-right: 4px; } 
   .get-help span { font-size: small !important; padding-right: 0px; } 
   .get-help li { padding-bottom: 5px; }
+  .banner bulib-search { display: none; }
+}
+
+
+/* - A-Z Database list - */
+
+/* enable mobile header to open above the rest of the page */
+.s-lib-main, #s-lg-guide-main { z-index: unset !important; }
+
+/* adjust breadcrumb size when added to the bulib custom banner */
+.banner #s-lib-admin-bc .breadcrumb, .banner #s-lib-bc .breadcrumb { font-size: small; }
+
+/* color the 'Clear Filters' button to make it stand out more */
+#s-lg-az-search-reset button#s-lg-az-reset {
+  background-color: var(--color-button-background, #639CC9);
+  color: var(--color-button-text-light, white);
+}
+
+/* decrease horizontal padding between alpha_list */
+#s-lg-az-index .btn-group>.btn-link { padding: 4.5px; }
+#s-lg-az-index div.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+/* remove set width restrictions for az-list filters */
+.secondary-menu #s-lg-sel-az-types, 
+  .secondary-menu #s-lg-sel-az-vendors, 
+  .secondary-menu #s-lg-sel-subjects { 
+    width: 100%; 
 }

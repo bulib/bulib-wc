@@ -1,7 +1,7 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
 import './bulib-announce';
-import { elementUpdated, waitUntil } from '@open-wc/testing-helpers';
+import { elementUpdated } from '@open-wc/testing-helpers';
 
 const elementIsHidden = (el) => { return el.offsetHeight == 0; }
 
