@@ -1,0 +1,53 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import '../index.js';
+
+<Meta title="No Javascript|buttons" />
+
+# Buttons
+
+Display a link as if it were a button to highlight it as the main call-to-action.
+
+
+## Usage
+
+### Default (primary) Button
+ 
+The primary button should highlight the main call-to-action. 
+
+Given this, there should (generally) only be one of them per page.
+
+<Preview>
+  <Story name="button-default">
+    {html`<a class="btn" href="/all">All Topics</a>`}
+  </Story>
+</Preview>
+
+### Secondary Button
+
+The secondary button is for main calls-to-action that may be less important 
+  or an alternative to the main one.
+
+<Preview>
+  <Story name="button-secondary">
+    {html`<a class="btn btn-secondary" href="/borrow">Borrowing Items</a>`}
+  </Story>
+</Preview>
+
+## Together
+
+These styles should be used in the following way when they're together.
+
+<Preview>
+  <Story name="button-together">
+    {html`
+    <div class="secondary-menu"> 
+      <h3>Please Confirm Something</h3>
+      <p>This is a sample confirmation message showing the use of two buttons at once</p>
+      <div class="flexw">
+        <a class="btn" href="javascript:void()">Confirm</a>
+        <a class="btn btn-secondary" href="javascript:void()">Cancel</a>
+      </div>
+    </div>
+    `}
+  </Story>
+</Preview>
