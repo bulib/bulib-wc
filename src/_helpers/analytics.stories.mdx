@@ -1,0 +1,114 @@
+import { Story, Preview, Meta, Props, html, withKnobs, withWebComponentsKnobs } from '@open-wc/demoing-storybook';
+
+<Meta title="JS Helpers|analytics"/>
+
+# Analytics Helper
+
+Seeing statistics about how our elements and pages are interacted with helps us to understand how they're used.
+
+## Usages 
+
+### Registration
+
+In order to **register a website/platform** to be able to log any events, you have to add in the `gtag` or `ga` 
+  script into `<head>` element of the page.
+
+```html
+<head>
+  <!-- ... -->
+
+  <!-- Register Google Analytcis -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-0123456-1"></script>
+  <script id="google-analytics-registration" defer>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', "UA-0123456-1");  
+  </script>
+
+  <!-- ... -->
+</head>
+```
+
+### Adding Event Listeners to Specific Links 
+
+You can also listen to log when _particular_ links are clicked by doing the following:
+
+1. import the `addSendGAEventOnAnchorClickToAnchorElements` method/s from the file (as served from the CDN) 
+2. identify a `category` and `action` to register the event under (specify what kind of event it is)
+3. identify the particular `selector` needed to uniquely identify the element or elements you want to log 
+4. use the `addSendGAEventOnAnchorClickToAnchorElements` helper to attach the listeners to the appropriate elements
+5. add `window.onload` listener to run steps 2-4 after the page loads
+
+```html
+<head>
+  <!-- ... -->
+
+  <!-- Add EventListeners to 'General Context' link clicks -->
+  <script id="ga-events-for-general-context-link" type="module">
+
+    // import the '@latest' version of our particular helper from the CDN
+    import {addSendGAEventOnAnchorClickToAnchorElements} from "https://unpkg.com/bulib-wc@latest/src/_helpers/google_analytix.js?module";
+
+    window.onload = function(){
+
+      // prepare information about the event
+      let category = "general-context-link";
+      let action = "particular-typeof-link";
+
+      // collect and apply listeners to component one
+      action = "component-one";
+      let componentOneLinks = document.querySelectorAll("div.class > section.component-one a");
+      addSendGAEventOnAnchorClickToAnchorElements(componentOneLinks, category, action);
+
+      // collect and apply listeners to component two
+      action = "component-two";
+      let componentTwoLinks = document.querySelectorAll("#an-id-selector a");
+      addSendGAEventOnAnchorClickToAnchorElements(researchCollections, category, action);
+    }
+  </script>
+
+  <!-- ... -->
+</head>
+```
+
+### Publish a Custom Event in a Helper/Component
+
+We also want to track events within/between our various components, and it's actually easiest when 
+  you're inside of the `src/` directory.
+
+```js
+// use a relative import to get the helper from within the whole bundle
+import {sendGAEvent} from '../_helpers/google_analytix';
+
+// prepare information about the event
+const event_category  = "overall-context";
+let event_action      = "secondary-distinction";
+let event_label       = "particular-info";
+
+// example of a function that does something we want to track
+function doTheFirstTypeOfThing(thing1){
+
+  // the part that does the thing
+  console.log("doing the first thing: " + thing1);
+
+  // logging about the first thing
+  event_action = "first-thing";
+  event_label = thing1.pieceOfInfo;
+  sendGAEvent(event_category, event_action, event_label);
+}
+
+// example of another function we want to track in the same file/context
+function doTheSecondTypeOfThing(thing2){
+
+  // the part that does the second thing
+  console.log("doing the second thing: " + thing2);
+
+  // logging about the second thing
+  event_action = "second-thing";
+  event_label = thing2.pieceOfInfo; 
+  sendGAEvent(event_category, event_action, event_label);
+}
+```
+
+_NOTE: You can see working examples of this in `src/search/search.js` and `src/libhours/libhours.js`_
