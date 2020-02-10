@@ -32,4 +32,4 @@ div.tiles > * {
 }
 
 /* - flexbox shortcut - */
-.flexw { display: flex; flex-wrap: wrap; }
+.flexw, .bulib-row { display: flex; flex-wrap: wrap; }
