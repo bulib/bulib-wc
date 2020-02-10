@@ -4,24 +4,19 @@
 a.btn {
   text-align: center;
   margin: var(--padding-small, 5px);
-  padding: var(--padding-medium, 10px);
+  padding: var(--padding-small, 5px) var(--padding-medium, 10px);
   color: var(--color-button-text, white);
   text-decoration: none;
-  background-color: var(--color-button-background,#1b598c);
+  background-color: var(--color-button-background-dark,#1b598c);
   border: 2px solid var(--color-button-text, white);
   border-radius: 4px;
   box-shadow: 0 1px 1px 0 var(--color-secondary-background-dark,rgba(0,0,0,.1));
 }
-a.btn:hover{
-  background-color: var(--color-button-background-dark, );
-}
+a.btn:hover{ filter: brightness(95%); }
 
 /* secondary button */
 a.btn.btn-secondary {
   background-color: var(--color-button-text-light, white);
   color: var(--color-button-background-dark, blue);
   border: 2px solid var(--color-button-background-dark, blue);
-}
-a.btn.btn-secondary:hover {
-  background-color: var(--color-button-text, whitesmoke);
 }
