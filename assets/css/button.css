@@ -1,7 +1,7 @@
 /* -- buttons -- */
 
 /* primary button */
-a.bulib-btn {
+a.bulib-btn, button.bulib-btn {
   text-align: center;
   margin: var(--padding-small, 5px);
   padding: var(--padding-small, 5px) var(--padding-medium, 10px);
@@ -12,10 +12,10 @@ a.bulib-btn {
   border-radius: 4px;
   box-shadow: 0 1px 1px 0 var(--color-secondary-background-dark,rgba(0,0,0,.1));
 }
-a.bulib-btn:hover { filter: brightness(95%); }
+a.bulib-btn:hover, button.bulib-btn:hover { filter: brightness(95%); }
 
 /* secondary button */
-a.bulib-btn.btn-secondary {
+a.bulib-btn.btn-secondary, button.bulib-btn.btn-secondary {
   background-color: var(--color-button-text-light, white);
   color: var(--color-button-background-dark, blue);
   border: 2px solid var(--color-button-background-dark, blue);

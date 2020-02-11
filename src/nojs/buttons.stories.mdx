@@ -10,7 +10,7 @@ Display a link as if it were a button to highlight it as the main call-to-action
 
 ## Usage
 
-### Default (primary) Button
+### Default (primary) Button (link)
  
 The primary button should highlight the main call-to-action. 
 
@@ -22,7 +22,7 @@ Given this, there should (generally) only be one of them per page.
   </Story>
 </Preview>
 
-### Secondary Button
+### Secondary Button (link)
 
 The secondary button is for main calls-to-action that may be less important 
   or an alternative to the main one.
@@ -30,6 +30,21 @@ The secondary button is for main calls-to-action that may be less important
 <Preview>
   <Story name="button-secondary">
     {html`<a class="bulib-btn btn-secondary" href="javascript:void()">Secondary Option</a>`}
+  </Story>
+</Preview>
+
+### Primary and Secondary `<button>` 
+
+The styling works with `<button>`s as well as `<a>`s.
+
+<Preview>
+  <Story name="button-this-is">
+    {html`
+      <div class="bulib-row">
+        <button class="bulib-btn">Primary Option</button>
+        <button class="bulib-btn btn-secondary">Secondary Option</button>
+      </div>
+    `}
   </Story>
 </Preview>
 
