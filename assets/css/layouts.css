@@ -33,3 +33,5 @@ div.tiles > * {
 
 /* - flexbox shortcut - */
 .flexw, .bulib-row { display: flex; flex-wrap: wrap; }
+.left { float: left; }
+.inline { display: inline-block; }

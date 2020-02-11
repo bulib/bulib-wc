@@ -29,6 +29,10 @@
 .txtc { text-align: center; }
 .txtv { vertical-align: middle; }
 .big-text, .large-text { font-size: 110%; }
+.multi-column {
+  column-gap: 5%;
+  column-count: 2;
+}
 
 /* list styles */
 ul.no-bullet { padding-left: 0em; }
