@@ -1,11 +1,13 @@
 @import url("./common.css");
-@import url("./variables.css");
+@import url("./colors.css");
+@import url("./padding.css");
 @import url("./layouts.css");
 @import url("./benton-font.css");
 @import url("./material-icons.css");
 @import url("./card.css");
 @import url("./cta.css");
 @import url("./tabs.css");
+@import url("./button.css");
 
 @import url("../../src/announce/announce.css");
 @import url("../../src/header/header.css");
