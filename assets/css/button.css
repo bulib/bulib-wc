@@ -1,0 +1,30 @@
+/* -- buttons -- */
+
+/* general/primary button */
+a.bulib-btn, button.bulib-btn {
+  display: inline-block;
+  text-align: center;
+  margin: var(--padding-small, 5px);
+  padding: var(--padding-small, 5px) var(--padding-medium, 10px);
+  color: var(--color-button-text, white);
+  text-decoration: none;
+  background-color: var(--color-button-background-dark,#1b598c);
+  border: 2px solid var(--color-button-background-dark, white);
+  border-radius: 4px;
+  box-shadow: 0 1px 1px 0 var(--color-secondary-background-dark,rgba(0,0,0,.1));
+}
+a.bulib-btn:hover, button.bulib-btn:hover { 
+  cursor: pointer;
+  filter: brightness(90%); 
+}
+
+/* .large button */
+a.bulib-btn.large, button.bulib-btn { font-size: 102%; }
+a.bulib-btn.large { padding: var(--padding-medium, 10px) var(--padding-large, 12px); }
+
+/* secondary button */
+a.bulib-btn.btn-secondary, button.bulib-btn.btn-secondary {
+  background-color: var(--color-button-text-light, white);
+  color: var(--color-button-background-dark, blue);
+  border: 2px solid var(--color-button-background-dark, blue);
+}

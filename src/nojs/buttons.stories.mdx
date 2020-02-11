@@ -1,0 +1,77 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+import '../index.js';
+
+<Meta title="No Javascript|buttons" />
+
+# Buttons
+
+Display a link as if it were a button to highlight it as the main call-to-action.
+
+
+## Usage
+
+### Default Button (link)
+ 
+The primary button should highlight the main call-to-action. 
+
+Given this, there should (generally) only be one of them per page.
+
+<Preview>
+  <Story name="button-default">
+    {html`<a class="bulib-btn" href="javascript:void()">Primary Option</a>`}
+  </Story>
+</Preview>
+
+### Secondary Button (link)
+
+The secondary button is for main calls-to-action that may be less important 
+  or an alternative to the main one.
+
+<Preview>
+  <Story name="button-secondary">
+    {html`<a class="bulib-btn btn-secondary" href="javascript:void()">Secondary Option</a>`}
+  </Story>
+</Preview>
+
+### Large Buttons (link)
+
+<Preview>
+  <Story name="button-together-large">
+    {html`
+      <a class="bulib-btn large">Primary (large)</a>
+      <a class="bulib-btn btn-secondary large">Secondary (large)</a>
+    `}
+  </Story>
+</Preview>
+
+### Primary and Secondary `<button>` 
+
+The styling works with a `<button>` as well as a `<a>`.
+
+<Preview>
+  <Story name="button-together-button">
+    {html`
+      <button class="bulib-btn">Primary Option</button>
+      <button class="bulib-btn btn-secondary">Secondary Option</button>
+    `}
+  </Story>
+</Preview>
+
+### Using Multiple Buttons in Context
+
+These styles should be used in the following way when they're together.
+
+<Preview>
+  <Story name="button-together-with-context">
+    {html`
+    <div class="secondary-menu"> 
+      <h3>Please Confirm Something</h3>
+      <p>This is a sample confirmation message showing the use of both button styles</p>
+      <div>
+        <a class="bulib-btn" href="javascript:void()">Confirm</a>
+        <a class="bulib-btn btn-secondary" href="javascript:void()">Cancel</a>
+      </div>
+    </div>
+    `}
+  </Story>
+</Preview>

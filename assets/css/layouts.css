@@ -32,4 +32,6 @@ div.tiles > * {
 }
 
 /* - flexbox shortcut - */
-.flexw { display: flex; flex-wrap: wrap; }
+.flexw, .bulib-row { display: flex; flex-wrap: wrap; }
+.left { float: left; }
+.inline { display: inline-block; }
