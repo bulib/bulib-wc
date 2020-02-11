@@ -1,0 +1,46 @@
+import { Story, Preview, Meta, Props, html, withKnobs, withWebComponentsKnobs } from '@open-wc/demoing-storybook';
+
+<Meta title="JS Helpers|memory-storage"/>
+
+# Storage Utility Helper
+
+Store and/or remember user input/information in the browser (even between sites and sessions).
+
+To see what's in `localStorage` in chrome...
+
+1. open the developer console (right click + inspect)
+2. go to the 'Application' tab
+3. look in the left sidebar for the 'Storage > Local Storage' entry 
+4. click on the one for the current site
+
+
+## Usages 
+
+### Writing a Value to Local Storage 
+
+```js
+import {setExpiringLocalValue} from '../_helpers/storageUtility';  // 'https://unpkg.com/bulib-wc@latest/src/_helpers/storageUtility.js?module'
+const key_of_the_local_storage_entry = "component-name--unique-code";
+
+// determine the value and use the method to `try` to write the value
+let value_to_set_it_to = "information we want to store in localStorage";
+let valueFromLocalStorage = setExpiringLocalValue(key_of_the_local_storage_entry, value_to_set_it_to);
+```
+
+
+_NOTE: You can see a working example of this in `src/announce/announce.js`_
+
+
+### Reading a Value from Local Storage 
+
+```js
+import {readExpiringLocalValue} from '../_helpers/storageUtility';  // 'https://unpkg.com/bulib-wc@latest/src/_helpers/storageUtility.js?module'
+const key_of_the_local_storage_entry = "component-name--unique-code";
+
+// `try` to read the value from localStorage from the given key with a fallback
+let default_value = "this is the default value";
+let valueFromLocalStorage = readExpiringLocalValue(key_of_the_local_storage_entry, default_value);
+```
+
+_NOTE: You can see a working example of this in `src/announce/announce.js`_
+
