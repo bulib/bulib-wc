@@ -38,12 +38,10 @@ The secondary button is for main calls-to-action that may be less important
 The styling works with `<button>`s as well as `<a>`s.
 
 <Preview>
-  <Story name="button-this-is">
+  <Story name="button-together-button">
     {html`
-      <div class="bulib-row">
-        <button class="bulib-btn">Primary Option</button>
-        <button class="bulib-btn btn-secondary">Secondary Option</button>
-      </div>
+      <button class="bulib-btn">Primary Option</button>
+      <button class="bulib-btn btn-secondary">Secondary Option</button>
     `}
   </Story>
 </Preview>
@@ -53,12 +51,12 @@ The styling works with `<button>`s as well as `<a>`s.
 These styles should be used in the following way when they're together.
 
 <Preview>
-  <Story name="button-together">
+  <Story name="button-together-with-context">
     {html`
     <div class="secondary-menu"> 
       <h3>Please Confirm Something</h3>
       <p>This is a sample confirmation message showing the use of both button styles</p>
-      <div class="bulib-row">
+      <div>
         <a class="bulib-btn" href="javascript:void()">Confirm</a>
         <a class="bulib-btn btn-secondary" href="javascript:void()">Cancel</a>
       </div>
