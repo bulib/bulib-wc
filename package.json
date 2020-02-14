@@ -16,7 +16,7 @@
     "cy:verify": "cypress verify",
     "css": "./scripts/bundle_css.sh",
     "prestart": "npm run css",
-    "start": "npm run analyze && start-storybook --node-resolve --watch --open --stories 'src/*/*.stories.mdx'",
+    "start": "npm run analyze && start-storybook --node-resolve --watch --open --stories '**/*.stories.mdx'",
     "build": "npm run build:rollup",
     "build:all": "./scripts/rebuild.sh",
     "build:css": "npm run css",

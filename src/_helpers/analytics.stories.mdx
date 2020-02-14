@@ -15,8 +15,6 @@ In order to **register a website/platform** to be able to log any events, you ha
 
 ```html
 <head>
-  <!-- ... -->
-
   <!-- Register Google Analytcis -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-0123456-1"></script>
   <script id="google-analytics-registration" defer>
@@ -25,8 +23,6 @@ In order to **register a website/platform** to be able to log any events, you ha
     gtag('js', new Date());
     gtag('config', "UA-0123456-1");  
   </script>
-
-  <!-- ... -->
 </head>
 ```
 
@@ -42,8 +38,6 @@ You can also listen to log when _particular_ links are clicked by doing the foll
 
 ```html
 <head>
-  <!-- ... -->
-
   <!-- Add EventListeners to 'General Context' link clicks -->
   <script id="ga-events-for-general-context-link" type="module">
 
@@ -67,8 +61,6 @@ You can also listen to log when _particular_ links are clicked by doing the foll
       addSendGAEventOnAnchorClickToAnchorElements(researchCollections, category, action);
     }
   </script>
-
-  <!-- ... -->
 </head>
 ```
 
