@@ -1,0 +1,42 @@
+<Meta title="Welcome|Principle of Least Power"/>
+
+# Principle of Least Power
+
+I've talked about this in the [overall technical strategy](https://docs.google.com/document/d/1W--y5hT2MFRZeCHsT9cEPP7s8OEt9fWHznylBPTO1Es/edit#),
+  but I think it's very important. 
+
+The principle essentially boils down to: **don’t use a sledgehammer where a regular hammer will suffice**. 
+  
+Give preference to the **simplest solution** that 
+- is easier to maintain/understand, 
+- assumes the least about the end user (internet connection speed, javascript enabled, screenreader, etc) 
+- and relies on the fewest dependencies, abstractions, and complications 
+
+
+
+## Applications/Examples
+
+In practice, this amounts to a bit of a repeated cascade of choices from server-side to static all 
+  the way down to basic HTML 
+  - don’t use **a server-side language** (e.g. php) when you can use static or client-side instead
+  - don't use **a large framework** when you're using a small part of it or could more simply write your own
+  - don’t use **a library** when you can implement it almost as easily with use vanilla javascript 
+  - don’t use **javascript** when you can just use html+css (e.g. bulib-header)
+  - don’t **remake/repurpose** something that html already does effectively (e.g. form submission)
+
+At a higher level this gets to: 
+- **avoid build steps and configuration** hells where possible/makes sense
+  - prefer using `css variables` to something like `scss` variables and methods
+  - simplify configuration, automation, deployment with standard `package.json` on `npm`
+  - leverage the `js module` standard and `unpkg` (potentially pika) to avoid transpiling/bundling
+- **use Web Standards** whenever possible/it makes sense
+  - prefer using `css grid` to more complicated and heavy js/css libraries (e.g. material, bootstrap, foundation)
+
+
+## Benefits
+
+- **simplicity**: developer or debugger has less to learn, understand, and keep in mind while doing their work 
+- **independence**: keeping up with dependencies can be a chore and add maintenance costs + vulnerability to breaking
+- **interoperability**: as you increase your technical complexity, browser compatibility (and occasionally accessibility) goes down and brittleness/complicatedness increases
+- **longevity**: code that is closer to the web standards (less dependent on trends and framework-of-the-day) is less likely to become 'legacy' and have to be redone over time or decommissioned 
+- **hiring/experience**: we want interns/student workers to get transferable experience, and don't want to look for developers based on framework-specific expertise
