@@ -36,6 +36,32 @@
         </div>
       </section>
       <section>
+        <script type="text/javascript">
+          /**
+           * look in the last section of the current url (e.g. '?hrefArg=value&secondOne=anotherValue') for a given value, 
+           * returning the default if it can't find it.  
+           */
+          function getHrefArgIfPresent(key, fallback=false){
+            let hrefArgs = window.location.search;
+            let keyToFind = key+"=";
+            let valueToReturn = fallback;
+            if(hrefArgs.includes(keyToFind)){
+              let startIndex = hrefArgs.indexOf(keyToFind) + keyToFind.length;
+              let endIndex = hrefArgs.indexOf("&", startIndex);
+              if(endIndex == -1){ endIndex = hrefArgs.length; }
+              valueToReturn = hrefArgs.substring(startIndex, endIndex);
+            }
+            return valueToReturn;
+          }
+
+          /* if we can tell from the url that there's a subject selected, switch to the new display */
+          let any_subject_is_selected =  getHrefArgIfPresent("s", false);
+          if(any_subject_is_selected){
+            let sidebarElement = document.getElementById("col2");
+            // sidebarElement.style.setProperty("--new-parts-display", "inline-block");
+            // sidebarElement.style.setProperty("--old-parts-display", "none");
+          }
+        </script>
         <style type="text/css">
           /* variables to make showing/hiding a little easier for the time being */
           #col2 { 
