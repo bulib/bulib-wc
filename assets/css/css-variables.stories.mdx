@@ -1,0 +1,63 @@
+<Meta title="Welcome|CSS Variables"/>
+
+# CSS Variables 
+
+Replace hardcoded css properties (e.g. `#1B598C`) with meaningful keys (like `--color-button-background-dark`) 
+  that are way easier to read! 
+
+## What They Are
+- [css variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) are another one of those standards updates that add more advanced functionality to the platform itself (CSS3 in this case)
+- essentially, they allow you to store, extract, and override values from within vanilla CSS, _without_ requiring an extra build step (like with `scss` or `post-css`) 
+
+## Where/When to Use Them
+- CSS variables are most useful for establishing thematic consistency and reducing code duplication. 
+- You _should_ use them when...
+  - you find yourself updating the same value in multiple places
+  - you want to be able to show the same thing across platforms
+- You should _avoid using_ them when... 
+  - you can achieve the same effect easily using [functional css](https://critter.blog/2018/06/08/in-defense-of-functional-css/) classes (e.g. `plm` => padding, left, medium)
+  - the change you're making only affects one platform or site (and should likely just be contained in the site-specific css) 
+
+## Why We Use Them 
+- **consistency**: enable _each platform_ to know about and consume standard thematic elements 
+- **flexibility**: provide a powerful and malleable way to access or override at most any level 
+- **lightweight**: enable styling and theming choices with simple _css changes_ in a very small number of lines 
+- **principle of least power**: solve things in css (one of the easiest to learn and update) instead of using the markup or javascript/web component
+- **graceful degradation**: provides a legible and obvious fallback for when the css variable can't be found
+- **declarative**: enable the theming exceptions of a site to be read immediately in the site-specific css
+```css
+/* - sites/wordpress/wordpress.css - */
+body {
+  --color-primary-background: #212121;
+  --color-button-background-accent: blue;
+}
+```
+
+## How to Use Them
+- you **set the variable** in nearly the exact same manner that you would adjust the padding
+```css
+div.class {
+  --css-variable-name: value;
+  padding-left: 10px;
+}
+```
+- you can **consume that variable** like so wherever it is underneath that defined cascade, 
+```css
+div.class > .subclass {
+  background-color: var(--css-variable-name, default);  
+}
+```
+- to enable **use throughout the whole page** (at any point in the DOM), you want to add the css variable to the highest possible level (most generic). You can do this by using `:root`, `html`, or `body`.
+```css
+body {
+  --another-css-variable-name: another-value; 
+}
+```
+- **naming variables** "should" be done by a convention similar to what's below from high-level to a lower one (e.g. use `2018-01-13` to communicate January 13, 2018 instead of using `01-13-18`. 
+```css
+body {
+  /* comment containing the description of a defined set of variables */
+  --typeOfThing-primaryDistinction-whatItI(-optionalDistinction): value;
+  --color-primary-background-light: #4a4746;
+}
+```

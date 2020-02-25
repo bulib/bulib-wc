@@ -1,8 +1,13 @@
+/* -- libguides (library.bu.edu/guides) -- */
+
 /* add some padding for the header and footer */
 #s-lib-public-main {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
 }
+
+/* move footer to the bottom of the viewport */
+#s-lib-footer-public { margin-top: auto; }
 
 /* styling for the tags, staff login url, 'Powered by SpringShare' */
 #s-lib-footer-public {
