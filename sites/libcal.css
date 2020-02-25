@@ -11,6 +11,9 @@
   background-color: var(--color-secondary-background, #f5f5f5);
 }
 
+/* move footer to the bottom of the viewport */
+#s-lc-public-cust-footer { margin-top: auto; }
+
 /* pre-existing styles to hide parts */
 #s-lc-rm-groupdd { display: none;}
 #s-lc-rm-capacity-cont { display: none;}
