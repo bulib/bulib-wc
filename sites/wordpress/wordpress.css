@@ -1,8 +1,18 @@
+/* -- wordpress (bu.edu/library) -- */
+
 /* adjustments to theme variables */
 body { --color-primary-background: #212121; }
 
+/* - footer styling - */
+#footer { 
+  /* match footer color in the padding placed around the footer */
+  background-color: var(--color-primary-background, black) !important; 
+
+  /* move footer to the bottom of the viewport */
+  margin-top: auto;
+}
+
 /* prevent overflow of footer width to 900px at small widths */
-#footer { background-color: var(--color-primary-background, black) !important; }
 #footer > div.container { 
   width: auto; 
   background-color: var(--color-primary-background, black);
