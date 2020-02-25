@@ -1,0 +1,26 @@
+<Meta title="No Javascript|About"/>
+
+# No Javascript
+
+Not every interactable element/feature requires javascript!
+
+## Description
+- beyond being able to do things without frameworks and/or in vanilla.js, there's plenty you don't actually need javascript for
+- avoiding javascript (and therefore any dependencies) ensures that it loads faster and can be used in all browsers/environments
+
+### Background:
+- [Principle of Least Power](https://www.w3.org/2001/tag/doc/leastPower.html): always use the tool with the least amount of dependencies 
+- [Progressive Enhancement](https://www.freecodecamp.org/news/what-is-progressive-enhancement-and-why-it-matters-e80c7aaf834a/): the primacy of pure `html` is respected, the `css` just styles it, and the `js` could change it, but might not exist. the page is improved and enriched by the others, but the html _is_ the page  ["it goes from God to Jerry to You to the Cleaners" - Real Genius]
+- Graceful Degradation: if anything breaks, make sure it breaks well - the page is still usable if something doesn't load or if js is turned off
+
+## Usage
+
+### When to Use
+- you're working on a core aspect of navigation (`bulib-header`) that is "too big to fail" [banks in 2008]
+- there's no main interactive or dynamic aspect to what you're trying to add. 
+- the styling/layout of the elements on the page 
+
+### When NOT to Use
+- the desired functionality is not possible to create with just html+css
+- the css and html are getting confusing, complicated, or just involved enough that you wouldn't want to recreate it or would have to copy/paste exactly
+- you're interacting with javascript in a service or helper anyway

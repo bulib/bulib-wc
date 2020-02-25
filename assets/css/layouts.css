@@ -35,3 +35,10 @@ div.tiles > * {
 .flexw, .bulib-row { display: flex; flex-wrap: wrap; }
 .left { float: left; }
 .inline { display: inline-block; }
+
+/* - prepare footer to auto-margin itself to the bottom of the viewport - */
+body {
+  display: flex; 
+  flex-direction: column; 
+  min-height: 100vh;
+}
