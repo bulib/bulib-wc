@@ -71,7 +71,7 @@
 
           /* extra (new) parts of the 'dblist-sidebar' when (or until) we want to show them */
           #dblist-sidebar-getting-started, #dblist-sidebar-when-to-use, 
-            #dblist-sidebar-quick-guides, #dblist-sidebar-popular-databases { 
+            #dblist-sidebar-quick-guides, #dblist-sidebar-top-databases { 
               display: var(--new-parts-display, inline-block); 
           }
           /* pre-existing (old) parts of the dblist-sidebar */
@@ -99,7 +99,7 @@
                   <form class="flexw" role="search" onsubmit="springSpace.publicObj.filterAzBySearch(2345); return false;">
                     <div style="flex: 1;">
                       <label class="control-label sr-only" for="s-lg-az-search">DATABASES</label>
-                      <input type="text" id="s-lg-az-search" placeholder="Search title and descriptions for keywords" class="form-control">
+                      <input type="text" id="s-lg-az-search" placeholder="Search titles and descriptions" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-default">Go</button>
                   </form>
@@ -137,6 +137,8 @@
           </div>
           <!-- sidebar -->
           <div id="col2" class="col-lg-4 center">
+            <div id="dblist-sidebar-guides">{{content_box_guides}}</div>
+            <div id="dblist-sidebar-librarians">{{content_box_experts}}</div>
             <div id="dblist-sidebar-policy-map">
               <h2>Introducing Policy Map</h2>
               <p>
@@ -153,12 +155,12 @@
             </div>
             <div id="dblist-sidebar-getting-started">
               <h2>Getting Started with Databases</h2>
-              <p>Basic concepts - primary and secondary sources</p>
               <p>
                 Databases in the <a href="?s=74044">Multidisciplinary</a>, <a href="?s=101186">Science (General)</a>, and 
                 <a href="?s=101187">Humanities & Social Sciences (General)</a> subject categories will be useful 
                 for many subject areas
               </p>
+              <p>Choose a subject category from the list to see related course and subject guides as research starting points.</p>
             </div>
             <div id="dblist-sidebar-when-to-use">
               <h2>When to use a guide?</h2>
@@ -168,24 +170,39 @@
                 such as databases, books, articles, newspapers, images, videos etc. 
               </p>
               <p>
-                <strong><a href="https://library.bu.edu/guides">Subject Guides</a></strong> are ...
+                <strong><a href="http://library.bu.edu/guides?b=s&group_id=5217">Subject Guides</a></strong> can be helpful 
+                starting points for research topics, and identify which databases and how to use them.
               </p>
+            </div>
+            <div id="dblist-sidebar-top-databases" class="full-width">
+              <h2>Top Databases</h2>
+              <ul>
+                <li><a href="/psycinfo">APA PsycINFO</a></li>
+                <li><a href="/cinahl">Cumulative Index of Nursing and Allied Health Literature (CINAHL)</a></li>
+                <li><a href="/factiva">Factiva</a></li>
+                <li><a href="/ibisworld">IBISWorld</a></li>
+                <li><a href="/jstor">JSTOR</a></li>
+                <li><a href="/mintel">Mintel</a></li>
+                <li><a href="/nexisuni">Nexis Uni (formerly LexisNexis Academic)</a></li>
+                <li><a href="/pqdt">ProQuest Dissertations & Theses (PQDT)</a></li>
+                <li><a href="/pubmed">PubMed</a></li>
+                <li><a href="/wos">Web of Science</a></li>
+              </ul>
             </div>
             <div id="dblist-sidebar-quick-guides">
               <h2>Quick Guides</h2>
               <ul>
-                <li><a href="https://library.bu.edu/citedreferences">Cited References: How Do I Find Who Cited an Article or Book?</a></li>
-                <li><a href="https://library.bu.edu/imagediscovery">Finding Images</a></li>
-                <li><a href="https://library.bu.edu/primarysources">Primary Sources</a></li>
-                <li><a href="https://library.bu.edu/researchimpact">Research Impact</a></li>
-                <li><a href="https://library.bu.edu/science">Science: Beginning, basic, and interdisciplinary research</a></li>
                 <li><a href="https://library.bu.edu/guidetoresearch">About the Research Process</a></li>
+                <li><a href="https://library.bu.edu/citedreferences">Cited References: How Do I Find Who Cited an Article or Book?</a></li>
+                <li><a href="https://library.bu.edu/citeys">Citing Your Sources</a></li>
+                <li><a href="https://library.bu.edu/imagediscovery">Finding Images</a></li>
+                <li><a href="http://library.bu.edu/openresources">Open &amp; Affordable Educational Resources</a></li>
+                <li><a href="https://library.bu.edu/primarysources">Primary Sources</a></li>
+                <li><a href="https://library.bu.edu/science">Science: Beginning, basic, and interdisciplinary research</a></li>
                 <li><a href="https://library.bu.edu/dissertations">Theses &amp; Dissertations: Resources for Locating</a></li>
               </ul>
             </div>
             <div id="dblist-sidebar-trials">{{trials_box}}</div>
-            <div id="dblist-sidebar-librarians">{{content_box_experts}}</div>
-            <div id="dblist-sidebar-guides">{{content_box_guides}}</div>
           </div>
           <!-- END: sidebar -->
         </div>
