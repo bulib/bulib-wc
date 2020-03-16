@@ -36,8 +36,19 @@
         </div>
       </section>
       <section>
+        <style type="text/css">
+          /* replicate the side header styling to acheive parity/similar look&feel with templates */
+          .s-lib-public-side-header h2, div.dblist-sidebar h2, #dblist-sidebar-policy-map h2, #col2 h2 { 
+            margin-top: 0 !important;
+            font: 700 16px Arial,Geneva,Helvetica,sans-serif !important;
+            border-bottom: 1px solid #a2a2a2 !important;
+            color: #686868 !important;
+          }
+        </style>
         <div id="s-lg-az-cols" class="row">
           <div id="col1" class="col-lg-8 center">
+
+            <!-- database filters -->
             <div id="s-lg-az-filters" class="secondary-menu">
               <strong>Filter Database List:</strong>
               <section id="s-lg-az-filter-cols" class="row mvs">
@@ -46,7 +57,7 @@
                   <form class="flexw" role="search" onsubmit="springSpace.publicObj.filterAzBySearch(2345); return false;">
                     <div style="flex: 1;">
                       <label class="control-label sr-only" for="s-lg-az-search">DATABASES</label>
-                      <input type="text" id="s-lg-az-search" placeholder="Filter results" class="form-control">
+                      <input type="text" id="s-lg-az-search" placeholder="Search titles and descriptions" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-default">Go</button>
                   </form>
@@ -54,45 +65,89 @@
                 <div id="col-types" class="col-sm-3">{{type_list}}</div>
               </section>
             </div>
-            <div id="s-lg-az-index" class="pad-right-sm">
-              {{alpha_list}}
-            </div>
-            <div>
-              <p>&nbsp;</p>
+            <div id="s-lg-az-index" class="pad-right-sm">{{alpha_list}}</div>
+            <!-- END: database filters -->
+
+            <!-- additional notes -->
+            <div id="dblist-additional-notes">
+              <br /><br />
               <p>
                 <strong>Note</strong>: Use the Subjects and Database Types drop-down menus to filter the list of databases.<br>
-                Databases in the <strong><a href="http://library.bu.edu/az.php?s=74044">Multidisciplinary</a></strong>,
-                <strong><a href="http://library.bu.edu/az.php?s=101186">Science (General)</a></strong>, and 
-                <strong><a href="http://library.bu.edu/az.php?s=101187">Humanities & Social Sciences (General)</a></strong>
+                Databases in the <strong><a href="/az.php?s=74044">Multidisciplinary</a></strong>,
+                <strong><a href="/az.php?s=101186">Science (General)</a></strong>, and 
+                <strong><a href="/az.php?s=101187">Humanities &amp; Social Sciences (General)</a></strong>
                 subject categories will be useful for many subject areas
               </p>
               <img src="https://s3.amazonaws.com/libapps/sites/2345/icons/10444/Law2.jpg" hspace="3">= Available only on site at Pardee Library &nbsp;
               <img src="https://s3.amazonaws.com/libapps/sites/2345/icons/10443/gavel.jpg" hspace="3"> = Law School only
               <p>&nbsp;</p>
             </div>
+            <!-- END: additional notes-->
+
+            <!-- database list (results) -->
             <div id="s-lg-az-content" class="pad-right-sm pad-top-med">
               <div class="bold s-lib-color-lt-grey pad-top-med text-center">
                 Loading...
               </div>
             </div>
+            <!-- END: database list (results) -->
+
           </div>
+          <!-- sidebar -->
           <div id="col2" class="col-lg-4 center">
-            <h4>Introducing Policy Map</h4>
-            <p>
-              <a href="https://bu-policymap-com.ezproxy.bu.edu/maps">Policy Map</a> 
-              is an easy-to-use online mapping and visualization tool. Downloadable U.S. demographic, economic and 
-              social data by city, state, zip code, county or census tract. Types of data include crime, housing, health, 
-              education and occupations, derived from both public and proprietary sources.
-            </p>
-            <p>
-              <a href="https://bu-policymap-com.ezproxy.bu.edu/maps?p=160454&amp;i=9873795&amp;btd=6.=2012-2016&amp;moo=otf_tractbounds_2010&amp;cx=-70.9973022320944&amp;cy=42.33721846499532&amp;cz=9">
-                <img src="https://libapps.s3.amazonaws.com/customers/2020/images/Policy_Map_example.png">
-              </a>
-            </p>
-            <p style="box-sizing: border-box; margin: 0px 0px 10px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; text-align: center;">
-              &nbsp;
-            </p>{{trials_box}} {{content_box_experts}} {{content_box_guides}}
+            <div id="dblist-sidebar-guides">{{content_box_guides}}</div>
+            <div id="dblist-sidebar-librarians">{{content_box_experts}}</div>
+            <div id="dblist-sidebar-getting-started">
+              <h2>Getting Started with Databases</h2>
+              <p>
+                Databases in the <a href="/az.php?s=74044">Multidisciplinary</a>, <a href="/az.php?s=101186">Science (General)</a>, and 
+                <a href="/az.php?s=101187">Humanities & Social Sciences (General)</a> subject categories will be useful 
+                for many subject areas
+              </p>
+              <p>Choose a subject category from the list to see related course and subject guides as research starting points.</p>
+            </div>
+            <div id="dblist-sidebar-when-to-use">
+              <h2>When to use a guide?</h2>
+              <p>
+                <strong><a href="https://www.bu.edu/library/research/guides/course-guides/">Course guides</a></strong> 
+                are created by Boston University Librarians and are meant to help students find course-related resources 
+                such as databases, books, articles, newspapers, images, videos etc. 
+              </p>
+              <p>
+                <strong><a href="/guides?b=s&group_id=5217">Subject Guides</a></strong> can be helpful 
+                starting points for research topics, and identify which databases and how to use them.
+              </p>
+            </div>
+            <div id="dblist-sidebar-top-databases" class="full-width">
+              <h2>Top Databases</h2>
+              <ul>
+                <li><a href="/psycinfo">APA PsycINFO</a></li>
+                <li><a href="/cinahl">Cumulative Index of Nursing and Allied Health Literature (CINAHL)</a></li>
+                <li><a href="/factiva">Factiva</a></li>
+                <li><a href="/ibisworld">IBISWorld</a></li>
+                <li><a href="/jstor">JSTOR</a></li>
+                <li><a href="/mintel">Mintel</a></li>
+                <li><a href="/nexisuni">Nexis Uni (formerly LexisNexis Academic)</a></li>
+                <li><a href="/pqdt">ProQuest Dissertations & Theses (PQDT)</a></li>
+                <li><a href="/pubmed">PubMed</a></li>
+                <li><a href="/wos">Web of Science</a></li>
+              </ul>
+            </div>
+            <div id="dblist-sidebar-quick-guides">
+              <h2>Quick Guides</h2>
+              <ul>
+                <li><a href="/guidetoresearch">About the Research Process</a></li>
+                <li><a href="/citedreferences">Cited References: How Do I Find Who Cited an Article or Book?</a></li>
+                <li><a href="/citeys">Citing Your Sources</a></li>
+                <li><a href="/imagediscovery">Finding Images</a></li>
+                <li><a href="/openresources">Open &amp; Affordable Educational Resources</a></li>
+                <li><a href="/primarysources">Primary Sources</a></li>
+                <li><a href="/science">Science: Beginning, basic, and interdisciplinary research</a></li>
+                <li><a href="/dissertations">Theses &amp; Dissertations: Resources for Locating</a></li>
+              </ul>
+            </div>
           </div>
+          <!-- END: sidebar -->
         </div>
       </section>
     </div>
