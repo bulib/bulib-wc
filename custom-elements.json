@@ -233,7 +233,7 @@
         },
         {
           "name": "val",
-          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
+          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-red-background' )",
           "type": "string"
         },
         {
@@ -252,7 +252,7 @@
         {
           "name": "val",
           "attribute": "val",
-          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-background' )",
+          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-red-background' )",
           "type": "string"
         },
         {

@@ -5,15 +5,12 @@ import {readExpiringLocalValue, setExpiringLocalValue} from '../_helpers/storage
 /* references to google sheets API and the entries within it */
 const google_sheets_document_id = '1ElW0CUOV3LvcHuYxK2BZfFjo65a-XDrlNJtnrelA6tM';
 const codes_that_map_to_api_entry = {
-  "primo": 0, 
-  "primo-BU": 1,
-  "primo-BULAW": 2,
+  "primo-BU": 0, "primo": 1, "primo-BULAW": 2, "primo-journals": 3, "primo-london": 4, "primo-ISL": 5,
   "testing": 6,
   "wordpress": 7,
-  "libguides": 8,
-  "libguides-db": 9,
-  "libanswers": 10,
-  "libcal": 11
+  "libguides": 8, "libguides-db": 9,
+  "libanswers": 10, "libanswers-business": 11,
+  "libcal": 12
 }
 
 const primo_specific_padding = html`
