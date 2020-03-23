@@ -59,7 +59,7 @@ export default class BULAnnounce extends LitElement {
     if(this.code in codes_that_map_to_api_entry){
       this.dismissed = true;  // default to dismissed (don't flash before/during the API call)
       let row_id = codes_that_map_to_api_entry[this.code];
-      fetch('https://spreadsheets.google.com/feeds/list/'+google_sheets_document_id+'/1/public/values?alt=json', { method:'GET', mode:'cors' })
+      fetch('https://spreadsheets.google.com/feeds/list/'+google_sheets_document_id+'/1/public/values?alt=json', { method:'GET', mode:'cors', cache:'no-store' })
         .then(response => response.json())
         .then(json => json.feed.entry[row_id])
         .then(data => this._setDataHelperWithDataFromAPI(data));
@@ -81,6 +81,9 @@ export default class BULAnnounce extends LitElement {
     this.cta_url = data.gsx$messagelink.$t;
     this.severity = data.gsx$messageseverity.$t || 'info';
     this.cta_text = data.gsx$ctatext.$t;
+
+    // manually trigger a re-render 
+    this.requestUpdate();
   }
 
   render(){
