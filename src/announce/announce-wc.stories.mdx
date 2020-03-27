@@ -15,6 +15,7 @@ import './bulib-announce.js';
 Used to show site-wide, time-sensitive, dismissable chunk of information with varying severity, a prominent message, 
   and a clear call to action.
 
+
 ## Usages 
 
 ### Default Component
@@ -26,6 +27,7 @@ by default, `bulib-announce` displays with a default message with an `info`-leve
     {html`<bulib-announce debug></bulib-announce>`}
   </Story>
 </Preview>
+
 
 ### Custom Message and Severity
 
@@ -44,6 +46,7 @@ Specifying a `severity` will alter its color and icon, and should be complimenta
     `}
   </Story>
 </Preview>
+
 
 ### Custom Calls-to-Actions
 
@@ -100,10 +103,12 @@ _NOTE: We 'remember' the user's decision by using the `src/_helpers/storageUtili
   </Story>
 </Preview>
 
+
 ### Getting Data from the Google Sheets API 
 
 Often for emergency, convenience, inclusivity of authorship, etc., we want to have an announce-banner without 
   having to add any additional `html` to our sites. 
+
 
 #### Looking at the Default Code
 
@@ -128,28 +133,6 @@ You can see in the example below that when the API variable is set, but the user
         <tr>
           <td>no debug</td>
           <td><bulib-announce code="testing" message="this will be replaced" dismissed></bulib-announce></td>
-        </tr>
-      </table>
-    `}
-  </Story>
-</Preview>
-
-#### Disabling the Lookup for debugging
-
-
-You can use the `prevent_action` to stop th
-
-<Preview withToolbar>
-  <Story name="sheets-api-disabled">
-    {html`
-      <table>
-        <tr>
-          <td>debug</td>
-          <td><bulib-announce debug code="testing" message="api call prevented by 'prevent_action'" prevent_action></bulib-announce></td>
-        </tr>
-        <tr>
-          <td>no debug</td>
-          <td><bulib-announce code="testing"  message="api call prevented by 'prevent_action'" prevent_action></bulib-announce></td>
         </tr>
       </table>
     `}
@@ -201,6 +184,27 @@ Below are all the `code`s that we have pre-prepared for this purpose:
   </Story>
 </Preview>
 
+
+#### Preventing/Disabling the API Call Lookup (debugging)
+
+You can use the `prevent_action` to stop the call to the Sheets API.
+
+<Preview withToolbar>
+  <Story name="sheets-api-prevented">
+    {html`
+      <table>
+        <tr>
+          <td>debug</td>
+          <td><bulib-announce debug code="testing" message="api call prevented by 'prevent_action'" prevent_action></bulib-announce></td>
+        </tr>
+        <tr>
+          <td>no debug</td>
+          <td><bulib-announce code="testing"  message="api call prevented by 'prevent_action'" prevent_action></bulib-announce></td>
+        </tr>
+      </table>
+    `}
+  </Story>
+</Preview>
 
 ## API - Properties 
 

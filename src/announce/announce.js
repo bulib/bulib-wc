@@ -72,8 +72,10 @@ export default class BULAnnounce extends LitElement {
     this._logToConsole(`'show_banner' in the google sheets for '${this.code}' is '${data.gsx$showbanner.$t}'.`);
 
     // un-dismiss if the 'show_banner' checkbox has been selected
-    let before = this.dismissed;
-    if(data.gsx$showbanner.$t == "TRUE"){ this.dismissed = false; }
+    if(data.gsx$showbanner.$t == "TRUE"){ 
+      this.dismissed = false; 
+      this.removeAttribute("dismissed");
+    }
 
     // set the message from the API, but try not 
     let message = data.gsx$messagetext.$t;
@@ -83,9 +85,6 @@ export default class BULAnnounce extends LitElement {
     this.cta_url = data.gsx$messagelink.$t;
     this.severity = data.gsx$messageseverity.$t || 'info';
     this.cta_text = data.gsx$ctatext.$t;
-
-    // manually trigger a re-render 
-    this.requestUpdate("dismissed", before);
   }
 
   render(){
@@ -145,7 +144,7 @@ export default class BULAnnounce extends LitElement {
 
     // ensure the component updates (re-renders) and hides (or shows) the component
     this._logToConsole(`dismiss clicked, session's' '${this._dismissedId()}' value '${value_before}'->'${this._getDismissedValue()}'`);
-    this.requestUpdate();
+    this.requestUpdate("dismissed", value_before);
 
     // save this updated setting in the localStorage
     setExpiringLocalValue(this._dismissedId(), !value_before);
