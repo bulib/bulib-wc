@@ -121,8 +121,36 @@ You can see in the example below that when the API variable is set, but the user
   <Story name="sheets-api-default">
     {html`
       <table>
-        <tr><td>debug</td><td><bulib-announce debug dismissed code="testing"></bulib-announce></td></tr>
-        <tr><td>no debug</td><td><bulib-announce code="testing"></bulib-announce></td></tr>
+        <tr>
+          <td>debug</td>
+          <td><bulib-announce code="testing" message="this will be replaced" debug dismissed></bulib-announce></td>
+        </tr>
+        <tr>
+          <td>no debug</td>
+          <td><bulib-announce code="testing" message="this will be replaced" dismissed></bulib-announce></td>
+        </tr>
+      </table>
+    `}
+  </Story>
+</Preview>
+
+#### Disabling the Lookup for debugging
+
+
+You can use the `prevent_action` to stop th
+
+<Preview withToolbar>
+  <Story name="sheets-api-disabled">
+    {html`
+      <table>
+        <tr>
+          <td>debug</td>
+          <td><bulib-announce debug code="testing" message="api call prevented by 'prevent_action'" prevent_action></bulib-announce></td>
+        </tr>
+        <tr>
+          <td>no debug</td>
+          <td><bulib-announce code="testing"  message="api call prevented by 'prevent_action'" prevent_action></bulib-announce></td>
+        </tr>
       </table>
     `}
   </Story>

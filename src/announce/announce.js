@@ -56,7 +56,8 @@ export default class BULAnnounce extends LitElement {
   /** when first connected, iff there's a special code, set contents based on the API */
   connectedCallback(){
     super.connectedCallback();
-    if(this.code in codes_that_map_to_api_entry){
+    if(this.code in codes_that_map_to_api_entry && !this.prevent_action){
+      this._logToConsole(`code '${this.code}' in codes_that_map. making a call to the Sheets API`);
       this.dismissed = true;  // default to dismissed (don't flash before/during the API call)
       let row_id = codes_that_map_to_api_entry[this.code];
       fetch('https://spreadsheets.google.com/feeds/list/'+google_sheets_document_id+'/1/public/values?alt=json', { method:'GET', mode:'cors', cache:'no-store' })
@@ -68,9 +69,10 @@ export default class BULAnnounce extends LitElement {
 
   /** helper that updates the components information with the Sheets its given */
   _setDataHelperWithDataFromAPI(data){
-    this._logToConsole(data);
+    this._logToConsole(`'show_banner' in the google sheets for '${this.code}' is '${data.gsx$showbanner.$t}'.`);
 
     // un-dismiss if the 'show_banner' checkbox has been selected
+    let before = this.dismissed;
     if(data.gsx$showbanner.$t == "TRUE"){ this.dismissed = false; }
 
     // set the message from the API, but try not 
@@ -83,7 +85,7 @@ export default class BULAnnounce extends LitElement {
     this.cta_text = data.gsx$ctatext.$t;
 
     // manually trigger a re-render 
-    this.requestUpdate();
+    this.requestUpdate("dismissed", before);
   }
 
   render(){
