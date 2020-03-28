@@ -9,9 +9,9 @@ const codes_that_map_to_api_entry = {
   "testing": 6,
   "wordpress": 7,
   "libguides": 8, 
-  "libanswers": 10, "libanswers-business": 11,
-  "libcal": 9,
-  "all": 13, "covid-19": 13
+  "libcal": 9, 
+  "libanswers": 10, "libanswers-business": 11, "libanswers-spring2020": 12,
+  "all": 13
 }
 
 const primo_specific_padding = html`
