@@ -219,8 +219,8 @@ export default class BULibFooter extends LitElement {
               </div>
               <div>
                 <ul class="no-bullet inline-list ptl">
-                  <li><a title="Libraries Home" class="white-link" href="https://www.bu.edu/library/"
-                          @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Home</a></li>
+                  <li><a title="Boston University Home Page" class="white-link" href="https://www.bu.edu/"
+                          @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">BU Home</a></li>
                   <li><a title="Search available/licensed content" class="white-link" href="https://www.bu.edu/library/search"
                           @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">Search</a></li>
                   <li><a title="Information regarding various BU Libraries" class="white-link" href="https://www.bu.edu/library/about"

@@ -15,6 +15,7 @@ import './bulib-announce.js';
 Used to show site-wide, time-sensitive, dismissable chunk of information with varying severity, a prominent message, 
   and a clear call to action.
 
+
 ## Usages 
 
 ### Default Component
@@ -26,6 +27,7 @@ by default, `bulib-announce` displays with a default message with an `info`-leve
     {html`<bulib-announce debug></bulib-announce>`}
   </Story>
 </Preview>
+
 
 ### Custom Message and Severity
 
@@ -44,6 +46,7 @@ Specifying a `severity` will alter its color and icon, and should be complimenta
     `}
   </Story>
 </Preview>
+
 
 ### Custom Calls-to-Actions
 
@@ -65,10 +68,29 @@ In order to not annoy the user (by presenting them with irrelevant or unwanted i
   messages can be hidden by being dismissed (by setting them to `disabled`).
 
 
-#### Session Memory (default)
+#### Manual Override
 
-By default, we try to remember which banners have and haven't been dismissed by using the `src/_helpers/storageUtility`,
-  and look into the user's `localStorage` for the `announce-dismissal` for that specific `code`. 
+For debugging purposes, this can be done manually - in which case it will _always_ be hidden (`dismissed="true"`, `dismissed`) 
+  or _always_ shown (`dismissed="false"`) regardless of what's been saved in the local storage.
+
+<Preview withToolbar>
+  <Story name="dismissed-manual-override">
+    {html`
+      <bulib-announce debug code="dismissed-present" dismissed message="'dismissed' is present, but unspecified"></bulib-announce> <hr />
+      <bulib-announce debug code="dismissed-true" dismissed="true" message="'dismissed' is present and set to 'true'"></bulib-announce> <hr />
+      <bulib-announce debug code="dismissed-false" dismissed="false" message="'dismissed' is present and set to 'false'"></bulib-announce>
+    `}
+  </Story>
+</Preview>
+
+_NOTE: clicking the DISMISS button will immediately toggle the `dismiss` value for the banner, save that value in local storage, and switch that banner's dismissal to manual mode until page is reloaded_
+
+
+#### Looking at Session Memory (default)
+
+By default, we try to remember a user's decision to dismiss a banner for one week (seven days). 
+
+_NOTE: We 'remember' the user's decision by using the `src/_helpers/storageUtility` which reads from `localStorage`_ 
 
 <Preview withToolbar>
   <Story name="dismissed-memory">
@@ -82,23 +104,108 @@ By default, we try to remember which banners have and haven't been dismissed by 
 </Preview>
 
 
-#### Manual Override
+### Getting Data from the Google Sheets API 
 
-For debugging purposes, this can be done manually - in which case it will _always_ be hidden (`dismissed="true"`, `dismissed`) 
-  or _always_ shown (`dismissed="false"`) regardless of what's been saved in the local storage.
+Often for emergency, convenience, inclusivity of authorship, etc., we want to have an announce-banner without 
+  having to add any additional `html` to our sites. 
+
+
+#### Looking at the Default Code
+
+To do this, we add a `<bulib-announce>` tag with a particular `code`, referring to an entry in our 
+  ['announcment-banner' spreadsheet](https://docs.google.com/spreadsheets/d/1ElW0CUOV3LvcHuYxK2BZfFjo65a-XDrlNJtnrelA6tM/edit#gid=0).
+  This tag sits then asks that spreadsheet for what it should contain every time the page loads, but only shows itself to the user
+  when the `show_banner` is checked _and_ they haven't dismissed it. 
+
+We'll use the `testing` code for this example, since we normally leave that one selected.
+
+You can see in the example below that when the API variable is set, but the user has already dismissed the banner 
+  within the default expiration, it's still hidden.
 
 <Preview withToolbar>
-  <Story name="dismissed-override">
+  <Story name="sheets-api-default">
     {html`
-      <bulib-announce debug code="dismissed-present" dismissed message="'dismissed' is present, but unspecified"></bulib-announce> <hr />
-      <bulib-announce debug code="dismissed-true" dismissed="true" message="'dismissed' is present and set to 'true'"></bulib-announce> <hr />
-      <bulib-announce debug code="dismissed-false" dismissed="false" message="'dismissed' is present and set to 'false'"></bulib-announce>
+      <table>
+        <tr>
+          <td>debug</td>
+          <td><bulib-announce code="testing" message="this will be replaced" debug dismissed></bulib-announce></td>
+        </tr>
+        <tr>
+          <td>no debug</td>
+          <td><bulib-announce code="testing" message="this will be replaced" dismissed></bulib-announce></td>
+        </tr>
+      </table>
     `}
   </Story>
 </Preview>
 
-_NOTE: clicking the DISMISS button will immediately toggle the `dismiss` value for the banner, save that value in local storage, and switch that banner's dismissal to manual mode until page is reloaded_
 
+#### Existing Platform Codes
+
+By convention, we do this for each of our bigger platforms; adding one of the following tags with it's specified `code` 
+  just below the header, and letting it wait for when it should be shown. 
+  
+If we wanted to add an announce-banner to the [Database List](https://library.bu.edu/az.php), for example, we'd look
+  for the that entry in the google spreadsheet (`libguides-db` in this case), and add the following code to the 
+  header for that platform.
+
+```html
+<bulib-announce code="libguides-db"></bulib-announce>
+``` 
+
+We'd then see any of the edits we made in the spreadsheet reflected on every page of that 
+  platform (when `show_banner` is checked or we have `debug` attribute on).
+
+Below are all the `code`s that we have pre-prepared for this purpose: 
+
+<Preview withToolbar>
+  <Story name="sheets-api-enumerated">
+    {html`
+      <table>
+        <thead>
+          <th>code</th><th>banner</th>
+        </thead>
+        <tbody>
+          <tr><td>primo-BU</td><td><bulib-announce debug dismissed code="primo-BU"></bulib-announce></td></tr>
+          <tr><td>primo</td><td><bulib-announce debug dismissed code="primo"></bulib-announce></td></tr>
+          <tr><td>primo-BULAW</td><td><bulib-announce debug dismissed code="primo-BULAW"></bulib-announce></td></tr>
+          <tr><td>primo-ISL</td><td><bulib-announce debug dismissed code="primo-ISL"></bulib-announce></td></tr>
+          <tr><td>primo-test</td><td><bulib-announce debug dismissed code="primo-test"></bulib-announce></td></tr>
+          <tr><td>testing</td><td><bulib-announce debug dismissed code="testing"></bulib-announce></td></tr>
+          <tr><td>wordpress</td><td><bulib-announce debug dismissed code="wordpress"></bulib-announce></td></tr>
+          <tr><td>libguides</td><td><bulib-announce debug dismissed code="libguides"></bulib-announce></td></tr>
+          <tr><td>libcal</td><td><bulib-announce debug dismissed code="libcal"></bulib-announce></td></tr>
+          <tr><td>libanswers</td><td><bulib-announce debug dismissed code="libanswers"></bulib-announce></td></tr>
+          <tr><td>libanswers-business</td><td><bulib-announce debug dismissed code="libanswers-business"></bulib-announce></td></tr>
+          <tr><td>libanswers-spring2020</td><td><bulib-announce debug dismissed code="libanswers-spring2020"></bulib-announce></td></tr>
+          <tr><td>all</td><td><bulib-announce debug dismissed code="all"></bulib-announce></td></tr>
+        </tbody>
+      </table>
+    `}
+  </Story>
+</Preview>
+
+
+#### Preventing/Disabling the API Call Lookup (debugging)
+
+You can use the `prevent_action` to stop the call to the Sheets API.
+
+<Preview withToolbar>
+  <Story name="sheets-api-prevented">
+    {html`
+      <table>
+        <tr>
+          <td>debug</td>
+          <td><bulib-announce debug code="testing" message="api call prevented by 'prevent_action'" prevent_action></bulib-announce></td>
+        </tr>
+        <tr>
+          <td>no debug</td>
+          <td><bulib-announce code="testing"  message="api call prevented by 'prevent_action'" prevent_action></bulib-announce></td>
+        </tr>
+      </table>
+    `}
+  </Story>
+</Preview>
 
 ## API - Properties 
 

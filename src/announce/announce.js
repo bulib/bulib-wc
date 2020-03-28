@@ -2,6 +2,18 @@ import {LitElement, html} from 'lit-element/lit-element';
 
 import {readExpiringLocalValue, setExpiringLocalValue} from '../_helpers/storageUtility';
 
+/* references to google sheets API and the entries within it */
+const google_sheets_document_id = '1ElW0CUOV3LvcHuYxK2BZfFjo65a-XDrlNJtnrelA6tM';
+const codes_that_map_to_api_entry = {
+  "primo-BU": 0, "primo": 1, "primo-BULAW": 2, "primo-journals": 3, "primo-test": 4, "primo-ISL": 5,
+  "testing": 6,
+  "wordpress": 7,
+  "libguides": 8, 
+  "libcal": 9, 
+  "libanswers": 10, "libanswers-business": 11, "libanswers-spring2020": 12,
+  "all": 13
+}
+
 const primo_specific_padding = html`
   <style type="text/css">
     /* site-specific code for primo's announce-banner.js - adds padding below the search bar */ 
@@ -39,6 +51,48 @@ export default class BULAnnounce extends LitElement {
       /** (debugging) disable show/hide check, cta  */
       prevent_action: {type: Boolean}
     };
+  }
+
+  /** when first connected, iff there's a special code, set contents based on the API */
+  connectedCallback(){
+    super.connectedCallback();
+    if(this.code in codes_that_map_to_api_entry){
+      this._logToConsole(`code '${this.code}' in codes_that_map dictionary.`);
+      if(this.prevent_action){ 
+        this._logToConsole("'prevent_action' stopped the API from being called!"); 
+        return;
+      }
+      else{
+        this.dismissed = true;  // default to dismissed (don't flash before/during the API call)
+        this._logToConsole(`making a call to the SheetsAPI for '${this.code}'.`);
+      }
+      
+      let row_id = codes_that_map_to_api_entry[this.code];
+      fetch('https://spreadsheets.google.com/feeds/list/'+google_sheets_document_id+'/1/public/values?alt=json', { method:'GET', mode:'cors', cache:'no-store' })
+        .then(response => response.json())
+        .then(json => json.feed.entry[row_id])
+        .then(data => this._setDataHelperWithDataFromAPI(data));
+    }
+  }
+
+  /** helper that updates the components information with the Sheets its given */
+  _setDataHelperWithDataFromAPI(data){
+    this._logToConsole(`'show_banner' in the google sheets for '${this.code}' is '${data.gsx$showbanner.$t}'.`);
+
+    // un-dismiss if the 'show_banner' checkbox has been selected
+    if(data.gsx$showbanner.$t == "TRUE"){ 
+      this.dismissed = false; 
+      this.removeAttribute("dismissed");
+    }
+
+    // set the message from the API, but try not 
+    let message = data.gsx$messagetext.$t;
+    if(message.length > 0){ this.message = message; }
+    
+    // set additional data
+    this.cta_url = data.gsx$messagelink.$t;
+    this.severity = data.gsx$messageseverity.$t || 'info';
+    this.cta_text = data.gsx$ctatext.$t;
   }
 
   render(){
@@ -98,7 +152,7 @@ export default class BULAnnounce extends LitElement {
 
     // ensure the component updates (re-renders) and hides (or shows) the component
     this._logToConsole(`dismiss clicked, session's' '${this._dismissedId()}' value '${value_before}'->'${this._getDismissedValue()}'`);
-    this.requestUpdate();
+    this.requestUpdate("dismissed", value_before);
 
     // save this updated setting in the localStorage
     setExpiringLocalValue(this._dismissedId(), !value_before);

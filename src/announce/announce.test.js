@@ -53,4 +53,15 @@ describe('bulib-announce', () => {
     innerDiv = el.querySelector("div.announce-banner");
     expect(elementIsHidden(innerDiv)).to.be.true;
   });
+
+  it("adding 'prevent_action' with an api-enabled code stops from loading API values", async () => {
+    let el = await fixture(html`<bulib-announce debug code="primo" message="original message" prevent_action></bulib-announce>`);
+    await elementUpdated(el);
+    
+    // click on the dismiss button and wait for the element to update
+    let innerMessage = el.querySelector("div.announce-banner > .message");
+
+    // assert that the innerHTML changes and that the banner becomes hidden
+    expect(innerMessage.innerText).to.include("original");
+  });
 });
