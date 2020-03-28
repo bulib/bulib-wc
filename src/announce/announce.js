@@ -56,9 +56,17 @@ export default class BULAnnounce extends LitElement {
   /** when first connected, iff there's a special code, set contents based on the API */
   connectedCallback(){
     super.connectedCallback();
-    if(this.code in codes_that_map_to_api_entry && !this.prevent_action){
-      this._logToConsole(`code '${this.code}' in codes_that_map. making a call to the Sheets API`);
-      this.dismissed = true;  // default to dismissed (don't flash before/during the API call)
+    if(this.code in codes_that_map_to_api_entry){
+      this._logToConsole(`code '${this.code}' in codes_that_map dictionary.`);
+      if(this.prevent_action){ 
+        this._logToConsole("'prevent_action' stopped the API from being called!"); 
+        return;
+      }
+      else{
+        this.dismissed = true;  // default to dismissed (don't flash before/during the API call)
+        this._logToConsole(`making a call to the SheetsAPI for '${this.code}'.`);
+      }
+      
       let row_id = codes_that_map_to_api_entry[this.code];
       fetch('https://spreadsheets.google.com/feeds/list/'+google_sheets_document_id+'/1/public/values?alt=json', { method:'GET', mode:'cors', cache:'no-store' })
         .then(response => response.json())
