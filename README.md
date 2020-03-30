@@ -16,10 +16,10 @@ These take a number of forms...
 
 ...and depend on a number of technologies...
 
-- vanilla **html+css** for interoperable, failsafe, cross-platform functionality [without javascript](https://github.com/bulib/bulib-wc/wiki/No-Javascript)
-- **[CSS Variables](https://github.com/bulib/bulib-wc/wiki/CSS-Variables)** for coordinating theming/branding
+- vanilla **html+css** for interoperable, failsafe, cross-platform functionality [without javascript](https://bulib.github.io/bulib-wc/?path=/docs/no-javascript-about--page)
+- **[CSS Variables](https://bulib.github.io/bulib-wc/?path=/docs/welcome-css-variables--page)** for coordinating theming/branding
   (especially [colors](https://bulib.github.io/bulib-wc/?path=/story/branding--colors))
-- **[Web Components](https://github.com/bulib/bulib-wc/wiki/Web-Components)** based on the `lit-element` library for more advanced functionality
+- **[Web Components](https://bulib.github.io/bulib-wc/?path=/docs/web-components-about--page)** based on the `lit-element` library for more advanced functionality
 
 ...towards the end of...
 
