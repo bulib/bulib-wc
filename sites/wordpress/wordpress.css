@@ -45,12 +45,6 @@ div.locate-by-floor  {
   display: flex;
   flex-wrap: wrap;
   font-size: medium;
-
-  /* style as a bordered, padded box */
-  border: 1px solid var(--color-secondary-background-dark);
-  background-color: var(--color-secondary-background-light);
-  padding: 10px;
-  padding-top: 20px;
 }
 
 /* assorted minor bits */
@@ -61,7 +55,8 @@ div.locate-by-floor a:focus { text-decoration: underline; font-weight: bold; }
 /* protect dividers from getting styled by the legacy wordpress.css */ 
 div.locate-by-floor ul li, ul#locate-callno li { 
   background: none;
-  margin: unset;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 
