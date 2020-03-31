@@ -69,3 +69,14 @@
   .secondary-menu #s-lg-sel-subjects { 
     width: 100%; 
 }
+
+/* - Recurring Sidebar - */
+
+/* replicate the side header styling to acheive parity/similar look&feel with templates */
+.s-lib-public-side-header h2, div.dblist-sidebar h2, #dblist-sidebar-policy-map h2, 
+  div#s-lg-az-cols #col2 h2, div#s-lg-index-cols #col2 h2 { 
+    margin-top: 0 !important;
+    font: 700 16px Arial,Geneva,Helvetica,sans-serif !important;
+    border-bottom: 1px solid #a2a2a2 !important;
+    color: #686868 !important;
+}
