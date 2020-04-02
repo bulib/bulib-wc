@@ -1,5 +1,8 @@
 /* -- libguides (library.bu.edu/guides) -- */
 
+/* decrease the default font-size of the announcement-banner */
+body { --font-size-announce: unset; }
+
 /* add some padding for the header and footer */
 #s-lib-public-main {
   margin-top: 10px !important;
