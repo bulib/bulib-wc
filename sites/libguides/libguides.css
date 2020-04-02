@@ -80,3 +80,12 @@
     border-bottom: 1px solid #a2a2a2 !important;
     color: #686868 !important;
 }
+
+/* add padding underneath the high-level divs */
+div#s-lg-az-cols #col2 > div, div#s-lg-index-cols #col2 > div { 
+  margin-bottom: var(--padding-xlarge, 30px);
+}
+
+/* equalize font sizes */
+div#s-lg-index-cols #col2 .get-help span { font-size: unset; } 
+div#s-lg-index-cols #col2 .get-help i { font-size: x-large; }
