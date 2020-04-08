@@ -6,23 +6,25 @@ const bgColorOfBulibColorElement = (elem) => { return elem.renderRoot.querySelec
 
 describe('bulib-color', () => {
 
-  it('to effectively load as a web component', async () => {
+  it("renders effectively as a web component", async () => {
     const el = await fixture(html`<bulib-color></bulib-color>`)
     expect(el.renderRoot).not.to.undefined;
     expect(el.renderRoot.innerHTML).not.to.equal("");
     expect(el).lightDom.to.equalSnapshot();
   });
 
-  it('to default to "lightblue" when unspecified', async () => {
+  it("defaults to 'lightblue' when a 'val' and 'var' are both unspecified", async () => {
     const el = await fixture(html`<bulib-color></bulib-color>`)
     let actualBgColor = bgColorOfBulibColorElement(el);
     expect(actualBgColor).to.equal("lightblue");
   });
 
-  it('to effectively set a specified background color value', async () => {
+  it("loads a specified background color value when 'val' is specified", async () => {
     const el = await fixture(html`<bulib-color val="red"></bulib-color>`)
     let actualBgColor = bgColorOfBulibColorElement(el);
     expect(actualBgColor).to.equal("red");
     expect(el).lightDom.to.equalSnapshot();
   });
+
+  //TODO: troubleshoot the loading of --css-variables with 'var' 
 });

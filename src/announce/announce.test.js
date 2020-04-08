@@ -6,14 +6,14 @@ import { aTimeout, elementUpdated } from '@open-wc/testing-helpers';
 const elementIsHidden = (el) => { return el.offsetHeight == 0; }
 
 describe('bulib-announce', () => {
-  it('to effectively load as a web component', async () => {
+  it("renders effectively load as a web component", async () => {
     const el = await fixture(html`<bulib-announce></bulib-announce>`);
     expect(el.innerHTML).not.to.be.undefined;
     expect(el.innerHTML).to.include(`<span class="message">`)
     expect(el).lightDom.to.equalSnapshot();
   });
 
-  it('to be hidden when dismissed is present', async () => {
+  it("is hidden when 'dismissed' is present (but empty)", async () => {
     const el = await fixture(html`<bulib-announce dismissed></bulib-announce>`);
     expect(el.innerHTML).not.to.be.undefined;
     let innerDiv = el.querySelector("div.announce-banner");
@@ -21,7 +21,7 @@ describe('bulib-announce', () => {
     expect(el).lightDom.to.equalSnapshot();
   });
 
-  it('to be hidden when dismissed is set to true', async () => {
+  it("is hidden when 'dismissed' is set to 'true'", async () => {
     const el = await fixture(html`<bulib-announce dismissed="true"></bulib-announce>`);
     expect(el.innerHTML).not.to.be.undefined;
     let innerDiv = el.querySelector("div.announce-banner");
@@ -29,7 +29,7 @@ describe('bulib-announce', () => {
     expect(el).lightDom.to.equalSnapshot();
   });
 
-  it('not to be hidden when dismissed is set to false', async () => {
+  it("is NOT hidden when 'dismissed' is set to 'false'", async () => {
     const el = await fixture(html`<bulib-announce dismissed="false"></bulib-announce>`);
     expect(el.innerHTML).not.to.be.undefined;
     let innerDiv = el.querySelector("div.announce-banner");
@@ -37,7 +37,7 @@ describe('bulib-announce', () => {
     expect(el).lightDom.to.equalSnapshot();
   });
 
-  it('the icon to change with the severity', async () => {
+  it("responds to a custom 'severity' by changing the icon", async () => {
     const el = await fixture(html`<bulib-announce severity="warn"></bulib-announce>`);
     expect(el.innerHTML).not.to.be.undefined;
     let announceIcon = el.querySelector("div.announce-banner i");
@@ -45,7 +45,7 @@ describe('bulib-announce', () => {
     expect(el).lightDom.to.equalSnapshot();
   });
 
-  it("that clicking 'dismiss' on a non-dismissed announce-banner dismisses it", async () => {
+  it("disables the banner when the user clicks the dismiss button", async () => {
     let el = await fixture(html`<bulib-announce dismissed="false"></bulib-announce>`);
     let innerDiv = el.querySelector("div.announce-banner");
 
@@ -59,7 +59,7 @@ describe('bulib-announce', () => {
     expect(elementIsHidden(innerDiv)).to.be.true;
   });
 
-  it('renders an announcement-banner with a custom message', async () => {
+  it("renders an announcement-banner with a custom 'message'", async () => {
     const el = await fixture(html`<bulib-announce message="this is a custom message"></bulib-announce>`);
     expect(el).lightDom.to.equalSnapshot();
 
@@ -67,7 +67,7 @@ describe('bulib-announce', () => {
     expect(innerMessage.innerText).to.include("custom message");
   });
 
-  it('the custom message is replaced when a an api-enabled "code" is given', async () => {
+  it("replaces the custom message when given an api-enabled 'code'", async () => {
     const el = await fixture(html`<bulib-announce code="testing" message="this is a custom message"></bulib-announce>`);
     
     // give time for the API to get called, and then check that the message is different than the above
@@ -76,7 +76,7 @@ describe('bulib-announce', () => {
     expect(innerMsg.innerText).not.to.include("custom message");
   });
 
-  it("the custom message is NOT replaced when 'prevent_action' is there, regardless of the api-enabled code", async () => {
+  it("does NOT replace the custom message when 'prevent_action' is there, regardless of the api-enabled code", async () => {
     let el = await fixture(html`<bulib-announce debug code="primo" message="custom message" prevent_action></bulib-announce>`);
     
     // give time for the API to get called, but expect it not to have been
