@@ -8,6 +8,7 @@ describe('bulib-card', () => {
       <bulib-card title="Home" icon="house" link="https://bu.edu/library" description="The description of the sample card."></bulib-card>
     `);
     expect(el.innerHTML).not.to.be.undefined;
-    expect(el.innerHTML).to.include(`<div class="card">`)
+    expect(el.innerHTML).to.include(`<div class="card">`);
+    expect(el).lightDom.to.equalSnapshot();
   });
 });

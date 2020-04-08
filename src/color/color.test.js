@@ -10,17 +10,19 @@ describe('bulib-color', () => {
     const el = await fixture(html`<bulib-color></bulib-color>`)
     expect(el.renderRoot).not.to.undefined;
     expect(el.renderRoot.innerHTML).not.to.equal("");
+    expect(el).lightDom.to.equalSnapshot();
   });
 
-  it('to effectively default to a color when unspecified', async () => {
-    const valElement = await fixture(html`<bulib-color></bulib-color>`)
-    let actualBgColor = bgColorOfBulibColorElement(valElement);
+  it('to default to "lightblue" when unspecified', async () => {
+    const el = await fixture(html`<bulib-color></bulib-color>`)
+    let actualBgColor = bgColorOfBulibColorElement(el);
     expect(actualBgColor).to.equal("lightblue");
   });
 
   it('to effectively set a specified background color value', async () => {
-    const valElement = await fixture(html`<bulib-color val="red"></bulib-color>`)
-    let actualBgColor = bgColorOfBulibColorElement(valElement);
+    const el = await fixture(html`<bulib-color val="red"></bulib-color>`)
+    let actualBgColor = bgColorOfBulibColorElement(el);
     expect(actualBgColor).to.equal("red");
+    expect(el).lightDom.to.equalSnapshot();
   });
 });

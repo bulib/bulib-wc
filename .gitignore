@@ -4,4 +4,6 @@ node_modules/
 .idea/
 .DS_Store
 *.scssc
+
 src/header/header.css
+__snapshots__

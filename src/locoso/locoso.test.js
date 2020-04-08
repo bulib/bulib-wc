@@ -6,7 +6,8 @@ describe('bulib-locoso', () => {
   it('to effectively load as a web component', async () => {
     const el = await fixture(html`<bulib-locoso></bulib-locoso>`);
     expect(el.renderRoot.innerHTML).not.to.be.undefined;
-    expect(el.renderRoot.innerHTML).to.include("Contact Us")
+    expect(el.renderRoot.innerHTML).to.include("Contact Us");
+    expect(el).lightDom.to.equalSnapshot();
   });
 
   it('not to contain \'bulib-hours\' by default', async () => {

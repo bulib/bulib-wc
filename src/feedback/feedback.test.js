@@ -7,5 +7,6 @@ describe('bulib-feedback', () => {
     const el = await fixture(html`<bulib-feedback code="feeback-test"></bulib-feedback>`);
     expect(el.innerHTML).not.to.be.undefined;
     expect(el.innerHTML).to.include("helpful");
+    expect(el).lightDom.to.equalSnapshot();
   });
 });
