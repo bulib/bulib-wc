@@ -4,6 +4,7 @@ body {
   --padding-small:  5px;
   --padding-medium: 10px;
   --padding-large:  15px; 
+  --padding-xlarge: 25px;
 }
 
 /* - padding utils - */
