@@ -1,10 +1,9 @@
 import {LitElement, html, css} from 'lit-element/lit-element';
-import {search_options} from './search_options';
 
+import {search_options} from './search_options';
 import {sendGAEvent} from '../_helpers/google_analytix';
 
 const ENTER_KEY_VALUE = 13;
-const default_to_just_primo = true;
 
 const search_option_codes = search_options.map( x => x.value );
 
@@ -164,7 +163,7 @@ export default class BULibSearch extends LitElement {
     // try to set 'options' and 'selected' based on user input (with fallbacks) 
     this._options = []; this._selected = {};
     if(!this.str_options || this.str_options === ""){ 
-      this.str_options = default_to_just_primo? ["primo"] : search_options;
+      this.str_options = ["primo"]; this.str_selected = "primo";
     }
       
     let i, option, optionCode;
@@ -178,9 +177,7 @@ export default class BULibSearch extends LitElement {
     }
 
     // set 'str_selected', defaulting to the first 'option'
-    if(Object.keys(this._selected).length == 0){ 
-      this._selected = _getOptionFromCode(this.str_selected, this._options); 
-    }
+    this._selected = _getOptionFromCode(this.str_selected, this._options); 
   }
 
   /** perform a search for the input query on the selected database */
