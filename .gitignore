@@ -7,3 +7,4 @@ node_modules/
 
 src/header/header.css
 __snapshots__
+coverage/

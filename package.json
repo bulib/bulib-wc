@@ -27,7 +27,9 @@
     "deploy": "./scripts/deploy.sh",
     "deploy:storybook": "npm run build:storybook && storybook-to-ghpages -e _site -o _site",
     "pretest": "npm run build:css",
-    "test": "karma start"
+    "test": "karma start",
+    "test:update-snapshots": "karma start --update-snapshots",
+    "test:prune-snapshots": "karma start --prune-snapshots"
   },
   "repository": {
     "type": "git",
