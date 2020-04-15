@@ -16,11 +16,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - name: npm install, build, and test
-      - run: |
-          npm ci
-          npm run build:all
-          npm run test
+      - run: npm ci
+      - run: npm run build:all
+      - run: npm run test
 
   publish-npm:
     needs: build
