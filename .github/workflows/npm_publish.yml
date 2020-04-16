@@ -1,5 +1,3 @@
-# This workflow will run tests using node and then publish a package to npm 
-
 name: npm-publish_on_PR-merged
 
 on:
