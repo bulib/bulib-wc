@@ -115,11 +115,15 @@ _note: one can import a specific version (e.g. `bulib-wc@0.0.92`) or the most re
 <script src="https://unpkg.com/bulib-wc@0.1.0/src/index.js?module" type="module"></script>
 ```
 
-For the **css**, we have both a shared bundle (created via `scripts/bundle_css.sh`), and site-specific forms for each `site_name`. 
-  These are imported via `<link>` like the following:
+For the **css**, we have both a shared "bundle" (created via `scripts/bundle_css.sh`), and site-specific forms for each `site_name`.
+  These are imported via `<link>` like the following. Further customizations for each site are in `sites/**.css`.
+  
+_NOTE: if you don't include the `bundle.min.css` stylesheet as well as the `index.js?module` in a given site, the styling for many components will be broken_
 
 ```html
 <!-- styling -->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulib-wc@0.1.0/dist/bundle.min.css">
 <!--link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/{site_name}.css"-->
 ```
+
+An example of what all to include in each site's `<head>` is also available at `sites/shared.html`.
