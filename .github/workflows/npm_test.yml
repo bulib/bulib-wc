@@ -6,7 +6,7 @@ on:
     types: [created, edited]
 
 jobs:
-  test:
+  build_and_test_verbose:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,6 +14,15 @@ jobs:
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
-      - run: npm run build:all
-      - run: npm run test
+      - name: install npm dependencies
+        run: npm ci
+      - name: build with open-wc
+        run: npm run build:owc;
+      - name: build with rollup config
+        run: npm run build:rollup; 
+      - name: build storybook config 
+        run: npm run build:storybook
+      - name: run unit tests on web components
+        run: npm run tests
+      - name: simulate npm package creation
+        run: npm pack
