@@ -1,0 +1,60 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: cypress/base:10
+        environment:
+          - CHROME_BIN: /usr/bin/google-chrome
+    steps:
+      - checkout
+      - restore_cache:
+          name: restore binary/dependencies from cache
+          keys:
+            - cache-{{ checksum "package.json" }}
+      - run:
+          name: install cypress binary and dependencies from package-lock
+          command: npm ci
+      - run: npm run cy:verify;
+      - save_cache:
+          name: save binary and dependencies to cache
+          key: cache-{{ checksum "package.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
+      - run:
+          name: install npm dependencies
+          command: npm run reinstall;
+      - run: 
+          name: build with open-wc
+          command: npm run build:owc;
+      - store_artifacts:
+          name: upload bundle
+          path: /root/project/dist/
+          destination: /bundles/open-wc/
+      - run: 
+          name: build with custom rollup config
+          command: npm run build:rollup;
+      - store_artifacts:
+          name: upload bundle
+          path: /root/project/dist/bundle.esm.js
+          destination: /bundles/bundle.esm.js
+      - run: 
+          name: build storybook site
+          command: npm run build:storybook;
+      - store_artifacts:
+          name: upload bundle
+          path: /root/project/_site/
+          destination: /_site/
+      - run:
+          name: simulate npm package creation
+          command: npm pack
+      - store_artifacts:
+          name: upload simulated package
+          path: /root/project/bulib-wc-*.tgz
+          destination: /npm/
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - test 

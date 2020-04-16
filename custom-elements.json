@@ -2,6 +2,91 @@
   "version": "experimental",
   "tags": [
     {
+      "name": "bulib-card",
+      "description": "display a single concept (heading, description, cta, icon) in a small UI element",
+      "attributes": [
+        {
+          "name": "title",
+          "description": "name and primary interactable link in the card",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "description": "short bit of text describing the main action/concept",
+          "type": "string"
+        },
+        {
+          "name": "icon",
+          "description": "material icon displayed to the left of the",
+          "type": "string"
+        },
+        {
+          "name": "link",
+          "description": "optional link for the href/window.open() action",
+          "type": "string"
+        },
+        {
+          "name": "action",
+          "description": "custom javascript",
+          "type": "string"
+        },
+        {
+          "name": "small",
+          "description": "add 'small' class to card",
+          "type": "boolean"
+        },
+        {
+          "name": "debug",
+          "description": "enable logging (click tracking)",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "title",
+          "attribute": "title",
+          "description": "name and primary interactable link in the card",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "attribute": "description",
+          "description": "short bit of text describing the main action/concept",
+          "type": "string"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "material icon displayed to the left of the",
+          "type": "string"
+        },
+        {
+          "name": "link",
+          "attribute": "link",
+          "description": "optional link for the href/window.open() action",
+          "type": "string"
+        },
+        {
+          "name": "action",
+          "attribute": "action",
+          "description": "custom javascript",
+          "type": "string"
+        },
+        {
+          "name": "small",
+          "attribute": "small",
+          "description": "add 'small' class to card",
+          "type": "boolean"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "enable logging (click tracking)",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
       "name": "bulib-announce",
       "description": "display time-sensitive message, call-to-action across the top of a screen",
       "attributes": [
@@ -98,87 +183,56 @@
       ]
     },
     {
-      "name": "bulib-card",
-      "description": "display a single concept (heading, description, cta, icon) in a small UI element",
+      "name": "bulib-footer",
+      "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
       "attributes": [
         {
-          "name": "title",
-          "description": "name and primary interactable link in the card",
+          "name": "host_site",
+          "description": "key for the subsite (used to populate the sitemap)",
           "type": "string"
-        },
-        {
-          "name": "description",
-          "description": "short bit of text describing the main action/concept",
-          "type": "string"
-        },
-        {
-          "name": "icon",
-          "description": "material icon displayed to the left of the",
-          "type": "string"
-        },
-        {
-          "name": "link",
-          "description": "optional link for the href/window.open() action",
-          "type": "string"
-        },
-        {
-          "name": "action",
-          "description": "custom javascript",
-          "type": "string"
-        },
-        {
-          "name": "small",
-          "description": "add 'small' class to card",
-          "type": "boolean"
         },
         {
           "name": "debug",
-          "description": "enable logging (click tracking)",
+          "description": "[debugging] enable logging for parent and child events",
           "type": "boolean"
+        },
+        {
+          "name": "curr_url",
+          "description": "[debugging] manually simulate the url to override/force different states",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "description": "provide window into setting displayed 'locoso' contact data",
+          "type": "string",
+          "default": "\"help\""
         }
       ],
       "properties": [
         {
-          "name": "title",
-          "attribute": "title",
-          "description": "name and primary interactable link in the card",
+          "name": "host_site",
+          "attribute": "host_site",
+          "description": "key for the subsite (used to populate the sitemap)",
           "type": "string"
-        },
-        {
-          "name": "description",
-          "attribute": "description",
-          "description": "short bit of text describing the main action/concept",
-          "type": "string"
-        },
-        {
-          "name": "icon",
-          "attribute": "icon",
-          "description": "material icon displayed to the left of the",
-          "type": "string"
-        },
-        {
-          "name": "link",
-          "attribute": "link",
-          "description": "optional link for the href/window.open() action",
-          "type": "string"
-        },
-        {
-          "name": "action",
-          "attribute": "action",
-          "description": "custom javascript",
-          "type": "string"
-        },
-        {
-          "name": "small",
-          "attribute": "small",
-          "description": "add 'small' class to card",
-          "type": "boolean"
         },
         {
           "name": "debug",
           "attribute": "debug",
-          "description": "enable logging (click tracking)",
+          "description": "[debugging] enable logging for parent and child events",
           "type": "boolean"
+        },
+        {
+          "name": "curr_url",
+          "attribute": "curr_url",
+          "description": "[debugging] manually simulate the url to override/force different states",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "attribute": "library",
+          "description": "provide window into setting displayed 'locoso' contact data",
+          "type": "string",
+          "default": "\"help\""
         }
       ]
     },
@@ -260,60 +314,6 @@
           "attribute": "prevent_action",
           "description": "[debugging] override main action (prevent GAEvent logging)",
           "type": "boolean"
-        }
-      ]
-    },
-    {
-      "name": "bulib-footer",
-      "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
-      "attributes": [
-        {
-          "name": "host_site",
-          "description": "key for the subsite (used to populate the sitemap)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "description": "[debugging] enable logging for parent and child events",
-          "type": "boolean"
-        },
-        {
-          "name": "curr_url",
-          "description": "[debugging] manually simulate the url to override/force different states",
-          "type": "string"
-        },
-        {
-          "name": "library",
-          "description": "provide window into setting displayed 'locoso' contact data",
-          "type": "string",
-          "default": "\"help\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "host_site",
-          "attribute": "host_site",
-          "description": "key for the subsite (used to populate the sitemap)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "[debugging] enable logging for parent and child events",
-          "type": "boolean"
-        },
-        {
-          "name": "curr_url",
-          "attribute": "curr_url",
-          "description": "[debugging] manually simulate the url to override/force different states",
-          "type": "string"
-        },
-        {
-          "name": "library",
-          "attribute": "library",
-          "description": "provide window into setting displayed 'locoso' contact data",
-          "type": "string",
-          "default": "\"help\""
         }
       ]
     },
