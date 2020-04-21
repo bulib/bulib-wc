@@ -45,10 +45,10 @@
               <section id="s-lg-az-filter-cols" class="row mvs">
                 <div id="col-subjects" class="col-sm-3">{{subject_list}}</div>
                 <div class="col-sm-6">
-                  <form class="flexw" role="search" onsubmit="springSpace.publicObj.filterAzBySearch(2345); return false;">
+                  <form class="flexw" role="search" method="get" action="/az.php">
                     <div style="flex: 1;">
                       <label class="control-label sr-only" for="s-lg-az-search">DATABASES</label>
-                      <input type="text" id="s-lg-az-search" placeholder="Search titles and descriptions" class="form-control">
+                      <input type="text" name="q" id="s-lg-az-search" placeholder="Search titles and descriptions" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-default">Go</button>
                   </form>
