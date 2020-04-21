@@ -11,6 +11,7 @@ body {
   --color-accent-red-background: #CC0000;
   --color-accent-orange-background: #BB7933;
   --color-accent-green-background: #147114;
+  --color-accent-black-background: var(--color-primary-background-light, #444444);
   --color-accent-blue-highlight: #DCF3FF;
   --color-accent-blue-hover: rgba(51, 152, 187, 0.1); 
   --color-accent-text: whitesmoke;

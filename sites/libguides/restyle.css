@@ -1,27 +1,78 @@
+/* - LibGuides Header - */
+
 /* ensure header-dropdown shows up above other items */
-div.header-wrapper, div.full-width, div.banner-wrapper { width: 100vw; margin-left: -15px; }
+div.header-wrapper, div.banner-wrapper { width: 100vw; margin-left: -15px; }
 #s-lib-public-main, #s-lg-guide-search-box .input-group > input, #s-lg-guide-search-box .input-group button { z-index: unset; }
 
 /* header styles */
+h1, h2, h3, h4, h5, h6 { font-family: 'Source Sans Pro', sans-serif; } 
 body h1 { font-size: xx-large !important; font-weight: 400; }
 body h2 { font-size: x-large !important; }
-body h3 { font-size: large; }
-h2, h3, h4, h5, h6, body { font-family: 'Source Sans Pro', sans-serif; }
+body h3 { font-size: large; } 
+
+
+/* - Topbar/top of the page - */
 
 /* increase breadcrumb and guide description size */
-#s-lib-bc-list a { font-size: initial; }
 #s-lib-admin-bc .breadcrumb, #s-lib-bc .breadcrumb { font-size: small; }
-#s-lg-guide-description { font-size: medium; }
+#s-lg-guide-description { font-size: medium; } 
 
 /* adjust spacing above 'search-this-guide' search box */
 #s-lg-guide-header-search { padding-top: 10px; }
 
-/* change the box styling */
-.s-lib-box { 
-  border: none; 
+
+/* - vertical top tabs (switching between guide pages) from guide lines - */
+
+/* adjuts color to black and red accents */
+.nav-tabs li > a { 
+  color: var(--color-button-text, white) !important; 
+  background-color: var(--color-accent-black-background, #444444) !important; 
+}
+.nav-tabs li > a:hover { filter: brightness(125%); }
+.nav-tabs li.active > a { 
+  background-color: var(--color-accent-red-background, #CC0000) !important; 
+}
+
+/* adjust padding around top-tabs to remove overlap */
+#s-lg-guide-tabs .nav-tabs > li { margin-top: 0px; }
+
+/* remove blue underline from bottom of the tabs */
+#s-lg-guide-tabs-title-bar { 
+  border-color: var(--color-secondary-background, transparent); 
+}
+
+
+/* - boxes - */
+h2.s-lib-box-title { font-size: x-large !important; font-weight: normal; }
+.s-lib-box .s-lib-box-title {
+  background-color: var(--color-secondary-background, #098bb5);
+  background-color: transparent;
+  background-image: none;
+  color: var(--color-secondary-text, black);
+}
+.s-lib-box {
+  border: none;
   box-shadow: none;
 }
-h2.s-lib-box-title { 
-  background-color: transparent !important;
-  color: black !important;
+
+/* - calls to action - */
+.label-info { 
+  background-color: var(--color-button-background, #5bc0de);
+  color: var(--color-button-text, white);
 }
+.label-info:hover { 
+  background-color: var(--color-button-background-dark, #5bc0de) !important; 
+}
+
+
+/* - footer and secondary-footer - */
+
+/* make the secondary footer styling match the secondary banner */ 
+.s-lib-footer { border-color: var(--color-secondary-background-dark, #bbb); }
+#s-lib-footer-public { 
+  width: 100%; 
+  background-color: var(--color-secondary-background, gainsboro); 
+  color: var(--color-secondary-text, black);
+}
+#s-lib-footer-public a { color: var(--color-secondary-text, grey); }
+#s-lib-footer-public a:hover { color: var(--color-secondary-text-dark, darkgrey); }
