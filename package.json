@@ -48,29 +48,29 @@
   },
   "homepage": "https://github.com/bulib/bulib-wc#readme",
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "^2.2.10",
-    "lit-element": "^2.2.1",
-    "lit-html": "^1.1.2"
+    "@webcomponents/webcomponentsjs": "^2.4.3",
+    "lit-element": "^2.3.1",
+    "lit-html": "^1.2.1"
   },
   "devDependencies": {
     "@open-wc/building-rollup": "^0.16.0",
-    "@open-wc/demoing-storybook": "^1.0.1",
-    "@open-wc/semantic-dom-diff": "^0.17.6",
-    "@open-wc/testing": "^2.0.0",
-    "@open-wc/testing-karma": "^3.0.0",
-    "@storybook/cli": "^5.2.3",
-    "@storybook/storybook-deployer": "^2.8.1",
-    "cypress": "^3.4.1",
-    "deepmerge": "^3.2.0",
-    "es-dev-server": "^1.23.0",
+    "@open-wc/demoing-storybook": "^1.15.2",
+    "@open-wc/semantic-dom-diff": "^0.17.9",
+    "@open-wc/testing": "^2.5.16",
+    "@open-wc/testing-karma": "^3.3.19",
+    "@storybook/cli": "^5.3.18",
+    "@storybook/storybook-deployer": "^2.8.5",
+    "cypress": "^3.8.3",
+    "deepmerge": "^3.3.0",
+    "es-dev-server": "^1.48.1",
+    "karma": "^5.0.5",
     "material-icons": "^0.3.1",
-    "mocha": "^7.1.1",
-    "node-sass": "^4.13.1",
+    "mocha": "^7.1.2",
+    "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
-    "rollup": "^1.19.4",
+    "rollup": "^1.32.1",
     "rollup-plugin-babel-minify": "^9.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "web-component-analyzer": "^1.0.0",
-    "webpack-merge": "^4.1.5"
+    "web-component-analyzer": "^1.0.3"
   }
 }
