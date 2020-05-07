@@ -75,20 +75,25 @@ $ npm run build:storybook
 
 #### Deploying
 
-We expect to continue to manage versioning this repository with npm.
-
-```bash
-$ npm publish
-```
-
-that said, we want to make sure that our docs page is updated, so it's recommended to use the following, instead:
+We expect to continue to manage versioning this repository with npm, but we want to make sure that updates are synchronized
+  (e.g. our demo site and github tags are all in sync), so we've made a script to help assist with that
 
 ```bash
 $ npm run deploy
 ```
 
-if you want to update the docs page before you're finished developing (without publishing the package), you can also update the _docs directly_ via
+we use semantic versioning ([semver](https://semver.org/)), and assume by default that you're publishing a `patch`. If you'd like to
+  specify the level of change you're making (e.g. you want to mark a significant addition in functionality or a milestone in the project)
+  you can specify `major` or `minor` as well:
 
+```bash
+$ npm run deploy [patch, major, minor]
+```
+
+Sometimes you may just want to update the storybook to demonstrate a change before you're finished developing
+  (without publishing a new package for it on NPM) to verify the implementation is correct or desired functionality
+  with a third party (like your advisor). You can update only the storybook by running the following:
+  
 ```bash
 $ npm run deploy:storybook
 ```
@@ -110,11 +115,15 @@ _note: one can import a specific version (e.g. `bulib-wc@0.0.92`) or the most re
 <script src="https://unpkg.com/bulib-wc@0.1.0/src/index.js?module" type="module"></script>
 ```
 
-For the **css**, we have both a shared bundle (created via `scripts/bundle_css.sh`), and site-specific forms for each `site_name`. 
-  These are imported via `<link>` like the following:
+For the **css**, we have both a shared "bundle" (created via `scripts/bundle_css.sh`), and site-specific forms for each `site_name`.
+  These are imported via `<link>` like the following. Further customizations for each site are in `sites/**.css`.
+  
+_NOTE: if you don't include the `bundle.min.css` stylesheet as well as the `index.js?module` in a given site, the styling for many components will be broken_
 
 ```html
 <!-- styling -->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulib-wc@0.1.0/dist/bundle.min.css">
 <!--link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/{site_name}.css"-->
 ```
+
+An example of what all to include in each site's `<head>` is also available at `sites/shared.html`.

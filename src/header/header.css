@@ -83,22 +83,18 @@ div.dropdown.menu-item {
     clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
     -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
     overflow: hidden !important; }
-
   .mobile-navigation {
     display: block !important; }
-
   .primary-nav-right {
     padding-top: 7px; }
-
   .banner h1 {
     font-size: large !important; }
-
   .banner > *:first-child {
     margin-right: auto; }
-
   .banner > *:last-child {
     max-width: 100% !important;
     flex-grow: 1; } }
+
 /* position mobile menu hidden in the top right, a z-layer beneath everything else */
 #mobile-menu {
   position: absolute;

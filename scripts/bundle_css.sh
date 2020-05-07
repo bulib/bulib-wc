@@ -2,9 +2,9 @@
 CSS_BUNDLE_FILEPATH="dist/bundle.css";
 
 # compile scss into css
-scss ./src/header/header.scss > ./src/header/header.css;
-scss ./src/header/mobile-nav.scss >> ./src/header/header.css;
-scss ./src/header/banner.scss >> ./src/header/header.css;
+node-sass ./src/header/header.scss > ./src/header/header.css;
+node-sass ./src/header/mobile-nav.scss >> ./src/header/header.css;
+node-sass ./src/header/banner.scss >> ./src/header/header.css;
 
 # bundle css into single 'shared' css file
 mkdir dist || true;

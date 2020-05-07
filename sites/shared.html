@@ -1,10 +1,22 @@
+<!-- LOAD IN WEB COMPONENTS AND HELPER JAVASCRIPT -->
+
 <!-- load polyfills via webcomponents-loader -->
 <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
 <!-- pull in bulib-wc components -->
 <script type="module" src="https://unpkg.com/bulib-wc@latest/src/index.js?module"></script>
 
-<!-- styling -->
+
+<!-- LOAD AND ADJUST THE STYLING -->
+
+<!-- set the viewport to enable responsiveness -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- set the favicon that displays in the tab -->
 <link type="image/x-icon" rel="shortcut icon" href="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/favicon.ico">
+
+<!-- load the styling bundle for the web components -->
 <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/bundle.min.css">
+
+<!-- load any site-specific stylesheets for the platform '<site_name>' -->
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/<site_name>.css">
