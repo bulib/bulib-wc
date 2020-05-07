@@ -1,0 +1,98 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+
+<Meta title="Branding|spacing" />
+
+# Spacing
+
+Having a consistent amount of spacing between or within elements can help bring about a 
+  more pleasing and branded typology. Having a number of functional css utility classes 
+  helps to simplify common spacing bugs.
+
+## Padding 
+
+The padding around the element makes the element itself take up more space
+
+<Preview>
+  <Story name="padding-default">
+    {html`
+      <ul>
+        <li><div class="bordered pvn"><em>none (0px)</em></div></li>
+        <li><div class="bordered pvs"><code>--padding-small</code></div></li>
+        <li><div class="bordered pvm"><code>--padding-medium</code></div></li>
+        <li><div class="bordered pvl"><code>--padding-large</code></div></li>
+        <li><div class="bordered pvxl"><code>--padding-xlarge</code></div></li>
+      </ul>
+    `}
+  </Story>
+</Preview>
+
+## Margins
+
+Margins are the area around the _outside_ of an element, separating them from surrounding elements.
+
+<Preview>
+  <Story name="margin-default">
+    {html`
+      <ul>
+        <li><div class="bordered mvn"><em>none (0px)</em></div></li>
+        <li><div class="bordered mvs"><code>--padding-small</code></div></li>
+        <li><div class="bordered mvm"><code>--padding-medium</code></div></li>
+        <li><div class="bordered mvl"><code>--padding-large</code></div></li>
+        <li><div class="bordered mvxl"><code>--padding-xlarge</code></div></li>
+      </ul>
+    `}
+  </Story>
+</Preview>
+
+
+## Location/Orientation Options
+
+You can add padding (`p`) or margins (`m`) to one or more sides of a given element 
+  by adding classes (e.g. `.pal` = _padding all large_) with the following pattern: 
+
+| character | attribute | meaning |
+|:---------:|:---------:|:-------:|
+|  `p`, `m`  | padding or margin | padding, margin |
+|`a`,`v`,`h`,`t`,`b`,`l`,`r`|location| all, vertical, horizontal, top, bottom, left, right|
+|`s`,`m`,`l`,`xl`, `n`| size | small, medium, large, xlarge, none| 
+
+<Preview>
+  <Story name="spacing-locations">
+    {html`
+      <div class="flexw">
+        <div class="bordered maxl"><code>.mal</code> all (margin)</div>
+        <div class="bordered paxl"><code>.pal</code> all (padding)</div>
+      </div>
+      <hr />
+      <div class="flexw">
+        <div class="bordered pvxl"><code>.pvl</code> vertical (padding)</div>
+        <div class="bordered mvxl"<code>.pvl</code> vertical (margin)</div>
+      </div>
+      <hr />
+      <div class="flexw">
+        <div class="bordered mhxl"><code>.mhl</code> horizontal (margin)</div>
+        <div class="bordered phxl"><code>.phl</code> horizontal (padding)</div>
+      </div>
+      <hr />
+      <div class="flexw">
+        <div class="bordered ptxl"><code>.ptl</code> top (padding)</div>
+        <div class="bordered mtxl"><code>.mtl</code> top (margin)</div>
+      </div>
+      <hr />
+      <div class="flexw">
+        <div class="bordered pbxl"><code>.pbl</code> bottom (padding)</div>
+        <div class="bordered mbxl"><code>.mbl</code> bottom (margin)</div>
+      </div>
+      <hr />
+      <div class="flexw">
+        <div class="bordered plxl"><code>.pll</code> left (padding)</div>
+        <div class="bordered mlxl"><code>.mll</code> left (margin)</div>
+      </div>
+      <hr />
+      <div class="flexw">
+        <div class="bordered mrxl"><code>.mrl</code> right (margin)</div>
+        <div class="bordered prxl"><code>.prl</code> right (padding)</div>
+      </div>
+    `}
+  </Story>
+</Preview>

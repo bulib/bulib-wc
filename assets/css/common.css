@@ -68,7 +68,7 @@ i.material-icons, i.material-icons-outlined { vertical-align: middle; }
 }
 
 /* secondary menu styling to accentuate things to edit the current page */
-.secondary-menu {
+.secondary-menu, .bordered {
   background-color: var(--color-secondary-background-light, gainsboro);
   border: 1px solid var(--color-secondary-background-dark, grey);
   padding: 10px;
