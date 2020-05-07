@@ -28,3 +28,10 @@ a.bulib-btn.btn-secondary, button.bulib-btn.btn-secondary {
   color: var(--color-button-background-dark, blue);
   border: 2px solid var(--color-button-background-dark, blue);
 }
+
+/* light button */
+a.bulib-btn.btn-light, button.bulib-btn.btn-light {
+  background-color: var(--color-button-background, #257abe);
+  color: var(--color-button-text, white);
+  border: 2px solid transparent;
+}

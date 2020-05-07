@@ -9,7 +9,7 @@ Display a link as if it were a button to highlight it as the main call-to-action
 
 ## Usage
 
-### Default Button (link)
+### Default/Primary Button
  
 The primary button should highlight the main call-to-action. 
 
@@ -17,41 +17,62 @@ Given this, there should (generally) only be one of them per page.
 
 <Preview>
   <Story name="button-default">
-    {html`<a class="bulib-btn" href="javascript:void()">Primary Option</a>`}
+    {html`
+      <a class="bulib-btn" href="javascript:void()">Primary (a)</a>
+      <button class="bulib-btn" action="javascript:void()">Primary (button)</a>
+    `}
   </Story>
 </Preview>
 
-### Secondary Button (link)
+### Secondary Button
 
 The secondary button is for main calls-to-action that may be less important 
   or an alternative to the main one.
 
 <Preview>
   <Story name="button-secondary">
-    {html`<a class="bulib-btn btn-secondary" href="javascript:void()">Secondary Option</a>`}
-  </Story>
-</Preview>
-
-### Large Buttons (link)
-
-<Preview>
-  <Story name="button-together-large">
     {html`
-      <a class="bulib-btn large">Primary (large)</a>
-      <a class="bulib-btn btn-secondary large">Secondary (large)</a>
+      <a class="bulib-btn btn-secondary" href="javascript:void()">Secondary (a)</a>
+      <button class="bulib-btn btn-secondary" href="javascript:void()">Secondary (button)</button>
     `}
   </Story>
 </Preview>
 
-### Primary and Secondary `<button>` 
+### Light Button
 
-The styling works with a `<button>` as well as a `<a>`.
+The light button is for calls-to-action that are in the in-between of the primary CTA and secondary.
+
+<Preview>
+  <Story name="button-light">
+    {html`
+      <a class="bulib-btn btn-light" href="javascript:void()">Light (a)</a>
+      <button class="bulib-btn btn-light" href="javascript:void()">Light (button)</button> 
+    `}
+  </Story>
+</Preview>
+
+### Large Buttons
+
+Add the `.large` class to make the buttons a little bigger.
+
+<Preview>
+  <Story name="button-together-large">
+    {html`
+      <a class="bulib-btn large">Primary (a.large)</a>
+      <a class="bulib-btn large btn-secondary">Secondary (a.large)</a>
+      <a class="bulib-btn large btn-light">Light (a.large)</a>
+    `}
+  </Story>
+</Preview>
+
+This works on `button` tags as well.
 
 <Preview>
   <Story name="button-together-button">
     {html`
-      <button class="bulib-btn">Primary Option</button>
-      <button class="bulib-btn btn-secondary">Secondary Option</button>
+      <button class="bulib-btn large">Primary (.large)</button>
+      <button class="bulib-btn large btn-secondary">Secondary (.large)</button>
+      <button class="bulib-btn large btn-light">Light (.large)</button>
     `}
   </Story>
 </Preview>
