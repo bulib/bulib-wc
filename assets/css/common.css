@@ -28,7 +28,8 @@
 .txtl { text-align: left; }
 .txtc { text-align: center; }
 .txtv { vertical-align: middle; }
-.big-text, .large-text { font-size: 110%; }
+.big-text, .large-text { font-size: 1.1em; }
+.bigger-text { font-size: 1.2em; }
 .multi-column {
   column-gap: 5%;
   column-count: 2;
