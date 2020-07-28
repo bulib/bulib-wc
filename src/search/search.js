@@ -80,14 +80,14 @@ export default class BULibSearch extends LitElement {
           padding-left: 6px;
         }
         .search-options {
-          padding-top: 10px;
+          padding-top: var(--bulib-search-options-padding, 10px);
           color: var(--color-primary-text-light, white);
           flex: auto;
         }
         .search-options > label {
           margin-right: 0.5rem;
           padding-left: 0.5rem;
-          font-size: medium;
+          font-size: var(--bulib-search-options-label-size, medium);
           cursor: pointer;
         }
         input[type=radio] {
@@ -110,8 +110,8 @@ export default class BULibSearch extends LitElement {
 
         /* medium-sized screen and above */
         @media only screen and (min-width: 300px){
-          #bulib-search { padding: 10px; }
-          .search-box > input, input[type=radio], .search-options > label { 
+          #bulib-search { padding: var(--bulib-search-padding, 10px); }
+          .search-box > input, input[type=radio] { 
             font-size: medium; 
           }
         }
