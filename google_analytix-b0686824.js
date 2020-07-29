@@ -1,0 +1,2 @@
+const e=!1;function n(n,t,a,o){try{window.gtag&&!e?window.gtag("event",t,{event_category:n,event_label:a,value:o}):window.ga&&!e&&window.ga("send",n,t,a)}catch(e){}}function t(e,t,a){let o="[unknown]";try{o=e.target.innerText?e.target.innerText:e.target.querySelector("span").innerText||"[unknown]",o=o.replace(/[^a-zA-Z0-9 ]/g,""),o=o.toLowerCase().replace(/ +/g,"-")}catch(e){}a&&""!=a?n(t,a,o):n(t,o,window.location.pathname)}export{t as a,n as s};
+//# sourceMappingURL=google_analytix-b0686824.js.map

@@ -1,0 +1,946 @@
+html { 
+  --announce-font-size: medium; 
+  --announce-font-weight-link: bold;
+}
+
+/* main announce-banner styling */
+div.announce-banner {
+  background-color: lightblue;
+  width: 100%;
+  font-size: var(--announce-font-size, inherit);
+  text-align: center;
+  border: 1px solid var(--color-secondary-background-dark, black);
+  border-radius: 2px;
+  margin-top: 0px !important;
+  padding: 5px;
+  display: inline-block;
+}
+
+/* hide announce banner if it's been disabled, unless 'debug' attribute is also present */
+div.announce-banner[disabled], div.announce-banner[disabled="true"] { display: none; }
+div.announce-banner[disabled="false"] { display: inline-block; }
+bulib-announce[debug] > div.announce-banner[disabled="true"], div.announce-banner[debug][disabled="true"]{
+  display: inline-block !important;
+  background-color: var(--color-accent-background, red) !important;
+  color: yellow !important;
+}
+
+/* add horizontal spacing between outer-most children */
+div.announce-banner > *:first-child { margin-right: 1%; }
+div.announce-banner > *:last-child { margin-left: 1%; }
+
+/* style message (with background) */
+.announce-banner a { font-weight: var(--announce-font-weight-link, unset); }
+.announce-banner > span { 
+  margin: 12px;
+  vertical-align: middle;
+}
+.announce-banner.info {
+  background: var(--color-severity-info-background, #E0FFFF) !important;
+}
+.announce-banner.success {
+  background: var(--color-severity-success-background, #B0E0E6) !important;
+}
+.announce-banner.warn {
+  background: var(--color-severity-warn-background, #ede49e) !important;
+}
+.announce-banner.alert {
+  background: var(--color-severity-alert-background, lightsalmon) !important;
+  font-weight: 600;
+}
+
+/* round the corners of the buttons placed on announcment banners */
+.announce-banner i { font-size: var(--announce-font-size, unset); }
+.announce-banner button {
+  border-radius: 7px;
+  font-size: var(--announce-font-size, unset);
+  padding-left: 4px;
+}.header-wrapper {
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 700;
+  padding: var(--padding-medium, 10px); }
+
+.primary-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; }
+  .primary-navbar a, .primary-navbar span, .primary-navbar i {
+    color: var(--color-primary-text-light, whitesmoke);
+    text-decoration: none;
+    font-weight: 700; }
+  .primary-navbar a:hover {
+    text-decoration: underline; }
+
+/* menu items */
+.menu-items {
+  text-align: center;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-left: 0px;
+  display: flex;
+  list-style: none;
+  text-transform: uppercase; }
+  .menu-items li a, .menu-items .menu-item {
+    display: block; }
+
+/* assorted minor styles */
+.primary-nav-main li {
+  padding-left: var(--padding-medium, 10px);
+  padding-right: var(--padding-medium, 10px); }
+
+.top-right ul.menu-items > li {
+  border: 1px solid var(--color-button-text, #cccccc);
+  border-radius: 2px;
+  background-color: var(--color-button-background-dark, #0B4473) !important;
+  padding: 6px 12px;
+  margin-left: var(--padding-medium, 10px) !important;
+  white-space: nowrap;
+  text-transform: none; }
+
+.none {
+  display: none; }
+
+/* dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block; }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--color-primary-background, black);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1; }
+
+.dropdown:hover .dropdown-content {
+  display: block; }
+
+div.dropdown.menu-item {
+  padding-top: 5px; }
+
+.library-list {
+  text-align: left;
+  width: max-content;
+  /* chrome, safari */
+  width: -moz-max-content;
+  /* firefox */ }
+  .library-list a {
+    text-transform: capitalize;
+    font-weight: lighter; }
+  .library-list li {
+    padding-top: var(--padding-small, 5px);
+    padding-bottom: var(--padding-small, 5px); }
+  .library-list li:nth-child(odd) {
+    background-color: var(--color-primary-background-light); }
+/* --- from mobile-nav.scss --- */
+@media only screen and (max-width: 850px) {
+  .menu-items > li, .menu-item {
+    /* screen-reader only */
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+    -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+    overflow: hidden !important; }
+  .mobile-navigation {
+    display: block !important; }
+  .primary-nav-right {
+    padding-top: 7px; }
+  .banner h1 {
+    font-size: large !important; }
+  .banner > *:first-child {
+    margin-right: auto; }
+  .banner > *:last-child {
+    max-width: 100% !important;
+    flex-grow: 1; } }
+
+/* position mobile menu hidden in the top right, a z-layer beneath everything else */
+#mobile-menu {
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  right: 0;
+  margin-top: 35px;
+  margin-right: -10px;
+  width: 100vw;
+  min-width: 75px;
+  padding: 30px;
+  padding-right: 80px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.55s;
+  -webkit-transition: opacity 0.55s;
+  background: var(--color-primary-background, #222222);
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased; }
+  #mobile-menu a {
+    color: var(--color-primary-text, #eeeeee); }
+  #mobile-menu li {
+    padding: 10px 0; }
+
+/* based heavily on the [CodePen](https://codepen.io/erikterwan/pen/EVzeRP) by Erik Terwan (@terwanerik) under the MIT License] */
+#menuToggle {
+  display: block;
+  position: relative;
+  float: right;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none; }
+  #menuToggle input {
+    display: block;
+    padding: 20px;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+    -webkit-touch-callout: none; }
+  #menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: var(--color-primary-text, white);
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease; }
+
+/* style spans as hamburger */
+#menuToggle span:first-child {
+  transform-origin: 0% 0%; }
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%; }
+
+/* Transform all the slices of hamburger into a crossmark. */
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: var(--color-primary-text, whitesmoke); }
+
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px); }
+
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2); }
+
+#menuToggle input:checked ~ #mobile-menu {
+  visibility: visible;
+  opacity: 0.95;
+  display: block; }
+/* overall styling with padding and shadow */
+.banner-wrapper {
+  font-family: 'Benton', sans-serif;
+  background: var(--color-secondary-background, rgba(200, 200, 200, 0.3));
+  border-bottom: 1px solid var(--color-secondary-background-dark, #C8C8C8);
+  box-shadow: 0px 0px 0px 1px var(--color-secondary-background-dark);
+  padding: 10px; }
+
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: larger;
+  color: var(--color-secondary-text, black);
+  /* overwrite font-weight for strong links */
+  /* adjust the font, style, margins of site banner text/links */
+  /* ensure the bulib-search is displayed multi-row  */ }
+  .banner strong > a, .banner a:first-of-type {
+    font-weight: 500; }
+  .banner h1, .banner span, .banner strong {
+    font-family: 'Benton', sans-serif !important;
+    font-size: x-large;
+    font-weight: 400; }
+    .banner h1 a, .banner span a, .banner strong a {
+      color: var(--color-secondary-text-dark, black);
+      text-decoration: none;
+      cursor: pointer; }
+  .banner > *:first-child {
+    margin-bottom: 10px; }
+  .banner > bulib-search {
+    max-width: 550px; }
+/* -- Benton Font -- */
+
+@font-face {
+  font-family: "Benton";
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light/1d3e1be9-e2ca-44c3-b674-7228a7c97407-2.eot");
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light/1d3e1be9-e2ca-44c3-b674-7228a7c97407-2.eot?") format("embedded-opentype"),
+       url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light/1d3e1be9-e2ca-44c3-b674-7228a7c97407-3.woff") format("woff"),
+       url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light/1d3e1be9-e2ca-44c3-b674-7228a7c97407-1.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Benton";
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light-Italic/15a2d62b-ca5c-45cb-9b3d-29bef80c6e9d-2.eot");
+  src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light-Italic/15a2d62b-ca5c-45cb-9b3d-29bef80c6e9d-2.eot?") format("embedded-opentype"),
+       url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light-Italic/15a2d62b-ca5c-45cb-9b3d-29bef80c6e9d-3.woff") format("woff"),
+       url("https://www.bu.edu/cdn/fonts/Benton-Sans-Light-Italic/15a2d62b-ca5c-45cb-9b3d-29bef80c6e9d-1.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 300;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular/019c3a13-b3d7-4c5a-be27-07a8334a43e6-1.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Regular-Italic/3295fa07-2a3f-4cd1-ba86-e06161453a51-1.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium/8e221891-e89b-4eae-95ca-6346d9a41d20-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium/8e221891-e89b-4eae-95ca-6346d9a41d20-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium/8e221891-e89b-4eae-95ca-6346d9a41d20-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium/8e221891-e89b-4eae-95ca-6346d9a41d20-1.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium-Italic/289d6a90-eab9-4614-9e7d-c0df14839178-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium-Italic/289d6a90-eab9-4614-9e7d-c0df14839178-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium-Italic/289d6a90-eab9-4614-9e7d-c0df14839178-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Medium-Italic/289d6a90-eab9-4614-9e7d-c0df14839178-1.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold/d4a4a960-2cf2-430e-8b13-cbf6f261ddb9-1.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Bold-Italic/f037bfb1-69d7-4441-8d43-3b8c2c6e77d3-1.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black/bc06c909-a731-43ae-a772-ea42520c81b9-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black/bc06c909-a731-43ae-a772-ea42520c81b9-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black/bc06c909-a731-43ae-a772-ea42520c81b9-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black/bc06c909-a731-43ae-a772-ea42520c81b9-1.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: "Benton";
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black-Italic/9afa6c31-8572-45ee-8575-c3c541f31e3f-2.eot");
+    src: url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black-Italic/9afa6c31-8572-45ee-8575-c3c541f31e3f-2.eot?") format("embedded-opentype"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black-Italic/9afa6c31-8572-45ee-8575-c3c541f31e3f-3.woff") format("woff"),
+        url("https://www.bu.edu/cdn/fonts/Benton-Sans-Black-Italic/9afa6c31-8572-45ee-8575-c3c541f31e3f-1.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 900;
+}
+/* -- buttons -- */
+
+/* general/primary button */
+a.bulib-btn, button.bulib-btn {
+  display: inline-block;
+  text-align: center;
+  margin: var(--padding-small, 5px);
+  padding: var(--padding-small, 5px) var(--padding-medium, 10px);
+  color: var(--color-button-text, white);
+  text-decoration: none;
+  background-color: var(--color-button-background-dark,#1b598c);
+  border: 2px solid var(--color-button-background-dark, white);
+  border-radius: 4px;
+  box-shadow: 0 1px 1px 0 var(--color-secondary-background-dark,rgba(0,0,0,.1));
+}
+a.bulib-btn:hover, button.bulib-btn:hover { 
+  cursor: pointer;
+  filter: brightness(90%); 
+}
+
+/* .large button */
+a.bulib-btn.large, button.bulib-btn { font-size: 102%; }
+a.bulib-btn.large { padding: var(--padding-medium, 10px) var(--padding-large, 12px); }
+
+/* secondary button */
+a.bulib-btn.btn-secondary, button.bulib-btn.btn-secondary {
+  background-color: var(--color-button-text-light, white);
+  color: var(--color-button-background-dark, blue);
+  border: 2px solid var(--color-button-background-dark, blue);
+}
+/* -- cards -- */
+
+/* universal 'card' styling (regardless of '.deck') */
+.card { 
+  display: table;
+  font-family: 'Source Sans Pro', sans-serif; 
+}
+.card > div { margin-left: 20px; }
+
+/* arrange groups of cards, and moderate their width */
+.deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.deck .card { max-width: 325px; }
+.deck .card.small { max-width: 250px; }
+
+/* card icon */
+.card i { 
+  display: table-cell;
+  color: var(--color-button-background-dark, #0B4473);
+  font-size: 4em;
+  text-align: center;
+}
+.card.small i { font-size: 2.5em; }
+.card i:hover { cursor: pointer; }
+
+/* card link/header styling */
+.card a { 
+  font-size: x-large;
+  color: var(--color-button-background-dark, #0B4473);
+  text-decoration: underline  var(--color-button-background-dark, #0B4473);
+  font-weight: 500;
+}
+.card.small a { 
+  font-size: large !important;
+  font-weight: 700;
+}
+.card.small h3 { margin-bottom: 5px; }
+
+.card p { font-size: medium; }
+.card.small p { margin-top: 0px; }
+/* -- css-variables -- */
+body {
+  /* primary background (black) */
+  --color-primary-background: #2D2926;
+  --color-primary-background-light: #4a4746;
+  --color-primary-background-dark: black;
+  --color-primary-text: #e1e1e1;
+  --color-primary-text-light: white;
+
+  /* BU official red accent background [http://www.bu.edu/brand/guidelines/design/colors/] */
+  --color-accent-red-background: #CC0000;
+  --color-accent-orange-background: #BB7933;
+  --color-accent-green-background: #147114;
+  --color-accent-blue-highlight: #DCF3FF;
+  --color-accent-blue-hover: rgba(51, 152, 187, 0.1); 
+  --color-accent-text: whitesmoke;
+  --color-accent-text-hover: white;
+
+  /* colors communicating severity or importance */
+  --color-severity-info-background: #E0FFFF;
+  --color-severity-success-background: #b1f5cb;
+  --color-severity-warn-background: #EDE49E;
+  --color-severity-alert-background: lightsalmon; 
+
+  /* button/call to action (blue) */
+  --color-button-background: #257abe;
+  --color-button-background-light: #639CC9;
+  --color-button-background-dark: #1B598C;
+  --color-button-background-accent: #06605A;
+  --color-button-text: whitesmoke;
+  --color-button-text-light: white;
+
+  /* secondary background color (very light grey) */
+  --color-secondary-background: #eeeeee /*rgba(200,200,200,0.3)*/;
+  --color-secondary-background-light: #f5f5f5;
+  --color-secondary-background-dark: #C8C8C8;
+  --color-secondary-text: #333333;
+  --color-secondary-text-dark: black;
+}/* -- imports -- */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+
+/* - pagewidth - */
+.header-wrapper, .footer-wrapper, .banner-wrapper {
+  font-family: 'Benton', sans-serif;
+  width: inherit;
+}
+
+.header-wrapper, .footer-wrapper {
+  background-color: var(--color-primary-background, black);
+  color: var(--color-primary-text-light, whitesmoke);
+}
+
+.full-width { width: 100%; }
+
+/* on super large screens, set the width to avoid getting too much spacing */
+@media only screen and (min-width: 1500px){
+  .footer-wrapper footer, .header-wrapper nav, .banner-wrapper .banner { 
+    margin: 0 auto; width: 85%; 
+  }
+}
+
+/* - general styling - */
+
+/* text */
+.txtl { text-align: left; }
+.txtc { text-align: center; }
+.txtv { vertical-align: middle; }
+.no-wrap { white-space: nowrap; }
+
+.bigger-text, .larger-text { font-size: 120% !important; }
+.big-text, .large-text { font-size: 110% !important; }
+.small-text, .small-text * { font-size: 90% !important; }
+.smaller-text { font-size: 80% !important; }
+
+.multi-column {
+  column-gap: 5%;
+  column-count: 2;
+}
+
+/* list styles */
+ul.no-bullet { padding-left: 0em; }
+.no-bullet > li, .no-bullet > * > li { list-style:none !important; padding-left: 0em; }
+.inline-list > li { display: inline; padding-right: 5px;}
+
+/* '.white-link' used in footer */
+a.white-link, a.white-link:active, a.white-link:visited {
+  color: var(--color-primary-text, whitesmoke);
+  text-decoration: underline;
+  font-weight: normal;
+}
+a.white-link:hover {
+  color: var(--color-primary-text-light, white);
+  text-decoration: underline;
+  font-weight: normal;
+}
+
+/* align labels when material-icons are nearby */
+i.material-icons, i.material-icons-outlined { vertical-align: middle; }
+
+/* accessibility - used to optimize the page for screenreaders (code copied from [Orange-OpenSource](/web_EN/exemples/masquage/index.html) under CC BY SA 3.0)  */
+a.sr-only:focus { height: auto; width: auto; position: inherit; color: white; font-size: small;}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+/* secondary menu styling to accentuate things to edit the current page */
+.secondary-menu {
+  background-color: var(--color-secondary-background-light, gainsboro);
+  border: 1px solid var(--color-secondary-background-dark, grey);
+  padding: 10px;
+}/* -- calls to action -- */
+
+div.ctas, div.cta {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+div.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 25px 0px;
+}
+div.cta { 
+  text-align: center;
+
+  flex-basis: 100%;
+  min-width: 175px;
+  max-width: 275px;
+  margin: 12px;
+  
+  background-color: transparent;
+  border: 2px solid var(--color-secondary-background-dark, #efefef);
+  border-radius: 4px;
+  box-shadow: 0 1px 1px 0 var(--color-secondary-background-dark, rgba(0,0,0,.1));
+}
+div.cta a {
+  font-weight: 400;
+  font-size: large;
+  color: var(--color-button-background-dark, rgb(86, 93, 99));
+
+  /* increase clickable area without affecting visual display */
+  padding: 1em 2em;     
+  margin: -1em -2em; 
+}
+
+div.cta h3 {
+  margin: 0px;
+  padding: 20px 0px;
+  font-size: 1.5em;
+}
+div.cta:hover { 
+  background-color: var(--color-secondary-background, gainsboro); 
+  cursor: pointer;
+}
+.ctas .cta:last-of-type {
+  text-transform: uppercase;
+}
+/* - general  - */
+div.demo { 
+  background-color: gainsboro;
+  min-width: 100px;
+  min-height: 100px;
+}
+.fill { width: 100%; height: 100%; }
+
+/* - main with sidebar - */
+div.main-with-sidebar { 
+  display: flex !important;
+  flex-wrap: wrap-reverse;
+  width: 100%;
+}
+div.main-with-sidebar > section { 
+  flex: 3;
+  justify-content: center;
+}
+div.main-with-sidebar > aside {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* - make divs display in a series of tiles - */
+div.tiles {
+  display: flex;
+  grid-gap: 10px;
+  flex-wrap: wrap;
+}
+div.tiles > * {
+  margin: 5px;
+}
+
+/* - flexbox shortcut - */
+.flexw, .bulib-row { display: flex; flex-wrap: wrap; }
+.left { float: left; }
+.inline { display: inline-block; }
+
+/* - prepare footer to auto-margin itself to the bottom of the viewport - */
+body {
+  display: flex; 
+  flex-direction: column; 
+  min-height: 100vh;
+}
+/* - copied directly from https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined - */
+
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v48/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
+}
+/* fallback */
+@font-face {
+  font-family: 'Material Icons Outlined';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v14/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUcel5euIg.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.material-icons-outlined {
+  font-family: 'Material Icons Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* - css variables for padding - */
+body {
+  --padding-small:  5px;
+  --padding-medium: 10px;
+  --padding-large:  15px; 
+  --padding-xlarge: 25px;
+}
+
+/* - padding utils - */
+.pan { padding: 0px; }
+.pas { padding: var(--padding-small); }
+.pam { padding: var(--padding-medium); }
+.pal { padding: var(--padding-large); }
+
+.ptn { padding-top: 0px; }
+.pts { padding-top: var(--padding-small); }
+.ptm { padding-top: var(--padding-medium); }
+.ptl { padding-top: var(--padding-large); }
+
+.pbn { padding-bottom: 0px; }
+.pbs { padding-bottom: var(--padding-small); }
+.pbm { padding-bottom: var(--padding-medium); }
+.pbl { padding-bottom: var(--padding-large); }
+
+.pvn { padding-top: 0px; padding-bottom: 0px; }
+.pvs { 
+  padding-top:    var(--padding-small); 
+  padding-bottom: var(--padding-small);
+}
+.pvm { 
+  padding-top:    var(--padding-medium); 
+  padding-bottom: var(--padding-medium);
+}
+.pvl { 
+  padding-top:    var(--padding-large); 
+  padding-bottom: var(--padding-large);
+}
+
+.pln { padding-left: 0px; }
+.pls { padding-left: var(--padding-small); }
+.plm { padding-left: var(--padding-medium); }
+.pll { padding-left: var(--padding-large); }
+
+.prn { padding-right: 0px; }
+.prs { padding-right: var(--padding-small); }
+.prm { padding-right: var(--padding-medium); }
+.prl { padding-right: var(--padding-large); }
+
+.phn { padding-left: 0px; padding-right: 0px; }
+.phs { 
+  padding-left:   var(--padding-small); 
+  padding-right:  var(--padding-small); 
+}
+.phm { 
+  padding-left:   var(--padding-medium); 
+  padding-right:  var(--padding-medium); 
+}
+.phl { 
+  padding-left:   var(--padding-large); 
+  padding-right:  var(--padding-large); 
+}
+.phxl { padding: 0px 30px; }
+
+/* - margin utils - */
+.man { margin: 0px; }
+.mas { margin: var(--padding-small); }
+.mam { margin: var(--padding-medium); }
+.mal { margin: var(--padding-large); }
+
+.mtn { margin-top: 0px; }
+.mts { margin-top: var(--padding-small); }
+.mtm { margin-top: var(--padding-medium); }
+.mtl { margin-top: var(--padding-large); }
+
+.mbn { margin-bottom: 0px; }
+.mbs { margin-bottom: var(--padding-small); }
+.mbm { margin-bottom: var(--padding-medium); }
+.mbl { margin-bottom: var(--padding-large); }
+
+.mvn { margin-top: 0px; margin-bottom: 0px; }
+.mvs { 
+  margin-top:     var(--padding-small); 
+  margin-bottom:  var(--padding-small);
+}
+.mvm { 
+  margin-top:     var(--padding-medium); 
+  margin-bottom:  var(--padding-medium);
+}
+.mvl { 
+  margin-top:     var(--padding-large); 
+  margin-bottom:  var(--padding-large);
+}
+
+.mln { margin-left: 0px; }
+.mls { margin-left: var(--padding-small); }
+.mlm { margin-left: var(--padding-medium); }
+.mll { margin-left: var(--padding-large); }
+
+.mrn { margin-right: 0px; }
+.mrs { margin-right: var(--padding-small); }
+.mrm { margin-right: var(--padding-medium); }
+.mrl { margin-right: var(--padding-large); }
+
+.mhn { margin-left: 0px; margin-right: 0px; }
+.mhs { 
+  margin-left:   var(--padding-small); 
+  margin-right:  var(--padding-small); 
+}
+.mhm { 
+  margin-left:   var(--padding-medium); 
+  margin-right:  var(--padding-medium); 
+}
+.mhl { 
+  margin-left:   var(--padding-large); 
+  margin-right:  var(--padding-large); 
+}
+.mhxl { margin: 0px 30px; }
+@import url("./common.css");
+@import url("./colors.css");
+@import url("./padding.css");
+@import url("./layouts.css");
+@import url("./benton-font.css");
+@import url("./material-icons.css");
+@import url("./card.css");
+@import url("./cta.css");
+@import url("./tabs.css");
+@import url("./tips.css");
+@import url("./button.css");
+
+@import url("../../src/announce/announce.css");
+@import url("../../src/header/header.css");/* - tabs.css: shout out to [kyusuf](https://github.com/KenanYusuf/) for his [tutorial](https://kyusuf.com/post/completely-css-tabs/) - */
+
+/* show/hide content based on currently selected input */
+div.tabs {
+  box-sizing: border-box;
+  display: flex; 
+  flex-wrap: wrap;
+  background-color: var(--color-secondary-background, gainsboro); 
+  border-radius: 5px;
+  border: 1px solid var(--color-secondary-background-dark, #ccc);
+}
+
+/* hide radio buttons */
+div.tabs > input { 
+  position: absolute;
+  opacity: 0;
+}
+
+/* tab header label */
+div.tabs > label { 
+  cursor: pointer;
+  margin-bottom: 0px;
+  padding: 10px;
+  width: 100%; 
+}
+div.tabs > input:focus + label, div.tabs > input + label:focus { text-decoration: underline; }
+div.tabs > input:hover + label, div.tabs > input + label:hover { background-color: var(--color-secondary-background-light, #ccc); }
+div.tabs > input:checked + label {
+  background-color: var(--color-secondary-background-light, #ccc);
+  font-weight: bold;
+}
+
+/* adjust border presence and radius for top/bottom tabs on small screens */
+div.tabs > input:checked + label {
+  border-top: 1px solid var(--color-secondary-background-dark, #ccc);
+  border-left: none; border-right: none;
+}
+div.tabs > input + label:last-of-type { 
+  border-bottom-left-radius: 5px; 
+  border-bottom-right-radius: 5px;
+}
+div.tabs > input + label:first-of-type { 
+  border-top-left-radius: 5px; 
+  border-top-right-radius: 5px;
+}
+div.tabs > input:first-child:checked + label { 
+  border-top: none;
+  border-left: none;
+}
+
+/* respond to keyboard focus */
+div.tabs a:focus { font-weight: bold; text-decoration: underline; }
+
+
+/* tab content */
+div.tabs > div { 
+  padding: 10px;
+  border-top: 1px solid var(--color-secondary-background-dark, #ccc);
+  display: none; 
+  width: 100%;
+}
+div.tabs > div:last-of-type { 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+div.tabs > input:checked + label + div { 
+  background-color: white !important;
+  display: block; 
+}
+
+/* responsiveness (for large screens) */ 
+@media only screen and (min-width: 375px) {
+  
+  /* show the tab content body underneath the tab headers*/
+  div.tabs > div { 
+    order: 99; 
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  /* adjust tab labels to display horizontally */
+  div.tabs > label  { width: auto; }
+  div.tabs > input:checked + label {
+    border-left: 1px solid var(--color-secondary-background-dark, #ccc);
+    border-right: 1px solid var(--color-secondary-background-dark, #ccc);
+    border-top: none;
+    border-bottom: none;
+  }
+  div.tabs > input + label:first-of-type { border-top-right-radius: 0px; }
+  div.tabs > input + label:last-of-type { 
+    border-bottom-left-radius: 0px; 
+    border-bottom-right-radius: 0px;
+  }
+}
+.bulib-tips {
+  border-left: 4px solid var(--color-button-background-dark, #065180);
+  padding: var(--padding-small, 5px) var(--padding-medium, 10px);
+  background-color: rgba(6,81,128,.1);
+}
+
+.bulib-tips > span, .bulib-tips > strong {
+  font-size: 1.1em;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: var(--padding-medium, 10px);
+}
+
+.bulib-tips > li {
+  margin-top: var(--padding-medium, 10px);
+  margin-bottom: var(--padding-medium, 10px);
+  margin-left: var(--padding-large, 15px);
+}
