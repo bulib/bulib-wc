@@ -1,0 +1,9 @@
+#content div.banner-container img { height: auto !important; width: 100%; }
+
+/* side menu */
+#content > div.wrapper {
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+div.sidebar > div { min-width: 45%; }
+div.sidebar { padding: var(--padding-medium, 10px); }
