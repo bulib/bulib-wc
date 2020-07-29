@@ -133,6 +133,34 @@ Links for a hierarchy of '**parent**: child' (unless otherwise specified), and s
   </Story>
 </Preview>
 
+<Preview>
+  <Story name="site-banner-wp">
+    {html`
+      <style type="text/css">
+        body {
+          --bulib-search-padding: 5px;
+          --bulib-search-options-padding: 0px;
+          --bulib-search-options-label-size: small;
+        }
+      </style>
+      <div class="banner-wrapper">
+        <div class="banner">
+          <section>
+            <span class="flexw">
+              <a id="genus" href="/library-responsive/mugar-memorial/">Mugar Memorial Library</a>
+              <a id="species" href="/library-responsive/mugar-memorial/services">:&nbsp; Services</a>
+            </span>
+            <span id="hours-display" class="flexw small-text txtv">
+              hours: &nbsp; <bulib-hours library="mugar-memorial" short></bulib-hours>
+            </span>
+          </section> 
+          <bulib-search str_options="wp primo guides" class="prm"></bulib-search>
+        </div>
+      </div>
+    `}
+  </Story>
+</Preview>
+
 LibCal exception case in which the site is dual-purpose (has two landing pages).
 
 <Preview>
