@@ -22,6 +22,7 @@
 /* position mobile menu hidden in the top right, a z-layer beneath everything else */
 #mobile-menu {
   position: absolute;
+  box-sizing: border-box;
   top: 0; right: 0; 
   margin-top: 35px;
   margin-right: -10px;

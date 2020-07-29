@@ -5,7 +5,6 @@
 .header-wrapper, .footer-wrapper, .banner-wrapper {
   font-family: 'Benton', sans-serif;
   width: inherit;
-  padding: 10px;
 }
 
 .header-wrapper, .footer-wrapper {
@@ -28,7 +27,13 @@
 .txtl { text-align: left; }
 .txtc { text-align: center; }
 .txtv { vertical-align: middle; }
-.big-text, .large-text { font-size: 110%; }
+.no-wrap { white-space: nowrap; }
+
+.bigger-text, .larger-text { font-size: 120% !important; }
+.big-text, .large-text { font-size: 110% !important; }
+.small-text, .small-text * { font-size: 90% !important; }
+.smaller-text { font-size: 80% !important; }
+
 .multi-column {
   column-gap: 5%;
   column-count: 2;
@@ -55,6 +60,7 @@ a.white-link:hover {
 i.material-icons, i.material-icons-outlined { vertical-align: middle; }
 
 /* accessibility - used to optimize the page for screenreaders (code copied from [Orange-OpenSource](/web_EN/exemples/masquage/index.html) under CC BY SA 3.0)  */
+a.sr-only:focus { height: auto; width: auto; position: inherit; color: white; font-size: small;}
 .sr-only {
   position: absolute;
   width: 1px;
