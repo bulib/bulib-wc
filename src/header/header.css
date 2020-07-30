@@ -83,6 +83,26 @@ div.dropdown.menu-item {
     padding-bottom: var(--padding-small, 5px); }
   .library-list li:nth-child(odd) {
     background-color: var(--color-primary-background-light); }
+
+div.primary-nav-main > ul.menu-items + ul.submenu-items > li {
+  display: none; }
+
+div.primary-nav-main > ul.menu-items + ul.submenu-items {
+  display: none; }
+
+div.primary-nav-main > ul.menu-items + ul.submenu-items {
+  position: absolute;
+  left: 0%;
+  width: 100%; }
+
+div.primary-nav-main:hover > ul.menu-items + ul.submenu-items,
+div.primary-nav-main:focus > ul.menu-items + ul.submenu-items,
+div.primary-nav-main:focus-within > ul.menu-items + ul.submenu-items {
+  display: block;
+  padding: var(--padding-large, 15px);
+  color: var(--color-primary-text, white);
+  background-color: var(--color-primary-background-light, grey);
+  border: 1px solid var(--color-secondary-background-light, gainsboro); }
 /* --- from mobile-nav.scss --- */
 @media only screen and (max-width: 850px) {
   .menu-items > li, .menu-item {
