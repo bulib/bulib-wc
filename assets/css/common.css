@@ -28,7 +28,8 @@
 .txtl { text-align: left; }
 .txtc { text-align: center; }
 .txtv { vertical-align: middle; }
-.big-text, .large-text { font-size: 110%; }
+.big-text, .large-text { font-size: 1.1em; }
+.bigger-text { font-size: 1.2em; }
 .multi-column {
   column-gap: 5%;
   column-count: 2;
@@ -68,7 +69,7 @@ i.material-icons, i.material-icons-outlined { vertical-align: middle; }
 }
 
 /* secondary menu styling to accentuate things to edit the current page */
-.secondary-menu {
+.secondary-menu, .bordered {
   background-color: var(--color-secondary-background-light, gainsboro);
   border: 1px solid var(--color-secondary-background-dark, grey);
   padding: 10px;
