@@ -29,10 +29,10 @@
 .txtv { vertical-align: middle; }
 .no-wrap { white-space: nowrap; }
 
-.bigger-text, .larger-text { font-size: 120% !important; }
-.big-text, .large-text { font-size: 110% !important; }
-.small-text, .small-text * { font-size: 90% !important; }
 .smaller-text { font-size: 80% !important; }
+.small-text, .small-text * { font-size: 90% !important; }
+.big-text, .large-text { font-size: 110% !important; }
+.bigger-text, .larger-text { font-size: 120% !important; }
 
 .multi-column {
   column-gap: 5%;
@@ -74,7 +74,7 @@ a.sr-only:focus { height: auto; width: auto; position: inherit; color: white; fo
 }
 
 /* secondary menu styling to accentuate things to edit the current page */
-.secondary-menu {
+.secondary-menu, .bordered {
   background-color: var(--color-secondary-background-light, gainsboro);
   border: 1px solid var(--color-secondary-background-dark, grey);
   padding: 10px;
