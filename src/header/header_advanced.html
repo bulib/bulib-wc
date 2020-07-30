@@ -1,0 +1,256 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">body { margin: 0px; } </style>
+
+  <!-- pull in bulib-wc components -->
+  <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.1.3/webcomponents-bundle.min.js"></script>
+  <script src="https://unpkg.com/bulib-wc@latest/src/index.js?module" type="module"></script>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/shared.css">
+</head>
+
+<body>
+  <div class="header-wrapper">
+    <nav>
+      <a class="sr-only" href="#content">Skip to Main Content</a>
+      <div class="primary-navbar">  
+        <div class="primary-nav-left">  
+          <a title="BU Libraries Homepage" href="https://www.bu.edu/library"> 
+            <img id="bu-logo" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/bulib-logo.png"> 
+          </a>  
+        </div>  
+        <div class="primary-nav-main menu-items-wrapper"> 
+          <ul class="menu-items">
+            <li>
+              <div class="dropdown">
+                <a class="menu-item inline no-wrap" href="https://www.bu.edu/library/services">
+                  <span class="prs">Find &amp; Borrow<i class="material-icons inline">arrow_drop_down</i></span>
+                </a>
+                <div id="find-and-borrow" class="dropdown-content flexnw space-between">
+                  <ul class="library-list no-bullet">
+                    <span>FIND</span>
+                    <li><a>Search</a></li>
+                    <li><a>Databases A-Z</a></li>
+                    <li><a>Course Materials</a></li>
+                    <li><a>eJournals</a></li>
+                    <li><a>WorldCat Discovery</a></li>
+                  </ul>
+                  <ul class="library-list no-bullet"><span>COLLECTIONS</span>
+                    <li><a>OpenBU</a></li>
+                    <li><a>Theses &amp; Dissertations</a></li>
+                    <li><a>Archives</a></li>
+                    <li><a>Krasker Film / Video</a></li>
+                  </ul>
+                  <ul class="library-list no-bullet"><span>BORROWING</span>
+                    <li><a>Borrowing</a></li>
+                    <li><a>Circulation</a></li>
+                    <li><a>Inter-Library Borrowing</a></li>
+                  </ul>
+                </div>
+              </div>
+            <li>
+              <div class="dropdown">
+                <a href="https://www.bu.edu/library/research">
+                  <span class="prs">Research &amp; Learning<i class="material-icons">arrow_drop_down</i></span>
+                </a>
+                <div class="dropdown-content flexnw space-between">
+                  <ul class="library-list no-bullet">
+                    <span>SUPPORT</span>
+                    <li><a>Ask a Librarian</a></li>
+                    <li><a>Make an Appointment</a></li>
+                    <li><a>Writing Center</a></li>
+                  </ul>
+                  <ul class="library-list no-bullet">
+                    <span>GUIDES</span>
+                    <li><a>Research Guides</a></li>
+                    <li><a>Course Guides</a></li>
+                    <li><a>How-To Guides</a></li>
+                    <li><a>Using the Libraries Online</a></li>
+                    <li><a>Creating Bibliographies</a></li>
+                  </ul>
+                  <ul class="library-list no-bullet">
+                    <span>FOR FACULTY</span>
+                    <li><a>Scanning &amp; Delivery</a></li>
+                    <li><a>Course Reserves</a></li>
+                    <li><a>Place Item on Reserve</a></li>
+                    <li><a>Remote Teaching &amp; Learning</a></li>
+                    <li><a>All Faculty Services</a></li>
+                  </ul>
+                  <ul class="library-list no-bullet">
+                    <span>SERVICES</span>
+                    <li><a>Digital Scholarship</a></li>
+                    <li><a>Data Services</a></li>
+                    <li><a>For Graduate Students</a></li>
+                    <li><a>For Alumni</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>  
+            <li>
+              <div class="dropdown">
+                <a href="https://www.bu.edu/library/about">
+                  <span class="prs">About Us<i class="material-icons">arrow_drop_down</i></span>
+                </a>
+                <div class="dropdown-content flexnw">
+                  <ul class="library-list no-bullet space-between">
+                    <span>SPACES</span>
+                    <li><a>Library &amp; Service Hours</a></li>
+                    <li><a>Visiting the Libraries</a></li>
+                    <li><a>Study Rooms &amp; Spaces</a></li>
+                    <li><a>Maps &amp; Floorplans</a></li>
+                    <li><a>Computers, Printing, Scanning</a></li>
+                  </ul>
+                  <ul class="library-list no-bullet">
+                    <span>INFO</span>
+                    <li><a>News</a></li>
+                    <li><a>Staff Directory A-Z</a></li>
+                    <li><a>About BU Libraries</a></li>
+                    <li><a>Events Calendar</a></li>
+                    <li><a>Code of Conduct</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>  
+              <div class="dropdown">  
+                <a class="menu-item inline no-wrap" href="https://www.bu.edu/library/about">  
+                  <span class="prs">Locations</span><i class="material-icons inline">arrow_drop_down</i>  
+                </a>  
+                <div class="dropdown-content">  
+                    <ul class="library-list no-bullet multi-column"> 
+                      <li><a href="https://www.bu.edu/library/african-studies/">African Studies Library</a></li>  
+                      <li><a href="https://www.bu.edu/library/astronomy/">Astronomy Library</a></li>    
+                      <li><a href="http://archives.bu.edu/">Howard Gotlieb Archival Research Center</a></li>  
+                      <li><a href="https://www.bu.edu/library/mugar-memorial/">Mugar Memorial Library</a></li>  
+                      <li><a href="https://www.bu.edu/library/music/">Music Library</a></li>  
+                      <li><a href="https://www.bu.edu/library/management/">Pardee Management Library</a></li> 
+                      <li><a href="https://www.bu.edu/library/pickering-educational/">Pickering Educational Resources Library</a></li>  
+                      <li><a href="https://www.bu.edu/library/sel/">Science &amp; Engineering Library</a></li>  
+                      <li><a href="https://www.bu.edu/library/stone-science/">Stone Science Library</a></li>  
+                      <li><a href="https://www.bu.edu/library/about/additional-libraries/">Additional Libraries</a></li>  
+                    </ul> 
+                </div>  
+              </div>  
+            </li> 
+          </ul> 
+        </div>  
+        <div class="primary-nav-right"> 
+          <div class="mobile-navigation none" aria-hidden="true"> 
+            <div id="menuToggle"> 
+              <!-- invisible toggle with hamburger -->  
+              <input type="checkbox" tabindex="-1">
+              <span></span>
+              <span></span>
+              <span></span>
+                
+              <!-- mobile nav menu -->  
+              <ul id="mobile-menu"> 
+                <li id="subsite-research"><a href="https://www.bu.edu/library/services">Find &amp; Borrow</a></li>  
+                <li id="subsite-services"><a href="https://www.bu.edu/library/research">Research &amp; Learning</a></li>  
+                <li id="subsite-about"><a href="https://www.bu.edu/library/">About Us</a></li>  
+                <li><a href="https://www.bu.edu/library/about">Library Locations</a></li> 
+                <li><hr></li> 
+                <li><a href="https://www.bu.edu/library/account">My Account</a></li>  
+                <li><a href="https://askalibrarian.bu.edu/">Ask a Librarian</a></li> 
+              </ul> 
+            </div>  
+          </div>  
+          <div class="top-right"> 
+            <ul class="menu-items">	
+              <li>	
+                <a class="menu-item inline" href="https://askalibrarian.bu.edu/">	
+                  <span class="prm">Ask a Librarian</span><i class="material-icons inline">question_answer</i>	
+                </a>	
+              </li>	
+              <li>	
+                <a class="menu-item inline" href="https://www.bu.edu/library/account">	
+                  <span class="prm">My Account</span><i class="material-icons inline">person</i>	
+                </a>	
+              </li>	
+            </ul>
+          </div>  
+        </div>  
+      </div>
+      <script id="mobile-nav-clickout" type="text/javascript">
+        let input = document.querySelector("#menuToggle > input");
+        window.addEventListener("click", (event) => {
+          let clicked = event.target;
+          let clicked_within_mobile_menu = clicked.closest("#menuToggle") != null;
+          if(input && clicked != input && !clicked_within_mobile_menu || clicked.tagName == "A"){
+            input.checked = false; // uncheck the #menuToggle input, closing the mobile nav
+          }
+        });
+      </script>
+    </nav>
+  </div>
+  <div class="banner-wrapper">
+    <div class="banner">
+      <span><a href="/">Ask a Librarian:</a>&nbsp; <a href="/dev_staging">Help &amp; FAQs</a></span>
+      <bulib-search str_options="help primo"></bulib-search>
+    </div>
+  </div>
+  <div class="lorem-ipsum">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam illum, voluptate repellat, ex minus at odio alias tenetur optio voluptatibus dicta deleniti cupiditate rem culpa laudantium, dolore deserunt fugiat repudiandae.</p>
+    <p>Cumque provident nam, inventore repudiandae animi doloribus dignissimos illo ea error esse reprehenderit possimus odio, libero beatae, accusamus ratione itaque laboriosam expedita amet nihil voluptatum blanditiis obcaecati. Possimus, assumenda sint.</p>
+    <p>Sunt quas dicta, vel perspiciatis ducimus placeat voluptates ad necessitatibus quis reprehenderit ullam consectetur! Enim neque ab architecto praesentium voluptatem saepe commodi, aperiam odio facere illum incidunt laborum laudantium pariatur?</p>
+    <p>Minima quo molestias asperiores nam nisi officia impedit molestiae, sed hic reiciendis. Officia atque labore odit aliquid inventore ab possimus, incidunt provident ut at, neque consequatur minus quod expedita eligendi!</p>
+    <p>Amet unde eligendi provident molestias suscipit itaque exercitationem voluptatum, ut natus id quas consectetur illo! Libero cum eum sit autem aliquid officia consequuntur tempore velit rerum? Vero blanditiis odio omnis.</p>
+  </div>
+  <div class="deck">
+    <div class="card">
+      <i class="material-icons" onclick="window.open('/form.php?quid=511','_self')">email</i>
+      <div class="inline">
+        <h3><a href="/form.php?quid=511">Email</a></h3>
+        <p>Email us your research questions and we&rsquo;ll respond within 24 hours.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <i class="material-icons" onclick="document.querySelector('button.s-lch-widget-float-btn').click();">question_answer</i>  
+      <div class="inline">
+        <h3><a onclick="console.log('chat says hi')" href="javascript:void(0)">Chat</a></h3>
+        <p>Talk online to a research librarian on weekdays and Sundays</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <i class="material-icons" onclick="window.open('tel:6173532700','_self')">phone</i>
+      <div class="inline">
+        <h3><a href="tel:6173532700">Call</a></h3>
+        <p>Call us at 617-353-2700 during our open hours</p>
+      </div>
+    </div>
+  </div>
+  <div class="ctas">
+    <div class="cta" onclick="window.open('/search/?g=716&amp;topics=Borrowing','_self')">
+      <h3><a href="/search/?g=716&amp;topics=Borrowing">Borrowing Items</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Alumni&amp;adv=1">Alumni</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1','_self')">
+      <h3><a href="/search/?t=0&amp;g=716&amp;topics=Where%20Is%20It%3F&amp;adv=1">Where is it?</a></h3>
+    </div>
+
+    <div class="cta" onclick="window.open('/businessFAQs/','_self')">
+      <h3><a href="/businessFAQs/">Pardee / Management</a></h3>
+    </div>
+  </div>
+  <bulib-footer></bulib-footer>
+  <script id="google-analytics-link-tracker" type="module" defer>
+    import {addSendGAEventOnAnchorClickToAnchorElements} from 'https://unpkg.com/bulib-wc@latest/src/_helpers/google_analytix.js?module';
+    
+    window.onload = function(){
+      let headerLinks = document.querySelectorAll(".header-wrapper a");
+      addSendGAEventOnAnchorClickToAnchorElements(headerLinks, "bulib-header");
+      
+      let cardLinks = document.querySelectorAll(".deck a");
+      addSendGAEventOnAnchorClickToAnchorElements(cardLinks, "card");
+      
+      let ctaLinks = document.querySelectorAll(".ctas a");
+      addSendGAEventOnAnchorClickToAnchorElements(ctaLinks, "cta");
+    };
+  </script>
+</body>

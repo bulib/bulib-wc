@@ -29,6 +29,9 @@
     display: block; }
 
 /* assorted minor styles */
+.primary-nav-main {
+  position: relative; }
+
 .primary-nav-main li {
   padding-left: var(--padding-medium, 10px);
   padding-right: var(--padding-medium, 10px); }
@@ -53,6 +56,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
+  justify-content: space-between;
   background-color: var(--color-primary-background, black);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -60,7 +64,7 @@
   z-index: 1; }
 
 .dropdown:hover .dropdown-content {
-  display: block; }
+  display: flex; }
 
 div.dropdown.menu-item {
   padding-top: 5px; }

@@ -32,9 +32,12 @@ div.tiles > * {
 }
 
 /* - flexbox shortcut - */
+.flexnw { display: flex; flex-wrap: nowrap; }
 .flexw, .bulib-row { display: flex; flex-wrap: wrap; }
 .left { float: left; }
 .inline { display: inline-block; }
+.space-between { justify-content: space-between; }
+.space-evenly { justify-content: space-evenly; }
 
 /* - prepare footer to auto-margin itself to the bottom of the viewport - */
 body {
