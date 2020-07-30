@@ -2,6 +2,9 @@
 
 /* adjustments to theme variables */
 body { 
+  --bulib-search-padding: 5px;
+  --bulib-search-options-padding: 0px;
+  --bulib-search-options-label-size: small;
   --color-primary-background: #212121; 
   background-image: none; 
   background-color: white; 
