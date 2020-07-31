@@ -28,8 +28,8 @@
   padding-left: 0px; 
   display: flex;
   list-style: none;
-  text-transform: uppercase;
   
+  > .menu-item, > li { text-transform: uppercase; }
   li a, .menu-item { display: block; }
 }
 
@@ -96,19 +96,53 @@ div.dropdown.menu-item { padding-top: 5px; }
 }
 
 // submenu
-div.primary-nav-main > ul.menu-items + ul.submenu-items > li { display: none; }
-div.primary-nav-main > ul.menu-items + ul.submenu-items { display: none; }
-div.primary-nav-main > ul.menu-items + ul.submenu-items {
-  position: absolute;
-  left: 0%;
-  width: 100%;
+div.primary-nav-main > ul.menu-items > .menu-item {
+  padding-bottom: 20px;
+  padding-top: 20px;
+} 
+div.primary-nav-main > ul.menu-items { 
+  position: relative;
+  margin-top: 0px;
+  margin-bottom: 0px; 
 }
-div.primary-nav-main:hover > ul.menu-items + ul.submenu-items , 
-  div.primary-nav-main:focus > ul.menu-items + ul.submenu-items ,
-  div.primary-nav-main:focus-within > ul.menu-items + ul.submenu-items {
-    display: block;
-    padding: var(--padding-large, 15px);
-    color: var(--color-primary-text, white);
-    background-color: var(--color-primary-background-light, grey);
-    border: 1px solid var(--color-secondary-background-light, gainsboro)
+
+div.primary-nav-main > ul.menu-items > li.menu-item > div.submenu > ul {
+  padding-left: 0px;
+  list-style: none;
+}
+div.primary-nav-main > ul.menu-items > li.menu-item > div.submenu a,
+div.primary-nav-main > ul.menu-items > li.menu-item > div.submenu span {
+  color: var(--color-secondary-text, black) !important;
+  white-space: nowrap;
+}
+div.primary-nav-main > ul.menu-items > li.menu-item > div.submenu {
+  position: absolute;
+  list-style: none;
+  text-align: left;
+  display: none;
+  top: 50px;
+  left: -170;
+  // margin-left: -50vw;
+  // left: 50%;
+  // width: 97vw;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 100%;
+  width: max-content;
+  height: max-content;
+  justify-content: space-between;
+  background-color: var(--color-secondary-background, grey);
+  border: 1px solid var(--color-secondary-background-dark, gainsboro);
+}
+
+
+div.primary-nav-main > ul.menu-items > li.menu-item:hover > div.submenu,
+div.primary-nav-main > ul.menu-items > li.menu-item:focus > div.submenu,
+div.primary-nav-main > ul.menu-items > li.menu-item:focus-within > div.submenu {
+  transition: ease-in 800ms;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--padding-medium, 5px) var(--padding-large, 15px);
+  text-transform: initial;
 }
