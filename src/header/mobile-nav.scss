@@ -23,8 +23,10 @@
 #mobile-menu {
   position: absolute;
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   top: 0; right: 0; 
-  margin-top: 35px;
+  margin-top: var(--bulib-header-margin-top, -10px);
   margin-right: -10px;
 
   width: 100vw;
@@ -43,6 +45,7 @@
   -webkit-font-smoothing: antialiased; // stop flickering of text in safari
   
   a { color: var(--color-primary-text, #eeeeee); }
+  hr { border-top: 1px solid var(--color-primary-text, whitesmoke); }
   li { padding: 10px 0; }
 }
 

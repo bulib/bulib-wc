@@ -123,11 +123,17 @@ div.primary-nav-main > ul.menu-items > li.menu-item > div.submenu {
 div.primary-nav-main > ul.menu-items > li.menu-item:hover > div.submenu,
 div.primary-nav-main > ul.menu-items > li.menu-item:focus > div.submenu,
 div.primary-nav-main > ul.menu-items > li.menu-item:focus-within > div.submenu {
-  transition: ease-in 800ms;
   display: flex;
   justify-content: space-between;
   padding: var(--padding-medium, 5px) var(--padding-large, 15px);
   text-transform: initial; }
+
+/* increase spacing within submenu dropdown */
+div.primary-nav-main div.submenu ul.submenu-items li,
+div.primary-nav-main div.submenu ul.submenu-items li span {
+  font-size: 1.1em;
+  margin-top: var(--padding-small, 5px);
+  margin-bottom: var(--padding-small, 5px); }
 /* --- from mobile-nav.scss --- */
 @media only screen and (max-width: 850px) {
   .menu-items > li, .menu-item {
@@ -156,9 +162,11 @@ div.primary-nav-main > ul.menu-items > li.menu-item:focus-within > div.submenu {
 #mobile-menu {
   position: absolute;
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   top: 0;
   right: 0;
-  margin-top: 35px;
+  margin-top: var(--bulib-header-margin-top, -10px);
   margin-right: -10px;
   width: 100vw;
   min-width: 75px;
@@ -173,6 +181,8 @@ div.primary-nav-main > ul.menu-items > li.menu-item:focus-within > div.submenu {
   -webkit-font-smoothing: antialiased; }
   #mobile-menu a {
     color: var(--color-primary-text, #eeeeee); }
+  #mobile-menu hr {
+    border-top: 1px solid var(--color-primary-text, whitesmoke); }
   #mobile-menu li {
     padding: 10px 0; }
 
@@ -261,4 +271,4 @@ div.primary-nav-main > ul.menu-items > li.menu-item:focus-within > div.submenu {
   .banner > *:first-child {
     margin-bottom: 10px; }
   .banner > bulib-search {
-    max-width: 550px; }
+    max-width: var(--bulib-search-max-width, 750px); }

@@ -4,7 +4,7 @@ export const search_options = [
   {"value":"help-spr20",  "name":"Spring 2020 FAQs",         "placeholder": "Search for Spring 2020 FAQs",      "domain":"https://askalibrarian.bu.edu/spring2020/search/?t=0&g=7265&q"},
   {"value":"pardee-help", "name":"Business FAQs",            "placeholder": "Search for business help topics",  "domain":"https://askalibrarian.bu.edu/businessFAQs/search/?t=0&q="},
   {"value":"primo",       "name":"BU Libraries Search",      "placeholder": "Search library resources",         "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=BU&institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
-  {"value":"wp",          "name":"BU Libraries Site",        "placeholder": "Search library info/services",     "domain":"https://search.bu.edu/?site=www.bu.edu%2Flibrary&q="},
+  {"value":"wp",          "name":"Main Site",                "placeholder": "Search library info/services",     "domain":"https://search.bu.edu/?site=www.bu.edu%2Flibrary&q="},
   {"value":"industries",  "name":"Industry Survey Locator",  "placeholder": "Search for industry surveys",      "domain":"https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=ISL&institution=BOSU&search_scope=default_scope&highlight=true&lang=en_US&query=any,contains,"},
   {"value":"guides",      "name":"Library Guides",           "placeholder": "Search research guides",           "domain":"http://library.bu.edu/srch.php?q="},
   {"value":"openbu",      "name":"Open BU",                  "placeholder": "Search BU Digital Collections",    "domain":"https://open.bu.edu/discover?query="},

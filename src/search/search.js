@@ -78,6 +78,7 @@ export default class BULibSearch extends LitElement {
           border-bottom-left-radius: 4px;
           border: 0px;
           padding-left: 6px;
+          min-width: 200px;
         }
         .search-options {
           padding-top: var(--bulib-search-options-padding, 10px);

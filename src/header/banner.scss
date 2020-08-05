@@ -33,5 +33,5 @@
 
   /* ensure the bulib-search is displayed multi-row  */
   > *:first-child { margin-bottom: 10px; }
-  > bulib-search { max-width: 550px; }
+  > bulib-search { max-width: var(--bulib-search-max-width, 750px); }
 }

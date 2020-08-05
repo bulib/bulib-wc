@@ -138,11 +138,18 @@ div.primary-nav-main > ul.menu-items > li.menu-item > div.submenu {
 
 
 div.primary-nav-main > ul.menu-items > li.menu-item:hover > div.submenu,
-div.primary-nav-main > ul.menu-items > li.menu-item:focus > div.submenu,
-div.primary-nav-main > ul.menu-items > li.menu-item:focus-within > div.submenu {
-  transition: ease-in 800ms;
-  display: flex;
-  justify-content: space-between;
-  padding: var(--padding-medium, 5px) var(--padding-large, 15px);
-  text-transform: initial;
+  div.primary-nav-main > ul.menu-items > li.menu-item:focus > div.submenu,
+  div.primary-nav-main > ul.menu-items > li.menu-item:focus-within > div.submenu {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--padding-medium, 5px) var(--padding-large, 15px);
+    text-transform: initial;
+}
+
+/* increase spacing within submenu dropdown */ 
+div.primary-nav-main div.submenu ul.submenu-items li,
+  div.primary-nav-main div.submenu ul.submenu-items li span {
+  font-size: 1.1em;
+  margin-top: var(--padding-small, 5px);
+  margin-bottom: var(--padding-small, 5px);
 }
