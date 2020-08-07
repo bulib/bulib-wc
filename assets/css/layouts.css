@@ -36,6 +36,7 @@ div.tiles > * {
 .flexw, .bulib-row { display: flex; flex-wrap: wrap; }
 .left { float: left; }
 .inline { display: inline-block; }
+.flex-center { justify-content: center; }
 .space-between { justify-content: space-between; }
 .space-evenly { justify-content: space-evenly; }
 

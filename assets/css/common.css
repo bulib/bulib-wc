@@ -13,6 +13,7 @@
 }
 
 .full-width { width: 100%; }
+.half-width { width: 50%;}
 
 /* on super large screens, set the width to avoid getting too much spacing */
 @media only screen and (min-width: 1500px){
@@ -27,6 +28,8 @@
 .txtl { text-align: left; }
 .txtc { text-align: center; }
 .txtv { vertical-align: middle; }
+
+.txt-wrap { white-space: normal; }
 .no-wrap { white-space: nowrap; }
 
 .smaller-text { font-size: 80% !important; }

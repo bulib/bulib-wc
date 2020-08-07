@@ -21,6 +21,7 @@
 
 /* position mobile menu hidden in the top right, a z-layer beneath everything else */
 #mobile-menu {
+  font-size: 14px;
   position: absolute;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -46,7 +47,7 @@
   
   a { color: var(--color-primary-text, #eeeeee); }
   hr { border-top: 1px solid var(--color-primary-text, whitesmoke); }
-  li { padding: 10px 0; }
+  li { padding: var(--padding-medium, 10px) 0; }
 }
 
 /* based heavily on the [CodePen](https://codepen.io/erikterwan/pen/EVzeRP) by Erik Terwan (@terwanerik) under the MIT License] */
