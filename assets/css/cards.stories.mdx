@@ -15,7 +15,7 @@ Present a more human-readable a prominent, visual call to action, with Material 
     {html`
       <div class="card">
         <i class="material-icons" onclick="window.open('/form.php?quid=511','_self')">email</i>
-        <div class="inline">
+        <div>
           <h3><a href="/form.php?quid=511">Email</a></h3>
           <p>Email us your research questions and we&rsquo;ll respond within 24 hours.</p>
         </div>
@@ -48,6 +48,68 @@ Arrange multiple cards using `.deck`, which will ensure they're equally laid out
   <Story name="deck-small">
     {html`
       <div class="deck">
+        <div class="card small">
+          <i class="material-icons" onclick="window.open('/form.php?quid=511','_self')">email</i>
+          <div class="inline">
+            <h3><a href="/form.php?quid=511">Email</a></h3>
+            <p>Email us your research questions and we&rsquo;ll respond within 24 hours.</p>
+          </div>
+        </div>
+        <div class="card small">
+          <i class="material-icons" onclick="document.querySelector('button.s-lch-widget-float-btn').click();">question_answer</i>  
+          <div class="inline">
+            <h3><a onclick="document.querySelector('button.s-lch-widget-float-btn').click();" href="javascript:void(0)">Chat</a></h3>
+            <p>Talk online to a research librarian on weekdays and Sundays</p>
+          </div>
+        </div>
+        <div class="card small">
+          <i class="material-icons" onclick="window.open('tel:6173532700','_self')">phone</i>
+          <div class="inline">
+            <h3><a href="tel:6173532700">Call</a></h3>
+            <p>Call us at 617-353-2700 during our open hours</p>
+          </div>
+        </div>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+
+### Customization: Aligning the Icon 
+
+The icon on the left can be controlled with the css-variable `--bulib-card-icon-vertical`. When
+  set to `auto`, the icon is centered. When set to `0px`, it sticks to the top. 
+
+<Preview>
+  <Story name="verticality">
+    {html`
+      <h4>vertically centered: <code>auto</code></h4>
+      <div class="flexnw" style="--bulib-card-icon-vertical: auto;">
+        <div class="card small">
+          <i class="material-icons" onclick="window.open('/form.php?quid=511','_self')">email</i>
+          <div class="inline">
+            <h3><a href="/form.php?quid=511">Email</a></h3>
+            <p>Email us your research questions and we&rsquo;ll respond within 24 hours.</p>
+          </div>
+        </div>
+        <div class="card small">
+          <i class="material-icons" onclick="document.querySelector('button.s-lch-widget-float-btn').click();">question_answer</i>  
+          <div class="inline">
+            <h3><a onclick="document.querySelector('button.s-lch-widget-float-btn').click();" href="javascript:void(0)">Chat</a></h3>
+            <p>Talk online to a research librarian on weekdays and Sundays</p>
+          </div>
+        </div>
+        <div class="card small">
+          <i class="material-icons" onclick="window.open('tel:6173532700','_self')">phone</i>
+          <div class="inline">
+            <h3><a href="tel:6173532700">Call</a></h3>
+            <p>Call us at 617-353-2700 during our open hours</p>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <h4>top: <code>0px</code></h4>
+      <div class="flexnw" style="--bulib-card-icon-vertical: 0px;">
         <div class="card small">
           <i class="material-icons" onclick="window.open('/form.php?quid=511','_self')">email</i>
           <div class="inline">
