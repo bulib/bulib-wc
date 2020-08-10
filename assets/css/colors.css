@@ -2,7 +2,7 @@
 body {
   /* primary background (black) */
   --color-primary-background: #2D2926;
-  --color-primary-background-light: #4a4746;
+  --color-primary-background-light: #444444;
   --color-primary-background-dark: black;
   --color-primary-text: #e1e1e1;
   --color-primary-text-light: white;

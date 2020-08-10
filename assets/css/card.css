@@ -39,16 +39,14 @@
   text-decoration: underline  var(--color-button-background-dark, #0B4473);
   font-weight: 500;
 }
+.card.small a { font-size: 105%; }
 .card h3 {
+  padding-top: 0px;
+  padding-bottom: 0px;
   margin-top: 0px;
   margin-bottom: var(--padding-medium, 10px);
 }
-.card.small a { 
-  font-size: 105%;
-}
-.card.small h3 { 
-  margin-bottom: var(--padding-small, 5px); 
-}
+.card.small h3 { margin-bottom: var(--padding-small, 5px); }
 
 .card p { 
   font-size: 100%; 

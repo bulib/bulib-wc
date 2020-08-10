@@ -8,7 +8,7 @@ body {
 }
 
 /* - padding utils - */
-.pan { padding: 0px; }
+.pan { padding: 0px !important; }
 .pas { padding: var(--padding-small); }
 .pam { padding: var(--padding-medium); }
 .pal { padding: var(--padding-large); }

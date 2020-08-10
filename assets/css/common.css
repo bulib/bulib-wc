@@ -29,6 +29,9 @@
 .txtc { text-align: center; }
 .txtv { vertical-align: middle; }
 
+.bold { font-weight: bold !important; }
+.underline { text-decoration: underline !important; }
+
 .txt-wrap { white-space: normal; }
 .no-wrap { white-space: nowrap; }
 

@@ -1,6 +1,6 @@
 {
   "name": "bulib-wc",
-  "version": "0.1.40",
+  "version": "0.1.41",
   "description": "collection of web components and styles used at Boston University Libraries",
   "type": "module",
   "main": "src/index.js",

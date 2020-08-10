@@ -16,9 +16,9 @@ _NOTE: the css for this requires a build step_
 Contains the main navigation across/between all sites.  
 
 
+### Basic 
 
-
-_NOTE: therefore, all links must be absolute and not relative_
+The basic bar includes a dropdown, but isn't a megamenu. 
 
 <Preview>
   <Story name="header">
@@ -114,7 +114,9 @@ _NOTE: therefore, all links must be absolute and not relative_
   </Story>
 </Preview>
 
-Advanced
+## Advanced
+
+The advanced header contains a `div.submenu` that appears on mouseover.
 
 <Preview>
   <Story name="header-advanced">
@@ -328,6 +330,104 @@ Advanced
   </Story>
 </Preview>
 
+For the time being, there's a `bulib-submenu` that powers the list of items with them.
+  This should be temporary and is a work-around to encapsulate/protect against wordpress
+  header styling.
+
+<Preview>
+  <Story name="header-submenu">
+    {html`
+      <div class="header-wrapper">
+        <nav>
+          <a class="sr-only" href="#content">Skip to Main Content</a>
+          <div class="primary-navbar">  
+            <div class="primary-nav-left">  
+              <a title="BU Libraries Homepage" href="https://www.bu.edu/library"> 
+                <img id="bu-logo" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/bulib-logo.png"> 
+              </a>  
+            </div>  
+            <div class="primary-nav-main menu-items-wrapper"> 
+              <ul class="menu-items">
+                <li class="menu-item">
+                  <a class="inline no-wrap" href="https://www.bu.edu/library/services">
+                    <span class="txt-wrap">Find &amp; Borrow</span><i class="material-icons">arrow_drop_down</i>
+                  </a>
+                  <div class="submenu"><bulib-submenu code="find-and-borrow" class="full-width"></bulib-submenu></div>
+                </li>
+                <li class="menu-item">
+                  <a href="/library/research">
+                    <span>Research &amp; Learn</span><i class="material-icons">arrow_drop_down</i>
+                  </a>
+                  <div class="submenu"><bulib-submenu code="research-and-learn" class="full-width"></bulib-submenu></div>
+                </li>  
+                <li class="menu-item">
+                  <a href="/library/about">
+                    <span class="txt-wrap">About Us</span><i class="material-icons">arrow_drop_down</i>
+                  </a>
+                  <div class="submenu"><bulib-submenu code="about-us" class="full-width"></bulib-submenu></div>
+                </li>
+                <li class="menu-item">
+                  <a href="https://www.bu.edu/library/about">
+                    <span>Locations</span><i class="material-icons">arrow_drop_down</i>
+                  </a>
+                  <div class="submenu"><bulib-submenu code="locations" class="full-width"></bulib-submenu></div>
+                </li> 
+              </ul>
+            </div>  
+            <div class="primary-nav-right"> 
+              <div class="mobile-navigation none" aria-hidden="true"> 
+                <div id="menuToggle"> 
+                  <!-- invisible toggle with hamburger -->  
+                  <input type="checkbox" tabindex="-1">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                    
+                  <!-- mobile nav menu -->  
+                  <ul id="mobile-menu"> 
+                    <li id="subsite-research"><a href="https://www.bu.edu/library/services">Find &amp; Borrow</a></li>  
+                    <li id="subsite-services"><a href="https://www.bu.edu/library/research">Research &amp; Learning</a></li>  
+                    <li id="subsite-about"><a href="https://www.bu.edu/library/">About Us</a></li>  
+                    <li><a href="https://www.bu.edu/library/about">Library Locations</a></li> 
+                    <li><hr></li> 
+                    <li><a href="https://www.bu.edu/library/account">My Account</a></li>  
+                    <li><a href="https://askalibrarian.bu.edu/">Ask a Librarian</a></li> 
+                  </ul> 
+                </div>  
+              </div>  
+              <div class="top-right"> 
+                <ul class="menu-items">	
+                  <li>	
+                    <a class="menu-item inline" href="https://askalibrarian.bu.edu/">	
+                      <span class="prm">Ask a Librarian</span><i class="material-icons inline">question_answer</i>	
+                    </a>	
+                  </li>	
+                  <li>	
+                    <a class="menu-item inline" href="https://www.bu.edu/library/account">	
+                      <span class="prm">My Account</span><i class="material-icons inline">person</i>	
+                    </a>	
+                  </li>	
+                </ul>
+              </div>  
+            </div>  
+          </div>
+          <script id="mobile-nav-clickout" type="text/javascript">
+            let input = document.querySelector("#menuToggle > input");
+            window.addEventListener("click", (event) => {
+              let clicked = event.target;
+              let clicked_within_mobile_menu = clicked.closest("#menuToggle") != null;
+              if(input && clicked != input && !clicked_within_mobile_menu || clicked.tagName == "A"){
+                input.checked = false; // uncheck the #menuToggle input, closing the mobile nav
+              }
+            });
+          </script>
+        </nav>
+      </div>
+      <br /><br /><br /><br /><br />
+    `}
+  </Story>
+</Preview>
+
 ## Banner
 
 Contains Site-Specific Code/links, and normally a `<bulib-search>` (if one's not already present on the home page).
@@ -346,6 +446,10 @@ Links for a hierarchy of '**parent**: child' (unless otherwise specified), and s
     `}
   </Story>
 </Preview>
+
+The wordpress banner has a `section` on the left that includes a `#genus` and `#species`  
+  that is loaded via a script from the `window.location.path`. That script also loads in 
+  the `bulib-hours` component.
 
 <Preview>
   <Story name="site-banner-wp">
@@ -391,6 +495,9 @@ LibCal exception case in which the site is dual-purpose (has two landing pages).
     `}
   </Story>
 </Preview>
+
+The banner can be modified to include additional content, so long as it's contained in a single 
+  container (e.g. `div` or `section`)
 
 <Preview>
   <Story name="site-banner-libguides">

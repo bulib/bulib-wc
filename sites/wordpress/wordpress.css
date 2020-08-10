@@ -55,7 +55,7 @@ h3 a:link, h3 a:visited {
 	font-weight: 700;
 }
 
-p, td, th, li { color: var(--color-body-text, #444444); }
+p, td, th, ul li, ol li { color: var(--color-body-text, #444444); }
 #content { background-color: inherit !important; }
 
 
@@ -261,11 +261,11 @@ div.locate-by-floor ul li, ul#locate-callno li {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.back2bulib img { width: 35%; }
+.back2bulib img { width: 25%; }
 
 @media only screen and (max-width: 800px) { 
   .back2bulib .grid { grid-template-columns: 1fr 1fr; }
-  .back2bulib img { width: 45%; }
+  .back2bulib img { width: 40%; }
 }
 @media only screen and (max-width: 450px) { 
   .back2bulib .grid { grid-template-columns: 1fr; }
