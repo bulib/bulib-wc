@@ -53,6 +53,16 @@ export default class BULibSearch extends LitElement {
   static get styles(){
     return [
       css`
+        :host(bulib-search.secondary) { 
+          --color-primary-background: var(--color-secondary-background, #eee);
+          --color-primary-background-dark: var(--color-secondary-background, #eee);
+          --color-primary-background-light: var(--color-secondary-background, #eee);
+          --color-primary-text: var(--color-secondary-text, #333);
+        }
+        :host(bulib-search.secondary div.search-box) { 
+          border: 2px solid var(--color-button-background, #257abe) !important;
+          border-radius: 4px;
+        }
         .bulib-search-wrapper {
           width: 100%;
           background-color: var(--color-primary-background, #212121);
@@ -82,7 +92,7 @@ export default class BULibSearch extends LitElement {
         }
         .search-options {
           padding-top: var(--bulib-search-options-padding, 10px);
-          color: var(--color-primary-text-light, white);
+          color: var(--color-primary-text, white);
           flex: auto;
         }
         .search-options > label {
