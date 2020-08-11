@@ -83,6 +83,21 @@ bulib-search div.search-options {
 }
 
 /* utility nav */
+.top-right ul.menu-items > li {
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+  margin-left: 10px !important;
+  text-transform: none;
+}
+
+.top-right ul.menu-items > li > a {
+  background-color: #065180 !important;
+  font-size: 1em !important;
+}
+#utility li a, .location-select .tab-switcher strong {
+  margin: 0px;
+  text-shadow: 0px 0px rgba(0,0,0,0);
+}
 #utility li a, #utility li a:hover { 
   background-color: var(--color-primary-background, black);
   font-family: 'Benton', sans-serif;
@@ -236,6 +251,17 @@ div.locate-by-floor ul li, ul#locate-callno li {
   div.tabs #locate-resources { column-count: 2 !important; }
 }
 
+/* - card styling - */
+div.card { margin-top: auto; margin-bottom: auto; }
+
+div.card h3 a {
+  font-size: 14px !important;
+  font-family: "Benton-Sans",'Source Sans Pro', sans-serif !important;
+  color: var(--color-button-background-dark) !important;
+  border-bottom: none;
+}
+
+div.card p { line-height: normal; }
 
 /* - back2bulib - */
 
@@ -244,19 +270,6 @@ div.locate-by-floor ul li, ul#locate-callno li {
   align-items: center;
   font-family: "Benton-Sans",'Source Sans Pro', sans-serif !important;
 }
-.back2bulib.secondary-menu.mvl.pvl {
-  border-radius: 2px
-}
-.back2bulib bulib-card { 
-  margin-top: auto; margin-bottom: auto;
-}
-.back2bulib bulib-card h3 a { 
-  font-size: 14px !important;
-  font-family: "Benton-Sans",'Source Sans Pro', sans-serif !important;
-  color: var(--color-button-background-dark) !important;
-  border-bottom: none;
-}
-.back2bulib bulib-card p { line-height: normal; }
 .back2bulib .grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;

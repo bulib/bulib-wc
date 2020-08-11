@@ -52,6 +52,7 @@
   font-size: 100%; 
   margin-top: auto;
   margin-bottom: 0px; 
+  line-height: normal;
 }
 .card.small p { 
   font-size: 90%;;

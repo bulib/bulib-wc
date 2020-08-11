@@ -146,7 +146,6 @@ div.primary-nav-main > ul.menu-items > li.menu-item > div.submenu {
   left: 0;
   margin-left: auto;
   margin-right: auto;
-  min-width: 100%;
   width: max-content;
   height: max-content;
   color: var(--color-primary-text-light, white);
@@ -164,6 +163,7 @@ div.primary-nav-main > ul.menu-items > li.menu-item:focus-within > div.submenu {
 div.primary-nav-main div.submenu ul.submenu-items li, ul.submenu-items li,
 div.primary-nav-main div.submenu ul.submenu-items li span, ul.submenu-items span {
   font-size: 14px;
+  margin-left: 0px;
   margin-top: var(--padding-small, 5px);
   margin-bottom: var(--padding-small, 5px); }
 /* --- from mobile-nav.scss --- */

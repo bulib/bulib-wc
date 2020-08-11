@@ -73,7 +73,7 @@ import {LitElement, html, css} from 'lit-element/lit-element';
             <ul class="no-bullet" tabindex="0">
               <span>INFO</span>
               <li><a href="/library/about">About BU Libraries</a></li>
-              <li><a href="/library/about/news/">News</a></li>
+              <li><a href="/library/about/news/">News &amp; Updates</a></li>
               <li><a href="/library/about/who-we-are/staff-directory/">Staff Directory A-Z</a></li>
               <li><a href="/library/about/code-of-conduct/">Code of Conduct</a></li>
             </ul> 
@@ -111,9 +111,9 @@ import {LitElement, html, css} from 'lit-element/lit-element';
             ul {
               list-style: none;
               padding-left: 0px;
-              margin-left: var(--padding-medium, 10px);
-              margin-right: var(--padding-medium, 10px)
             }
+            ul:first-of-type { margin-right: var(--padding-medium, 10px); }
+            ul:last-of-type { margin-left: var(--padding-medium, 10px); }
             a, span {
               color: var(--color-primary-text-light, white);
               text-decoration: none;
