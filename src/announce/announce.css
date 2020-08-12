@@ -30,7 +30,16 @@ div.announce-banner > *:first-child { margin-right: 1%; }
 div.announce-banner > *:last-child { margin-left: 1%; }
 
 /* style message (with background) */
-.announce-banner a { font-weight: var(--bulib-announce-cta-font-weight unset); }
+.announce-banner a:hover { 
+  text-decoration: underline; 
+  color: var(--color-button-background-dark, #257abe); 
+}
+.announce-banner a:visited { color: var(--color-button-background-dark, #257abe); }
+.announce-banner a { 
+  font-weight: var(--bulib-announce-cta-font-weight, normal); 
+  color: var(--color-button-background-dark, #257abe);
+  text-decoration: none;
+}
 .announce-banner > span { 
   margin: 12px;
   vertical-align: middle;
