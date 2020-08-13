@@ -21,11 +21,10 @@ export default class BULibHours extends LitElement {
       library: {type: String}, 
       /** alters the default display to be more succint/compact */
       short:{type: Boolean},
-      /** alters the default display to be more descriptive/verbose */
-      long: {type: Boolean},
       /** provides means of adding classes to the inner link */
       link_class: {type: String},
-
+      /** enable clock icon to be overwritten with a material icon */
+      icon: {type: String},
       /** [debugging] enable logging to the console */
       debug: {type: Boolean}
     };
@@ -54,9 +53,13 @@ export default class BULibHours extends LitElement {
     this._logToConsole(`rendering hours for ${library_name} (code:'${libCode}').`);
     let hours_loading = html`
       <span id="hours-display" class="inline" aria-label="today's hours for ${library_name}">
-        ${until(this._fetchHoursData(libCode, lid), html`<small> loading hours...</small>`)}
-      </span>`;
+        <a href="${all_lib_hours_url}">
+          ${until(this._fetchHoursData(libCode, lid), html`<small> loading hours...</small>`)}
+        </a>
+      </span>
+    `;
     let clock_icon = html`<img alt="clock-icon" id="clock-icon" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/clock-icon-24px.svg">`;
+    if(!!this.icon){ clock_icon = html`<i class="material-icons" style="width: 24px">${this.icon}</i>`}
     
     // establish variants 
     let none_display = html``;
@@ -64,23 +67,11 @@ export default class BULibHours extends LitElement {
       <a title="today's hours for ${library_name}" class="${this.link_class}"
          @click="${(ev) => {this._logGAEvent("clicked", libCode)}}" href="${all_lib_hours_url}">${hours_loading}</a>`;
     let medium_display = html`<div class="txtv center">${clock_icon}&nbsp;&nbsp;<strong>${library_name}:</strong>&nbsp;${hours_loading}</div>`;
-    let large_display = html`
-      <div id="hours-top">
-        <strong>${library_name}:</strong>&nbsp;${hours_loading}</div>
-      </div>
-      <div id="hours-btm">
-        <small>
-          <a title="today's hours for all bu-libraries" class="${this.link_class}" 
-             @click="${(ev) => {this._logGAEvent("clicked", "all")}}" href="${all_lib_hours_url}">see all location hours</a>
-        </small>
-      </div>
-    `;
     
     // select between the variants based on the available data and settings
     let libhours_display;
     if(!lid){ libhours_display = none_display; }
     if(this.short){ libhours_display = small_display; }
-    else if(this.long){ libhours_display = large_display; }
     else{ libhours_display = medium_display; }
 
     return html`

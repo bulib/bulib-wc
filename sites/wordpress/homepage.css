@@ -155,6 +155,12 @@ p.wp-caption-text { display: none; }
   margin-bottom: 10px;
 }
 
+/* adjust hours display against default wordpress */
+#home-bottom .collapsed li span #hours-display a {
+  color: #555;
+  margin-top: 0px;
+}
+
 /* border-top colors */ 
 #home-bottom #research ul.menu > li { border-top: 2px solid #1EB4D6 !important; }
 #home-bottom #services ul.menu > li { border-top: 2px solid #BF3C37 !important; }
