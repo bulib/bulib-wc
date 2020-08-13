@@ -1,17 +1,17 @@
-.bulib-tips {
+.bulib-tips, .bulib_tips {
   border-left: 4px solid var(--color-button-background-accent, #065180);
-  background-color: var(--color-secondary-background-light, rgba(6,81,128,.1));
+  background-color: var(--color-secondary-background-light, #f3f3f3);
   padding: var(--padding-small, 5px) var(--padding-medium, 10px);
 }
 
-.bulib-tips > span, .bulib-tips > strong {
+.bulib-tips > span, .bulib-tips > strong, .bulib_tips > span, .bulib_tips > strong {
   font-size: 1.1em;
   font-weight: bold;
   font-style: italic;
   margin-bottom: var(--padding-medium, 10px);
 }
 
-.bulib-tips > li {
+.bulib_tips > li, .bulib-tips > li {
   margin-top: var(--padding-medium, 10px);
   margin-bottom: var(--padding-medium, 10px);
   margin-left: var(--padding-xlarge, 25px);

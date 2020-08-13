@@ -71,7 +71,7 @@ div.announce-banner > *:last-child { margin-left: 1%; }
   background-color: white;
   border-radius: 7px;
   font-size: 95%;
-  padding-left: 4px;
+  padding: 1px 5px;
   vertical-align: middle;
   white-space: nowrap;
 }

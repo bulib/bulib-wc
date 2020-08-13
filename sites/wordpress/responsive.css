@@ -1,10 +1,17 @@
-#content div.banner-container img { height: auto !important; width: 100%; }
+#content div.banner-container img, #content div.banner-container div.page-width img { 
+  height: auto !important; 
+  width: 100%; 
+}
 #content > div.wrapper {
   display: flex;
   flex-wrap: wrap-reverse;
 }
 div.sidebar > div { min-width: 45%; }
 div.sidebar { padding: var(--padding-medium, 10px); }
+
+#content, #content .banner-container, #content .banner-container .page-width, #header .container {
+	max-width: 97vw;
+}
 
 @media only screen and (max-width: 900px) {
   div.sidebar.right {

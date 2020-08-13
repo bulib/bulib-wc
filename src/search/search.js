@@ -59,9 +59,9 @@ export default class BULibSearch extends LitElement {
           --color-primary-background-light: var(--color-secondary-background, #eee);
           --color-primary-text: var(--color-secondary-text, #333);
         }
-        :host(bulib-search.secondary div.search-box) { 
-          border: 2px solid var(--color-button-background, #257abe) !important;
-          border-radius: 4px;
+        :host(bulib-search.secondary) input#search-query-input { 
+          border: 2px solid var(--color-secondary-background-dark);
+          border-right: 0px;
         }
         .bulib-search-wrapper {
           width: 100%;

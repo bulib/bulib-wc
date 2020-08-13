@@ -15,6 +15,23 @@ div.banner-wrapper { display: none !important; }
   max-width: 100% !important;
 }
 
+/* wordpress announcement */
+body#homepage .alert, body#homepage .notification {
+  background: #fff;
+  margin: 0;
+  padding: 12px 0 18px;
+}
+
+.notification p {
+  border: 2px solid #b8d993;
+  background-color: whitesmoke;
+  background-position: 15px -68px;
+
+  box-shadow: inset 0 0 0px whitesmoke;
+  -moz-box-shadow: inset 0 0 0px whitesmoke;
+  -webkit-box-shadow: inset 0 0 0px whitesmoke;
+}
+  
 
 /* - homepage searchbox - */
 
@@ -110,7 +127,9 @@ p.wp-caption-text { display: none; }
 
 /* ensure that menus take up a third of the screen */
 #home-bottom > div.column > div.collapsed > ul.menu > li { 
-  border-bottom: none; 
+  box-shadow: 0px 1px 4px #dddddd;
+  border-radius: 2px;
+  padding: var(--padding-medium, 10px);
   margin-bottom: inherit;
   min-width: 30%; 
   max-width: 30%;
@@ -140,16 +159,16 @@ p.wp-caption-text { display: none; }
   font-family: "Benton-Sans",'Source Sans Pro', sans-serif;
   font-weight: bolder;
   color: var(--color-accent-red-background);
-  color: #222222;
+  color: #222;
 }
 
+/* spacing between rows */
 #home-bottom .collapsed { 
-  background-color: #ffffff; 
-  padding-left: 0px; 
-  padding-right: 0px;
+  background-color: #fff; 
+  padding: 0px !important; 
 }
 #home-bottom > div.column > div.collapsed > ul.menu > li {
-  box-shadow: 0px 1px 4px #dddddd;
+  box-shadow: 0px 1px 4px #ddd;
   border-radius: 2px;
   padding: 10px;
   margin-bottom: 10px;
@@ -163,8 +182,9 @@ p.wp-caption-text { display: none; }
 
 /* border-top colors */ 
 #home-bottom #research ul.menu > li { border-top: 2px solid #1EB4D6 !important; }
-#home-bottom #services ul.menu > li { border-top: 2px solid #BF3C37 !important; }
-#home-bottom #about ul.menu > li { border-top: 2px solid #2E31BF !important; }
+#home-bottom #services ul.menu > li { border-top: 2px solid #2E31BF !important; }
+#home-bottom #about ul.menu > li { border-top: 2px solid #BF3C37 !important; }
+#home-bottom #about { display: none !important; }
 #home-bottom .collapsed .sub-menu li a, #home-bottom .collapsed li span { 
   font-family: "Benton-Sans",'Source Sans Pro', sans-serif !important;
   font-size: 1.1em !important;
@@ -228,3 +248,26 @@ div.sidebar { padding: var(--padding-medium, 10px); }
   /* decrease search help link font size */
   #homepage #search > p.advanced a { font-size: 1em; }
 } 
+
+
+/* -- libchat -- */
+.libchat_online {
+	background-color: #257ABE;
+	padding: 17px !important;
+	font-size: 1.2em;
+	margin-bottom: 24px !important;
+	font-family: Benton;
+	min-height: 50px;
+	border-radius: 6px !important;
+	width: 188px;
+}
+
+.libchat_offline {
+	padding: 17px !important;
+	font-size: 1.2em;
+	margin-bottom: 24px !important;
+	font-family: Benton;
+	min-height: 50px;
+	border-radius: 6px !important;
+	width: 188px;
+}

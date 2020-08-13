@@ -4,6 +4,9 @@
 body { 
   --color-primary-background: #212121; 
   --color-button-background-accent: #1aa2a7;
+  --bulib-search-padding: 5px;
+  --bulib-search-options-padding: 0;
+  --bulib-header-margin-top: -20px;
 
   /* remove background */ 
   background-image: none; 
@@ -19,7 +22,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 a:link, a:visited, a:hover, #home-bottom .collapsed .sub-menu li a {
-	color: var(--color-button-background-dark,#1B598C);
+	color: var(--color-button-background-dark, #1B598C);
 }
 a:hover {
 	text-decoration: underline;
@@ -63,7 +66,38 @@ p, td, th, ul li, ol li { color: var(--color-body-text, #444444); }
 
 /* ensure background color change is applied to the page body */
 #content { background-color: inherit !important; }
+input::placeholder, input:-ms-input-placeholder, input::-ms-input-placeholder {
+	color: #333333 !important;
+	opacity: 1;
+}
 
+/* lists */
+.content-panel > ul > li {
+	list-style: square;
+	background: none;
+	margin: 0 0 8px 25px;
+	padding-left: 15px;
+	color: #333333;
+}
+
+/*Forms*/
+.gform_wrapper .gsection h2.gsection_title {
+	color: #8C0000;
+}
+
+.content-panel .gform_wrapper form .gform_footer .gform_button, .gform_button, input[type="submit"] {
+	color: var(--color-button-text, white);
+	background: var(--color-button-background, #1b598c);
+	border: 1px solid var(--color-button-text, white);
+	border-radius: 4px;
+	font-family: "Benton-Sans", "Helvetica", "Arial";
+	font-weight: 700;
+	font-size: 1em;
+	margin: 20px 0;
+	padding: 10px 20px;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+input[type="submit"]:hover { background-color: var(--color-button-background-dark, #1b598c); }
 
 /* - assorted header tweaks - */
 div.header-wrapper, div.mobile-navigation, div.banner-wrapper { 
@@ -80,26 +114,22 @@ div #content {
   z-index: 1; 
   margin-top: 110px;
 }
-
-bulib-search { width: 600px; }
-bulib-search div.search-options > label { font-size: small !important; }
-bulib-search div.search-options { 
-  padding-top: var(--padding-small, 5px);
-  padding-bottom: var(--padding-small, 5px);
+div #content {
+  border: none;
+  
+  /* set --wp-content-box-shadow to 'none' to cancel it */
+  box-shadow: var(--wp-content-box-shadow, 0 0 5px #ccc) !important;
+  -moz-box-shadow: var(--wp-content-box-shadow, 0 0 5px #ccc) !important;
+  -webkit-box-shadow: var(--wp-content-box-shadow, 0 0 5px #ccc) !important;
+  
+  /* set --wp-content-border-radius to '0px' to cancel it */
+  border-radius: var(--wp-content-border-radius, 6px) !important;
+  -moz-border-radius: var(--wp-content-border-radius, 6px) !important;
+  -webkit-border-radius: var(--wp-content-border-radius, 6px) !important;
 }
+
 
 /* utility nav */
-.top-right ul.menu-items > li {
-  border: 1px solid #cccccc;
-  border-radius: 2px;
-  margin-left: 10px !important;
-  text-transform: none;
-}
-
-.top-right ul.menu-items > li > a {
-  background-color: #065180 !important;
-  font-size: 1em !important;
-}
 #utility li a, .location-select .tab-switcher strong {
   margin: 0px;
   text-shadow: 0px 0px rgba(0,0,0,0);
@@ -110,12 +140,6 @@ bulib-search div.search-options {
   font-weight: bold;
   border-radius: 0px;
 }
-#utility ul { margin-top: 0px; margin-bottom: 0px; }
-#utility ul.library-list li { float: unset; } 
-#utility ul.library-list li a { font-weight: normal; margin-left: 0px; }
-#utility ul.library-list li:nth-child(odd) a {
-    background-color: var(--color-primary-background-light); 
-}
 #utility { 
   width: 100vw; 
   position: absolute; 
@@ -123,7 +147,7 @@ bulib-search div.search-options {
   margin-top: 0px;
   z-index: 3;
 }
-div#pnb div.container { margin-left: 0px; }
+div#pnb div.container { margin-left: 0px; width: unset; }
 div.location-select.drop-filter { display: none; }
 ul.menu-items, #header { margin-bottom: 0px; }
 
@@ -270,26 +294,28 @@ div.card h3 a {
 
 div.card p { line-height: normal; }
 
+div.card h3 a:link, div.card h3 a:visited {
+	border-bottom: none !important;
+}
+
+
 /* - back2bulib - */
 
 .back2bulib {
   background-color: white;
   align-items: center;
   font-family: "Benton-Sans",'Source Sans Pro', sans-serif !important;
+  border-radius: 2px;
 }
 .back2bulib .grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  margin-left: auto; 
+  margin-right: auto;
 }
-.back2bulib img { width: 25%; }
+.back2bulib div.card { margin: var(--padding-large, 15px); }
 
-@media only screen and (max-width: 800px) { 
-  .back2bulib .grid { grid-template-columns: 1fr 1fr; }
-  .back2bulib img { width: 40%; }
-}
-@media only screen and (max-width: 450px) { 
+@media only screen and (max-width: 500px) { 
   .back2bulib .grid { grid-template-columns: 1fr; }
-  .back2bulib img { width: 80%; }
 }
 
 /* content-panel lists */ 
