@@ -5,7 +5,7 @@ var logBrowserMessage = function(msg){
 }
 
 /** determine the browser the code is being run on */
-var doesBrowserSupportWebComponents = function(){
+export const doesBrowserSupportWebComponents = function(){
   // note: thanks to [stackoverflow](https://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser/9851769) for the implementation
   var isIE = !!document.documentMode;
   var isEdge = !!window.StyleMedia;
@@ -25,7 +25,7 @@ var doesBrowserSupportWebComponents = function(){
 };
 
 /** determine, based on user_agent, which elements to show/hide given web components support */
-var loadWebComponentInto = function(tagname, replacedElements){
+export const loadWebComponentInto = function(tagname, replacedElements){
   var user_agent_supports_web_components = doesBrowserSupportWebComponents();
   
   // determine which elements to hide

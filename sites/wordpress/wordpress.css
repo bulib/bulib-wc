@@ -1,22 +1,12 @@
 /* -- wordpress (bu.edu/library) -- */
 
-/* adjustments to theme variables */
-body { 
-  --color-primary-background: #212121; 
-  --color-button-background-accent: #1aa2a7;
-  --bulib-search-padding: 5px;
-  --bulib-search-options-padding: 0;
-  --bulib-header-margin-top: -20px;
+/* - typography - */
+body {
+  font: 14px / 1.6em arial, Helvetica, verdana, sans-serif;
 
   /* remove background */ 
   background-image: none; 
   background-color: white; 
-}
-
-/* - typography - */
-body {
-  --color-body-text: #333333;
-  font: 14px / 1.6em arial, Helvetica, verdana, sans-serif;
   
   /* preserve font choices for safari (which sets this to optimizeSpeed) */
   text-rendering: optimizeLegibility;
@@ -112,9 +102,9 @@ ul#mobile-menu li { float: unset; padding: 10px 0px; }
 
 div #content { 
   z-index: 1; 
-  margin-top: 110px;
+  margin-top: 130px;
 }
-div #content {
+div #content, div #content div.page_hdr {
   border: none;
   
   /* set --wp-content-box-shadow to 'none' to cancel it */
@@ -163,13 +153,11 @@ div.page_hdr {
   color: var(--color-primary-text-light,white);
   background: var(--color-primary-background-light,#333333);
   padding: 10px 0 6px 21px;
-  border-radius: 6px 6px 0 0;
-  -moz-border-radius: 6px 6px 0 0;
-  -webkit-border-radius: 6px 6px 0 0;
+  border-bottom: none !important;
 }
 
 /* restyle the breadcrumbs */
-.page_hdr a {
+div.page_hdr a {
   color: var(--color-primary-text-light,white) !important;
   text-shadow: 0 0 rgba(0,0,0,0.25);
 }
@@ -202,26 +190,6 @@ li.style-scope.bulib-footer {
 /* increase hours display size */ 
 #hours-display { font-size: 100% !important; }
 
-
-/* - CMS .page_hdr with breadcrumbs - */
-div.banner-wrapper > div.banner > section span { display: none; }
-#content > div.banner-container { margin-bottom: 0px; }
-div.page_hdr {
-  display: block !important;
-  font-family: StagWebLight, Georgia, serif;
-  font-size: 1em;
-  color: var(--color-primary-text-light,white);
-  background: var(--color-primary-background-light,#333333);
-  padding: 10px 0 6px 21px;
-  border-radius: 6px 6px 0 0;
-  -moz-border-radius: 6px 6px 0 0;
-  -webkit-border-radius: 6px 6px 0 0;
-}
-
-.page_hdr a {
-  color: var(--color-primary-text-light,white) !important;
-  text-shadow: 0 0 rgba(0,0,0,0.25);
-}
 
 /* - sidenav - */
 
@@ -308,6 +276,7 @@ div.card h3 a:link, div.card h3 a:visited {
   border-radius: 2px;
 }
 .back2bulib .grid {
+  display: grid;
   grid-template-columns: 1fr 1fr;
   margin-left: auto; 
   margin-right: auto;

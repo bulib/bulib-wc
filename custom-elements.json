@@ -2,409 +2,6 @@
   "version": "experimental",
   "tags": [
     {
-      "name": "bulib-card",
-      "description": "display a single concept (heading, description, cta, icon) in a small UI element",
-      "attributes": [
-        {
-          "name": "title",
-          "description": "name and primary interactable link in the card",
-          "type": "string"
-        },
-        {
-          "name": "description",
-          "description": "short bit of text describing the main action/concept",
-          "type": "string"
-        },
-        {
-          "name": "icon",
-          "description": "material icon displayed to the left of the",
-          "type": "string"
-        },
-        {
-          "name": "link",
-          "description": "optional link for the href/window.open() action",
-          "type": "string"
-        },
-        {
-          "name": "action",
-          "description": "custom javascript",
-          "type": "string"
-        },
-        {
-          "name": "small",
-          "description": "add 'small' class to card",
-          "type": "boolean"
-        },
-        {
-          "name": "debug",
-          "description": "enable logging (click tracking)",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "title",
-          "attribute": "title",
-          "description": "name and primary interactable link in the card",
-          "type": "string"
-        },
-        {
-          "name": "description",
-          "attribute": "description",
-          "description": "short bit of text describing the main action/concept",
-          "type": "string"
-        },
-        {
-          "name": "icon",
-          "attribute": "icon",
-          "description": "material icon displayed to the left of the",
-          "type": "string"
-        },
-        {
-          "name": "link",
-          "attribute": "link",
-          "description": "optional link for the href/window.open() action",
-          "type": "string"
-        },
-        {
-          "name": "action",
-          "attribute": "action",
-          "description": "custom javascript",
-          "type": "string"
-        },
-        {
-          "name": "small",
-          "attribute": "small",
-          "description": "add 'small' class to card",
-          "type": "boolean"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "enable logging (click tracking)",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
-      "name": "bulib-color",
-      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
-      "attributes": [
-        {
-          "name": "var",
-          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
-          "type": "string"
-        },
-        {
-          "name": "val",
-          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-red-background' )",
-          "type": "string"
-        },
-        {
-          "name": "white",
-          "description": "whether to have a white or a black background",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "var",
-          "attribute": "var",
-          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
-          "type": "string"
-        },
-        {
-          "name": "val",
-          "attribute": "val",
-          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-red-background' )",
-          "type": "string"
-        },
-        {
-          "name": "white",
-          "attribute": "white",
-          "description": "whether to have a white or a black background",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
-      "name": "bulib-feedback",
-      "attributes": [
-        {
-          "name": "code",
-          "description": "unique identifier for each feedback input (event category)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "description": "[debugging] enables logging to the console",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "description": "[debugging] override main action (prevent GAEvent logging)",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "code",
-          "attribute": "code",
-          "description": "unique identifier for each feedback input (event category)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "[debugging] enables logging to the console",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "attribute": "prevent_action",
-          "description": "[debugging] override main action (prevent GAEvent logging)",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
-      "name": "bulib-footer",
-      "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
-      "attributes": [
-        {
-          "name": "host_site",
-          "description": "key for the subsite (used to populate the sitemap)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "description": "[debugging] enable logging for parent and child events",
-          "type": "boolean"
-        },
-        {
-          "name": "curr_url",
-          "description": "[debugging] manually simulate the url to override/force different states",
-          "type": "string"
-        },
-        {
-          "name": "library",
-          "description": "provide window into setting displayed 'locoso' contact data",
-          "type": "string",
-          "default": "\"help\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "host_site",
-          "attribute": "host_site",
-          "description": "key for the subsite (used to populate the sitemap)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "[debugging] enable logging for parent and child events",
-          "type": "boolean"
-        },
-        {
-          "name": "curr_url",
-          "attribute": "curr_url",
-          "description": "[debugging] manually simulate the url to override/force different states",
-          "type": "string"
-        },
-        {
-          "name": "library",
-          "attribute": "library",
-          "description": "provide window into setting displayed 'locoso' contact data",
-          "type": "string",
-          "default": "\"help\""
-        }
-      ]
-    },
-    {
-      "name": "bulib-hours",
-      "description": "display the hours of operation for a given library",
-      "attributes": [
-        {
-          "name": "library",
-          "description": "established which library we're displaying the hours/info of",
-          "type": "string"
-        },
-        {
-          "name": "short",
-          "description": "alters the default display to be more succint/compact",
-          "type": "boolean"
-        },
-        {
-          "name": "long",
-          "description": "alters the default display to be more descriptive/verbose",
-          "type": "boolean"
-        },
-        {
-          "name": "link_class",
-          "description": "provides means of adding classes to the inner link",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "description": "[debugging] enable logging to the console",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "library",
-          "attribute": "library",
-          "description": "established which library we're displaying the hours/info of",
-          "type": "string"
-        },
-        {
-          "name": "short",
-          "attribute": "short",
-          "description": "alters the default display to be more succint/compact",
-          "type": "boolean"
-        },
-        {
-          "name": "long",
-          "attribute": "long",
-          "description": "alters the default display to be more descriptive/verbose",
-          "type": "boolean"
-        },
-        {
-          "name": "link_class",
-          "attribute": "link_class",
-          "description": "provides means of adding classes to the inner link",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "[debugging] enable logging to the console",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
-      "name": "bulib-locoso",
-      "description": "display the *LO*cation, *CO*ntact, and *SO*cial media information for\n    a given library within the Boston Universities System.",
-      "attributes": [
-        {
-          "name": "link_class",
-          "description": "optional additional class added to each link in the rendered HTML",
-          "type": "string"
-        },
-        {
-          "name": "library",
-          "description": "current library code used as the key to swap between locoso data entries",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "description": "[debugging] log events to console",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "link_class",
-          "attribute": "link_class",
-          "description": "optional additional class added to each link in the rendered HTML",
-          "type": "string"
-        },
-        {
-          "name": "library",
-          "attribute": "library",
-          "description": "current library code used as the key to swap between locoso data entries",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "[debugging] log events to console",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
-      "name": "bulib-submenu",
-      "attributes": [
-        {
-          "name": "code",
-          "type": "string"
-        }
-      ],
-      "properties": [
-        {
-          "name": "code",
-          "attribute": "code",
-          "type": "string"
-        }
-      ]
-    },
-    {
-      "name": "bulib-search",
-      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
-      "attributes": [
-        {
-          "name": "str_selected",
-          "description": "selected search source (defaulted to first option)",
-          "type": "string"
-        },
-        {
-          "name": "str_options",
-          "description": "search sources included in the dropdown (defaulted to just 'primo')",
-          "type": "string"
-        },
-        {
-          "name": "search_btn_classes",
-          "description": "classes added to the search `<button>`",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "description": "[debugging] log actions to the console",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "description": "[debugging] prevent search button from executing and updating the window location",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "str_selected",
-          "attribute": "str_selected",
-          "description": "selected search source (defaulted to first option)",
-          "type": "string"
-        },
-        {
-          "name": "str_options",
-          "attribute": "str_options",
-          "description": "search sources included in the dropdown (defaulted to just 'primo')",
-          "type": "string"
-        },
-        {
-          "name": "search_btn_classes",
-          "attribute": "search_btn_classes",
-          "description": "classes added to the search `<button>`",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "[debugging] log actions to the console",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "attribute": "prevent_action",
-          "description": "[debugging] prevent search button from executing and updating the window location",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
       "name": "bulib-announce",
       "description": "display time-sensitive message, call-to-action across the top of a screen",
       "attributes": [
@@ -496,6 +93,409 @@
           "name": "prevent_action",
           "attribute": "prevent_action",
           "description": "(debugging) disable show/hide check, cta",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-card",
+      "description": "display a single concept (heading, description, cta, icon) in a small UI element",
+      "attributes": [
+        {
+          "name": "title",
+          "description": "name and primary interactable link in the card",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "description": "short bit of text describing the main action/concept",
+          "type": "string"
+        },
+        {
+          "name": "icon",
+          "description": "material icon displayed to the left of the",
+          "type": "string"
+        },
+        {
+          "name": "link",
+          "description": "optional link for the href/window.open() action",
+          "type": "string"
+        },
+        {
+          "name": "action",
+          "description": "custom javascript",
+          "type": "string"
+        },
+        {
+          "name": "small",
+          "description": "add 'small' class to card",
+          "type": "boolean"
+        },
+        {
+          "name": "debug",
+          "description": "enable logging (click tracking)",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "title",
+          "attribute": "title",
+          "description": "name and primary interactable link in the card",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "attribute": "description",
+          "description": "short bit of text describing the main action/concept",
+          "type": "string"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "material icon displayed to the left of the",
+          "type": "string"
+        },
+        {
+          "name": "link",
+          "attribute": "link",
+          "description": "optional link for the href/window.open() action",
+          "type": "string"
+        },
+        {
+          "name": "action",
+          "attribute": "action",
+          "description": "custom javascript",
+          "type": "string"
+        },
+        {
+          "name": "small",
+          "attribute": "small",
+          "description": "add 'small' class to card",
+          "type": "boolean"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "enable logging (click tracking)",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-feedback",
+      "attributes": [
+        {
+          "name": "code",
+          "description": "unique identifier for each feedback input (event category)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "description": "[debugging] enables logging to the console",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "description": "[debugging] override main action (prevent GAEvent logging)",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "code",
+          "attribute": "code",
+          "description": "unique identifier for each feedback input (event category)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "[debugging] enables logging to the console",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "attribute": "prevent_action",
+          "description": "[debugging] override main action (prevent GAEvent logging)",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-color",
+      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
+      "attributes": [
+        {
+          "name": "var",
+          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "type": "string"
+        },
+        {
+          "name": "val",
+          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-red-background' )",
+          "type": "string"
+        },
+        {
+          "name": "white",
+          "description": "whether to have a white or a black background",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "var",
+          "attribute": "var",
+          "description": "name of a known, default css variable (e.g. 'blue', 'red')",
+          "type": "string"
+        },
+        {
+          "name": "val",
+          "attribute": "val",
+          "description": "css variable set somewhere within the scope and visible via var() (e.g. '--color-accent-red-background' )",
+          "type": "string"
+        },
+        {
+          "name": "white",
+          "attribute": "white",
+          "description": "whether to have a white or a black background",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-submenu",
+      "attributes": [
+        {
+          "name": "code",
+          "type": "string"
+        }
+      ],
+      "properties": [
+        {
+          "name": "code",
+          "attribute": "code",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "bulib-hours",
+      "description": "display the hours of operation for a given library",
+      "attributes": [
+        {
+          "name": "library",
+          "description": "established which library we're displaying the hours/info of",
+          "type": "string"
+        },
+        {
+          "name": "short",
+          "description": "alters the default display to be more succint/compact",
+          "type": "boolean"
+        },
+        {
+          "name": "link_class",
+          "description": "provides means of adding classes to the inner link",
+          "type": "string"
+        },
+        {
+          "name": "icon",
+          "description": "enable clock icon to be overwritten with a material icon",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "description": "[debugging] enable logging to the console",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "library",
+          "attribute": "library",
+          "description": "established which library we're displaying the hours/info of",
+          "type": "string"
+        },
+        {
+          "name": "short",
+          "attribute": "short",
+          "description": "alters the default display to be more succint/compact",
+          "type": "boolean"
+        },
+        {
+          "name": "link_class",
+          "attribute": "link_class",
+          "description": "provides means of adding classes to the inner link",
+          "type": "string"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "enable clock icon to be overwritten with a material icon",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "[debugging] enable logging to the console",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-footer",
+      "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
+      "attributes": [
+        {
+          "name": "host_site",
+          "description": "key for the subsite (used to populate the sitemap)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "description": "[debugging] enable logging for parent and child events",
+          "type": "boolean"
+        },
+        {
+          "name": "curr_url",
+          "description": "[debugging] manually simulate the url to override/force different states",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "description": "provide window into setting displayed 'locoso' contact data",
+          "type": "string",
+          "default": "\"help\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "host_site",
+          "attribute": "host_site",
+          "description": "key for the subsite (used to populate the sitemap)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "[debugging] enable logging for parent and child events",
+          "type": "boolean"
+        },
+        {
+          "name": "curr_url",
+          "attribute": "curr_url",
+          "description": "[debugging] manually simulate the url to override/force different states",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "attribute": "library",
+          "description": "provide window into setting displayed 'locoso' contact data",
+          "type": "string",
+          "default": "\"help\""
+        }
+      ]
+    },
+    {
+      "name": "bulib-search",
+      "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
+      "attributes": [
+        {
+          "name": "str_selected",
+          "description": "selected search source (defaulted to first option)",
+          "type": "string"
+        },
+        {
+          "name": "str_options",
+          "description": "search sources included in the dropdown (defaulted to just 'primo')",
+          "type": "string"
+        },
+        {
+          "name": "search_btn_classes",
+          "description": "classes added to the search `<button>`",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "description": "[debugging] log actions to the console",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "description": "[debugging] prevent search button from executing and updating the window location",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "str_selected",
+          "attribute": "str_selected",
+          "description": "selected search source (defaulted to first option)",
+          "type": "string"
+        },
+        {
+          "name": "str_options",
+          "attribute": "str_options",
+          "description": "search sources included in the dropdown (defaulted to just 'primo')",
+          "type": "string"
+        },
+        {
+          "name": "search_btn_classes",
+          "attribute": "search_btn_classes",
+          "description": "classes added to the search `<button>`",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "[debugging] log actions to the console",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "attribute": "prevent_action",
+          "description": "[debugging] prevent search button from executing and updating the window location",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-locoso",
+      "description": "display the *LO*cation, *CO*ntact, and *SO*cial media information for\n    a given library within the Boston Universities System.",
+      "attributes": [
+        {
+          "name": "link_class",
+          "description": "optional additional class added to each link in the rendered HTML",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "description": "current library code used as the key to swap between locoso data entries",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "description": "[debugging] log events to console",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "link_class",
+          "attribute": "link_class",
+          "description": "optional additional class added to each link in the rendered HTML",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "attribute": "library",
+          "description": "current library code used as the key to swap between locoso data entries",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "[debugging] log events to console",
           "type": "boolean"
         }
       ]

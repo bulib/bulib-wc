@@ -3,6 +3,8 @@ div.banner-wrapper { display: none !important; }
 
 /* - home-top - */
 
+#content { margin-top: 80px !important; }
+
 /* prevent search/background image from over-shrinking */
 #homepage #home-top { 
   min-width: 320px; 
@@ -151,6 +153,7 @@ p.wp-caption-text { display: none; }
   #home-bottom #about div.drop h2 {
     display: none !important; 
 }
+#home-bottom .collapsed li { border-bottom: none !important; }
 #home-bottom .collapsed .sub-menu li a {
   color: var(--color-button-background-dark, #1B598C);
 }
@@ -175,9 +178,10 @@ p.wp-caption-text { display: none; }
 }
 
 /* adjust hours display against default wordpress */
-#home-bottom .collapsed li span #hours-display a {
-  color: #555;
-  margin-top: 0px;
+#home-bottom .collapsed li span#hours-display a {
+  font-family: "Benton-Sans";
+  font-size: 1em;
+  color: #555 !important;
 }
 
 /* border-top colors */ 
@@ -185,10 +189,6 @@ p.wp-caption-text { display: none; }
 #home-bottom #services ul.menu > li { border-top: 2px solid #2E31BF !important; }
 #home-bottom #about ul.menu > li { border-top: 2px solid #BF3C37 !important; }
 #home-bottom #about { display: none !important; }
-#home-bottom .collapsed .sub-menu li a, #home-bottom .collapsed li span { 
-  font-family: "Benton-Sans",'Source Sans Pro', sans-serif !important;
-  font-size: 1.1em !important;
-}
 
 p.wp-caption-text { display: none; }
 

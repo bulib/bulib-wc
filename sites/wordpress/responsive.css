@@ -10,8 +10,10 @@ div.sidebar > div { min-width: 45%; }
 div.sidebar { padding: var(--padding-medium, 10px); }
 
 #content, #content .banner-container, #content .banner-container .page-width, #header .container {
-	max-width: 97vw;
+	max-width: 100vw;
 }
+
+div.table-responsive { overflow-x: scroll; }
 
 @media only screen and (max-width: 900px) {
   div.sidebar.right {

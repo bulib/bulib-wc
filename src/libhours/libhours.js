@@ -53,7 +53,7 @@ export default class BULibHours extends LitElement {
     this._logToConsole(`rendering hours for ${library_name} (code:'${libCode}').`);
     let hours_loading = html`
       <span id="hours-display" class="inline" aria-label="today's hours for ${library_name}">
-        <a href="${all_lib_hours_url}">
+        <a href="${all_lib_hours_url}" class="${this.link_class}">
           ${until(this._fetchHoursData(libCode, lid), html`<small> loading hours...</small>`)}
         </a>
       </span>
