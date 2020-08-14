@@ -17,23 +17,6 @@ div.banner-wrapper { display: none !important; }
   max-width: 100% !important;
 }
 
-/* wordpress announcement */
-body#homepage .alert, body#homepage .notification {
-  background: #fff;
-  margin: 0;
-  padding: 12px 0 18px;
-}
-
-.notification p {
-  border: 2px solid #b8d993;
-  background-color: whitesmoke;
-  background-position: 15px -68px;
-
-  box-shadow: inset 0 0 0px whitesmoke;
-  -moz-box-shadow: inset 0 0 0px whitesmoke;
-  -webkit-box-shadow: inset 0 0 0px whitesmoke;
-}
-  
 
 /* - homepage searchbox - */
 
@@ -156,13 +139,6 @@ p.wp-caption-text { display: none; }
 #home-bottom .collapsed li { border-bottom: none !important; }
 #home-bottom .collapsed .sub-menu li a {
   color: var(--color-button-background-dark, #1B598C);
-}
-
-#home-bottom ul.menu > li > a { 
-  font-family: "Benton-Sans",'Source Sans Pro', sans-serif;
-  font-weight: bolder;
-  color: var(--color-accent-red-background);
-  color: #222;
 }
 
 /* spacing between rows */

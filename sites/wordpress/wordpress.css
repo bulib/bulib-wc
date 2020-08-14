@@ -61,35 +61,9 @@ input::placeholder, input:-ms-input-placeholder, input::-ms-input-placeholder {
 	opacity: 1;
 }
 
-/* lists */
-.content-panel > ul > li {
-	list-style: square;
-	background: none;
-	margin: 0 0 8px 25px;
-	padding-left: 15px;
-	color: #333333;
-}
-
-/*Forms*/
-.gform_wrapper .gsection h2.gsection_title {
-	color: #8C0000;
-}
-
-.content-panel .gform_wrapper form .gform_footer .gform_button, .gform_button, input[type="submit"] {
-	color: var(--color-button-text, white);
-	background: var(--color-button-background, #1b598c);
-	border: 1px solid var(--color-button-text, white);
-	border-radius: 4px;
-	font-family: "Benton-Sans", "Helvetica", "Arial";
-	font-weight: 700;
-	font-size: 1em;
-	margin: 20px 0;
-	padding: 10px 20px;
-	box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-}
-input[type="submit"]:hover { background-color: var(--color-button-background-dark, #1b598c); }
 
 /* - assorted header tweaks - */
+
 div.header-wrapper, div.mobile-navigation, div.banner-wrapper { 
   width: auto;
   z-index: 10; 
@@ -163,7 +137,59 @@ div.page_hdr a {
 }
 
 
+/* - wordpress notifications/announcements - */ 
+
+div.notification, div.alert { 
+  display:flex;
+  flex-wrap: nowrap;
+
+  /* set severity color customizations for background */
+  --color-severity-info: var(--color-primary-background-light);
+  --color-severity-alert: var(--color-accent-red-background);
+
+  /* set default colors for where blank text is dropped in */
+  background-color: var(--color-primary-background-light, #444);
+  color: var(--color-primary-text-light, white) !important;
+
+  /* clear out bu-ist/library-theme default */
+  background: inherit !important; 
+  background-image: none;
+
+  /* set margins, padding, color */
+  padding: var(--padding-large, 15px) !important;
+  margin-top: var(--padding-large, 15px) !important;
+  margin-bottom: var(--padding-large, 15px) !important;
+}
+
+/* enlarge the icons */
+div.notification i.material-icons, div.alert i.material-icons { 
+  font-size: 35px; 
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* reset the background color to adjust for severity */
+div.notification, div.notification > *.info { 
+  background-color: var(--color-severity-info, #444) !important; 
+}
+div.alert, div.notification > *.alert { 
+  background-color: var(--color-severity-alert, #CC0000) !important; 
+}
+
+/* ensure font compliance and inherit other settings */ 
+div.notification p, div.alert p {
+  font-family: "Benton-Sans", "StagWebLight", "Helvetica", "Arial";
+  background-color: inherit;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  border: none !important;
+  padding: var(--padding-small, 5px) var(--padding-xlarge, 25px) !important;
+}
+
+
 /* - footer styling - */
+
 #footer { 
   /* match footer color in the padding placed around the footer */
   background-color: var(--color-primary-background, black) !important; 
@@ -206,13 +232,6 @@ li.style-scope.bulib-footer {
 	color: #212121;
 }
 
-
-/* - library & service hours (/library/about/hours/) - */
-.s-lc-whw-bh > button {
-  padding: 5px;
-  font-size: large;
-}
-
 /* - floorplans - */
 
 /* locate by floor styling: display horizontally */
@@ -250,7 +269,9 @@ div.locate-by-floor ul li, ul#locate-callno li {
   div.tabs #locate-resources { column-count: 2 !important; }
 }
 
+
 /* - card styling - */
+
 div.card { margin-top: auto; margin-bottom: auto; }
 
 div.card h3 a {
@@ -287,6 +308,9 @@ div.card h3 a:link, div.card h3 a:visited {
   .back2bulib .grid { grid-template-columns: 1fr; }
 }
 
+
+/* - assorted - */
+
 /* content-panel lists */ 
 .content-panel > ul > li {
 	list-style: square;
@@ -295,3 +319,27 @@ div.card h3 a:link, div.card h3 a:visited {
 	padding-left: var(--padding-large, 15px);
 	color: var(--color-body-text, #333333);
 }
+
+/* library & service hours (/library/about/hours/) */
+.s-lc-whw-bh > button {
+  padding: 5px;
+  font-size: large;
+}
+
+
+/* forms */
+.gform_wrapper .gsection h2.gsection_title { color: var(--color-accent-red-background, #8C0000); }
+
+.content-panel .gform_wrapper form .gform_footer .gform_button, .gform_button, input[type="submit"] {
+	color: var(--color-button-text, white);
+	background: var(--color-button-background, #1b598c);
+	border: 1px solid var(--color-button-text, white);
+	border-radius: 4px;
+	font-family: "Benton-Sans", "Helvetica", "Arial";
+	font-weight: 700;
+	font-size: 1em;
+	margin: 20px 0;
+	padding: 10px 20px;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+input[type="submit"]:hover { background-color: var(--color-button-background-dark, #1b598c); }
