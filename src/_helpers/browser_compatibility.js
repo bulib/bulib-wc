@@ -1,6 +1,6 @@
 /** - BROWSER COMPATIBILITY HELPER - */
 
-const DEBUG_BROWSER = true;
+const DEBUG_BROWSER = false;
 
 function logBrowserMessage(msg){ 
   if(DEBUG_BROWSER){ console.log("_browserCompatibility) " + msg); }

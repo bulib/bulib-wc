@@ -8,16 +8,16 @@ const items_dictionary = {
           <span>FIND</span>
           <li><a href="https://www.bu.edu/library/search">Search</a></li>
           <li><a href="https://library.bu.edu/az.php">Databases A-Z</a></li>
-          <li><a href="/library/services/reserves/">Course Materials</a></li>
+          <li><a href="https://www.bu.edu/library/services/reserves/">Course Materials</a></li>
           <li><a href="https://buprimo.hosted.exlibrisgroup.com/primo-explore/search?vid=journals&lang=en_US">eJournals</a></li>
         </ul>
       </li>
       <li>
         <ul class="no-bullet" tabindex="0">
           <span>BORROW</span>
-          <li><a href="/library/services/borrowing/">Borrowing</a></li>
+          <li><a href="https://www.bu.edu/library/services/borrowing/">Borrowing</a></li>
           <li><a href="https://www.bu.edu/library/services/bu-libraries-2-go/">BU Libraries 2 Go</a></li>
-          <li><a href="/library/services/ill/">Interlibrary Loan</a></li>
+          <li><a href="https://www.bu.edu/library/services/ill/">Interlibrary Loan</a></li>
           <li><a href="https://www.bu.edu/library/account/">My Library Accounts</a></li>
           <li><a href="https://bu.on.worldcat.org/discovery">WorldCat Discovery</a></li>
         </ul>
@@ -29,8 +29,8 @@ const items_dictionary = {
       <li>
         <ul class="no-bullet no-bullet" tabindex="0">
           <span>SERVICES</span>
-          <li><a href="/library/services/scanning-delivery-services/">Scanning &amp; Digital Delivery</a></li>
-          <li><a href="/library/services/reserves/">Course Reserves</a></li>
+          <li><a href="https://www.bu.edu/library/services/scanning-delivery-services/">Scanning &amp; Digital Delivery</a></li>
+          <li><a href="https://www.bu.edu/library/services/reserves/">Course Reserves</a></li>
           <li><a href="https://www.bu.edu/disc/">Digital Scholarship</a></li>
           <li><a href="https://www.bu.edu/data/">Data Services</a></li>
         </ul>
@@ -39,9 +39,9 @@ const items_dictionary = {
         <ul class="no-bullet"  tabindex="0">
           <span>GUIDES</span>
           <li><a href="https://library.bu.edu/guides/">Research Guides</a></li>
-          <li><a href="/library/research/guides/course-guides/">Course Guides</a></li>
-          <li><a href="/library/help/how-to/">How-To Guides</a></li>
-          <li><a href="/library/help/using-the-libraries-online/">Using the Libraries Online</a></li>
+          <li><a href="https://www.bu.edu/library/research/guides/course-guides/">Course Guides</a></li>
+          <li><a href="https://www.bu.edu/library/help/how-to/">How-To Guides</a></li>
+          <li><a href="https://www.bu.edu/library/help/using-the-libraries-online/">Using the Libraries Online</a></li>
           <li><a href="https://library.bu.edu/create_bibliographies">Creating Bibliographies</a></li>
         </ul>
       </li>
@@ -49,9 +49,9 @@ const items_dictionary = {
         <ul class="no-bullet" tabindex="0">
           <span>SUPPORT</span>
           <li><a href="https://askalibrarian.bu.edu/">Ask a Librarian</a></li>
-          <li><a href="/library/services/reference/appointments/">Make an Appointment</a></li>
-          <li><a href="/library/services/for-faculty/">For Faculty</a></li>
-          <li><a href="/library/services/for-graduate-students/">For Graduate Students</a></li>
+          <li><a href="https://www.bu.edu/library/services/reference/appointments/">Make an Appointment</a></li>
+          <li><a href="https://www.bu.edu/library/services/for-faculty/">For Faculty</a></li>
+          <li><a href="https://www.bu.edu/library/services/for-graduate-students/">For Graduate Students</a></li>
         </ul>
       </li>
     </ul>
@@ -61,36 +61,36 @@ const items_dictionary = {
       <li>
         <ul class="no-bullet" tabindex="0">
           <span>SPACES</span>
-          <li><a href="/library/about/hours/">Library &amp; Service Hours</a></li>
-          <li><a href="/library/help/visiting-the-libraries/">Visiting the Libraries</a></li>
-          <li><a href="/library/about/study-spaces/">Study Rooms &amp; Spaces</a></li>
-          <li><a href="/library/about/maps-floorplans/">Maps &amp; Floorplans</a></li>
-          <li><a href="/library/services/computers-and-printing/">Computers, Printing, Scanning</a></li>
+          <li><a href="https://www.bu.edu/library/about/hours/">Library &amp; Service Hours</a></li>
+          <li><a href="https://www.bu.edu/library/help/visiting-the-libraries/">Visiting the Libraries</a></li>
+          <li><a href="https://www.bu.edu/library/about/study-spaces/">Study Rooms &amp; Spaces</a></li>
+          <li><a href="https://www.bu.edu/library/about/maps-floorplans/">Maps &amp; Floorplans</a></li>
+          <li><a href="https://www.bu.edu/library/services/computers-and-printing/">Computers, Printing, Scanning</a></li>
         </ul>
       </li>
       <li>
         <ul class="no-bullet" tabindex="0">
           <span>INFO</span>
-          <li><a href="/library/about">About BU Libraries</a></li>
-          <li><a href="/library/about/news/">News &amp; Updates</a></li>
-          <li><a href="/library/about/who-we-are/staff-directory/">Staff Directory A-Z</a></li>
-          <li><a href="/library/about/code-of-conduct/">Code of Conduct</a></li>
+          <li><a href="https://www.bu.edu/library/about">About BU Libraries</a></li>
+          <li><a href="https://www.bu.edu/library/about/news/">News &amp; Updates</a></li>
+          <li><a href="https://www.bu.edu/library/about/who-we-are/staff-directory/">Staff Directory A-Z</a></li>
+          <li><a href="https://www.bu.edu/library/about/code-of-conduct/">Code of Conduct</a></li>
         </ul> 
       </li> 
     </ul>
   `,
   "locations": html`
     <ul class="submenu-items multi-column no-bullet"  tabindex="0">
-      <li><a href="/library/african-studies/">African Studies Library</a></li>  
-      <li><a href="/library/astronomy/">Astronomy Library</a></li>    
+      <li><a href="https://www.bu.edu/library/african-studies/">African Studies Library</a></li>  
+      <li><a href="https://www.bu.edu/library/astronomy/">Astronomy Library</a></li>    
       <li><a href="http://archives.bu.edu/">Howard Gotlieb Archival Research Center</a></li>  
-      <li><a href="/library/mugar-memorial/">Mugar Memorial Library</a></li>  
-      <li><a href="/library/music/">Music Library</a></li> 
-      <li><a href="/library/management/">Pardee Management Library</a></li> 
-      <li><a href="/library/pickering-educational/">Pickering Educational Resources Library</a></li>  
-      <li><a href="/library/sel/">Science &amp; Engineering Library</a></li>  
-      <li><a href="/library/stone-science/">Stone Science Library</a></li>  
-      <li><a href="/library/about" class="bold underline">ALL LOCATIONS</a></li>
+      <li><a href="https://www.bu.edu/library/mugar-memorial/">Mugar Memorial Library</a></li>  
+      <li><a href="https://www.bu.edu/library/music/">Music Library</a></li> 
+      <li><a href="https://www.bu.edu/library/management/">Pardee Management Library</a></li> 
+      <li><a href="https://www.bu.edu/library/pickering-educational/">Pickering Educational Resources Library</a></li>  
+      <li><a href="https://www.bu.edu/library/sel/">Science &amp; Engineering Library</a></li>  
+      <li><a href="https://www.bu.edu/library/stone-science/">Stone Science Library</a></li>  
+      <li><a href="https://www.bu.edu/library/about" class="bold underline">ALL LOCATIONS</a></li>
     </ul>
   `
 }

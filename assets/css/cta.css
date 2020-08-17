@@ -42,6 +42,3 @@ div.cta:hover {
   background-color: var(--color-secondary-background, gainsboro); 
   cursor: pointer;
 }
-.ctas .cta:last-of-type {
-  text-transform: uppercase;
-}

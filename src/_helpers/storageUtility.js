@@ -1,7 +1,7 @@
 
 /** - STORAGE UTILITY - */
 
-const DEBUG_STORAGE_UTIL = true;
+const DEBUG_STORAGE_UTIL = false;
 const DEFAULT_STORAGE_EXPIRATION_TIME = 1000 * 60 * 60 * 24 * 3; // 3 days (for now)
 
 function logStorageMessage(msg){ if(DEBUG_STORAGE_UTIL){ console.log("_storageUtility) " + msg); }}
