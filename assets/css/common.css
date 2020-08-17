@@ -41,8 +41,10 @@
 .bigger-text, .larger-text { font-size: 120% !important; }
 
 .multi-column {
-  column-gap: 5%;
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
   column-count: 2;
+  column-gap: 5%;
 }
 
 /* list styles */
@@ -83,5 +85,6 @@ a.sr-only:focus { height: auto; width: auto; position: inherit; color: white; fo
 .secondary-menu, .bordered {
   background-color: var(--color-secondary-background-light, gainsboro);
   border: 1px solid var(--color-secondary-background-dark, grey);
+  color: var(--color-secondary-text, black);
   padding: 10px;
 }

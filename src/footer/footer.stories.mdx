@@ -63,6 +63,51 @@ Here the `library` is unspecified (so we don't display any hours or particular i
   </Story>
 </Preview>
 
+## Customizing with Slots
+
+If you'd like a particular item inside of the middle part of the footer, you can use the `sitemap` slot:
+
+### Basic Slot 
+
+You can recreate the style of the existing with something like the following...
+
+<Preview withToolbar>
+  <Story name="slotted-basic">
+    {html`
+      <bulib-footer>
+        <div slot="sitemap">
+          <h3>[Name of the Website]</h3>
+          <ul class="no-bullet">
+            <li><a href="" class="white-link">first link</a></li>
+            <li><a href="" class="white-link">second link</a></li>
+            <li><a href="" class="white-link">third link</a></li>
+          </ul>
+        </div>
+      </bulib-footer>
+    `}
+  </Story>
+</Preview>
+
+
+### Customized (slotted)
+
+Without being given any information, the footer speaks generically about the BU Libraries
+  and displays the sitemap for the `about` (wordpress) site.
+
+<Preview withToolbar>
+  <Story name="slotted-custom">
+    {html`
+      <bulib-footer>
+        <div slot="sitemap" style="height: 100%;" class="secondary-menu flexw space-evenly mvs">
+          <h2>Customized Sitemap/Footer</h3>
+          <bulib-color var="--color-primary-background" white></bulib-color>
+          <bulib-card icon="view_compact" title="bulib-card"
+            description="you really can put anything in here" link="https://bu.edu/library/help/visiting-the-libraries"></bulib-card>
+        </div>
+      </bulib-footer>`}
+  </Story>
+</Preview>
+
 
 ## API - Properties 
 

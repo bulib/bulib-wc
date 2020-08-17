@@ -183,46 +183,6 @@
       ]
     },
     {
-      "name": "bulib-feedback",
-      "attributes": [
-        {
-          "name": "code",
-          "description": "unique identifier for each feedback input (event category)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "description": "[debugging] enables logging to the console",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "description": "[debugging] override main action (prevent GAEvent logging)",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "code",
-          "attribute": "code",
-          "description": "unique identifier for each feedback input (event category)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "[debugging] enables logging to the console",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "attribute": "prevent_action",
-          "description": "[debugging] override main action (prevent GAEvent logging)",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
       "name": "bulib-color",
       "description": "context-sensitive search form allowing you to search across multiple 'search_options'",
       "attributes": [
@@ -264,6 +224,46 @@
       ]
     },
     {
+      "name": "bulib-feedback",
+      "attributes": [
+        {
+          "name": "code",
+          "description": "unique identifier for each feedback input (event category)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "description": "[debugging] enables logging to the console",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "description": "[debugging] override main action (prevent GAEvent logging)",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "code",
+          "attribute": "code",
+          "description": "unique identifier for each feedback input (event category)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "[debugging] enables logging to the console",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "attribute": "prevent_action",
+          "description": "[debugging] override main action (prevent GAEvent logging)",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
       "name": "bulib-submenu",
       "attributes": [
         {
@@ -276,69 +276,6 @@
           "name": "code",
           "attribute": "code",
           "type": "string"
-        }
-      ]
-    },
-    {
-      "name": "bulib-hours",
-      "description": "display the hours of operation for a given library",
-      "attributes": [
-        {
-          "name": "library",
-          "description": "established which library we're displaying the hours/info of",
-          "type": "string"
-        },
-        {
-          "name": "short",
-          "description": "alters the default display to be more succint/compact",
-          "type": "boolean"
-        },
-        {
-          "name": "link_class",
-          "description": "provides means of adding classes to the inner link",
-          "type": "string"
-        },
-        {
-          "name": "icon",
-          "description": "enable clock icon to be overwritten with a material icon",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "description": "[debugging] enable logging to the console",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "library",
-          "attribute": "library",
-          "description": "established which library we're displaying the hours/info of",
-          "type": "string"
-        },
-        {
-          "name": "short",
-          "attribute": "short",
-          "description": "alters the default display to be more succint/compact",
-          "type": "boolean"
-        },
-        {
-          "name": "link_class",
-          "attribute": "link_class",
-          "description": "provides means of adding classes to the inner link",
-          "type": "string"
-        },
-        {
-          "name": "icon",
-          "attribute": "icon",
-          "description": "enable clock icon to be overwritten with a material icon",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "[debugging] enable logging to the console",
-          "type": "boolean"
         }
       ]
     },
@@ -393,6 +330,47 @@
           "description": "provide window into setting displayed 'locoso' contact data",
           "type": "string",
           "default": "\"help\""
+        }
+      ]
+    },
+    {
+      "name": "bulib-locoso",
+      "description": "display the *LO*cation, *CO*ntact, and *SO*cial media information for\n    a given library within the Boston Universities System.",
+      "attributes": [
+        {
+          "name": "link_class",
+          "description": "optional additional class added to each link in the rendered HTML",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "description": "current library code used as the key to swap between locoso data entries",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "description": "[debugging] log events to console",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "link_class",
+          "attribute": "link_class",
+          "description": "optional additional class added to each link in the rendered HTML",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "attribute": "library",
+          "description": "current library code used as the key to swap between locoso data entries",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "[debugging] log events to console",
+          "type": "boolean"
         }
       ]
     },
@@ -460,42 +438,64 @@
       ]
     },
     {
-      "name": "bulib-locoso",
-      "description": "display the *LO*cation, *CO*ntact, and *SO*cial media information for\n    a given library within the Boston Universities System.",
+      "name": "bulib-hours",
+      "description": "display the hours of operation for a given library",
       "attributes": [
         {
-          "name": "link_class",
-          "description": "optional additional class added to each link in the rendered HTML",
+          "name": "library",
+          "description": "established which library we're displaying the hours/info of",
           "type": "string"
         },
         {
-          "name": "library",
-          "description": "current library code used as the key to swap between locoso data entries",
+          "name": "short",
+          "description": "alters the default display to be more succint/compact",
+          "type": "boolean"
+        },
+        {
+          "name": "link_class",
+          "description": "provides means of adding classes to the inner link",
+          "type": "string"
+        },
+        {
+          "name": "icon",
+          "description": "enable clock icon to be overwritten with a material icon",
           "type": "string"
         },
         {
           "name": "debug",
-          "description": "[debugging] log events to console",
+          "description": "[debugging] enable logging to the console",
           "type": "boolean"
         }
       ],
       "properties": [
         {
-          "name": "link_class",
-          "attribute": "link_class",
-          "description": "optional additional class added to each link in the rendered HTML",
+          "name": "library",
+          "attribute": "library",
+          "description": "established which library we're displaying the hours/info of",
           "type": "string"
         },
         {
-          "name": "library",
-          "attribute": "library",
-          "description": "current library code used as the key to swap between locoso data entries",
+          "name": "short",
+          "attribute": "short",
+          "description": "alters the default display to be more succint/compact",
+          "type": "boolean"
+        },
+        {
+          "name": "link_class",
+          "attribute": "link_class",
+          "description": "provides means of adding classes to the inner link",
+          "type": "string"
+        },
+        {
+          "name": "icon",
+          "attribute": "icon",
+          "description": "enable clock icon to be overwritten with a material icon",
           "type": "string"
         },
         {
           "name": "debug",
           "attribute": "debug",
-          "description": "[debugging] log events to console",
+          "description": "[debugging] enable logging to the console",
           "type": "boolean"
         }
       ]

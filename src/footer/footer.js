@@ -8,29 +8,30 @@ const sitemap_values = {
     "wordpress":{
     "header":"About the Libraries",
     "links":[
-      {"title":"Interlibrary Borrowing","href":"https://www.bu.edu/library/services/ill/"},
-      {"title":"Course Reserves",       "href":"https://www.bu.edu/library/services/reserves/"},
-      {"title":"For Alumni",            "href":"https://www.bu.edu/library/services/alumni/"},
-      {"title":"Staff Directory",       "href":"https://www.bu.edu/library/about/who-we-are/staff-directory/"},
-      {"title":"Maps & Floorplans",     "href":"https://www.bu.edu/library/about/maps-floorplans/"},
-      {"title":"For Faculty",           "href":"https://www.bu.edu/library/services/for-faculty/"}
+      {"title":"About Us",              "href":"https://www.bu.edu/library/about/"},
+      {"title":"Location Hours",        "href":"https://www.bu.edu/library/about/hours/"},
+      {"title":"Visiting the Libraries","href":"https://www.bu.edu/library/help/visiting-the-libraries/"},
+      {"title":"Course Reserves",       "href":"http://www-staging.bu.edu/library/services/reserves/"},
+      {"title":"Research Guides",       "href":"https://library.bu.edu/guides/"},
+      {"title":"Staff Directory",       "href":"https://www.bu.edu/library/about/who-we-are/staff-directory/"}
     ]
   },"askalibrarian":{
     "header":"Ask A Librarian",
     "links":[
-      {"title":"Research Guides by Subject",    "href":"https://library.bu.edu/guides/"},
-      {"title":"Course Guides",                 "href":"https://www.bu.edu/library/research/guides/course-guides/"},
-      {"title":"How-To Guides",                 "href":"https://www.bu.edu/library/help/how-to/"},
-      {"title":"Pardee Management Library FAQs","href":"https://askalibrarian.bu.edu/businessFAQs/"},
-      {"title":"Make a Research Appointment",   "href":"https://www.bu.edu/library/services/reference/appointments/"}
+      {"title":"Subject Guides",      "href":"https://library.bu.edu/guides/"},
+      {"title":"Course Guides",       "href":"https://www.bu.edu/library/research/guides/course-guides/"},
+      {"title":"How-To Guides",       "href":"https://www.bu.edu/library/help/how-to/"},
+      {"title":"Business FAQs",       "href":"https://askalibrarian.bu.edu/businessFAQs/"},
+      {"title":"Make an Appointment", "href":"https://www.bu.edu/library/services/reference/appointments/"},
+      {"title":"General Help",        "href":"https://www.bu.edu/library/help/"}
     ]
   },"guides":{
     "header":"Library Guides",
     "links":[
-      {"title":"Research Guides by Subject",  "href":"https://library.bu.edu/guides/"},
-      {"title":"Course Guides",               "href":"https://www.bu.edu/library/research/guides/course-guides/"},
-      {"title":"How-To Guides",               "href":"https://www.bu.edu/library/help/how-to/"},
-      {"title":"Make a Research Appointment", "href":"https://www.bu.edu/library/services/reference/appointments/"}
+      {"title":"Subject Guides",      "href":"https://library.bu.edu/guides/"},
+      {"title":"Course Guides",       "href":"https://www.bu.edu/library/research/guides/course-guides/"},
+      {"title":"How-To Guides",       "href":"https://www.bu.edu/library/help/how-to/"},
+      {"title":"Make an Appointment", "href":"https://www.bu.edu/library/services/reference/appointments/"}
     ]
   },"primo":{
     "header":"BU Libraries Search",
@@ -56,6 +57,7 @@ export default class BULibFooter extends LitElement {
   static get styles(){
     return [
       css`
+        .flex-evenly { justify-content: space-evenly; }
         /* footer grid and colors */
         footer {
           display: grid;
@@ -67,7 +69,11 @@ export default class BULibFooter extends LitElement {
             "ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt ftr-lt";
           grid-gap: 10px;
         }
-        .ftr-middle > div, .ftr-right > div, .ftr-left > div { width: 85%; margin: 0 auto; }
+        .ftr-middle ul { margin-top: 0px; }
+        .ftr-middle > div, .ftr-right > div, .ftr-left > div { 
+          width: 95%; 
+          margin: 0 auto; 
+        }
         .ftr-right { padding-bottom: 0px; }
 
         /* medium-sized screen */
@@ -83,7 +89,7 @@ export default class BULibFooter extends LitElement {
             padding-bottom: 60px;
           }
           .ftr-middle > div { width: 75%; }
-          .ftr-left > div, .ftr-right > div { width: 100%; }
+          .ftr-left > div, .ftr-right > div { width: 95%; }
         }
       
         /* large-sized screen */ 
@@ -182,13 +188,24 @@ export default class BULibFooter extends LitElement {
     // fill in the sitemap middle section of the footer
     let sitemap_data = sitemap_values[this.host_site] || sitemap_values["askalibrarian"];
     let links = sitemap_data["links"];
+
+    let links_midpoint = parseInt(links.length/2);
+    let links_1 = links.slice(0, links_midpoint);
+    let links_2 = links.slice(links_midpoint, links.length);
     let sitemap_content = html`
-      <h3>${sitemap_data["header"]}</h3>
-      <ul class="multi-column no-bullet txtl">
-        ${links.map((l) => html`<li>
-          <a class="white-link pvm" href="${l.href}" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">${l.title}</a>
-        </li>`)}
-      </ul>
+      <h3 class="txtc">${sitemap_data["header"]}</h3>
+      <div class="flexnw flex-evenly txtl">
+        <ul class="no-bullet">
+          ${links_1.map((l) => html`<li class="mbm mla">
+            <a class="white-link" href="${l.href}" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">${l.title}</a>
+          </li>`)}
+        </ul>
+        <ul class="no-bullet">
+          ${links_2.map((l) => html`<li class="mbm mla">
+            <a class="white-link" href="${l.href}" @click="${(ev) => {sendGAEventFromClickEvent(ev, 'bulib-footer');}}">${l.title}</a>
+          </li>`)}
+        </ul>
+      </div>
     `;
 
     // render the main content of the component

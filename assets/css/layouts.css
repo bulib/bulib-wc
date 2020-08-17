@@ -37,8 +37,8 @@ div.tiles > * {
 .left { float: left; }
 .inline { display: inline-block; }
 .flex-center { justify-content: center; }
-.space-between { justify-content: space-between; }
-.space-evenly { justify-content: space-evenly; }
+.flex-between, .space-between { justify-content: space-between; }
+.flex-evenly, .space-evenly { justify-content: space-evenly; }
 
 /* - prepare footer to auto-margin itself to the bottom of the viewport - */
 body {
