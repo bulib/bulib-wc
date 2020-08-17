@@ -74,10 +74,7 @@ ul#mobile-menu li { float: unset; padding: 10px 0px; }
 #header .container { position: unset;  }
 #header #masthead, #header #search { display: none; }
 
-div #content { 
-  z-index: 1; 
-  margin-top: 130px;
-}
+div #content { z-index: 1; }
 div #content, div #content div.page_hdr {
   border: none;
   

@@ -1,10 +1,12 @@
+#content { margin-top: 130px; }
+
 #content div.banner-container img, #content div.banner-container div.page-width img { 
   height: auto !important; 
   width: 100%; 
 }
 #content > div.wrapper {
   display: flex;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
 }
 div.sidebar > div { min-width: 45%; }
 div.sidebar { padding: var(--padding-medium, 10px); }
