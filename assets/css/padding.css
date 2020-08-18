@@ -76,28 +76,28 @@ body {
 
 /* - margin utils - */
 .man { margin: 0px !important; }
-.maa { margin: auto; }
+.maa { margin: auto !important; }
 .mas { margin: var(--padding-small); }
 .mam { margin: var(--padding-medium); }
 .mal { margin: var(--padding-large); }
 .maxl { margin: var(--padding-xlarge); }
 
 .mtn { margin-top: 0px !important; }
-.mta { margin-top: auto; }
+.mta { margin-top: auto !important; }
 .mts { margin-top: var(--padding-small); }
 .mtm { margin-top: var(--padding-medium); }
 .mtl { margin-top: var(--padding-large); }
 .mtxl { margin-top: var(--padding-xlarge); }
 
 .mbn { margin-bottom: 0px !important; }
-.mba { margin-bottom: auto; }
+.mba { margin-bottom: auto !important; }
 .mbs { margin-bottom: var(--padding-small); }
 .mbm { margin-bottom: var(--padding-medium); }
 .mbl { margin-bottom: var(--padding-large); }
 .mbxl { margin-bottom: var(--padding-xlarge); }
 
 .mvn { margin-top: 0px !important; margin-bottom: 0px !important; }
-.mva { margin-top: auto; margin-bottom: auto; }
+.mva { margin-top: auto !important; margin-bottom: auto !important; }
 .mvs { 
   margin-top:     var(--padding-small); 
   margin-bottom:  var(--padding-small);
@@ -116,21 +116,21 @@ body {
 }
 
 .mln { margin-left: 0px !important; }
-.mla { margin-left: auto; }
+.mla { margin-left: auto !important; }
 .mls { margin-left: var(--padding-small); }
 .mlm { margin-left: var(--padding-medium); }
 .mll { margin-left: var(--padding-large); }
 .mlxl { margin-left: var(--padding-xlarge); }
 
 .mrn { margin-right: 0px; }
-.mra { margin-right: auto; }
+.mra { margin-right: auto !important; }
 .mrs { margin-right: var(--padding-small); }
 .mrm { margin-right: var(--padding-medium); }
 .mrl { margin-right: var(--padding-large); }
 .mrxl { margin-right: var(--padding-xlarge); }
 
 .mhn { margin-left: 0px !important; margin-right: 0px !important; }
-.mha { margin-left: auto; margin-right: auto; }
+.mha { margin-left: auto !important; margin-right: auto !important; }
 .mhs { 
   margin-left:   var(--padding-small); 
   margin-right:  var(--padding-small); 

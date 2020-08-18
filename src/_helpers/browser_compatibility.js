@@ -13,7 +13,6 @@ function doesBrowserSupportWebComponents(notifyGA){
   let isEdge = !!window.StyleMedia;
   let isFirefox60 = navigator.userAgent.includes("Firefox/60.");
   let user_agent_supports_web_components = !isIE && !isEdge && !isFirefox60;
-  console.log(isFirefox60);
   let browserGuess = "supported";
 
   if(!user_agent_supports_web_components){
