@@ -23,7 +23,7 @@
   #footer { margin-top: auto; }
 
   /* responsive card styling */
-  div.grid { grid-template-columns: 1fr 1fr 1fr; }
+  div.grid { grid-template-columns: 1fr 1fr 1fr 1fr; }
   @media only screen and (max-width: 1200px) {
     div.grid { grid-template-columns: 1fr 1fr; }
   }
