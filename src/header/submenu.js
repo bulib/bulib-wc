@@ -15,7 +15,6 @@ const items_dictionary = {
       <li>
         <ul class="no-bullet" tabindex="0">
           <span>BORROW</span>
-          <li><a href="https://www.bu.edu/library/services/borrowing/">Borrowing</a></li>
           <li><a href="https://www.bu.edu/library/services/bu-libraries-2-go/">BU Libraries 2 Go</a></li>
           <li><a href="https://www.bu.edu/library/services/ill/">Interlibrary Loan</a></li>
           <li><a href="https://www.bu.edu/library/account/">My Library Accounts</a></li>

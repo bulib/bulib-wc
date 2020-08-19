@@ -7,7 +7,7 @@ body { padding-left: 0px; padding-right: 0px; }
 
 /* normalize width alignment of top parts to match the header and footer breakpoints */
 @media only screen and (min-width: 1500px){
-  #s-lg-guide-header-info { margin-left: 7.5%; }
+  #s-lg-guide-header-info, #s-lg-guide-header-subjects { margin-left: 7.5%; }
   div.pull-right { margin-right: 8%; }
   #s-lib-bc > ol { margin-left: auto !important; margin-right: auto !important; width: 85%; }
 }
@@ -19,15 +19,6 @@ body { padding-left: 0px; padding-right: 0px; }
 #s-lib-bc #s-lib-bc-list a { font-size: initial; }
 #s-lib-admin-bc .breadcrumb, #s-lib-bc .breadcrumb { font-size: small; }
 #s-lg-guide-description { font-size: medium; }
-
-/* restyle the default 'search this guide' section at the top of a guide */
-#s-lg-guide-header-search { padding-top: 10px; }
-#s-lg-guide-search-box button[type=submit] { 
-  background-color: var(--color-button-background-dark, #257abe);
-  border: 1px solid var(--color-button-background-dark, #257abe);
-  color: var(--color-button-text, white);
-}
-#s-lg-guide-search-box button[type=submit]:hover { background-color: var(--color-button-background, #1B598C); }
 
 /* stretch header, breadcrumbs, and libguides supplemental footer to full width with no horizontal margin */
 #s-lg-guide-header, #s-lib-public-header { margin-left: 0px; margin-right: 0px; width: 100vw; }
@@ -42,6 +33,7 @@ body { padding-left: 0px; padding-right: 0px; }
   border: 1px solid var(--color-primary-background-light, #333); 
   color: var(--color-primary-text, whitesmoke);
 }
+#s-lg-guide-header-search { padding-top: 10px; }
 
 /* restyle the libguides supplemental footer */
 #s-lib-footer-public span { color: var(--color-primary-text, whitesmoke); }
@@ -56,30 +48,52 @@ body { padding-left: 0px; padding-right: 0px; }
 
 /* restyle the tabs for a given guide to match BU Libraries branding */
 #s-lg-guide-tabs { border-bottom: none; border-radius: 5px 5px 0 0; }
-#s-lg-tabs-container .nav-tabs > li { margin-top: 0px; }
-#s-lg-tabs-container .nav-tabs > li > a, #s-lg-tabs-container .nav-tabs > li > a > span {
+#s-lg-tabs-container ul.nav > li { margin-top: 0px; }
+#s-lg-tabs-container ul.nav > li > a, #s-lg-tabs-container ul.nav > li > a > span {
   background-color: var(--color-primary-background-light, #333); 
   color: var(--color-primary-text-light, white);
   font-size: 110%;
   font-weight: normal;
 }
-#s-lg-tabs-container .nav-tabs > li > a:hover, #s-lg-tabs-container .nav-tabs > li > a:hover > span { background-color: var(--color-primary-background, #444) }
+#s-lg-tabs-container ul.nav > li > a:hover, #s-lg-tabs-container ul.nav > li > a:hover > span { 
+  background-color: var(--color-primary-background, #444);
+}
 
-#s-lg-tabs-container .nav-tabs > .active > a, #s-lg-tabs-container .nav-tabs > li.active > a > span { 
+#s-lg-tabs-container ul.nav > .active > a, #s-lg-tabs-container ul.nav > li.active > a > span { 
   background-color: var(--color-accent-red-background, #CC0000);
   font-weight: bold !important;
 }
-#s-lg-tabs-container .nav-tabs > li.active > a:hover, #s-lg-tabs-container .nav-tabs > li.active > a:hover > span {
+#s-lg-tabs-container ul.nav > li.active > a:hover, #s-lg-tabs-container ul.nav > li.active > a:hover > span {
   background-color: var(--color-accent-red-background-dark, #A80000);
 }
 
 #s-lg-guide-tabs-title-bar { border-color: var(--color-secondary-background-dark, #333); }
+
+/* tab switcher for guide homepage */
+#s-lg-index-cols ul.nav > li > button { background-color: var(--color-secondary-background-light); }
+#s-lg-index-cols ul.nav > li > button:hover { background-color: var(--color-secondary-background); }
+#s-lg-index-cols ul.nav > li.active > button { 
+  background-color: var(--color-button-background, #257abe);
+  color: var(--color-button-text, white); 
+}
+#s-lg-index-cols ul.nav > li.active > button:hover { background-color: var(--color-button-background-dark); }
 
 /* typography header styles */
 body h1 { font-size: xx-large !important; font-weight: 400; }
 body h2 { font-size: x-large !important; }
 body h3 { font-size: large; }
 h2, h3, h4, h5, h6, body { font-family: 'Source Sans Pro', sans-serif; }
+div.panel-heading > a { font-size: 115%; }
+
+/* buttons */
+button.btn-info, a.btn.btn-info, #s-lg-guide-search-box button[type=submit] { 
+  background-color: var(--color-button-background); 
+  border: 1px solid var(--color-button-background, #257abe);
+  color: var(--color-button-text, white);
+}
+button.btn-info:hover, a.btn.btn-info:hover, #s-lg-guide-search-box button[type=submit]:hover { 
+  background-color: var(--color-button-background-dark); 
+}
 
 /* remove the borders around each section of a guide */
 .s-lib-box { 
