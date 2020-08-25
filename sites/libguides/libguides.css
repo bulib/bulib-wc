@@ -14,17 +14,100 @@ body { --font-size-announce: unset; }
 
 /* styling for the tags, staff login url, 'Powered by SpringShare' */
 #s-lib-footer-public {
-  font-size: small; 
+  font-size: small;
   color: var(--color-primary-text, whitesmoke);
   background-color: var(--color-primary-background, black);
 }
-#s-lib-footer-public a { 
-  font-weight: 700; 
+#s-lib-footer-public a {
+  font-weight: 700;
   color: var(--color-primary-text, #B4BCC1);
   text-decoration: underline;
 }
-#s-lib-footer-public a:hover { 
-  color: var(--color-primary-text-light, white); 
+#s-lib-footer-public a:hover {
+  color: var(--color-primary-text-light, white);
+}
+
+/* ensure header-dropdown shows up above other items */
+div.header-wrapper, div.full-width, div.banner-wrapper { width: 100vw; }
+#s-lib-public-main, #s-lg-guide-search-box .input-group > input,
+  #s-lg-guide-search-box .input-group button { z-index: unset; }
+
+body { padding-left: 0px; padding-right: 0px; }
+
+/* normalize width alignment of top parts to match the header and footer breakpoints */
+@media only screen and (min-width: 1500px){
+  #s-lg-guide-header #s-lg-guide-header-info > h1,
+    #s-lg-guide-header #s-lg-guide-header-info > div#s-lg-guide-desc-container {
+    margin-left: 7.5%;
+  }
+  div.pull-right { margin-right: 8%; }
+  #s-lib-bc > ol { margin-left: auto !important; margin-right: auto !important; width: 85%; }
+}
+
+/* restyle the breadcrumbs to increase size and match --color-primary-background-light */
+#s-lib-bc { 
+  padding-left: var(--padding-small, 5px);
+  padding-right: var(--padding-small, 5px);
+  background-color: var(--color-primary-background-light, #333); 
+  border: 1px solid var(--color-primary-background-light, #333); 
+  color: var(--color-primary-text, whitesmoke);
+}
+#s-lib-bc #s-lib-bc-list > li, #s-lib-bc #s-lib-bc-list > li > a { color: var(--color-primary-text, whitesmoke); }
+#s-lib-bc #s-lib-bc-list > li > a { text-decoration: underline; }
+#s-lib-bc #s-lib-bc-list > li > a:hover { color: var(--color-primary-text-light, white);  }
+#s-lib-bc #s-lib-bc-list a { font-size: initial; }
+#s-lib-admin-bc .breadcrumb, #s-lib-bc .breadcrumb { font-size: small; }
+#s-lg-guide-description { font-size: medium; }
+
+/* stretch header, breadcrumbs, and libguides supplemental footer to full width with no horizontal margin */
+#s-lg-guide-header, #s-lib-public-header { margin-left: 0px; margin-right: 0px; width: 100vw; }
+#s-lg-guide-header #s-lg-guide-header-info, div.pull-right { 
+  padding-left: var(--padding-small, 5px);
+  padding-right: var(--padding-small, 5px);
+}
+#s-lg-guide-header { 
+  background-color: var(--color-secondary-background-light, #EEE);
+  border-bottom: 1px solid var(--color-secondary-background-dark, #C8C8C8);
+}
+#s-lg-guide-header #s-lg-guide-header-info {
+  margin-top: -5px;
+  padding-top: var(--padding-medium, 10px);
+  padding-bottom: var(--padding-medium, 10px);
+}
+#s-lg-guide-header #s-lg-guide-search-box {
+  margin-top: 20px; 
+  width: 350px; 
+  max-width: 98vw; 
+  padding-left: 5px; 
+}
+#s-lg-guide-header #s-lg-guide-search-terms { font-size: large; }
+#s-lg-guide-header-search { padding-top: 10px; }
+div.banner-wrapper bulib-search { width: 550px; }
+
+/* restyle the libguides supplemental footer */
+#s-lib-footer-public span {
+  color: var(--color-primary-text, whitesmoke);
+  font-size: 115%;
+}
+#s-lib-footer-public, #s-lib-footer-public #s-lg-guide-header-meta, #s-lib-footer-public div.pad-bottom-sm {
+  background-color: var(--color-primary-background-light, #555);
+  color: var(--color-primary-text, whitesmoke);
+  margin-left: 0px; margin-right: 0px;
+  padding-left: 5px; padding-right: 5px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* buttons */
+button.btn-info, a.btn.btn-info, #s-lg-guide-search-box button[type=submit], a.label.label-info {
+  background-color: var(--color-button-background);
+  border: 1px solid var(--color-button-background, #257abe);
+  color: var(--color-button-text, white);
+}
+button.btn-info:hover, a.btn.btn-info:hover, #s-lg-guide-search-box button[type=submit]:hover, a.label.label-info:hover {
+  background-color: var(--color-button-background-dark);
 }
 
 /* 'Get Help' box styling (contact-us) */
@@ -67,10 +150,10 @@ body { --font-size-announce: unset; }
 }
 
 /* remove set width restrictions for az-list filters */
-.secondary-menu #s-lg-sel-az-types, 
-  .secondary-menu #s-lg-sel-az-vendors, 
-  .secondary-menu #s-lg-sel-subjects { 
-    width: 100%; 
+.secondary-menu #s-lg-sel-az-types,
+  .secondary-menu #s-lg-sel-az-vendors,
+  .secondary-menu #s-lg-sel-subjects {
+    width: 100%;
 }
 
 /* - Recurring Sidebar - */

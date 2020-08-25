@@ -6,7 +6,7 @@ a.bulib-btn, button.bulib-btn {
   text-align: center;
   margin: var(--padding-small, 5px);
   padding: var(--padding-small, 5px) var(--padding-medium, 10px);
-  color: var(--color-button-text, white);
+  color: var(--color-button-text, white) !important;
   text-decoration: none;
   background-color: var(--color-button-background-dark,#1b598c);
   border: 2px solid var(--color-button-background-dark, white);

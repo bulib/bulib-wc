@@ -1,53 +1,6 @@
-/* ensure header-dropdown shows up above other items */
-div.header-wrapper, div.full-width, div.banner-wrapper { width: 100vw; }
-#s-lib-public-main, #s-lg-guide-search-box .input-group > input, 
-  #s-lg-guide-search-box .input-group button { z-index: unset; }
-
-body { padding-left: 0px; padding-right: 0px; }
-
-/* normalize width alignment of top parts to match the header and footer breakpoints */
-@media only screen and (min-width: 1500px){
-  #s-lg-guide-header-info, #s-lg-guide-header-subjects { margin-left: 7.5%; }
-  div.pull-right { margin-right: 8%; }
-  #s-lib-bc > ol { margin-left: auto !important; margin-right: auto !important; width: 85%; }
-}
-
-/* restyle the breadcrumbs to increase size and match --color-primary-background-light */
-#s-lib-bc #s-lib-bc-list > li, #s-lib-bc #s-lib-bc-list > li > a { color: var(--color-primary-text, whitesmoke); }
-#s-lib-bc #s-lib-bc-list > li > a { text-decoration: underline; }
-#s-lib-bc #s-lib-bc-list > li > a:hover { color: var(--color-primary-text-light, white);  }
-#s-lib-bc #s-lib-bc-list a { font-size: initial; }
-#s-lib-admin-bc .breadcrumb, #s-lib-bc .breadcrumb { font-size: small; }
-#s-lg-guide-description { font-size: medium; }
-
-/* stretch header, breadcrumbs, and libguides supplemental footer to full width with no horizontal margin */
-#s-lg-guide-header, #s-lib-public-header { margin-left: 0px; margin-right: 0px; width: 100vw; }
-#s-lg-guide-header #s-lg-guide-header-info, div.pull-right { 
-  padding-left: var(--padding-small, 5px);
-  padding-right: var(--padding-small, 5px);
-}
-#s-lib-bc { 
-  padding-left: var(--padding-small, 5px);
-  padding-right: var(--padding-small, 5px);
-  background-color: var(--color-primary-background-light, #333); 
-  border: 1px solid var(--color-primary-background-light, #333); 
-  color: var(--color-primary-text, whitesmoke);
-}
-#s-lg-guide-header-search { padding-top: 10px; }
-
-/* restyle the libguides supplemental footer */
-#s-lib-footer-public span { color: var(--color-primary-text, whitesmoke); }
-#s-lib-footer-public #s-lg-guide-header-meta { display: flex; }
-#s-lib-footer-public { 
-  margin-left: 0px; margin-right: 0px; 
-  display: flex; 
-  justify-content: center;
-  width: 100%;
-  background-color: var(--color-primary-background-light, #555); 
-}
-
 /* restyle the tabs for a given guide to match BU Libraries branding */
 #s-lg-guide-tabs { border-bottom: none; border-radius: 5px 5px 0 0; }
+#s-lg-tabs-container ul.nav.nav-stacked > li {  margin-left: 5px; margin-right: 5px; }
 #s-lg-tabs-container ul.nav > li { margin-top: 0px; }
 #s-lg-tabs-container ul.nav > li > a, #s-lg-tabs-container ul.nav > li > a > span {
   background-color: var(--color-primary-background-light, #333); 
@@ -59,7 +12,7 @@ body { padding-left: 0px; padding-right: 0px; }
   background-color: var(--color-primary-background, #444);
 }
 
-#s-lg-tabs-container ul.nav > .active > a, #s-lg-tabs-container ul.nav > li.active > a > span { 
+#s-lg-tabs-container ul.nav > .active > a, #s-lg-tabs-container ul.nav > li.active > a > span {
   background-color: var(--color-accent-red-background, #CC0000);
   font-weight: bold !important;
 }
@@ -72,9 +25,9 @@ body { padding-left: 0px; padding-right: 0px; }
 /* tab switcher for guide homepage */
 #s-lg-index-cols ul.nav > li > button { background-color: var(--color-secondary-background-light); }
 #s-lg-index-cols ul.nav > li > button:hover { background-color: var(--color-secondary-background); }
-#s-lg-index-cols ul.nav > li.active > button { 
+#s-lg-index-cols ul.nav > li.active > button {
   background-color: var(--color-button-background, #257abe);
-  color: var(--color-button-text, white); 
+  color: var(--color-button-text, white);
 }
 #s-lg-index-cols ul.nav > li.active > button:hover { background-color: var(--color-button-background-dark); }
 
@@ -85,22 +38,12 @@ body h3 { font-size: large; }
 h2, h3, h4, h5, h6, body { font-family: 'Source Sans Pro', sans-serif; }
 div.panel-heading > a { font-size: 115%; }
 
-/* buttons */
-button.btn-info, a.btn.btn-info, #s-lg-guide-search-box button[type=submit] { 
-  background-color: var(--color-button-background); 
-  border: 1px solid var(--color-button-background, #257abe);
-  color: var(--color-button-text, white);
-}
-button.btn-info:hover, a.btn.btn-info:hover, #s-lg-guide-search-box button[type=submit]:hover { 
-  background-color: var(--color-button-background-dark); 
-}
-
 /* remove the borders around each section of a guide */
-.s-lib-box { 
-  border: none; 
+.s-lib-box {
+  border: none;
   box-shadow: none;
 }
-h2.s-lib-box-title { 
+h2.s-lib-box-title {
   background-color: transparent !important;
   color: black !important;
 }

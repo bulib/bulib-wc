@@ -15,7 +15,7 @@
   .mobile-navigation { display: block !important; }
   .primary-nav-right { padding-top: 7px; }
   .banner h1 { font-size: large !important; }
-  .banner > *:first-child { margin-right: auto; }
+  .banner > *:first-child { margin-right: auto; margin-bottom: var(--padding-medium, 10px); }
   .banner > *:last-child { max-width: 100% !important; flex-grow: 1; }  
 } 
 

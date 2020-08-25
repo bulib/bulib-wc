@@ -510,26 +510,21 @@ The banner can be modified to include additional content, so long as it's contai
 <Preview>
   <Story name="site-banner-libguides">
     {html`
+      <style type="text/css">
+        div.banner-wrapper { --bulib-search-min-width: 100vw; --bulib-search-options-padding: 5px; }
+        div.banner-wrapper bulib-search { width: -webkit-fill-available; }
+      </style>
       <div class="banner-wrapper">
-      <div class="banner">
-        <div>
-          <h1><a href="/az.php">A-Z Databases List</a>&nbsp;</h1>
-          <div id="s-lib-bc">
-            <ol id="s-lib-bc-list" class="breadcrumb">
-              <li id="s-lib-bc-customer">
-                <a title="Boston University Libraries" href="http://bu.edu/library">Boston University Libraries</a>
-              </li>
-              <li id="s-lib-bc-site">
-                <a title="Research" href="//library.bu.edu/">Research</a>
-              </li>
-              <li id="s-lib-bc-page" class="active">A-Z Databases</li>
-            </ol>
-          </div>
+        <div class="banner" id="s-lg-guide-header-info">
+          <span class="prl"><a href="/guides" class="bigger-text">Research Guides</a></span>
+            <bulib-search class="secondary" str_options="wp primo guides" str_selected="guides">
+              <form action="https://library.bu.edu/srch.php" class="full-width txtc flexnw">
+                <input name="q" class="full-width plm" placeholder="Search all guides" type="text">
+                <button class="bulib-btn man" type="submit" value="Search"><i class="material-icons">search</i></button>
+            </form>
+            </bulib-search>
         </div>
-        
-        <bulib-search str_options="db guides primo"></bulib-search>
       </div>
-    </div>
     `}
   </Story>
 </Preview>

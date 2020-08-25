@@ -186,7 +186,8 @@ div.primary-nav-main div.submenu ul.submenu-items li span, ul.submenu-items span
   .banner h1 {
     font-size: large !important; }
   .banner > *:first-child {
-    margin-right: auto; }
+    margin-right: auto;
+    margin-bottom: var(--padding-medium, 10px); }
   .banner > *:last-child {
     max-width: 100% !important;
     flex-grow: 1; } }
@@ -306,7 +307,5 @@ div.primary-nav-main div.submenu ul.submenu-items li span, ul.submenu-items span
       color: var(--color-secondary-text-dark, black);
       text-decoration: none;
       cursor: pointer; }
-  .banner > *:first-child {
-    margin-bottom: 10px; }
   .banner > bulib-search {
     max-width: var(--bulib-search-max-width, 750px); }

@@ -112,7 +112,6 @@ div#pnb div.container { margin-left: 0px; width: unset; }
 div.location-select.drop-filter { display: none; }
 ul.menu-items, #header { margin-bottom: 0px; }
 
-
 /* banner/s */ 
 bulib-announce button { border: 1px solid black; padding: 1px 6px; }
 div.banner-wrapper > div.banner > section span { display: none; }
@@ -122,7 +121,7 @@ div.page_hdr {
   font-family: StagWebLight, Georgia, serif;
   font-size: 1em;
   color: var(--color-primary-text-light,white);
-  background: var(--color-primary-background-light,#333333);
+  background: var(--color-primary-background-light, #333333) !important;
   padding: 10px 0 6px 21px;
   border-bottom: none !important;
 }
