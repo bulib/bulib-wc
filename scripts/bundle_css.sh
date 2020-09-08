@@ -20,7 +20,6 @@ cp ./sites/libguides/libguides.css ./dist/libguides.css
 cp ./sites/libguides/restyle.css ./dist/libguides_restyle.css 
 cp ./sites/wordpress/wordpress.css ./dist/wordpress.css
 cp ./sites/wordpress/homepage.css ./dist/wordpress_homepage.css 
-cp ./sites/wordpress/responsive.css ./dist/wordpress_responsive.css 
 
 # move icons into dist/
 mkdir ./dist/icons || true;
