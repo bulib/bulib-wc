@@ -1,13 +1,13 @@
 html { 
-  --announce-font-size: medium; 
-  --announce-font-weight-link: bold;
+  --bulib-announce-font-size: medium; 
+  --bulib-announce-cta-font-weight: bold;
 }
 
 /* main announce-banner styling */
 div.announce-banner {
   background-color: lightblue;
   width: 100%;
-  font-size: var(--announce-font-size, inherit);
+  font-size: var(--bulib-announce-font-size, inherit);
   text-align: center;
   border: 1px solid var(--color-secondary-background-dark, black);
   border-radius: 2px;
@@ -30,7 +30,16 @@ div.announce-banner > *:first-child { margin-right: 1%; }
 div.announce-banner > *:last-child { margin-left: 1%; }
 
 /* style message (with background) */
-.announce-banner a { font-weight: var(--announce-font-weight-link, unset); }
+.announce-banner a:hover { 
+  text-decoration: underline; 
+  color: var(--color-button-background-dark, #257abe); 
+}
+.announce-banner a:visited { color: var(--color-button-background-dark, #257abe); }
+.announce-banner a { 
+  font-weight: var(--bulib-announce-cta-font-weight, normal); 
+  color: var(--color-button-background-dark, #257abe);
+  text-decoration: none;
+}
 .announce-banner > span { 
   margin: 12px;
   vertical-align: middle;
@@ -50,9 +59,19 @@ div.announce-banner > *:last-child { margin-left: 1%; }
 }
 
 /* round the corners of the buttons placed on announcment banners */
-.announce-banner i { font-size: var(--announce-font-size, unset); }
+.announce-banner i { font-size: var(--bulib-announce-font-size, unset); }
+.announce-banner button:hover {
+  background-color: var(--color-button-text, whitesmoke);
+  cursor: pointer;
+ }
 .announce-banner button {
+  display: inline-block;
+  border: 1px solid black;
+  color: black;
+  background-color: white;
   border-radius: 7px;
-  font-size: var(--announce-font-size, unset);
-  padding-left: 4px;
+  font-size: 95%;
+  padding: 1px 5px;
+  vertical-align: middle;
+  white-space: nowrap;
 }

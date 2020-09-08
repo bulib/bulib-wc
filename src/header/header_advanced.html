@@ -1,0 +1,225 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">body { margin: 0px; } </style>
+
+  <!-- pull in bulib-wc components -->
+  <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.1.3/webcomponents-bundle.min.js"></script>
+  <script src="https://unpkg.com/bulib-wc@latest/src/index.js?module" type="module"></script>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/shared.css">
+</head>
+
+<body>
+  <div class="header-wrapper">
+    <nav>
+      <a class="sr-only" href="#content">Skip to Main Content</a>
+      <div class="primary-navbar">  
+        <div class="primary-nav-left">  
+          <a title="BU Libraries Homepage" href="/library"> 
+            <img id="bu-logo" alt="BU Libraries logo" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/bulib-logo.png"> 
+          </a>  
+        </div>  
+        <div class="primary-nav-main menu-items-wrapper"> 
+          <ul class="menu-items">
+            <li class="menu-item">
+              <a href="/library/services">
+                <span class="txt-wrap">Find &amp; Borrow</span><i class="material-icons">arrow_drop_down</i>
+              </a>
+              <div class="submenu" id="find-and-borrow-submenu">
+                <bulib-submenu code="find-and-borrow" class="full-width"></bulib-submenu>
+              </div>
+            </li>
+            <li class="menu-item">
+              <a href="/library/research">
+                <span>Research &amp; Learn</span><i class="material-icons">arrow_drop_down</i>
+              </a>
+              <div class="submenu" id="research-and-learn-submenu">
+                <bulib-submenu code="research-and-learn" class="full-width"></bulib-submenu>
+              </div>
+            </li>  
+            <li class="menu-item">
+              <a href="/library/about" class="txtv flexw">
+                <span class="txt-wrap">About Us</span><i class="material-icons">arrow_drop_down</i>
+              </a>
+              <div class="submenu" id="about-us-submenu">
+                <bulib-submenu code="about-us" class="full-width"></bulib-submenu>
+              </div>
+            </li>
+            <li class="menu-item">
+              <a href="/library/about" class="no-wrap">
+                <span>Locations</span><i class="material-icons">arrow_drop_down</i>
+              </a>
+              <div class="submenu" id="locations-submenu">
+                <bulib-submenu code="locations" class="full-width"></bulib-submenu>
+              </div>
+            </li> 
+          </ul>
+        </div>  
+        <div class="primary-nav-right"> 
+          <div class="mobile-navigation none" aria-hidden="true"> 
+            <div id="menuToggle"> 
+              <!-- invisible toggle with hamburger -->  
+              <input type="checkbox" tabindex="-1">
+              <span></span>
+              <span></span>
+              <span></span>
+                
+              <!-- mobile nav menu -->  
+              <ul id="mobile-menu"> 
+                <li><a href="https://www.bu.edu/library/search">BU Libraries Search</a></li>  
+                <li><a href="https://www.bu.edu/library/help/using-the-libraries-online/">Using the Libraries Online</a></li>
+                <li><a href="https://www.bu.edu/library/help/visiting-the-libraries/">Visiting the Libraries</a></li>
+                <li><a href="https://www.bu.edu/library/about/hours/">Library Hours</a></li>  
+                <li><a href="https://www.bu.edu/library/about">Locations</a></li> 
+                <li><a href="https://www.bu.edu/library/about/maps-floorplans">Maps and Floorplans</a></li>
+                <li><hr></li>
+                <li><a href="https://www.bu.edu/library/">Libraries Home</a></li>  
+                <li><a href="https://askalibrarian.bu.edu">Ask a Librarian</a></li>  
+                <li><a href="https://www.bu.edu/library/account">My Account</a></li>  
+              </ul> 
+            </div>  
+          </div>  
+          <div class="top-right"> 
+            <ul class="menu-items">	
+              <li>	
+                <a class="menu-item inline" href="https://askalibrarian.bu.edu/">	
+                  <span class="prm">Ask a Librarian</span><i class="material-icons inline">question_answer</i>	
+                </a>	
+              </li>	
+              <li>	
+                <a class="menu-item inline" href="https://www.bu.edu/library/account">	
+                  <span class="prm">My Account</span><i class="material-icons inline">person</i>	
+                </a>	
+              </li>	
+            </ul>
+          </div>  
+        </div>  
+      </div>
+      <script id="mobile-nav-clickout" type="text/javascript">
+        let input = document.querySelector("#menuToggle > input");
+        window.addEventListener("click", (event) => {
+          let clicked = event.target;
+          let clicked_within_mobile_menu = clicked.closest("#menuToggle") != null;
+          if(input && clicked != input && !clicked_within_mobile_menu || clicked.tagName == "A"){
+            input.checked = false; // uncheck the #menuToggle input, closing the mobile nav
+          }
+        });
+      </script>
+    </nav>
+  </div>
+  <style type="text/css">
+    body {
+      --bulib-search-padding: 5px;
+      --bulib-search-options-padding: 8px;
+    }
+  </style>
+  <div class="banner-wrapper">
+    <div class="banner">
+      <section>
+        <span class="flexw">
+          <a id="genus" class="bold" href="/library-responsive/mugar-memorial/">Mugar Memorial Library</a>
+          <a id="species" href="/library-responsive/mugar-memorial/services">:&nbsp; Services</a>
+        </span>
+        <span id="hours-display" class="flexw small-text txtv">
+          hours: &nbsp; <bulib-hours library="mugar-memorial" short></bulib-hours>
+        </span>
+      </section> 
+      <bulib-search str_options="wp primo guides" class="prm secondary"></bulib-search>
+    </div>
+  </div>
+  <bulib-announce code="wordpress"></bulib-announce>
+  <div id="content">
+    <div class="lorem-ipsum">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam illum, voluptate repellat, ex minus at odio alias tenetur optio voluptatibus dicta deleniti cupiditate rem culpa laudantium, dolore deserunt fugiat repudiandae.</p>
+      <p>Cumque provident nam, inventore repudiandae animi doloribus dignissimos illo ea error esse reprehenderit possimus odio, libero beatae, accusamus ratione itaque laboriosam expedita amet nihil voluptatum blanditiis obcaecati. Possimus, assumenda sint.</p>
+      <p>Sunt quas dicta, vel perspiciatis ducimus placeat voluptates ad necessitatibus quis reprehenderit ullam consectetur! Enim neque ab architecto praesentium voluptatem saepe commodi, aperiam odio facere illum incidunt laborum laudantium pariatur?</p>
+      <p>Minima quo molestias asperiores nam nisi officia impedit molestiae, sed hic reiciendis. Officia atque labore odit aliquid inventore ab possimus, incidunt provident ut at, neque consequatur minus quod expedita eligendi!</p>
+      <p>Amet unde eligendi provident molestias suscipit itaque exercitationem voluptatum, ut natus id quas consectetur illo! Libero cum eum sit autem aliquid officia consequuntur tempore velit rerum? Vero blanditiis odio omnis.</p>
+    </div>
+
+    <hr />
+
+    <div class="flexnw" style="--bulib-card-icon-vertical: 0px;">
+      <div class="card">
+        <i class="material-icons" onclick="window.open('/form.php?quid=511','_self')">email</i>
+        <div>
+          <h3><a href="/form.php?quid=511">Email</a></h3>
+          <p>Email us your research questions and we&rsquo;ll respond within 24 hours.</p>
+        </div>
+      </div>
+      <div class="card">
+        <i class="material-icons" onclick="document.querySelector('button.s-lch-widget-float-btn').click();">question_answer</i>  
+        <div>
+          <h3><a onclick="console.log('chat says hi')" href="javascript:void(0)">Chat</a></h3>
+          <p>Talk online to a research librarian on weekdays and Sundays</p>
+        </div>
+      </div>
+      <div class="card">
+        <i class="material-icons" onclick="window.open('tel:6173532700','_self')">phone</i>
+        <div>
+          <h3><a href="tel:6173532700">Call</a></h3>
+          <p>Call us at 617-353-2700 during our open hours</p>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="deck" style="--bulib-card-icon-vertical: auto;">
+      <div class="card small">
+        <i class="material-icons" onclick="window.open('/form.php?quid=511','_self')">email</i>
+        <div>
+          <h3><a href="/form.php?quid=511">Email</a></h3>
+          <p>Email us your research questions and we&rsquo;ll respond within 24 hours.</p>
+        </div>
+      </div>
+      <div class="card small">
+        <i class="material-icons" onclick="document.querySelector('button.s-lch-widget-float-btn').click();">question_answer</i>  
+        <div>
+          <h3><a onclick="console.log('chat says hi')" href="javascript:void(0)">Chat</a></h3>
+          <p>Talk online to a research librarian on weekdays and Sundays</p>
+        </div>
+      </div>
+      <div class="card small">
+        <i class="material-icons" onclick="window.open('tel:6173532700','_self')">phone</i>
+        <div>
+          <h3><a href="tel:6173532700">Call</a></h3>
+          <p>Call us at 617-353-2700 during our open hours</p>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="ctas">
+      <div class="cta" onclick="window.open('/search/?g=716&topics=Borrowing','_self')">
+        <h3><a href="/search/?g=716&topics=Borrowing">Borrowing Items</a></h3>
+      </div>
+  
+      <div class="cta" onclick="window.open('/search/?t=0&g=716&topics=Alumni&adv=1','_self')">
+        <h3><a href="/search/?t=0&g=716&topics=Alumni&adv=1">Alumni</a></h3>
+      </div>
+  
+      <div class="cta" onclick="window.open('/search/?t=0&g=716&topics=Where%20Is%20It%3F&adv=1','_self')">
+        <h3><a href="/search/?t=0&g=716&topics=Where%20Is%20It%3F&adv=1">Where is it?</a></h3>
+      </div>
+  
+      <div class="cta" onclick="window.open('/businessFAQs/','_self')">
+        <h3><a href="/businessFAQs/">Pardee / Management</a></h3>
+      </div>
+    </div>
+  </div>
+  <bulib-footer></bulib-footer>
+  <script id="google-analytics-link-tracker" type="module" defer>
+    import {addSendGAEventOnAnchorClickToAnchorElements} from 'https://unpkg.com/bulib-wc@latest/src/_helpers/google_analytix.js?module';
+    
+    window.onload = function(){
+      let headerLinks = document.querySelectorAll(".header-wrapper a");
+      addSendGAEventOnAnchorClickToAnchorElements(headerLinks, "bulib-header");
+      
+      let cardLinks = document.querySelectorAll(".deck a");
+      addSendGAEventOnAnchorClickToAnchorElements(cardLinks, "card");
+      
+      let ctaLinks = document.querySelectorAll(".ctas a");
+      addSendGAEventOnAnchorClickToAnchorElements(ctaLinks, "cta");
+    };
+  </script>
+</body>

@@ -8,5 +8,6 @@ WebComponents.waitFor(function(){
   import ('./search/bulib-search');
   import ('./color/bulib-color');
   import ('./locoso/bulib-locoso');
+  import ('./header/bulib-submenu');
   import ('./footer/bulib-footer');
 });

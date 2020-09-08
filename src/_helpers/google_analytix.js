@@ -1,11 +1,13 @@
-const DEBUG_ANALYTICS = false;
-const PREVENT_GA_CALL = false;
+/** - GOOGLE ANALYTICS HELPER - */
+
+var DEBUG_ANALYTICS = false;
+var PREVENT_GA_CALL = false;
 
 function logGoogleAnalyticsMessage(message){
   if(DEBUG_ANALYTICS){ console.log("google_analytics_helper) " + message); }
 }
 
-export function sendGAEvent(eventName, action, label, value){
+function sendGAEvent(eventName, action, label, value){
   /** note: this assumes that a 'gtag' or a 'ga' has already been initialized/added to `window` */
   let value_text = (value == null) || (value == undefined) ? "": `, value='${value}'`;
   logGoogleAnalyticsMessage(`request made to sendGAEvent('${eventName}', '${action}', '${label}'${value_text})`);
@@ -27,7 +29,7 @@ export function sendGAEvent(eventName, action, label, value){
   }
 }
 
-export function sendGAEventFromClickEvent(clickEvent, eventName, actionName){
+function sendGAEventFromClickEvent(clickEvent, eventName, actionName){
   let contentClicked = "[unknown]"; 
   
   // obtain a label for the clicked link from its markup
@@ -53,9 +55,11 @@ export function sendGAEventFromClickEvent(clickEvent, eventName, actionName){
   }
 }
 
-export function addSendGAEventOnAnchorClickToAnchorElements(anchorElements, eventName, actionName){
+function addSendGAEventOnAnchorClickToAnchorElements(anchorElements, eventName, actionName){
   logGoogleAnalyticsMessage(`adding click listeners with eventName:'${eventName}', actionName:'${actionName}'`);
   for(let i=0; i<anchorElements.length; i++){
     anchorElements[i].addEventListener("click", (ev) => sendGAEventFromClickEvent(ev, eventName, actionName));
   }
 }
+
+export {sendGAEvent, sendGAEventFromClickEvent, addSendGAEventOnAnchorClickToAnchorElements};

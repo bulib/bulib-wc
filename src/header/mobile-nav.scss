@@ -15,15 +15,19 @@
   .mobile-navigation { display: block !important; }
   .primary-nav-right { padding-top: 7px; }
   .banner h1 { font-size: large !important; }
-  .banner > *:first-child { margin-right: auto; }
+  .banner > *:first-child { margin-right: auto; margin-bottom: var(--padding-medium, 10px); }
   .banner > *:last-child { max-width: 100% !important; flex-grow: 1; }  
 } 
 
 /* position mobile menu hidden in the top right, a z-layer beneath everything else */
 #mobile-menu {
+  font-size: var(--bulib-header-mobile-font-size, 14px);
   position: absolute;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   top: 0; right: 0; 
-  margin-top: 35px;
+  margin-top: var(--bulib-header-mobile-margin-top, -10px) !important;
   margin-right: -10px;
 
   width: 100vw;
@@ -42,7 +46,13 @@
   -webkit-font-smoothing: antialiased; // stop flickering of text in safari
   
   a { color: var(--color-primary-text, #eeeeee); }
-  li { padding: 10px 0; }
+  hr { border-top: 1px solid var(--color-primary-text, whitesmoke); }
+  li { padding: var(--padding-medium, 10px) 0; }
+  li a { 
+    font-size: var(--bulib-header-mobile-font-size, 14px); 
+    padding-top: 0px; 
+    padding-bottom: 0px; 
+  }
 }
 
 /* based heavily on the [CodePen](https://codepen.io/erikterwan/pen/EVzeRP) by Erik Terwan (@terwanerik) under the MIT License] */

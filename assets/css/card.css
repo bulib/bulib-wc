@@ -2,10 +2,15 @@
 
 /* universal 'card' styling (regardless of '.deck') */
 .card { 
-  display: table;
+  display: flex;
+  flex-wrap: nowrap;
   font-family: 'Source Sans Pro', sans-serif; 
+  margin: var(--padding-medium, 10px);
 }
-.card > div { margin-left: 20px; }
+.card.small { margin: var(--padding-small, 5px); }
+
+.card > div { margin-left: var(--padding-xlarge, 25px); }
+.card.small > div { margin-left: var(--padding-large, 15px); }
 
 /* arrange groups of cards, and moderate their width */
 .deck {
@@ -18,26 +23,38 @@
 
 /* card icon */
 .card i { 
-  display: table-cell;
   color: var(--color-button-background-dark, #0B4473);
-  font-size: 4em;
+  font-size: 3.5em;
   text-align: center;
+  margin-top: var(--bulib-card-icon-vertical, auto);
+  margin-bottom: var(--bulib-card-icon-vertical, auto);
 }
 .card.small i { font-size: 2.5em; }
 .card i:hover { cursor: pointer; }
 
 /* card link/header styling */
 .card a { 
-  font-size: x-large;
+  font-size: 120%;
   color: var(--color-button-background-dark, #0B4473);
   text-decoration: underline  var(--color-button-background-dark, #0B4473);
   font-weight: 500;
 }
-.card.small a { 
-  font-size: large !important;
-  font-weight: 700;
+.card.small a { font-size: 105%; }
+.card h3 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: var(--padding-medium, 10px);
 }
-.card.small h3 { margin-bottom: 5px; }
+.card.small h3 { margin-bottom: var(--padding-small, 5px); }
 
-.card p { font-size: medium; }
-.card.small p { margin-top: 0px; }
+.card p { 
+  font-size: 100%; 
+  margin-top: auto;
+  margin-bottom: 0px; 
+  line-height: normal;
+}
+.card.small p { 
+  font-size: 90%;;
+  margin-top: auto;
+}

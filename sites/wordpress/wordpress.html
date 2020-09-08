@@ -58,3 +58,82 @@
     loadWebComponentInto("bulib-search", [document.getElementById("nowc-isl")]);
   });
 </script>
+
+<!-- .back2bulib -->
+<section id="back-to-bulib">
+  [bu_div class="back2bulib secondary-menu mvl pvl"]
+    <a href="https://www.bu.edu/back2bu/">
+      <img src="/library-responsive/files/2020/07/back-to-bu-libraries_expanded.png" alt="back to bu libraries logo" title="Back2BU Libraries" class="mbl pbl"/><br />
+    </a>
+    <div class="grid">
+      <bulib-card small title="Using the Libraries Online" icon="computer" description="Access resources and services remotely"></bulib-card>
+      <bulib-card small title="Services at Mugar" icon="business" description="See list of in-person services still available"></bulib-card>
+      <bulib-card small title="Learn from Anywhere" icon="sync_alt" description="Supporting remote learning initiatives"></bulib-card>
+      <bulib-card small title="All Service Updates" icon="notifications" description="Stay up to day with recent changes"></bulib-card>
+    </div>
+  [/bu_div]
+</section>
+
+<!-- libchat widget -->
+<script src="https://v2.libanswers.com/load_chat.php?hash=6efed086d07a86db2473c5cbc320eee2"></script>
+
+<!-- header link tracking -->
+<script type="text/javascript">
+  window.onload = function(){
+    // header links
+    let headerLinks = document.querySelectorAll("#utility div.header-wrapper div.primary-navbar ul.menu-items > li > a");
+    addSendGAEventOnAnchorClickToAnchorElements(headerLinks, "header-link", "main");
+    
+    // find and borrow
+    let findAndBorrowSubmenu = document.querySelector("#utility div.header-wrapper bulib-submenu[code=find-and-borrow]");
+    let findAndBorrowLinks = findAndBorrowSubmenu.shadowRoot.querySelectorAll("a");
+    addSendGAEventOnAnchorClickToAnchorElements(findAndBorrowLinks, "header-link", "find-and-borrow");
+    
+    // research and learn
+    let researchAndLearnSubmenu = document.querySelector("#utility div.header-wrapper bulib-submenu[code=research-and-learn]");
+    let researchAndLearnLinks = researchAndLearnSubmenu.shadowRoot.querySelectorAll("a");
+    addSendGAEventOnAnchorClickToAnchorElements(researchAndLearnLinks, "header-link", "research-and-learn");
+    
+    // about us
+    let aboutUsSubmenu = document.querySelector("#utility div.header-wrapper bulib-submenu[code=about-us]");
+    let aboutUsSubmenuLinks = aboutUsSubmenu.shadowRoot.querySelectorAll("a");
+    addSendGAEventOnAnchorClickToAnchorElements(aboutUsSubmenuLinks, "header-link", "about-us");
+    
+    // locations
+    let locationsSubmenu = document.querySelector("#utility div.header-wrapper bulib-submenu[code=locations]");
+    let locationsSubmenuLinks = locationsSubmenu.shadowRoot.querySelectorAll("a");
+    addSendGAEventOnAnchorClickToAnchorElements(locationsSubmenuLinks, "header-link", "locations");
+  }
+</script>
+
+<!-- homepage link tracking -->
+<script type="text/javascript">
+  window.onload = function(){
+ 
+    // search box
+    let searchBoxLinks = document.querySelectorAll("#search > p.advanced a");
+    addSendGAEventOnAnchorClickToAnchorElements(searchBoxLinks, "homepage-link", "search-box");
+  
+    // return to campus cards
+    let rtcLinks = document.querySelectorAll("#home-top div.back2bulib div.card a");
+    addSendGAEventOnAnchorClickToAnchorElements(rtcLinks, "homepage-link", "rtc-card");
+
+    // research
+    let findLinks = document.querySelectorAll("#home-bottom #research div.collapsed > ul.menu:nth-of-type(1)");
+    let borrowAndRequestLinks = document.querySelectorAll("#home-bottom #research div.collapsed > ul.menu:nth-of-type(2)");
+    let locationsAndSpacesLinks = document.querySelectorAll("#home-bottom #research div.collapsed > ul.menu:nth-of-type(3)");
+    
+    addSendGAEventOnAnchorClickToAnchorElements(findLinks, "homepage-link", "find");
+    addSendGAEventOnAnchorClickToAnchorElements(borrowAndRequestLinks, "homepage-link", "borrow-and-request");
+    addSendGAEventOnAnchorClickToAnchorElements(locationsAndSpacesLinks, "homepage-link", "locations-and-spaces");
+  
+    // services
+    let guidesLinks = document.querySelectorAll("#home-bottom #services div.collapsed > ul.menu:nth-of-type(1)");
+    let researchSupportLinks = document.querySelectorAll("#home-bottom #services div.collapsed > ul.menu:nth-of-type(2)");
+    let contactUsLinks = document.querySelectorAll("#home-bottom #services div.collapsed > ul.menu:nth-of-type(3)");
+    
+    addSendGAEventOnAnchorClickToAnchorElements(guidesLinks, "homepage-link", "guides");
+    addSendGAEventOnAnchorClickToAnchorElements(researchSupportLinks, "homepage-link", "research-support");
+    addSendGAEventOnAnchorClickToAnchorElements(contactUsLinks, "homepage-link", "contact-us");
+  }
+</script>

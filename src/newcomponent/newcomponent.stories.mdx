@@ -1,0 +1,35 @@
+import { Story, Preview, Meta, Props, html, withKnobs, withWebComponentsKnobs } from '@open-wc/demoing-storybook';
+import './bulib-newcomponent.js';
+
+<Meta 
+  title="Web Components|bulib-newcomponent"
+  decorators={[withKnobs, withWebComponentsKnobs]}
+  parameters={{
+    component: "bulib-newcomponent",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# Feedback Component
+
+Prompt user for feedback from the user regarding the helpfulness of surrounding content, 
+  logging their responses to google analytics (via `_helpers/google_analytix.js`) under a custom `code`.
+
+## Usages 
+
+<Preview withToolbar>
+  <Story name="default">
+    {html`<bulib-newcomponent code="african-studies"></bulib-newcomponent>`}
+  </Story>
+</Preview>
+
+<Preview withToolbar>
+  <Story name="story2">
+    {html`<bulib-newcomponent code="african-studies" locoso="mugar-memorial"></bulib-newcomponent>`}
+  </Story>
+</Preview>
+
+## API - Properties 
+
+<Props of="bulib-newcomponent" />
+

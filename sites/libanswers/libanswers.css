@@ -11,7 +11,7 @@
 
   /* set header font */
   h2 { font-size: x-large; }
-  h2, h3, h4, h5, h6, body { font-family: 'Source Sans Pro', sans-serif; }
+  h2, h3, h4, h5, h6, body { font-family: 'Benton-Sans', 'Source Sans Pro', sans-serif; }
 
   /* unset random 'ol, ul' default that's messing with the header alignment */
   ol, ul {
@@ -22,6 +22,14 @@
   /* move footer to the bottom of the viewport */
   #footer { margin-top: auto; }
 
+  /* responsive card styling */
+  div.grid { grid-template-columns: 1fr 1fr 1fr 1fr; }
+  @media only screen and (max-width: 1200px) {
+    div.grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media only screen and (max-width: 800px) {
+    div.grid { grid-template-columns: 1fr; }
+  }
 
   /* -- FAQ page (/faq/) -- */
 

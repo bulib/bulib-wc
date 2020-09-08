@@ -113,7 +113,7 @@ export default class BULAnnounce extends LitElement {
         <span class="message">${sanitized_message}</span>
         ${!!this.cta_url? html`<span class="cta"><a href="${this.cta_url}">${this.cta_text}</a></span>`: ``}
         <button type="button" @click="${(e) => this._toggleDismissed()}">
-          <i class="material-icons">close</i>&nbsp;<span class="txtv">DISMISS</span>
+          <i class="material-icons">close</i>&nbsp;<span class="small-text">DISMISS</span>
         </button>
       </div>
     `;

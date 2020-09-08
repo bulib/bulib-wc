@@ -14,9 +14,9 @@ div.cta {
   text-align: center;
 
   flex-basis: 100%;
-  min-width: 175px;
-  max-width: 275px;
-  margin: 12px;
+  min-width: var(--bulib-cta-min-width, 175px);
+  max-width: var(--bulib-cta-max-width, 275px);
+  margin: var(--bulib-cta-margin, 10px);
   
   background-color: transparent;
   border: 2px solid var(--color-secondary-background-dark, #efefef);
@@ -24,7 +24,7 @@ div.cta {
   box-shadow: 0 1px 1px 0 var(--color-secondary-background-dark, rgba(0,0,0,.1));
 }
 div.cta a {
-  font-weight: 400;
+  font-weight: var(--bulib-cta-font-weight, normal);
   font-size: large;
   color: var(--color-button-background-dark, rgb(86, 93, 99));
 
@@ -36,12 +36,9 @@ div.cta a {
 div.cta h3 {
   margin: 0px;
   padding: 20px 0px;
-  font-size: 1.5em;
+  font-size: var(--bulib-cta-font-size, 1.5em);
 }
 div.cta:hover { 
   background-color: var(--color-secondary-background, gainsboro); 
   cursor: pointer;
-}
-.ctas .cta:last-of-type {
-  text-transform: uppercase;
 }

@@ -1,0 +1,251 @@
+/* hide banner on homepage (only) */
+div.banner-wrapper { display: none !important; }
+
+/* - home-top - */
+
+#content { margin-top: 80px !important; }
+
+/* prevent search/background image from over-shrinking */
+#homepage #home-top { 
+  min-width: 320px; 
+  margin-bottom: 0px;
+}
+#homepage #home-top #random-image #attachment14022 img { min-height: 150px; }
+
+/* make sure contents of the page are contained within their parents */
+#home-top, #home-bottom, #content, p.wp-caption-text, #attachment14022 {
+  max-width: 100% !important;
+}
+
+#home-top div.card h3 a { font-size: 20px !important; }
+
+
+/* - homepage searchbox - */
+
+/* reposition the search to accomodate changes to page width */
+#homepage #search { 
+  width: auto !important; 
+  margin-left: auto !important;
+  margin-right: auto !important; 
+  top: 15% !important;
+  left: 1% !important;
+  max-width: 90%;
+}
+
+/* adjust the colors and fonts within the search box */
+#homepage label.search-box, #homepage #search > p.advanced a {
+  color: white;
+  font-family: "Benton-Sans",'Source Sans Pro', sans-serif !important;
+  text-shadow: none !important;
+}
+#homepage #search > p.advanced a { font-size: 1.2em; }
+#homepage #search > p.advanced a:hover { text-decoration: underline; color: white; }
+img.alignnone.size-full { border-radius: 2px; }
+input#q {
+  color: #666666;
+  font-family: "Benton-Sans", "Helvetica", "Arial";
+}
+#set-filter {
+  color: #333333;
+  font-family: "Benton-Sans", "Helvetica", "Arial";
+  font-size: 1.1em;
+}
+
+/* remove the caption to the cover image */
+p.wp-caption-text { display: none; }
+
+
+/* - home-bottom - */
+
+#home-bottom > div.column { 
+  min-width: 250px; 
+  max-width: 100%; 
+}
+
+/* hide 'research, services about' black bar */
+#home-bottom   #research div.drop h2, 
+  #home-bottom #services div.drop h2, 
+  #home-bottom #about div.drop h2 {
+    display: none !important; 
+}
+
+/* resolve color contrast issues with #home-bottom links */
+#home-bottom .collapsed .sub-menu li a {
+  color: var(--color-button-background-dark, #1B598C);
+}
+#home-bottom .collapsed .sub-menu li a, #home-bottom .collapsed li span { 
+  font-family: "Benton-Sans",'Source Sans Pro', sans-serif !important;
+  font-size: 1.1em !important;
+}
+#home-bottom ul.menu > li > a { 
+  font-family: "Benton-Sans",'Source Sans Pro', sans-serif;
+  font-weight: bolder;
+  color: var(--color-accent-red-background);
+  color: #222222;
+}
+
+
+/* display columns from original template horizontally instead of vertically */
+#home-bottom #research, #home-bottom #services, #home-bottom #about {
+  display: flex !important;
+}
+#home-bottom > div.column > div.collapsed, 
+  #home-bottom > #research, 
+  #home-bottom > #services, 
+  #home-bottom > #about { width: 100%; }
+
+#home-bottom > div.column > div.collapsed > ul.menu { 
+  display: flex; 
+  justify-content: space-between;
+  min-width: 100%;
+  margin-left: auto; margin-right: auto;
+  flex-wrap: wrap; 
+}
+
+#home-bottom > div.column { 
+  min-width: 250px; 
+  max-width: 100%; 
+}
+
+/* prep homepage content to not exceed page width or become too cramped */
+#home-bottom, #home-top, #content, p.wp-caption-text, #attachment14022 {
+  max-width: 100% !important;
+}
+
+/* ensure that menus take up a third of the screen */
+#home-bottom > div.column > div.collapsed > ul.menu > li { 
+  box-shadow: 0px 1px 4px #dddddd;
+  border-radius: 2px;
+  padding: var(--padding-medium, 10px);
+  margin-bottom: inherit;
+  min-width: 30%; 
+  max-width: 30%;
+}
+
+/* prioritize Locations on mobile menu */
+#home-bottom > #research ul.menu { flex-wrap: wrap-reverse; }
+
+/* remove box shadows and borders */
+#homepage #home-bottom { box-shadow: none !important; }
+#homepage #home-bottom #services, #homepage #home-bottom #about { 
+  border: none !important; 
+  margin-top: var(--padding-small, 5px); margin-bottom: var(--padding-small, 5px);
+}
+
+/* hide 'research, services about' black bar */
+#home-bottom   #research div.drop h2, 
+  #home-bottom #services div.drop h2, 
+  #home-bottom #about div.drop h2 {
+    display: none !important; 
+}
+#home-bottom .collapsed li { border-bottom: none !important; }
+#home-bottom .collapsed .sub-menu li a {
+  color: var(--color-button-background-dark, #1B598C);
+}
+
+/* spacing between rows */
+#home-bottom .collapsed { 
+  background-color: #fff; 
+  padding: 0px !important; 
+}
+#home-bottom > div.column > div.collapsed > ul.menu > li {
+  box-shadow: 0px 1px 4px #ddd;
+  border-radius: 2px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* adjust hours display against default wordpress */
+#home-bottom .collapsed li span#hours-display a {
+  font-family: "Benton-Sans";
+  font-size: 1em;
+  color: #555 !important;
+}
+
+/* border-top colors */ 
+#home-bottom #research ul.menu > li { border-top: 2px solid #1EB4D6 !important; }
+#home-bottom #services ul.menu > li { border-top: 2px solid #2E31BF !important; }
+#home-bottom #about ul.menu > li { border-top: 2px solid #BF3C37 !important; }
+#home-bottom #about { display: none !important; }
+
+p.wp-caption-text { display: none; }
+
+
+/*news*/
+#home-bottom .collapsed .news li a span { color: #555555; }
+#menu-item-30557 { min-width: 64% !important; }
+
+
+/* - responsiveness - */
+
+#content > div.wrapper {
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+div.sidebar > div { min-width: 45%; }
+div.sidebar { padding: var(--padding-medium, 10px); }
+#content div.banner-container img { height: auto !important; width: 100%; }
+
+@media only screen and (max-width: 900px) { 
+  div.sidebar.right { 
+    display: flex; 
+    flex-wrap: nowrap; 
+    width: 100% !important;
+    justify-content: space-around;
+  }
+  div.main.left { width: 100%;  }
+}
+@media only screen and (max-width: 620px) { 
+  #home-bottom > div.column,  div.sidebar div,
+    #home-bottom > div.column > div.collapsed > ul.menu,  
+    #home-bottom > div.column > div.collapsed > ul.menu > li,
+    div.wrapper div.sidebar { 
+      width: 100% !important;
+      max-width: 100% !important; 
+      margin-left: auto; 
+      margin-right: auto;
+  } 
+  #homepage #search { top: 5% !important; }
+  div.sidebar.right { flex-wrap: wrap; }
+  div.main.left { width: unset;  }
+}
+
+@media only screen and (max-width: 500px) { 
+  /* hide 'search' label for very small screens to avoid collisions with other links */
+  #homepage label.search-box, body#branch-location.home label.search-box { 
+    color: transparent; 
+    opacity: 0;
+    margin-bottom: 10px; 
+  }
+  /* make sure the dark background doesn't overshadow background image */
+  #homepage #search { 
+    top: 1% !important; 
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+  }
+  /* decrease search help link font size */
+  #homepage #search > p.advanced a { font-size: 1em; }
+} 
+
+
+/* -- libchat -- */
+.libchat_online {
+	background-color: #257ABE;
+	padding: 17px !important;
+	font-size: 1.2em;
+	margin-bottom: 24px !important;
+	font-family: Benton;
+	min-height: 50px;
+	border-radius: 6px !important;
+	width: 188px;
+}
+
+.libchat_offline {
+	padding: 17px !important;
+	font-size: 1.2em;
+	margin-bottom: 24px !important;
+	font-family: Benton;
+	min-height: 50px;
+	border-radius: 6px !important;
+	width: 188px;
+}

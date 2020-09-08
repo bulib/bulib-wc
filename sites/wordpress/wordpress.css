@@ -1,9 +1,191 @@
 /* -- wordpress (bu.edu/library) -- */
 
-/* adjustments to theme variables */
-body { --color-primary-background: #212121; }
+/* - typography - */
+body {
+  font: 14px / 1.6em arial, Helvetica, verdana, sans-serif;
+
+  /* remove background */ 
+  background-image: none; 
+  background-color: white; 
+  
+  /* preserve font choices for safari (which sets this to optimizeSpeed) */
+  text-rendering: optimizeLegibility;
+}
+a:link, a:visited, a:hover, #home-bottom .collapsed .sub-menu li a {
+	color: var(--color-button-background-dark, #1B598C);
+}
+a:hover {
+	text-decoration: underline;
+}
+h1,h2,h3,h4,h5,h6,li,p,a {
+	font-family: "Benton-Sans", "StagWebLight", "Helvetica", "Arial";
+	text-rendering: optimizelegibility;
+}
+
+h1 {
+	font-weight: 700;
+	font-size: 2.2em;
+	color: #111111;
+	line-height: 2em;
+}
+
+h2 {
+	font-weight: 700;
+	font-size: 1.7em;
+	color: #8C0000;
+	line-height: 2em;
+	margin: 1em 0 .5em;
+}
+
+h3 {
+	font-weight: 400;
+	font-size: 1.4em;
+	color: #222222;
+	line-height: 1.2em;
+	padding: 12px 0 6px;
+}
+
+h3 a:link, h3 a:visited {
+	border-bottom: 1px dotted #065180;
+	color: #333;
+	font-weight: 700;
+}
+
+/* repair color contrast for most text */
+p, td, th, ul li, ol li { color: var(--color-body-text, #444444); }
+
+/* ensure background color change is applied to the page body */
+#content { background-color: inherit !important; }
+input::placeholder, input:-ms-input-placeholder, input::-ms-input-placeholder {
+	color: #333333 !important;
+	opacity: 1;
+}
+
+
+/* - assorted header tweaks - */
+
+div.header-wrapper, div.mobile-navigation, div.banner-wrapper { 
+  width: auto;
+  z-index: 10; 
+}
+div.header-wrapper div.primary-nav-right { padding-top: unset; }
+div.header-wrapper .primary-navbar .primary-nav-left img { height: 30px; }
+ul#mobile-menu li { float: unset; padding: 10px 0px; }
+#header .container { position: unset;  }
+#header #masthead, #header #search { display: none; }
+
+div #content { z-index: 1; }
+div #content, div #content div.page_hdr {
+  border: none;
+  
+  /* set --wp-content-box-shadow to 'none' to cancel it */
+  box-shadow: var(--wp-content-box-shadow, 0 0 5px #ccc) !important;
+  -moz-box-shadow: var(--wp-content-box-shadow, 0 0 5px #ccc) !important;
+  -webkit-box-shadow: var(--wp-content-box-shadow, 0 0 5px #ccc) !important;
+  
+  /* set --wp-content-border-radius to '0px' to cancel it */
+  border-radius: var(--wp-content-border-radius, 6px) !important;
+  -moz-border-radius: var(--wp-content-border-radius, 6px) !important;
+  -webkit-border-radius: var(--wp-content-border-radius, 6px) !important;
+}
+
+
+/* utility nav */
+#utility li a, .location-select .tab-switcher strong {
+  margin: 0px;
+  text-shadow: 0px 0px rgba(0,0,0,0);
+}
+#utility li a, #utility li a:hover { 
+  background-color: var(--color-primary-background, black);
+  font-family: 'Benton', sans-serif;
+  font-weight: bold;
+  border-radius: 0px;
+}
+#utility { 
+  width: 100vw; 
+  position: absolute; 
+  top: 0px; left: 0px !important; 
+  margin-top: 0px;
+  z-index: 3;
+}
+div#pnb div.container { margin-left: 0px; width: unset; }
+div.location-select.drop-filter { display: none; }
+ul.menu-items, #header { margin-bottom: 0px; }
+
+/* banner/s */ 
+bulib-announce button { border: 1px solid black; padding: 1px 6px; }
+div.banner-wrapper > div.banner > section span { display: none; }
+#content > div.banner-container { margin-bottom: 0px; }
+div.page_hdr {
+  display: block;
+  font-family: StagWebLight, Georgia, serif;
+  font-size: 1em;
+  color: var(--color-primary-text-light,white);
+  background: var(--color-primary-background-light, #333333) !important;
+  padding: 10px 0 6px 21px;
+  border-bottom: none !important;
+}
+
+/* restyle the breadcrumbs */
+div.page_hdr a {
+  color: var(--color-primary-text-light,white) !important;
+  text-shadow: 0 0 rgba(0,0,0,0.25);
+}
+
+
+/* - wordpress notifications/announcements - */ 
+
+div.notification, div.alert { 
+  display:flex;
+  flex-wrap: nowrap;
+
+  /* set severity color customizations for background */
+  --color-severity-info: var(--color-primary-background-light);
+  --color-severity-alert: var(--color-accent-red-background);
+
+  /* set default colors for where blank text is dropped in */
+  background-color: var(--color-primary-background-light, #444);
+  color: var(--color-primary-text-light, white) !important;
+
+  /* clear out bu-ist/library-theme default */
+  background: inherit !important; 
+  background-image: none;
+
+  /* set margins, padding, color */
+  padding: var(--padding-large, 15px) !important;
+  margin-top: var(--padding-large, 15px) !important;
+  margin-bottom: var(--padding-large, 15px) !important;
+}
+
+/* enlarge the icons */
+div.notification i.material-icons, div.alert i.material-icons { 
+  font-size: 35px; 
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* reset the background color to adjust for severity */
+div.notification, div.notification > *.info { 
+  background-color: var(--color-severity-info, #444) !important; 
+}
+div.alert, div.notification > *.alert { 
+  background-color: var(--color-severity-alert, #CC0000) !important; 
+}
+
+/* ensure font compliance and inherit other settings */ 
+div.notification p, div.alert p {
+  font-family: "Benton-Sans", "StagWebLight", "Helvetica", "Arial";
+  background-color: inherit;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  border: none !important;
+  padding: var(--padding-small, 5px) var(--padding-xlarge, 25px) !important;
+}
+
 
 /* - footer styling - */
+
 #footer { 
   /* match footer color in the padding placed around the footer */
   background-color: var(--color-primary-background, black) !important; 
@@ -31,17 +213,25 @@ li.style-scope.bulib-footer {
 #hours-display { font-size: 100% !important; }
 
 
-/* - library & service hours (/library/about/hours/) - */
-.s-lc-whw-bh > button {
-  padding: 5px;
-  font-size: large;
+/* - sidenav - */
+
+#contentnav li a, .sidebar .widget-all-news li a {
+	color: #555555;
+}
+
+#contentnav h2, .sidebar .widget-all-news h2 {
+	border-bottom: 5px solid #1aa2a7;
+}
+
+.widget h2 {
+	font: normal normal 17px/1.3em Benton-Sans, StagWebLight, Georgia, serif;
+	color: #212121;
 }
 
 /* - floorplans - */
 
-/* locate by floor styling */
+/* locate by floor styling: display horizontally */
 div.locate-by-floor  { 
-  /* display list horizontally */ 
   display: flex;
   flex-wrap: wrap;
   font-size: medium;
@@ -73,4 +263,142 @@ div.locate-by-floor ul li, ul#locate-callno li {
   
   /* make the call-numbers */ 
   div.tabs #locate-resources { column-count: 2 !important; }
+}
+
+
+/* - card styling - */
+
+div.card { margin-top: auto; margin-bottom: auto; }
+
+div.card h3 a {
+  font-size: 14px !important;
+  font-family: "Benton-Sans",'Source Sans Pro', sans-serif !important;
+  color: var(--color-button-background-dark) !important;
+  border-bottom: none;
+}
+
+div.card p { line-height: normal; }
+
+div.card h3 a:link, div.card h3 a:visited {
+	border-bottom: none !important;
+}
+
+
+/* - back2bulib - */
+
+.back2bulib {
+  background-color: white;
+  align-items: center;
+  font-family: "Benton-Sans",'Source Sans Pro', sans-serif !important;
+  border-radius: 2px;
+}
+.back2bulib .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: auto; 
+  margin-right: auto;
+}
+.back2bulib div.card { margin: var(--padding-large, 15px); }
+
+@media only screen and (max-width: 500px) { 
+  .back2bulib .grid { grid-template-columns: 1fr; }
+}
+
+
+/* - assorted - */
+
+/* content-panel lists */ 
+.content-panel > ul > li {
+	list-style: square;
+	background: none;
+	margin: 0 0 8px 25px;
+	padding-left: var(--padding-large, 15px);
+	color: var(--color-body-text, #333333);
+}
+
+/* library & service hours (/library/about/hours/) */
+.s-lc-whw-bh > button {
+  padding: 5px;
+  font-size: large;
+}
+
+
+/* forms */
+.gform_wrapper .gsection h2.gsection_title { color: var(--color-accent-red-background, #8C0000); }
+
+.content-panel .gform_wrapper form .gform_footer .gform_button, .gform_button, input[type="submit"] {
+	color: var(--color-button-text, white);
+	background: var(--color-button-background, #1b598c);
+	border: 1px solid var(--color-button-text, white);
+	border-radius: 4px;
+	font-family: "Benton-Sans", "Helvetica", "Arial";
+	font-weight: 700;
+	font-size: 1em;
+	margin: 20px 0;
+	padding: 10px 20px;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+input[type="submit"]:hover { background-color: var(--color-button-background-dark, #1b598c) !important; }
+
+/* - responsiveness - */
+
+/* increase top margin of main content to account for header and banner additions */
+#content { margin-top: 130px; }
+
+/* ensure that images added to the 'content banner' don't exceed the width of the page or become distorted */
+#content div.banner-container img, #content div.banner-container div.page-width img { 
+  height: auto !important; 
+  width: 100%; 
+}
+/* make the sidebar wrap to the bottom when the page width gets too small */
+#content > div.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+div.sidebar > div { min-width: 45%; }
+div.sidebar { padding: var(--padding-medium, 10px); }
+
+/* constrain major parts of the page to the screen width to prevent overflow */
+#content, #content .banner-container, #content .banner-container .page-width, #header .container {
+	max-width: 100vw;
+}
+
+/* make tables scroll horizontally if they're too big for the screen */
+div.table-responsive { overflow-x: scroll; }
+
+/* adjustments for medium sized widths */
+@media only screen and (max-width: 900px) {
+  div.sidebar.right {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100% !important;
+    justify-content: space-around;
+  }
+  div.sidebar.right #contentnav {
+    margin-left: var(--padding-large, 15px); 
+    margin-right: var(--padding-large, 15px);
+  }
+
+  div.wrapper div.sidebar {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #content { margin-top: 70px; }
+
+  div.banner-wrapper { top: 90px; }
+  div.main.left { width: 100%; }
+}
+
+/* adjustments for small screens */
+@media only screen and (max-width: 620px) {
+  div.sidebar.right { flex-wrap: wrap; }
+  div.main.left { width: unset; }
+  #content { margin-top: 110px; }
+  body { 
+    --bulib-search-padding: 5px;
+    --bulib-search-options-padding: 0px;
+    --bulib-search-options-label-size: small;
+  }
 }

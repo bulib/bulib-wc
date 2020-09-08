@@ -1,4 +1,10 @@
+/** - LIBRARY INFO HELPER - */
+
 const INFO_HELPER_DEBUG = false;
+
+function logLibInfoToConsole(message, debug){
+  if(debug && debug === true){ console.log("lib_info_helper) " + message); }
+};
 
 // static data about each library, powering LoCoSo, LibHours
 const libraries_data_backup = {
@@ -114,14 +120,20 @@ const libraries_data_backup = {
   }
 };
 
-export function getLibraryInfoFromCode(lib_code, debug=INFO_HELPER_DEBUG, defLibCode="help"){
+function getLibraryInfoFromCode(lib_code, debug, defLibCode){
+  if(debug === undefined){ debug = INFO_HELPER_DEBUG; }
+  if(defLibCode === undefined){ defLibCode = "help"; }
+
   let libraries_data = /* TODO: _getDataFromFile("lib_info.json") || */ libraries_data_backup;
   let library_data = libraries_data[lib_code] || libraries_data[defLibCode];
-  logToConsole(`getting library_data for code: '${lib_code}' with default '${defLibCode}'.`, debug);
+  logLibInfoToConsole(`getting library_data for code: '${lib_code}' with default '${defLibCode}'.`, debug);
   return library_data;
 }
 
-export function getSiteCodeFromUrl(url, debug=INFO_HELPER_DEBUG, defSiteCode="help"){
+function getSiteCodeFromUrl(url, debug, defSiteCode){
+  if(debug === undefined){ debug = INFO_HELPER_DEBUG; }
+  if(defSiteCode === undefined){ defSiteCode="help"; }
+  
   let site_code = "about";
   if(url.includes("askalibrarian")){ site_code = "help"; }
   else if(url.includes("/disc/") || url.includes("/dioa")){ site_code ="services"; }
@@ -134,11 +146,14 @@ export function getSiteCodeFromUrl(url, debug=INFO_HELPER_DEBUG, defSiteCode="he
     else{ site_code = "about"; }
   }else{ site_code = "about"; }
   
-  logToConsole(`site_code '${site_code}' extracted from url '${url}'.`, debug);
+  logLibInfoToConsole(`site_code '${site_code}' extracted from url '${url}'.`, debug);
   return site_code;
 }
 
-export function getLibraryCodeFromUrl(lib_url, debug=INFO_HELPER_DEBUG, defLibCode="help"){
+function getLibraryCodeFromUrl(lib_url, debug, defLibCode){
+  if(debug === undefined){ debug = INFO_HELPER_DEBUG; }
+  if(defLibCode === undefined){ defLibCode="help"; }
+
   let lib_code = defLibCode;
   if(lib_url.includes("archives.bu.edu")){ lib_code="hgar"; }
 
@@ -180,13 +195,13 @@ export function getLibraryCodeFromUrl(lib_url, debug=INFO_HELPER_DEBUG, defLibCo
   if(!Object.keys(libraries_data_backup).includes(lib_code)){ lib_code = "help"; }
 
   // return resulting code
-  logToConsole(`lib_code '${lib_code}' from lib_url '${lib_url}'`, debug);
+  logLibInfoToConsole(`lib_code '${lib_code}' from lib_url '${lib_url}'`, debug);
   return lib_code;
 }
 
-export const getAllLibraryInfo = function(){ return libraries_data_backup; }
+function getAllLibraryInfo(){ return libraries_data_backup; }
 
-export const makeLibraryUrlList = function(){
+function makeLibraryUrlList(){
   let ls_items = ""; let code;
   for(code in libraries_data_backup){
     let item = getLibraryInfoFromCode(code)
@@ -195,6 +210,5 @@ export const makeLibraryUrlList = function(){
   return `<ul>\n${ls_items}</ul>\n`;
 };
 
-const logToConsole = function(message, debug){
-  if(debug && debug === true){ console.log("lib_info_helper) " + message); }
-};
+/* export functions for use in individual components */
+export { getLibraryInfoFromCode, getSiteCodeFromUrl, getLibraryCodeFromUrl, getAllLibraryInfo, makeLibraryUrlList }

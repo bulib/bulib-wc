@@ -6,7 +6,7 @@ a.bulib-btn, button.bulib-btn {
   text-align: center;
   margin: var(--padding-small, 5px);
   padding: var(--padding-small, 5px) var(--padding-medium, 10px);
-  color: var(--color-button-text, white);
+  color: var(--color-button-text, white) !important;
   text-decoration: none;
   background-color: var(--color-button-background-dark,#1b598c);
   border: 2px solid var(--color-button-background-dark, white);
@@ -23,9 +23,10 @@ a.bulib-btn.large, button.bulib-btn { font-size: 102%; }
 a.bulib-btn.large { padding: var(--padding-medium, 10px) var(--padding-large, 12px); }
 
 /* secondary button */
-a.bulib-btn.btn-secondary, button.bulib-btn.btn-secondary {
+a.bulib-btn.btn-secondary, button.bulib-btn.btn-secondary,
+  a.bulib-btn.secondary, button.bulib-btn.secondary {
   background-color: var(--color-button-text-light, white);
-  color: var(--color-button-background-dark, blue);
+  color: var(--color-button-background-dark, blue) !important;
   border: 2px solid var(--color-button-background-dark, blue);
 }
 

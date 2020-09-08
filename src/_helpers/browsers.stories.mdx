@@ -11,14 +11,29 @@ We want to have some visibility into **how often** this happens, and we always w
   them to fulfill the main goal of that page/site. 
 
 
+## Importing the Helper
+
+Add the following `<script>` to the sitewide javascript to add them to the global scope 
+  and enable their use throughout the site.
+
+```html
+<script type="text/javascript" src="https://unpkg.com/bulib-wc@0.1.46/dist/helpers.js" defer></script>
+```
+
 ## Usages 
 
+_AFTER_ importing the helper...
 
 ### Check to See If Web Components Are Supported By the Client's Browser 
 
-```js
-import {doesBrowserSupportWebComponents} from 'https://unpkg.com/bulib-wc@latest/src/_helpers/browser_compatibility.js?module';
-doesBrowserSupportWebComponents();
+Adding the following call (normally right below the import, sitewide), will 
+  inform the console and google analytics if the browser was able to load the 
+  web components for that page visit 
+
+```html
+<script type="text/javascript">
+  doesBrowserSupportWebComponents(true);
+</script>
 ```
 
 _NOTE: This helper reports the results to analytics behind the scenes with the assistance of `google_analytix.js` helper._
@@ -26,14 +41,15 @@ _NOTE: This helper reports the results to analytics behind the scenes with the a
 ### Safely Replace the Fallback Elements If Web Components Are Supported
 
 ```html
-<script type="module">
-  // import helper from the CDN
-  import {loadWebComponentsInto} from 'https://unpkg.com/bulib-wc@latest/src/_helpers/browser_compatibility.js?module';
+<!-- import helper from the CDN -->
 
-  // set the elements to replace and the web component to (potentially) replace them with
+<!-- set the selected elements to replace and the web component to (potentially) replace them with -->
+<script type="text/javascript">
   let tagname_for_web_component = "bulib-component";
   let list_of_elements_to_replace = [ 
-    document.getElementById("an-id-selector"), document.querySelector("div.a-class-name > span"), document.querySelector("div.another-class > h3")
+    document.getElementById("an-id-selector"), 
+    document.querySelector("div.a-class-name > span"), 
+    document.querySelector("div.another-class > h3")
   ];
   loadWebComponentsInto(tagname_for_web_component, list_of_elements_to_replace);]
 </script>

@@ -53,6 +53,16 @@ export default class BULibSearch extends LitElement {
   static get styles(){
     return [
       css`
+        :host(bulib-search.secondary) { 
+          --color-primary-background: var(--color-secondary-background, #eee);
+          --color-primary-background-dark: var(--color-secondary-background, #eee);
+          --color-primary-background-light: var(--color-secondary-background, #eee);
+          --color-primary-text: var(--color-secondary-text, #333);
+        }
+        :host(bulib-search.secondary) input#search-query-input { 
+          border: 2px solid var(--color-secondary-background-dark);
+          border-right: 0px;
+        }
         .bulib-search-wrapper {
           width: 100%;
           background-color: var(--color-primary-background, #212121);
@@ -78,16 +88,17 @@ export default class BULibSearch extends LitElement {
           border-bottom-left-radius: 4px;
           border: 0px;
           padding-left: 6px;
+          min-width: 200px;
         }
         .search-options {
-          padding-top: 10px;
-          color: var(--color-primary-text-light, white);
+          padding-top: var(--bulib-search-options-padding, 10px);
+          color: var(--color-primary-text, white);
           flex: auto;
         }
         .search-options > label {
           margin-right: 0.5rem;
           padding-left: 0.5rem;
-          font-size: medium;
+          font-size: var(--bulib-search-options-label-size, medium);
           cursor: pointer;
         }
         input[type=radio] {
@@ -110,8 +121,8 @@ export default class BULibSearch extends LitElement {
 
         /* medium-sized screen and above */
         @media only screen and (min-width: 300px){
-          #bulib-search { padding: 10px; }
-          .search-box > input, input[type=radio], .search-options > label { 
+          #bulib-search { padding: var(--bulib-search-padding, 10px); }
+          .search-box > input, input[type=radio] { 
             font-size: medium; 
           }
         }

@@ -5,7 +5,6 @@
 .header-wrapper, .footer-wrapper, .banner-wrapper {
   font-family: 'Benton', sans-serif;
   width: inherit;
-  padding: 10px;
 }
 
 .header-wrapper, .footer-wrapper {
@@ -14,6 +13,7 @@
 }
 
 .full-width { width: 100%; }
+.half-width { width: 50%;}
 
 /* on super large screens, set the width to avoid getting too much spacing */
 @media only screen and (min-width: 1500px){
@@ -28,17 +28,39 @@
 .txtl { text-align: left; }
 .txtc { text-align: center; }
 .txtv { vertical-align: middle; }
-.big-text, .large-text { font-size: 1.1em; }
-.bigger-text { font-size: 1.2em; }
-.multi-column {
-  column-gap: 5%;
-  column-count: 2;
-}
+
+.bold { font-weight: bold !important; }
+.underline { text-decoration: underline !important; }
+
+.txt-wrap { white-space: normal; }
+.no-wrap { white-space: nowrap; }
+
+.smaller-text { font-size: 80% !important; }
+.small-text, .small-text * { font-size: 90% !important; }
+.big-text, .large-text { font-size: 110% !important; }
+.bigger-text, .larger-text { font-size: 120% !important; }
+
 
 /* list styles */
-ul.no-bullet { padding-left: 0em; }
-.no-bullet > li, .no-bullet > * > li { list-style:none !important; padding-left: 0em; }
-.inline-list > li { display: inline; padding-right: 5px;}
+ul.bulleted > li, ol.bulleted > li { 
+  list-style: disc !important;
+  margin-left: var(--padding-large, 15px) !important;
+  margin-bottom: var(--padding-small, 5px) !important;
+}
+ul.no-bullet, ol.no-bullet, .no-bullet > li, .no-bullet > * > li {
+  list-style: none !important;
+  padding-left: 0em;
+}
+.inline-list > li {
+  display: inline;
+  padding-right: 5px;
+}
+.multi-column {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  column-gap: 5%;
+}
 
 /* '.white-link' used in footer */
 a.white-link, a.white-link:active, a.white-link:visited {
@@ -56,6 +78,7 @@ a.white-link:hover {
 i.material-icons, i.material-icons-outlined { vertical-align: middle; }
 
 /* accessibility - used to optimize the page for screenreaders (code copied from [Orange-OpenSource](/web_EN/exemples/masquage/index.html) under CC BY SA 3.0)  */
+a.sr-only:focus { height: auto; width: auto; position: inherit; color: white; font-size: small;}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -72,5 +95,6 @@ i.material-icons, i.material-icons-outlined { vertical-align: middle; }
 .secondary-menu, .bordered {
   background-color: var(--color-secondary-background-light, gainsboro);
   border: 1px solid var(--color-secondary-background-dark, grey);
+  color: var(--color-secondary-text, black);
   padding: 10px;
 }

@@ -22,7 +22,13 @@ When not given any extra attributes, `bulib-search` defaults to searching over `
 
 <Preview withToolbar>
   <Story name="default">
-    {html`<bulib-search></bulib-search>`}
+    {html`
+      <h4>default styling</h4>
+      <bulib-search></bulib-search>
+      <br><hr />
+      <h4>secondary styling <code>.secondary</code></h4>
+      <bulib-search class="secondary"></bulib-search>
+    `}
   </Story>
 </Preview>
 
@@ -33,7 +39,11 @@ If you provide it with multile `str_options`, it will default to searching over 
 <Preview withToolbar>
   <Story name="options-no-default">
     {html`
+      <h4>default styling</h4>
       <bulib-search str_options="primo wp" debug></bulib-search>
+      <br><hr>
+      <h4>secondary styling <code>.secondary</code></h4>
+      <bulib-search str_options="primo wp" debug class="secondary"></bulib-search>
     `}
   </Story>
 </Preview>
@@ -63,7 +73,7 @@ _note: you won't be able to tell the difference between this and the first in th
 <Preview withToolbar>
   <Story name="options-with-fallback">
     {html`
-      <bulib-search str_options="guides help">
+      <bulib-search str_options="guides wp">
         <form action="http://library.bu.edu/srch.php" method="get">
           <input name="q" type="text" /><button type="submit">Search</button>
         </form>

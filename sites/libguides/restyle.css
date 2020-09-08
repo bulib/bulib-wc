@@ -1,27 +1,49 @@
-/* ensure header-dropdown shows up above other items */
-div.header-wrapper, div.full-width, div.banner-wrapper { width: 100vw; margin-left: -15px; }
-#s-lib-public-main, #s-lg-guide-search-box .input-group > input, #s-lg-guide-search-box .input-group button { z-index: unset; }
+/* restyle the tabs for a given guide to match BU Libraries branding */
+#s-lg-guide-tabs { border-bottom: none; border-radius: 5px 5px 0 0; }
+#s-lg-tabs-container ul.nav.nav-stacked > li {  margin-left: 5px; margin-right: 5px; }
+#s-lg-tabs-container ul.nav > li { margin-top: 0px; }
+#s-lg-tabs-container ul.nav > li > a, #s-lg-tabs-container ul.nav > li > a > span {
+  background-color: var(--color-primary-background-light, #333); 
+  color: var(--color-primary-text-light, white);
+  font-size: 110%;
+  font-weight: normal;
+}
+#s-lg-tabs-container ul.nav > li > a:hover, #s-lg-tabs-container ul.nav > li > a:hover > span { 
+  background-color: var(--color-primary-background, #444);
+}
 
-/* header styles */
+#s-lg-tabs-container ul.nav > .active > a, #s-lg-tabs-container ul.nav > li.active > a > span {
+  background-color: var(--color-accent-red-background, #CC0000);
+  font-weight: bold !important;
+}
+#s-lg-tabs-container ul.nav > li.active > a:hover, #s-lg-tabs-container ul.nav > li.active > a:hover > span {
+  background-color: var(--color-accent-red-background-dark, #A80000);
+}
+
+#s-lg-guide-tabs-title-bar { border-color: var(--color-secondary-background-dark, #333); }
+
+/* tab switcher for guide homepage */
+#s-lg-index-cols ul.nav > li > button { background-color: var(--color-secondary-background-light); }
+#s-lg-index-cols ul.nav > li > button:hover { background-color: var(--color-secondary-background); }
+#s-lg-index-cols ul.nav > li.active > button {
+  background-color: var(--color-button-background, #257abe);
+  color: var(--color-button-text, white);
+}
+#s-lg-index-cols ul.nav > li.active > button:hover { background-color: var(--color-button-background-dark); }
+
+/* typography header styles */
 body h1 { font-size: xx-large !important; font-weight: 400; }
 body h2 { font-size: x-large !important; }
 body h3 { font-size: large; }
 h2, h3, h4, h5, h6, body { font-family: 'Source Sans Pro', sans-serif; }
+div.panel-heading > a { font-size: 115%; }
 
-/* increase breadcrumb and guide description size */
-#s-lib-bc-list a { font-size: initial; }
-#s-lib-admin-bc .breadcrumb, #s-lib-bc .breadcrumb { font-size: small; }
-#s-lg-guide-description { font-size: medium; }
-
-/* adjust spacing above 'search-this-guide' search box */
-#s-lg-guide-header-search { padding-top: 10px; }
-
-/* change the box styling */
-.s-lib-box { 
-  border: none; 
+/* remove the borders around each section of a guide */
+.s-lib-box {
+  border: none;
   box-shadow: none;
 }
-h2.s-lib-box-title { 
+h2.s-lib-box-title {
   background-color: transparent !important;
   color: black !important;
 }
