@@ -40,17 +40,27 @@
 .big-text, .large-text { font-size: 110% !important; }
 .bigger-text, .larger-text { font-size: 120% !important; }
 
+
+/* list styles */
+ul.bulleted > li, ol.bulleted > li { 
+  list-style: disc !important;
+  margin-left: var(--padding-large, 15px) !important;
+  margin-bottom: var(--padding-small, 5px) !important;
+}
+ul.no-bullet, ol.no-bullet, .no-bullet > li, .no-bullet > * > li {
+  list-style: none !important;
+  padding-left: 0em;
+}
+.inline-list > li {
+  display: inline;
+  padding-right: 5px;
+}
 .multi-column {
   -webkit-column-count: 2;
   -moz-column-count: 2;
   column-count: 2;
   column-gap: 5%;
 }
-
-/* list styles */
-ul.no-bullet { padding-left: 0em; }
-.no-bullet > li, .no-bullet > * > li { list-style:none !important; padding-left: 0em; }
-.inline-list > li { display: inline; padding-right: 5px;}
 
 /* '.white-link' used in footer */
 a.white-link, a.white-link:active, a.white-link:visited {
