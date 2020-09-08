@@ -26,7 +26,7 @@ a.bulib-btn.large { padding: var(--padding-medium, 10px) var(--padding-large, 12
 a.bulib-btn.btn-secondary, button.bulib-btn.btn-secondary,
   a.bulib-btn.secondary, button.bulib-btn.secondary {
   background-color: var(--color-button-text-light, white);
-  color: var(--color-button-background-dark, blue);
+  color: var(--color-button-background-dark, blue) !important;
   border: 2px solid var(--color-button-background-dark, blue);
 }
 
