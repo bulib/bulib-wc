@@ -34,26 +34,17 @@ export default class Locoso extends LitElement {
     let raw_contacts = myLocoso["contacts"] || {"phone":"617-353-2700","email":"ask@bu.edu","text":"617-431-2427"};
     let contacts = this._prepareContacts(raw_contacts);
     
-    let raw_social = myLocoso["social"] || {};
-    let social = this._prepareSocial(raw_social);
-    
     let include_libhours = ALLOW_HOURS_DISPLAY && this.library && this.library != "help";
     this._logToConsole("lib_name: " + lib_name + ", include_libhours: " + include_libhours);
     
-    let socialDisplay;
-    if(social.length < 1){ socialDisplay = html``; }
-    else{
-      socialDisplay= html`
+    let socialDisplay = html`
         <h3>Follow Us</h3>
         <ul aria-description="list of social media accounts" class="no-bullet inline-list plm">
-        ${social.map((s) =>
-          html`<li><a title="${s.text}" class="${this.link_class}" @click="${(ev) => {this._logGAEvent(s.text);}}" 
-                      href="${s.url}" target="_blank"><img alt="${s.text} icon" class="sm-icon ${this.link_class}"
-                      src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/icons8-${s.text}-48.png"></a></li>`
-        )}
+          <li><a target="_blank" title="twitter" class="white-link" href="http://twitter.com/bulibraries"><img alt="twitter icon" class="sm-icon white-link" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/icons8-twitter-48.png"></a></li>
+          <li><a target="_blank" title="facebook" class="white-link" href="http://facebook.com/bostonulibraries"><img alt="facebook icon" class="sm-icon white-link" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/icons8-facebook-48.png"></a></li>
+          <li><a target="_blank" title="instagram" class="white-link" href="https://instagram.com/bulibraries"><img alt="instagram icon" class="sm-icon white-link" src="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/icons/icons8-instagram-48.png"></a></li>
         </ul>
       `;
-    }
     
     return html`
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bulib-wc@latest/dist/bundle.css">
@@ -131,30 +122,6 @@ export default class Locoso extends LitElement {
     }
     this._logToConsole(`${contacts.length.toString()} items found for 'contacts'.`);
     return contacts;
-  }
-
-  /** use raw 'social' data to generate a list of basic profile links for easy display */
-  _prepareSocial(rawSocial){
-    if(Object.keys(rawSocial).length < 1){ return []; }
-    
-    let social = [];
-    if(rawSocial["twitter"]){
-      social.push( {"text":"twitter", "url":"http://twitter.com/"+rawSocial["twitter"]} );
-    }
-    if(rawSocial["facebook"]){
-      social.push( {"text":"facebook", "url":"http://facebook.com/"+rawSocial["facebook"]} );
-    }
-    if(rawSocial["instagram"]){
-      social.push( {"text":"instagram", "url":"https://instagram.com/"+rawSocial["instagram"]} );
-    }
-    if(rawSocial["flickr"]){
-      social.push( {"text":"flickr", "url":"https://www.flickr.com/photos/"+rawSocial["flickr"]} );
-    }
-    if(rawSocial["tumblr"]){
-      social.push( {"text":"tumblr", "url":"http://"+rawSocial["tumblr"]+".tumblr.com/"} );
-    }
-    this._logToConsole(`${social.length.toString()} items found for 'social'.`);
-    return social;
   }
 
   _logGAEvent(clickedContent){
