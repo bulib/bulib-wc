@@ -1,0 +1,77 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+
+<Meta title="No Javascript|lists" />
+
+# Lists Utilities
+
+## List Decoration 
+
+<Preview>
+  <Story name="bulleted">
+    {html`
+      <h3>bulleted</h3>
+      <ul class="bullet">
+        <li>list item one</li>
+        <li>list item two</li>
+        <li>list item three</li>
+        <li>list item four</li>
+        <li>list item five</li>
+        <li>list item six</li>
+      </ul>
+    `}
+  </Story>
+</Preview>
+
+### `.no-bullet`
+
+<Preview>
+  <Story name="no-bullet">
+    {html`
+      <ul class="no-bullet">
+        <li>list item one</li>
+        <li>list item two</li>
+        <li>list item three</li>
+        <li>list item four</li>
+        <li>list item five</li>
+        <li>list item six</li>
+      </ul>
+    `}
+  </Story>
+</Preview>
+
+### `.inline`
+
+<Preview>
+  <Story name="list-no-bullet">
+    {html`
+      <ul class="inline">
+        <li>list item one</li>
+        <li>list item two</li>
+        <li>list item three</li>
+        <li>list item four</li>
+        <li>list item five</li>
+        <li>list item six</li>
+      </ul>
+    `}
+  </Story>
+</Preview>
+
+
+### `.multi-column`
+
+<Preview>
+  <Story name="multi-column">
+    {html`
+      <ul class="multi-column">
+        <li>list item one</li>
+        <li>list item two</li>
+        <li>list item three</li>
+        <li>list item four</li>
+        <li>list item five</li>
+        <li>list item six</li>
+      </ul>
+    `}
+  </Story>
+</Preview>
+
+

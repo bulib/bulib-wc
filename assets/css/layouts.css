@@ -1,9 +1,15 @@
-/* - general  - */
+/* - layouts - */
+
 div.demo { 
   background-color: gainsboro;
   min-width: 100px;
   min-height: 100px;
 }
+.full-width { width: 100%; }
+.half-width { width: 50%; }
+.third-width { width: 33%; }
+.auto-width { width: auto; }
+.auto-height { height: auto; }
 .fill { width: 100%; height: 100%; }
 
 /* - main with sidebar - */
@@ -41,10 +47,12 @@ div.tiles > * {
 .flex-between, .space-between { justify-content: space-between; }
 .flex-evenly, .space-evenly { justify-content: space-evenly; }
 .flex-around, .space-around { justify-content: space-around; }
+.wrap-reverse { flex-wrap: wrap-reverse; }
 
-/* - prepare footer to auto-margin itself to the bottom of the viewport - */
-body {
-  display: flex; 
-  flex-direction: column; 
-  min-height: 100vh;
+/* secondary menu styling to accentuate things to edit the current page */
+.secondary-menu, .bordered {
+  background-color: var(--color-secondary-background-light, gainsboro);
+  border: 1px solid var(--color-secondary-background-dark, grey);
+  color: var(--color-secondary-text, black);
+  padding: 10px;
 }
