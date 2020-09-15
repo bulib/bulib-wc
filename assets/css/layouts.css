@@ -1,9 +1,22 @@
 /* - layouts - */
 
+/* helper for use with storybook */
 div.demo { 
   background-color: gainsboro;
-  min-width: 100px;
-  min-height: 100px;
+  min-width: 100px; min-height: 100px;
+  padding: 5px; margin: 5px;
+}
+
+/* height/width utilities */ 
+.min-100 { min-width: 100px !important; } 
+.min-200 { min-width: 200px !important; } 
+.min-300 { min-width: 300px !important; } 
+.min-400 { min-width: 400px !important; } 
+.max-300 { max-width: 300px; } 
+.max-500 { max-width: 500px; } 
+.max-800 { max-width: 800px; } 
+@media only screen and (max-width: 600px){
+  .max-full-mobile { max-width: 100%; }
 }
 .full-width { width: 100%; }
 .half-width { width: 50%; }
@@ -18,11 +31,11 @@ div.main-with-sidebar {
   flex-wrap: wrap-reverse;
   width: 100%;
 }
-div.main-with-sidebar > section { 
+div.main-with-sidebar > section, div.main-with-sidebar > div:first-of-type { 
   flex: 3;
   justify-content: center;
 }
-div.main-with-sidebar > aside {
+div.main-with-sidebar > aside, div.main-with-sidebar > div:last-of-type {
   flex: 1;
   min-width: 250px;
 }
@@ -37,10 +50,32 @@ div.tiles > * {
   margin: 5px;
 }
 
-/* - flexbox shortcut - */
-.grid { display: grid; }
+/* - grid layout - */
+.grid { display: grid; grid-gap: 10px; }
+.grid-2 { display: grid; grid-template-columns: auto auto; }
+.grid-3 { display: grid; grid-template-columns: auto auto auto; }
+.grid-4 { display: grid; grid-template-columns: auto auto auto auto; }
+
+/* - minor helpers - */
 .left { float: left; }
+.right { float: right; }
 .inline { display: inline-block; }
+
+/* - marketing/singe-page-app styling where each row alternates colors */ 
+div.zebra > div, section.zebra > section, div.zebra > section, div.zebra > section {
+  padding: var(--padding-xlarge, 25px);
+  margin-left: 0px; margin-right: 0px;
+}
+div.zebra > div:nth-child(odd), section.zebra > section:nth-child(odd), 
+  div.zebra > section:nth-child(odd), div.zebra > section:nth-child(odd) {
+  background-color: var(--color-body-background, white);
+}
+div.zebra > div:nth-child(odd), section.zebra > section:nth-child(odd), 
+  div.zebra > section:nth-child(odd), div.zebra > section:nth-child(odd) {
+  background-color: var(--color-secondary-background, gainsboro);
+}
+
+/* - flexbox shortcut - */
 .flexnw { display: flex; flex-wrap: nowrap; }
 .flexw, .bulib-row { display: flex; flex-wrap: wrap; }
 .flex-center { justify-content: center; }
