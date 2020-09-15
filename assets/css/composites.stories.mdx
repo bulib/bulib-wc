@@ -1,0 +1,86 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+
+<Meta title="No Javascript|composites" />
+
+# Composites
+
+The many helpers in this section (both functional and object-oriented), can be combined to form more complex 
+  composite elements.
+
+## Marketing Material
+
+The following utilizes a number of utility classes to create a responsive, marketing look-and-feel that's visible
+  on `bu.edu/library/firstyear`. 
+
+<Preview>
+  <Story name="firstyear">
+    {html`
+    <div class="zebra">
+      <section class="full-width flexw flex-around">
+        <div class="max-500 mal">
+          <h2 class="uppercase">Services</h2>
+          <p>
+            Get <strong>expert research help</strong> and utilize the wealth of information available to the BU Community.
+            Connect with us in person, via chat, email, or text.
+          </p>
+          <a class="bulib-btn large" href="https://askalibrarian.bu.edu/">Connect With Us</a>
+        </div>
+        <img class="max-300 max-full-mobile" src="https://www.bu.edu/library/firstyear/img/service-laptop.jpg"></a>
+      </section>
+      <section class="full-width flexw wrap-reverse flex-around">
+        <img class="max-500 max-full-mobile" src="https://www.bu.edu/library/firstyear/img/collections-mugar.jpg">
+        <div class="max-300 mal">
+          <h2 class="uppercase">Collections</h2>
+          <p>
+            BU Libraries is your portal to millions of <strong>books and ebooks</strong>, hundreds of <strong>databases</strong>, 
+            and countless <strong>articles</strong>. Connect with our resources using <a href="https://www.bu.edu/library/search">BU Libraries Search</a>.
+          </p>
+          <a href="https://www.bu.edu/library/search" class="bulib-btn large">Search Our Resources</a>
+        </div>
+      </section>
+    </div>
+    `}
+  </Story>
+</Preview>
+
+
+## Promotional Card
+
+The following is an example using existing helper classes to construct a sort of promotional card.
+
+<Preview>
+  <Story name="promotional-box">
+    {html`
+      <div class="flexw flex-evenly">
+        <div class="secondary-menu mam" style="max-width: 350px;">
+          <img class="full-width" src="https://www.bu.edu/library/firstyear/img/spaces_mugar-study.jpg">
+          <h2 class="uppercase">For Grad Students</h2>
+          <p class="txt-wrap">BU Libraries has a number of services particularly for graduate students working on their theses and dissertations</p>
+          <ul>
+            <li><a href="https://library.bu.edu/create_bibliographies">Picking a Citation Management Tool</a></li>
+            <li><a href="http://sites.bu.edu/orcid/">Getting an ORCID id</a></li>
+            <li>...</li>
+          </ul>
+          <a class="mta bulib-btn mhn full-width capitalize bold" href="https://www.bu.edu/library/services/for-graduate-students/">Graduate Student Resources</a>
+        </div>
+        <div class="secondary-menu mam" style="max-width: 350px;">
+          <img class="full-width" src="https://www.bu.edu/library/files/2011/11/banner_mouse.jpg">
+          <h2 class="uppercase">For Faculty</h2>
+          <p>
+            BU Libraries has a number of services particularly for faculty to 
+            assist them with preparing classroom materials, creating reserves, etc.
+          </p>
+          <ul>
+            <li><a href="https://www.bu.edu/library/services/for-faculty/classes-instruction/">Library Classes &amp; Instruction</a></li>
+            <li><a href="https://www.bu.edu/library/services/scanning-delivery-services/">Scanning &amp; Digital Delivery</a></li>
+            <li>...</li>
+          </ul>
+          <div class="full-width">
+            <a class="bulib-btn mhn full-width capitalize bold" href="https://www.bu.edu/library/services/for-faculty/">Faculty Resources</a>
+          </div
+        </div>
+        
+      </div>
+    `}
+  </Story>
+</Preview>
