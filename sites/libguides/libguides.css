@@ -37,6 +37,7 @@ body { padding-left: 0px; padding-right: 0px; }
 /* normalize width alignment of top parts to match the header and footer breakpoints */
 @media only screen and (min-width: 1500px){
   #s-lg-guide-header #s-lg-guide-header-info > h1,
+    #s-lg-guide-header #s-lib-public-header-title > h1,
     #s-lg-guide-header #s-lg-guide-header-info > div#s-lg-guide-desc-container {
     margin-left: 7.5%;
   }
@@ -65,7 +66,7 @@ body { padding-left: 0px; padding-right: 0px; }
   padding-left: var(--padding-small, 5px);
   padding-right: var(--padding-small, 5px);
 }
-#s-lg-guide-header { 
+#s-lg-guide-header, #s-lib-public-header { 
   background-color: var(--color-secondary-background-light, #EEE);
   border-bottom: 1px solid var(--color-secondary-background-dark, #C8C8C8);
 }
