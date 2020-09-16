@@ -138,7 +138,7 @@ function getSiteCodeFromUrl(url, debug, defSiteCode){
   if(url.includes("askalibrarian")){ site_code = "help"; }
   else if(url.includes("/disc/") || url.includes("/dioa")){ site_code ="services"; }
   else if(url.includes("open.bu") || url.includes("archives")){ site_code = "collections"; }
-  else if(url.includes("guides")){ site_code = "guides" }
+  else if(url.includes("guides") || url.includes("library.bu.edu")){ site_code = "guides" }
   else if(url.includes("buprimo") || url.includes("exlibrisgroup") || url.includes("primo-explore")){ site_code = "search"; }
   else if(url.includes(".bu.edu/library")){
     if(url.includes("/research")){ site_code = "research"; }
