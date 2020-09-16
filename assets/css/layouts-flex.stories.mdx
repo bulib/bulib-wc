@@ -7,12 +7,12 @@ import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
 The `display: flex` layout is best for when you want to display things horizontally, or 
   for all-purpose responsive behavior where you want to have things wrap when their `max-width`s collide.
 
-_NOTE: 'flex' is short for 'flexible', so this won't necessarily align items for you_
-
 ## Flex-Wrap
 
-The default behavior for `display: flex` is to wrap (move to the next line when it overflows). 
-  Notice
+The default behavior for `display: flex` is to wrap (move to the next line when it overflows). You can activate 
+  this style using `.flexw`. 
+
+_NOTE: as items are moved to the next line, they are not automatically aligned for you, just shifted to the next row_
 
 <Preview>
   <Story name="flex-wrap">
@@ -30,7 +30,7 @@ The default behavior for `display: flex` is to wrap (move to the next line when 
 
 ## Preventing Wrapping
 
-If you want to display things horizontally, but to prevent them from wrapping, use `flexnw` to add the `flex-wrap: no-wrap`.
+If you want to display things horizontally, but to prevent them from wrapping, use `.flexnw` instead to add the `flex-wrap: no-wrap`.
 
 _NOTE: if you do this, you'll have to make sure to account for the overflow and/or any responsive behavior_
 
@@ -51,30 +51,31 @@ _NOTE: if you do this, you'll have to make sure to account for the overflow and/
 
 ### Arranging Flex Items
 
-the `justify-content` contains a number of options that will specify the arrangement:
+Items that have the `flex` display can be horizontally aligned with the `justify-content` classes.
+  There are a number of options to choose from:
 
 <Preview>
   <Story name="flex-center">
     {html`
-      <code>flex-center</code>
+      <code>.flex-center</code>
       <div class="flexw flex-center">
         <div class="demo">list item one</div>
         <div class="demo">list item two</div>
         <div class="demo">list item three</div>
       </div>
-      <code>flex-between</code>
+      <code>.flex-between</code>
       <div class="flexw flex-between">
         <div class="demo">list item one</div>
         <div class="demo">list item two</div>
         <div class="demo">list item three</div>
       </div>
-      <code>flex-evenly</code>
+      <code>.flex-evenly</code>
       <div class="flexw flex-evenly">
         <div class="demo">list item one</div>
         <div class="demo">list item two</div>
         <div class="demo">list item three</div>
       </div>
-      <code>flex-around</code>
+      <code>.flex-around</code>
       <div class="flexw flex-around">
         <div class="demo">list item one</div>
         <div class="demo">list item two</div>
@@ -88,7 +89,7 @@ the `justify-content` contains a number of options that will specify the arrange
 ### Wrap-Direction
 
 By default, flex will wrap in the order of the list from left to write. You can reverse the order of this 
-  with `.wrap-reverse`
+  by adding `.wrap-reverse` to your `div.flexw`
 
 <Preview>
   <Story name="wrap-reverse">

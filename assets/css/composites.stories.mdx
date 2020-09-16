@@ -5,7 +5,10 @@ import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
 # Composites
 
 The many helpers in this section (both functional and object-oriented), can be combined to form more complex 
-  composite elements.
+  composite elements. 
+
+The following examples contain a number of these helpers. Try pressing "Show code" on each example to find them. 
+  You should be able to copy that code into anywhere that has our assets loaded and get the same result.
 
 ## Marketing Material
 
@@ -16,7 +19,8 @@ The following utilizes a number of utility classes to create a responsive, marke
   <Story name="firstyear">
     {html`
     <style type="text/css">
-      h2 { font-family: "Benton"; }
+      div.zebra h2, div.zebra a.bulib-btn { font-family: "Benton"; }
+      div.zebra h2 { color: var(--color-accent-red-background-dark, #CC0000); }
     </style>
     <div class="zebra">
       <section class="full-width flexw flex-around">
@@ -54,7 +58,10 @@ The following is an example using existing helper classes to construct a sort of
 <Preview>
   <Story name="promotional-box">
     {html`
-      <div class="flexw flex-evenly">
+      <style type="text/css">
+        div.promo-boxes h2, div.promo-boxes a { font-family: "Benton"; }
+      </style>
+      <div class="flexw flex-evenly promo-boxes">
         <div class="secondary-menu mam" style="max-width: 350px;">
           <img class="full-width" src="https://www.bu.edu/library/firstyear/img/spaces_mugar-study.jpg">
           <h2 class="uppercase">For Grad Students</h2>
@@ -64,7 +71,7 @@ The following is an example using existing helper classes to construct a sort of
             <li><a href="http://sites.bu.edu/orcid/">Getting an ORCID id</a></li>
             <li>...</li>
           </ul>
-          <a class="mta bulib-btn mhn full-width capitalize bold" href="https://www.bu.edu/library/services/for-graduate-students/">Graduate Student Resources</a>
+          <a class="mta bulib-btn mhn full-width capitalize" href="https://www.bu.edu/library/services/for-graduate-students/">Graduate Student Resources</a>
         </div>
         <div class="secondary-menu mam" style="max-width: 350px;">
           <img class="full-width" src="https://www.bu.edu/library/files/2011/11/banner_mouse.jpg">
@@ -79,10 +86,9 @@ The following is an example using existing helper classes to construct a sort of
             <li>...</li>
           </ul>
           <div class="full-width">
-            <a class="bulib-btn mhn full-width capitalize bold" href="https://www.bu.edu/library/services/for-faculty/">Faculty Resources</a>
+            <a class="bulib-btn mhn full-width capitalize" href="https://www.bu.edu/library/services/for-faculty/">Faculty Resources</a>
           </div>
         </div>
-        
       </div>
     `}
   </Story>
