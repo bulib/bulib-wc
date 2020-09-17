@@ -14,20 +14,50 @@ import './bulib-promo.js';
 
 Provide an advanced marketing-style box with a background image, 
 
+## How it Works
+
+Unlike many of our other elements that use _attributes_ to control the look of the behavior (like you would with `class`)...
+
+```html
+<bulib-component attribute_1="value1" attribute_2="value2"></bulib-component>
+```
+
+...this component looks for entire elements that have been plopped _inside_ of it with particular `slot` names:
+
+```html
+<bulib-promo>
+  <h3 slot="heading">....</h3>
+  <img src="...">
+  <p slot="description">
+  <a slot="call-to-action">...</a>
+</bulib-promo>
+```
+
+This allows for greater customization and flexibility, while ensuring that a fallback exists, should the web component fail.
+
 ## Usages 
 
 ### Empty
 
-This element is not meant to be used empty, but when it does, it'll give you some information about what goes where... (?)
+This element is not meant to be used empty, but when it is (and the `debug` attribute is present), 
+  it'll give you some information about what goes where.
 
 <Preview withToolbar>
   <Story name="empty">
-    {html`<bulib-promo></bulib-promo>`}
+    {html`<bulib-promo debug></bulib-promo>`}
   </Story>
 </Preview>
 
 
 ### Filled In
+
+You can fill in particular parts of the display by specifying the following
+
+- the `src` on any `<img>` dropped inside, will be used to set the `background-image` of the `.main` section
+- an element with `slot="heading"` (preferrably `h1`, `h2`, `h3`, or `h4`) will go at the top 
+- an element with `slot="description"` (preferrably a `p`) will go in the `.blurb` section at the bottom
+- an element with `slot="call-to-action"` (preferrably a `button` or `a` with `.bulib-btn` added) will go below that
+
 
 <Preview withToolbar>
   <Story name="example">
@@ -36,7 +66,7 @@ This element is not meant to be used empty, but when it does, it'll give you som
         <h3 slot="heading" style="color: black !important;">this is a custom heading.</h3>
         <img alt="sample background image" src="https://www.bu.edu/library/wp-content/themes/bu-library/images/bg-body-noise.jpg">
         <p slot="description">this is a custom description that was added between the tags</p>
-        <a slot="call-to-action" class="bulib-btn">this is a custom call to action</a>
+        <a slot="call-to-action" class="bulib-btn btn-light mhn">this is a custom call to action</a>
       </bulib-promo>
       <br> <br> <br>
     `}
@@ -45,13 +75,39 @@ This element is not meant to be used empty, but when it does, it'll give you som
 
 ### Optional Parts
 
-If you don't have a call to action or heading (or whatever), you can leave them out... (?)
+If you don't have a call to action or heading (or whatever), you can leave them out and those parts will 
+  be left blank.
 
 <Preview withToolbar>
-  <Story name="example-empty-part">
+  <Story name="part-filled">
     {html`
       <bulib-promo>
         <p slot="description">this is a custom description that was added between the tags</p>
+      </bulib-promo>
+    `}
+  </Story>
+</Preview>
+
+### Unconventional Customization
+
+Technically, it's the `slot='section'` that actually powers it, so you can put arbitrary content in 
+  the `description` if you'd like.
+
+<Preview withToolbar>
+  <Story name="unconventional">
+    {html`
+      <bulib-promo>
+        <h2 slot="heading" style="color: black">Library Hours</h2>
+        <div slot="description">
+          <p>Different libraries are open at different times</p>
+          <ul class="scroll" style="max-height: 60px;">
+            <li><bulib-hours icon="local_library" library="mugar-memorial" link_class="white-link"></bulib-hours></li>
+            <li><bulib-hours icon="business" library="pardee" link_class="white-link"></bulib-hours></li>
+            <li><bulib-hours icon="school" library="pickering" link_class="white-link"></bulib-hours></li>
+            <li><bulib-hours icon="science" library="sel" link_class="white-link"></bulib-hours></li>
+            <li><bulib-hours icon="cloud_upload" library="astronomy" link_class="white-link"></bulib-hours></li>
+          </li>
+        </p>
       </bulib-promo>
     `}
   </Story>
