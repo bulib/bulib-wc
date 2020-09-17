@@ -1,0 +1,64 @@
+import { Story, Preview, Meta, Props, html, withKnobs, withWebComponentsKnobs } from '@open-wc/demoing-storybook';
+import './bulib-promo.js';
+
+<Meta 
+  title="Web Components|bulib-promo"
+  decorators={[withKnobs, withWebComponentsKnobs]}
+  parameters={{
+    component: "bulib-promo",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# Promo Component
+
+Provide an advanced marketing-style box with a background image, 
+
+## Usages 
+
+### Empty
+
+This element is not meant to be used empty, but when it does, it'll give you some information about what goes where... (?)
+
+<Preview withToolbar>
+  <Story name="empty">
+    {html`<bulib-promo></bulib-promo>`}
+  </Story>
+</Preview>
+
+
+### Filled In
+
+<Preview withToolbar>
+  <Story name="example">
+    {html`
+      <bulib-promo>
+        <h3 slot="heading" style="color: black !important;">this is a custom heading.</h3>
+        <img alt="sample background image" src="https://www.bu.edu/library/wp-content/themes/bu-library/images/bg-body-noise.jpg">
+        <p slot="description">this is a custom description that was added between the tags</p>
+        <a slot="call-to-action" class="bulib-btn">this is a custom call to action</a>
+      </bulib-promo>
+      <br> <br> <br>
+    `}
+  </Story>
+</Preview>
+
+### Optional Parts
+
+If you don't have a call to action or heading (or whatever), you can leave them out... (?)
+
+<Preview withToolbar>
+  <Story name="example-empty-part">
+    {html`
+      <bulib-promo>
+        <p slot="description">this is a custom description that was added between the tags</p>
+      </bulib-promo>
+    `}
+  </Story>
+</Preview>
+
+
+## API - Properties 
+
+<Props of="bulib-promo" />
+
