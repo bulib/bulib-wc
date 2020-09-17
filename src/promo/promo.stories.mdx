@@ -12,7 +12,9 @@ import './bulib-promo.js';
 
 # Promo Component
 
-Provide an advanced marketing-style box with a background image, 
+Provide an advanced marketing-style box with a background image and some surrounding content.
+
+_NOTE: can be used individually or in a group_
 
 ## How it Works
 
@@ -26,10 +28,9 @@ Unlike many of our other elements that use _attributes_ to control the look of t
 
 ```html
 <bulib-promo>
-  <h3 slot="heading">....</h3>
+  <div slot="top">....</div>
   <img src="...">
-  <p slot="description">
-  <a slot="call-to-action">...</a>
+  <div slot="bottom"></div>
 </bulib-promo>
 ```
 
@@ -43,46 +44,73 @@ This element is not meant to be used empty, but when it is (and the `debug` attr
   it'll give you some information about what goes where.
 
 <Preview withToolbar>
-  <Story name="empty">
+  <Story name="default">
     {html`<bulib-promo debug></bulib-promo>`}
   </Story>
 </Preview>
 
 
-### Filled In
+### Customization
 
-You can fill in particular parts of the display by specifying the following
+You can fill in particular parts of the display by specifying the following:
 
-- the `src` on any `<img>` dropped inside, will be used to set the `background-image` of the `.main` section
-- an element with `slot="heading"` (preferrably `h1`, `h2`, `h3`, or `h4`) will go at the top 
-- an element with `slot="description"` (preferrably a `p`) will go in the `.blurb` section at the bottom
-- an element with `slot="call-to-action"` (preferrably a `button` or `a` with `.bulib-btn` added) will go below that
+- _any_ element with `slot="top"`
+- an `<img>` tag dropped inside, will be used to set the `background-image` of the `.main` section via the `src` attribute
+- _any_ element with `slot="bottom"` (preferrably `h1`, `h2`, `h3`, or `h4`) will go at the top 
 
 
 <Preview withToolbar>
   <Story name="example">
     {html`
       <bulib-promo>
-        <h3 slot="heading" style="color: black !important;">this is a custom heading.</h3>
-        <img alt="sample background image" src="https://www.bu.edu/library/wp-content/themes/bu-library/images/bg-body-noise.jpg">
-        <p slot="description">this is a custom description that was added between the tags</p>
-        <a slot="call-to-action" class="bulib-btn btn-light mhn">this is a custom call to action</a>
+        <div slot="top">
+          <h2>high-level label</h2>
+        </div>
+        <div slot="bottom">
+          <h3>maybe our secondary label or heading</h3>
+          <p>this is the description explaining the image and/or calls to action</p>
+          <div class="flexnw flex-around">
+            <a class="bulib-btn mhn">primary call-to-action</a>
+            <a class="bulib-btn secondary mhn">secondary call-to-action</a>
+          </div>
+        </div>
       </bulib-promo>
-      <br> <br> <br>
     `}
   </Story>
 </Preview>
 
 ### Optional Parts
 
-If you don't have a call to action or heading (or whatever), you can leave them out and those parts will 
-  be left blank.
+If you decide you only want the top or only the bottom, feel free to leave either empty and it'll be left blank.
+
+#### No '`top`' Section
 
 <Preview withToolbar>
-  <Story name="part-filled">
+  <Story name="no-top">
     {html`
       <bulib-promo>
-        <p slot="description">this is a custom description that was added between the tags</p>
+        <img src="https://via.placeholder.com/500x350?text=this+is+a+custom+'<img>'">
+        <div slot="bottom">
+          <h3>this is a custom heading</h3>
+          <p>this is a custom description</p>
+          <a class="bulib-btn mhn">no secondary option this time</a>
+        </div>
+      </bulib-promo>
+    `}
+  </Story>
+</Preview>
+
+#### No '`bottom`' Section
+
+<Preview withToolbar>
+  <Story name="no-bottom-heading">
+    {html`
+      <bulib-promo>
+        <div slot="top">
+          <h3>this is a custom '<code>top heading</code>'</h3>
+          <p>we'll even add a bit of a description here to explain the image, (we'll opt to not have a cta in this example)</p>
+        </div>
+        <img src="https://via.placeholder.com/750x300?text=this+is+a+different+custom+img">
       </bulib-promo>
     `}
   </Story>
@@ -90,22 +118,49 @@ If you don't have a call to action or heading (or whatever), you can leave them 
 
 ### Unconventional Customization
 
-Technically, it's the `slot='section'` that actually powers it, so you can put arbitrary content in 
-  the `description` if you'd like.
+Technically, you can put pretty much anything in either `slot='top'` or `slot="bottom"`. The component is just to 
+  standardize the look & feel of multiples of them in place. 
 
 <Preview withToolbar>
-  <Story name="unconventional">
+  <Story name="unconventional-content">
+    {html`
+      <div class="flexnw flex-around">
+        <bulib-promo>
+          <h2 slot="top">Library Hours</h2>
+          <a slot="bottom" class="bulib-btn mhn">All Location Hours</a>
+        </bulib-promo>
+        <bulib-promo>
+          <h2 slot="bottom">Howard Gotlieb Archival Research Center</h2>
+        </bulib-promo>
+        <bulib-promo>
+          <h2 slot="top">Library Locations</h2>
+          <ul slot="bottom">
+            <li><a href="">Mugar Memorial</li>
+            <li><a href="">Music Library</li>
+            <li><a href="">...</li>
+            <li><a href="">Science and Engineering Library</li>
+          </ul>
+        </bulib-promo>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+### Multiple Promotions
+
+<Preview withToolbar>
+  <Story name="unison">
     {html`
       <bulib-promo>
-        <h2 slot="heading" style="color: black">Library Hours</h2>
-        <div slot="description">
+        <h2 slot="top">Library Hours</h2>
+        <div slot="bottom">
           <p>Different libraries are open at different times</p>
-          <ul class="scroll" style="max-height: 60px;">
-            <li><bulib-hours icon="local_library" library="mugar-memorial" link_class="white-link"></bulib-hours></li>
-            <li><bulib-hours icon="business" library="pardee" link_class="white-link"></bulib-hours></li>
-            <li><bulib-hours icon="school" library="pickering" link_class="white-link"></bulib-hours></li>
-            <li><bulib-hours icon="science" library="sel" link_class="white-link"></bulib-hours></li>
-            <li><bulib-hours icon="cloud_upload" library="astronomy" link_class="white-link"></bulib-hours></li>
+          <ul>
+            <li><bulib-hours icon="local_library" library="mugar-memorial"></bulib-hours></li>
+            <li><bulib-hours icon="business" library="pardee"></bulib-hours></li>
+            <li><bulib-hours icon="school" library="pickering"></bulib-hours></li>
+            <li><bulib-hours icon="science" library="sel"></bulib-hours></li>
+            <li><bulib-hours icon="cloud_upload" library="astronomy"></bulib-hours></li>
           </li>
         </p>
       </bulib-promo>

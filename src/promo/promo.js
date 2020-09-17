@@ -1,5 +1,18 @@
 import {LitElement, html, css} from 'lit-element/lit-element';
 
+const default_top = html`<h3>'<code>top</code>': this is where you might just put a heading</h3>`;
+const default_bottom = html`
+  <div>
+    <h4>'<code>bottom</code>': this is a good spot for a secondary heading</h4>
+    <p>this could be a custom description that can include <a href="">links</a> or anything else</p>
+    <p><small><em>NOTE: if you don't specify an &lt;<code>img</code>&gt; it'll default to the background color</em></small></p>
+    <div class="calls-to-action">
+      <button class="bulib-btn" href="">this is a final call to action</button>
+      <button class="bulib-btn secondary" href="">this is a second option</button>
+    </div>
+  </div>
+`;
+
 export default class BulibPromo extends LitElement {
 
   static get properties(){
@@ -13,69 +26,88 @@ export default class BulibPromo extends LitElement {
     return [
       css`
         div.promo { 
-          z-index: 1; 
-          position: relative; 
-          border: 1px solid var(--bulib-promo-blurb-background-color, #333);
+          border: 1px solid var(--bulib-promo-background-color-blurb, #333);
           max-width: var(--bulib-promo-max-width, 650px);
           border-radius: var(--bulib-promo-border-radius, 5px);
+
+          --bulib-promo-padding: var(--padding-large, 15px);
+          --bulib-promo-border-radius: 5px;
+          --bulib-promo-top-text: var(--color-accent-text, white);
+          --bulib-promo-top-background: var(--color-primary-red-background-dark, #A80000);
+          --bulib-promo-main-background: var(--color-primary-background-light, #444);
+          --bulib-promo-bottom-text:  var(--color-secondary-text, #444);
+          --bulib-promo-bottom-background: var(--color-secondary-background, #444);
         }
-        div.promo div.main {
-          min-height: 350px;
+        div.promo div { margin-left: 0px; margin-right: 0px; }
+        div.top, div.bottom { 
+          margin-left: 0px; margin-right: 0px; 
+          padding: var(--bulib-promo-padding);
+        }
+        div.top { 
+          color: var(--bulib-promo-top-text, red);
+          background-color: var(--bulib-promo-top-background, red);
+        }
+        div.top * { margin-top: 0px; margin-bottom: 0px; }
+        div.main {
+          min-height: 150px;
           margin: 0px;
-          padding: var(--padding-large, 15px);
           background-color: var(--bulib-promo-main-background-color, #555);
           color: var(--bulib-primo-main-text-color, white); 
-          border-radius: var(--bulib-promo-border-radius, 5px);
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
         }
-        /* div.main div.heading { z-index: 2; position: fixed; top: 0px; background-color: transparent; } */
-        div.blurb {  
-          z-index: 3; 
-          margin: 0px;
-          position: absolute;
+        div.bottom { 
           left: 0px; right: 0px; bottom: 0px;
-          padding: var(--padding-large, 15px);
-          background-color: var(--bulib-promo-blurb-background-color, #444);
-          border: 1px solid var(--bulib-promo-blurb-background-color, #444);
-          border-radius: var(--bulib-promo-border-radius, 5px);
+          padding: var(--bulib-promo-padding);
+          background-color: var(--bulib-promo-bottom-background, #444);
+          border: 1px solid var(--bulib-promo-bottom-background, #444);
+          border-radius: var(--bulib-promo-border-radius);
           border-top-left-radius: 0px; border-top-right-radius: 0px;
-          color: var(--bulib-promo-blurb-text-color, whitesmoke);
+          color: var(--bulib-promo-bottom-text);
         }
+        div.bottom .calls-to-action { display: flex; flex-wrap: nowrap; justify-content: space-evenly; }
       `
     ]
   }
   
   render(){
-    let heading, description, call_to_action; 
-    if(this.debug){
-      heading = html`<h3>&lt;this is the <code>heading</code>&gt;</h3>`;
-      description = html`<p>&lt;this is the where the <code>description</code> goes&gt;</p>`;
-      call_to_action = html`<button>here's a sample <code>call-to-action</code></button>`;
-    }
     return html`
       <div class="promo">
-        <div class="main">
-          <slot name="heading" class="heading">${heading}</slot>
+        <div class="top">
+          <slot name="top">${default_top}</slot>
         </div>
-        <div class="blurb">
-          <slot name="description">${description}</slot>
-          <slot name="call-to-action">${call_to_action}</slot>
+        <div class="main"><!-- img will be dropped here as the 'background-image' --></div>
+        <div class="bottom">
+          <slot name="bottom">${default_bottom}</slot>
         </div>
       </div>
     `;
   }
 
   /* after the element is first rendered, look for a slotted image and replace the background */
-  firstUpdated(){ 
-    let image_url = "https://via.placeholder.com/500x350"
+  updated(){ 
+    this._setMainBackgroundViaSlottedImage();
+    this._hideHeadingsIfTheyAreNotSpecified();
+  }
+
+  _setMainBackgroundViaSlottedImage(){
+    let image_url = "";
     let image_elem = this.querySelector("img");
     try{
       if(!!image_elem && image_elem.hasAttribute("src")){ image_url = image_elem.src; }
       this.shadowRoot.querySelector("div.promo div.main").style.backgroundImage = `url('${image_url}')`;
     }catch(exception){
       console.log("exception");
+    }
+  }
+
+  _hideHeadingsIfTheyAreNotSpecified(){
+    if(!this.debug && this.querySelector("*[slot='top']") == null){ 
+      this.shadowRoot.querySelector("div.top").style.display = "none";
+    }
+    if(!this.debug && this.querySelector("*[slot='bottom']") == null){ 
+      this.shadowRoot.querySelector("div.bottom").style.display = "none";
     }
   }
 
