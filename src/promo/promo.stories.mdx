@@ -1,0 +1,256 @@
+import { Story, Preview, Meta, Props, html, withKnobs, withWebComponentsKnobs } from '@open-wc/demoing-storybook';
+import './bulib-promo.js';
+
+<Meta 
+  title="Web Components|bulib-promo"
+  decorators={[withKnobs, withWebComponentsKnobs]}
+  parameters={{
+    component: "bulib-promo",
+    options: { selectedPanel: "storybookjs/knobs/panel" }
+  }}
+/>
+
+# Promo Component
+
+Provide an advanced marketing-style box with a background image and some surrounding content.
+
+_NOTE: can be used individually or in a group_
+
+## Usages 
+
+### Empty
+
+This element is not meant to be used empty, but it's here to show you where everything goes. 
+  So long as the `debug` attribute is present, it'll give you some information about what goes where.
+
+<Preview withToolbar>
+  <Story name="default">
+    {html`<bulib-promo debug></bulib-promo>`}
+  </Story>
+</Preview>
+
+
+### Customization
+
+You can fill in particular parts of the display by specifying the following:
+
+- _any_ element with `slot="top"` will show up in the section above the image (great for a heading, label, or preface)
+- an `<img>` with `slot="main"` dropped inside, will be used to set the `background-image` of the `.main` section via the `src` attribute
+- _any_ element with `slot="bottom"` will appear below the image (great for description, calls to action, more information, etc.)
+
+
+<Preview withToolbar>
+  <Story name="example">
+    {html`
+      <bulib-promo>
+        <div slot="top">
+          <h2>high-level label</h2>
+        </div>
+        <img slot="main" src="https://via.placeholder.com/500x350">
+        <div slot="bottom">
+          <h3>maybe our secondary label or heading</h3>
+          <p>this is the description explaining the image and/or calls to action</p>
+          <div class="flexnw flex-around">
+            <a class="bulib-btn mhn">primary call-to-action</a>
+            <a class="bulib-btn secondary mhn">secondary call-to-action</a>
+          </div>
+        </div>
+      </bulib-promo>
+    `}
+  </Story>
+</Preview>
+
+### Optional Parts
+
+If you decide you only want the top or only the bottom, feel free to leave either empty and it'll be left blank.
+
+#### No '`top`' Section
+
+<Preview withToolbar>
+  <Story name="no-top">
+    {html`
+      <bulib-promo>
+        <img slot="main" src="https://via.placeholder.com/500x350?text=this+is+a+custom+'<img>'">
+        <div slot="bottom">
+          <h3>this is a custom heading</h3>
+          <p>this is a custom description</p>
+          <a class="bulib-btn mhn">no secondary option this time</a>
+        </div>
+      </bulib-promo>
+    `}
+  </Story>
+</Preview>
+
+#### No '`bottom`' Section
+
+<Preview withToolbar>
+  <Story name="no-bottom-heading">
+    {html`
+      <bulib-promo>
+        <div slot="top">
+          <h3>this is a custom '<code>top heading</code>'</h3>
+          <p>we'll even add a bit of a description here to explain the image, (we'll opt to not have a cta in this example)</p>
+        </div>
+        <img slot="main" src="https://via.placeholder.com/750x300?text=this+is+a+different+custom+img">
+      </bulib-promo>
+    `}
+  </Story>
+</Preview>
+
+### Unconventional Customization
+
+Technically, you can put pretty much anything in either `slot='top'` or `slot="bottom"`. The component is just to 
+  standardize the look & feel of multiples of them in place. 
+
+_NOTE: in this example, we used a square image and set the height manually. This expanded the `.main` area to that height_
+
+<Preview withToolbar>
+  <Story name="unconventional">
+    {html`
+      <bulib-promo>
+        <h2 slot="top">Library Hours</h2>
+        <img slot="main" height="450px" src="https://i.pinimg.com/originals/c8/1e/14/c81e1445f01e19c6fd7dfb0b0ba4e359.jpg" >
+        <div slot="bottom" class="flexw flex-center">
+          <div class="half-width">
+            <p class="big-text">
+              Different libraries are open at different times. We use LibCal and 
+              <code>bulib-hours</code> to manage that.
+            </p>
+            <a href="https://www.bu.edu/library/about/hours/" class="bulib-btn bigger-text bold">see all location hours</a>
+          </div>
+          <ul>
+            <li><bulib-hours icon="local_library" library="mugar-memorial"></bulib-hours></li>
+            <li><bulib-hours icon="business" library="pardee"></bulib-hours></li>
+            <li><bulib-hours icon="school" library="pickering"></bulib-hours></li>
+            <li><bulib-hours icon="science" library="sel"></bulib-hours></li>
+            <li><bulib-hours icon="cloud_upload" library="astronomy"></bulib-hours></li>
+          </li>
+        </p>
+      </bulib-promo>
+    `}
+  </Story>
+</Preview>
+
+
+
+### Multiple Promotions
+
+Arrange multiple promotional boxes into a row using `display: flex`, `display: grid`, or other layout helpers...
+
+<Preview withToolbar>
+  <Story name="unison">
+    {html`
+      <style type="text/css">
+        div.promo-row { display: flex; grid-gap: 20px; }
+        div.promo-row > bulib-promo { flex: 1; }
+      </style>
+      <div class="promo-row">
+        <bulib-promo class="auto-height">
+          <h2 slot="top">Library Hours</h2>
+          <img slot="main" src="https://www.bu.edu/library/files/2012/04/mugar_small-150x115.jpg"
+          <a slot="bottom" class="bulib-btn mhn">All Location Hours</a>
+        </bulib-promo>
+        <bulib-promo>
+          <h2 slot="bottom">Howard Gotlieb Archival Research Center</h2>
+          <img slot="main" src="http://archives.bu.edu/documents/10184/15899/about-hgarc.jpg/9b958872-9fde-482f-a579-113efacc2f2c?t=1397674399156">
+        </bulib-promo>
+        <bulib-promo>
+          <h2 slot="top">Library Locations</h2>
+          <img slot="main" src="https://www.bu.edu/library/files/2012/04/astronomy_small-150x115.jpg">
+          <ul slot="bottom">
+            <li><a href="">Mugar Memorial</li>
+            <li><a href="">Music Library</li>
+            <li><a href="">...</li>
+            <li><a href="">Science and Engineering Library</li>
+          </ul>
+        </bulib-promo>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+
+### Using CSS Variables to Adjust Colors
+
+There are a number of CSS Variables (see `bulib-promo.css`) that you can customize to adjust the color, padding, and size.
+
+The ones for color are particularly useful:
+
+```css
+/* make the `top` black with orange letters */
+--bulib-promo-top-text: orange;
+--bulib-promo-top-background: black;
+
+/* make the `bottom` orange with black letters */
+--bulib-promo-bottom-text: black;
+--bulib-promo-bottom-background: orange;
+```
+
+<Preview withToolbar>
+  <Story name="variability">
+    {html`
+      <style type="text/css">
+        div.custom-variables { 
+          /* general */
+          --bulib-promo-max-width: 550px;
+          --bulib-promo-border-radius: 15px;
+          --bulib-promo-padding-horizontal: 30px;
+          --bulib-promo-padding-vertical: 15px;
+          /* top */ 
+          --bulib-promo-top-text: orange;
+          --bulib-promo-top-background: black;
+          /* main */ 
+          --bulib-promo-main-background: var(--color-primary-background-dark, black);
+          /* bottom */
+          --bulib-promo-bottom-text: black;
+          --bulib-promo-bottom-background: orange;
+        }
+      </style>
+      <div class="custom-variables">
+        <bulib-promo>
+          <div slot="top" class="flexnw flex-between">
+            <h2 class="mvn">Happy Fall!</h2>
+            <small><em>(and go RIT Tigers)</em></small>
+          </div>
+          <img slot="main" height="350px" src="https://www.bu.edu/usc/files/2014/05/banner9.jpg">
+          <div slot="bottom" class="big-text">
+            <strong>Customizing CSS Variables</strong>
+            <p>css variables control a number of aspects of many of our variables across our sites</p>
+            <p>
+              if ever you get bored, pick a web component or an active page any of our sites 
+              and start fiddling with the css variables in the <code>body</code> section of the 
+              chrome 'elements' inspector under the 'styles' tab. 
+            </p>
+            <a class="bulib-btn secondary mhn" href="https://dev.to/samanthaming/css-variables-8di">learn more about css variables</a>
+          </div>
+        </bulib-promo>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+## A Brief Note About How it Works
+
+Unlike many of our other elements that use _attributes_ to control the look of the behavior (like you would with `class`)...
+
+```html
+<bulib-component attribute_1="value1" attribute_2="value2"></bulib-component>
+```
+
+...this component looks for entire elements that have been plopped _inside_ of it with particular `slot` names:
+
+```html
+<bulib-promo>
+  <div slot="top">....</div>
+  <img slot="main" src="...">
+  <div slot="bottom"></div>
+</bulib-promo>
+```
+
+This allows for greater customization and flexibility, while ensuring that a fallback exists, should the web component fail.
+
+
+## API - Properties 
+
+<Props of="bulib-promo" />
+

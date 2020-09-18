@@ -50,16 +50,18 @@ div.tiles > * {
   margin: 5px;
 }
 
+/* - add. helpers - */
+.left { float: left; }
+.right { float: right; }
+.scroll-x { overflow-x: scroll; }
+.scroll-y { overflow-y: scroll; }
+.inline-block { display: inline-block; }
+
 /* - grid layout - */
 .grid { display: grid; grid-gap: 10px; }
 .grid-2 { display: grid; grid-template-columns: auto auto; }
 .grid-3 { display: grid; grid-template-columns: auto auto auto; }
 .grid-4 { display: grid; grid-template-columns: auto auto auto auto; }
-
-/* - minor helpers - */
-.left { float: left; }
-.right { float: right; }
-.inline { display: inline-block; }
 
 /* - marketing/singe-page-app styling where each row alternates colors */ 
 div.zebra > div, section.zebra > section, div.zebra > section, div.zebra > section {

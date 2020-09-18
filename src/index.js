@@ -10,4 +10,5 @@ WebComponents.waitFor(function(){
   import ('./locoso/bulib-locoso');
   import ('./header/bulib-submenu');
   import ('./footer/bulib-footer');
+  import ('./promo/bulib-promo');
 });
