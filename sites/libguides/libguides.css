@@ -37,7 +37,7 @@ body { padding-left: 0px; padding-right: 0px; }
 /* normalize width alignment of top parts to match the header and footer breakpoints */
 @media only screen and (min-width: 1500px){
   #s-lg-guide-header #s-lg-guide-header-info > h1,
-    #s-lg-guide-header #s-lib-public-header-title > h1,
+    #s-lib-public-header > #s-lib-public-header-title,
     #s-lg-guide-header #s-lg-guide-header-info > div#s-lg-guide-desc-container {
     margin-left: 7.5%;
   }
