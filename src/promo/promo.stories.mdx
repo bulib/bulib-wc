@@ -155,6 +155,8 @@ _NOTE: in this example, we used a square image and set the height manually. This
 
 ### Multiple Promotions
 
+Arrange multiple promotional boxes into a row using `display: flex`, `display: grid`, or other layout helpers...
+
 <Preview withToolbar>
   <Story name="unison">
     {html`
@@ -187,6 +189,65 @@ _NOTE: in this example, we used a square image and set the height manually. This
   </Story>
 </Preview>
 
+
+### Using CSS Variables to Adjust Colors
+
+There are a number of CSS Variables (see `bulib-promo.css`) that you can customize to adjust the color, padding, and size.
+
+The ones for color are particularly useful:
+
+```css
+/* make the `top` black with orange letters */
+--bulib-promo-top-text: orange;
+--bulib-promo-top-background: black;
+
+/* make the `bottom` orange with black letters */
+--bulib-promo-bottom-text: black;
+--bulib-promo-bottom-background: orange;
+```
+
+<Preview withToolbar>
+  <Story name="variability">
+    {html`
+      <style type="text/css">
+        div.custom-variables { 
+          /* general */
+          --bulib-promo-max-width: 550px;
+          --bulib-promo-border-radius: 15px;
+          --bulib-promo-padding-horizontal: 30px;
+          --bulib-promo-padding-vertical: 15px;
+          /* top */ 
+          --bulib-promo-top-text: orange;
+          --bulib-promo-top-background: black;
+          /* main */ 
+          --bulib-promo-main-background: var(--color-primary-background-dark, black);
+          /* bottom */
+          --bulib-promo-bottom-text: black;
+          --bulib-promo-bottom-background: orange;
+        }
+      </style>
+      <div class="custom-variables">
+        <bulib-promo>
+          <div slot="top" class="flexnw flex-between">
+            <h2 class="mvn">Happy Fall!</h2>
+            <small><em>(and go RIT Tigers)</em></small>
+          </div>
+          <img slot="main" height="350px" src="https://www.bu.edu/usc/files/2014/05/banner9.jpg">
+          <div slot="bottom" class="big-text">
+            <strong>Customizing CSS Variables</strong>
+            <p>css variables control a number of aspects of many of our variables across our sites</p>
+            <p>
+              if ever you get bored, pick a web component or an active page any of our sites 
+              and start fiddling with the css variables in the <code>body</code> section of the 
+              chrome 'elements' inspector under the 'styles' tab. 
+            </p>
+            <a class="bulib-btn secondary mhn" href="https://dev.to/samanthaming/css-variables-8di">learn more about css variables</a>
+          </div>
+        </bulib-promo>
+      </div>
+    `}
+  </Story>
+</Preview>
 
 ## API - Properties 
 

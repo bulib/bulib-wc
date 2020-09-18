@@ -34,11 +34,16 @@ export default class BulibPromo extends LitElement {
         }
         div.top, div.bottom { 
           margin-left: 0px; margin-right: 0px; 
-          padding: var(--bulib-promo-padding, 15px);
+          padding-top: var(--bulib-promo-padding-vertical, 10px);
+          padding-bottom: var(--bulib-promo-padding-vertical, 10px);
+          padding-left: var(--bulib-promo-padding-horizontal, 15px);
+          padding-right: var(--bulib-promo-padding-horizontal, 15px);
         }
         div.top { 
           color: var(--bulib-promo-top-text, white);
           background-color: var(--bulib-promo-top-background, #A80000);
+          border-top-left-radius: var(--bulib-promo-border-radius, 5px);
+          border-top-right-radius: var(--bulib-promo-border-radius, 5px);
         }
         div.top * { margin-top: 0px; margin-bottom: 0px; }
         div.main {
@@ -54,8 +59,8 @@ export default class BulibPromo extends LitElement {
           left: 0px; right: 0px; bottom: 0px;
           background-color: var(--bulib-promo-bottom-background, #EEE);
           border: 1px solid var(--bulib-promo-bottom-background, #EEE);
-          border-radius: var(--bulib-promo-border-radius);
-          border-top-left-radius: 0px; border-top-right-radius: 0px;
+          border-bottom-left-radius: var(--bulib-promo-border-radius, 5px);
+          border-bottom-right-radius: var(--bulib-promo-border-radius, 5px);
           color: var(--bulib-promo-bottom-text, black);
         }
         div.bottom .calls-to-action { display: flex; flex-wrap: nowrap; justify-content: space-evenly; }

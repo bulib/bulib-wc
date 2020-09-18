@@ -4,11 +4,12 @@ body {
   /* general */ 
   --bulib-promo-max-width: 650px;
   --bulib-promo-border-radius: 5px;
-  --bulib-promo-padding: var(--padding-large, 15px);
+  --bulib-promo-padding-vertical: var(--padding-medium, 10px);
+  --bulib-promo-padding-horizontal: var(--padding-large, 15px);
 
   /* top */ 
   --bulib-promo-top-text: var(--color-accent-text, white);
-  --bulib-promo-top-background: var(--color-primary-red-background-dark, #A80000);
+  --bulib-promo-top-background: var(--color-accent-red-background-dark, #A80000);
   
   /* main */ 
   --bulib-promo-main-background: var(--color-primary-background-light, #444);
