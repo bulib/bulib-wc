@@ -139,100 +139,6 @@
       ]
     },
     {
-      "name": "bulib-feedback",
-      "attributes": [
-        {
-          "name": "code",
-          "description": "unique identifier for each feedback input (event category)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "description": "[debugging] enables logging to the console",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "description": "[debugging] override main action (prevent GAEvent logging)",
-          "type": "boolean"
-        }
-      ],
-      "properties": [
-        {
-          "name": "code",
-          "attribute": "code",
-          "description": "unique identifier for each feedback input (event category)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "[debugging] enables logging to the console",
-          "type": "boolean"
-        },
-        {
-          "name": "prevent_action",
-          "attribute": "prevent_action",
-          "description": "[debugging] override main action (prevent GAEvent logging)",
-          "type": "boolean"
-        }
-      ]
-    },
-    {
-      "name": "bulib-footer",
-      "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
-      "attributes": [
-        {
-          "name": "host_site",
-          "description": "key for the subsite (used to populate the sitemap)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "description": "[debugging] enable logging for parent and child events",
-          "type": "boolean"
-        },
-        {
-          "name": "curr_url",
-          "description": "[debugging] manually simulate the url to override/force different states",
-          "type": "string"
-        },
-        {
-          "name": "library",
-          "description": "provide window into setting displayed 'locoso' contact data",
-          "type": "string",
-          "default": "\"help\""
-        }
-      ],
-      "properties": [
-        {
-          "name": "host_site",
-          "attribute": "host_site",
-          "description": "key for the subsite (used to populate the sitemap)",
-          "type": "string"
-        },
-        {
-          "name": "debug",
-          "attribute": "debug",
-          "description": "[debugging] enable logging for parent and child events",
-          "type": "boolean"
-        },
-        {
-          "name": "curr_url",
-          "attribute": "curr_url",
-          "description": "[debugging] manually simulate the url to override/force different states",
-          "type": "string"
-        },
-        {
-          "name": "library",
-          "attribute": "library",
-          "description": "provide window into setting displayed 'locoso' contact data",
-          "type": "string",
-          "default": "\"help\""
-        }
-      ]
-    },
-    {
       "name": "bulib-card",
       "description": "display a single concept (heading, description, cta, icon) in a small UI element",
       "attributes": [
@@ -330,6 +236,100 @@
           "name": "code",
           "attribute": "code",
           "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "bulib-feedback",
+      "attributes": [
+        {
+          "name": "code",
+          "description": "unique identifier for each feedback input (event category)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "description": "[debugging] enables logging to the console",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "description": "[debugging] override main action (prevent GAEvent logging)",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "code",
+          "attribute": "code",
+          "description": "unique identifier for each feedback input (event category)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "[debugging] enables logging to the console",
+          "type": "boolean"
+        },
+        {
+          "name": "prevent_action",
+          "attribute": "prevent_action",
+          "description": "[debugging] override main action (prevent GAEvent logging)",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "bulib-footer",
+      "description": "Reactive/responsive footer providing slotted middle section and customizable LoCoSo data",
+      "attributes": [
+        {
+          "name": "host_site",
+          "description": "key for the subsite (used to populate the sitemap)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "description": "[debugging] enable logging for parent and child events",
+          "type": "boolean"
+        },
+        {
+          "name": "curr_url",
+          "description": "[debugging] manually simulate the url to override/force different states",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "description": "provide window into setting displayed 'locoso' contact data",
+          "type": "string",
+          "default": "\"help\""
+        }
+      ],
+      "properties": [
+        {
+          "name": "host_site",
+          "attribute": "host_site",
+          "description": "key for the subsite (used to populate the sitemap)",
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "attribute": "debug",
+          "description": "[debugging] enable logging for parent and child events",
+          "type": "boolean"
+        },
+        {
+          "name": "curr_url",
+          "attribute": "curr_url",
+          "description": "[debugging] manually simulate the url to override/force different states",
+          "type": "string"
+        },
+        {
+          "name": "library",
+          "attribute": "library",
+          "description": "provide window into setting displayed 'locoso' contact data",
+          "type": "string",
+          "default": "\"help\""
         }
       ]
     },
@@ -446,6 +446,10 @@
           "type": "string"
         },
         {
+          "name": "locoso",
+          "type": "string"
+        },
+        {
           "name": "debug",
           "description": "[debugging] enables logging to the console",
           "type": "boolean"
@@ -456,6 +460,11 @@
           "name": "code",
           "attribute": "code",
           "description": "unique identifier for each feedback input (event category)",
+          "type": "string"
+        },
+        {
+          "name": "locoso",
+          "attribute": "locoso",
           "type": "string"
         },
         {
