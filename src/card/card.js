@@ -19,8 +19,6 @@ export default class BULCard extends LitElement {
       icon: {type: String},
       /** optional link for the href/window.open() action */
       link: {type: String},
-      /** custom javascript */
-      action: {type: String},
       /** add 'small' class to card */
       small: {type: Boolean},
       /** enable logging (click tracking) */
@@ -32,19 +30,18 @@ export default class BULCard extends LitElement {
     let href = (!!this.action || !this.link)? "javascript:void(0);" : this.link;
     return html`
       <div class="card${this.small === true? ' small' : ''}">
-        <i class="material-icons" @click="${(ev) => this._logGAEvent()}">${this.icon}</i>
+        <i class="material-icons" @click="${(ev) => this._clickAction()}">${this.icon}</i>
         <div class="inline">
-          <h3><a @click="${(ev) => this._logGAEvent()}" href="${href}">${this.title}</a></h3>
+          <h3><a @click="${(ev) => this._clickAction()}" href="${href}">${this.title}</a></h3>
           <p>${this.description}</p>
         </div>
       </div>
     `;
   }
 
-  _logGAEvent(event){
+  _clickAction(event){
     sendGAEvent("bulib-card", this.title.toLowerCase(), window.location.pathname);
-    if(this.action){ eval(this.action); }
-    else{ window.location = this.link; }
+    if(this.link){ window.location = this.link; }
   }
   
   _logToConsole(message){
