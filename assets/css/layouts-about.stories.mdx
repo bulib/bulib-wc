@@ -1,0 +1,106 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+
+<Meta title="No Javascript|layouts/general" />
+
+# General Layout Information
+
+## Secondary Menu
+
+The secondary menu is a quick way to visually distinguish a part of the page. It can be used for navigation,
+  for highlighting main calls to action, or other purposes. 
+
+<Preview>
+  <Story name="secondary-menu">
+    {html`
+      <div class="secondary-menu max-500"> 
+        <h3>Please Confirm Something</h3>
+        <p>This is a sample confirmation message showing the use of both button styles</p>
+        <div>
+          <a class="bulib-btn" href="javascript:void()">Confirm</a>
+          <a class="bulib-btn btn-secondary" href="javascript:void()">Cancel</a>
+        </div>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+
+## Main with Sidebar
+
+The `.main-with-sidebar` is a common responsive pattern that provides a core, central area with a 
+  sidemenu navigatior to other sites that moves to the top for smaller screens.
+
+<Preview>
+  <Story name="sidebar-layout">
+    {html`
+      <div class="main-with-sidebar"> 
+        <div class="min-400">
+          <p>This is a sample confirmation message showing the use of both button styles</p>
+          <div>
+            <a class="bulib-btn" href="javascript:void()">Confirm</a>
+            <a class="bulib-btn btn-secondary" href="javascript:void()">Cancel</a>
+          </div>
+        </div>
+        <div class="secondary-menu">
+          <ul>
+            <li><a>link one</a></li>
+            <li><a>link two</a></li>
+            <li><a>link three</a></li>
+            <li><a>link four</a></li>
+          </ul>
+        </div>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+
+## Zebra Styling
+
+Marketing-style sites often alternate between colors and having a lot of padding (e.g. `bu.edu/library/firstyear`)
+
+<Preview>
+  <Story name="zebra">
+    {html`
+      <div class="zebra">
+        <section>section one</section>
+        <section>section two</section>
+        <section>section three</section>
+        <section>section four</section>
+        <section>section five</section>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+## Percent Width Helpers
+
+There are many times where you may want to set the width of an element with a percentage. 
+
+_NOTE: working with percentages often requires extra work to accomodate screen size_
+
+<Preview>
+  <Story name="width-helpers">
+    {html`
+      <div class="demo">
+        <div class="bordered auto-width"><code>.auto-width</code>: takes up the default width</div>
+        <div class="bordered full-width"><code>.full-width</code>: takes up 100% of the parent element</div>
+        <div class="bordered half-width"><code>.half-width</code>: takes up 50% of the parent element</div>
+        <div class="bordered third-width"><code>.third-width</code>: takes up 33% of the parent element</div>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+These are helpful when organizing a horizontal display, but must be adapted for small screens:
+
+<Preview>
+  <Story name="width-helpers-responsive">
+    {html`
+      <div class="flexw flex-between demo">
+        <div class="bordered half-width"><code>.half-width</code>: takes up 50% of the parent element</div>
+        <div class="bordered third-width"><code>.third-width</code>: takes up a third of the parent element</div>
+      </div>
+    `}
+  </Story>
+</Preview>

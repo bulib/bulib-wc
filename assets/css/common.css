@@ -1,6 +1,9 @@
 /* -- imports -- */
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
 
+/* set the box-sizing to 'border-box' for all elements */
+* { box-sizing: border-box; }
+
 /* - pagewidth - */
 .header-wrapper, .footer-wrapper, .banner-wrapper {
   font-family: 'Benton', sans-serif;
@@ -12,54 +15,11 @@
   color: var(--color-primary-text-light, whitesmoke);
 }
 
-.full-width { width: 100%; }
-.half-width { width: 50%;}
-
 /* on super large screens, set the width to avoid getting too much spacing */
 @media only screen and (min-width: 1500px){
   .footer-wrapper footer, .header-wrapper nav, .banner-wrapper .banner { 
     margin: 0 auto; width: 85%; 
   }
-}
-
-/* - general styling - */
-
-/* text */
-.txtl { text-align: left; }
-.txtc { text-align: center; }
-.txtv { vertical-align: middle; }
-
-.bold { font-weight: bold !important; }
-.underline { text-decoration: underline !important; }
-
-.txt-wrap { white-space: normal; }
-.no-wrap { white-space: nowrap; }
-
-.smaller-text { font-size: 80% !important; }
-.small-text, .small-text * { font-size: 90% !important; }
-.big-text, .large-text { font-size: 110% !important; }
-.bigger-text, .larger-text { font-size: 120% !important; }
-
-
-/* list styles */
-ul.bulleted > li, ol.bulleted > li { 
-  list-style: disc !important;
-  margin-left: var(--padding-large, 15px) !important;
-  margin-bottom: var(--padding-small, 5px) !important;
-}
-ul.no-bullet, ol.no-bullet, .no-bullet > li, .no-bullet > * > li {
-  list-style: none !important;
-  padding-left: 0em;
-}
-.inline-list > li {
-  display: inline;
-  padding-right: 5px;
-}
-.multi-column {
-  -webkit-column-count: 2;
-  -moz-column-count: 2;
-  column-count: 2;
-  column-gap: 5%;
 }
 
 /* '.white-link' used in footer */
@@ -91,10 +51,9 @@ a.sr-only:focus { height: auto; width: auto; position: inherit; color: white; fo
   border: 0;
 }
 
-/* secondary menu styling to accentuate things to edit the current page */
-.secondary-menu, .bordered {
-  background-color: var(--color-secondary-background-light, gainsboro);
-  border: 1px solid var(--color-secondary-background-dark, grey);
-  color: var(--color-secondary-text, black);
-  padding: 10px;
+/* - prepare footer to auto-margin itself to the bottom of the viewport - */
+body {
+  display: flex; 
+  flex-direction: column; 
+  min-height: 100vh;
 }

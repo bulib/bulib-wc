@@ -1,0 +1,77 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+
+<Meta title="No Javascript|layouts/responsive" />
+
+# General Layout Information
+
+
+## Deciding Between Flex and Grid
+
+Here's a side-by-side comparison of flex and grid. Change the size of the page to 
+  notice how the layouts differ in response to the screen width.
+
+Particularly important is that `grid` does additional work to align items by column,
+  whereas the items in `flex` are simply placed next to each other.
+
+<Preview>
+  <Story name="flex-vs-grid">
+    {html`
+      <h3><code>flex</code></h3>
+      <div class="flexw bordered">
+        <div class="demo">list item one</div>
+        <div class="demo">list item two</div>
+        <div class="demo">list item three is very long</div>
+        <div class="demo">list item four</div>
+        <div class="demo">list item five is even longer than item three</div>
+      </div>
+      <h3><code>grid</code></h3>
+      <div class="grid-3 bordered">
+        <div class="demo">list item one</div>
+        <div class="demo">list item two</div>
+        <div class="demo">list item three is very long</div>
+        <div class="demo">list item four</div>
+        <div class="demo">list item five is even longer than item three</div>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+### Min-Width Helpers
+
+The `min-width` helpers resolve the percentage problem by specifying a minimum bound for 
+  how wide the pixel width or responding to screen size. 
+  They are very useful for quick-and-dirty responsive design:
+
+_NOTE: use `.fill` to take up 100% of the available horizontal and vertical space of the parent_
+
+<Preview>
+  <Story name="min-width-helpers">
+    {html`
+      <div class="flexw flex-between demo">
+        <div class="bordered half-width min-300"><code>.half-width.min-300</code>: expands to take up to 500px of screen width</div>
+        <div class="bordered third-width min-200"><code>.third-width.min-200</code>: takes up 100% of the parent element</div>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+### Max-Width Helpers
+
+The `max-width` helpers solve the "percentage problem" for large screens, by specifying a pixel width 
+  or responding to screen size. They are very useful for quick-and-dirty responsive design.
+
+Here, without specifying a percentage of the page, we're able to display these side by side until they collide.
+
+_NOTE: use `.fill` to take up 100% of the available horizontal and vertical space of the parent_
+
+<Preview>
+  <Story name="max-width-helpers">
+    {html`
+      <div class="flexw flex-between demo">
+        <div class="bordered fill max-500"><code>.max-500</code>: expands to take up to 500px of screen width</div>
+        <div class="bordered fill max-300"><code>.max-300</code>: takes up to 300px of screen width</div>
+      </div>
+    `}
+  </Story>
+</Preview>
+

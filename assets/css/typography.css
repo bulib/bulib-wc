@@ -1,0 +1,46 @@
+/* - text and typography - */
+
+/* alignment */ 
+.txtl { text-align: left; }
+.txtc { text-align: center; }
+.txtr { text-align: right; }
+.txtv { vertical-align: middle; }
+
+/* styling and capitalization */
+.bold { font-weight: bold !important; }
+.underline { text-decoration: underline !important; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+.uppercase { text-transform: uppercase; }
+
+/* wrapping */
+.txt-wrap { white-space: normal; }
+.no-wrap { white-space: nowrap; }
+
+/* text size */
+.smaller-text { font-size: 80% !important; }
+.small-text, .small-text * { font-size: 90% !important; }
+.normal-text { font-size: 100% !important; }
+.big-text, .large-text { font-size: 110% !important; }
+.bigger-text, .larger-text { font-size: 120% !important; }
+
+/* list styles */
+ul.bulleted > li, ol.bulleted > li { 
+  list-style: disc !important;
+  margin-left: var(--padding-large, 15px) !important;
+  margin-bottom: var(--padding-small, 5px) !important;
+}
+ul.no-bullet, ol.no-bullet, .no-bullet > li, .no-bullet > * > li {
+  list-style: none !important;
+  padding-left: 0em;
+}
+.inline > li, .inline-list > li {
+  display: inline;
+  padding-right: 5px;
+}
+.multi-column {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  column-gap: 5%;
+}

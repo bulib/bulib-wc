@@ -1,0 +1,81 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+
+<Meta title="No Javascript|typography" />
+
+# Typography Utilities
+
+Functional css classes that can be used practically anywhere and do the same thing
+
+## Alignment
+
+Use the `.txtl`, `.txtc`, and `.txtr` classes to align text to the left, center, or right.
+
+<Preview>
+  <Story name="text-alignment">
+    {html`
+      <div class="full-width">
+        <p class="txtl">this text is left-aligned</p>
+        <p class="txtc">this text is center-aligned</p>
+        <p class="txtr">this text is right-aligned</p>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+
+## Size
+
+A quick way to change the _size_ of the text is with the `.*-text` classes: 
+
+<Preview>
+  <Story name="text-size">
+    {html`
+      <ul>
+        <li class="smaller-text"><code>.smaller-text</code></li>
+        <li class="small-text"><code>.small-text</code></li>
+        <li class="normal-text"><code>.normal-text</code></li>
+        <li class="big-text"><code>.big-text</code></li>
+        <li class="bigger-text"><code>.bigger-text</code></li>
+      </ul>
+    `}
+  </Story>
+</Preview>
+
+
+## Style
+
+Use `.bold` and `.underline` to alter the `font-weight` and add `text-decoration`.
+
+_NOTE: you should generally use `<strong>` tags for bold text, `<em>` tags for italics and these just for the `!important`_
+
+<Preview>
+  <Story name="text-style">
+    {html`
+      <div>
+        <p class="bold">this text is bold</p>
+        <p class="underline">this text is underligned</p>
+        <p class="lowercase">THIS TEXT IS LOWERCASE</p>
+        <p class="capitalize">this text has a capital on each new word</p>
+        <p class="uppercase">this text is capitalized</p>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+## Text Wrapping
+
+<Preview>
+  <Story name="text-wrap">
+    {html`
+      <div class="half-width">
+        <p>this very long bit of text will wrap because that is the default behavior</p>
+        <p class="txt-wrap">this very long bit of text will wrap because it has the <code>.txt-wrap</code> class added.</p>
+        <p class="no-wrap">this very long bit of text will <em>NOT</em> wrap because it has the <code>.no-wrap</code> class added.</p>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+
+
+
