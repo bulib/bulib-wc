@@ -40,17 +40,6 @@ Here the library is specified to Pickering (`pel`) but we've not set any for thi
   </Story>
 </Preview>
 
-### Known Library, Known Site
-
-At this url, we know both the `library` and the `main_site` (`help`), so we can display 
-  library-specific information (`pardee`) as well as the sitemap for the askalibrarian site (`help`).
-
-<Preview withToolbar>
-  <Story name="known-library-site">
-    {html`<bulib-footer curr_url="https://askalibrarian.bu.edu/businessFAQs/"></bulib-footer>`}
-  </Story>
-</Preview>
-
 
 ### Known Site, Unknown Library
 
@@ -60,6 +49,17 @@ Here the `library` is unspecified (so we don't display any hours or particular i
 <Preview withToolbar>
   <Story name="known-site">
     {html`<bulib-footer curr_url="https://askalibrarian.com/"></bulib-footer>`}
+  </Story>
+</Preview>
+
+### Known Library, Known Site
+
+At this url, we know both the `library` and the `main_site` (`help`), so we can display 
+  library-specific information (`pardee`) as well as the sitemap for the askalibrarian site (`help`).
+
+<Preview withToolbar>
+  <Story name="known-site-library">
+    {html`<bulib-footer curr_url="https://askalibrarian.bu.edu/businessFAQs/"></bulib-footer>`}
   </Story>
 </Preview>
 

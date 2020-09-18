@@ -1,9 +1,28 @@
-/* - general  - */
+/* - layouts - */
+
+/* helper for use with storybook */
 div.demo { 
   background-color: gainsboro;
-  min-width: 100px;
-  min-height: 100px;
+  min-width: 100px; min-height: 100px;
+  padding: 5px; margin: 5px;
 }
+
+/* height/width utilities */ 
+.min-100 { min-width: 100px !important; } 
+.min-200 { min-width: 200px !important; } 
+.min-300 { min-width: 300px !important; } 
+.min-400 { min-width: 400px !important; } 
+.max-300 { max-width: 300px; } 
+.max-500 { max-width: 500px; } 
+.max-800 { max-width: 800px; } 
+@media only screen and (max-width: 600px){
+  .max-full-mobile { max-width: 100%; }
+}
+.full-width { width: 100%; }
+.half-width { width: 50%; }
+.third-width { width: 33%; }
+.auto-width { width: auto; }
+.auto-height { height: auto; }
 .fill { width: 100%; height: 100%; }
 
 /* - main with sidebar - */
@@ -12,11 +31,11 @@ div.main-with-sidebar {
   flex-wrap: wrap-reverse;
   width: 100%;
 }
-div.main-with-sidebar > section { 
+div.main-with-sidebar > section, div.main-with-sidebar > div:first-of-type { 
   flex: 3;
   justify-content: center;
 }
-div.main-with-sidebar > aside {
+div.main-with-sidebar > aside, div.main-with-sidebar > div:last-of-type {
   flex: 1;
   min-width: 250px;
 }
@@ -32,12 +51,31 @@ div.tiles > * {
 }
 
 /* - add. helpers - */
-.grid { display: grid; }
 .left { float: left; }
 .right { float: right; }
 .scroll-x { overflow-x: scroll; }
 .scroll-y { overflow-y: scroll; }
 .inline-block { display: inline-block; }
+
+/* - grid layout - */
+.grid { display: grid; grid-gap: 10px; }
+.grid-2 { display: grid; grid-template-columns: auto auto; }
+.grid-3 { display: grid; grid-template-columns: auto auto auto; }
+.grid-4 { display: grid; grid-template-columns: auto auto auto auto; }
+
+/* - marketing/singe-page-app styling where each row alternates colors */ 
+div.zebra > div, section.zebra > section, div.zebra > section, div.zebra > section {
+  padding: var(--padding-xlarge, 25px);
+  margin-left: 0px; margin-right: 0px;
+}
+div.zebra > div:nth-child(odd), section.zebra > section:nth-child(odd), 
+  div.zebra > section:nth-child(odd), div.zebra > section:nth-child(odd) {
+  background-color: var(--color-body-background, white);
+}
+div.zebra > div:nth-child(odd), section.zebra > section:nth-child(odd), 
+  div.zebra > section:nth-child(odd), div.zebra > section:nth-child(odd) {
+  background-color: var(--color-secondary-background, gainsboro);
+}
 
 /* - flexbox shortcut - */
 .flexnw { display: flex; flex-wrap: nowrap; }
@@ -46,10 +84,12 @@ div.tiles > * {
 .flex-between, .space-between { justify-content: space-between; }
 .flex-evenly, .space-evenly { justify-content: space-evenly; }
 .flex-around, .space-around { justify-content: space-around; }
+.wrap-reverse { flex-wrap: wrap-reverse; }
 
-/* - prepare footer to auto-margin itself to the bottom of the viewport - */
-body {
-  display: flex; 
-  flex-direction: column; 
-  min-height: 100vh;
+/* secondary menu styling to accentuate things to edit the current page */
+.secondary-menu, .bordered {
+  background-color: var(--color-secondary-background-light, gainsboro);
+  border: 1px solid var(--color-secondary-background-dark, grey);
+  color: var(--color-secondary-text, black);
+  padding: 10px;
 }

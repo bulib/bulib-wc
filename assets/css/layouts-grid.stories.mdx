@@ -1,0 +1,118 @@
+import { Story, Preview, Meta, Props, html } from '@open-wc/demoing-storybook';
+
+<Meta title="No Javascript|layouts/grid" />
+
+# Grid Layout
+
+Grid layouts aligns things in a specified number of columns (determined by `grid-template-layout`).
+  The number of columns is the same regardless of the width of the page, and the content within 
+  them stretches to fit. 
+
+If unspecified, `.grid` defaults to a single column, which is normally not what you want:
+
+<Preview>
+  <Story name="grid">
+    {html`
+      <div class="grid">
+        <div class="demo">list item one</div>
+        <div class="demo">list item two</div>
+        <div class="demo">list item three is longer</div>
+        <div class="demo">list item four</div>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+## Specifying the Number of columns
+
+To specify the number of columns in our helpers, use `.grid-2`, `.grid-3`, or `.grid-4`.
+
+### Two Columns `.grid-2`
+
+<Preview>
+  <Story name="grid-2">
+    {html`
+      <div class="grid-2">
+        <div class="demo">list item one</div>
+        <div class="demo">list item two</div>
+        <div class="demo">list item three is longer</div>
+        <div class="demo">list item four</div>
+        <div class="demo">list item five is even longer than item three</div>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+### Three Columns `.grid-3`
+
+<Preview>
+  <Story name="grid-3">
+    {html`
+      <div class="grid-3">
+        <div class="demo">list item one</div>
+        <div class="demo">list item two</div>
+        <div class="demo">list item three is longer</div>
+        <div class="demo">list item four</div>
+        <div class="demo">list item five is even longer than item three</div>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+
+### Four Columns `.grid-4`
+
+<Preview>
+  <Story name="grid-4">
+    {html`
+      <div class="grid-4">
+        <div class="demo">list item one</div>
+        <div class="demo">list item two</div>
+        <div class="demo">list item three is longer</div>
+        <div class="demo">list item four is even longer than item three</div>
+        <div class="demo">list item five</div>
+        <div class="demo">list item six</div>
+        <div class="demo">list item seven</div>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+## Responsive
+
+To make the base `grid` layout more responsive, try decreasing the number of columns you're using
+  for smaller width using `grid-template-columns` and `@media` queries in your custom css:
+
+```css
+/* reduce the number of columns for a particular grid section for small screens */
+@media only screen and (max-width: 850px){
+  div.grid-4.grid-responsive { grid-template-columns: auto auto; }
+}
+```
+
+<Preview>
+  <Story name="grid-responsive">
+    {html`
+      <style type="text/css">
+        @media only screen and (max-width: 850px){
+          div.grid-4.grid-responsive { grid-template-columns: auto auto; }
+        }
+      </style>
+      <div class="grid-4 grid-responsive">
+        <div class="demo">list item one</div>
+        <div class="demo">list item two</div>
+        <div class="demo">list item three is longer</div>
+        <div class="demo">list item four is even longer than item three</div>
+      </div>
+    `}
+  </Story>
+</Preview>
+
+## Advanced Layout 
+
+You can do [quite a lot](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) 
+  with CSS Grid beyond just specifying columns, and even layout whole pages and complex 
+  UIs whose contents shift at various widths.
+
+See the [`bulib-footer` web component](?path=/story/branding-bulib-footer--default-story) 
+  for an example of this. 
