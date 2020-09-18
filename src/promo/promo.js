@@ -28,24 +28,17 @@ export default class BulibPromo extends LitElement {
         div.promo { 
           border: 1px solid var(--bulib-promo-background-color-blurb, #333);
           max-width: var(--bulib-promo-max-width, 650px);
+          background-color: var(--bulib-promo-bottom-background, #EEE);
+          height: 100%;
           border-radius: var(--bulib-promo-border-radius, 5px);
-
-          --bulib-promo-padding: var(--padding-large, 15px);
-          --bulib-promo-border-radius: 5px;
-          --bulib-promo-top-text: var(--color-accent-text, white);
-          --bulib-promo-top-background: var(--color-primary-red-background-dark, #A80000);
-          --bulib-promo-main-background: var(--color-primary-background-light, #444);
-          --bulib-promo-bottom-text:  var(--color-secondary-text, #444);
-          --bulib-promo-bottom-background: var(--color-secondary-background, #444);
         }
-        div.promo div { margin-left: 0px; margin-right: 0px; }
         div.top, div.bottom { 
           margin-left: 0px; margin-right: 0px; 
-          padding: var(--bulib-promo-padding);
+          padding: var(--bulib-promo-padding, 15px);
         }
         div.top { 
-          color: var(--bulib-promo-top-text, red);
-          background-color: var(--bulib-promo-top-background, red);
+          color: var(--bulib-promo-top-text, white);
+          background-color: var(--bulib-promo-top-background, #A80000);
         }
         div.top * { margin-top: 0px; margin-bottom: 0px; }
         div.main {
@@ -59,12 +52,11 @@ export default class BulibPromo extends LitElement {
         }
         div.bottom { 
           left: 0px; right: 0px; bottom: 0px;
-          padding: var(--bulib-promo-padding);
-          background-color: var(--bulib-promo-bottom-background, #444);
-          border: 1px solid var(--bulib-promo-bottom-background, #444);
+          background-color: var(--bulib-promo-bottom-background, #EEE);
+          border: 1px solid var(--bulib-promo-bottom-background, #EEE);
           border-radius: var(--bulib-promo-border-radius);
           border-top-left-radius: 0px; border-top-right-radius: 0px;
-          color: var(--bulib-promo-bottom-text);
+          color: var(--bulib-promo-bottom-text, black);
         }
         div.bottom .calls-to-action { display: flex; flex-wrap: nowrap; justify-content: space-evenly; }
       `
@@ -93,7 +85,7 @@ export default class BulibPromo extends LitElement {
 
   _setMainBackgroundViaSlottedImage(){
     let image_url = "";
-    let image_elem = this.querySelector("img");
+    let image_elem = this.querySelector("img[slot='main'");
     try{
       if(!!image_elem && image_elem.hasAttribute("src")){ image_url = image_elem.src; }
       this.shadowRoot.querySelector("div.promo div.main").style.backgroundImage = `url('${image_url}')`;

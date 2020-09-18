@@ -29,7 +29,7 @@ Unlike many of our other elements that use _attributes_ to control the look of t
 ```html
 <bulib-promo>
   <div slot="top">....</div>
-  <img src="...">
+  <img slot="main" src="...">
   <div slot="bottom"></div>
 </bulib-promo>
 ```
@@ -55,7 +55,7 @@ This element is not meant to be used empty, but when it is (and the `debug` attr
 You can fill in particular parts of the display by specifying the following:
 
 - _any_ element with `slot="top"`
-- an `<img>` tag dropped inside, will be used to set the `background-image` of the `.main` section via the `src` attribute
+- an `<img>` with `slot="main"` dropped inside, will be used to set the `background-image` of the `.main` section via the `src` attribute
 - _any_ element with `slot="bottom"` (preferrably `h1`, `h2`, `h3`, or `h4`) will go at the top 
 
 
@@ -66,6 +66,7 @@ You can fill in particular parts of the display by specifying the following:
         <div slot="top">
           <h2>high-level label</h2>
         </div>
+        <img slot="main" src="https://via.placeholder.com/500x350">
         <div slot="bottom">
           <h3>maybe our secondary label or heading</h3>
           <p>this is the description explaining the image and/or calls to action</p>
@@ -89,7 +90,7 @@ If you decide you only want the top or only the bottom, feel free to leave eithe
   <Story name="no-top">
     {html`
       <bulib-promo>
-        <img src="https://via.placeholder.com/500x350?text=this+is+a+custom+'<img>'">
+        <img slot="main" src="https://via.placeholder.com/500x350?text=this+is+a+custom+'<img>'">
         <div slot="bottom">
           <h3>this is a custom heading</h3>
           <p>this is a custom description</p>
@@ -110,7 +111,7 @@ If you decide you only want the top or only the bottom, feel free to leave eithe
           <h3>this is a custom '<code>top heading</code>'</h3>
           <p>we'll even add a bit of a description here to explain the image, (we'll opt to not have a cta in this example)</p>
         </div>
-        <img src="https://via.placeholder.com/750x300?text=this+is+a+different+custom+img">
+        <img slot="main" src="https://via.placeholder.com/750x300?text=this+is+a+different+custom+img">
       </bulib-promo>
     `}
   </Story>
@@ -122,39 +123,19 @@ Technically, you can put pretty much anything in either `slot='top'` or `slot="b
   standardize the look & feel of multiples of them in place. 
 
 <Preview withToolbar>
-  <Story name="unconventional-content">
-    {html`
-      <div class="flexnw flex-around">
-        <bulib-promo>
-          <h2 slot="top">Library Hours</h2>
-          <a slot="bottom" class="bulib-btn mhn">All Location Hours</a>
-        </bulib-promo>
-        <bulib-promo>
-          <h2 slot="bottom">Howard Gotlieb Archival Research Center</h2>
-        </bulib-promo>
-        <bulib-promo>
-          <h2 slot="top">Library Locations</h2>
-          <ul slot="bottom">
-            <li><a href="">Mugar Memorial</li>
-            <li><a href="">Music Library</li>
-            <li><a href="">...</li>
-            <li><a href="">Science and Engineering Library</li>
-          </ul>
-        </bulib-promo>
-      </div>
-    `}
-  </Story>
-</Preview>
-
-### Multiple Promotions
-
-<Preview withToolbar>
-  <Story name="unison">
+  <Story name="unconventional">
     {html`
       <bulib-promo>
         <h2 slot="top">Library Hours</h2>
-        <div slot="bottom">
-          <p>Different libraries are open at different times</p>
+        <img slot="main" src="https://i.pinimg.com/originals/c8/1e/14/c81e1445f01e19c6fd7dfb0b0ba4e359.jpg" height="3000">
+        <div slot="bottom" class="flexw flex-center">
+          <div class="half-width">
+            <p class="big-text">
+              Different libraries are open at different times. We use LibCal and 
+              <code>bulib-hours</code> to manage that.
+            </p>
+            <a href="https://www.bu.edu/library/about/hours/" class="bulib-btn bigger-text bold">see all location hours</a>
+          </div>
           <ul>
             <li><bulib-hours icon="local_library" library="mugar-memorial"></bulib-hours></li>
             <li><bulib-hours icon="business" library="pardee"></bulib-hours></li>
@@ -164,6 +145,42 @@ Technically, you can put pretty much anything in either `slot='top'` or `slot="b
           </li>
         </p>
       </bulib-promo>
+    `}
+  </Story>
+</Preview>
+
+
+
+### Multiple Promotions
+
+<Preview withToolbar>
+  <Story name="unison">
+    {html`
+      <style type="text/css">
+        div.promo-row { display: grid; grid-template-columns: auto auto auto; grid-gap: 20px; }
+        div.promo-row > bulib-promo { flex: 1; height: 100%; }
+      </style>
+      <div class="promo-row">
+        <bulib-promo class="auto-height">
+          <h2 slot="top">Library Hours</h2>
+          <img slot="main" src="https://www.bu.edu/library/files/2012/04/mugar_small-150x115.jpg"
+          <a slot="bottom" class="bulib-btn mhn">All Location Hours</a>
+        </bulib-promo>
+        <bulib-promo>
+          <h2 slot="bottom">Howard Gotlieb Archival Research Center</h2>
+          <img slot="main" src="http://archives.bu.edu/documents/10184/15899/about-hgarc.jpg/9b958872-9fde-482f-a579-113efacc2f2c?t=1397674399156">
+        </bulib-promo>
+        <bulib-promo>
+          <h2 slot="top">Library Locations</h2>
+          <img slot="main" src="https://www.bu.edu/library/files/2012/04/astronomy_small-150x115.jpg">
+          <ul slot="bottom">
+            <li><a href="">Mugar Memorial</li>
+            <li><a href="">Music Library</li>
+            <li><a href="">...</li>
+            <li><a href="">Science and Engineering Library</li>
+          </ul>
+        </bulib-promo>
+      </div>
     `}
   </Story>
 </Preview>
