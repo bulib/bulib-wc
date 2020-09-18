@@ -122,12 +122,14 @@ If you decide you only want the top or only the bottom, feel free to leave eithe
 Technically, you can put pretty much anything in either `slot='top'` or `slot="bottom"`. The component is just to 
   standardize the look & feel of multiples of them in place. 
 
+_NOTE: in this example, we used a square image and set the height manually. This expanded the `.main` area to that height_
+
 <Preview withToolbar>
   <Story name="unconventional">
     {html`
       <bulib-promo>
         <h2 slot="top">Library Hours</h2>
-        <img slot="main" src="https://i.pinimg.com/originals/c8/1e/14/c81e1445f01e19c6fd7dfb0b0ba4e359.jpg" height="3000">
+        <img slot="main" height="450px" src="https://i.pinimg.com/originals/c8/1e/14/c81e1445f01e19c6fd7dfb0b0ba4e359.jpg" >
         <div slot="bottom" class="flexw flex-center">
           <div class="half-width">
             <p class="big-text">
@@ -157,8 +159,8 @@ Technically, you can put pretty much anything in either `slot='top'` or `slot="b
   <Story name="unison">
     {html`
       <style type="text/css">
-        div.promo-row { display: grid; grid-template-columns: auto auto auto; grid-gap: 20px; }
-        div.promo-row > bulib-promo { flex: 1; height: 100%; }
+        div.promo-row { display: flex; grid-gap: 20px; }
+        div.promo-row > bulib-promo { flex: 1; }
       </style>
       <div class="promo-row">
         <bulib-promo class="auto-height">

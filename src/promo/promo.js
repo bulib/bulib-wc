@@ -77,23 +77,30 @@ export default class BulibPromo extends LitElement {
     `;
   }
 
-  /* after the element is first rendered, look for a slotted image and replace the background */
+  /* after the element is updated (see lit-element lifecycle docs [https://lit-element.polymer-project.org/guide/lifecycle])... */
   updated(){ 
-    this._setMainBackgroundViaSlottedImage();
     this._hideHeadingsIfTheyAreNotSpecified();
+    this._setMainBackgroundViaSlottedImage();
   }
 
+  /** look for a slotted image, replace the background, set the height */
   _setMainBackgroundViaSlottedImage(){
-    let image_url = "";
-    let image_elem = this.querySelector("img[slot='main'");
+    let image_url = ""; // default to the background color
+    let image_elem = this.querySelector("img[slot='main'"); // note: only grabs image if 'slot' is set to 'main'
     try{
       if(!!image_elem && image_elem.hasAttribute("src")){ image_url = image_elem.src; }
       this.shadowRoot.querySelector("div.promo div.main").style.backgroundImage = `url('${image_url}')`;
+
+      // set the height based on the image iff the `height` attribute is manually set on the slotted `img` html
+      if(image_elem.hasAttribute("height")){ 
+        this.shadowRoot.querySelector("div.promo div.main").style.height = image_elem.getAttribute("height");
+      }
     }catch(exception){
-      console.log("exception");
+      if(this.debug){ console.log("bulib-promo) error - no readable image_elem (img[slot='main'])"); }
     }
   }
 
+  /* if no slot has been added, use display: none to hide them */
   _hideHeadingsIfTheyAreNotSpecified(){
     if(!this.debug && this.querySelector("*[slot='top']") == null){ 
       this.shadowRoot.querySelector("div.top").style.display = "none";
