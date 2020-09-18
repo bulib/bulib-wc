@@ -31,12 +31,15 @@ div.tiles > * {
   margin: 5px;
 }
 
-/* - flexbox shortcut - */
+/* - add. helpers - */
 .grid { display: grid; }
 .left { float: left; }
 .right { float: right; }
-.scroll { overflow: scroll; }
-.inline { display: inline-block; }
+.scroll-x { overflow-x: scroll; }
+.scroll-y { overflow-y: scroll; }
+.inline-block { display: inline-block; }
+
+/* - flexbox shortcut - */
 .flexnw { display: flex; flex-wrap: nowrap; }
 .flexw, .bulib-row { display: flex; flex-wrap: wrap; }
 .flex-center { justify-content: center; }
