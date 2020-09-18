@@ -16,32 +16,12 @@ Provide an advanced marketing-style box with a background image and some surroun
 
 _NOTE: can be used individually or in a group_
 
-## How it Works
-
-Unlike many of our other elements that use _attributes_ to control the look of the behavior (like you would with `class`)...
-
-```html
-<bulib-component attribute_1="value1" attribute_2="value2"></bulib-component>
-```
-
-...this component looks for entire elements that have been plopped _inside_ of it with particular `slot` names:
-
-```html
-<bulib-promo>
-  <div slot="top">....</div>
-  <img slot="main" src="...">
-  <div slot="bottom"></div>
-</bulib-promo>
-```
-
-This allows for greater customization and flexibility, while ensuring that a fallback exists, should the web component fail.
-
 ## Usages 
 
 ### Empty
 
-This element is not meant to be used empty, but when it is (and the `debug` attribute is present), 
-  it'll give you some information about what goes where.
+This element is not meant to be used empty, but it's here to show you where everything goes. 
+  So long as the `debug` attribute is present, it'll give you some information about what goes where.
 
 <Preview withToolbar>
   <Story name="default">
@@ -54,9 +34,9 @@ This element is not meant to be used empty, but when it is (and the `debug` attr
 
 You can fill in particular parts of the display by specifying the following:
 
-- _any_ element with `slot="top"`
+- _any_ element with `slot="top"` will show up in the section above the image (great for a heading, label, or preface)
 - an `<img>` with `slot="main"` dropped inside, will be used to set the `background-image` of the `.main` section via the `src` attribute
-- _any_ element with `slot="bottom"` (preferrably `h1`, `h2`, `h3`, or `h4`) will go at the top 
+- _any_ element with `slot="bottom"` will appear below the image (great for description, calls to action, more information, etc.)
 
 
 <Preview withToolbar>
@@ -248,6 +228,27 @@ The ones for color are particularly useful:
     `}
   </Story>
 </Preview>
+
+## A Brief Note About How it Works
+
+Unlike many of our other elements that use _attributes_ to control the look of the behavior (like you would with `class`)...
+
+```html
+<bulib-component attribute_1="value1" attribute_2="value2"></bulib-component>
+```
+
+...this component looks for entire elements that have been plopped _inside_ of it with particular `slot` names:
+
+```html
+<bulib-promo>
+  <div slot="top">....</div>
+  <img slot="main" src="...">
+  <div slot="bottom"></div>
+</bulib-promo>
+```
+
+This allows for greater customization and flexibility, while ensuring that a fallback exists, should the web component fail.
+
 
 ## API - Properties 
 
